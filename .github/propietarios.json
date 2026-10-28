@@ -1,0 +1,12 @@
+{
+  "_instrucciones": "Cada clave es un usuario de GitHub (en minúsculas) y su valor, las rutas que puede modificar. \"*\" = todo el repositorio. Reemplaza los nombres de ejemplo por los usuarios reales.",
+  "luisgonzalez66": [
+    "*"
+  ],
+  "USUARIO-UNIDAD-1": [
+    "unidades/u1/"
+  ],
+  "USUARIO-UNIDAD-2": [
+    "unidades/u2/"
+  ]
+}

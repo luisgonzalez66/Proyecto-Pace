@@ -1,0 +1,5 @@
+.DS_Store
+Thumbs.db
+paquetes_locales/
+entregas_locales/
+*.zip

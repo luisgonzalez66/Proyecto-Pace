@@ -1,0 +1,27 @@
+name: Verificar cambios
+
+# pull_request_target: el flujo y los scripts se toman SIEMPRE de la rama principal,
+# así nadie puede saltarse la verificación modificándola dentro de su propio PR.
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Verificar permisos
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Traer los cambios del PR (solo como datos)
+        run: git fetch --no-tags origin "pull/${{ github.event.pull_request.number }}/head:pr-head"
+      - name: Verificar permisos y validar unidades
+        env:
+          AUTOR: ${{ github.event.pull_request.user.login }}
+          BASE_REF: ${{ github.event.pull_request.base.sha }}
+          HEAD_REF: pr-head
+        run: python3 .github/scripts/verificar.py

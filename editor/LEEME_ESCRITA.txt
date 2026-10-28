@@ -1,0 +1,17 @@
+PROTOTIPO · RESPUESTA ESCRITA (números y conjuntos)
+===================================================
+Carpeta EDITOR_ESCRITA = kit con sorteo + rondas + respuesta escrita.
+1. Abre EDITOR_PACE.html (Chrome). Carga PAQUETE_UNIDAD_03_ESCRITA.zip (botón "Abrir paquete").
+   Ese paquete es la Unidad 3 con 139 preguntas convertidas a respuesta escrita (115 numéricas, 24 de conjuntos); el resto sigue con alternativas.
+2. En cada pregunta hay un selector "Tipo de pregunta": Alternativas / Respuesta escrita.
+   - Un número: escribe la respuesta correcta como 3/2, -4, 0,75, √9 ... (se acepta cualquier forma equivalente: 1,5 = 3/2 = 6/4).
+     Casilla "Exigir fracción simplificada": entonces 6/4 no se acepta.
+   - Un conjunto de números: 2; 3  (el estudiante puede escribir "3 y 2", "x=2 y x=3", "{2, 3}"; el orden no importa).
+     Conjunto vacío: ∅.
+   El editor muestra debajo cómo leerá la respuesta correcta.
+3. Estudiante: campo de texto + teclado en pantalla (dígitos, coma, −, /, ^, ², √, π, paréntesis, ; y ∅ x = en conjuntos),
+   vista previa con fracciones y raíces mientras escribe, y botón Comprobar (o Enter). Se puede teclear con el teclado físico.
+4. Funciona con sorteo, rondas de repetición, SCORM y el banco PDF/TeX (muestra la respuesta correcta).
+Límites del prototipo: solo números (enteros, decimales, fracciones, √, π, potencias) y conjuntos de números. Sin expresiones algebraicas.
+Decimal con coma y lista: "2,5" es el decimal 2,5; para listar valores usa ";" o "y" o coma seguida de espacio ("2, 3").
+Esto modifica el motor oficial (igual que el sorteo): conviene avisar a coordinación antes de subir al LMS.

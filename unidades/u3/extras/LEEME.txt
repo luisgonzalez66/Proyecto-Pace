@@ -1,0 +1,3 @@
+Prueba del tipo de pregunta «respuesta escrita»: la misma Unidad 3 con 139 preguntas convertidas (números y conjuntos).
+No es la versión principal. El editor y el motor no leen esta carpeta.
+Para probarla: empaquetarla (ver README) o cargar PAQUETE_UNIDAD_03_ESCRITA.zip.

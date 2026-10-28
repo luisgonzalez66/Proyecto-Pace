@@ -1,0 +1,19 @@
+{
+ "id": "u1",
+ "roman": "I",
+ "title": "Números reales",
+ "subtitle": "8 horas de trabajo · temario por acordar",
+ "icon": "01",
+ "groups": [
+  {
+   "title": "Bloque inicial",
+   "subtitle": "Editar o renombrar este bloque"
+  }
+ ],
+ "stations": [],
+ "bridges": [],
+ "week": 1,
+ "durationMinutes": 480,
+ "hints": [],
+ "schema": "pace-unit-v2"
+}

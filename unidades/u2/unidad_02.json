@@ -1,0 +1,19 @@
+{
+ "id": "u2",
+ "roman": "II",
+ "title": "Factorizaciones",
+ "subtitle": "8 horas de trabajo · temario por acordar",
+ "icon": "02",
+ "groups": [
+  {
+   "title": "Bloque inicial",
+   "subtitle": "Editar o renombrar este bloque"
+  }
+ ],
+ "stations": [],
+ "bridges": [],
+ "week": 2,
+ "durationMinutes": 480,
+ "hints": [],
+ "schema": "pace-unit-v2"
+}

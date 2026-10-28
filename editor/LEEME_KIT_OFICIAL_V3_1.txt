@@ -1,0 +1,36 @@
+PACE UACh · CURSO DE NIVELACIÓN MATEMÁTICA
+KIT DOCENTE · UNIDAD 02: FACTORIZACIÓN · V3.1
+
+ANTES DE COMENZAR
+Extrae TODO este ZIP en una carpeta de tu computador. No abras el editor desde el interior de un ZIP comprimido. No cambies de lugar ni borres archivos dentro de EDITOR/.
+
+CÓMO TRABAJAR
+1. Abre EDITOR/EDITOR_PACE.html con Chrome o Edge.
+2. En el editor, elige «Abrir paquete ZIP» (o el selector de archivo del paquete).
+3. Selecciona PAQUETE_UNIDAD_02_INICIAL.zip, ubicado junto a este documento.
+4. Edita bloques y estaciones: APRENDE (explicación), PRACTICA (ejercicios con retroalimentación) y APLICA (uso contextualizado, idealmente en ciencias).
+5. Revisa la «Vista estudiante», mapas y duración estimada. Esta vista es de edición: para comprobar el funcionamiento completo, utiliza el HTML que se exporta.
+6. Pulsa «Exportar unidad + HTML + SCORM» y espera a que se descargue ENTREGA_UNIDAD_02.zip.
+7. GUARDA ese ZIP completo en un lugar conocido: contiene tu trabajo editable y sirve como respaldo para continuar otro día.
+
+CÓMO REVISAR EL RESULTADO
+- HTML LOCAL: extrae ENTREGA_UNIDAD_02.zip y abre VISTA_PREVIA_HTML/index.html en Chrome o Edge. Conserva la carpeta completa, no solo el index.html.
+- SCORM INDIVIDUAL: dentro de la entrega extraída, toma SCORM_INDIVIDUAL/SCORM_UNIDAD_02.zip y súbelo TAL CUAL a SiveducMD como «Paquete SCORM». No lo descomprimas.
+- MAPAS Y BANCO DOCENTE: consulta MAPAS/ y BANCO_PREGUNTAS/ en la entrega exportada. ¡El banco contiene respuestas! No debes cargarlo como material estudiantil.
+
+CÓMO CONTINUAR OTRO DÍA
+1. Abre nuevamente EDITOR/EDITOR_PACE.html.
+2. Importa tu archivo más reciente ENTREGA_UNIDAD_02.zip, SIN extraer.
+3. Sigue editando y vuelve a exportar. Conserva respaldos fechados: no dependas de un guardado automático en el navegador.
+
+QUÉ ENTREGAR A COORDINACIÓN
+Envía ÚNICAMENTE tu archivo ENTREGA_UNIDAD_02.zip COMPLETO. No envíes el SCORM individual solo ni la carpeta HTML sola.
+
+NOTAS IMPORTANTES
+- Esta unidad inicial contiene una estructura básica con estaciones por desarrollar; crea y revisa tus propios contenidos.
+- Para montos monetarios en ejemplos, utiliza «CLP 3000» para evitar confundir el símbolo $ con expresiones matemáticas LaTeX.
+- El avance visto en un HTML local no es una nota ni equivale al progreso guardado en SiveducMD.
+- Este editor acepta entregas compatibles anteriores (V2/V3); si ya trabajaste en tu unidad, importa tu última ENTREGA, no el paquete inicial.
+- Los archivos .js y otros elementos de EDITOR/ son necesarios para el funcionamiento. No necesitan ser editados por el docente.
+
+VERSIÓN: kit docente V3.1 · Documentación reorganizada para distribución; editor y motor originales, sin modificaciones.
