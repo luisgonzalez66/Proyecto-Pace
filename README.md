@@ -11,9 +11,12 @@ Tres unidades, una por persona, hechas con el editor PACE:
 ```
 editor/        El editor y el motor (kit PACE con mejoras). Solo lo modifica la administración.
 unidades/      Una carpeta por unidad: unidad_0X.json (el contenido), recursos/ (imágenes, PDF, videos) y html/ (la página del estudiante).
+docs/          Manual para trabajar con una IA y la especificación que se le entrega a la IA.
 herramientas/  Scripts para pasar el trabajo entre el editor y el repositorio.
 .github/       Reglas automáticas de permisos (solo administración).
 ```
+
+**¿Vas a construir tu unidad con ayuda de una IA?** Lee `docs/MANUAL_TRABAJO_CON_IA.md` y entrégale a tu IA `docs/ESPECIFICACION_PARA_LA_IA.md`.
 
 ## Quién puede qué
 * **Todos** pueden leer y descargar todo el proyecto.
