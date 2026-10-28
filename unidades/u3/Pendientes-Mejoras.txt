@@ -2,7 +2,7 @@ agregar tipo de pregunta:
 - cuadro de texto.
 - términos pareados.
 - posibilidad de agregarle paquetes.
-- Agregar WIRIS.
+- Agregar WIRIS
 
 mejoras:
 1. Un botón inmóvil al lado de las preguntas, de modo que no haya que buscar dónde ir para atrás.
