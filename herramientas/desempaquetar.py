@@ -19,5 +19,16 @@ with zipfile.ZipFile(sys.argv[1]) as z:
     for nom in nombres:
         if re.fullmatch(r'recursos/[A-Za-z0-9][A-Za-z0-9._-]{0,115}', nom):
             open(os.path.join(destino, nom), 'wb').write(z.read(nom)); copiados += 1
+    # Página del estudiante (HTML): se copia a unidades/uX/html/ para publicarla con GitHub Pages.
+    web = [x for x in nombres if re.fullmatch(r'VISTA_PREVIA_HTML/(?:[A-Za-z0-9][A-Za-z0-9._-]*/)*[A-Za-z0-9][A-Za-z0-9._-]*', x)]
+    if web:
+        import shutil
+        carpeta_html = os.path.join(destino, 'html'); shutil.rmtree(carpeta_html, ignore_errors=True)
+        for x in web:
+            rel = x[len('VISTA_PREVIA_HTML/'):]; dest = os.path.join(carpeta_html, *rel.split('/'))
+            os.makedirs(os.path.dirname(dest), exist_ok=True); open(dest, 'wb').write(z.read(x))
+        print('Página HTML actualizada en', carpeta_html, '·', len(web), 'archivos.')
+    else:
+        print('Aviso: el ZIP no trae VISTA_PREVIA_HTML; la carpeta html/ no se tocó (¿es un paquete y no una ENTREGA?).')
 print('Unidad', n, 'actualizada en', destino, '·', copiados, 'recurso(s) copiado(s).')
 print('Ahora abre GitHub Desktop, revisa los cambios y haz Commit.')

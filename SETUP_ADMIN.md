@@ -37,3 +37,7 @@ Ejemplo:
 * Todo el que tenga acceso puede ver y descargar el repositorio completo, incluidas las otras unidades.
 * La verificación se ejecuta con el flujo de la rama principal (no con el del PR), por lo que nadie puede saltársela editando `.github/` en su rama; esos cambios solo los puede unir la administración.
 * Si más adelante quieres publicar páginas (GitHub Pages) o guardar las entregas en el repositorio, se agrega aparte.
+
+## 6. Publicar las páginas (GitHub Pages)
+**Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main`, carpeta `/ (root)` → Save.**
+En uno o dos minutos las páginas quedan en `https://TU-USUARIO.github.io/NOMBRE-DEL-REPO/unidades/uX/html/`. Funciona porque el repositorio es público.
