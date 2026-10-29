@@ -5,7 +5,7 @@ window.PACEValidation=(()=>{
  const whitespace=/[\s\u001C-\u001F\u0085]/,blank=/^[\s\u001C-\u001F\u0085]*$/;
  const require=(condition,message)=>{if(!condition)throw Error(message);};
  const text=(v,where,required=true)=>require(typeof v==='string'&&(!required||!blank.test(v))&&Array.from(v).length<=C.maxTextLength&&Array.from(v).every(c=>c.codePointAt(0)<0xD800||c.codePointAt(0)>0xDFFF),where+': texto inválido (máximo '+C.maxTextLength+' caracteres Unicode válidos)');
- function quiz(q,where){require(q&&typeof q==='object'&&!Array.isArray(q),where+': falta la pregunta');text(q.q,where+': enunciado');
+ function quiz(q,where){require(q&&typeof q==='object'&&!Array.isArray(q),where+': falta la pregunta');text(q.q,where+': enunciado');require(q.level===undefined||(Number.isInteger(q.level)&&q.level>=1&&q.level<=3),where+': el nivel de dificultad debe ser 1, 2 o 3');
   if(q.type==='input'){
    require(q.kind==='number'||q.kind==='set',where+': tipo de respuesta escrita no válido (number o set)');text(q.answer,where+': respuesta correcta');
    require(window.PACETyped,'Falta content_text.js para validar respuestas escritas');

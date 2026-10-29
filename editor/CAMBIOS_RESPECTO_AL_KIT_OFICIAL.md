@@ -9,6 +9,8 @@ Este editor y su motor **no son los oficiales**: se les agregaron funciones. Ant
 5. **Botón «Mapa».** Botón semitransparente siempre visible dentro de la estación para volver al mapa.
 6. **Racha.** Contador de días consecutivos en que el estudiante completó al menos una actividad (se guarda en el SCORM y en el navegador).
 7. Corrección de estilo del recuadro «Ejemplo».
+8. **Niveles de dificultad.** Cada pregunta de Practica puede tener «Nivel de dificultad» (1, 2 o 3). El sorteo de 5 toma 2 de nivel 1, 2 de nivel 2 y 1 de nivel 3 y los muestra de fácil a difícil; «Repetir» avanza dentro de cada nivel sin repetir. Sin niveles todo funciona como antes (una pregunta sin nivel cuenta como 2). El banco en LaTeX/PDF muestra la etiqueta [Nivel n].
+9. **Banco de hasta 60 ejercicios de Practica por estación** (antes 20). Cambio en `contract.js` (`maxPractice`), en el motor empaquetado y en `editor.js`. El límite de 24 actividades que ve cada estudiante no cambia.
 
 Límite a respetar: Practica + Aplica que ve cada estudiante, sumando 1 de Aprende, debe ser como máximo 24 actividades por estación (el editor avisa).
 

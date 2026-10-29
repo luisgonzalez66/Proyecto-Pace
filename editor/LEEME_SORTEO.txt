@@ -2,7 +2,7 @@ KIT CON SORTEO Y REPETICIÓN (modificación NO oficial del kit V3.1)
 Abre EDITOR_PACE.html desde esta misma carpeta (no lo separes de los demás archivos) y carga PAQUETE_UNIDAD_03_FINAL.zip.
 
 1) BANCO Y SORTEO
- - Practica: la lista de ejercicios es el banco (hasta 20). Campo «Sorteo · preguntas por estudiante».
+ - Practica: la lista de ejercicios es el banco (hasta 60; ver CAMBIOS_RESPECTO_AL_KIT_OFICIAL.md). Campo «Sorteo · preguntas por estudiante».
  - Aplica: además del problema principal puedes añadir más con «+ Pregunta de Aplica (banco)» (hasta 20 en total). Campo «Sorteo · problemas de Aplica por estudiante».
  - Campo vacío = se muestran todas.
 2) REPETIR

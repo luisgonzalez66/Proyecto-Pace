@@ -18,7 +18,7 @@ Descarga el repositorio (GitHub Desktop → *Pull*) o bájalo como ZIP desde Git
 | 1 | `docs/ESPECIFICACION_PARA_LA_IA.md` | Las reglas: formato, límites, estilo, cómo generar las preguntas | **Sí** |
 | 2 | `unidades/uX/unidad_0X.json` (tu unidad) | El archivo que la IA va a completar y devolverte | **Sí** |
 | 3 | Tus apuntes, programa o temario | Fuente del contenido | **Sí** (sin esto la IA inventa) |
-| 4 | `unidades/u3/unidad_03.json` | Ejemplo completo y real de una unidad terminada (11 estaciones, bancos de 20) | Muy recomendado |
+| 4 | `unidades/u3/unidad_03.json` | Ejemplo completo y real de una unidad terminada (11 estaciones, bancos de 60 ejercicios con niveles de dificultad) | Muy recomendado |
 | 5 | `herramientas/validar.js` y la carpeta `editor/` | Permiten que la IA compruebe sola que el archivo es válido | Si tu IA puede ejecutar código |
 
 **Qué IA usar:** conviene una que pueda **leer archivos adjuntos y ejecutar código** (por ejemplo, Claude con archivos y ejecución de código, o ChatGPT con análisis de datos). Con ella, la IA calcula las respuestas y valida el archivo. Una IA que solo conversa también sirve, pero hay que revisar más a mano.
@@ -50,7 +50,7 @@ Es **lo más importante de la unidad**. Léelo todo, corrige el nivel, el lengua
 * Cada programa elige números al azar, **calcula la respuesta con código** (no “de memoria”) y arma las alternativas incorrectas con errores típicos: signo equivocado, olvidar un paso, confundir operaciones.
 * Comprueba que no haya enunciados repetidos ni respuestas ambiguas, y mezcla la posición de la correcta.
 * Cada pregunta trae su retroalimentación (`why`) con el procedimiento.
-* En el editor, cada estudiante verá **solo 5 de las 20** (sorteo) y podrá repetir con otras 5.
+* En el editor, cada estudiante verá **solo 5 ejercicios del banco** (2 de nivel 1, 2 de nivel 2 y 1 de nivel 3, de fácil a difícil) y podrá repetir con otros 5. Pide a la IA que etiquete cada ejercicio con `"level"` (1, 2 o 3).
 
 ### Paso 5 · Preguntas de respuesta escrita (opcional)
 Para que el estudiante escriba la respuesta en vez de elegirla (números y conjuntos, no expresiones algebraicas):
@@ -83,7 +83,7 @@ Sigue el README: copiar el resultado a tu carpeta, *Commit*, *Push* y *Pull Requ
 ## 5. Problemas frecuentes
 | Síntoma | Qué hacer |
 |---|---|
-| El editor dice “Máximo 20 prácticas”, “bloque inexistente”, “respuesta fuera de rango”… | Pega el mensaje a la IA y pídele corregir; vuelve a validar. |
+| El editor dice “Máximo 60 prácticas”, “bloque inexistente”, “respuesta fuera de rango”… | Pega el mensaje a la IA y pídele corregir; vuelve a validar. |
 | “Demasiadas actividades por estudiante” | Reduce `draw` o `drawCheck` (Practica + Aplica ≤ 23 por estudiante). |
 | Se ven `$x^2$` o `\frac` en vez de fórmulas | Barras invertidas sin duplicar en el JSON, o paquete con colores/comandos no soportados. Pídele a la IA que revise el LaTeX. |
 | La IA “se olvida” de las reglas en una conversación larga | Vuelve a adjuntar la especificación y pide que la relea. Trabaja por estación o por bloque. |

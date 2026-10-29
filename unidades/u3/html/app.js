@@ -25,7 +25,24 @@ function windowIdx(s,n,d,salt,round){
  if(Number.isInteger(state.seed)){const r=rng((state.seed^hashStr(s.id+salt))>>>0);for(let i=n-1;i>0;i--){const j=Math.floor(r()*(i+1));[idx[i],idx[j]]=[idx[j],idx[i]];}}
  const start=(round*d)%n,out=[];for(let k=0;k<d;k++)out.push(idx[(start+k)%n]);
  return out.sort((x,y)=>x-y);}
-const drawnIndices=s=>windowIdx(s,s.practice.length,drawCount(s),'',roundOf(s));
+const lvlOf=q=>(q&&[1,2,3].includes(q.level))?q.level:2;
+const hasLevels=s=>(s.practice||[]).some(q=>q&&[1,2,3].includes(q.level));
+function levelQuota(d,avail){ // reparte d ejercicios entre niveles 1-2-3 (p. ej. 5 → 2·2·1) respetando lo disponible
+ const q=[Math.floor(d/3),Math.floor(d/3),Math.floor(d/3)];for(let i=0,r=d-q[0]*3;r>0;r--,i++)q[i%3]++;
+ let spare=0;for(let l=0;l<3;l++){if(q[l]>avail[l]){spare+=q[l]-avail[l];q[l]=avail[l];}}
+ for(let l=0;l<3&&spare>0;l++){const add=Math.min(spare,avail[l]-q[l]);q[l]+=add;spare-=add;}
+ for(let l=2;l>=0&&spare>0;l--){const add=Math.min(spare,avail[l]-q[l]);q[l]+=add;spare-=add;}
+ return q;}
+function drawnIndices(s){
+ const n=s.practice.length,d=drawCount(s);
+ if(!hasLevels(s))return windowIdx(s,n,d,'',roundOf(s));
+ const by=[[],[],[]];s.practice.forEach((q,i)=>by[lvlOf(q)-1].push(i));
+ if(d>=n)return by[0].concat(by[1],by[2]);
+ const quota=levelQuota(d,by.map(x=>x.length)),round=roundOf(s),out=[];
+ for(let l=0;l<3;l++){const list=by[l].slice(),m=list.length,k=quota[l];if(!k)continue;
+  if(Number.isInteger(state.seed)){const r=rng((state.seed^hashStr(s.id+'L'+l))>>>0);for(let i=m-1;i>0;i--){const j=Math.floor(r()*(i+1));[list[i],list[j]]=[list[j],list[i]];}}
+  const start=(round*k)%m;for(let t=0;t<k;t++)out.push(list[(start+t)%m]);}
+ return out;}
 const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));
 function ensureSeed(){if(!Number.isInteger(state.seed)&&STATIONS.some(hasDraw))state.seed=Math.floor(Math.random()*1073741824);}
 const COUNT=STATIONS.reduce((v,s)=>v+milestoneCount(s),0);

@@ -46,7 +46,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
   "concept":  "Texto de Aprende",
   "example":  "Ejemplo resuelto",
   "media": [],
-  "practice": [ /* banco de preguntas de Practica: 1 a 20 */ ],
+  "practice": [ /* banco de preguntas de Practica: 1 a 60; cada una puede llevar "level": 1, 2 o 3 */ ],
   "draw": 5,                   // opcional: cuántas ve cada estudiante (sorteo). Vacío = todas
   "check": { /* pregunta principal de Aplica */ },
   "checks": [ /* opcional: más preguntas de Aplica; con "check" suman hasta 20 */ ],
@@ -85,7 +85,8 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 |---|---|
 | Bloques por unidad | 15 |
 | Estaciones por unidad | 40 |
-| Preguntas de Practica por estación | 1 a 20 |
+| Preguntas de Practica por estación | 1 a 60 |
+| `level` de una pregunta de Practica (opcional) | 1, 2 o 3 (sin nivel cuenta como 2) |
 | Preguntas de Aplica por estación | 1 (`check`) + hasta 19 (`checks`) |
 | Alternativas por pregunta | 2 a 8 |
 | `draw` | entre 1 y el tamaño del banco |
@@ -99,8 +100,12 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 * 2 a 4 párrafos cortos (≈ 300–600 caracteres): definición, idea intuitiva, qué hay que recordar. Un ejemplo resuelto paso a paso y su verificación.
 * Antes de escribir, pide o confirma el temario con el docente y usa **su** material (apuntes, programa) como fuente. No inventes definiciones.
 
-### Practica (banco de ~20, sorteo de 5)
-* Ejercicios **simples y directos** del concepto de esa estación; de menor a mayor dificultad dentro del banco.
+### Practica (banco de 20 a 60, sorteo de 5)
+* Ejercicios del concepto de esa estación. **Cada pregunta lleva `"level"` (1, 2 o 3)**. El sorteo toma 2 de nivel 1, 2 de nivel 2 y 1 de nivel 3 y se los muestra al estudiante en ese orden (de fácil a difícil). Recomendado: el mismo número de ejercicios por nivel (p. ej. 20 + 20 + 20).
+  * **Nivel 1:** números enteros, un paso, sin simplificar.
+  * **Nivel 2:** hay que simplificar o el resultado es racional no entero (usa `"reduced": true` en respuestas escritas), o dos pasos.
+  * **Nivel 3:** números grandes y/o más pasos (reducir términos semejantes antes, paréntesis y fracciones combinados, problemas con varias condiciones).
+  * Con 20 ejercicios por nivel, «Repetir con ejercicios nuevos» da 10 rondas sin repetir.
 * Cada pregunta con una sola respuesta correcta, distractores **plausibles** (errores típicos reales: signo, orden de operaciones, olvidar un paso), sin “ninguna de las anteriores” ni “todas las anteriores”.
 * La posición de la correcta debe variar al azar (que no sea siempre la misma).
 * `why` muestra el procedimiento, no solo el resultado.
@@ -111,7 +116,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 * Usa contextos variados (química, física, biología, geología, medicina) y valores distintos en cada pregunta.
 
 ### Método recomendado para bancos grandes (generar con código, no a mano)
-Cuando necesites 20 preguntas por estación, **no las escribas una a una**. Haz esto:
+Cuando necesites 20 o más preguntas por estación, **no las escribas una a una**. Haz esto:
 1. Para cada estación escribe una función generadora con parámetros aleatorios (semilla fija, p. ej. `random.Random(1234)`).
 2. **Calcula la respuesta con código** (Python con `fractions.Fraction`, o `sympy`), nunca de memoria.
 3. Construye las alternativas incorrectas a partir de **errores típicos** calculados (p. ej. olvidar cambiar el signo) y comprueba que ninguna sea igual a la correcta.
