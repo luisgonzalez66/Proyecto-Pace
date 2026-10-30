@@ -45,6 +45,9 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
   "minutes": 40,               // 5–480
   "concept":  "Texto de Aprende",
   "example":  "Ejemplo resuelto",
+  "example2": "Ejemplo 2 (opcional; el estudiante lo despliega si lo pide)",
+  "example3": "Ejemplo 3 (opcional)",
+  "example4": "Ejemplo 4 (opcional)",
   "media": [],
   "practice": [ /* banco de preguntas de Practica: 1 a 60; cada una puede llevar "level": 1, 2 o 3 */ ],
   "draw": 5,                   // opcional: cuántas ve cada estudiante (sorteo). Vacío = todas
@@ -97,7 +100,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 ## 5. Cómo generar el contenido
 
 ### Aprende (`concept` + `example`)
-* 2 a 4 párrafos cortos (≈ 300–600 caracteres): definición, idea intuitiva, qué hay que recordar. Un ejemplo resuelto paso a paso y su verificación.
+* 2 a 4 párrafos cortos (≈ 300–600 caracteres): definición, idea intuitiva, qué hay que recordar. Un ejemplo resuelto paso a paso y su verificación. Opcionalmente, hasta 3 ejemplos extra (`example2`, `example3`, `example4`): el estudiante ve el primero y despliega los demás con «Ver otro ejemplo»; conviene que cada uno muestre un caso distinto (otra forma de la ecuación, otro contexto).
 * Antes de escribir, pide o confirma el temario con el docente y usa **su** material (apuntes, programa) como fuente. No inventes definiciones.
 
 ### Practica (banco de 20 a 60, sorteo de 5)

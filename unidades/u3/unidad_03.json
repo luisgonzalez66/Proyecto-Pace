@@ -766,7 +766,10 @@
      "why": "Restamos 15: $3t = 18$; dividimos por 3: $t = 6$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $x - 9 = 4$. Para dejar sola a $x$, sumamos 9 en ambos lados:\n$$x - 9 + 9 = 4 + 9 \\quad\\Rightarrow\\quad x = 13$$\nVerificamos: $13 - 9 = 4$.",
+   "example3": "Resolvemos $3x = 21$. Aquí la incógnita está multiplicada por 3; dividimos ambos lados por 3:\n$$\\frac{3x}{3} = \\frac{21}{3} \\quad\\Rightarrow\\quad x = 7$$\nVerificamos: $3\\cdot 7 = 21$.",
+   "example4": "Resolvemos $\\frac{x}{4} = 5$. Aquí la incógnita está dividida por 4; multiplicamos ambos lados por 4:\n$$4\\cdot\\frac{x}{4} = 4\\cdot 5 \\quad\\Rightarrow\\quad x = 20$$\nVerificamos: $\\frac{20}{4} = 5$."
   },
   {
    "id": "u3-s002",
@@ -1509,7 +1512,10 @@
      "why": "Dividimos por 3: $L - 5 = 6$, luego $L = 11$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $3x + 4 = 19$. Primero restamos 4 y luego dividimos por 3:\n$$\\begin{aligned}3x + 4 &= 19\\\\ 3x &= 15\\\\ x &= 5\\end{aligned}$$\nVerificamos: $3\\cdot 5 + 4 = 19$.",
+   "example3": "Resolvemos $4x - 7 = 2x + 9$. Juntamos las $x$ a la izquierda y los números a la derecha:\n$$\\begin{aligned}4x - 7 &= 2x + 9\\\\ 4x - 2x &= 9 + 7\\\\ 2x &= 16\\\\ x &= 8\\end{aligned}$$\nVerificamos: $4\\cdot 8 - 7 = 25$ y $2\\cdot 8 + 9 = 25$.",
+   "example4": "Resolvemos $2x + 3 = 5x - 12$. Esta vez conviene juntar las $x$ a la derecha, donde hay más:\n$$\\begin{aligned}2x + 3 &= 5x - 12\\\\ 3 + 12 &= 5x - 2x\\\\ 15 &= 3x\\\\ x &= 5\\end{aligned}$$\nVerificamos: $2\\cdot 5 + 3 = 13$ y $5\\cdot 5 - 12 = 13$."
   },
   {
    "id": "u3-s003",
@@ -2260,7 +2266,10 @@
      "why": "Multiplicamos por 6 (múltiplo común): $3x - 2x = 6$; luego $x = 6$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $2(x - 3) = 10$. Aplicamos la propiedad distributiva:\n$$2x - 6 = 10 \\quad\\Rightarrow\\quad 2x = 16 \\quad\\Rightarrow\\quad x = 8$$\nVerificamos: $2(8 - 3) = 2\\cdot 5 = 10$.",
+   "example3": "Resolvemos $3(x + 2) = 2x + 11$. Primero eliminamos el paréntesis:\n$$\\begin{aligned}3x + 6 &= 2x + 11\\\\ 3x - 2x &= 11 - 6\\\\ x &= 5\\end{aligned}$$\nVerificamos: $3(5 + 2) = 21$ y $2\\cdot 5 + 11 = 21$.",
+   "example4": "Resolvemos $\\frac{2x}{3} - 1 = \\frac{x}{2}$. El mínimo común múltiplo de 3 y 2 es 6; multiplicamos todos los términos por 6:\n$$4x - 6 = 3x \\quad\\Rightarrow\\quad 4x - 3x = 6 \\quad\\Rightarrow\\quad x = 6$$\nVerificamos: $\\frac{2\\cdot 6}{3} - 1 = 3$ y $\\frac{6}{2} = 3$."
   },
   {
    "id": "u3-s004",
@@ -3214,7 +3223,10 @@
      "why": "Dividimos ambos lados por $m$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Despejamos la altura $h$ en el área de un rectángulo $A = bh$ (con $b \\neq 0$). Dividimos ambos lados por $b$:\n$$h = \\frac{A}{b}$$\nPor ejemplo, si $A = 24\\,\\mathrm{cm}^2$ y $b = 6\\,\\mathrm{cm}$, entonces $h = 4\\,\\mathrm{cm}$.",
+   "example3": "Despejamos la aceleración $a$ en la segunda ley de Newton $F = ma$ (con $m \\neq 0$). Dividimos ambos lados por $m$:\n$$a = \\frac{F}{m}$$\nPor ejemplo, si $F = 20\\,\\mathrm{N}$ y $m = 4\\,\\mathrm{kg}$, entonces $a = 5\\,\\mathrm{m/s^2}$.",
+   "example4": "Despejamos el ancho $a$ en el perímetro de un rectángulo $P = 2L + 2a$. Primero restamos $2L$ y luego dividimos por 2:\n$$2a = P - 2L \\quad\\Rightarrow\\quad a = \\frac{P - 2L}{2}$$\nPor ejemplo, si $P = 30\\,\\mathrm{cm}$ y $L = 9\\,\\mathrm{cm}$, entonces $a = \\frac{30 - 18}{2} = 6\\,\\mathrm{cm}$."
   },
   {
    "id": "u3-s005",
@@ -4168,7 +4180,10 @@
      "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $12x = 372$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Enunciado: la mitad de un número, aumentada en 3, es igual a 10. Si el número es $x$, «la mitad» es $\\frac{x}{2}$ y «aumentada en 3» es $+3$:\n$$\\frac{x}{2} + 3 = 10$$",
+   "example3": "Enunciado: la suma de tres números consecutivos es 48. Si el menor es $x$, los otros son $x + 1$ y $x + 2$:\n$$x + (x + 1) + (x + 2) = 48 \\quad\\Rightarrow\\quad 3x + 3 = 48$$",
+   "example4": "Enunciado: el doble de la suma de un número y 5 es 26. «La suma de un número y 5» es $x + 5$ y debe ir entre paréntesis, porque el doble afecta a toda la suma:\n$$2(x + 5) = 26$$\nCuidado: $2x + 5 = 26$ diría otra cosa («el doble del número, más 5»)."
   },
   {
    "id": "u3-s006",
@@ -4896,7 +4911,10 @@
      "why": "De $F = \\frac{9}{5}C + 32$: $59 - 32 = \\frac{9}{5}C$, luego $C = 15$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Marta tiene 5 años más que su hermano, y entre ambos suman 29 años. Si el hermano tiene $x$ años, Marta tiene $x + 5$:\n$$x + (x + 5) = 29 \\quad\\Rightarrow\\quad 2x = 24 \\quad\\Rightarrow\\quad x = 12$$\nEl hermano tiene 12 años y Marta 17; en total son 29, así que la solución es correcta.",
+   "example3": "Un rectángulo tiene el largo 3 cm mayor que el ancho y su perímetro es 26 cm. Si el ancho es $x$, el largo es $x + 3$:\n$$2x + 2(x + 3) = 26 \\quad\\Rightarrow\\quad 4x + 6 = 26 \\quad\\Rightarrow\\quad x = 5$$\nEl ancho mide 5 cm y el largo 8 cm; el perímetro es $2\\cdot 5 + 2\\cdot 8 = 26$ cm, así que la solución es correcta.",
+   "example4": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200. Si recorrió $x$ kilómetros:\n$$800 + 400x = 3200 \\quad\\Rightarrow\\quad 400x = 2400 \\quad\\Rightarrow\\quad x = 6$$\nEl viaje fue de 6 km; verificamos: $800 + 400\\cdot 6 = 3200$."
   },
   {
    "id": "u3-s007",
@@ -5637,7 +5655,10 @@
      "why": "$x^2 = -28$ no tiene solución en los números reales."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $3x^2 - 12 = 0$. Despejamos $x^2$:\n$$3x^2 = 12 \\quad\\Rightarrow\\quad x^2 = 4 \\quad\\Rightarrow\\quad x = \\pm 2$$\nVerificamos con $x = -2$: $3\\cdot 4 - 12 = 0$.",
+   "example3": "Resolvemos $2x^2 + 8x = 0$. Sacamos factor común $2x$:\n$$2x(x + 4) = 0 \\quad\\Rightarrow\\quad x = 0 \\ \\text{ o } \\ x = -4$$\nVerificamos con $x = -4$: $2\\cdot 16 - 32 = 0$.",
+   "example4": "Resolvemos $4x^2 - 25 = 0$. Despejamos $x^2$ y aplicamos raíz cuadrada:\n$$x^2 = \\frac{25}{4} \\quad\\Rightarrow\\quad x = \\pm\\frac{5}{2}$$\nVerificamos con $x = \\frac{5}{2}$: $4\\cdot\\frac{25}{4} - 25 = 0$."
   },
   {
    "id": "u3-s008",
@@ -6400,7 +6421,10 @@
      "why": "Dividimos por $-5$: $t^2 - 1t - 6 = 0$. Factorizamos: $(t - 3)(t + 2) = 0$. Solo sirve $t = 3$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $x^2 + x - 12 = 0$. Buscamos dos números que multiplicados den $-12$ y sumados den $1$: son $4$ y $-3$.\n$$(x + 4)(x - 3) = 0 \\quad\\Rightarrow\\quad x = -4 \\ \\text{ o } \\ x = 3$$\nVerificamos con $x = 3$: $9 + 3 - 12 = 0$.",
+   "example3": "Resolvemos $x^2 - 6x + 9 = 0$. Buscamos dos números que multiplicados den 9 y sumados den $-6$: son $-3$ y $-3$.\n$$(x - 3)(x - 3) = 0 \\quad\\Rightarrow\\quad x = 3$$\nLos dos factores son iguales, por eso hay una sola solución. Verificamos: $9 - 18 + 9 = 0$.",
+   "example4": "Resolvemos $x^2 - 2x - 15 = 0$. Buscamos dos números que multiplicados den $-15$ y sumados den $-2$: son $-5$ y $3$.\n$$(x - 5)(x + 3) = 0 \\quad\\Rightarrow\\quad x = 5 \\ \\text{ o } \\ x = -3$$\nSi $x$ fuera una longitud, solo serviría $x = 5$. Verificamos: $25 - 10 - 15 = 0$."
   },
   {
    "id": "u3-s009",
@@ -7204,7 +7228,10 @@
      "why": "Con $a=5$, $b=-2$, $c=-9$: $\\Delta=184$ y $t=\\frac{2+\\sqrt{184}}{10}\\approx 1{,}6$ (la otra solución es negativa)."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Resolvemos $x^2 - 4x + 1 = 0$, con $a = 1$, $b = -4$ y $c = 1$:\n$$x = \\frac{4 \\pm \\sqrt{16 - 4}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$$\nLas soluciones no son enteras, pero la fórmula las entrega igual: $x = 2 + \\sqrt{3}$ o $x = 2 - \\sqrt{3}$.",
+   "example3": "Resolvemos $3x^2 - 5x - 2 = 0$, con $a = 3$, $b = -5$ y $c = -2$:\n$$x = \\frac{5 \\pm \\sqrt{25 + 24}}{6} = \\frac{5 \\pm 7}{6}$$\nEntonces $x = \\frac{12}{6} = 2$ o $x = \\frac{-2}{6} = -\\frac{1}{3}$.",
+   "example4": "Resolvemos $2x^2 - x - 1 = 0$, con $a = 2$, $b = -1$ y $c = -1$. Cuidado con los signos: $-b = 1$.\n$$x = \\frac{1 \\pm \\sqrt{1 + 8}}{4} = \\frac{1 \\pm 3}{4}$$\nEntonces $x = 1$ o $x = -\\frac{1}{2}$."
   },
   {
    "id": "u3-s010",
@@ -8016,7 +8043,10 @@
      "why": "Si $\\Delta > 0$, hay dos soluciones reales distintas."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "Analizamos $x^2 - 6x + 9 = 0$, con $a = 1$, $b = -6$ y $c = 9$:\n$$\\Delta = (-6)^2 - 4\\cdot 1\\cdot 9 = 36 - 36 = 0$$\nComo $\\Delta = 0$, hay una única solución real: $x = 3$.",
+   "example3": "Analizamos $2x^2 + x - 3 = 0$, con $a = 2$, $b = 1$ y $c = -3$:\n$$\\Delta = 1^2 - 4\\cdot 2\\cdot(-3) = 1 + 24 = 25 > 0$$\nComo $\\Delta > 0$, hay dos soluciones reales distintas (en este caso, $x = 1$ y $x = -\\frac{3}{2}$).",
+   "example4": "¿Para qué valor de $k$ la ecuación $x^2 + 4x + k = 0$ tiene una única solución real? Con $a = 1$, $b = 4$ y $c = k$ imponemos $\\Delta = 0$:\n$$\\Delta = 16 - 4k = 0 \\quad\\Rightarrow\\quad k = 4$$\nVerificamos: $x^2 + 4x + 4 = (x + 2)^2 = 0$ tiene solo $x = -2$."
   },
   {
    "id": "u3-s011",
@@ -8744,7 +8774,10 @@
      "why": "$(x+1)^2 = 64$ da $x + 1 = 8$, luego $x = 7$."
     }
    ],
-   "drawCheck": 5
+   "drawCheck": 5,
+   "example2": "El producto de dos números enteros positivos consecutivos es 56. Si el menor es $x$, el otro es $x + 1$:\n$$x(x + 1) = 56 \\quad\\Rightarrow\\quad x^2 + x - 56 = 0 \\quad\\Rightarrow\\quad (x + 8)(x - 7) = 0$$\nLas soluciones son $x = -8$ y $x = 7$; se descarta $-8$ porque los números son positivos. Los números son 7 y 8, y $7\\cdot 8 = 56$.",
+   "example3": "Un rectángulo tiene el largo igual al doble del ancho y un área de $50\\,\\mathrm{cm}^2$. Si el ancho es $x$, el largo es $2x$:\n$$x\\cdot 2x = 50 \\quad\\Rightarrow\\quad x^2 = 25 \\quad\\Rightarrow\\quad x = \\pm 5$$\nSe descarta $x = -5$; el ancho mide 5 cm y el largo 10 cm, y $5\\cdot 10 = 50$.",
+   "example4": "Una piedra se lanza hacia arriba y su altura (en metros) a los $t$ segundos es $h = 20t - 5t^2$. ¿Cuándo vuelve al suelo? Imponemos $h = 0$:\n$$20t - 5t^2 = 0 \\quad\\Rightarrow\\quad 5t(4 - t) = 0 \\quad\\Rightarrow\\quad t = 0 \\ \\text{ o } \\ t = 4$$\n$t = 0$ es el instante del lanzamiento; la piedra vuelve al suelo a los 4 s."
   }
  ],
  "bridges": [],

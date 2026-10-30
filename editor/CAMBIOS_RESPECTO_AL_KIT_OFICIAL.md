@@ -12,6 +12,9 @@ Este editor y su motor **no son los oficiales**: se les agregaron funciones. Ant
 8. **Niveles de dificultad.** Cada pregunta de Practica puede tener «Nivel de dificultad» (1, 2 o 3). El sorteo de 5 toma 2 de nivel 1, 2 de nivel 2 y 1 de nivel 3 y los muestra de fácil a difícil; «Repetir» avanza dentro de cada nivel sin repetir. Sin niveles todo funciona como antes (una pregunta sin nivel cuenta como 2). El banco en LaTeX/PDF muestra la etiqueta [Nivel n].
 9. **Banco de hasta 60 ejercicios de Practica por estación** (antes 20). Cambio en `contract.js` (`maxPractice`), en el motor empaquetado y en `editor.js`. El límite de 24 actividades que ve cada estudiante no cambia.
 
+10. **Ejemplos desplegables en Aprende.** Cada estación admite hasta 3 ejemplos extra (`example2`, `example3`, `example4`, opcionales). El estudiante ve el ejemplo 1 y un botón «Ver otro ejemplo» despliega los demás (hasta 4). Cambios en `app.js` (motor empaquetado), `validation.js`, `editor.js` y `EDITOR_PACE.html`.
+11. **Diseño institucional (tema Valdivia).** Solo presentación: colores, escudo e identidad del Instituto de Ciencias Físicas y Matemáticas (Facultad de Ciencias, UACh), fotos de Valdivia y pingüino mascota con un accesorio matemático por bloque. Cambios en `styles.css` e `index.html` del motor y una línea en `app.js` (marca el bloque actual para elegir el accesorio).
+
 Límite a respetar: Practica + Aplica que ve cada estudiante, sumando 1 de Aprende, debe ser como máximo 24 actividades por estación (el editor avisa).
 
 Los archivos que contienen estos cambios: `motor_bundle.js` (motor del estudiante, en una sola línea enorme), `editor.js`, `validation.js`, `map_artifacts.js`, `content_text.js`, `EDITOR_PACE.html`.

@@ -23,7 +23,7 @@ window.PACEValidation=(()=>{
   const ids=new Set(),used=new Set();
   u.stations.forEach((s,i)=>{
    const loc='Estación '+(i+1);require(s&&typeof s==='object',loc+': estructura inválida');require(typeof s.id==='string'&&/^[A-Za-z0-9_-]{2,44}$/.test(s.id)&&! /\s/.test(s.id),loc+': identificador inválido (2–44 letras, números, _ o -)');require(!ids.has(s.id),loc+': identificador repetido');ids.add(s.id);
-   for(const k of ['title','subtitle','concept','example'])text(s[k],loc+': '+k,k==='title');
+   for(const k of ['title','subtitle','concept','example'])text(s[k],loc+': '+k,k==='title');for(const k of ['example2','example3','example4']){if(s[k]===undefined)continue;text(s[k],loc+': '+k,false);if(!s[k].trim())delete s[k];}
    require(Number.isInteger(s.group)&&s.group>=0&&s.group<u.groups.length,loc+': bloque inexistente');
    if(s.minutes===undefined)s.minutes=40;require(Number.isInteger(s.minutes)&&s.minutes>=5&&s.minutes<=480,loc+': duración inválida (5–480 min)');
    require(Array.isArray(s.practice)&&s.practice.length>=1&&s.practice.length<=C.maxPractice,loc+': entre 1 y '+C.maxPractice+' prácticas');s.practice.forEach(q=>quiz(q,loc+': práctica'));if(s.draw!==undefined&&s.draw!==null&&s.draw!==''){require(Number.isInteger(s.draw)&&s.draw>=1&&s.draw<=s.practice.length,loc+': el sorteo debe ser un número entre 1 y '+s.practice.length+' (tamaño del banco)');}else delete s.draw;quiz(s.check,loc+': Aplica');
