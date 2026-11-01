@@ -1,0 +1,23 @@
+PROPUESTA DE MASCOTA CHUCAO | PACE UACh
+Versión de presentación 1.0 | 1 de noviembre de 2026
+
+QUÉ ES
+Propuesta preliminar para evaluar reemplazar el pingüino experimental del curso de nivelación por un chucao cartoon 2D que acompañe el avance de estudiantes.
+El chucao no tiene todavía nombre definitivo. «Chucao» es el nombre provisional del personaje.
+
+ABRIR PRIMERO
+1. 01_Presentacion/Propuesta_Chucao_PACE_UACh.pdf: explicación visual para compartir en el equipo.
+2. 04_Demo/demo_chucao.html: simulación local del cambio de imagen según porcentaje de avance. Abrir con doble clic, sin internet, tras descomprimir todo el ZIP.
+3. 02_Imagenes_PNG/: 7 originales PNG RGBA con transparencia real (5 etapas + base + lámina).
+4. 03_Web_Optimizado/: derivados WebP livianos para maquetar y probar (también con transparencia).
+5. 05_Documentacion/: propuesta conceptual, progresión pedagógica, interacción, instrucciones técnicas y controles.
+
+ESTADO DEL TRABAJO
+LISTO: artes estáticas de alta resolución, alfa comprobada, vista comparativa, PDF y demo HTML de avance.
+NO REALIZADO: SVG vectorial editable, animación articulada de ojos/alas, integración con motor, conexión real a SCORM/SIVEDUCMD, validación por equipo PACE.
+
+IMPORTANTE PARA LUIS
+No es un cambio realizado en GitHub. Se recomienda integrar detrás de una opción de prueba, sin alterar la fuente de verdad del progreso ni el guardado SCORM. Las imágenes son una propuesta de la que pueden seleccionarse elementos para diseño definitivo.
+
+PRECAUCIÓN
+La diferenciación física entre etapas 2, 3 y 4 aún podría mejorarse. Las imágenes incluyen accesorios y contenidos matemáticos que son ilustrativos, no parte editable del banco de preguntas. No usar esas ilustraciones como sustituto de explicaciones o respuestas evaluadas.

@@ -1,0 +1,153 @@
+PROYECTO PACE UACh
+PROPUESTAS DE MEJORA PARA EL EDITOR Y MOTOR
+Versión revisada — 01-11-2026
+
+OBJETIVO
+Compartir propuestas concretas de mejora al editor y al motor para que el equipo docente pueda crear experiencias de nivelación matemática claras, accesibles y consistentes en las tres unidades. Las propuestas no presuponen fallas del sistema actual.
+
+CRITERIOS
+- [PRIORIDAD ALTA / MEDIA] indica el orden en que sugerimos evaluar las mejoras, no una obligación.
+- [PROPUESTA] es una funcionalidad o modificación por discutir.
+- [COMPROBAR] es una prueba técnica conveniente antes de dar por definitiva una modificación.
+- La estructura y redacción definitivas deben acordarse entre los docentes; aquí se describen capacidades deseables del sistema.
+
+============================================================
+1. APRENDE: PRESENTACIÓN VISUAL, BREVE Y PROGRESIVA
+PRIORIDAD ALTA
+============================================================
+
+1.1 [PROPUESTA] Sustituir el predominio de campos largos de texto por una composición de bloques o tarjetas breves, visibles progresivamente. Evitar una experiencia similar a leer un apunte extenso, sin sacrificar la explicación matemática.
+
+1.2 [PROPUESTA] Ofrecer bloques editables y reordenables: objetivo, idea central, texto breve, fórmula LaTeX, imagen, lista numerada, tabla, comparación de procedimientos, advertencia, pregunta de predicción y ejemplo resuelto por pasos. No obligar al docente a escribir HTML o código.
+
+1.3 [PROPUESTA] Permitir desarrollar los ejemplos paso a paso, revelando una transformación por vez. Incluir navegación adelante/atrás, reiniciar y «Ver explicación completa». El estudiante debería controlar la velocidad de presentación.
+
+1.4 [PROPUESTA] Aplicar estilos visuales consistentes: negritas y énfasis selectivos, colores con función reconocible, recuadros para condiciones y errores, separación entre ideas y fórmulas legibles. No usar colores o animaciones solamente como decoración.
+
+1.5 [PROPUESTA] Proporcionar componentes matemáticos reutilizables para situaciones habituales: recta numérica, conjuntos anidados, barras de fracciones, árbol de factores, tablas de divisibilidad, diagramas y gráficos SVG. Una imagen o animación debe aclarar un concepto, no sustituir su justificación.
+
+1.6 [PROPUESTA] Permitir interacciones breves dentro de Aprende (predecir un resultado, revelar una pista, manipular una representación) sin convertirlas automáticamente en evaluación. Distinguirlas de la sección opcional Explora.
+
+1.7 [COMPROBAR] Prototipar una estación de distinta complejidad y revisar comprensión real, legibilidad móvil, fórmulas, acceso por teclado y compatibilidad con exportación HTML/SCORM antes de generalizar el diseño.
+
+============================================================
+2. APAE: INCORPORAR «EXPLORA» COMO CUARTA DIMENSIÓN
+PRIORIDAD ALTA
+============================================================
+
+2.1 [PROPUESTA] Adoptar la estructura de cuatro dimensiones:
+    APRENDE: comprender ideas y procedimientos.
+    PRACTICA: ejercitar con retroalimentación.
+    APLICA: transferir lo aprendido a problemas pertinentes.
+    EXPLORA: experimentar libremente con juegos, simulaciones o manipuladores matemáticos.
+
+2.2 [PROPUESTA] Explora debe ser OPCIONAL POR ESTACIÓN. Si no se configura, su pestaña no debe aparecer. Debe permitir acceso libre, sin exigir completar previamente otras secciones.
+
+2.3 [REQUISITO PROPUESTO] Explora NO debe sumar porcentaje de avance de estación, unidad ni curso, ni modificar notas, aciertos, finalización o variables SCORM. Abrir, reiniciar o cerrar un recurso de Explora no debe perjudicar el progreso existente.
+
+2.4 [PROPUESTA] En el editor, configurar título, descripción breve, instrucciones y recurso: HTML interactivo empaquetado, archivo local, simulación o enlace externo, según lo que resulte compatible y seguro. Incluir alternativa accesible cuando el recurso no pueda ejecutarse.
+
+2.5 [PROPUESTA] Diseñar primero uno o dos tipos de recursos reutilizables, antes de intentar un juego distinto en cada estación. Son ejemplos posibles los clasificadores de conjuntos, rectas numéricas manipulables, barras de fracciones o árboles de factorización.
+
+2.6 [COMPROBAR] Evaluar funcionamiento dentro de SCORM/SIVEDUCMD, uso sin conexión, restricciones de contenido embebido, seguridad, tamaño de archivos, pantallas táctiles y compatibilidad con dispositivos móviles.
+
+============================================================
+3. MAPA DE ESTRUCTURA DEL EDITOR Y SU EXPORTACIÓN
+PRIORIDAD MEDIA-ALTA
+============================================================
+
+3.1 [PROPUESTA] Presentar el mapa de organización como ÁRBOL JERÁRQUICO: UNIDAD -> BLOQUES -> ESTACIONES. Que cada bloque sea un nodo explícito unido a las estaciones correspondientes, en lugar de una lista extensa de estaciones con rótulos de bloque.
+
+3.2 [PROPUESTA] Preferir distribución horizontal (de izquierda a derecha) para consulta en pantalla y ofrecer distribución vertical (de arriba abajo) cuando convenga imprimir o haya demasiados elementos. Ajustar automáticamente espaciado y tamaño a títulos largos y números variables de estaciones.
+
+3.3 [PROPUESTA] Mostrar nombres y numeración consistentes; emplear un color discreto por bloque. Permitir ocultar o mostrar detalles secundarios (duración, objetivos, cantidad de estaciones) para evitar saturación.
+
+3.4 [PROPUESTA] Mantener exportación vectorial SVG y PNG legible. Distinguir claramente un mapa de estructura real de una imagen con progreso SIMULADO o ilustrativo. Se trata de un recurso para docentes y coordinación, no del mapa principal del estudiante.
+
+3.5 [OBSERVACIÓN DE CÓDIGO] En la copia revisada, la vista del editor y la exportación del mapa utilizan un generador compartido. Conviene modificar ese generador y probar ambas salidas; no asumir que rediseñar una vista resuelve automáticamente todos los formatos exportados.
+
+3.6 [COMPROBAR] Exportar mapas con distinta cantidad de bloques y estaciones, títulos largos y cambios de asignación; comprobar orden, conexiones, SVG/PNG e impresión.
+
+============================================================
+4. NAVEGACIÓN DEL ESTUDIANTE EN CELULAR
+PRIORIDAD MEDIA-ALTA
+============================================================
+
+4.1 [PROPUESTA] Evaluar como alternativa al acordeón móvil una BARRA COMPACTA DE BLOQUES, siempre visible dentro de la navegación: números de bloque a la izquierda y estaciones del bloque activo a la derecha. Así se podría cambiar de bloque sin desplazarse verticalmente por todo el mapa.
+
+4.2 [PROPUESTA] Mantener visibles el bloque activo y su nombre completo. En pantallas estrechas, valorar pestañas compactas u otro selector si una barra lateral reduce demasiado el área de lectura. No imponer un diseño que perjudique la navegación táctil.
+
+4.3 [PROPUESTA] Conservar el acordeón actual como alternativa hasta comparar usabilidad. Asegurar botones táctiles suficientemente grandes, contraste, indicadores que no dependan solo del color y nombres accesibles a lectores de pantalla.
+
+4.4 [COMPROBAR] Probar en móviles reales el cambio entre bloques, regreso a estaciones ya visitadas, conservación del progreso y doble desplazamiento vertical, además de orientación y tamaño de pantalla.
+
+============================================================
+5. CONSISTENCIA PEDAGÓGICA Y EDITORIAL ENTRE LAS TRES UNIDADES
+PRIORIDAD ALTA
+============================================================
+
+5.1 [PROPUESTA] Crear una PLANTILLA COMÚN de estación y una pequeña guía de estilo, implementadas en el editor, para que las tres unidades compartan organización visual y términos de interfaz sin uniformar artificialmente su contenido o duración.
+
+5.2 [PROPUESTA] Sugerir para Aprende una secuencia flexible de: (a) «Qué aprenderás» (objetivo observable), (b) «Comprende la idea» (explicación y fundamento), (c) ejemplo guiado, (d) «Presta atención» (error o condición matemática) y (e) ejemplo de profundización opcional. Estos elementos no tienen por qué aparecer simultáneamente en un párrafo largo.
+
+5.3 [PROPUESTA] Utilizar lenguaje claro, directo, preciso y no infantilizante. Consensuar convenciones de notación matemática (signos, fracciones, decimales, exponentes, aproximaciones), uso de colores, instrucciones y formato de retroalimentación. Evitar reglas sin fundamento como «pasa sumando».
+
+5.4 [PROPUESTA] Ofrecer plantillas y componentes reutilizables, y una vista previa fiel en escritorio y móvil. La guía debe orientar la creación sin impedir que cada profesor decida cómo explicar sus contenidos.
+
+5.5 [PROPUESTA] Establecer una revisión mínima de cada estación: objetivo claro, ejemplos matemáticamente correctos, notación consistente, retroalimentación comprensible, visualización móvil y exportación funcional.
+
+============================================================
+6. BANCO DE PREGUNTAS, REINTENTOS Y RETROALIMENTACIÓN
+PRIORIDAD MEDIA-ALTA
+============================================================
+
+6.1 [PROPUESTA] Explicar claramente al estudiante la diferencia entre avance acumulado y resultado de la ronda actual, especialmente al solicitar nuevas preguntas desde un banco predefinido.
+
+6.2 [PROPUESTA] Cuando no puedan garantizarse preguntas inéditas, reemplazar expresiones como «nuevas preguntas» por «otra ronda» o «practicar nuevamente». Tener en cuenta la disponibilidad por nivel de dificultad.
+
+6.3 [PROPUESTA] Facilitar retroalimentación específica según el error (por ejemplo, signo incorrecto, operación fuera de prioridad, cancelación de términos que no son factores), más allá de «correcto/incorrecto».
+
+6.4 [PROPUESTA] Incorporar o reforzar verificaciones sobre unicidad de alternativa correcta, equivalencia de respuestas, formatos matemáticos aceptados y cuotas del banco. La validación del formato JSON no basta para certificar la corrección matemática.
+
+6.5 [COMPROBAR] Probar repetición de rondas, agotamiento del banco, cuotas de dificultad y persistencia al cerrar y volver a abrir. En particular, verificar que una nueva ronda no reduzca el porcentaje ya consolidado ni cambie calificaciones por accidente.
+
+============================================================
+7. MASCOTA MATEMÁTICA
+PRIORIDAD MEDIA (DESPUÉS DE ESTABILIZAR APRENDE/APAE)
+============================================================
+
+7.1 [PROPUESTA] Prever una mascota común con identidad visual consistente. Como concepto de diseño se está considerando un CHUCAO CHILENO expresivo, relacionado con la matemática. Los recursos gráficos y animaciones definitivos se definirán por separado.
+
+7.2 [PROPUESTA] Admitir una evolución visual vinculada al progreso acumulado (cinco etapas: 0-<25 %, 25-<50 %, 50-<75 %, 75-<100 %, 100 %), además de gestos y mensajes contextuales. La etapa, el gesto y el mensaje son elementos diferentes.
+
+7.3 [PROPUESTA] Integrar la mascota con el seguimiento ya existente, sin crear un segundo cálculo de progreso. Evitar interrupciones excesivas; permitir silenciar animaciones y respetar preferencias de movimiento reducido.
+
+7.4 [COMPROBAR] Revisar qué sistema de mascota y eventos existe actualmente antes de sustituirlo o ampliarlo. Probar continuidad del estado tras reingresar, peso de recursos y compatibilidad móvil/SCORM.
+
+============================================================
+8. COMPATIBILIDAD, PRUEBAS Y DOCUMENTACIÓN
+PRIORIDAD ALTA (TRANSVERSAL)
+============================================================
+
+8.1 [PROPUESTA] Mantener compatibilidad con paquetes de unidades existentes: agregar Explora o un nuevo formato de Aprende no debería impedir importar archivos anteriores ni borrar contenidos al reexportarlos.
+
+8.2 [COMPROBAR] Después de cambios al editor/motor, realizar pruebas de regresión: importar, editar, exportar, cargar en SIVEDUCMD, guardar, salir, reingresar, recuperar porcentaje y repetir rondas. Revisar escritorio y dispositivos móviles.
+
+8.3 [PROPUESTA] Reducir pasos técnicos innecesarios para docentes que solo editan contenido. Mantener instrucciones breves sobre archivos que deben subirse a GitHub, recursos asociados, vista HTML y paquetes SCORM que se conservan para SIVEDUCMD.
+
+8.4 [PROPUESTA] Unificar documentación sobre límites de preguntas/actividades y comportamiento de reintentos, especialmente donde persistan números de versiones anteriores. Alinear las especificaciones del editor con los mensajes de validación.
+
+8.5 [PROPUESTA] Cuidar accesibilidad, tiempos de carga, disponibilidad de recursos y funcionamiento sin conexión; las mejoras visuales no deben comprometer la recuperación del progreso.
+
+============================================================
+ORDEN SUGERIDO DE CONVERSACIÓN E IMPLEMENTACIÓN
+============================================================
+
+A. Acordar plantilla de las tres unidades y prototipo de Aprende visual.
+B. Precisar comportamiento y formato de Explora opcional, sin porcentaje.
+C. Probar mapa jerárquico para docentes y alternativa de navegación móvil.
+D. Integrar la mascota cuando sus recursos y criterios estén definidos.
+E. En cada etapa, asegurar compatibilidad de paquetes previos y pruebas SCORM.
+
+NOTA FINAL
+Estas son recomendaciones para discutir y priorizar con Luis y el equipo. No representan un diagnóstico de fallas comprobadas en todos los componentes, ni un informe de lo que cada docente ha desarrollado.
