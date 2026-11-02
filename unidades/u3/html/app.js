@@ -148,7 +148,7 @@ ensureSeed();
   tracking(restored?'Progreso de demostración recuperado del navegador':'Vista local: avance guardado solo en este navegador');
  }
 }
-function save(){
+function save(){try{paintMascot()}catch(e){}
  if(mode==='error'||writeBlocked)return false;
  if(mode==='scorm'&&connected){
   let score=overall();
