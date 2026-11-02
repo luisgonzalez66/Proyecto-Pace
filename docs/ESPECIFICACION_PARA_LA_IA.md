@@ -108,7 +108,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
   * **Nivel 1:** números enteros, un paso, sin simplificar.
   * **Nivel 2:** hay que simplificar o el resultado es racional no entero (usa `"reduced": true` en respuestas escritas), o dos pasos.
   * **Nivel 3:** números grandes y/o más pasos (reducir términos semejantes antes, paréntesis y fracciones combinados, problemas con varias condiciones).
-  * Con 20 ejercicios por nivel, «Repetir con ejercicios nuevos» da 10 rondas sin repetir.
+  * Con 20 ejercicios por nivel, «Practicar otra ronda» da 10 rondas sin repetir.
 * Cada pregunta con una sola respuesta correcta, distractores **plausibles** (errores típicos reales: signo, orden de operaciones, olvidar un paso), sin “ninguna de las anteriores” ni “todas las anteriores”.
 * La posición de la correcta debe variar al azar (que no sea siempre la misma).
 * `why` muestra el procedimiento, no solo el resultado.

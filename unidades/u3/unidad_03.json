@@ -2269,7 +2269,45 @@
    "drawCheck": 5,
    "example2": "Resolvemos $2(x - 3) = 10$. Aplicamos la propiedad distributiva:\n$$2x - 6 = 10 \\quad\\Rightarrow\\quad 2x = 16 \\quad\\Rightarrow\\quad x = 8$$\nVerificamos: $2(8 - 3) = 2\\cdot 5 = 10$.",
    "example3": "Resolvemos $3(x + 2) = 2x + 11$. Primero eliminamos el paréntesis:\n$$\\begin{aligned}3x + 6 &= 2x + 11\\\\ 3x - 2x &= 11 - 6\\\\ x &= 5\\end{aligned}$$\nVerificamos: $3(5 + 2) = 21$ y $2\\cdot 5 + 11 = 21$.",
-   "example4": "Resolvemos $\\frac{2x}{3} - 1 = \\frac{x}{2}$. El mínimo común múltiplo de 3 y 2 es 6; multiplicamos todos los términos por 6:\n$$4x - 6 = 3x \\quad\\Rightarrow\\quad 4x - 3x = 6 \\quad\\Rightarrow\\quad x = 6$$\nVerificamos: $\\frac{2\\cdot 6}{3} - 1 = 3$ y $\\frac{6}{2} = 3$."
+   "example4": "Resolvemos $\\frac{2x}{3} - 1 = \\frac{x}{2}$. El mínimo común múltiplo de 3 y 2 es 6; multiplicamos todos los términos por 6:\n$$4x - 6 = 3x \\quad\\Rightarrow\\quad 4x - 3x = 6 \\quad\\Rightarrow\\quad x = 6$$\nVerificamos: $\\frac{2\\cdot 6}{3} - 1 = 3$ y $\\frac{6}{2} = 3$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver ecuaciones lineales con **paréntesis** o con **fracciones**, eliminándolos antes de despejar la incógnita.",
+    "idea": "Una ecuación se mantiene verdadera si hacemos **la misma operación en los dos lados**. Con paréntesis aplicamos la propiedad distributiva: $a(b+c)=ab+ac$. Con fracciones multiplicamos toda la ecuación por el **mínimo común múltiplo** (mcm) de los denominadores, y así desaparecen.",
+    "steps": {
+     "title": "Resolvemos $\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$.",
+     "items": [
+      {
+       "why": "Partimos de la ecuación con fracciones.",
+       "math": "\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}"
+      },
+      {
+       "why": "Buscamos el mcm de los denominadores 3, 2 y 6: es 6.",
+       "math": "\\operatorname{mcm}(3,2,6)=6"
+      },
+      {
+       "why": "Multiplicamos **todos** los términos, en ambos lados, por 6.",
+       "math": "6\\cdot\\frac{x}{3}+6\\cdot\\frac{1}{2}=6\\cdot\\frac{5}{6}"
+      },
+      {
+       "why": "Simplificamos: los denominadores desaparecen.",
+       "math": "2x+3=5"
+      },
+      {
+       "why": "Restamos 3 en ambos lados.",
+       "math": "2x=2"
+      },
+      {
+       "why": "Dividimos ambos lados por 2.",
+       "math": "x=1"
+      },
+      {
+       "why": "Verificamos reemplazando en la ecuación original.",
+       "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{2}{6}+\\frac{3}{6}=\\frac{5}{6}\\;\\checkmark"
+      }
+     ]
+    },
+    "warn": "Multiplica **todos** los términos por el mcm, también los que no tienen fracción. Si olvidas uno, la igualdad deja de ser verdadera. Por ejemplo, $6\\cdot\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$ **no** es equivalente a la ecuación original."
+   }
   },
   {
    "id": "u3-s004",
@@ -8789,5 +8827,13 @@
   "Las ecuaciones cuadráticas usan lo que aprendiste de factorización en la Unidad 2.",
   "Cierre de la unidad: plantea y resuelve problemas que llevan a ecuaciones cuadráticas."
  ],
- "schema": "pace-unit-v2"
+ "schema": "pace-unit-v2",
+ "meta": {
+  "minutes": 120,
+  "mix": [
+   2,
+   3,
+   "a"
+  ]
+ }
 }
