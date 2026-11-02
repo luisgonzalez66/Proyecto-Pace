@@ -256,7 +256,8 @@ function openStation(i,tab='learn'){
 function selectTab(tab){activeTab=tab;state.tab=tab;save();renderStation();}
 const exShown={};
 function extraList(s){return ['example2','example3','example4'].map(k=>s[k]).filter(x=>typeof x==='string'&&x.trim());}
-function exHTML(s){const L=extraList(s),n=Math.min(exShown[s.id]||0,L.length);let h=L.slice(0,n).map((t,i)=>`<div class="example ex-more"><span>EJEMPLO ${i+2}</span><p class="math-content">${rich(t)}</p></div>`).join('');if(n<L.length)h+=`<button type="button" class="ex-more-btn" id="exMore">＋ Ver otro ejemplo <small>(${n+1} de ${L.length+1})</small></button>`;return h;}
+const ownHead=t=>/^\s*[^\p{L}\p{N}$\\(\[]/u.test(String(t||''));
+function exHTML(s){const L=extraList(s),n=Math.min(exShown[s.id]||0,L.length);let h=L.slice(0,n).map((t,i)=>`<div class="example ex-more">${ownHead(t)?'':`<span>EJEMPLO ${i+2}</span>`}<p class="math-content">${rich(t)}</p></div>`).join('');if(n<L.length)h+=`<button type="button" class="ex-more-btn" id="exMore">＋ Ver otro ejemplo <small>(${n+1} de ${L.length+1})</small></button>`;return h;}
 function bindExMore(s){const b=$('exMore');if(!b)return;b.addEventListener('click',()=>{exShown[s.id]=(exShown[s.id]||0)+1;const w=$('exWrap');w.innerHTML=exHTML(s);typesetMath(w);const n=w.querySelectorAll('.ex-more').length;const last=w.querySelectorAll('.ex-more')[n-1];if(last&&last.scrollIntoView)last.scrollIntoView({block:'nearest',behavior:'smooth'});bindExMore(s);});}
 function renderStation(){
  let s=STATIONS[stationIndex],p=stationPercent(stationIndex);
@@ -271,7 +272,7 @@ function renderStation(){
  $('stationFeedback').textContent='';
  if(activeTab==='learn'){
   const done=stepDone(stationIndex,0);
-  $('stationContent').innerHTML=`<span class="eyebrow">01 / APRENDE · LECTURA BREVE</span><h2>La idea esencial</h2><p class="math-content">${rich(s.concept)}</p><div class="example"><span>EJEMPLO${extraList(s).length?' 1':''}</span><p class="math-content">${rich(s.example)}</p></div><div id="exWrap">${exHTML(s)}</div>${renderMedia(s.media||[])}<div class="learn-finish"><button class="primary-btn" type="button" id="learnDone" ${done?'disabled':''}>${done?'✓ Explicación revisada':'Marcar como revisado'}</button><small>Actividad de muestra</small></div>`;
+  $('stationContent').innerHTML=`<span class="eyebrow">01 / APRENDE · LECTURA BREVE</span><h2>La idea esencial</h2><p class="math-content">${rich(s.concept)}</p><div class="example">${ownHead(s.example)?'':`<span>EJEMPLO${extraList(s).length?' 1':''}</span>`}<p class="math-content">${rich(s.example)}</p></div><div id="exWrap">${exHTML(s)}</div>${renderMedia(s.media||[])}<div class="learn-finish"><button class="primary-btn" type="button" id="learnDone" ${done?'disabled':''}>${done?'✓ Explicación revisada':'Marcar como revisado'}</button><small>Actividad de muestra</small></div>`;
   if(!done)$('learnDone').addEventListener('click',()=>mark(0));
   bindExMore(s);
  }else if(activeTab==='practice'){
