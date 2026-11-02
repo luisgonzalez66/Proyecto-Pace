@@ -174,7 +174,7 @@ function breadcrumbs(){
 }
 function openHome(){showOnly('home');renderHome();breadcrumbs();}
 function unitStatus(){let p=overall();return p===100?'completed':p>0?'progress':'available';}
-function renderHome(){
+function renderHome(){paintMascot();
  const p=overall();$('homePct').textContent=p+'%';$('homeFill').style.width=p+'%';
  $('homeCount').textContent=completedStations()+' / '+STATIONS.length+' estaciones completadas';
  $('homeDisc').style.setProperty('--pct',p+'%');
@@ -259,7 +259,7 @@ function extraList(s){return ['example2','example3','example4'].map(k=>s[k]).fil
 const ownHead=t=>/^\s*[^\p{L}\p{N}$\\(\[]/u.test(String(t||''));
 function exHTML(s){const L=extraList(s),n=Math.min(exShown[s.id]||0,L.length);let h=L.slice(0,n).map((t,i)=>`<div class="example ex-more">${ownHead(t)?'':`<span>EJEMPLO ${i+2}</span>`}<p class="math-content">${rich(t)}</p></div>`).join('');if(n<L.length)h+=`<button type="button" class="ex-more-btn" id="exMore">＋ Ver otro ejemplo <small>(${n+1} de ${L.length+1})</small></button>`;return h;}
 function bindExMore(s){const b=$('exMore');if(!b)return;b.addEventListener('click',()=>{exShown[s.id]=(exShown[s.id]||0)+1;const w=$('exWrap');w.innerHTML=exHTML(s);typesetMath(w);const n=w.querySelectorAll('.ex-more').length;const last=w.querySelectorAll('.ex-more')[n-1];if(last&&last.scrollIntoView)last.scrollIntoView({block:'nearest',behavior:'smooth'});bindExMore(s);});}
-function renderStation(){
+function renderStation(){paintMascot();
  let s=STATIONS[stationIndex],p=stationPercent(stationIndex);
  $('stationNo').textContent=String(stationIndex+1).padStart(2,'0');$('stationTitle').textContent=s.title;$('stationSub').textContent=s.subtitle;
  $('stationView').dataset.pose=String(s.group%4);$('stationBlock').textContent='BLOQUE '+String(s.group+1).padStart(2,'0')+' · '+(UNITS[s.unit].groups[s.group]?.title||'');

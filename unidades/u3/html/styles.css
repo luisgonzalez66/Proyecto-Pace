@@ -465,3 +465,25 @@ body{background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w
 .home-link{display:none;align-items:center;gap:6px;min-height:36px;padding:7px 13px;border:2px solid var(--navy);border-radius:12px;background:#fff;color:var(--navy);font-weight:800;font-size:12px;text-decoration:none;box-shadow:3px 3px 0 var(--sun)}
 .home-link:hover{background:var(--sun)}
 .home-link.on{display:inline-flex}
+
+/* chucao */
+.hero-pingu{width:min(250px,100%);right:14px;bottom:-6px}
+.hero-pingu img{width:100%;height:auto;filter:drop-shadow(0 4px 5px rgba(0,0,0,.3))}
+.pingu-bubble{display:block!important;right:auto;left:-122px;top:14px;white-space:normal;width:150px;font-size:11px;text-align:left;border:2px solid var(--navy)}
+.pingu-bubble b{display:block;color:var(--coral);margin-bottom:2px}
+.credits-pingu{width:76px}
+#stationView .st-mascot .pose,.st-mascot .pose.pose-all{display:block!important;height:116px!important;width:auto!important;max-width:none!important;right:0;bottom:-6px}
+.st-mascot{width:120px;height:98px}
+@media(max-width:900px){.pingu-bubble{display:none!important}.hero-pingu{width:190px}}
+@media(max-width:520px){.hero-pingu{width:150px}.st-mascot .pose.pose-all{height:82px!important}.st-mascot{width:80px}}
+
+/* botón «Todas las unidades»: mismo estilo flotante que «Mapa», siempre a la vista a la izquierda */
+.home-link.on{position:fixed;z-index:20;left:max(8px,calc((100vw - 1020px)/2 - 122px));top:192px;display:flex;align-items:center;gap:8px;padding:12px 20px 12px 16px;border-radius:30px;border:1px solid rgba(13,137,147,.3);background:rgba(255,255,255,.55);color:var(--teal);font-size:15px;font-weight:800;opacity:.62;box-shadow:none;min-height:0;transition:opacity .15s,background .15s}
+.home-link.on:hover,.home-link.on:focus-visible{opacity:1;background:#fff}.home-link.on:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.home-link.on span{font-size:22px;line-height:1}
+@media(max-width:1280px){.home-link.on{left:10px;top:auto;bottom:76px;padding:0;width:50px;height:50px;justify-content:center;border-radius:50%;font-size:0}.home-link.on span{font-size:26px}}
+
+/* celebración al subir de etapa (una vez) */
+@keyframes chucaoSalto{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-16px) rotate(-4deg)}60%{transform:translateY(0) rotate(3deg)}80%{transform:translateY(-6px)}}
+img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
+@media (prefers-reduced-motion:reduce){img[data-mascot].celebra{animation:none}}
