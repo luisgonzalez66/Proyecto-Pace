@@ -13,7 +13,7 @@ window.PACEPublisher = (()=>{
     const file=m.src.split('/').pop();m.src='recursos/'+clean.id+'/'+file;
    });
   });
-  const meta=Object.fromEntries(['id','roman','title','subtitle','icon','groups','hints','meta','welcome'].map(k=>[k,clean[k]]));
+  const meta=Object.fromEntries(['id','roman','title','subtitle','icon','groups','hints','meta'].map(k=>[k,clean[k]]));
   meta.ready=clean.stations.length>0;
   const lines=[['PACE_BUILD',{scope:'individual_'+clean.id,showWeek4:false}],['UNITS',[meta]],['STATIONS',clean.stations],['LEGACY_STATION_IDS',[]]];
   return '// PACE UACh V3.1 · generado desde '+clean.id+'\n'+lines.map(([k,v])=>'const '+k+'='+JSON.stringify(v)+';').join('\n')+'\n';

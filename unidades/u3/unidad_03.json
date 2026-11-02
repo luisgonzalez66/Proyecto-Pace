@@ -8835,32 +8835,5 @@
    3,
    "a"
   ]
- },
- "welcome": {
-  "goals": [
-   "Reconocer una **ecuación** y su solución, y resolver ecuaciones lineales con una incógnita.",
-   "Eliminar **paréntesis y fracciones**, y despejar una variable en una fórmula.",
-   "Traducir un problema en palabras a una ecuación, resolverla e interpretar el resultado.",
-   "Resolver ecuaciones cuadráticas incompletas, por factorización y con la fórmula general $x=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}$, e interpretar el **discriminante**.",
-   "Aplicar las ecuaciones cuadráticas a problemas de áreas, productos y movimiento."
-  ],
-  "video": "tour_curso.mp4",
-  "poster": "tour_poster.jpg",
-  "videoLen": "2 min",
-  "transcript": [
-   "Bienvenida y bienvenido a PACE, el curso de nivelación en matemática de la UACh.",
-   "En esta página ves qué lograrás y la ruta del curso: tres unidades, y esta es la Unidad III.",
-   "Cada estación tiene tres pasos: Aprende, Practica y Aplica.",
-   "Tu chucao cambia de etapa a medida que avanzas. Tu avance se guarda solo.",
-   "Para empezar, abre la unidad desde «Ver mapa». El mapa organiza la unidad en bloques; abre uno para ver sus estaciones.",
-   "Cada estación muestra tu porcentaje de avance. Las completas llevan una marca ✓.",
-   "Aprende: lee la idea y avanza paso a paso por el ejemplo guiado. Tú controlas la velocidad con «Siguiente paso», «Anterior» o «Ver explicación completa». Cuando termines de leer, marca la explicación como revisada.",
-   "Practica: resuelve los ejercicios y recibe retroalimentación al instante. Si te equivocas, puedes intentarlo de nuevo. Cuando respondes bien, ese ejercicio queda resuelto y tu avance sube.",
-   "Aplica: usa lo aprendido en una situación de ciencias.",
-   "Con el botón «Mapa» vuelves a los bloques cuando quieras: tu avance queda guardado.",
-   "Al final de la unidad está la META FINAL: un simulacro con reloj para practicar y una evaluación oficial de 120 minutos. En la oficial, el reloj parte cuando tú lo decides y no aprueba ni reprueba: registra tu resultado. En el simulacro el reloj corre, pero no se cierra y el resultado no se guarda.",
-   "¡Éxito en tu ruta!"
-  ],
-  "video2": "tour_curso.webm"
  }
 }

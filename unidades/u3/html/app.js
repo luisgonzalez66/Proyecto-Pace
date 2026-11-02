@@ -175,7 +175,7 @@ function breadcrumbs(){
 }
 function openHome(){showOnly('home');renderHome();breadcrumbs();}
 function unitStatus(){let p=overall();return p===100?'completed':p>0?'progress':'available';}
-function renderHome(){paintMascot();renderWelcome();
+function renderHome(){paintMascot();
  const p=overall();$('homePct').textContent=p+'%';$('homeFill').style.width=p+'%';
  $('homeCount').textContent=completedStations()+' / '+STATIONS.length+' estaciones completadas';
  $('homeDisc').style.setProperty('--pct',p+'%');
@@ -490,43 +490,6 @@ function renderMeta(){
   $('mtAgain').addEventListener('click',()=>{metaMode==='prac'?metaStartPrac():(metaPhase='hub',renderMeta());});$('mtHub').addEventListener('click',()=>{metaPhase='hub';renderMeta();});
   typesetMath(root);window.scrollTo({top:0,behavior:'instant'});}
  paintMascot();}
-
-/* ===== Bienvenida: explica el curso, la ruta y cómo se estudia ===== */
-const COURSE_INTRO={
- about:'PACE es el curso de nivelación en matemática para quienes ingresan a primer año en la Facultad de Ciencias de la UACh. Avanzas a tu ritmo y en el orden que prefieras dentro de cada unidad. El curso no se aprueba ni se reprueba: se completa, y lo importante es que llegues a las primeras clases con las herramientas que vas a necesitar.',
- goals:['Operar con números reales y usar sus propiedades con seguridad.','Factorizar expresiones algebraicas y aprovechar la factorización para simplificar y resolver.','Resolver ecuaciones lineales y cuadráticas, y plantear problemas en contexto de ciencias.','Reconocer errores frecuentes y justificar cada paso de un procedimiento.'],
- units:[{r:'I',t:'Números reales',p:'u1'},{r:'II',t:'Factorizaciones',p:'u2'},{r:'III',t:'Ecuaciones',p:'u3'}],
- steps:[['01','Aprende','Entiendes la idea con una explicación breve y ejemplos resueltos paso a paso.'],['02','Practica','Ejercicios con retroalimentación: puedes intentarlo de nuevo y practicar otra ronda.'],['03','Aplica','Usas lo aprendido en situaciones de ciencias.']],
- stages:[['Descubro','0 a 24 %'],['Experimento','25 a 49 %'],['Conecto','50 a 74 %'],['Razono','75 a 99 %'],['Compartimos','100 %']]};
-function renderWelcome(){
- const el=$('welcome');if(!el)return;
- const u=UNITS.find(x=>x&&x.id)||UNITS[0]||{},ui=Math.max(0,UNITS.indexOf(u));
- const items=ownStations(ui),mins=items.reduce((n,x)=>n+(x.s.minutes||0),0),hrs=Math.max(1,Math.round(mins/60*2)/2),M=u.meta&&u.meta.minutes?u.meta.minutes:0,hasVid=!!(u.welcome&&u.welcome.video);
- const goals=(u.welcome&&Array.isArray(u.welcome.goals)&&u.welcome.goals.length)?u.welcome.goals:(u.groups||[]).map(g=>g.title+(g.subtitle?': '+g.subtitle.toLowerCase().replace(/^./,c=>c):''));
- const cur=(()=>{try{return chucaoStage(completed()?100:Math.min(99.9,COUNT>0?100*doneCount()/COUNT:0));}catch(e){return 1;}})();
- const route=COURSE_INTRO.units.map(x=>{const here=x.r===u.roman;return `<${here?'div':'a'} class="rt-unit${here?' here':''}" ${here?'aria-current="step"':`data-u="${x.p}" href="#"`}><span class="rt-n">${x.r}</span><span class="rt-t">${esc(x.t)}</span><small>${here?'Estás aquí':'Otra unidad del curso'}</small></${here?'div':'a'}>`;}).join('<span class="rt-sep" aria-hidden="true">→</span>');
- if(!el.dataset.ready){
-  const head=document.querySelector('#homeView .section-heading'),grid=$('unitsGrid');
-  const tabs=[['units','Unidades'],['bien','Bienvenida'],['tour','Tour por el curso'],['como','Cómo avanzar']];
-  el.innerHTML=`<div class="home-tabs" role="tablist" aria-label="Secciones de la portada">${tabs.map(t=>`<button type="button" role="tab" class="htab${t[0]==='units'?' active':''}" id="ht-${t[0]}" data-hp="${t[0]}" aria-selected="${t[0]==='units'}" aria-controls="hp-${t[0]}" ${t[0]==='tour'?'hidden':''}>${t[1]}</button>`).join('')}</div>${tabs.map(t=>`<div class="hp${t[0]==='units'?' on':''}" role="tabpanel" id="hp-${t[0]}" aria-labelledby="ht-${t[0]}" ${t[0]==='units'?'':'hidden'}></div>`).join('')}`;
-  const pu=$('hp-units');if(head)pu.appendChild(head);if(grid)pu.appendChild(grid);
-  const show=k=>{el.querySelectorAll('.htab').forEach(b=>{const on=b.dataset.hp===k;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});el.querySelectorAll('.hp').forEach(p=>{const on=p.id==='hp-'+k;p.hidden=!on;p.classList.toggle('on',on);});
-   if(k!=='tour'){const v=el.querySelector('video');if(v&&!v.paused)v.pause();}};
-  el.querySelectorAll('.htab').forEach(b=>{b.addEventListener('click',()=>show(b.dataset.hp));b.addEventListener('keydown',e=>{const vis=[...el.querySelectorAll('.htab')].filter(x=>!x.hidden),i=vis.indexOf(b);let n=-1;if(e.key==='ArrowRight')n=(i+1)%vis.length;else if(e.key==='ArrowLeft')n=(i-1+vis.length)%vis.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=vis.length-1;if(n>=0){e.preventDefault();vis[n].focus();show(vis[n].dataset.hp);}});});
-  el.dataset.ready='1';}
- $('ht-tour').hidden=!hasVid;
- $('hp-bien').innerHTML=`<div class="wel-grid">
-  <article class="wel-card wel-about"><span class="lc-tag">¿QUÉ ES PACE?</span><p>${esc(COURSE_INTRO.about)}</p></article>
-  <article class="wel-card wel-goals"><span class="lc-tag">QUÉ LOGRARÁS</span><p class="wel-sub">Al terminar el curso podrás:</p><ul>${COURSE_INTRO.goals.map(g=>`<li class="math-content">${rb(g)}</li>`).join('')}</ul></article>
-  <article class="wel-card wel-route wide"><span class="lc-tag">LA RUTA DEL CURSO</span><div class="rt-line">${route}</div><p class="wel-sub">Esta es la <b>Unidad ${esc(u.roman||'')}: ${esc(u.title||'')}</b>. Recorrerás ${(u.groups||[]).length} bloques y ${items.length} estaciones, unas <b>${hrs} horas</b> de estudio${M?`, y cierras con la META FINAL de ${M} minutos`:''}.</p></article>
-  <article class="wel-card wel-unit wide"><span class="lc-tag">EN ESTA UNIDAD</span><p class="wel-sub">${u.welcome&&u.welcome.goals?'Aprenderás a:':'Los bloques de esta unidad son:'}</p><ul>${goals.map(g=>`<li class="math-content">${rb(g)}</li>`).join('')}</ul></article></div>`;
- $('hp-tour').innerHTML=hasVid?`<div class="wel-grid"><article class="wel-card wel-video wide"><span class="lc-tag">TOUR POR EL CURSO · ${esc(u.welcome.videoLen||'2 min')}</span><p class="wel-sub">Un recorrido por las secciones y lo que debes hacer para ir avanzando.</p><video class="wel-vid" controls preload="metadata" playsinline ${u.welcome.poster?`poster="${esc(u.welcome.poster)}"`:''}><source src="${esc(u.welcome.video)}" type="video/mp4">${u.welcome.video2?`<source src="${esc(u.welcome.video2)}" type="video/webm">`:''}Tu navegador no puede reproducir este video. Lee la transcripción.</video>${(u.welcome.transcript||[]).length?`<details class="wel-trans"><summary>Ver transcripción del video</summary><ol>${u.welcome.transcript.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></details>`:''}</article></div>`:'';
- $('hp-como').innerHTML=`<div class="wel-grid">
-  <article class="wel-card wel-how wide"><span class="lc-tag">CÓMO SE ESTUDIA CADA ESTACIÓN</span><ol class="how-steps">${COURSE_INTRO.steps.map(s=>`<li><b>${s[0]}</b><div><strong>${s[1]}</strong><p>${esc(s[2])}</p></div></li>`).join('')}</ol>${M?`<p class="wel-final"><b>META FINAL.</b> Al cerrar la unidad hay una evaluación de ${M} minutos, con un simulacro para practicar. La oficial no aprueba ni reprueba: registra tu resultado y puedes intentarla cuantas veces quieras.</p>`:''}</article>
-  <article class="wel-card wel-chu wide"><span class="lc-tag">TU CHUCAO CRECE CONTIGO</span><p class="wel-sub">A medida que avanzas, tu chucao cambia de etapa. Tu avance se guarda solo: puedes cerrar y volver cuando quieras.</p><ol class="chu-row">${COURSE_INTRO.stages.map((s,i)=>`<li class="${i+1===cur?'on':''}"><img alt="" src="${CHUCAO.img[i]}"><b>${s[0]}</b><small>${s[1]}</small></li>`).join('')}</ol></article></div>`;
- const base=(()=>{try{const m=location.pathname.match(/^(.*\/)unidades\/[^\/]+\//);return m&&location.protocol!=='about:'?m[1]:null;}catch(e){return null;}})();
- el.querySelectorAll('a.rt-unit').forEach(a=>{if(base)a.href=base+'unidades/'+a.dataset.u+'/html/';else{a.removeAttribute('href');a.classList.add('off');}});
- typesetMath(el);}
 
 $('backHome').addEventListener('click',openHome);
 $('bottomHome').addEventListener('click',openHome);
