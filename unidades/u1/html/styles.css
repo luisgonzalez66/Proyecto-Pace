@@ -574,3 +574,5 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 .mt-rev{border:2px solid var(--navy);border-radius:12px;background:#fff;padding:8px 12px}.mt-rev summary{cursor:pointer;font-weight:800}.mt-rev.ok summary .mt-mark{color:var(--green)}.mt-rev.bad summary .mt-mark{color:var(--coral)}
 .mt-revbody{margin-top:8px;font-size:14px}
 @media(prefers-reduced-motion:reduce){.mt-alert{transition:none}}
+/* chucao en el cierre de la unidad: tamaño fijo aunque no haya META FINAL */
+.finish-icon img{width:100%;height:100%;object-fit:contain;display:block}
