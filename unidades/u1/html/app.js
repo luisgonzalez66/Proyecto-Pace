@@ -260,7 +260,7 @@ function openStation(i,tab='learn'){
  state.last=STATIONS[i].id;state.tab=activeTab;save();
  showOnly('station');renderStation();breadcrumbs();
 }
-function selectTab(tab){activeTab=tab;state.tab=tab;save();renderStation();}
+function selectTab(tab){activeTab=tab;if(tab!=='explore'){state.tab=tab;save();}renderStation();}
 const exShown={};
 function extraList(s){return ['example2','example3','example4'].map(k=>s[k]).filter(x=>typeof x==='string'&&x.trim());}
 const ownHead=t=>/^\s*[^\p{L}\p{N}$\\(\[]/u.test(String(t||''));
@@ -274,16 +274,23 @@ function learnHTML(s,done){const L=s.learn,st=L.steps||{items:[]};
  const items=(st.items||[]).map((it,i)=>`<li class="ls-item" data-i="${i}"><span class="ls-n">${i+1}</span><div><p class="ls-why">${rb(it.why||'')}</p>${it.math?`<div class="ls-math math-content">$$${it.math}$$</div>`:''}</div></li>`).join('');
  return (L.goal?lcCard('lc-goal','QUÉ APRENDERÁS',`<p class="math-content">${rb(L.goal)}</p>`):'')
  +lcCard('lc-idea','COMPRENDE LA IDEA',`<p class="math-content">${rb(L.idea||s.concept)}</p>`)
- +(items?lcCard('lc-steps','EJEMPLO GUIADO · PASO A PASO',`${st.title?`<p class="ls-title math-content">${rb(st.title)}</p>`:''}<ol class="ls-list" id="lsList" aria-live="polite">${items}</ol><div class="ls-ctl" role="group" aria-label="Controles del ejemplo"><button type="button" class="ls-btn" id="lsPrev">← Anterior</button><span class="ls-count" id="lsCount"></span><button type="button" class="ls-btn ls-next" id="lsNext">Siguiente paso →</button><button type="button" class="ls-btn ghost" id="lsReset">↺ Reiniciar</button><button type="button" class="ls-btn ghost" id="lsAll">Ver explicación completa</button></div><div class="ls-full hidden" id="lsFull"><p class="math-content">${rb(s.example)}</p></div>`):`<div class="example"><p class="math-content">${rb(s.example)}</p></div>`)
+ +(items?lcCard('lc-steps','EJEMPLO GUIADO · PASO A PASO',`${st.title?`<p class="ls-title math-content">${rb(st.title)}</p>`:''}<ol class="ls-list" id="lsList" aria-live="polite">${items}</ol><div class="ls-ctl" role="group" aria-label="Controles del ejemplo"><button type="button" class="ls-btn" id="lsPrev">← Anterior</button><span class="ls-count" id="lsCount"></span><button type="button" class="ls-btn ls-next" id="lsNext">Siguiente paso →</button><button type="button" class="ls-btn ghost" id="lsReset">↺ Reiniciar</button><button type="button" class="ls-btn ghost" id="lsAll">Ver explicación completa</button><button type="button" class="ls-btn ghost" id="lsFocus" aria-pressed="false">◐ Modo enfoque</button></div><div class="ls-full hidden" id="lsFull"><p class="math-content">${rb(s.example)}</p></div>`):`<div class="example"><p class="math-content">${rb(s.example)}</p></div>`)
  +(L.warn?lcCard('lc-warn','PRESTA ATENCIÓN',`<p class="math-content">${rb(L.warn)}</p>`):'')
  +(extraList(s).length?`<p class="lc-more-title">PARA PROFUNDIZAR</p><div id="exWrap">${exHTML(s)}</div>`:'')
  +renderMedia(s.media||[])+`<div class="learn-finish"><button class="primary-btn" type="button" id="learnDone" ${done?'disabled':''}>${done?'✓ Explicación revisada':'Marcar como revisado'}</button><small>Actividad de muestra</small></div>`;}
 function bindLearn(){const list=document.getElementById('lsList');if(!list)return;const its=[...list.children],n=its.length;let k=1;
- const full=document.getElementById('lsFull'),prev=document.getElementById('lsPrev'),next=document.getElementById('lsNext');
- function show(){its.forEach((li,i)=>{li.classList.toggle('on',i<k);li.classList.toggle('cur',i===k-1&&k<n+1);li.hidden=i>=k;});prev.disabled=k<=1;next.disabled=k>=n;document.getElementById('lsCount').textContent='Paso '+k+' de '+n;if(k>=n)next.textContent='Ejemplo completo ✓';else next.textContent='Siguiente paso →';}
- prev.onclick=()=>{if(k>1){k--;show();}};next.onclick=()=>{if(k<n){k++;show();}};
- document.getElementById('lsReset').onclick=()=>{k=1;full.classList.add('hidden');show();};
- document.getElementById('lsAll').onclick=()=>{full.classList.toggle('hidden');if(!full.classList.contains('hidden'))typesetMath(full);document.getElementById('lsAll').textContent=full.classList.contains('hidden')?'Ver explicación completa':'Ocultar explicación completa';};
+ const full=document.getElementById('lsFull'),prev=document.getElementById('lsPrev'),next=document.getElementById('lsNext'),fb=document.getElementById('lsFocus'),host=document.getElementById('stationContent');
+ const calm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+ function setFocus(on){host.classList.toggle('lfocus',on);fb.setAttribute('aria-pressed',String(on));fb.textContent=on?'◐ Salir del enfoque':'◐ Modo enfoque';if(on)keepCur();}
+ function keepCur(){const li=its[k-1];if(li&&li.scrollIntoView)li.scrollIntoView({block:'center',behavior:calm?'auto':'smooth'});}
+ function show(){its.forEach((li,i)=>{li.classList.toggle('on',i<k);li.classList.toggle('cur',i===k-1&&k<n+1);li.hidden=i>=k;});prev.disabled=k<=1;next.disabled=k>=n;{const ct=document.getElementById('lsCount');ct.innerHTML='<span class="ls-bar" aria-hidden="true"><i style="width:'+Math.round(100*k/n)+'%"></i></span>';ct.setAttribute('aria-label','Paso '+k+' de '+n);ct.setAttribute('role','status');}if(k>=n)next.textContent='Ejemplo completo ✓';else next.textContent='Siguiente paso →';}
+ function go(d){const m=k+d;if(m<1||m>n)return;k=m;show();setFocus(true);}
+ prev.onclick=()=>go(-1);next.onclick=()=>go(1);
+ fb.onclick=()=>setFocus(!host.classList.contains('lfocus'));
+ document.getElementById('lsReset').onclick=()=>{k=1;full.classList.add('hidden');show();setFocus(false);};
+ document.getElementById('lsAll').onclick=()=>{setFocus(false);full.classList.toggle('hidden');if(!full.classList.contains('hidden'))typesetMath(full);document.getElementById('lsAll').textContent=full.classList.contains('hidden')?'Ver explicación completa':'Ocultar explicación completa';};
+ host.addEventListener('click',e=>{if(host.classList.contains('lfocus')&&!e.target.closest('.lc-steps'))setFocus(false);});
+ document.addEventListener('keydown',function esc(e){if(!document.getElementById('lsList')){document.removeEventListener('keydown',esc);return;}if(e.key==='Escape')setFocus(false);});
  show();}
 function renderStation(){paintMascot();
  let s=STATIONS[stationIndex],p=stationPercent(stationIndex);
@@ -294,6 +301,7 @@ function renderStation(){paintMascot();
  $('learnTick').textContent=stepDone(stationIndex,0)?'✓':'';
  $('practiceTick').textContent=Array.from({length:drawCount(s)}).every((q,j)=>stepDone(stationIndex,1+j))?'✓':'';
  $('checkTick').textContent=Array.from({length:checkCount(s)}).every((q,j)=>stepDone(stationIndex,1+drawCount(s)+j))?'✓':'';
+ if(activeTab==='explore'&&!hasExplore(s))activeTab='learn';$('tab-explore').hidden=!hasExplore(s);$('stationTabs').classList.toggle('has-explore',hasExplore(s));
  $('stationTabs').querySelectorAll('button').forEach(b=>{let active=b.dataset.tab===activeTab;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));});
  $('stationFeedback').textContent='';
  if(activeTab==='learn'){
@@ -302,14 +310,24 @@ function renderStation(){paintMascot();
   $('stationContent').innerHTML=`<span class="eyebrow">01 / APRENDE · LECTURA BREVE</span><h2>La idea esencial</h2><p class="math-content">${rich(s.concept)}</p><div class="example">${ownHead(s.example)?'':`<span>EJEMPLO${extraList(s).length?' 1':''}</span>`}<p class="math-content">${rich(s.example)}</p></div><div id="exWrap">${exHTML(s)}</div>${renderMedia(s.media||[])}<div class="learn-finish"><button class="primary-btn" type="button" id="learnDone" ${done?'disabled':''}>${done?'✓ Explicación revisada':'Marcar como revisado'}</button><small>Actividad de muestra</small></div>`;
   if(!done)$('learnDone').addEventListener('click',()=>mark(0));
   bindExMore(s);}
+ }else if(activeTab==='explore'){
+  renderExplore(s);
  }else if(activeTab==='practice'){
   $('stationContent').innerHTML=`<span class="eyebrow">02 / PRACTICA</span><h2>Resuelve los ejercicios</h2><p>Elige una respuesta. Puedes volver a intentarlo.</p>${drawnIndices(s).map((bi,j)=>renderQuiz(s.practice[bi],j+1,'EJERCICIO '+(j+1))).join('')}`;
  }else{
   $('stationContent').innerHTML=`<span class="eyebrow">03 / APLICA · CIENCIAS</span><h2>Aplica lo aprendido</h2><p>Resuelve una situación en contexto.</p>${drawnChecks(s).map((bi,j)=>renderQuiz(checkBank(s)[bi],1+drawCount(s)+j,checkCount(s)>1?'DESAFÍO '+(j+1):'DESAFÍO')).join('')}`;
  }
- if(activeTab!=='learn'&&canRedo(stationIndex)){$('stationContent').insertAdjacentHTML('beforeend','<div class="learn-finish"><button class="primary-btn" type="button" id="redoBtn">↻ Practicar otra ronda</button><small>Es otra ronda del banco de ejercicios: puede que veas alguno que ya resolviste. Tu avance acumulado se mantiene y el resultado de esta ronda no lo reduce.</small></div>');$('redoBtn').addEventListener('click',redo);}
+ if(activeTab!=='learn'&&activeTab!=='explore'&&canRedo(stationIndex)){$('stationContent').insertAdjacentHTML('beforeend','<div class="learn-finish"><button class="primary-btn" type="button" id="redoBtn">↻ Practicar otra ronda</button><small>Es otra ronda del banco de ejercicios: puede que veas alguno que ya resolviste. Tu avance acumulado se mantiene y el resultado de esta ronda no lo reduce.</small></div>');$('redoBtn').addEventListener('click',redo);}
  $('stationContent').querySelectorAll('button[data-answer]').forEach(b=>b.addEventListener('click',()=>answer(b)));$('stationContent').querySelectorAll('.typed').forEach(bindTyped);typesetMath($('stationContent'));
 }
+/* EXPLORA (opcional por estación, no suma avance): s.explore={title,desc,instr,alt,height,html|url}. Nunca se guarda en el estado ni en SCORM. */
+function hasExplore(s){const e=s&&s.explore;return !!(e&&typeof e==='object'&&((typeof e.html==='string'&&e.html.trim())||(typeof e.url==='string'&&/^https:\/\//.test(e.url))));}
+function renderExplore(s){const e=s.explore,host=$('stationContent');
+ const body=(typeof e.html==='string'&&e.html.trim())?`<iframe class="ex-frame" id="exFrame" title="${esc(e.title||'Explora')}" sandbox="allow-scripts" loading="lazy" style="height:${Math.min(900,Math.max(240,Number(e.height)||520))}px"></iframe><div class="ls-ctl"><button type="button" class="ls-btn ghost" id="exReset">↺ Reiniciar recurso</button></div>`
+  :`<p><a class="primary-btn ex-link" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">Abrir el recurso en otra pestaña ↗</a></p><p class="ex-note">Necesita conexión a internet.</p>`;
+ host.innerHTML=`<span class="eyebrow">✦ EXPLORA · OPCIONAL</span><h2>${esc(e.title||'Explora')}</h2>${e.desc?`<p class="math-content">${rb(e.desc)}</p>`:''}<div class="ex-note" role="note"><b>Esto no cuenta para tu avance.</b> Juega libremente: no hay notas ni respuestas correctas o incorrectas.</div>${e.instr?`${lcCard('lc-idea','QUÉ PUEDES HACER',`<p class="math-content">${rb(e.instr)}</p>`)}`:''}${body}${e.alt?`<details class="ex-alt"><summary>Descripción para quien no pueda usar el recurso</summary><p class="math-content">${rb(e.alt)}</p></details>`:''}`;
+ const fr=$('exFrame');if(fr){window.onmessage=ev=>{const f=$('exFrame');if(f&&ev.source===f.contentWindow&&ev.data&&ev.data.pace==='explora-h'){const h=Number(ev.data.h);if(h>=200&&h<=1600)f.style.height=Math.ceil(h)+6+'px';}};fr.srcdoc=e.html;$('exReset').onclick=()=>{fr.srcdoc='';setTimeout(()=>{fr.srcdoc=e.html;},30);};}
+ typesetMath(host);}
 function renderQuiz(q,step,label){let done=stepDone(stationIndex,step);if(q&&q.type==='input')return renderTyped(q,step,label,done);return `<article class="quiz ${done?'done':''}" data-step="${step}"><div class="quiz-head"><span>${esc(label)}</span><span>${done?'✓ Resuelto':'Por resolver'}</span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-answer="${k}" class="${done&&k===q.correct?'correct':''}" ${done?'disabled':''}>${rich(o)}</button>`).join('')}</div><p class="feedback ${done?'correct':''}" role="status" aria-live="polite">${done?'✓ '+rich(q.why):''}</p></article>`;}
 function questionAt(step){const st=STATIONS[stationIndex],dp=drawCount(st);return step>dp?checkBank(st)[drawnChecks(st)[step-dp-1]]:st.practice[drawnIndices(st)[step-1]];}
 function renderTyped(q,step,label,done){

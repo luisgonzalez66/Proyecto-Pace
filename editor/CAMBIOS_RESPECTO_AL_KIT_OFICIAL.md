@@ -24,6 +24,8 @@ Este editor y su motor **no son los oficiales**: se les agregaron funciones. Ant
 
 17. **Campos del editor para Aprende visual y META FINAL.** En «Editar estación» hay un bloque «Aprende visual (opcional)» con objetivo, idea, pasos (enunciado, qué se hace y por qué, expresión en LaTeX; se pueden reordenar y quitar) y «Presta atención», con vista previa. En «Datos de la unidad» hay un casillero «Incluir META FINAL» con la duración en minutos (15 a 300). `validation.js` revisa ambos campos.
 
+18. **Explora (cuarta pestaña opcional por estación).** Campo `explore` en la estación: `title`, `desc`, `instr`, `alt` (descripción accesible), `height` y un recurso: `html` (archivo HTML autónomo, se muestra aislado en un iframe con `sandbox="allow-scripts"`) o `url` (enlace https que se abre en otra pestaña). Si no existe, la pestaña no aparece. **No suma avance** (ni estación, ni unidad, ni curso), no cambia `state` ni `suspend_data`, y `state.tab` nunca guarda «explore». El motor ajusta la altura del recurso si este envía `postMessage({pace:'explora-h',h})`. En el editor: bloque «Explora (opcional)» con vista previa. Primer recurso: balanza de ecuaciones (`unidades/u3/recursos/explora_balanza.html`) en la estación u3-s001.
+
 Límite a respetar: Practica + Aplica que ve cada estudiante, sumando 1 de Aprende, debe ser como máximo 24 actividades por estación (el editor avisa).
 
 Los archivos que contienen estos cambios: `motor_bundle.js` (motor del estudiante, en una sola línea enorme), `editor.js`, `validation.js`, `map_artifacts.js`, `content_text.js`, `EDITOR_PACE.html`.

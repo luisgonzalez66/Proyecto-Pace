@@ -576,3 +576,33 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 @media(prefers-reduced-motion:reduce){.mt-alert{transition:none}}
 /* chucao en el cierre de la unidad: tamaño fijo aunque no haya META FINAL */
 .finish-icon img{width:100%;height:100%;object-fit:contain;display:block}
+
+/* Modo enfoque del ejemplo guiado: se ve todo el desarrollo; el resto de la página se atenúa y el paso nuevo se destaca */
+#stationContent>*{transition:opacity .35s ease,filter .35s ease}
+#stationContent.lfocus>*:not(.lc-steps){opacity:.3;filter:blur(1.5px);cursor:pointer}
+#stationContent.lfocus .lc-steps{position:relative;z-index:2;box-shadow:0 10px 30px rgba(43,42,107,.16)}
+/* sin numeración visible: una línea de tiempo con puntos */
+.ls-list{position:relative}
+.ls-item .ls-n{font-size:0;width:12px;height:12px;margin-top:9px;background:var(--navy);opacity:.55}
+.ls-item.cur .ls-n{opacity:1;background:var(--coral);box-shadow:0 0 0 5px rgba(194,64,111,.18)}
+.ls-list::before{content:"";position:absolute;left:17px;top:18px;bottom:18px;width:2px;background:rgba(43,42,107,.18);border-radius:2px}
+.ls-item{position:relative;transition:opacity .3s ease,background .3s ease,transform .3s ease}
+#stationContent.lfocus .ls-item.on:not(.cur){opacity:.78;background:rgba(255,255,255,.55)}
+#stationContent.lfocus .ls-item.cur{background:#fff;border-color:var(--coral);border-width:2px;padding:14px 16px;box-shadow:0 8px 22px rgba(194,64,111,.18);animation:lsNew .5s ease}
+#stationContent.lfocus .ls-item.cur .ls-why{font-size:1.18em;line-height:1.35}
+#stationContent.lfocus .ls-item.cur .ls-math{font-size:1.25em;margin-top:6px}
+@keyframes lsNew{0%{background:#fff0c9;transform:translateY(8px);opacity:.3}100%{background:#fff;transform:none;opacity:1}}
+.ls-bar{display:inline-block;vertical-align:middle;width:120px;height:8px;border-radius:8px;background:rgba(43,42,107,.15);overflow:hidden}
+.ls-bar i{display:block;height:100%;background:var(--coral);border-radius:8px;transition:width .35s ease}
+@media(max-width:700px){#stationContent.lfocus>*:not(.lc-steps){filter:none;opacity:.35}#stationContent.lfocus .ls-item.cur .ls-why{font-size:1.1em}#stationContent.lfocus .ls-item.cur .ls-math{font-size:1.12em}}
+@media(prefers-reduced-motion:reduce){#stationContent>*,.ls-item{transition:none}#stationContent.lfocus .ls-item.cur{animation:none}}
+
+/* Explora: cuarta pestaña opcional */
+#stationTabs.has-explore{grid-template-columns:repeat(4,minmax(0,1fr))}
+.tab-explore{border-style:dashed;border-color:var(--coral);color:var(--coral)}
+.tab-explore.active{background:#fdebf1;border-color:var(--coral);color:var(--coral);border-style:solid}
+.ex-note{margin:10px 0;padding:9px 12px;border-radius:12px;background:#fdebf1;border:2px dashed var(--coral);font-size:14px}
+.ex-frame{display:block;width:100%;border:3px solid var(--navy);border-radius:14px;background:#fffdf6;margin:12px 0 4px}
+.ex-alt{margin-top:12px;font-size:14px}.ex-alt summary{cursor:pointer;font-weight:800;color:var(--teal)}
+.ex-link{display:inline-block;text-decoration:none}
+@media(max-width:520px){#stationTabs.has-explore .tab{font-size:10.5px;padding:7px 1px}}

@@ -30,6 +30,13 @@ window.PACEValidation=(()=>{
     require(L.steps&&Array.isArray(L.steps.items)&&L.steps.items.length>=1&&L.steps.items.length<=20,loc+': Aprende visual necesita entre 1 y 20 pasos');
     if(L.steps.title!==undefined)text(L.steps.title,loc+': Aprende visual · enunciado',false);
     L.steps.items.forEach((x,n)=>{require(x&&typeof x==='object',loc+': paso '+(n+1)+' inválido');text(x.why,loc+': paso '+(n+1)+' · explicación');if(x.math!==undefined)text(x.math,loc+': paso '+(n+1)+' · matemática',false);});}
+   if(s.explore!==undefined){const E=s.explore;require(E&&typeof E==='object'&&!Array.isArray(E),loc+': Explora inválido');
+    text(E.title,loc+': Explora · título');for(const k of ['desc','instr','alt'])if(E[k]!==undefined)text(E[k],loc+': Explora · '+k,false);
+    const hasHtml=typeof E.html==='string'&&!blank.test(E.html),hasUrl=typeof E.url==='string'&&E.url!=='';
+    require(hasHtml||hasUrl,loc+': Explora necesita un recurso (archivo HTML o enlace https)');require(!(hasHtml&&hasUrl),loc+': Explora: usa solo un recurso, HTML o enlace');
+    if(hasHtml)require(Array.from(E.html).length<=400000,loc+': el HTML de Explora es demasiado grande (máximo 400 000 caracteres)');
+    if(hasUrl)require(/^https:\/\/[^\s<>"']{5,1500}$/.test(E.url)&&!whitespace.test(E.url),loc+': enlace de Explora inválido (debe empezar con https://)');
+    if(E.height!==undefined)require(Number.isInteger(E.height)&&E.height>=240&&E.height<=900,loc+': altura de Explora entre 240 y 900');}
    require(Number.isInteger(s.group)&&s.group>=0&&s.group<u.groups.length,loc+': bloque inexistente');
    if(s.minutes===undefined)s.minutes=40;require(Number.isInteger(s.minutes)&&s.minutes>=5&&s.minutes<=480,loc+': duración inválida (5–480 min)');
    require(Array.isArray(s.practice)&&s.practice.length>=1&&s.practice.length<=C.maxPractice,loc+': entre 1 y '+C.maxPractice+' prácticas');s.practice.forEach(q=>quiz(q,loc+': práctica'));if(s.draw!==undefined&&s.draw!==null&&s.draw!==''){require(Number.isInteger(s.draw)&&s.draw>=1&&s.draw<=s.practice.length,loc+': el sorteo debe ser un número entre 1 y '+s.practice.length+' (tamaño del banco)');}else delete s.draw;quiz(s.check,loc+': Aplica');

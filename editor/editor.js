@@ -24,7 +24,7 @@ function renderStationEditor(){const s=station();$('editorEmpty').classList.togg
  $('stationID').textContent='ID · '+s.id;
  for(const el of $$('[data-s]'))el.value=s[el.dataset.s]??'';
  $('sGroup').innerHTML=unit.groups.map((g,i)=>`<option value="${i}">${esc(g.title)}</option>`).join('');$('sGroup').value=s.group;
- renderMediaList();renderQuestions();renderLearnEditor();schedulePreview();
+ renderMediaList();renderQuestions();renderLearnEditor();renderExploreEditor();schedulePreview();
 }
 function renderQuestions(){const s=station();if(!s)return;
  $('practiceList').innerHTML=s.practice.map((q,i)=>quizMarkup(q,'practice',i)).join('');
@@ -93,6 +93,23 @@ $('addLearnStep').onclick=()=>{const s=station();if(!s||!s.learn)return;s.learn.
 /* ---- META FINAL de la unidad (campo opcional "meta") ---- */
 $('uMetaOn').addEventListener('change',e=>{if(!unit)return;if(e.target.checked)unit.meta={minutes:Number($('uMetaMin').value)||120,mix:[2,3,'a']};else delete unit.meta;$('uMetaMin').disabled=!e.target.checked;touch();});
 $('uMetaMin').addEventListener('input',e=>{if(!unit||!unit.meta)return;const n=Math.round(Number(e.target.value));if(n>=15&&n<=300){unit.meta.minutes=n;touch();}});
+
+/* ---- Explora (campo opcional "explore"; no suma avance) ---- */
+function renderExploreEditor(){const s=station();if(!s)return;const E=s.explore;$('exploreOn').checked=!!E;$('exploreBody').classList.toggle('hidden',!E);$('pvExplore').classList.toggle('hidden',!E);
+ if(!E){if(activeTab==='explore'){activeTab='learn';$$('button[data-preview-tab]').forEach(x=>x.classList.toggle('active',x.dataset.previewTab==='learn'));}return;}
+ for(const el of $$('[data-x]')){const k=el.dataset.x;el.value=E[k]??'';}
+ const kind=typeof E.url==='string'&&!E.html?'url':'html';$('exKind').value=kind;$('exHtmlBox').classList.toggle('hidden',kind!=='html');$('exUrlBox').classList.toggle('hidden',kind!=='url');
+ $('exFileInfo').textContent=E.html?'Archivo cargado · '+Math.round(E.html.length/1024)+' KB':'Sin archivo cargado';}
+$('exploreOn').addEventListener('change',e=>{const s=station();if(!s)return;
+ if(e.target.checked)s.explore={title:'Nuevo recurso Explora',html:''};
+ else{if(!confirm('Se quitará Explora de esta estación. ¿Continuar?')){e.target.checked=true;return;}delete s.explore;}
+ touch();renderExploreEditor();});
+$('exploreEd').addEventListener('input',e=>{const el=e.target,s=station();if(!s||!s.explore||!el.dataset.x)return;const k=el.dataset.x;
+ if(k==='height'){if(el.value==='')delete s.explore.height;else s.explore.height=Number(el.value);}else if((k==='desc'||k==='instr'||k==='alt'||k==='url')&&el.value==='')delete s.explore[k];else s.explore[k]=el.value;touch();});
+$('exKind').addEventListener('change',e=>{const s=station();if(!s||!s.explore)return;if(e.target.value==='url'){delete s.explore.html;s.explore.url=s.explore.url||'';}else{delete s.explore.url;s.explore.html=s.explore.html||'';}touch();renderExploreEditor();});
+$('exFile').addEventListener('change',async e=>{const f=e.target.files[0],s=station();e.target.value='';if(!f||!s||!s.explore)return;
+ if(f.size>400000){alertMessage('El archivo HTML supera 400 KB. Conviene un recurso más liviano.',true);return;}
+ s.explore.html=await f.text();delete s.explore.url;touch();renderExploreEditor();});
 let pendingPreview=null;
 function schedulePreview(){clearTimeout(pendingPreview);pendingPreview=setTimeout(renderPreview,330);}
 function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<div class="empty">Selecciona una estación.</div>';return;}
@@ -105,12 +122,15 @@ function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<
   for(const m of s.media||[]){let cap=esc(m.caption||'');if(m.type==='image'){const src=fileURL(m.src);piece+=`<div class="media-sample">${src?`<img src="${src}" alt="${cap||'Imagen'}">`:'Archivo faltante'}<p>${cap}</p></div>`;}else if(m.type==='pdf'){const src=fileURL(m.src);piece+=`<div class="media-sample">📄 <a target="_blank" rel="noopener" href="${src}">Abrir PDF adjunto</a><p>${cap}</p></div>`;}else if(m.type==='video_file'){const src=fileURL(m.src);piece+=`<div class="media-sample"><video controls src="${src}"></video><p>${cap}</p></div>`;}else if(m.type==='video_url'){piece+=`<div class="media-sample">▶ <a rel="noopener noreferrer" target="_blank" href="${esc(m.src)}">Abrir video externo</a><p>${cap}</p></div>`;}}
   piece+='<p class="hint">[ Marcar como revisado ]</p>';
  }else{
+  if(activeTab==='explore'&&s.explore){const E=s.explore;piece+=`<h3>✦ ${esc(E.title||'Explora')} <small>(opcional · no suma avance)</small></h3>${E.desc?`<p>${esc(E.desc)}</p>`:''}${E.instr?`<p class="math-fragment">${bold(E.instr)}</p>`:''}`+(E.html?'<iframe id="pvFrame" sandbox="allow-scripts" style="width:100%;height:'+Math.min(900,Math.max(240,Number(E.height)||520))+'px;border:2px solid #2b2a6b;border-radius:10px" title="Explora"></iframe>':E.url?`<p><a target="_blank" rel="noopener noreferrer" href="${esc(E.url)}">Abrir recurso externo ↗</a></p>`:'<p class="hint">Carga un archivo HTML o escribe un enlace.</p>');}
+  else{
   const qs=activeTab==='check'?[s.check].concat(s.checks||[]):s.practice;window.__pq=qs;
   for(const [i,q] of qs.entries()){piece+=`<h3>${activeTab==='check'?'Aplica'+(qs.length>1?' '+(i+1):''):'Ejercicio '+(i+1)}</h3><p class="math-fragment">${multiline(q.q)}</p>`;
    piece+=q.type==='input'?`<div style="display:flex;gap:8px;margin:6px 0"><input data-tp="${i}" placeholder="Escribe tu respuesta" style="flex:1;padding:8px;border:1px solid #cbd9df;border-radius:8px"><button type="button" class="preview-choice" data-tpb="${i}" data-correct="false">Comprobar</button></div><p class="hint">${esc(PACETyped.hint(q))}</p>`:q.options.map((o,j)=>`<button class="preview-choice math-fragment" type="button" data-correct="${j===q.correct}" data-why="${esc(q.why)}">${multiline(o)}</button>`).join('');}
   piece+='<p class="status" id="previewFeedback" role="status">Prueba las alternativas; aquí no se guarda avance.</p>';
+  }
  }
- $('studentPreview').innerHTML=piece;
+ $('studentPreview').innerHTML=piece;{const pf=$('pvFrame');if(pf&&s.explore&&s.explore.html)pf.srcdoc=s.explore.html;}
  $$('button.preview-choice',$('studentPreview')).forEach(b=>b.onclick=()=>{$('previewFeedback').textContent=b.dataset.correct==='true'?'Correcta · '+b.dataset.why:'Vuelve a intentarlo. (Solo vista previa)';});
  $$('button[data-tpb]',$('studentPreview')).forEach(b=>b.onclick=()=>{const i=+b.dataset.tpb,q=window.__pq[i],inp=$('studentPreview').querySelector('input[data-tp="'+i+'"]'),r=PACETyped.check(q,inp.value);$('previewFeedback').textContent=r.state==='ok'?'Correcta · '+(q.why||''):r.msg+' (Solo vista previa)';});
  if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([$('studentPreview')]).catch(()=>{});
