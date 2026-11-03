@@ -206,6 +206,8 @@ function openMap(unit,group){
  showOnly('map');renderMap();breadcrumbs();
 }
 let FIN0=null;
+const PHONE=window.matchMedia?matchMedia('(max-width:899px)'):{matches:false};
+if(PHONE.addEventListener)PHONE.addEventListener('change',()=>{if(view==='map')renderMap();});
 function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTML;
  const u=UNITS[selectedUnit];const groups=u.groups||[];const unitItems=ownStations(selectedUnit);$('mapUnitLabel').textContent='UNIDAD '+u.roman;
  $('mapTitle').innerHTML=esc(u.title)+(u.ready?'<span>.</span>':'');
@@ -233,17 +235,18 @@ function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTM
     <span class="route-arrow" aria-hidden="true">↗</span>
   </button>`;}).join('');
  const hints=u.hints||[];let html='';
+ if(PHONE.matches&&groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);activeGroup=ls>=0&&STATIONS[ls].unit===selectedUnit?STATIONS[ls].group:0;}
  groups.forEach((group,g)=>{
   const items=unitItems.filter(x=>x.s.group===g),open=activeGroup===g,num=String(g+1).padStart(2,'0');
   const done=items.filter(x=>stationDone(x.i)===milestoneCount(x.s)).length;
-  html+=`<div class="current-group acc group-theme-${g%4}${open?' open':''}"><button type="button" class="group-heading acc-head" data-acc="${g}" aria-expanded="${open}" aria-controls="acc-${g}"><span class="group-square">${num}</span><div><span class="eyebrow">BLOQUE ${num}</span><h2>${esc(group.title)}</h2><span class="group-ratio acc-ratio">${done}/${items.length} completas</span></div><span class="acc-chev" aria-hidden="true">▾</span></button>`;
-  if(open){html+=`<div class="acc-body" id="acc-${g}"><div class="station-list">${cards(items)}</div>`+(hints[g]?`<div class="concept-bridge"><span aria-hidden="true">↗</span>${esc(hints[g])}</div>`:'')+'</div>';}
+  html+=`<div class="current-group acc group-theme-${g%4}${open?' open':''}${items.length&&done===items.length?' all-done':''}"><button type="button" class="group-heading acc-head" data-acc="${g}" aria-expanded="${open}" aria-controls="acc-${g}" aria-label="Bloque ${num}: ${esc(group.title)}. ${done} de ${items.length} completas"><span class="group-square">${num}</span><div><span class="eyebrow">BLOQUE ${num}</span><h2>${esc(group.title)}</h2><span class="group-ratio acc-ratio">${done}/${items.length} completas</span></div><span class="acc-chev" aria-hidden="true">▾</span></button>`;
+  if(open){html+=`<div class="acc-body" id="acc-${g}"><div class="acc-body-head"><span class="eyebrow">BLOQUE ${num}</span><h2>${esc(group.title)}</h2><span class="group-ratio">${done}/${items.length} completas</span></div><div class="station-list">${cards(items)}</div>`+(hints[g]?`<div class="concept-bridge"><span aria-hidden="true">↗</span>${esc(hints[g])}</div>`:'')+'</div>';}
   html+='</div>';
  });
  $('route').className='route acc-list';$('route').style.setProperty('--n',groups.length||1);if(activeGroup<0&&html)html+='<div class="acc-empty">Elige un bloque para ver sus estaciones.</div>';$('route').innerHTML=html||'<p class="hint">Esta unidad todavía no contiene estaciones.</p>';
  $('route').querySelectorAll('button[data-index]').forEach(b=>b.addEventListener('click',()=>openStation(Number(b.dataset.index))));
  $('route').querySelectorAll('.acc-head').forEach(b=>b.addEventListener('click',()=>{
-  const g=Number(b.dataset.acc);activeGroup=activeGroup===g?-1:g;renderMap();
+  const g=Number(b.dataset.acc);activeGroup=(activeGroup===g&&!PHONE.matches)?-1:g;renderMap();
   const h=$('route').querySelector('.acc-head[data-acc="'+g+'"]');if(h){h.focus({preventScroll:true});h.scrollIntoView({block:'nearest'});}
  }));
  const MC=UNITS[selectedUnit].meta,fin=$('mapFinish');
@@ -271,7 +274,7 @@ function bindExMore(s){const b=$('exMore');if(!b)return;b.addEventListener('clic
 const rb=v=>rich(v).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
 const lcCard=(cls,tag,body)=>`<section class="lc ${cls}"><span class="lc-tag">${tag}</span>${body}</section>`;
 function learnHTML(s,done){const L=s.learn,st=L.steps||{items:[]};
- const items=(st.items||[]).map((it,i)=>`<li class="ls-item" data-i="${i}"><span class="ls-n">${i+1}</span><div><p class="ls-why">${rb(it.why||'')}</p>${it.math?`<div class="ls-math math-content">$$${it.math}$$</div>`:''}</div></li>`).join('');
+ const items=(st.items||[]).map((it,i)=>{const sd=it.side&&(it.side.math||it.side.text)?`<aside class="ls-side" aria-label="Cálculo auxiliar"><span class="ls-side-t">${rb(it.side.title||'Cálculo auxiliar')}</span>${it.side.math?`<div class="ls-side-m math-content">$$${it.side.math}$$</div>`:''}${it.side.text?`<p class="ls-side-p">${rb(it.side.text)}</p>`:''}</aside>`:'';return `<li class="ls-item${sd?' has-side':''}" data-i="${i}"><div class="ls-main">${it.math?`<div class="ls-math math-content">$$${it.math}$$</div>`:''}<p class="ls-why">${rb(it.why||'')}</p></div>${sd}</li>`;}).join('');
  return (L.goal?lcCard('lc-goal','QUÉ APRENDERÁS',`<p class="math-content">${rb(L.goal)}</p>`):'')
  +lcCard('lc-idea','COMPRENDE LA IDEA',`<p class="math-content">${rb(L.idea||s.concept)}</p>`)
  +(items?lcCard('lc-steps','EJEMPLO GUIADO · PASO A PASO',`${st.title?`<p class="ls-title math-content">${rb(st.title)}</p>`:''}<ol class="ls-list" id="lsList" aria-live="polite">${items}</ol><div class="ls-ctl" role="group" aria-label="Controles del ejemplo"><button type="button" class="ls-btn" id="lsPrev">← Anterior</button><span class="ls-count" id="lsCount"></span><button type="button" class="ls-btn ls-next" id="lsNext">Siguiente paso →</button><button type="button" class="ls-btn ghost" id="lsReset">↺ Reiniciar</button><button type="button" class="ls-btn ghost" id="lsAll">Ver explicación completa</button><button type="button" class="ls-btn ghost" id="lsFocus" aria-pressed="false">◐ Modo enfoque</button></div><div class="ls-full hidden" id="lsFull"><p class="math-content">${rb(s.example)}</p></div>`):`<div class="example"><p class="math-content">${rb(s.example)}</p></div>`)
@@ -388,7 +391,8 @@ const metaCount=a=>a.filter(c=>c==='1').length;
 const metaPct=a=>a.length?Math.round(100*metaCount(a)/a.length):0;
 const mmss=t=>{t=Math.max(0,Math.floor(t));const h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;return (h?h+':'+String(m).padStart(2,'0'):String(m))+':'+String(s).padStart(2,'0');};
 const metaQCache={};
-function metaQs(salt){
+function metaQs(salt,min){
+ const M0=metaCfg();if(min&&M0&&min<M0.minutes){const key=salt+'|'+state.seed+'|'+min;if(metaQCache[key])return metaQCache[key];return metaQCache[key]=metaSub(metaQs(salt),min,M0.minutes,salt);}
  const key=salt+'|'+state.seed;if(metaQCache[key])return metaQCache[key];
  const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];
  STATIONS.forEach(s=>{
@@ -399,13 +403,25 @@ function metaQs(salt){
   mix.forEach(m=>{let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x);q=ap[Math.floor(r()*ap.length)]||null;}else q=take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});
  });
  return metaQCache[key]=out;}
+/* Simulacro más corto: n = preguntas proporcionales al tiempo; se reparten entre todas las estaciones (una por estación en cada vuelta) */
+function metaSub(full,min,total,salt){
+ const n=Math.max(4,Math.min(full.length,Math.round(full.length*min/total)));
+ const ids=[...new Set(full.map(x=>x.sid))],r=rng(((state.seed||0)^hashStr('SUB'+salt+min))>>>0);
+ for(let i=ids.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[ids[i],ids[j]]=[ids[j],ids[i]];}
+ const by={};full.forEach(x=>(by[x.sid]=by[x.sid]||[]).push(x));
+ const pick=new Set();
+ for(const round of [0,2,1]){for(const id of ids){if(pick.size>=n)break;const q=by[id][round];if(q)pick.add(q);}}
+ for(const id of ids){for(const q of by[id]){if(pick.size<n)pick.add(q);}}
+ return full.filter(x=>pick.has(x));}
+const META_OPTS=[20,30,40,60,120];let metaPracMin=60;
+const metaOptN=m=>metaQs('PV',m).length;
 let metaMode='off',metaPhase='hub',metaIdx=0,metaTimer=null,metaPrac=null,metaConfirm=false;const metaVals={};
 function metaSess(){
- if(metaMode==='prac'&&metaPrac)return {mode:'prac',qs:metaQs(metaPrac.salt),a:metaPrac.a,s:metaPrac.s,e:metaPrac.e,n:0};
+ if(metaMode==='prac'&&metaPrac)return {mode:'prac',qs:metaQs(metaPrac.salt,metaPrac.min),a:metaPrac.a,s:metaPrac.s,e:metaPrac.e,n:0,secs:metaPrac.min*60};
  if(state.mt)return {mode:'off',qs:metaQs('O'+state.mt.n),a:state.mt.a,s:state.mt.s,e:state.mt.e,n:state.mt.n};
  return null;}
 function metaPersist(){if(metaMode==='off'){const ok=save();if(!ok)$('mtMsg')&&($('mtMsg').textContent='⚠ No se confirmó el guardado de tu respuesta.');}}
-function metaRemaining(S){return metaSecs()-(nowSec()-S.s);}
+function metaRemaining(S){return (S.secs||metaSecs())-(nowSec()-S.s);}
 function metaFinish(auto){
  const S=metaSess();if(!S||S.e)return;
  if(S.mode==='off'){const total=metaSecs(),end=Math.min(nowSec(),S.s+total);state.mt.e=end;const sc=metaPct(state.mt.a);if(sc>state.mt.b)state.mt.b=sc;save();}
@@ -422,8 +438,8 @@ function metaStartOff(){
  if(!save()){state.mt=prev;$('mtMsg').textContent='⚠ No se pudo guardar el inicio. Revisa la conexión e inténtalo de nuevo.';return;}
  metaMode='off';metaPhase='run';metaIdx=0;metaNote='';for(const k in metaVals)delete metaVals[k];renderMeta();}
 function metaStartPrac(){
- const salt='P'+Math.floor(Math.random()*1e9),N=metaQs(salt).length;
- metaPrac={salt,s:nowSec(),e:0,a:Array(N).fill('-')};metaMode='prac';metaPhase='run';metaIdx=0;metaNote='';for(const k in metaVals)delete metaVals[k];renderMeta();}
+ const salt='P'+Math.floor(Math.random()*1e9),min=metaPracMin,N=metaQs(salt,min).length;
+ metaPrac={salt,min,s:nowSec(),e:0,a:Array(N).fill('-')};metaMode='prac';metaPhase='run';metaIdx=0;metaNote='';for(const k in metaVals)delete metaVals[k];renderMeta();}
 function metaResume(){metaMode='off';metaPhase='run';metaIdx=0;renderMeta();}
 function metaClock(){
  const S=metaSess();if(!S||S.e||metaPhase!=='run'||view!=='meta'){clearInterval(metaTimer);metaTimer=null;return;}
@@ -472,18 +488,18 @@ function metaHubHTML(){
  const att=mt?(mt.n+(mt.e?1:0)):0,run=metaRunning(),left=run?metaRemaining({s:mt.s}):0,all=STATIONS.every((s,i)=>stationDone(i)===milestoneCount(s));
  const ready=all?'':`<p class="mt-soft">Te recomendamos completar primero las ${STATIONS.length} estaciones. Aún no estás obligado a hacerlo para entrar.</p>`;
  return `<div class="mt-hero"><span class="eyebrow">META FINAL</span><h1>Evaluación de la unidad</h1><p>Mide lo que aprendiste en las ${STATIONS.length} estaciones: <b>${N} preguntas</b> pensadas para <b>${min} minutos</b>. Puedes intentarlo cuantas veces quieras.</p>${ready}</div>
- <div class="mt-cards"><section class="mt-card mt-prac"><span class="lc-tag">SIMULACRO</span><h2>Practica con reloj</h2><ul><li>El reloj corre, pero <b>no se cierra</b>: si pasas de los ${min} minutos sigues y ves tu tiempo extra.</li><li>Las preguntas se sortean distintas cada vez.</li><li><b>El resultado no se guarda</b> ni se envía a SiveducMD.</li></ul><button type="button" class="ls-btn ls-next" id="mtPrac">Comenzar simulacro</button></section>
+ <div class="mt-cards"><section class="mt-card mt-prac"><span class="lc-tag">SIMULACRO</span><h2>Practica con reloj</h2><p class="mt-optlbl" id="mtOptLbl">Elige cuánto tiempo quieres practicar:</p><div class="mt-opts" role="radiogroup" aria-labelledby="mtOptLbl">${META_OPTS.map(m=>`<button type="button" role="radio" aria-checked="${m===metaPracMin}" class="mt-opt${m===metaPracMin?' on':''}" data-min="${m}"><b>${m} min</b><small>${metaOptN(m)} preguntas</small></button>`).join('')}</div><ul><li>Se arma una evaluación acorde al tiempo elegido, con preguntas de todas las estaciones.</li><li>El reloj corre, pero <b>no se cierra</b>: si pasas de los ${metaPracMin} minutos sigues y ves tu tiempo extra.</li><li>Las preguntas se sortean distintas cada vez.</li><li><b>El resultado no se guarda</b> ni se envía a SiveducMD.</li></ul><button type="button" class="ls-btn ls-next" id="mtPrac">Comenzar simulacro de ${metaPracMin} min</button></section>
  <section class="mt-card mt-off"><span class="lc-tag">OFICIAL</span><h2>META FINAL oficial</h2>${run?`<p class="mt-run">Tienes una evaluación <b>en curso</b>. Tiempo restante: <b id="mtHubLeft">${mmss(left)}</b>.</p><button type="button" class="primary-btn" id="mtResume">Continuar evaluación</button>`:`<ul><li><b>${min} minutos</b>. El reloj comienza <b>cuando tú aprietas «Comenzar»</b> y <b>no se detiene</b> aunque salgas o cierres la ventana.</li><li>Al terminar el tiempo la evaluación <b>se cierra sola</b> y se entrega con las respuestas que alcanzaste a guardar.</li><li>Puedes cambiar tus respuestas hasta entregar. No verás si son correctas hasta el final.</li><li>Cada intento trae preguntas distintas. Se registra en SiveducMD <b>tu mejor resultado</b>.</li><li>No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial.</li></ul><label class="mt-check"><input type="checkbox" id="mtOk"> Entendí cómo funciona y quiero comenzar ahora.</label><button type="button" class="primary-btn" id="mtGo" disabled>Comenzar evaluación oficial</button>`}
  ${mt&&mt.b>=0?`<p class="mt-hist">Intentos entregados: <b>${att}</b> · Mejor resultado: <b>${mt.b} %</b>${mt.e?` · <button type="button" class="linklike" id="mtLast">Ver último intento</button>`:''}</p>`:''}<p id="mtMsg" class="mt-msg" role="status"></p></section></div>`;}
 function metaResHTML(S){
- const c=metaCount(S.a),N=S.a.length,pct=metaPct(S.a),used=Math.min(S.e-S.s,metaSecs()+(S.mode==='prac'?99999:0));
+ const c=metaCount(S.a),N=S.a.length,pct=metaPct(S.a),used=Math.min(S.e-S.s,(S.secs||metaSecs())+(S.mode==='prac'?99999:0));
  const by={};S.qs.forEach((x,i)=>{(by[x.sid]=by[x.sid]||{t:x.st,c:0,n:0,d:[]});by[x.sid].n++;if(S.a[i]==='1')by[x.sid].c++;by[x.sid].d.push(S.a[i]);});
  const rows=Object.values(by).map(r=>`<tr><td>${esc(r.t)}</td><td class="mt-dots">${r.d.map(d=>`<i class="d${d}" title="${d==='1'?'Correcta':d==='0'?'Incorrecta':'Sin responder'}"></i>`).join('')}</td><td><b>${r.c}/${r.n}</b></td></tr>`).join('');
  const T=PACETyped;
  const rev=S.qs.map((x,i)=>{const q=x.q,st=S.a[i];let corr='';if(q.type==='input'){let t='';try{t=T.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
   return `<details class="mt-rev ${st==='1'?'ok':st==='0'?'bad':'no'}"><summary><span class="mt-mark">${st==='1'?'✓':st==='0'?'✗':'–'}</span> Pregunta ${i+1} · ${esc(x.st)}</summary><div class="mt-revbody"><p class="math-content">${rich(q.q)}</p><p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p><p class="math-content">${rich(q.why||'')}</p></div></details>`;}).join('');
  const reg=S.mode==='off'?`<p class="mt-regok">✓ Resultado registrado${state.mt&&state.mt.b===pct?'. Es tu mejor resultado hasta ahora.':'. Tu mejor resultado registrado es '+state.mt.b+' %.'}</p><p class="mt-soft">No aprueba ni reprueba: ${completed()?'¡completaste el curso!':'completa también todas las estaciones para terminar el curso.'}</p>`:`<p class="mt-regno">Este fue un simulacro: el resultado <b>no se guarda</b>.</p>`;
- return `<div class="mt-hero"><span class="eyebrow">${S.mode==='off'?'META FINAL OFICIAL · RESULTADO':'SIMULACRO · RESULTADO'}</span>${metaNote?`<p class="mt-timeup">${esc(metaNote)}</p>`:''}<div class="mt-score"><strong>${pct}%</strong><span>${c} de ${N} correctas</span><span>Tiempo usado: ${mmss(used)}${S.mode==='prac'&&used>metaSecs()?' (pasaste el tiempo previsto)':''}</span></div>${reg}</div>
+ return `<div class="mt-hero"><span class="eyebrow">${S.mode==='off'?'META FINAL OFICIAL · RESULTADO':'SIMULACRO · RESULTADO'}</span>${metaNote?`<p class="mt-timeup">${esc(metaNote)}</p>`:''}<div class="mt-score"><strong>${pct}%</strong><span>${c} de ${N} correctas</span><span>Tiempo usado: ${mmss(used)}${S.mode==='prac'&&used>(S.secs||metaSecs())?' (pasaste el tiempo previsto)':''}</span></div>${reg}</div>
  <section class="lc lc-steps"><span class="lc-tag">POR ESTACIÓN</span><table class="mt-table"><tbody>${rows}</tbody></table><p class="mt-soft"><i class="d1"></i> correcta <i class="d0"></i> incorrecta <i class="d-"></i> sin responder</p></section>
  <section class="lc"><span class="lc-tag">REVISA TUS PREGUNTAS</span><div class="mt-revlist">${rev}</div></section>
  <div class="mt-row"><button type="button" class="primary-btn" id="mtAgain">Hacer otro intento</button><button type="button" class="ls-btn ghost" id="mtHub">Volver a la META FINAL</button></div>`;}
@@ -493,7 +509,7 @@ function renderMeta(){
  if(metaPhase!=='hub'&&!S)metaPhase='hub';
  if(metaPhase==='hub'){clearInterval(metaTimer);metaTimer=null;root.innerHTML='<div class="mt-wrap">'+metaHubHTML()+'</div>';
   const ok=$('mtOk');if(ok)ok.addEventListener('change',()=>{$('mtGo').disabled=!ok.checked;});
-  if($('mtGo'))$('mtGo').addEventListener('click',metaStartOff);if($('mtPrac'))$('mtPrac').addEventListener('click',metaStartPrac);if($('mtResume'))$('mtResume').addEventListener('click',metaResume);
+  if($('mtGo'))$('mtGo').addEventListener('click',metaStartOff);if($('mtPrac'))$('mtPrac').addEventListener('click',metaStartPrac);root.querySelectorAll('.mt-opt').forEach(b=>b.addEventListener('click',()=>{metaPracMin=Number(b.dataset.min);renderMeta();const nb=root.querySelector('.mt-opt.on');if(nb)nb.focus();}));if($('mtResume'))$('mtResume').addEventListener('click',metaResume);
   if($('mtLast'))$('mtLast').addEventListener('click',()=>{metaMode='off';metaPhase='res';renderMeta();});
   if(metaRunning()){clearInterval(metaTimer);metaTimer=setInterval(()=>{const el=$('mtHubLeft');if(!el||view!=='meta'||metaPhase!=='hub'){clearInterval(metaTimer);return;}const r=metaRemaining({s:state.mt.s});if(r<=0){metaFinish(true);return;}el.textContent=mmss(r);},1000);}
  }else if(metaPhase==='run'){

@@ -2289,28 +2289,45 @@
        "math": "\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}"
       },
       {
-       "why": "Buscamos el mcm de los denominadores 3, 2 y 6: es 6.",
-       "math": "\\operatorname{mcm}(3,2,6)=6"
+       "why": "Multiplicamos **ambos lados** por el mcm de los denominadores, que es 6.",
+       "math": "6\\left(\\frac{x}{3}+\\frac{1}{2}\\right)=6\\cdot\\frac{5}{6}",
+       "side": {
+        "title": "mcm de 3, 2 y 6",
+        "math": "\\begin{aligned}3&:\\ 3,\\ \\mathbf{6},\\ 9\\\\2&:\\ 2,\\ 4,\\ \\mathbf{6}\\\\6&:\\ \\mathbf{6},\\ 12\\end{aligned}",
+        "text": "El menor múltiplo común es **6**."
+       }
       },
       {
-       "why": "Multiplicamos **todos** los términos, en ambos lados, por 6.",
-       "math": "6\\cdot\\frac{x}{3}+6\\cdot\\frac{1}{2}=6\\cdot\\frac{5}{6}"
-      },
-      {
-       "why": "Simplificamos: los denominadores desaparecen.",
-       "math": "2x+3=5"
+       "why": "Distribuimos el 6 y simplificamos: los denominadores desaparecen.",
+       "math": "2x+3=5",
+       "side": {
+        "title": "Cada término por 6",
+        "math": "\\begin{aligned}6\\cdot\\tfrac{x}{3}&=2x\\\\6\\cdot\\tfrac{1}{2}&=3\\\\6\\cdot\\tfrac{5}{6}&=5\\end{aligned}"
+       }
       },
       {
        "why": "Restamos 3 en ambos lados.",
-       "math": "2x=2"
+       "math": "2x=2",
+       "side": {
+        "title": "Equivalencia",
+        "math": "2x+3-3=5-3"
+       }
       },
       {
        "why": "Dividimos ambos lados por 2.",
-       "math": "x=1"
+       "math": "x=1",
+       "side": {
+        "title": "Equivalencia",
+        "math": "\\frac{2x}{2}=\\frac{2}{2}"
+       }
       },
       {
        "why": "Verificamos reemplazando en la ecuación original.",
-       "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{2}{6}+\\frac{3}{6}=\\frac{5}{6}\\;\\checkmark"
+       "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{5}{6}\\;\\checkmark",
+       "side": {
+        "title": "Comprobación",
+        "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{2}{6}+\\frac{3}{6}=\\frac{5}{6}"
+       }
       }
      ]
     },
