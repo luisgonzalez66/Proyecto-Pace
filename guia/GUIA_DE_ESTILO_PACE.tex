@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath,amssymb}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+
+\definecolor{navy}{HTML}{2B2A6B}
+\definecolor{coral}{HTML}{C2406F}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
+\newtcolorbox{aviso}{colback=yellow!10,colframe=navy,boxrule=.6pt,arc=3pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newcommand{\seccion}[1]{\vspace{4pt}{\large\bfseries\color{navy}#1}\par\vspace{-2pt}}
+\begin{document}
+{\LARGE\bfseries\color{navy}Guía de estilo y plantilla común de estación}\\[2pt]
+{\color{coral}\bfseries PACE · UACh · Curso de nivelación en matemática}\\[2pt]
+{\small Borrador para revisión del equipo docente · noviembre de 2026}
+
+\begin{aviso}
+Esta guía \textbf{orienta}, no obliga. Cada docente decide cómo explicar sus contenidos y cuánto dura su unidad. Lo que se comparte son la organización visual, los términos de la interfaz y unos criterios mínimos de calidad. Los puntos marcados con \textbf{(a acordar)} son propuestas que el equipo debe confirmar.
+\end{aviso}
+
+\seccion{1. Estructura de una estación}
+Cada estación tiene tres pasos, siempre en este orden: \textbf{Aprende}, \textbf{Practica} y \textbf{Aplica}. En Aprende se sugiere esta secuencia, que en el editor corresponde al bloque «Aprende visual»:
+\begin{enumerate}
+ \item \textbf{Qué aprenderás.} Un objetivo observable, en una o dos oraciones («Al terminar podrás resolver ecuaciones lineales con paréntesis»).
+ \item \textbf{Comprende la idea.} La explicación y su fundamento: por qué funciona, no solo cómo se hace.
+ \item \textbf{Ejemplo guiado.} Un ejemplo resuelto en pasos cortos. Cada paso dice qué se hace y por qué, y muestra la expresión matemática.
+ \item \textbf{Presta atención.} Un error frecuente o una condición que conviene vigilar, con un ejemplo breve.
+ \item \textbf{Para profundizar (opcional).} Ejemplos adicionales que el estudiante abre si los quiere.
+\end{enumerate}
+Ningún elemento debe ser un párrafo largo. Si una explicación necesita más de unas pocas oraciones, conviene dividirla en pasos.
+
+\seccion{2. Lenguaje}
+\begin{itemize}
+ \item Claro, directo y preciso. Se trata al estudiante de «tú», como a una persona adulta, sin tono infantil.
+ \item Evitar reglas sin fundamento. Por ejemplo, no escribir «el $3$ pasa sumando»; escribir «restamos $3$ en ambos lados».
+ \item Una idea por oración. Definir cada término la primera vez que aparece.
+ \item Los enunciados de Aplica usan contextos de ciencias (física, química, biología, ciencias de la Tierra) con datos verosímiles.
+\end{itemize}
+
+\seccion{3. Notación matemática \textnormal{\small (a acordar)}}
+Propuestas iniciales para que las tres unidades se lean igual:
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Tema} & \textbf{Propuesta}\\
+\midrule
+Decimales & coma decimal: $0{,}25$\\
+Multiplicación & $2x$ o $2\cdot 3$; no usar «$\times$» ni «$*$»\\
+Fracciones & $\dfrac{a}{b}$ en pantalla; en línea, $\tfrac{a}{b}$ solo si es sencilla\\
+Potencias y raíces & $x^{2}$, $\sqrt{x}$, $\sqrt[3]{x}$\\
+Intervalos y conjuntos & $[a,b]$, $(a,b)$, $\{x\in\mathbb{R} : x>2\}$\\
+Aproximaciones & indicar siempre cuántas cifras se conservan: $\pi\approx 3{,}14$\\
+Fórmula resolvente & $x=\dfrac{-b\pm\sqrt{b^{2}-4ac}}{2a}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+En el editor, las fórmulas van entre \verb|$...$| (en el texto) o \verb|$$...$$| (centradas). Para moneda se escribe «CLP 3000», sin usar \verb|$|.
+
+\seccion{4. Términos de la interfaz}
+\begin{itemize}
+ \item Los tres pasos se llaman \textbf{Aprende}, \textbf{Practica} y \textbf{Aplica}, y la evaluación de cierre se llama \textbf{META FINAL}.
+ \item Un bloque agrupa estaciones; una unidad agrupa bloques. El curso no se aprueba ni se reprueba: se \textbf{completa}.
+ \item Cuando el banco no garantiza preguntas nuevas se dice «\textbf{Practicar otra ronda}», no «nuevas preguntas».
+ \item Se distingue siempre el \textbf{avance acumulado} (lo que queda guardado) del resultado de la ronda actual.
+ \item La mascota es el chucao, que cambia de etapa según el avance de la unidad.
+\end{itemize}
+
+\seccion{5. Retroalimentación}
+\begin{itemize}
+ \item Si la respuesta es correcta: confirmar y explicar brevemente por qué.
+ \item Si es incorrecta: no revelar la respuesta; indicar qué revisar y animar a intentarlo de nuevo.
+ \item Las alternativas incorrectas se diseñan a partir de errores reales y, cuando se pueda, cada una tiene su propia pista.
+\end{itemize}
+
+\seccion{6. Revisión mínima de una estación}
+\begin{enumerate}[label=$\square$]
+ \item El objetivo es claro y observable.
+ \item Los ejemplos son matemáticamente correctos (otra persona los resolvió).
+ \item La notación es consistente con la sección 3.
+ \item La retroalimentación se entiende sin ayuda.
+ \item Se ve bien en un teléfono, sin desplazamiento horizontal.
+ \item La exportación funciona y el SCORM carga en SIVEDUC.
+ \item Practica + Aplica + Aprende suman como máximo 24 actividades por estudiante (el editor avisa).
+\end{enumerate}
+
+\seccion{7. Cómo se usa en el editor}
+Abre el paquete de tu unidad, elige una estación y, en «Editar estación», activa «Aprende visual». Completa objetivo, idea, pasos y «presta atención»; la vista previa de la derecha muestra el resultado. La estación de ejemplo es la 3 de la Unidad III, «Paréntesis y fracciones», que ya tiene todos los elementos.
+\end{document}

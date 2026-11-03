@@ -14,7 +14,7 @@ function fileURL(path){if(!resources[path])return '';if(!objectURLs[path]){
  objectURLs[path]=URL.createObjectURL(new Blob([resources[path]],{type:mime}));
  }return objectURLs[path];}
 function updateTime(){if(!unit)return;const mins=unit.stations.reduce((sum,s)=>sum+(Number(s.minutes)||0),0);const h=Math.floor(mins/60),m=mins%60;$('totalTime').textContent=`Tiempo planificado: ${h} h ${String(m).padStart(2,'0')} min / 8 h`;}
-function changeUnitFields(){if(!unit)return;for(const [id,key] of [['uTitle','title'],['uSubtitle','subtitle'],['uIcon','icon']])$(id).value=unit[key]||'';$('uWeek').value=unit.week||'';$('unitName').textContent='Unidad '+unit.roman;}
+function changeUnitFields(){if(!unit)return;for(const [id,key] of [['uTitle','title'],['uSubtitle','subtitle'],['uIcon','icon']])$(id).value=unit[key]||'';$('uWeek').value=unit.week||'';$('uMetaOn').checked=!!unit.meta;$('uMetaMin').value=unit.meta?.minutes||120;$('uMetaMin').disabled=!unit.meta;$('unitName').textContent='Unidad '+unit.roman;}
 function renderGroups(){if(!unit)return;
  $('groupList').innerHTML=unit.groups.map((g,i)=>`<div class="fieldset"><label class="field">Bloque ${i+1}<input data-groupindex="${i}" data-groupfield="title" value="${esc(g.title)}"></label><label class="field">Breve descripción<input data-groupindex="${i}" data-groupfield="subtitle" value="${esc(g.subtitle||'')}"></label><button class="btn small-btn danger" data-removegroup="${i}" ${unit.groups.length===1?'disabled':''} type="button">Quitar bloque</button></div>`).join('')||'<p class="hint">Agrega el primer bloque temático.</p>';
 }
@@ -24,7 +24,7 @@ function renderStationEditor(){const s=station();$('editorEmpty').classList.togg
  $('stationID').textContent='ID · '+s.id;
  for(const el of $$('[data-s]'))el.value=s[el.dataset.s]??'';
  $('sGroup').innerHTML=unit.groups.map((g,i)=>`<option value="${i}">${esc(g.title)}</option>`).join('');$('sGroup').value=s.group;
- renderMediaList();renderQuestions();schedulePreview();
+ renderMediaList();renderQuestions();renderLearnEditor();schedulePreview();
 }
 function renderQuestions(){const s=station();if(!s)return;
  $('practiceList').innerHTML=s.practice.map((q,i)=>quizMarkup(q,'practice',i)).join('');
@@ -70,13 +70,38 @@ async function exportUnit(){if(!unit)return;try{validatePackage();let zip=new JS
  await PACEValidation.archive(zip);
  const content=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});const url=URL.createObjectURL(content);const a=document.createElement('a');a.href=url;a.download=`ENTREGA_UNIDAD_0${unit.id[1]}.zip`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);dirty=false;status('Exportado: '+a.download+' · HTML local y SCORM individual incluidos.');
  }catch(e){alertMessage('Antes de exportar: '+e.message,true);}}
+
+/* ---- Aprende visual (campo opcional "learn") ---- */
+const bold=t=>multiline(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+function renderLearnEditor(){const s=station();if(!s)return;const L=s.learn;$('learnOn').checked=!!L;$('learnBody').classList.toggle('hidden',!L);if(!L)return;
+ for(const el of $$('[data-l]')){const k=el.dataset.l;el.value=k==='stitle'?(L.steps?.title||''):(L[k]||'');}
+ const items=L.steps?.items||[];
+ $('learnSteps').innerHTML=items.map((it,i)=>`<div class="learn-step" data-step="${i}"><div class="inline-head"><strong>Paso ${i+1}</strong><button type="button" class="btn small-btn danger" data-lact="del" data-i="${i}" ${items.length<=1?'disabled':''}>Quitar</button></div><div class="fields"><label class="field full">Qué hacemos y por qué<textarea data-ls="why" data-i="${i}" rows="2">${esc(it.why||'')}</textarea></label><label class="field full">Expresión matemática (LaTeX, sin $; opcional)<input data-ls="math" data-i="${i}" value="${esc(it.math||'')}"></label></div><div class="hstack"><button type="button" class="btn small-btn" data-lact="up" data-i="${i}" ${i===0?'disabled':''}>↑</button><button type="button" class="btn small-btn" data-lact="down" data-i="${i}" ${i===items.length-1?'disabled':''}>↓</button></div></div>`).join('');
+ $('addLearnStep').disabled=items.length>=20;
+}
+$('learnOn').addEventListener('change',e=>{const s=station();if(!s)return;
+ if(e.target.checked){s.learn={goal:'',idea:'',steps:{title:'',items:[{why:'',math:''}]},warn:''};}
+ else{if(!confirm('Se quitará el Aprende visual de esta estación (se conservan la explicación y el ejemplo). ¿Continuar?')){e.target.checked=true;return;}delete s.learn;}
+ touch();renderLearnEditor();});
+$('learnEd').addEventListener('input',e=>{const el=e.target,s=station();if(!s||!s.learn)return;const L=s.learn;
+ if(el.dataset.l){const k=el.dataset.l;if(k==='stitle'){L.steps=L.steps||{items:[]};L.steps.title=el.value;}else L[k]=el.value;touch();}
+ else if(el.dataset.ls){const it=L.steps.items[Number(el.dataset.i)];it[el.dataset.ls]=el.value;touch();}});
+$('learnEd').addEventListener('click',e=>{const b=e.target.closest('button[data-lact]'),s=station();if(!b||!s||!s.learn)return;const it=s.learn.steps.items,i=Number(b.dataset.i);
+ if(b.dataset.lact==='del'&&it.length>1)it.splice(i,1);else if(b.dataset.lact==='up'&&i>0)[it[i-1],it[i]]=[it[i],it[i-1]];else if(b.dataset.lact==='down'&&i<it.length-1)[it[i+1],it[i]]=[it[i],it[i+1]];else return;
+ touch();renderLearnEditor();});
+$('addLearnStep').onclick=()=>{const s=station();if(!s||!s.learn)return;s.learn.steps=s.learn.steps||{title:'',items:[]};if(s.learn.steps.items.length>=20)return;s.learn.steps.items.push({why:'',math:''});touch();renderLearnEditor();};
+/* ---- META FINAL de la unidad (campo opcional "meta") ---- */
+$('uMetaOn').addEventListener('change',e=>{if(!unit)return;if(e.target.checked)unit.meta={minutes:Number($('uMetaMin').value)||120,mix:[2,3,'a']};else delete unit.meta;$('uMetaMin').disabled=!e.target.checked;touch();});
+$('uMetaMin').addEventListener('input',e=>{if(!unit||!unit.meta)return;const n=Math.round(Number(e.target.value));if(n>=15&&n<=300){unit.meta.minutes=n;touch();}});
 let pendingPreview=null;
 function schedulePreview(){clearTimeout(pendingPreview);pendingPreview=setTimeout(renderPreview,330);}
 function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<div class="empty">Selecciona una estación.</div>';return;}
  if(window.MathJax?.typesetClear)try{MathJax.typesetClear([$('studentPreview')]);}catch(e){}
  let piece=`<span class="badge">UNIDAD ${esc(unit.roman)} · ESTACIÓN ${selected+1}</span><h2>${esc(s.title)}</h2><p style="margin:0;color:#647785">${esc(s.subtitle)}</p>`;
  if(activeTab==='learn'){
-  piece+=`<h3>La idea esencial</h3><p class="math-fragment">${multiline(s.concept)}</p><div class="example"><strong>Ejemplo</strong><p class="math-fragment">${multiline(s.example)}</p></div>`+['example2','example3','example4'].filter(k=>s[k]&&s[k].trim()).map((k,i)=>`<div class="example"><strong>Ejemplo ${i+2}</strong><p class="math-fragment">${multiline(s[k])}</p></div>`).join('');
+  if(s.learn){const L=s.learn,it=L.steps?.items||[];piece+=(L.goal?`<div class="learn-prev"><span class="lp-t">QUÉ APRENDERÁS</span><p class="math-fragment">${bold(L.goal)}</p></div>`:'')+`<div class="learn-prev"><span class="lp-t">COMPRENDE LA IDEA</span><p class="math-fragment">${bold(L.idea||s.concept)}</p></div>`+(it.length?`<div class="learn-prev"><span class="lp-t">EJEMPLO GUIADO · PASO A PASO</span>${L.steps.title?`<p class="math-fragment">${bold(L.steps.title)}</p>`:''}<ol>${it.map(x=>`<li><span class="math-fragment">${bold(x.why||'')}</span>${x.math?`<div class="math-fragment">$$${esc(x.math)}$$</div>`:''}</li>`).join('')}</ol></div>`:'')+(L.warn?`<div class="learn-prev"><span class="lp-t">PRESTA ATENCIÓN</span><p class="math-fragment">${bold(L.warn)}</p></div>`:'');}
+  else piece+=`<h3>La idea esencial</h3><p class="math-fragment">${multiline(s.concept)}</p><div class="example"><strong>Ejemplo</strong><p class="math-fragment">${multiline(s.example)}</p></div>`;
+  piece+=['example2','example3','example4'].filter(k=>s[k]&&s[k].trim()).map((k,i)=>`<div class="example"><strong>Ejemplo ${i+2}</strong><p class="math-fragment">${multiline(s[k])}</p></div>`).join('');
   for(const m of s.media||[]){let cap=esc(m.caption||'');if(m.type==='image'){const src=fileURL(m.src);piece+=`<div class="media-sample">${src?`<img src="${src}" alt="${cap||'Imagen'}">`:'Archivo faltante'}<p>${cap}</p></div>`;}else if(m.type==='pdf'){const src=fileURL(m.src);piece+=`<div class="media-sample">📄 <a target="_blank" rel="noopener" href="${src}">Abrir PDF adjunto</a><p>${cap}</p></div>`;}else if(m.type==='video_file'){const src=fileURL(m.src);piece+=`<div class="media-sample"><video controls src="${src}"></video><p>${cap}</p></div>`;}else if(m.type==='video_url'){piece+=`<div class="media-sample">▶ <a rel="noopener noreferrer" target="_blank" href="${esc(m.src)}">Abrir video externo</a><p>${cap}</p></div>`;}}
   piece+='<p class="hint">[ Marcar como revisado ]</p>';
  }else{
