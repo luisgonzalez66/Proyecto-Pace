@@ -1,0 +1,143 @@
+PROPUESTAS DE MEJORA PARA EL EDITOR Y MOTOR PACE
+Documento para discusión técnica con Luis
+3 de noviembre de 2026
+
+PROPÓSITO
+Mejorar la experiencia de edición docente y la presentación de los contenidos a estudiantes. Este documento contiene únicamente propuestas, justificaciones y criterios de comprobación. No registra avances ni trabajos realizados en la Unidad I.
+
+PRIORIDADES SUGERIDAS
+1. Corregir el desarrollo progresivo y el modo enfoque de Aprende visual.
+2. Aclarar la función «Ver explicación completa».
+3. Organizar «Editar estación» mediante pestañas APAE.
+4. Unificar el formato guiado de los ejemplos y simplificar el modo Aprende.
+5. Corregir el tamaño de visualización de las actividades Explora.
+6. Perfeccionar los mapas, la navegación móvil y la consistencia entre unidades.
+
+1. APRENDE VISUAL: DESARROLLO PROGRESIVO Y MODO ENFOQUE
+
+Problema observado
+Al avanzar por un ejemplo, el modo enfoque atenúa contenido exterior al ejemplo, en vez de destacar principalmente el paso matemático activo. La atenuación puede permanecer cuando el usuario pasa a Practica o Aplica y solo desaparecer al salir manualmente del enfoque.
+
+Indicio técnico
+En la vista HTML exportada, la lógica de avance oculta pasos posteriores (li.hidden = i >= k), activa el modo enfoque con la navegación y la clase lfocus atenúa los elementos externos al cuadro del ejemplo. El estado de enfoque no se restablece necesariamente al cambiar de pestaña.
+
+Propuesta
+- Mostrar todas las líneas matemáticas del desarrollo en un único cuadro vertical estable.
+- Destacar visualmente el paso actual; mantener los anteriores legibles y los posteriores atenuados, pero reconocibles.
+- Al pulsar «Siguiente» o «Anterior», cambiar el énfasis y la explicación correspondiente, sin reubicar todo el desarrollo.
+- Centrar las expresiones matemáticas; colocar explicaciones y cálculos auxiliares a un costado en computador y debajo en celular.
+- No atenuar el resto de la estación automáticamente. Si se conserva un enfoque global, hacerlo voluntario y desactivarlo al cambiar de pestaña, estación o pantalla.
+- Asegurar contraste suficiente, accesibilidad por teclado, funcionamiento sin animaciones y orden de lectura coherente.
+
+Esquema orientativo (no es una captura del editor):
+
+    DESARROLLO CENTRADO                 EXPLICACIÓN DEL PASO ACTUAL
+    1/6 + 1/4                          Calculamos mcm(6,4) = 12.
+      = 2/12 + 3/12   <-- ACTIVO         Escribimos fracciones equivalentes.
+      = 5/12          <-- FUTURO TENUE
+
+       [Anterior]    Paso 2 de 3    [Siguiente]
+
+Comprobación esperada
+Avanzar y retroceder sin saltos visuales; cambiar a Practica, Aplica y Explora sin atenuación residual; regresar a Aprende; repetir en móvil y con movimiento reducido.
+
+2. ACLARAR «VER EXPLICACIÓN COMPLETA»
+
+Problema
+Actualmente el botón puede mostrar el texto del ejemplo clásico, separado de los pasos guiados y sus comentarios. El estudiante termina viendo dos explicaciones diferentes del mismo procedimiento.
+
+Propuesta
+- Si las líneas matemáticas están siempre visibles, renombrar la acción como «Mostrar todas las explicaciones».
+- Si existen pasos inicialmente ocultos, utilizar «Mostrar todos los pasos».
+- Construir esta vista con los mismos pasos, justificaciones y cálculos auxiliares del ejemplo guiado, sin duplicar un texto antiguo.
+- Permitir volver fácilmente a la navegación progresiva.
+
+Comprobación esperada
+El modo completo coincide con el ejemplo paso a paso y conserva la posibilidad de avanzar y retroceder.
+
+3. «EDITAR ESTACIÓN» MEDIANTE PESTAÑAS APAE
+
+Problema
+La columna central resulta extensa y obliga a desplazarse demasiado para llegar a los apartados inferiores, especialmente con bancos grandes de preguntas.
+
+Propuesta
+- Mantener visibles los datos básicos de la estación: nombre, bloque y duración.
+- Incorporar pestañas de edición: Aprende | Practica | Aplica | Explora.
+- Mostrar únicamente los controles de la pestaña seleccionada, preservando los cambios al alternar.
+- En Practica y Aplica, incluir búsqueda, filtros por dificultad y preguntas plegables.
+- Vincular la vista previa al apartado que se esté editando.
+- En Explora, mostrar un interruptor claro «Activado / Desactivado»; si no se activa, no mostrar la sección al estudiante ni exigir contenidos.
+- Explora debe permanecer opcional y no aportar porcentaje de avance en estación, unidad ni curso.
+
+Comprobación esperada
+Editar contenidos, alternar pestañas y regresar sin pérdida de datos; comprobar la importación y exportación de paquetes anteriores y nuevos.
+
+4. SIMPLIFICAR APRENDE Y UNIFICAR LOS EJEMPLOS
+
+Problema
+El botón «Aprende visual (opcional)» convive con los campos antiguos de explicación y ejemplos. Esto duplica opciones y dificulta identificar cuál es la estructura recomendable. Además, los ejemplos adicionales aparecen como textos desplegables, distintos del ejemplo principal guiado.
+
+Propuesta
+- Adoptar Aprende visual como modo predeterminado para contenidos nuevos, manteniendo compatibilidad con unidades antiguas.
+- Ocultar los campos clásicos cuando no se usen, sin borrar ni migrar datos automáticamente.
+- Permitir que cada ejemplo adicional tenga el mismo formato del principal: enunciado, pasos matemáticos, explicación por paso, cálculo auxiliar opcional y navegación Anterior/Siguiente.
+- Permitir varios ejemplos, cada uno con desarrollo limpio, centrado y progresivo.
+- Favorecer objetivos de una oración, explicaciones breves, advertencias concretas, recursos visuales y fórmulas como protagonistas; evitar grandes bloques de lectura.
+
+Comprobación esperada
+Varios ejemplos mantienen un diseño homogéneo en escritorio y móvil. Los contenidos antiguos siguen siendo legibles después de importar y exportar.
+
+5. EXPLORA: ANCHO Y ALTURA DEL RECURSO HTML
+
+Problema observado
+Algunas aplicaciones HTML se muestran como una franja estrecha, con gran parte del contenedor vacía. También puede aparecer espacio vertical sobrante.
+
+Indicio técnico
+En la vista HTML exportada, el iframe de Explora recibe una altura fija. No se identificó una regla que garantice su ancho completo. Esta es una causa plausible, pendiente de confirmar mediante una prueba después del ajuste.
+
+Propuesta
+- Aplicar al iframe un ancho adaptable al contenedor (por ejemplo, width:100%; max-width:100%; display:block; box-sizing:border-box).
+- Revisar que los contenedores externos y la aplicación interna también sean responsivos.
+- Implementar, si es viable y seguro, un mecanismo para comunicar la altura real desde el HTML embebido; mantener una altura manual razonable como alternativa.
+- Evitar el doble desplazamiento vertical y ofrecer vista ampliada cuando corresponda.
+- Verificar uso táctil, teclado, salida del recurso y ausencia de efectos sobre progreso SCORM.
+
+Comprobación esperada
+El laboratorio ocupa el ancho disponible en PC y celular, no deja espacios vacíos desproporcionados y permite usar todos sus controles.
+
+6. MAPAS, NAVEGACIÓN MÓVIL Y ESTILO COMÚN
+
+Mapa de coordinación
+- Presentar el mapa como árbol jerárquico Unidad -> Bloques -> Estaciones, con nodos y conexiones explícitas.
+- Priorizar orientación horizontal para pantalla y ofrecer orientación vertical para impresión o exportación.
+- Mantener coherencia entre el mapa mostrado por el editor y el archivo descargado.
+
+Navegación móvil
+- Evaluar el riel numerado de bloques que aparece en la implementación reciente.
+- Comprobar que se mantenga accesible, no quite demasiado ancho y permita cambiar de bloque sin desplazamientos innecesarios.
+- Validar tamaños táctiles, contraste y legibilidad en teléfonos pequeños antes de reemplazar definitivamente el acordeón.
+
+Consistencia académica
+- Definir criterios compartidos entre unidades para títulos, convenciones matemáticas, redacción, ejemplos, colores, advertencias y retroalimentación.
+- No obligar a que todas las estaciones tengan igual extensión o cantidad de ejercicios.
+
+Mascota
+- Reservar su integración para cuando los recursos estén aprobados; usar intervenciones breves y contextuales que no obstruyan la materia ni alteren la lógica de progreso.
+
+7. VALIDACIONES ANTES DE DAR POR IMPLEMENTADAS LAS MEJORAS
+
+[ ] Desarrollo: todos los pasos se mantienen ubicados y el activo destaca correctamente.
+[ ] Enfoque: cambiar de pestaña o estación no deja contenido indebidamente atenuado.
+[ ] Explicación completa: utiliza exactamente el mismo desarrollo guiado.
+[ ] Ejemplos adicionales: ofrecen el mismo avance progresivo del principal.
+[ ] Editor APAE: las pestañas evitan desplazamiento excesivo y conservan cambios.
+[ ] Explora: ancho adecuado, altura razonable, sin doble scroll y sin afectar avance.
+[ ] Compatibilidad: abrir, editar, exportar y reimportar paquetes anteriores y nuevos.
+[ ] SIVEDUCMD: comprobar porcentajes, salida/reingreso, recuperación del progreso y visualización móvil.
+[ ] Accesibilidad: teclado, contraste, interacción táctil y opción de movimiento reducido.
+
+ALCANCE DE LA EVIDENCIA
+Las observaciones técnicas se basan en lectura de código público y de la vista HTML exportada, no en una prueba funcional completa de la última versión del editor. Los diagramas de este documento describen el comportamiento deseado. Las hipótesis de causa deben verificarse antes de considerarse errores resueltos.
+
+Repositorio: https://github.com/luisgonzalez66/Proyecto-Pace
+Ámbitos revisados: editor y vista exportada; funciones relacionadas con Aprende, pestañas, enfoque y recursos Explora.
