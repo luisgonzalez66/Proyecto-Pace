@@ -571,7 +571,8 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 .ls-list{list-style:none;margin:10px 0 4px;padding:0}
 .ls-item{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:6px 24px;align-items:center;padding:10px 4px;transition:opacity .3s ease}
 .ls-item:not(.has-side){grid-template-columns:minmax(0,1fr)}
-.ls-item[hidden]{display:none}
+.ls-item.fut{opacity:.3}.ls-item.fut .ls-side{opacity:0;visibility:hidden}.ls-list.showall .ls-item{opacity:1}.ls-item.on:not(.cur) .ls-side{opacity:.8}
+.ex-frame{display:block;width:100%;max-width:100%;border:0;box-sizing:border-box}
 .ls-item+.ls-item{border-top:1px dashed rgba(43,42,107,.18)}
 .ls-main{text-align:center;min-width:0}
 .ls-math{font-size:1.3em;overflow-x:auto;overflow-y:hidden;padding:2px 0}
@@ -584,14 +585,14 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 .ls-item.on:not(.cur){opacity:.7}
 .ls-item.cur .ls-math{color:var(--coral)}.ls-item.cur .ls-why{color:var(--navy)}
 .ls-item.cur{animation:lsNew .5s ease}
-@keyframes lsNew{0%{opacity:0;transform:translateY(10px)}100%{opacity:1;transform:none}}
+@keyframes lsNew{0%{transform:translateY(8px)}100%{transform:none}}
 .ls-bar{display:inline-block;vertical-align:middle;width:120px;height:8px;border-radius:8px;background:rgba(43,42,107,.15);overflow:hidden}
 .ls-bar i{display:block;height:100%;background:var(--coral);border-radius:8px;transition:width .35s ease}
 /* Modo enfoque: el resto de la página se atenúa mientras se avanza en el ejemplo */
 #stationContent>*{transition:opacity .35s ease,filter .35s ease}
-#stationContent.lfocus>*:not(.lc-steps){opacity:.3;filter:blur(1.5px);cursor:pointer}
-#stationContent.lfocus .lc-steps{position:relative;z-index:2;box-shadow:0 10px 30px rgba(43,42,107,.16)}
-@media(max-width:700px){.ls-item.has-side{grid-template-columns:minmax(0,1fr)}.ls-side{margin:2px 8px 0}.ls-math{font-size:1.15em}#stationContent.lfocus>*:not(.lc-steps){filter:none;opacity:.35}}
+#stationContent.lfocus>*:not(.lc-active){opacity:.3;filter:blur(1.5px);cursor:pointer}
+#stationContent.lfocus .lc-active{position:relative;z-index:2;box-shadow:0 10px 30px rgba(43,42,107,.16)}
+@media(max-width:700px){.ls-item.has-side{grid-template-columns:minmax(0,1fr)}.ls-side{margin:2px 8px 0}.ls-math{font-size:1.15em}#stationContent.lfocus>*:not(.lc-active){filter:none;opacity:.35}}
 @media(prefers-reduced-motion:reduce){#stationContent>*,.ls-item{transition:none}.ls-item.cur{animation:none}}
 
 /* Mapa en teléfono: riel de bloques (solo número) a la izquierda y las estaciones del bloque elegido a la derecha */
@@ -631,3 +632,17 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 .mt-opt:hover{background:#fff1c4}.mt-opt.on{background:var(--navy);color:#fff;box-shadow:2px 2px 0 var(--coral)}
 .mt-opt:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
 @media(min-width:1281px){.float-back{padding:12px 15px 12px 13px;gap:6px}}
+
+.ls-nav{position:sticky;bottom:10px;z-index:6;display:flex;flex-wrap:nowrap;gap:8px;align-items:center;margin:12px 0 0;padding:8px 10px;border:2px solid var(--navy);border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(43,42,107,.25)}
+.ls-nav .ls-count{flex:1;min-width:0;text-align:center}.ls-nav .ls-bar{width:100%;max-width:140px}
+.ls-nav .ls-btn{flex:0 0 auto;white-space:nowrap}
+@media(max-width:520px){.ls-nav{bottom:8px;padding:6px 8px;gap:6px}.ls-nav .ls-count{order:0;width:auto}.ls-nav .ls-btn{flex:0 0 auto;padding-left:10px;padding-right:10px;min-height:44px}.ls-nav .ls-bar{max-width:60px}}
+
+.ls-keys{flex:1 0 100%;font-size:12px;color:var(--muted,#5b6470);margin-top:2px}@media(hover:none){.ls-keys{display:none}}
+
+.ls-count{display:inline-flex;flex-direction:column;align-items:center;gap:3px}.ls-pn{font-size:12.5px;font-weight:800;color:var(--navy)}.pn-s{display:none}
+@media(max-width:520px){.pn-l{display:none}.pn-s{display:inline}.ls-nav .ls-count{flex:1}}
+
+.ex-frame.ex-big{position:fixed;inset:0;width:100vw;height:100vh!important;max-width:none;z-index:9000;background:#fff;border:0;border-radius:0}
+.ex-close{position:fixed;top:10px;right:10px;z-index:9100;min-height:44px;padding:8px 16px;border:2px solid var(--navy,#2b2a6b);border-radius:12px;background:#fff;color:var(--navy,#2b2a6b);font:inherit;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+body.ex-big-on{overflow:hidden}

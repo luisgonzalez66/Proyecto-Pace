@@ -27,9 +27,11 @@ window.PACEValidation=(()=>{
    for(const k of ['title','subtitle','concept','example'])text(s[k],loc+': '+k,k==='title');for(const k of ['example2','example3','example4']){if(s[k]===undefined)continue;text(s[k],loc+': '+k,false);if(!s[k].trim())delete s[k];}
    if(s.learn!==undefined){const L=s.learn;require(L&&typeof L==='object'&&!Array.isArray(L),loc+': Aprende visual inválido');
     for(const k of ['goal','idea','warn']){if(L[k]!==undefined)text(L[k],loc+': Aprende visual · '+k,false);}
-    require(L.steps&&Array.isArray(L.steps.items)&&L.steps.items.length>=1&&L.steps.items.length<=20,loc+': Aprende visual necesita entre 1 y 20 pasos');
-    if(L.steps.title!==undefined)text(L.steps.title,loc+': Aprende visual · enunciado',false);
-    L.steps.items.forEach((x,n)=>{require(x&&typeof x==='object',loc+': paso '+(n+1)+' inválido');text(x.why,loc+': paso '+(n+1)+' · explicación');if(x.math!==undefined)text(x.math,loc+': paso '+(n+1)+' · matemática',false);if(x.side!==undefined){require(x.side&&typeof x.side==='object'&&!Array.isArray(x.side),loc+': paso '+(n+1)+' · cálculo auxiliar inválido');for(const k of ['title','math','text'])if(x.side[k]!==undefined)text(x.side[k],loc+': paso '+(n+1)+' · auxiliar '+k,false);require((x.side.math&&!blank.test(x.side.math))||(x.side.text&&!blank.test(x.side.text)),loc+': paso '+(n+1)+' · el cálculo auxiliar necesita matemática o texto');}});}
+    const exs=[L.steps];if(L.more!==undefined){require(Array.isArray(L.more)&&L.more.length<=3,loc+': Aprende visual admite hasta 3 ejemplos adicionales (4 en total)');exs.push(...L.more);}
+    exs.forEach((St,e)=>{const tg=e?' (ejemplo '+(e+1)+')':'';
+     require(St&&Array.isArray(St.items)&&St.items.length>=1&&St.items.length<=20,loc+': Aprende visual'+tg+' necesita entre 1 y 20 pasos');
+     if(St.title!==undefined)text(St.title,loc+': Aprende visual · enunciado'+tg,false);
+     St.items.forEach((x,n)=>{require(x&&typeof x==='object',loc+': paso '+(n+1)+tg+' inválido');text(x.why,loc+': paso '+(n+1)+tg+' · explicación');if(x.math!==undefined)text(x.math,loc+': paso '+(n+1)+tg+' · matemática',false);if(x.side!==undefined){require(x.side&&typeof x.side==='object'&&!Array.isArray(x.side),loc+': paso '+(n+1)+tg+' · cálculo auxiliar inválido');for(const k of ['title','math','text'])if(x.side[k]!==undefined)text(x.side[k],loc+': paso '+(n+1)+tg+' · auxiliar '+k,false);require((x.side.math&&!blank.test(x.side.math))||(x.side.text&&!blank.test(x.side.text)),loc+': paso '+(n+1)+tg+' · el cálculo auxiliar necesita matemática o texto');}});});}
    if(s.explore!==undefined){const E=s.explore;require(E&&typeof E==='object'&&!Array.isArray(E),loc+': Explora inválido');
     text(E.title,loc+': Explora · título');for(const k of ['desc','instr','alt'])if(E[k]!==undefined)text(E[k],loc+': Explora · '+k,false);
     const hasHtml=typeof E.html==='string'&&!blank.test(E.html),hasUrl=typeof E.url==='string'&&E.url!=='';
