@@ -112,7 +112,8 @@
      "q": "Resuelve la ecuación: $$x + 5 = 18$$ Escribe el valor de $x$.",
      "answer": "13",
      "why": "Al reemplazar $x = 13$ en la ecuación, ambos lados valen $18$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x + 5 = 18$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 13$."
     },
     {
      "type": "input",
@@ -120,7 +121,8 @@
      "q": "Resuelve la ecuación: $$x + 13 = 16$$ Escribe el valor de $x$.",
      "answer": "3",
      "why": "Al reemplazar $x = 3$ en la ecuación, ambos lados valen $16$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x + 13 = 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 3$."
     },
     {
      "type": "input",
@@ -128,7 +130,8 @@
      "q": "Resuelve la ecuación: $$x - 6 = 9$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $9$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x - 6 = 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
     },
     {
      "type": "input",
@@ -136,7 +139,8 @@
      "q": "Resuelve la ecuación: $$x - 8 = 2$$ Escribe el valor de $x$.",
      "answer": "10",
      "why": "Al reemplazar $x = 10$ en la ecuación, ambos lados valen $2$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x - 8 = 2$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 10$."
     },
     {
      "type": "input",
@@ -144,7 +148,8 @@
      "q": "Resuelve la ecuación: $$9x = 117$$ Escribe el valor de $x$.",
      "answer": "13",
      "why": "Al reemplazar $x = 13$ en la ecuación, ambos lados valen $117$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $9x = 117$.\nDividimos ambos lados entre 9: $x = 13$."
     },
     {
      "type": "input",
@@ -152,7 +157,8 @@
      "q": "Resuelve la ecuación: $$5x = 50$$ Escribe el valor de $x$.",
      "answer": "10",
      "why": "Al reemplazar $x = 10$ en la ecuación, ambos lados valen $50$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $5x = 50$.\nDividimos ambos lados entre 5: $x = 10$."
     },
     {
      "type": "input",
@@ -160,7 +166,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{4} = 3$$ Escribe el valor de $x$.",
      "answer": "12",
      "why": "Al reemplazar $x = 12$ en la ecuación, ambos lados valen $3$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{4} = 3$.\nMultiplicamos ambos lados por 4 para eliminar los denominadores: $x = 12$."
     },
     {
      "type": "input",
@@ -168,7 +175,8 @@
      "q": "Resuelve la ecuación: $$3x + 4 = 19$$ Escribe el valor de $x$.",
      "answer": "5",
      "why": "Al reemplazar $x = 5$ en la ecuación, ambos lados valen $19$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x + 4 = 19$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 15$.\nDividimos ambos lados entre 3: $x = 5$."
     },
     {
      "type": "input",
@@ -176,7 +184,8 @@
      "q": "Resuelve la ecuación: $$8x - 10 = 30$$ Escribe el valor de $x$.",
      "answer": "5",
      "why": "Al reemplazar $x = 5$ en la ecuación, ambos lados valen $30$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $8x - 10 = 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = 40$.\nDividimos ambos lados entre 8: $x = 5$."
     },
     {
      "q": "¿Cuál de estos valores es solución de la ecuación $5x + 5 = 15$?",
@@ -272,7 +281,8 @@
      "answer": "2/3",
      "why": "Al reemplazar $x = \\dfrac{2}{3}$ en la ecuación, ambos lados valen $4$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $6x = 4$.\nDividimos ambos lados entre 6: $x = \\dfrac{2}{3}$."
     },
     {
      "type": "input",
@@ -281,7 +291,8 @@
      "answer": "1/2",
      "why": "Al reemplazar $x = \\dfrac{1}{2}$ en la ecuación, ambos lados valen $7$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $10x + 2 = 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $10x = 5$.\nDividimos ambos lados entre 10: $x = \\dfrac{1}{2}$."
     },
     {
      "type": "input",
@@ -290,7 +301,8 @@
      "answer": "3/4",
      "why": "Al reemplazar $x = \\dfrac{3}{4}$ en la ecuación, ambos lados valen $0$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8x - 6 = 0$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = 6$.\nDividimos ambos lados entre 8: $x = \\dfrac{3}{4}$."
     },
     {
      "type": "input",
@@ -299,7 +311,8 @@
      "answer": "3/2",
      "why": "Al reemplazar $x = \\dfrac{3}{2}$ en la ecuación, ambos lados valen $24$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $16x = 24$.\nDividimos ambos lados entre 16: $x = \\dfrac{3}{2}$."
     },
     {
      "type": "input",
@@ -308,7 +321,8 @@
      "answer": "11/2",
      "why": "Al reemplazar $x = \\dfrac{11}{2}$ en la ecuación, ambos lados valen $33$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $6x = 33$.\nDividimos ambos lados entre 6: $x = \\dfrac{11}{2}$."
     },
     {
      "type": "input",
@@ -317,7 +331,8 @@
      "answer": "1/5",
      "why": "Al reemplazar $x = \\dfrac{1}{5}$ en la ecuación, ambos lados valen $3$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $15x = 3$.\nDividimos ambos lados entre 15: $x = \\dfrac{1}{5}$."
     },
     {
      "type": "input",
@@ -326,7 +341,8 @@
      "answer": "13/3",
      "why": "Al reemplazar $x = \\dfrac{13}{3}$ en la ecuación, ambos lados valen $39$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $9x = 39$.\nDividimos ambos lados entre 9: $x = \\dfrac{13}{3}$."
     },
     {
      "type": "input",
@@ -335,7 +351,8 @@
      "answer": "31/5",
      "why": "Al reemplazar $x = \\dfrac{31}{5}$ en la ecuación, ambos lados valen $32$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $5x + 1 = 32$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 31$.\nDividimos ambos lados entre 5: $x = \\dfrac{31}{5}$."
     },
     {
      "type": "input",
@@ -344,7 +361,8 @@
      "answer": "-7/5",
      "why": "Al reemplazar $x = -\\dfrac{7}{5}$ en la ecuación, ambos lados valen $-6$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $5x + 1 = -6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = -7$.\nDividimos ambos lados entre 5: $x = -\\dfrac{7}{5}$."
     },
     {
      "type": "input",
@@ -353,7 +371,8 @@
      "answer": "-30/11",
      "why": "Al reemplazar $x = -\\dfrac{30}{11}$ en la ecuación, ambos lados valen $-12$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $11x + 18 = -12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $11x = -30$.\nDividimos ambos lados entre 11: $x = -\\dfrac{30}{11}$."
     },
     {
      "type": "input",
@@ -361,7 +380,8 @@
      "q": "Resuelve la ecuación: $$13 - 8x = 21$$ Escribe el valor de $x$.",
      "answer": "-1",
      "why": "Al reemplazar $x = -1$ en la ecuación, ambos lados valen $21$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $13 - 8x = 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = 8$.\nDividimos ambos lados entre -8: $x = -1$."
     },
     {
      "type": "input",
@@ -369,7 +389,8 @@
      "q": "Resuelve la ecuación: $$8 - 3x = 11$$ Escribe el valor de $x$.",
      "answer": "-1",
      "why": "Al reemplazar $x = -1$ en la ecuación, ambos lados valen $11$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $8 - 3x = 11$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = 3$.\nDividimos ambos lados entre -3: $x = -1$."
     },
     {
      "type": "input",
@@ -378,7 +399,8 @@
      "answer": "10/3",
      "why": "Al reemplazar $x = \\dfrac{10}{3}$ en la ecuación, ambos lados valen $\\dfrac{2}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{5} = \\dfrac{6}{9}$.\nMultiplicamos ambos lados por 15 para eliminar los denominadores: $3x = 10$.\nDividimos ambos lados entre 3: $x = \\dfrac{10}{3}$."
     },
     {
      "type": "input",
@@ -387,7 +409,8 @@
      "answer": "10/9",
      "why": "Al reemplazar $x = \\dfrac{10}{9}$ en la ecuación, ambos lados valen $\\dfrac{5}{9}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{2} = \\dfrac{5}{9}$.\nMultiplicamos ambos lados por 18 para eliminar los denominadores: $9x = 10$.\nDividimos ambos lados entre 9: $x = \\dfrac{10}{9}$."
     },
     {
      "q": "¿Cuál es la solución de la ecuación $18x = 10$?",
@@ -419,7 +442,8 @@
      "q": "Resuelve la ecuación: $$15x - 120 = 1230$$ Escribe el valor de $x$.",
      "answer": "90",
      "why": "Al reemplazar $x = 90$ en la ecuación, ambos lados valen $1230$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $15x - 120 = 1230$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 1350$.\nDividimos ambos lados entre 15: $x = 90$."
     },
     {
      "type": "input",
@@ -427,7 +451,8 @@
      "q": "Resuelve la ecuación: $$7x + 3x = 350$$ Escribe el valor de $x$.",
      "answer": "35",
      "why": "Al reemplazar $x = 35$ en la ecuación, ambos lados valen $350$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $7x + 3x = 350$.\nReducimos los términos semejantes de cada lado: $10x = 350$.\nDividimos ambos lados entre 10: $x = 35$."
     },
     {
      "type": "input",
@@ -435,7 +460,8 @@
      "q": "Resuelve la ecuación: $$9x - 4x + 12 = 87$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $87$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $9x - 4x + 12 = 87$.\nReducimos los términos semejantes de cada lado: $5x + 12 = 87$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 75$.\nDividimos ambos lados entre 5: $x = 15$."
     },
     {
      "type": "input",
@@ -443,7 +469,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{12} + 5 = 38$$ Escribe el valor de $x$.",
      "answer": "396",
      "why": "Al reemplazar $x = 396$ en la ecuación, ambos lados valen $38$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{12} + 5 = 38$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $x + 60 = 456$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 396$."
     },
     {
      "type": "input",
@@ -451,7 +478,8 @@
      "q": "Resuelve la ecuación: $$25x + 80 = 1330$$ Escribe el valor de $x$.",
      "answer": "50",
      "why": "Al reemplazar $x = 50$ en la ecuación, ambos lados valen $1330$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $25x + 80 = 1330$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $25x = 1250$.\nDividimos ambos lados entre 25: $x = 50$."
     },
     {
      "type": "input",
@@ -459,7 +487,8 @@
      "q": "Resuelve la ecuación: $$8x - 3x + 7 = 2x + 40$$ Escribe el valor de $x$.",
      "answer": "11",
      "why": "Al reemplazar $x = 11$ en la ecuación, ambos lados valen $62$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $8x - 3x + 7 = 2x + 40$.\nReducimos los términos semejantes de cada lado: $5x + 7 = 2x + 40$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 33$.\nDividimos ambos lados entre 3: $x = 11$."
     },
     {
      "type": "input",
@@ -467,7 +496,8 @@
      "q": "Resuelve la ecuación: $$5x + 109 = 599$$ Escribe el valor de $x$.",
      "answer": "98",
      "why": "Al reemplazar $x = 98$ en la ecuación, ambos lados valen $599$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $5x + 109 = 599$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 490$.\nDividimos ambos lados entre 5: $x = 98$."
     },
     {
      "type": "input",
@@ -475,7 +505,8 @@
      "q": "Resuelve la ecuación: $$3x + 28 = 1363$$ Escribe el valor de $x$.",
      "answer": "445",
      "why": "Al reemplazar $x = 445$ en la ecuación, ambos lados valen $1363$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $3x + 28 = 1363$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 1335$.\nDividimos ambos lados entre 3: $x = 445$."
     },
     {
      "type": "input",
@@ -483,7 +514,8 @@
      "q": "Resuelve la ecuación: $$56x - 163 = 901$$ Escribe el valor de $x$.",
      "answer": "19",
      "why": "Al reemplazar $x = 19$ en la ecuación, ambos lados valen $901$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $56x - 163 = 901$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $56x = 1064$.\nDividimos ambos lados entre 56: $x = 19$."
     },
     {
      "type": "input",
@@ -491,7 +523,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{22} + 23 = 2$$ Escribe el valor de $x$.",
      "answer": "-462",
      "why": "Al reemplazar $x = -462$ en la ecuación, ambos lados valen $2$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{22} + 23 = 2$.\nMultiplicamos ambos lados por 22 para eliminar los denominadores: $x + 506 = 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -462$."
     },
     {
      "type": "input",
@@ -499,7 +532,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{2} + 174 = 131$$ Escribe el valor de $x$.",
      "answer": "-86",
      "why": "Al reemplazar $x = -86$ en la ecuación, ambos lados valen $131$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{2} + 174 = 131$.\nMultiplicamos ambos lados por 2 para eliminar los denominadores: $x + 348 = 262$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -86$."
     },
     {
      "type": "input",
@@ -507,7 +541,8 @@
      "q": "Resuelve la ecuación: $$29x + 21x = 2050$$ Escribe el valor de $x$.",
      "answer": "41",
      "why": "Al reemplazar $x = 41$ en la ecuación, ambos lados valen $2050$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $29x + 21x = 2050$.\nReducimos los términos semejantes de cada lado: $50x = 2050$.\nDividimos ambos lados entre 50: $x = 41$."
     },
     {
      "type": "input",
@@ -515,7 +550,8 @@
      "q": "Resuelve la ecuación: $$13x + 3x = 320$$ Escribe el valor de $x$.",
      "answer": "20",
      "why": "Al reemplazar $x = 20$ en la ecuación, ambos lados valen $320$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $13x + 3x = 320$.\nReducimos los términos semejantes de cada lado: $16x = 320$.\nDividimos ambos lados entre 16: $x = 20$."
     },
     {
      "type": "input",
@@ -523,7 +559,8 @@
      "q": "Resuelve la ecuación: $$21x - 18x - 25 = 407$$ Escribe el valor de $x$.",
      "answer": "144",
      "why": "Al reemplazar $x = 144$ en la ecuación, ambos lados valen $407$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $21x - 18x - 25 = 407$.\nReducimos los términos semejantes de cada lado: $3x - 25 = 407$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 432$.\nDividimos ambos lados entre 3: $x = 144$."
     },
     {
      "type": "input",
@@ -531,7 +568,8 @@
      "q": "Resuelve la ecuación: $$8x - 7x + 59 = 442$$ Escribe el valor de $x$.",
      "answer": "383",
      "why": "Al reemplazar $x = 383$ en la ecuación, ambos lados valen $442$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $8x - 7x + 59 = 442$.\nReducimos los términos semejantes de cada lado: $x + 59 = 442$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 383$."
     },
     {
      "type": "input",
@@ -539,7 +577,8 @@
      "q": "Resuelve la ecuación: $$4x - 61 = 3x + 345$$ Escribe el valor de $x$.",
      "answer": "406",
      "why": "Al reemplazar $x = 406$ en la ecuación, ambos lados valen $1563$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $4x - 61 = 3x + 345$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 406$."
     },
     {
      "type": "input",
@@ -547,7 +586,8 @@
      "q": "Resuelve la ecuación: $$18x + 48 = 14x + 372$$ Escribe el valor de $x$.",
      "answer": "81",
      "why": "Al reemplazar $x = 81$ en la ecuación, ambos lados valen $1506$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $18x + 48 = 14x + 372$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 324$.\nDividimos ambos lados entre 4: $x = 81$."
     },
     {
      "type": "input",
@@ -555,7 +595,8 @@
      "q": "Resuelve la ecuación: $$0{,}5 x + 0{,}4 = 21{,}9$$ Escribe el valor de $x$.",
      "answer": "43",
      "why": "Al reemplazar $x = 43$ en la ecuación, ambos lados valen $\\dfrac{219}{10}$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $0{,}5 x + 0{,}4 = 21{,}9$.\nMultiplicamos ambos lados por 10 para eliminar los decimales: $5x + 4 = 219$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 215$.\nDividimos ambos lados entre 5: $x = 43$."
     },
     {
      "type": "input",
@@ -563,7 +604,8 @@
      "q": "Resuelve la ecuación: $$0{,}15x + 2{,}6 = 62{,}60$$ Escribe el valor de $x$.",
      "answer": "400",
      "why": "Al reemplazar $x = 400$ en la ecuación, ambos lados valen $\\dfrac{313}{5}$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $0{,}15x + 2{,}6 = 62{,}60$.\nMultiplicamos ambos lados por 20 para eliminar los decimales: $3x + 52 = 1252$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 1200$.\nDividimos ambos lados entre 3: $x = 400$."
     },
     {
      "type": "input",
@@ -572,7 +614,8 @@
      "answer": "20/9",
      "why": "Al reemplazar $x = \\dfrac{20}{9}$ en la ecuación, ambos lados valen $29$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $9x + 9 = 29$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $9x = 20$.\nDividimos ambos lados entre 9: $x = \\dfrac{20}{9}$."
     }
    ],
    "check": {
@@ -796,7 +839,8 @@
      "q": "Resuelve la ecuación:\n$$3x + 4 = 19$$\n\nEscribe el valor de $x$.",
      "answer": "5",
      "why": "Primero restamos 4 y luego dividimos por 3: $3x = 15$, de donde $x = 5$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x + 4 = 19$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 15$.\nDividimos ambos lados entre 3: $x = 5$."
     },
     {
      "type": "input",
@@ -804,7 +848,8 @@
      "q": "Resuelve la ecuación:\n$$2x+4 = 8$$\n\nEscribe el valor de $x$.",
      "answer": "2",
      "why": "Pasamos $4$ al otro lado: $2x = 4$; luego dividimos por 2: $x = 2$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2x+4 = 8$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 4$.\nDividimos ambos lados entre 2: $x = 2$."
     },
     {
      "q": "Resuelve la ecuación:\n$$7x-10 = 39$$",
@@ -836,7 +881,8 @@
      "q": "Resuelve la ecuación:\n$$3x+5 = 26$$\n\nEscribe el valor de $x$.",
      "answer": "7",
      "why": "Pasamos $5$ al otro lado: $3x = 21$; luego dividimos por 3: $x = 7$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x+5 = 26$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 21$.\nDividimos ambos lados entre 3: $x = 7$."
     },
     {
      "q": "Resuelve la ecuación:\n$$5x+7 = 3x+19$$",
@@ -867,7 +913,8 @@
      "q": "Resuelve la ecuación: $$3x + 8 = 44$$ Escribe el valor de $x$.",
      "answer": "12",
      "why": "Al reemplazar $x = 12$ en la ecuación, ambos lados valen $44$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x + 8 = 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 36$.\nDividimos ambos lados entre 3: $x = 12$."
     },
     {
      "type": "input",
@@ -875,7 +922,8 @@
      "q": "Resuelve la ecuación: $$2x + 1 = 23$$ Escribe el valor de $x$.",
      "answer": "11",
      "why": "Al reemplazar $x = 11$ en la ecuación, ambos lados valen $23$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2x + 1 = 23$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 22$.\nDividimos ambos lados entre 2: $x = 11$."
     },
     {
      "type": "input",
@@ -883,7 +931,8 @@
      "q": "Resuelve la ecuación: $$6x + 10 = 16$$ Escribe el valor de $x$.",
      "answer": "1",
      "why": "Al reemplazar $x = 1$ en la ecuación, ambos lados valen $16$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $6x + 10 = 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 6$.\nDividimos ambos lados entre 6: $x = 1$."
     },
     {
      "type": "input",
@@ -891,7 +940,8 @@
      "q": "Resuelve la ecuación: $$3x + 14 = 2x + 9$$ Escribe el valor de $x$.",
      "answer": "-5",
      "why": "Al reemplazar $x = -5$ en la ecuación, ambos lados valen $-1$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x + 14 = 2x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -5$."
     },
     {
      "type": "input",
@@ -899,7 +949,8 @@
      "q": "Resuelve la ecuación: $$2x - 5 = x$$ Escribe el valor de $x$.",
      "answer": "5",
      "why": "Al reemplazar $x = 5$ en la ecuación, ambos lados valen $5$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2x - 5 = x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 5$."
     },
     {
      "type": "input",
@@ -907,7 +958,8 @@
      "q": "Resuelve la ecuación: $$7x - 15 = 4x + 27$$ Escribe el valor de $x$.",
      "answer": "14",
      "why": "Al reemplazar $x = 14$ en la ecuación, ambos lados valen $83$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $7x - 15 = 4x + 27$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 42$.\nDividimos ambos lados entre 3: $x = 14$."
     },
     {
      "type": "input",
@@ -915,7 +967,8 @@
      "q": "Resuelve la ecuación: $$3x - 3 = x - 7$$ Escribe el valor de $x$.",
      "answer": "-2",
      "why": "Al reemplazar $x = -2$ en la ecuación, ambos lados valen $-9$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3x - 3 = x - 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = -4$.\nDividimos ambos lados entre 2: $x = -2$."
     },
     {
      "type": "input",
@@ -923,7 +976,8 @@
      "q": "Resuelve la ecuación: $$13 - 8x = 21$$ Escribe el valor de $x$.",
      "answer": "-1",
      "why": "Al reemplazar $x = -1$ en la ecuación, ambos lados valen $21$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $13 - 8x = 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = 8$.\nDividimos ambos lados entre -8: $x = -1$."
     },
     {
      "type": "input",
@@ -931,7 +985,8 @@
      "q": "Resuelve la ecuación: $$4 - 4x = 40$$ Escribe el valor de $x$.",
      "answer": "-9",
      "why": "Al reemplazar $x = -9$ en la ecuación, ambos lados valen $40$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $4 - 4x = 40$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-4x = 36$.\nDividimos ambos lados entre -4: $x = -9$."
     },
     {
      "type": "input",
@@ -939,7 +994,8 @@
      "q": "Resuelve la ecuación: $$24 = 3x + 12$$ Escribe el valor de $x$.",
      "answer": "4",
      "why": "Al reemplazar $x = 4$ en la ecuación, ambos lados valen $24$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $24 = 3x + 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = -12$.\nDividimos ambos lados entre -3: $x = 4$."
     },
     {
      "type": "input",
@@ -947,7 +1003,8 @@
      "q": "Resuelve la ecuación: $$37 = 3x + 7$$ Escribe el valor de $x$.",
      "answer": "10",
      "why": "Al reemplazar $x = 10$ en la ecuación, ambos lados valen $37$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $37 = 3x + 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = -30$.\nDividimos ambos lados entre -3: $x = 10$."
     },
     {
      "q": "Para resolver $5x - 9 = 1x + 8$, ¿cuál es un primer paso correcto?",
@@ -991,7 +1048,8 @@
      "q": "Resuelve la ecuación:\n$$4x+5 = x+8$$\n\nEscribe el valor de $x$.",
      "answer": "1",
      "why": "Juntamos las $x$ a un lado: $4x - 1x = 8 - 5$, es decir $3x = 3$. Entonces $x = 1$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $4x+5 = x+8$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 3$.\nDividimos ambos lados entre 3: $x = 1$."
     },
     {
      "type": "input",
@@ -999,7 +1057,8 @@
      "q": "Resuelve la ecuación:\n$$2x+11 = 5$$\n\nEscribe el valor de $x$.",
      "answer": "-3",
      "why": "Pasamos $11$ al otro lado: $2x = -6$; luego dividimos por 2: $x = -3$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $2x+11 = 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = -6$.\nDividimos ambos lados entre 2: $x = -3$."
     },
     {
      "q": "Resuelve la ecuación:\n$$41 - 6x = 5$$",
@@ -1020,7 +1079,8 @@
      "answer": "5/3",
      "why": "Al reemplazar $x = \\dfrac{5}{3}$ en la ecuación, ambos lados valen $\\dfrac{19}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $5x - 2 = 2x + 3$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 5$.\nDividimos ambos lados entre 3: $x = \\dfrac{5}{3}$."
     },
     {
      "type": "input",
@@ -1029,7 +1089,8 @@
      "answer": "3/4",
      "why": "Al reemplazar $x = \\dfrac{3}{4}$ en la ecuación, ambos lados valen $\\dfrac{17}{2}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $6x + 4 = 2x + 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 3$.\nDividimos ambos lados entre 4: $x = \\dfrac{3}{4}$."
     },
     {
      "type": "input",
@@ -1038,7 +1099,8 @@
      "answer": "4/3",
      "why": "Al reemplazar $x = \\dfrac{4}{3}$ en la ecuación, ambos lados valen $\\dfrac{25}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $4x + 3 = 10x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-6x = -8$.\nDividimos ambos lados entre -6: $x = \\dfrac{4}{3}$."
     },
     {
      "type": "input",
@@ -1047,7 +1109,8 @@
      "answer": "11/3",
      "why": "Al reemplazar $x = \\dfrac{11}{3}$ en la ecuación, ambos lados valen $\\dfrac{154}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8x + 22 = 2x + 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 22$.\nDividimos ambos lados entre 6: $x = \\dfrac{11}{3}$."
     },
     {
      "type": "input",
@@ -1056,7 +1119,8 @@
      "answer": "21/2",
      "why": "Al reemplazar $x = \\dfrac{21}{2}$ en la ecuación, ambos lados valen $\\dfrac{281}{2}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $11x + 25 = 9x + 46$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 21$.\nDividimos ambos lados entre 2: $x = \\dfrac{21}{2}$."
     },
     {
      "type": "input",
@@ -1065,7 +1129,8 @@
      "answer": "-16/7",
      "why": "Al reemplazar $x = -\\dfrac{16}{7}$ en la ecuación, ambos lados valen $-\\dfrac{100}{7}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8x + 4 = x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = -16$.\nDividimos ambos lados entre 7: $x = -\\dfrac{16}{7}$."
     },
     {
      "type": "input",
@@ -1074,7 +1139,8 @@
      "answer": "-33/7",
      "why": "Al reemplazar $x = -\\dfrac{33}{7}$ en la ecuación, ambos lados valen $-\\dfrac{281}{7}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $10x + 7 = 3x - 26$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = -33$.\nDividimos ambos lados entre 7: $x = -\\dfrac{33}{7}$."
     },
     {
      "type": "input",
@@ -1083,7 +1149,8 @@
      "answer": "26/5",
      "why": "Al reemplazar $x = \\dfrac{26}{5}$ en la ecuación, ambos lados valen $-\\dfrac{8}{5}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $14 - 3x = 2x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-5x = -26$.\nDividimos ambos lados entre -5: $x = \\dfrac{26}{5}$."
     },
     {
      "type": "input",
@@ -1092,7 +1159,8 @@
      "answer": "10/11",
      "why": "Al reemplazar $x = \\dfrac{10}{11}$ en la ecuación, ambos lados valen $-\\dfrac{45}{11}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $5 - 10x = x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-11x = -10$.\nDividimos ambos lados entre -11: $x = \\dfrac{10}{11}$."
     },
     {
      "type": "input",
@@ -1101,7 +1169,8 @@
      "answer": "23/12",
      "why": "Al reemplazar $x = \\dfrac{23}{12}$ en la ecuación, ambos lados valen $\\dfrac{131}{12}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $32 - 11x = x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-12x = -23$.\nDividimos ambos lados entre -12: $x = \\dfrac{23}{12}$."
     },
     {
      "type": "input",
@@ -1110,7 +1179,8 @@
      "answer": "16/5",
      "why": "Al reemplazar $x = \\dfrac{16}{5}$ en la ecuación, ambos lados valen $-\\dfrac{107}{5}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $3x - 31 = 1 - 7x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $10x = 32$.\nDividimos ambos lados entre 10: $x = \\dfrac{16}{5}$."
     },
     {
      "type": "input",
@@ -1119,7 +1189,8 @@
      "answer": "28/5",
      "why": "Al reemplazar $x = \\dfrac{28}{5}$ en la ecuación, ambos lados valen $\\dfrac{168}{5}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $11x - 28 = 56 - 4x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 84$.\nDividimos ambos lados entre 15: $x = \\dfrac{28}{5}$."
     },
     {
      "type": "input",
@@ -1128,7 +1199,8 @@
      "answer": "40/9",
      "why": "Al reemplazar $x = \\dfrac{40}{9}$ en la ecuación, ambos lados valen $\\dfrac{103}{9}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $10x - 33 = 47 - 8x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $18x = 80$.\nDividimos ambos lados entre 18: $x = \\dfrac{40}{9}$."
     },
     {
      "type": "input",
@@ -1137,7 +1209,8 @@
      "answer": "21/4",
      "why": "Al reemplazar $x = \\dfrac{21}{4}$ en la ecuación, ambos lados valen $-11$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $31 - 8x = -11$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = -42$.\nDividimos ambos lados entre -8: $x = \\dfrac{21}{4}$."
     },
     {
      "q": "¿Cuál es la solución de la ecuación $12x + 1 = 10x + 4$?",
@@ -1169,7 +1242,8 @@
      "q": "Resuelve la ecuación: $$12x - 85 = 5x + 160$$ Escribe el valor de $x$.",
      "answer": "35",
      "why": "Al reemplazar $x = 35$ en la ecuación, ambos lados valen $335$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $12x - 85 = 5x + 160$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 245$.\nDividimos ambos lados entre 7: $x = 35$."
     },
     {
      "type": "input",
@@ -1177,7 +1251,8 @@
      "q": "Resuelve la ecuación: $$3x + 5x - 12 = 2x + 30$$ Escribe el valor de $x$.",
      "answer": "7",
      "why": "Al reemplazar $x = 7$ en la ecuación, ambos lados valen $44$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $3x + 5x - 12 = 2x + 30$.\nReducimos los términos semejantes de cada lado: $8x - 12 = 2x + 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 42$.\nDividimos ambos lados entre 6: $x = 7$."
     },
     {
      "type": "input",
@@ -1185,7 +1260,8 @@
      "q": "Resuelve la ecuación: $$9x - 15 = 7x + 9$$ Escribe el valor de $x$.",
      "answer": "12",
      "why": "Al reemplazar $x = 12$ en la ecuación, ambos lados valen $93$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $9x - 15 = 7x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 24$.\nDividimos ambos lados entre 2: $x = 12$."
     },
     {
      "type": "input",
@@ -1193,7 +1269,8 @@
      "q": "Resuelve la ecuación: $$15x + 40 = 8x - 100$$ Escribe el valor de $x$.",
      "answer": "-20",
      "why": "Al reemplazar $x = -20$ en la ecuación, ambos lados valen $-260$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $15x + 40 = 8x - 100$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = -140$.\nDividimos ambos lados entre 7: $x = -20$."
     },
     {
      "type": "input",
@@ -1202,7 +1279,8 @@
      "answer": "7/3",
      "why": "Al reemplazar $x = \\dfrac{7}{3}$ en la ecuación, ambos lados valen $\\dfrac{26}{3}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $2x + 4 = 11x - 17$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-9x = -21$.\nDividimos ambos lados entre -9: $x = \\dfrac{7}{3}$."
     },
     {
      "type": "input",
@@ -1211,7 +1289,8 @@
      "answer": "7/2",
      "why": "Al reemplazar $x = \\dfrac{7}{2}$ en la ecuación, ambos lados valen $\\dfrac{63}{2}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8x + 3x - 7 = 3x + 2x + 14$.\nReducimos los términos semejantes de cada lado: $11x - 7 = 5x + 14$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 21$.\nDividimos ambos lados entre 6: $x = \\dfrac{7}{2}$."
     },
     {
      "type": "input",
@@ -1219,7 +1298,8 @@
      "q": "Resuelve la ecuación: $$10x + 33x - 9 = 30x + 56$$ Escribe el valor de $x$.",
      "answer": "5",
      "why": "Al reemplazar $x = 5$ en la ecuación, ambos lados valen $206$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $10x + 33x - 9 = 30x + 56$.\nReducimos los términos semejantes de cada lado: $43x - 9 = 30x + 56$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $13x = 65$.\nDividimos ambos lados entre 13: $x = 5$."
     },
     {
      "type": "input",
@@ -1227,7 +1307,8 @@
      "q": "Resuelve la ecuación: $$13x + 18x - 27 = 30x + 210$$ Escribe el valor de $x$.",
      "answer": "237",
      "why": "Al reemplazar $x = 237$ en la ecuación, ambos lados valen $7320$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $13x + 18x - 27 = 30x + 210$.\nReducimos los términos semejantes de cada lado: $31x - 27 = 30x + 210$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 237$."
     },
     {
      "type": "input",
@@ -1235,7 +1316,8 @@
      "q": "Resuelve la ecuación: $$24x + 3x - 36 = 29x + 284$$ Escribe el valor de $x$.",
      "answer": "-160",
      "why": "Al reemplazar $x = -160$ en la ecuación, ambos lados valen $-4356$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $24x + 3x - 36 = 29x + 284$.\nReducimos los términos semejantes de cada lado: $27x - 36 = 29x + 284$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-2x = 320$.\nDividimos ambos lados entre -2: $x = -160$."
     },
     {
      "type": "input",
@@ -1243,7 +1325,8 @@
      "q": "Resuelve la ecuación: $$38x - 30x + 53 = 6x + 109 + 10x$$ Escribe el valor de $x$.",
      "answer": "-7",
      "why": "Al reemplazar $x = -7$ en la ecuación, ambos lados valen $-3$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $38x - 30x + 53 = 6x + 109 + 10x$.\nReducimos los términos semejantes de cada lado: $8x + 53 = 16x + 109$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = 56$.\nDividimos ambos lados entre -8: $x = -7$."
     },
     {
      "type": "input",
@@ -1251,7 +1334,8 @@
      "q": "Resuelve la ecuación: $$38x - 10x - 37 = 17x + 179 + 3x$$ Escribe el valor de $x$.",
      "answer": "27",
      "why": "Al reemplazar $x = 27$ en la ecuación, ambos lados valen $719$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $38x - 10x - 37 = 17x + 179 + 3x$.\nReducimos los términos semejantes de cada lado: $28x - 37 = 20x + 179$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = 216$.\nDividimos ambos lados entre 8: $x = 27$."
     },
     {
      "type": "input",
@@ -1259,7 +1343,8 @@
      "q": "Resuelve la ecuación: $$53x - 49x + 3 = 14x + 71 + 7x$$ Escribe el valor de $x$.",
      "answer": "-4",
      "why": "Al reemplazar $x = -4$ en la ecuación, ambos lados valen $-13$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $53x - 49x + 3 = 14x + 71 + 7x$.\nReducimos los términos semejantes de cada lado: $4x + 3 = 21x + 71$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-17x = 68$.\nDividimos ambos lados entre -17: $x = -4$."
     },
     {
      "type": "input",
@@ -1267,7 +1352,8 @@
      "q": "Resuelve la ecuación: $$5x + 139 = 3x - 11$$ Escribe el valor de $x$.",
      "answer": "-75",
      "why": "Al reemplazar $x = -75$ en la ecuación, ambos lados valen $-236$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $5x + 139 = 3x - 11$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = -150$.\nDividimos ambos lados entre 2: $x = -75$."
     },
     {
      "type": "input",
@@ -1275,7 +1361,8 @@
      "q": "Resuelve la ecuación: $$41x + 67 = 35x - 317$$ Escribe el valor de $x$.",
      "answer": "-64",
      "why": "Al reemplazar $x = -64$ en la ecuación, ambos lados valen $-2557$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $41x + 67 = 35x - 317$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = -384$.\nDividimos ambos lados entre 6: $x = -64$."
     },
     {
      "type": "input",
@@ -1283,7 +1370,8 @@
      "q": "Resuelve la ecuación: $$18x + 129 = 13x + 459$$ Escribe el valor de $x$.",
      "answer": "66",
      "why": "Al reemplazar $x = 66$ en la ecuación, ambos lados valen $1317$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $18x + 129 = 13x + 459$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 330$.\nDividimos ambos lados entre 5: $x = 66$."
     },
     {
      "type": "input",
@@ -1291,7 +1379,8 @@
      "q": "Resuelve la ecuación: $$0{,}15x + 3{,}5 = 48{,}50$$ Escribe el valor de $x$.",
      "answer": "300",
      "why": "Al reemplazar $x = 300$ en la ecuación, ambos lados valen $\\dfrac{97}{2}$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $0{,}15x + 3{,}5 = 48{,}50$.\nMultiplicamos ambos lados por 20 para eliminar los decimales: $3x + 70 = 970$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 900$.\nDividimos ambos lados entre 3: $x = 300$."
     },
     {
      "type": "input",
@@ -1300,7 +1389,8 @@
      "answer": "46/13",
      "why": "Al reemplazar $x = \\dfrac{46}{13}$ en la ecuación, ambos lados valen $\\dfrac{2296}{13}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $16x + 120 = 3x + 166$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $13x = 46$.\nDividimos ambos lados entre 13: $x = \\dfrac{46}{13}$."
     },
     {
      "type": "input",
@@ -1309,7 +1399,8 @@
      "answer": "53/9",
      "why": "Al reemplazar $x = \\dfrac{53}{9}$ en la ecuación, ambos lados valen $\\dfrac{607}{3}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $24x + 61 = 6x + 167$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $18x = 106$.\nDividimos ambos lados entre 18: $x = \\dfrac{53}{9}$."
     },
     {
      "type": "input",
@@ -1318,7 +1409,8 @@
      "answer": "19/10",
      "why": "Al reemplazar $x = \\dfrac{19}{10}$ en la ecuación, ambos lados valen $-\\dfrac{4}{5}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $22 - 12x = 8x - 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-20x = -38$.\nDividimos ambos lados entre -20: $x = \\dfrac{19}{10}$."
     },
     {
      "type": "input",
@@ -1327,7 +1419,8 @@
      "answer": "30/13",
      "why": "Al reemplazar $x = \\dfrac{30}{13}$ en la ecuación, ambos lados valen $\\dfrac{1025}{13}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $125 - 20x = 19x + 35$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-39x = -90$.\nDividimos ambos lados entre -39: $x = \\dfrac{30}{13}$."
     }
    ],
    "check": {
@@ -1542,7 +1635,8 @@
      "q": "Resuelve la ecuación:\n$$2(x - 3) = 10$$\n\nEscribe el valor de $x$.",
      "answer": "8",
      "why": "Dividimos ambos lados por 2 y luego sumamos 3: $x - 3 = 5$, de donde $x = 8$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2(x - 3) = 10$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 6 = 10$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 16$.\nDividimos ambos lados entre 2: $x = 8$."
     },
     {
      "type": "input",
@@ -1550,7 +1644,8 @@
      "q": "Resuelve la ecuación:\n$$6(x + 4) = 48$$\n\nEscribe el valor de $x$.",
      "answer": "4",
      "why": "Dividimos por 6: $x + 4 = 8$, y despejamos: $x = 4$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $6(x + 4) = 48$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $6x + 24 = 48$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 24$.\nDividimos ambos lados entre 6: $x = 4$."
     },
     {
      "q": "Resuelve la ecuación:\n$$3(x - 1) = 21$$",
@@ -1582,7 +1677,8 @@
      "q": "Resuelve la ecuación:\n$$\\frac{x}{3} + 1 = 2$$\n\nEscribe el valor de $x$.",
      "answer": "3",
      "why": "Restamos 1: $\\frac{x}{3} = 1$. Multiplicamos por 3: $x = 3$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\frac{x}{3} + 1 = 2$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $x + 3 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 3$."
     },
     {
      "q": "Al aplicar la propiedad distributiva a $4(x - 1)$ se obtiene:",
@@ -1614,7 +1710,8 @@
      "q": "Resuelve la ecuación: $$2(x - 5) = 6$$ Escribe el valor de $x$.",
      "answer": "8",
      "why": "Al reemplazar $x = 8$ en la ecuación, ambos lados valen $6$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2(x - 5) = 6$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 10 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 16$.\nDividimos ambos lados entre 2: $x = 8$."
     },
     {
      "type": "input",
@@ -1622,7 +1719,8 @@
      "q": "Resuelve la ecuación: $$6(x - 5) = 36$$ Escribe el valor de $x$.",
      "answer": "11",
      "why": "Al reemplazar $x = 11$ en la ecuación, ambos lados valen $36$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $6(x - 5) = 36$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $6x - 30 = 36$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 66$.\nDividimos ambos lados entre 6: $x = 11$."
     },
     {
      "type": "input",
@@ -1630,7 +1728,8 @@
      "q": "Resuelve la ecuación: $$3(x - 12) + 3 = 12$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $12$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $3(x - 12) + 3 = 12$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $3x - 33 = 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 45$.\nDividimos ambos lados entre 3: $x = 15$."
     },
     {
      "type": "input",
@@ -1638,7 +1737,8 @@
      "q": "Resuelve la ecuación: $$7(x - 11) - 4 = 24$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $24$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $7(x - 11) - 4 = 24$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $7x - 81 = 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 105$.\nDividimos ambos lados entre 7: $x = 15$."
     },
     {
      "type": "input",
@@ -1646,7 +1746,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x - 10}{5} = 1$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $1$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{x - 10}{5} = 1$.\nMultiplicamos ambos lados por 5 para eliminar los denominadores: $x - 10 = 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
     },
     {
      "type": "input",
@@ -1654,7 +1755,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x + 3}{4} = 3$$ Escribe el valor de $x$.",
      "answer": "9",
      "why": "Al reemplazar $x = 9$ en la ecuación, ambos lados valen $3$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{x + 3}{4} = 3$.\nMultiplicamos ambos lados por 4 para eliminar los denominadores: $x + 3 = 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 9$."
     },
     {
      "type": "input",
@@ -1662,7 +1764,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{4} + 11 = 13$$ Escribe el valor de $x$.",
      "answer": "8",
      "why": "Al reemplazar $x = 8$ en la ecuación, ambos lados valen $13$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{4} + 11 = 13$.\nMultiplicamos ambos lados por 4 para eliminar los denominadores: $x + 44 = 52$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 8$."
     },
     {
      "type": "input",
@@ -1670,7 +1773,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{5} + 4 = 6$$ Escribe el valor de $x$.",
      "answer": "10",
      "why": "Al reemplazar $x = 10$ en la ecuación, ambos lados valen $6$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{5} + 4 = 6$.\nMultiplicamos ambos lados por 5 para eliminar los denominadores: $x + 20 = 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 10$."
     },
     {
      "type": "input",
@@ -1678,7 +1782,8 @@
      "q": "Resuelve la ecuación: $$2(x - 1) = x + 13$$ Escribe el valor de $x$.",
      "answer": "15",
      "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $28$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2(x - 1) = x + 13$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 2 = x + 13$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
     },
     {
      "q": "Al aplicar la propiedad distributiva a $8(x + 4)$ se obtiene:",
@@ -1710,7 +1815,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{2x + 11}{3} = 9$$ Escribe el valor de $x$.",
      "answer": "8",
      "why": "Al reemplazar $x = 8$ en la ecuación, ambos lados valen $9$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{2x + 11}{3} = 9$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $2x + 11 = 27$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 16$.\nDividimos ambos lados entre 2: $x = 8$."
     },
     {
      "type": "input",
@@ -1718,7 +1824,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{4x - 11}{3} = 7$$ Escribe el valor de $x$.",
      "answer": "8",
      "why": "Al reemplazar $x = 8$ en la ecuación, ambos lados valen $7$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $\\dfrac{4x - 11}{3} = 7$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $4x - 11 = 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 32$.\nDividimos ambos lados entre 4: $x = 8$."
     },
     {
      "q": "Resuelve la ecuación:\n$$4(x + 6) + 2 = 34$$",
@@ -1738,7 +1845,8 @@
      "q": "Resuelve la ecuación:\n$$2(x + 4) + 3 = 23$$\n\nEscribe el valor de $x$.",
      "answer": "6",
      "why": "Restamos 3: $2(x + 4) = 20$. Distribuimos: $2x + 8 = 20$, y despejando $x = 6$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $2(x + 4) + 3 = 23$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x + 11 = 23$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 12$.\nDividimos ambos lados entre 2: $x = 6$."
     },
     {
      "type": "input",
@@ -1746,7 +1854,8 @@
      "q": "Resuelve la ecuación:\n$$5(x + 1) = x + 13$$\n\nEscribe el valor de $x$.",
      "answer": "2",
      "why": "Distribuimos: $5x + 5 = x + 13$. Agrupamos: $4x = 8$, así que $x = 2$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $5(x + 1) = x + 13$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $5x + 5 = x + 13$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 8$.\nDividimos ambos lados entre 4: $x = 2$."
     },
     {
      "q": "Resuelve la ecuación:\n$$7(x + 1) = x + 49$$",
@@ -1766,7 +1875,8 @@
      "q": "Resuelve la ecuación:\n$$\\frac{x}{2} + \\frac{x}{3} = 15$$\n\nEscribe el valor de $x$.",
      "answer": "18",
      "why": "Multiplicamos por 6 (mínimo común múltiplo): $3x + 2x = 90$, es decir $5x = 90$, y $x = 18$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $\\frac{x}{2} + \\frac{x}{3} = 15$.\nReducimos los términos semejantes de cada lado: $\\dfrac{5}{6}x = 15$.\nMultiplicamos ambos lados por 6 para eliminar los denominadores: $5x = 90$.\nDividimos ambos lados entre 5: $x = 18$."
     },
     {
      "q": "Resuelve la ecuación:\n$$\\frac{x + 11}{3} = 6$$",
@@ -1787,7 +1897,8 @@
      "answer": "7/4",
      "why": "Al reemplazar $x = \\dfrac{7}{4}$ en la ecuación, ambos lados valen $\\dfrac{27}{2}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $3(2x + 1) = 2(x + 5)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $6x + 3 = 2x + 10$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 7$.\nDividimos ambos lados entre 4: $x = \\dfrac{7}{4}$."
     },
     {
      "type": "input",
@@ -1796,7 +1907,8 @@
      "answer": "-35/3",
      "why": "Al reemplazar $x = -\\dfrac{35}{3}$ en la ecuación, ambos lados valen $-\\dfrac{88}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8(x + 8) = 5x + 29$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $8x + 64 = 5x + 29$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = -35$.\nDividimos ambos lados entre 3: $x = -\\dfrac{35}{3}$."
     },
     {
      "type": "input",
@@ -1805,7 +1917,8 @@
      "answer": "-25/2",
      "why": "Al reemplazar $x = -\\dfrac{25}{2}$ en la ecuación, ambos lados valen $-20$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8(x + 10) = 4x + 30$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $8x + 80 = 4x + 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = -50$.\nDividimos ambos lados entre 4: $x = -\\dfrac{25}{2}$."
     },
     {
      "type": "input",
@@ -1813,7 +1926,8 @@
      "q": "Resuelve la ecuación: $$3(x + 1) = 4(x + 3)$$ Escribe el valor de $x$.",
      "answer": "-9",
      "why": "Al reemplazar $x = -9$ en la ecuación, ambos lados valen $-24$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $3(x + 1) = 4(x + 3)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $3x + 3 = 4x + 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-x = 9$.\nDividimos ambos lados entre -1: $x = -9$."
     },
     {
      "type": "input",
@@ -1822,7 +1936,8 @@
      "answer": "39/4",
      "why": "Al reemplazar $x = \\dfrac{39}{4}$ en la ecuación, ambos lados valen $\\dfrac{189}{4}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $3(x + 6) = 7(x - 3)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $3x + 18 = 7x - 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-4x = -39$.\nDividimos ambos lados entre -4: $x = \\dfrac{39}{4}$."
     },
     {
      "type": "input",
@@ -1831,7 +1946,8 @@
      "answer": "32/5",
      "why": "Al reemplazar $x = \\dfrac{32}{5}$ en la ecuación, ambos lados valen $102$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $3(5x + 2) = 102$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $15x + 6 = 102$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 96$.\nDividimos ambos lados entre 15: $x = \\dfrac{32}{5}$."
     },
     {
      "type": "input",
@@ -1840,7 +1956,8 @@
      "answer": "9/10",
      "why": "Al reemplazar $x = \\dfrac{9}{10}$ en la ecuación, ambos lados valen $63$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $6(5x + 6) = 63$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $30x + 36 = 63$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $30x = 27$.\nDividimos ambos lados entre 30: $x = \\dfrac{9}{10}$."
     },
     {
      "type": "input",
@@ -1848,7 +1965,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{6} + \\dfrac{x}{3} = 14$$ Escribe el valor de $x$.",
      "answer": "28",
      "why": "Al reemplazar $x = 28$ en la ecuación, ambos lados valen $14$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{6} + \\dfrac{x}{3} = 14$.\nReducimos los términos semejantes de cada lado: $\\dfrac{1}{2}x = 14$.\nMultiplicamos ambos lados por 2 para eliminar los denominadores: $x = 28$."
     },
     {
      "type": "input",
@@ -1856,7 +1974,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{5} + \\dfrac{x}{10} = 18$$ Escribe el valor de $x$.",
      "answer": "60",
      "why": "Al reemplazar $x = 60$ en la ecuación, ambos lados valen $18$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{5} + \\dfrac{x}{10} = 18$.\nReducimos los términos semejantes de cada lado: $\\dfrac{3}{10}x = 18$.\nMultiplicamos ambos lados por 10 para eliminar los denominadores: $3x = 180$.\nDividimos ambos lados entre 3: $x = 60$."
     },
     {
      "type": "input",
@@ -1865,7 +1984,8 @@
      "answer": "-26/5",
      "why": "Al reemplazar $x = -\\dfrac{26}{5}$ en la ecuación, ambos lados valen $\\dfrac{4}{5}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{6} + \\dfrac{5}{3} = \\dfrac{4}{5}$.\nMultiplicamos ambos lados por 30 para eliminar los denominadores: $5x + 50 = 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = -26$.\nDividimos ambos lados entre 5: $x = -\\dfrac{26}{5}$."
     },
     {
      "type": "input",
@@ -1874,7 +1994,8 @@
      "answer": "-7/3",
      "why": "Al reemplazar $x = -\\dfrac{7}{3}$ en la ecuación, ambos lados valen $\\dfrac{2}{3}$.",
      "level": 2,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{3} + \\dfrac{13}{9} = \\dfrac{2}{3}$.\nMultiplicamos ambos lados por 9 para eliminar los denominadores: $3x + 13 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = -7$.\nDividimos ambos lados entre 3: $x = -\\dfrac{7}{3}$."
     },
     {
      "type": "input",
@@ -1882,7 +2003,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x - 10}{8} = \\dfrac{x + 3}{9}$$ Escribe el valor de $x$.",
      "answer": "114",
      "why": "Al reemplazar $x = 114$ en la ecuación, ambos lados valen $13$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $\\dfrac{x - 10}{8} = \\dfrac{x + 3}{9}$.\nMultiplicamos ambos lados por 72 para eliminar los denominadores: $9x - 90 = 8x + 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 114$."
     },
     {
      "q": "Al aplicar la propiedad distributiva a $-5(x + 10)$ se obtiene:",
@@ -1915,7 +2037,8 @@
      "answer": "19/7",
      "why": "Al reemplazar $x = \\dfrac{19}{7}$ en la ecuación, ambos lados valen $6$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $4(3x - 2) - 5(x + 1) = 6$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $7x - 13 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 19$.\nDividimos ambos lados entre 7: $x = \\dfrac{19}{7}$."
     },
     {
      "type": "input",
@@ -1923,7 +2046,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{2x - 1}{3} = \\dfrac{x + 4}{2}$$ Escribe el valor de $x$.",
      "answer": "14",
      "why": "Al reemplazar $x = 14$ en la ecuación, ambos lados valen $9$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{2x - 1}{3} = \\dfrac{x + 4}{2}$.\nMultiplicamos ambos lados por 6 para eliminar los denominadores: $4x - 2 = 3x + 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 14$."
     },
     {
      "type": "input",
@@ -1931,7 +2055,8 @@
      "q": "Resuelve la ecuación: $$5(2x - 7) - 3(x - 4) = 2(x + 11)$$ Escribe el valor de $x$.",
      "answer": "9",
      "why": "Al reemplazar $x = 9$ en la ecuación, ambos lados valen $40$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $5(2x - 7) - 3(x - 4) = 2(x + 11)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $7x - 23 = 2x + 22$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 45$.\nDividimos ambos lados entre 5: $x = 9$."
     },
     {
      "type": "input",
@@ -1939,7 +2064,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{6} + \\dfrac{x}{4} - \\dfrac{x}{3} = 5$$ Escribe el valor de $x$.",
      "answer": "60",
      "why": "Al reemplazar $x = 60$ en la ecuación, ambos lados valen $5$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{6} + \\dfrac{x}{4} - \\dfrac{x}{3} = 5$.\nReducimos los términos semejantes de cada lado: $\\dfrac{1}{12}x = 5$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $x = 60$."
     },
     {
      "type": "input",
@@ -1948,7 +2074,8 @@
      "answer": "17/7",
      "why": "Al reemplazar $x = \\dfrac{17}{7}$ en la ecuación, ambos lados valen $2$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{3x + 1}{4} - \\dfrac{x - 2}{6} = 2$.\nReducimos los términos semejantes de cada lado: $\\dfrac{7}{12}x + \\dfrac{7}{12} = 2$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $7x + 7 = 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 17$.\nDividimos ambos lados entre 7: $x = \\dfrac{17}{7}$."
     },
     {
      "type": "input",
@@ -1956,7 +2083,8 @@
      "q": "Resuelve la ecuación: $$12(x + 15) = 7(x + 45)$$ Escribe el valor de $x$.",
      "answer": "27",
      "why": "Al reemplazar $x = 27$ en la ecuación, ambos lados valen $504$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $12(x + 15) = 7(x + 45)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $12x + 180 = 7x + 315$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 135$.\nDividimos ambos lados entre 5: $x = 27$."
     },
     {
      "type": "input",
@@ -1965,7 +2093,8 @@
      "answer": "19/3",
      "why": "Al reemplazar $x = \\dfrac{19}{3}$ en la ecuación, ambos lados valen $35$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $6(4x - 7) - 9(x + 2) = 35$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $15x - 60 = 35$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 95$.\nDividimos ambos lados entre 15: $x = \\dfrac{19}{3}$."
     },
     {
      "type": "input",
@@ -1974,7 +2103,8 @@
      "answer": "10/3",
      "why": "Al reemplazar $x = \\dfrac{10}{3}$ en la ecuación, ambos lados valen $16$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $4(7x - 7) - 4(x + 9) = 16$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $24x - 64 = 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $24x = 80$.\nDividimos ambos lados entre 24: $x = \\dfrac{10}{3}$."
     },
     {
      "type": "input",
@@ -1983,7 +2113,8 @@
      "answer": "-103/8",
      "why": "Al reemplazar $x = -\\dfrac{103}{8}$ en la ecuación, ambos lados valen $-\\dfrac{1719}{8}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $8(3x + 4) - 7(x + 4) = 9(x - 11)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $17x + 4 = 9x - 99$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = -103$.\nDividimos ambos lados entre 8: $x = -\\dfrac{103}{8}$."
     },
     {
      "type": "input",
@@ -1992,7 +2123,8 @@
      "answer": "-32/11",
      "why": "Al reemplazar $x = -\\dfrac{32}{11}$ en la ecuación, ambos lados valen $-\\dfrac{228}{11}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $2(9x + 8) - 4(x - 1) = 3(x - 4)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $14x + 20 = 3x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $11x = -32$.\nDividimos ambos lados entre 11: $x = -\\dfrac{32}{11}$."
     },
     {
      "type": "input",
@@ -2001,7 +2133,8 @@
      "answer": "7/9",
      "why": "Al reemplazar $x = \\dfrac{7}{9}$ en la ecuación, ambos lados valen $\\dfrac{47}{36}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{7x + 5}{8} = \\dfrac{8x - 1}{4}$.\nMultiplicamos ambos lados por 8 para eliminar los denominadores: $7x + 5 = 16x - 2$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-9x = -7$.\nDividimos ambos lados entre -9: $x = \\dfrac{7}{9}$."
     },
     {
      "type": "input",
@@ -2010,7 +2143,8 @@
      "answer": "22/13",
      "why": "Al reemplazar $x = \\dfrac{22}{13}$ en la ecuación, ambos lados valen $\\dfrac{40}{13}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{5x + 10}{6} = \\dfrac{6x - 4}{2}$.\nMultiplicamos ambos lados por 6 para eliminar los denominadores: $5x + 10 = 18x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-13x = -22$.\nDividimos ambos lados entre -13: $x = \\dfrac{22}{13}$."
     },
     {
      "type": "input",
@@ -2018,7 +2152,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x}{4} - \\dfrac{x}{3} + \\dfrac{x}{2} = 15$$ Escribe el valor de $x$.",
      "answer": "36",
      "why": "Al reemplazar $x = 36$ en la ecuación, ambos lados valen $15$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{4} - \\dfrac{x}{3} + \\dfrac{x}{2} = 15$.\nReducimos los términos semejantes de cada lado: $\\dfrac{5}{12}x = 15$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $5x = 180$.\nDividimos ambos lados entre 5: $x = 36$."
     },
     {
      "type": "input",
@@ -2026,7 +2161,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x + 11}{6} - \\dfrac{x + 12}{4} = -3$$ Escribe el valor de $x$.",
      "answer": "22",
      "why": "Al reemplazar $x = 22$ en la ecuación, ambos lados valen $-3$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x + 11}{6} - \\dfrac{x + 12}{4} = -3$.\nReducimos los términos semejantes de cada lado: $-\\dfrac{1}{12}x - \\dfrac{7}{6} = -3$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $-x - 14 = -36$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-x = -22$.\nDividimos ambos lados entre -1: $x = 22$."
     },
     {
      "type": "input",
@@ -2034,7 +2170,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{x - 3}{6} - \\dfrac{x - 2}{7} = -1$$ Escribe el valor de $x$.",
      "answer": "-33",
      "why": "Al reemplazar $x = -33$ en la ecuación, ambos lados valen $-1$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{x - 3}{6} - \\dfrac{x - 2}{7} = -1$.\nReducimos los términos semejantes de cada lado: $\\dfrac{1}{42}x - \\dfrac{3}{14} = -1$.\nMultiplicamos ambos lados por 42 para eliminar los denominadores: $x - 9 = -42$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -33$."
     },
     {
      "type": "input",
@@ -2043,7 +2180,8 @@
      "answer": "47/15",
      "why": "Al reemplazar $x = \\dfrac{47}{15}$ en la ecuación, ambos lados valen $11$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{9x + 2}{6} + \\dfrac{7x - 10}{2} = 11$.\nReducimos los términos semejantes de cada lado: $5x - \\dfrac{14}{3} = 11$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $15x - 14 = 33$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 47$.\nDividimos ambos lados entre 15: $x = \\dfrac{47}{15}$."
     },
     {
      "type": "input",
@@ -2052,7 +2190,8 @@
      "answer": "1/15",
      "why": "Al reemplazar $x = \\dfrac{1}{15}$ en la ecuación, ambos lados valen $2$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $\\dfrac{9x - 7}{6} + \\dfrac{2x + 6}{2} = 2$.\nReducimos los términos semejantes de cada lado: $\\dfrac{5}{2}x + \\dfrac{11}{6} = 2$.\nMultiplicamos ambos lados por 6 para eliminar los denominadores: $15x + 11 = 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 1$.\nDividimos ambos lados entre 15: $x = \\dfrac{1}{15}$."
     },
     {
      "type": "input",
@@ -2061,7 +2200,8 @@
      "answer": "199/10",
      "why": "Al reemplazar $x = \\dfrac{199}{10}$ en la ecuación, ambos lados valen $\\dfrac{5859}{10}$.",
      "level": 3,
-     "reduced": true
+     "reduced": true,
+     "solution": "Partimos de la ecuación: $21(x + 8) = 31(x - 1)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $21x + 168 = 31x - 31$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-10x = -199$.\nDividimos ambos lados entre -10: $x = \\dfrac{199}{10}$."
     },
     {
      "type": "input",
@@ -2069,7 +2209,8 @@
      "q": "Resuelve la ecuación: $$\\dfrac{2x - 5}{3} = 49$$ Escribe el valor de $x$.",
      "answer": "76",
      "why": "Al reemplazar $x = 76$ en la ecuación, ambos lados valen $49$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $\\dfrac{2x - 5}{3} = 49$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $2x - 5 = 147$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 152$.\nDividimos ambos lados entre 2: $x = 76$."
     },
     {
      "q": "Al simplificar la expresión $6(6x - 5) - 5(x - 1)$ se obtiene:",
@@ -5086,7 +5227,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 - 49 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "7; -7",
      "why": "Despejamos $x^2$ y consideramos las dos raíces cuadradas, la positiva y la negativa: $x^2 = 49$, luego $x = \\pm 7$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 49 = 0$.\nDespejamos $x^{2}$: $x^{2} = 49$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{49} = \\pm 7$.\nLas soluciones son $x = -7$ y $x = 7$."
     },
     {
      "type": "input",
@@ -5094,7 +5236,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 - 4 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "-2; 2",
      "why": "Pasamos 4 al otro lado: $x^2 = 4$, así que $x = \\pm 2$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 4 = 0$.\nDespejamos $x^{2}$: $x^{2} = 4$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{4} = \\pm 2$.\nLas soluciones son $x = -2$ y $x = 2$."
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $x^2 + 16 = 0$?",
@@ -5114,7 +5257,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 - 9x = 0$$\n\nEscribe todas las soluciones.",
      "answer": "0; 9",
      "why": "Factorizamos: $x(x - 9) = 0$. Entonces $x = 0$ o $x = 9$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 9x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x - 9) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x - 9 = 0$.\nDespejamos: $x = 0$ o $x = 9$."
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 - 3x = 0$$",
@@ -5158,7 +5302,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 121 = 0$$ Escribe todas las soluciones.",
      "answer": "-11; 11",
      "why": "Las soluciones son $x = -11$ y $x = 11$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 121 = 0$.\nDespejamos $x^{2}$: $x^{2} = 121$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{121} = \\pm 11$.\nLas soluciones son $x = -11$ y $x = 11$."
     },
     {
      "type": "input",
@@ -5166,7 +5311,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 81 = 0$$ Escribe todas las soluciones.",
      "answer": "-9; 9",
      "why": "Las soluciones son $x = -9$ y $x = 9$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 81 = 0$.\nDespejamos $x^{2}$: $x^{2} = 81$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{81} = \\pm 9$.\nLas soluciones son $x = -9$ y $x = 9$."
     },
     {
      "type": "input",
@@ -5174,7 +5320,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 64 = 0$$ Escribe todas las soluciones.",
      "answer": "-8; 8",
      "why": "Las soluciones son $x = -8$ y $x = 8$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 64 = 0$.\nDespejamos $x^{2}$: $x^{2} = 64$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{64} = \\pm 8$.\nLas soluciones son $x = -8$ y $x = 8$."
     },
     {
      "type": "input",
@@ -5182,7 +5329,8 @@
      "q": "Resuelve la ecuación: $$x^2 = 144$$ Escribe todas las soluciones.",
      "answer": "-12; 12",
      "why": "Las soluciones son $x = -12$ y $x = 12$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 = 144$.\nLlevamos todo a un lado y reducimos: $x^{2} - 144 = 0$.\nDespejamos $x^{2}$: $x^{2} = 144$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{144} = \\pm 12$.\nLas soluciones son $x = -12$ y $x = 12$."
     },
     {
      "type": "input",
@@ -5190,7 +5338,8 @@
      "q": "Resuelve la ecuación: $$x^2 = 121$$ Escribe todas las soluciones.",
      "answer": "-11; 11",
      "why": "Las soluciones son $x = -11$ y $x = 11$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 = 121$.\nLlevamos todo a un lado y reducimos: $x^{2} - 121 = 0$.\nDespejamos $x^{2}$: $x^{2} = 121$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{121} = \\pm 11$.\nLas soluciones son $x = -11$ y $x = 11$."
     },
     {
      "type": "input",
@@ -5198,7 +5347,8 @@
      "q": "Resuelve la ecuación: $$2x^2 = 98$$ Escribe todas las soluciones.",
      "answer": "-7; 7",
      "why": "Las soluciones son $x = -7$ y $x = 7$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $2x^2 = 98$.\nLlevamos todo a un lado y reducimos: $2x^{2} - 98 = 0$.\nDespejamos $x^{2}$: $x^{2} = 49$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{49} = \\pm 7$.\nLas soluciones son $x = -7$ y $x = 7$."
     },
     {
      "type": "input",
@@ -5206,7 +5356,8 @@
      "q": "Resuelve la ecuación: $$9x^2 = 324$$ Escribe todas las soluciones.",
      "answer": "-6; 6",
      "why": "Las soluciones son $x = -6$ y $x = 6$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $9x^2 = 324$.\nLlevamos todo a un lado y reducimos: $9x^{2} - 324 = 0$.\nDespejamos $x^{2}$: $x^{2} = 36$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{36} = \\pm 6$.\nLas soluciones son $x = -6$ y $x = 6$."
     },
     {
      "type": "input",
@@ -5214,7 +5365,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 10x = 0$$ Escribe todas las soluciones.",
      "answer": "0; 10",
      "why": "Las soluciones son $x = 0$ y $x = 10$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 10x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x - 10) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x - 10 = 0$.\nDespejamos: $x = 0$ o $x = 10$."
     },
     {
      "type": "input",
@@ -5222,7 +5374,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 5x = 0$$ Escribe todas las soluciones.",
      "answer": "0; 5",
      "why": "Las soluciones son $x = 0$ y $x = 5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 5x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x - 5) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x - 5 = 0$.\nDespejamos: $x = 0$ o $x = 5$."
     },
     {
      "type": "input",
@@ -5230,7 +5383,8 @@
      "q": "Resuelve la ecuación: $$x^2 + 8x = 0$$ Escribe todas las soluciones.",
      "answer": "-8; 0",
      "why": "Las soluciones son $x = -8$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 + 8x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x + 8) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x + 8 = 0$.\nDespejamos: $x = 0$ o $x = -8$."
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $x^2 + 13 = 0$?",
@@ -5286,7 +5440,8 @@
      "q": "Resuelve la ecuación:\n$$2x^2 = 32$$\n\nEscribe todas las soluciones.",
      "answer": "-4; 4",
      "why": "Dividimos por 2: $x^2 = 16$, luego $x = \\pm 4$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $2x^2 = 32$.\nLlevamos todo a un lado y reducimos: $2x^{2} - 32 = 0$.\nDespejamos $x^{2}$: $x^{2} = 16$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{16} = \\pm 4$.\nLas soluciones son $x = -4$ y $x = 4$."
     },
     {
      "q": "Resuelve la ecuación:\n$$3x^2 + 18x = 0$$",
@@ -5306,7 +5461,8 @@
      "q": "Resuelve la ecuación:\n$$5x^2 - 30x = 0$$\n\nEscribe todas las soluciones.",
      "answer": "0; 6",
      "why": "Factorizamos: $x(5x - 30) = 0$. Entonces $x = 0$ o $x = 6$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $5x^2 - 30x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(5x - 30) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $5x - 30 = 0$.\nDespejamos: $x = 0$ o $x = 6$."
     },
     {
      "q": "Resuelve la ecuación:\n$$5x^2 + 10x = 0$$",
@@ -5326,7 +5482,8 @@
      "q": "Resuelve la ecuación:\n$$(x + 2)^2 = 9$$\n\nEscribe todas las soluciones.",
      "answer": "-5; 1",
      "why": "Aplicamos raíz a ambos lados: $x + 2 = \\pm 3$, así que $x = -5$ o $x = 1$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $(x + 2)^2 = 9$.\nSacamos raíz cuadrada en ambos lados: $x + 2 = 3$ o $x + 2 = -3$.\nDespejamos $x$ en cada caso: $x = 1$ o $x = -5$."
     },
     {
      "q": "Resuelve la ecuación:\n$$(x + 6)^2 = 16$$",
@@ -5346,7 +5503,8 @@
      "q": "Resuelve la ecuación: $$25x^2 = 16$$ Escribe todas las soluciones.",
      "answer": "-4/5; 4/5",
      "why": "Las soluciones son $x = -\\dfrac{4}{5}$ y $x = \\dfrac{4}{5}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $25x^2 = 16$.\nLlevamos todo a un lado y reducimos: $25x^{2} - 16 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{16}{25}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{16}{25}} = \\pm \\dfrac{4}{5}$.\nLas soluciones son $x = -\\dfrac{4}{5}$ y $x = \\dfrac{4}{5}$."
     },
     {
      "type": "input",
@@ -5354,7 +5512,8 @@
      "q": "Resuelve la ecuación: $$9x^2 = 4$$ Escribe todas las soluciones.",
      "answer": "-2/3; 2/3",
      "why": "Las soluciones son $x = -\\dfrac{2}{3}$ y $x = \\dfrac{2}{3}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $9x^2 = 4$.\nLlevamos todo a un lado y reducimos: $9x^{2} - 4 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{4}{9}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{4}{9}} = \\pm \\dfrac{2}{3}$.\nLas soluciones son $x = -\\dfrac{2}{3}$ y $x = \\dfrac{2}{3}$."
     },
     {
      "type": "input",
@@ -5362,7 +5521,8 @@
      "q": "Resuelve la ecuación: $$36x^2 - 1 = 0$$ Escribe todas las soluciones.",
      "answer": "-1/6; 1/6",
      "why": "Las soluciones son $x = -\\dfrac{1}{6}$ y $x = \\dfrac{1}{6}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $36x^2 - 1 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{1}{36}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{1}{36}} = \\pm \\dfrac{1}{6}$.\nLas soluciones son $x = -\\dfrac{1}{6}$ y $x = \\dfrac{1}{6}$."
     },
     {
      "type": "input",
@@ -5370,7 +5530,8 @@
      "q": "Resuelve la ecuación: $$16x^2 - 36 = 0$$ Escribe todas las soluciones.",
      "answer": "-3/2; 3/2",
      "why": "Las soluciones son $x = -\\dfrac{3}{2}$ y $x = \\dfrac{3}{2}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $16x^2 - 36 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{9}{4}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{9}{4}} = \\pm \\dfrac{3}{2}$.\nLas soluciones son $x = -\\dfrac{3}{2}$ y $x = \\dfrac{3}{2}$."
     },
     {
      "type": "input",
@@ -5378,7 +5539,8 @@
      "q": "Resuelve la ecuación: $$2x^2 + 3x = 0$$ Escribe todas las soluciones.",
      "answer": "-3/2; 0",
      "why": "Las soluciones son $x = -\\dfrac{3}{2}$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $2x^2 + 3x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(2x + 3) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $2x + 3 = 0$.\nDespejamos: $x = 0$ o $x = -\\dfrac{3}{2}$."
     },
     {
      "type": "input",
@@ -5386,7 +5548,8 @@
      "q": "Resuelve la ecuación: $$6x^2 + 15x = 0$$ Escribe todas las soluciones.",
      "answer": "-5/2; 0",
      "why": "Las soluciones son $x = -\\dfrac{5}{2}$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $6x^2 + 15x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(6x + 15) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $6x + 15 = 0$.\nDespejamos: $x = 0$ o $x = -\\dfrac{5}{2}$."
     },
     {
      "type": "input",
@@ -5394,7 +5557,8 @@
      "q": "Resuelve la ecuación: $$6x^2 = 7x$$ Escribe todas las soluciones.",
      "answer": "0; 7/6",
      "why": "Las soluciones son $x = 0$ y $x = \\dfrac{7}{6}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $6x^2 = 7x$.\nLlevamos todo a un lado y reducimos: $6x^{2} - 7x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(6x - 7) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $6x - 7 = 0$.\nDespejamos: $x = 0$ o $x = \\dfrac{7}{6}$."
     },
     {
      "type": "input",
@@ -5402,7 +5566,8 @@
      "q": "Resuelve la ecuación: $$(x + 7)^2 = 4$$ Escribe todas las soluciones.",
      "answer": "-9; -5",
      "why": "Las soluciones son $x = -9$ y $x = -5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $(x + 7)^2 = 4$.\nSacamos raíz cuadrada en ambos lados: $x + 7 = 2$ o $x + 7 = -2$.\nDespejamos $x$ en cada caso: $x = -5$ o $x = -9$."
     },
     {
      "type": "input",
@@ -5410,7 +5575,8 @@
      "q": "Resuelve la ecuación: $$(x - 7)^2 = 9$$ Escribe todas las soluciones.",
      "answer": "4; 10",
      "why": "Las soluciones son $x = 4$ y $x = 10$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $(x - 7)^2 = 9$.\nSacamos raíz cuadrada en ambos lados: $x - 7 = 3$ o $x - 7 = -3$.\nDespejamos $x$ en cada caso: $x = 10$ o $x = 4$."
     },
     {
      "type": "input",
@@ -5418,7 +5584,8 @@
      "q": "Resuelve la ecuación: $$(x - 6)^2 = 16$$ Escribe todas las soluciones.",
      "answer": "2; 10",
      "why": "Las soluciones son $x = 2$ y $x = 10$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $(x - 6)^2 = 16$.\nSacamos raíz cuadrada en ambos lados: $x - 6 = 4$ o $x - 6 = -4$.\nDespejamos $x$ en cada caso: $x = 10$ o $x = 2$."
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $x^2 + 15 = 0$?",
@@ -5462,7 +5629,8 @@
      "q": "Resuelve la ecuación: $$4x^2 = 9$$ Escribe todas las soluciones.",
      "answer": "-3/2; 3/2",
      "why": "Las soluciones son $x = -\\dfrac{3}{2}$ y $x = \\dfrac{3}{2}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $4x^2 = 9$.\nLlevamos todo a un lado y reducimos: $4x^{2} - 9 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{9}{4}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{9}{4}} = \\pm \\dfrac{3}{2}$.\nLas soluciones son $x = -\\dfrac{3}{2}$ y $x = \\dfrac{3}{2}$."
     },
     {
      "type": "input",
@@ -5470,7 +5638,8 @@
      "q": "Resuelve la ecuación: $$25x^2 - 16 = 0$$ Escribe todas las soluciones.",
      "answer": "-4/5; 4/5",
      "why": "Las soluciones son $x = -\\dfrac{4}{5}$ y $x = \\dfrac{4}{5}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $25x^2 - 16 = 0$.\nDespejamos $x^{2}$: $x^{2} = \\dfrac{16}{25}$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{\\dfrac{16}{25}} = \\pm \\dfrac{4}{5}$.\nLas soluciones son $x = -\\dfrac{4}{5}$ y $x = \\dfrac{4}{5}$."
     },
     {
      "type": "input",
@@ -5478,7 +5647,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 1225 = 0$$ Escribe todas las soluciones.",
      "answer": "-35; 35",
      "why": "Las soluciones son $x = -35$ y $x = 35$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 1225 = 0$.\nDespejamos $x^{2}$: $x^{2} = 1225$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{1225} = \\pm 35$.\nLas soluciones son $x = -35$ y $x = 35$."
     },
     {
      "type": "input",
@@ -5486,7 +5656,8 @@
      "q": "Resuelve la ecuación: $$3x^2 - 5 = x^2 + 27$$ Escribe todas las soluciones.",
      "answer": "-4; 4",
      "why": "Las soluciones son $x = -4$ y $x = 4$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $3x^2 - 5 = x^2 + 27$.\nLlevamos todo a un lado y reducimos: $2x^{2} - 32 = 0$.\nDespejamos $x^{2}$: $x^{2} = 16$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{16} = \\pm 4$.\nLas soluciones son $x = -4$ y $x = 4$."
     },
     {
      "type": "input",
@@ -5494,7 +5665,8 @@
      "q": "Resuelve la ecuación: $$14x^2 + 98x = 0$$ Escribe todas las soluciones.",
      "answer": "-7; 0",
      "why": "Las soluciones son $x = -7$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $14x^2 + 98x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(14x + 98) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $14x + 98 = 0$.\nDespejamos: $x = 0$ o $x = -7$."
     },
     {
      "type": "input",
@@ -5502,7 +5674,8 @@
      "q": "Resuelve la ecuación: $$(2x - 3)^2 = 49$$ Escribe todas las soluciones.",
      "answer": "-2; 5",
      "why": "Las soluciones son $x = -2$ y $x = 5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(2x - 3)^2 = 49$.\nSacamos raíz cuadrada en ambos lados: $2x - 3 = 7$ o $2x - 3 = -7$.\nDespejamos $x$ en cada caso: $x = 5$ o $x = -2$."
     },
     {
      "type": "input",
@@ -5510,7 +5683,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 441 = 0$$ Escribe todas las soluciones.",
      "answer": "-21; 21",
      "why": "Las soluciones son $x = -21$ y $x = 21$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 441 = 0$.\nDespejamos $x^{2}$: $x^{2} = 441$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{441} = \\pm 21$.\nLas soluciones son $x = -21$ y $x = 21$."
     },
     {
      "type": "input",
@@ -5518,7 +5692,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 1936 = 0$$ Escribe todas las soluciones.",
      "answer": "-44; 44",
      "why": "Las soluciones son $x = -44$ y $x = 44$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 1936 = 0$.\nDespejamos $x^{2}$: $x^{2} = 1936$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{1936} = \\pm 44$.\nLas soluciones son $x = -44$ y $x = 44$."
     },
     {
      "type": "input",
@@ -5526,7 +5701,8 @@
      "q": "Resuelve la ecuación: $$(4x + 1)^2 = 9$$ Escribe todas las soluciones.",
      "answer": "-1; 1/2",
      "why": "Las soluciones son $x = -1$ y $x = \\dfrac{1}{2}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(4x + 1)^2 = 9$.\nSacamos raíz cuadrada en ambos lados: $4x + 1 = 3$ o $4x + 1 = -3$.\nDespejamos $x$ en cada caso: $x = \\dfrac{1}{2}$ o $x = -1$."
     },
     {
      "type": "input",
@@ -5534,7 +5710,8 @@
      "q": "Resuelve la ecuación: $$(5x + 7)^2 = 144$$ Escribe todas las soluciones.",
      "answer": "-19/5; 1",
      "why": "Las soluciones son $x = -\\dfrac{19}{5}$ y $x = 1$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(5x + 7)^2 = 144$.\nSacamos raíz cuadrada en ambos lados: $5x + 7 = 12$ o $5x + 7 = -12$.\nDespejamos $x$ en cada caso: $x = 1$ o $x = -\\dfrac{19}{5}$."
     },
     {
      "type": "input",
@@ -5542,7 +5719,8 @@
      "q": "Resuelve la ecuación: $$4x^2 - 10 = x^2 + 17$$ Escribe todas las soluciones.",
      "answer": "-3; 3",
      "why": "Las soluciones son $x = -3$ y $x = 3$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $4x^2 - 10 = x^2 + 17$.\nLlevamos todo a un lado y reducimos: $3x^{2} - 27 = 0$.\nDespejamos $x^{2}$: $x^{2} = 9$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{9} = \\pm 3$.\nLas soluciones son $x = -3$ y $x = 3$."
     },
     {
      "type": "input",
@@ -5550,7 +5728,8 @@
      "q": "Resuelve la ecuación: $$4x^2 - 17 = 2x^2 + 33$$ Escribe todas las soluciones.",
      "answer": "-5; 5",
      "why": "Las soluciones son $x = -5$ y $x = 5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $4x^2 - 17 = 2x^2 + 33$.\nLlevamos todo a un lado y reducimos: $2x^{2} - 50 = 0$.\nDespejamos $x^{2}$: $x^{2} = 25$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{25} = \\pm 5$.\nLas soluciones son $x = -5$ y $x = 5$."
     },
     {
      "type": "input",
@@ -5558,7 +5737,8 @@
      "q": "Resuelve la ecuación: $$12x^2 + 159x = 0$$ Escribe todas las soluciones.",
      "answer": "-53/4; 0",
      "why": "Las soluciones son $x = -\\dfrac{53}{4}$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $12x^2 + 159x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(12x + 159) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $12x + 159 = 0$.\nDespejamos: $x = 0$ o $x = -\\dfrac{53}{4}$."
     },
     {
      "type": "input",
@@ -5566,7 +5746,8 @@
      "q": "Resuelve la ecuación: $$(x + 14)^2 - 256 = 0$$ Escribe todas las soluciones.",
      "answer": "-30; 2",
      "why": "Las soluciones son $x = -30$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(x + 14)^2 - 256 = 0$.\nLlevamos todo a un lado y reducimos: $x^{2} + 28x - 60 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 28$, $c = -60$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (28)^{2} - 4\\cdot(1)\\cdot(-60) = 1024$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-28 \\pm 32}{2}$.\nLas soluciones son $x = -30$ y $x = 2$."
     },
     {
      "type": "input",
@@ -5574,7 +5755,8 @@
      "q": "Resuelve la ecuación: $$(x - 3)^2 - 324 = 0$$ Escribe todas las soluciones.",
      "answer": "-15; 21",
      "why": "Las soluciones son $x = -15$ y $x = 21$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(x - 3)^2 - 324 = 0$.\nLlevamos todo a un lado y reducimos: $x^{2} - 6x - 315 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -6$, $c = -315$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-6)^{2} - 4\\cdot(1)\\cdot(-315) = 1296$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{6 \\pm 36}{2}$.\nLas soluciones son $x = -15$ y $x = 21$."
     },
     {
      "type": "input",
@@ -5582,7 +5764,8 @@
      "q": "Resuelve la ecuación: $$x(x - 3) = 6x$$ Escribe todas las soluciones.",
      "answer": "0; 9",
      "why": "Las soluciones son $x = 0$ y $x = 9$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x(x - 3) = 6x$.\nLlevamos todo a un lado y reducimos: $x^{2} - 9x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x - 9) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x - 9 = 0$.\nDespejamos: $x = 0$ o $x = 9$."
     },
     {
      "type": "input",
@@ -5590,7 +5773,8 @@
      "q": "Resuelve la ecuación: $$x(x - 8) = 21x$$ Escribe todas las soluciones.",
      "answer": "0; 29",
      "why": "Las soluciones son $x = 0$ y $x = 29$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x(x - 8) = 21x$.\nLlevamos todo a un lado y reducimos: $x^{2} - 29x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(x - 29) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $x - 29 = 0$.\nDespejamos: $x = 0$ o $x = 29$."
     },
     {
      "type": "input",
@@ -5598,7 +5782,8 @@
      "q": "Resuelve la ecuación: $$11x^2 - 3179 = 0$$ Escribe todas las soluciones.",
      "answer": "-17; 17",
      "why": "Las soluciones son $x = -17$ y $x = 17$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $11x^2 - 3179 = 0$.\nDespejamos $x^{2}$: $x^{2} = 289$.\nSacamos raíz cuadrada: $x = \\pm\\sqrt{289} = \\pm 17$.\nLas soluciones son $x = -17$ y $x = 17$."
     },
     {
      "type": "input",
@@ -5606,7 +5791,8 @@
      "q": "Resuelve la ecuación: $$38x^2 + 395x = 0$$ Escribe todas las soluciones.",
      "answer": "-395/38; 0",
      "why": "Las soluciones son $x = -\\dfrac{395}{38}$ y $x = 0$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $38x^2 + 395x = 0$.\nFactorizamos sacando factor común $x$: $x\\,(38x + 395) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x = 0$ o $38x + 395 = 0$.\nDespejamos: $x = 0$ o $x = -\\dfrac{395}{38}$."
     },
     {
      "type": "input",
@@ -5614,7 +5800,8 @@
      "q": "Resuelve la ecuación: $$(x + 8)^2 = 625$$ Escribe todas las soluciones.",
      "answer": "-33; 17",
      "why": "Las soluciones son $x = -33$ y $x = 17$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(x + 8)^2 = 625$.\nSacamos raíz cuadrada en ambos lados: $x + 8 = 25$ o $x + 8 = -25$.\nDespejamos $x$ en cada caso: $x = 17$ o $x = -33$."
     }
    ],
    "check": {
@@ -5830,7 +6017,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 - 5x + 6 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "2; 3",
      "why": "Buscamos dos números que multiplicados den $6$ y sumados den $-5$, que son $-2$ y $-3$: $(x - 2)(x - 3) = 0$, luego $x = 2$ o $x = 3$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 5x + 6 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -5$, $c = 6$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-5)^{2} - 4\\cdot(1)\\cdot(6) = 1$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{5 \\pm 1}{2}$.\nLas soluciones son $x = 2$ y $x = 3$."
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 + 2x - 15 = 0$$",
@@ -5861,7 +6049,8 @@
      "q": "Resuelve la ecuación:\n$$(x + 8)(x + 18) = 0$$\n\nEscribe todas las soluciones.",
      "answer": "-18; -8",
      "why": "Un producto es cero si algún factor es cero: $x + 8 = 0$ o $x + 18 = 0$.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $(x + 8)(x + 18) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x + 8 = 0$ o $x + 18 = 0$.\nDespejamos $x$ en cada caso: $x = -8$ o $x = -18$."
     },
     {
      "q": "Resuelve la ecuación:\n$$(x + 2)(x + 15) = 0$$",
@@ -5905,7 +6094,8 @@
      "q": "Resuelve la ecuación: $$x^2 + x - 12 = 0$$ Escribe todas las soluciones.",
      "answer": "-4; 3",
      "why": "Las soluciones son $x = -4$ y $x = 3$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 + x - 12 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 1$, $c = -12$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (1)^{2} - 4\\cdot(1)\\cdot(-12) = 49$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-1 \\pm 7}{2}$.\nLas soluciones son $x = -4$ y $x = 3$."
     },
     {
      "type": "input",
@@ -5913,7 +6103,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 14x + 45 = 0$$ Escribe todas las soluciones.",
      "answer": "5; 9",
      "why": "Las soluciones son $x = 5$ y $x = 9$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 14x + 45 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -14$, $c = 45$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-14)^{2} - 4\\cdot(1)\\cdot(45) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{14 \\pm 4}{2}$.\nLas soluciones son $x = 5$ y $x = 9$."
     },
     {
      "type": "input",
@@ -5921,7 +6112,8 @@
      "q": "Resuelve la ecuación: $$x^2 - x - 42 = 0$$ Escribe todas las soluciones.",
      "answer": "-6; 7",
      "why": "Las soluciones son $x = -6$ y $x = 7$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - x - 42 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -1$, $c = -42$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(1)\\cdot(-42) = 169$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 13}{2}$.\nLas soluciones son $x = -6$ y $x = 7$."
     },
     {
      "type": "input",
@@ -5929,7 +6121,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 2x - 15 = 0$$ Escribe todas las soluciones.",
      "answer": "-3; 5",
      "why": "Las soluciones son $x = -3$ y $x = 5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - 2x - 15 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -2$, $c = -15$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-2)^{2} - 4\\cdot(1)\\cdot(-15) = 64$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{2 \\pm 8}{2}$.\nLas soluciones son $x = -3$ y $x = 5$."
     },
     {
      "type": "input",
@@ -5937,7 +6130,8 @@
      "q": "Resuelve la ecuación: $$x^2 - x - 12 = 0$$ Escribe todas las soluciones.",
      "answer": "-3; 4",
      "why": "Las soluciones son $x = -3$ y $x = 4$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $x^2 - x - 12 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -1$, $c = -12$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(1)\\cdot(-12) = 49$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 7}{2}$.\nLas soluciones son $x = -3$ y $x = 4$."
     },
     {
      "type": "input",
@@ -5945,7 +6139,8 @@
      "q": "Resuelve la ecuación: $$(x + 7)(x + 5) = 0$$ Escribe todas las soluciones.",
      "answer": "-7; -5",
      "why": "Las soluciones son $x = -7$ y $x = -5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $(x + 7)(x + 5) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x + 7 = 0$ o $x + 5 = 0$.\nDespejamos $x$ en cada caso: $x = -7$ o $x = -5$."
     },
     {
      "type": "input",
@@ -5953,7 +6148,8 @@
      "q": "Resuelve la ecuación: $$(x + 11)(x - 4) = 0$$ Escribe todas las soluciones.",
      "answer": "-11; 4",
      "why": "Las soluciones son $x = -11$ y $x = 4$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $(x + 11)(x - 4) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x + 11 = 0$ o $x - 4 = 0$.\nDespejamos $x$ en cada caso: $x = -11$ o $x = 4$."
     },
     {
      "type": "input",
@@ -5961,7 +6157,8 @@
      "q": "Resuelve la ecuación: $$(x + 5)(x + 7) = 0$$ Escribe todas las soluciones.",
      "answer": "-7; -5",
      "why": "Las soluciones son $x = -7$ y $x = -5$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 1
+     "level": 1,
+     "solution": "Partimos de la ecuación: $(x + 5)(x + 7) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x + 5 = 0$ o $x + 7 = 0$.\nDespejamos $x$ en cada caso: $x = -5$ o $x = -7$."
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 5x + 4$?",
@@ -6029,7 +6226,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 + 12x + 32 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "-8; -4",
      "why": "Buscamos dos números que multipliquen 32 y sumen 12: son 8 y 4. Entonces $(x + 8)(x + 4) = 0$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 + 12x + 32 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 12$, $c = 32$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (12)^{2} - 4\\cdot(1)\\cdot(32) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-12 \\pm 4}{2}$.\nLas soluciones son $x = -8$ y $x = -4$."
     },
     {
      "type": "input",
@@ -6037,7 +6235,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 - 14x + 45 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "5; 9",
      "why": "Buscamos dos números que multipliquen 45 y sumen -14: son -5 y -9. Entonces $(x - 5)(x - 9) = 0$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 - 14x + 45 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -14$, $c = 45$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-14)^{2} - 4\\cdot(1)\\cdot(45) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{14 \\pm 4}{2}$.\nLas soluciones son $x = 5$ y $x = 9$."
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 + 4x - 32 = 0$$",
@@ -6057,7 +6256,8 @@
      "q": "Resuelve la ecuación:\n$$x^2 + 14x + 48 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "-8; -6",
      "why": "Buscamos dos números que multipliquen 48 y sumen 14: son 6 y 8. Entonces $(x + 6)(x + 8) = 0$.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 + 14x + 48 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 14$, $c = 48$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (14)^{2} - 4\\cdot(1)\\cdot(48) = 4$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-14 \\pm 2}{2}$.\nLas soluciones son $x = -8$ y $x = -6$."
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 + 11x + 18 = 0$$",
@@ -6101,7 +6301,8 @@
      "q": "Resuelve la ecuación: $$x^2 + 7x = 18$$ Escribe todas las soluciones.",
      "answer": "-9; 2",
      "why": "Las soluciones son $x = -9$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 + 7x = 18$.\nLlevamos todo a un lado y reducimos: $x^{2} + 7x - 18 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 7$, $c = -18$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (7)^{2} - 4\\cdot(1)\\cdot(-18) = 121$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-7 \\pm 11}{2}$.\nLas soluciones son $x = -9$ y $x = 2$."
     },
     {
      "type": "input",
@@ -6109,7 +6310,8 @@
      "q": "Resuelve la ecuación: $$x^2 = 10x - 24$$ Escribe todas las soluciones.",
      "answer": "4; 6",
      "why": "Las soluciones son $x = 4$ y $x = 6$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 = 10x - 24$.\nLlevamos todo a un lado y reducimos: $x^{2} - 10x + 24 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -10$, $c = 24$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-10)^{2} - 4\\cdot(1)\\cdot(24) = 4$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{10 \\pm 2}{2}$.\nLas soluciones son $x = 4$ y $x = 6$."
     },
     {
      "type": "input",
@@ -6117,7 +6319,8 @@
      "q": "Resuelve la ecuación: $$x^2 = -3x + 4$$ Escribe todas las soluciones.",
      "answer": "-4; 1",
      "why": "Las soluciones son $x = -4$ y $x = 1$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 = -3x + 4$.\nLlevamos todo a un lado y reducimos: $x^{2} + 3x - 4 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 3$, $c = -4$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (3)^{2} - 4\\cdot(1)\\cdot(-4) = 25$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-3 \\pm 5}{2}$.\nLas soluciones son $x = -4$ y $x = 1$."
     },
     {
      "type": "input",
@@ -6125,7 +6328,8 @@
      "q": "Resuelve la ecuación: $$3x^2 - 11x + 10 = 0$$ Escribe todas las soluciones.",
      "answer": "5/3; 2",
      "why": "Las soluciones son $x = \\dfrac{5}{3}$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $3x^2 - 11x + 10 = 0$.\nIdentificamos los coeficientes: $a = 3$, $b = -11$, $c = 10$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-11)^{2} - 4\\cdot(3)\\cdot(10) = 1$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{11 \\pm 1}{6}$.\nLas soluciones son $x = \\dfrac{5}{3}$ y $x = 2$."
     },
     {
      "type": "input",
@@ -6133,7 +6337,8 @@
      "q": "Resuelve la ecuación: $$3x^2 - 8x + 4 = 0$$ Escribe todas las soluciones.",
      "answer": "2/3; 2",
      "why": "Las soluciones son $x = \\dfrac{2}{3}$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $3x^2 - 8x + 4 = 0$.\nIdentificamos los coeficientes: $a = 3$, $b = -8$, $c = 4$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-8)^{2} - 4\\cdot(3)\\cdot(4) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{8 \\pm 4}{6}$.\nLas soluciones son $x = \\dfrac{2}{3}$ y $x = 2$."
     },
     {
      "type": "input",
@@ -6141,7 +6346,8 @@
      "q": "Resuelve la ecuación: $$2x^2 + 3x - 9 = 0$$ Escribe todas las soluciones.",
      "answer": "-3; 3/2",
      "why": "Las soluciones son $x = -3$ y $x = \\dfrac{3}{2}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $2x^2 + 3x - 9 = 0$.\nIdentificamos los coeficientes: $a = 2$, $b = 3$, $c = -9$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (3)^{2} - 4\\cdot(2)\\cdot(-9) = 81$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-3 \\pm 9}{4}$.\nLas soluciones son $x = -3$ y $x = \\dfrac{3}{2}$."
     },
     {
      "type": "input",
@@ -6149,7 +6355,8 @@
      "q": "Resuelve la ecuación: $$x(x - 1) = 56$$ Escribe todas las soluciones.",
      "answer": "-7; 8",
      "why": "Las soluciones son $x = -7$ y $x = 8$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x(x - 1) = 56$.\nLlevamos todo a un lado y reducimos: $x^{2} - x - 56 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -1$, $c = -56$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(1)\\cdot(-56) = 225$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 15}{2}$.\nLas soluciones son $x = -7$ y $x = 8$."
     },
     {
      "type": "input",
@@ -6157,7 +6364,8 @@
      "q": "Resuelve la ecuación: $$x(x + 5) = 6$$ Escribe todas las soluciones.",
      "answer": "-6; 1",
      "why": "Las soluciones son $x = -6$ y $x = 1$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x(x + 5) = 6$.\nLlevamos todo a un lado y reducimos: $x^{2} + 5x - 6 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 5$, $c = -6$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (5)^{2} - 4\\cdot(1)\\cdot(-6) = 49$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-5 \\pm 7}{2}$.\nLas soluciones son $x = -6$ y $x = 1$."
     },
     {
      "type": "input",
@@ -6165,7 +6373,8 @@
      "q": "Resuelve la ecuación: $$x^2 + 5x + 4 = 0$$ Escribe todas las soluciones.",
      "answer": "-4; -1",
      "why": "Las soluciones son $x = -4$ y $x = -1$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 + 5x + 4 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 5$, $c = 4$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (5)^{2} - 4\\cdot(1)\\cdot(4) = 9$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-5 \\pm 3}{2}$.\nLas soluciones son $x = -4$ y $x = -1$."
     },
     {
      "type": "input",
@@ -6173,7 +6382,8 @@
      "q": "Resuelve la ecuación: $$x^2 - x - 2 = 0$$ Escribe todas las soluciones.",
      "answer": "-1; 2",
      "why": "Las soluciones son $x = -1$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 2
+     "level": 2,
+     "solution": "Partimos de la ecuación: $x^2 - x - 2 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -1$, $c = -2$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(1)\\cdot(-2) = 9$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 3}{2}$.\nLas soluciones son $x = -1$ y $x = 2$."
     },
     {
      "q": "¿Cuál es la factorización de $x^2 - 13x + 36$?",
@@ -6229,7 +6439,8 @@
      "q": "Resuelve la ecuación:\n$$2x^2 - 5x + 3 = 0$$\n\nEscribe todas las soluciones.",
      "answer": "1; 3/2",
      "why": "Factorizamos: $(2x - 3)(x - 1) = 0$. Cada factor igual a cero da $x = \\dfrac{3}{2}$ y $x = 1$.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $2x^2 - 5x + 3 = 0$.\nIdentificamos los coeficientes: $a = 2$, $b = -5$, $c = 3$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-5)^{2} - 4\\cdot(2)\\cdot(3) = 1$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{5 \\pm 1}{4}$.\nLas soluciones son $x = 1$ y $x = \\dfrac{3}{2}$."
     },
     {
      "q": "Resuelve la ecuación:\n$$3x^2 - 8x + 4 = 0$$",
@@ -6249,7 +6460,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 30x + 200 = 0$$ Escribe todas las soluciones.",
      "answer": "10; 20",
      "why": "Las soluciones son $x = 10$ y $x = 20$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 30x + 200 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -30$, $c = 200$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-30)^{2} - 4\\cdot(1)\\cdot(200) = 100$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{30 \\pm 10}{2}$.\nLas soluciones son $x = 10$ y $x = 20$."
     },
     {
      "type": "input",
@@ -6257,7 +6469,8 @@
      "q": "Resuelve la ecuación: $$6x^2 - x - 2 = 0$$ Escribe todas las soluciones.",
      "answer": "-1/2; 2/3",
      "why": "Las soluciones son $x = -\\dfrac{1}{2}$ y $x = \\dfrac{2}{3}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $6x^2 - x - 2 = 0$.\nIdentificamos los coeficientes: $a = 6$, $b = -1$, $c = -2$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(6)\\cdot(-2) = 49$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 7}{12}$.\nLas soluciones son $x = -\\dfrac{1}{2}$ y $x = \\dfrac{2}{3}$."
     },
     {
      "type": "input",
@@ -6265,7 +6478,8 @@
      "q": "Resuelve la ecuación: $$x^2 + x - 380 = 0$$ Escribe todas las soluciones.",
      "answer": "-20; 19",
      "why": "Las soluciones son $x = -20$ y $x = 19$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 + x - 380 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 1$, $c = -380$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (1)^{2} - 4\\cdot(1)\\cdot(-380) = 1521$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-1 \\pm 39}{2}$.\nLas soluciones son $x = -20$ y $x = 19$."
     },
     {
      "type": "input",
@@ -6273,7 +6487,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 2x - 575 = 0$$ Escribe todas las soluciones.",
      "answer": "-23; 25",
      "why": "Las soluciones son $x = -23$ y $x = 25$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 2x - 575 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -2$, $c = -575$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-2)^{2} - 4\\cdot(1)\\cdot(-575) = 2304$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{2 \\pm 48}{2}$.\nLas soluciones son $x = -23$ y $x = 25$."
     },
     {
      "type": "input",
@@ -6281,7 +6496,8 @@
      "q": "Resuelve la ecuación: $$x^2 - 11x - 102 = 0$$ Escribe todas las soluciones.",
      "answer": "-6; 17",
      "why": "Las soluciones son $x = -6$ y $x = 17$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 - 11x - 102 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -11$, $c = -102$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-11)^{2} - 4\\cdot(1)\\cdot(-102) = 529$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{11 \\pm 23}{2}$.\nLas soluciones son $x = -6$ y $x = 17$."
     },
     {
      "type": "input",
@@ -6289,7 +6505,8 @@
      "q": "Resuelve la ecuación: $$x^2 + 26x - 27 = 0$$ Escribe todas las soluciones.",
      "answer": "-27; 1",
      "why": "Las soluciones son $x = -27$ y $x = 1$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 + 26x - 27 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 26$, $c = -27$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (26)^{2} - 4\\cdot(1)\\cdot(-27) = 784$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-26 \\pm 28}{2}$.\nLas soluciones son $x = -27$ y $x = 1$."
     },
     {
      "type": "input",
@@ -6297,7 +6514,8 @@
      "q": "Resuelve la ecuación: $$5x^2 - x - 18 = 0$$ Escribe todas las soluciones.",
      "answer": "-9/5; 2",
      "why": "Las soluciones son $x = -\\dfrac{9}{5}$ y $x = 2$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $5x^2 - x - 18 = 0$.\nIdentificamos los coeficientes: $a = 5$, $b = -1$, $c = -18$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-1)^{2} - 4\\cdot(5)\\cdot(-18) = 361$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{1 \\pm 19}{10}$.\nLas soluciones son $x = -\\dfrac{9}{5}$ y $x = 2$."
     },
     {
      "type": "input",
@@ -6305,7 +6523,8 @@
      "q": "Resuelve la ecuación: $$12x^2 - 35x + 18 = 0$$ Escribe todas las soluciones.",
      "answer": "2/3; 9/4",
      "why": "Las soluciones son $x = \\dfrac{2}{3}$ y $x = \\dfrac{9}{4}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $12x^2 - 35x + 18 = 0$.\nIdentificamos los coeficientes: $a = 12$, $b = -35$, $c = 18$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-35)^{2} - 4\\cdot(12)\\cdot(18) = 361$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{35 \\pm 19}{24}$.\nLas soluciones son $x = \\dfrac{2}{3}$ y $x = \\dfrac{9}{4}$."
     },
     {
      "type": "input",
@@ -6313,7 +6532,8 @@
      "q": "Resuelve la ecuación: $$4x^2 + 34x + 70 = 0$$ Escribe todas las soluciones.",
      "answer": "-5; -7/2",
      "why": "Las soluciones son $x = -5$ y $x = -\\dfrac{7}{2}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $4x^2 + 34x + 70 = 0$.\nIdentificamos los coeficientes: $a = 4$, $b = 34$, $c = 70$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (34)^{2} - 4\\cdot(4)\\cdot(70) = 36$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-34 \\pm 6}{8}$.\nLas soluciones son $x = -5$ y $x = -\\dfrac{7}{2}$."
     },
     {
      "type": "input",
@@ -6321,7 +6541,8 @@
      "q": "Resuelve la ecuación: $$3x^2 - 10x + 7 = 0$$ Escribe todas las soluciones.",
      "answer": "1; 7/3",
      "why": "Las soluciones son $x = 1$ y $x = \\dfrac{7}{3}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $3x^2 - 10x + 7 = 0$.\nIdentificamos los coeficientes: $a = 3$, $b = -10$, $c = 7$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-10)^{2} - 4\\cdot(3)\\cdot(7) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{10 \\pm 4}{6}$.\nLas soluciones son $x = 1$ y $x = \\dfrac{7}{3}$."
     },
     {
      "type": "input",
@@ -6329,7 +6550,8 @@
      "q": "Resuelve la ecuación: $$(x + 4)(x - 6) = 56$$ Escribe todas las soluciones.",
      "answer": "-8; 10",
      "why": "Las soluciones son $x = -8$ y $x = 10$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(x + 4)(x - 6) = 56$.\nLlevamos todo a un lado y reducimos: $x^{2} - 2x - 80 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = -2$, $c = -80$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-2)^{2} - 4\\cdot(1)\\cdot(-80) = 324$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{2 \\pm 18}{2}$.\nLas soluciones son $x = -8$ y $x = 10$."
     },
     {
      "type": "input",
@@ -6337,7 +6559,8 @@
      "q": "Resuelve la ecuación: $$(x - 9)(x + 2) = 0$$ Escribe todas las soluciones.",
      "answer": "-2; 9",
      "why": "Las soluciones son $x = -2$ y $x = 9$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(x - 9)(x + 2) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $x - 9 = 0$ o $x + 2 = 0$.\nDespejamos $x$ en cada caso: $x = 9$ o $x = -2$."
     },
     {
      "type": "input",
@@ -6345,7 +6568,8 @@
      "q": "Resuelve la ecuación: $$x^2 = -12x - 27$$ Escribe todas las soluciones.",
      "answer": "-9; -3",
      "why": "Las soluciones son $x = -9$ y $x = -3$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $x^2 = -12x - 27$.\nLlevamos todo a un lado y reducimos: $x^{2} + 12x + 27 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 12$, $c = 27$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (12)^{2} - 4\\cdot(1)\\cdot(27) = 36$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-12 \\pm 6}{2}$.\nLas soluciones son $x = -9$ y $x = -3$."
     },
     {
      "type": "input",
@@ -6353,7 +6577,8 @@
      "q": "Resuelve la ecuación: $$2x^2 = 4x + 70$$ Escribe todas las soluciones.",
      "answer": "-5; 7",
      "why": "Las soluciones son $x = -5$ y $x = 7$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $2x^2 = 4x + 70$.\nLlevamos todo a un lado y reducimos: $2x^{2} - 4x - 70 = 0$.\nIdentificamos los coeficientes: $a = 2$, $b = -4$, $c = -70$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (-4)^{2} - 4\\cdot(2)\\cdot(-70) = 576$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{4 \\pm 24}{4}$.\nLas soluciones son $x = -5$ y $x = 7$."
     },
     {
      "type": "input",
@@ -6361,7 +6586,8 @@
      "q": "Resuelve la ecuación: $$(2x + 4)(4x + 1) = 0$$ Escribe todas las soluciones.",
      "answer": "-2; -1/4",
      "why": "Las soluciones son $x = -2$ y $x = -\\dfrac{1}{4}$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $(2x + 4)(4x + 1) = 0$.\nUn producto es cero cuando alguno de sus factores es cero: $2x + 4 = 0$ o $4x + 1 = 0$.\nDespejamos $x$ en cada caso: $x = -2$ o $x = -\\dfrac{1}{4}$."
     },
     {
      "type": "input",
@@ -6369,7 +6595,8 @@
      "q": "Resuelve la ecuación: $$3x^2 + 3x + 49 = 2x^2 - 9x + 17$$ Escribe todas las soluciones.",
      "answer": "-8; -4",
      "why": "Las soluciones son $x = -8$ y $x = -4$; al reemplazarlas en la ecuación ambos lados son iguales.",
-     "level": 3
+     "level": 3,
+     "solution": "Partimos de la ecuación: $3x^2 + 3x + 49 = 2x^2 - 9x + 17$.\nLlevamos todo a un lado y reducimos: $x^{2} + 12x + 32 = 0$.\nIdentificamos los coeficientes: $a = 1$, $b = 12$, $c = 32$.\nCalculamos el discriminante: $\\Delta = b^{2} - 4ac = (12)^{2} - 4\\cdot(1)\\cdot(32) = 16$.\nAplicamos la fórmula general: $x = \\dfrac{-b \\pm \\sqrt{\\Delta}}{2a} = \\dfrac{-12 \\pm 4}{2}$.\nLas soluciones son $x = -8$ y $x = -4$."
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 8x - 84$?",

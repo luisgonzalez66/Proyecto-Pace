@@ -96,15 +96,24 @@ window.PACETyped=(()=>{
  }
  const isInt=n=>n.t==='num'&&!/[.,]/.test(n.v);
  const gcd=(a,b)=>b?gcd(b,a%b):a;
- // ¿es un entero o una fracción de enteros ya simplificada (con signo opcional)?
- function irreducible(n){
-  if(n.t==='neg')return irreducible(n.a);
-  if(isInt(n))return true;
-  const iv=x=>x.t==='neg'?(isInt(x.a)?-x.a.v:NaN):(isInt(x)?+x.v:NaN);
+ // ¿ya está en su forma final? entero, decimal o fracción de enteros irreducible (con signo opcional)
+ function final(n){
+  if(n.t==='par')return final(n.a);
+  if(n.t==='neg')return final(n.a);
+  if(n.t==='num')return true;
+  const iv=x=>{x=x.t==='par'?x.a:x;return x.t==='neg'?(isInt(x.a)?-x.a.v:NaN):(isInt(x)?+x.v:NaN);};
   if(n.t==='div'){const a=iv(n.a),b=iv(n.b);if(Number.isNaN(a)||Number.isNaN(b))return false;return b>1&&gcd(Math.abs(a),b)===1;}
   return false;
  }
- const NAME=/^\s*[A-Za-z]\d?\s*=\s*/;
+ const irreducible=final;
+ // causa de que no esté simplificado: 'ops' (quedan operaciones por resolver) o 'frac' (fracción simplificable)
+ function whyNot(n){
+  const iv=x=>{x=x.t==='par'?x.a:x;return x.t==='neg'?(isInt(x.a)?-x.a.v:NaN):(isInt(x)?+x.v:NaN);};
+  let m=n;while(m.t==='par'||m.t==='neg')m=m.a;
+  if(m.t==='div'){const a=iv(m.a),b=iv(m.b);if(!Number.isNaN(a)&&!Number.isNaN(b))return 'frac';}
+  return 'ops';
+ }
+const NAME=/^\s*[A-Za-z]\d?\s*=\s*/;
  const EMPTY=/^\s*(?:∅|\{\s*\}|vac[ií]o|conjunto\s+vac[ií]o|sin\s+soluci[oó]n)\s*$/i;
  function splitSet(text){
   let t=String(text).trim().replace(NAME,'').trim();
@@ -133,7 +142,7 @@ window.PACETyped=(()=>{
  function hint(q){
   return q.kind==='set'
    ?'Escribe todas las soluciones separadas por «;» o por «y» (por ejemplo: 2; 3). Si no hay solución, escribe ∅.'
-   :'Escribe un número: entero, decimal (con coma o punto) o fracción (por ejemplo: 3/4).'+(q.reduced?' Debe ir simplificado.':'');
+   :'Escribe un número: entero, decimal (con coma o punto) o fracción (por ejemplo: 3/4).'+(q.reduced===false?'':' Debe ir simplificado al máximo.');
  }
  // estados: ok | wrong | invalid | empty | reduce | missing | extra
  function check(q,text){
@@ -144,17 +153,21 @@ window.PACETyped=(()=>{
   if(q.kind==='set'){
    const g=dedupe(got.values),x=dedupe(exp.values);
    const missing=x.filter(v=>!g.some(w=>same(v,w))),extra=g.filter(v=>!x.some(w=>same(v,w)));
-   if(!missing.length&&!extra.length)return {state:'ok'};
+   if(!missing.length&&!extra.length){if(q.reduced!==false&&exp.nodes.length&&exp.nodes.every(final)&&!got.nodes.every(final))return {state:'reduce',msg:'Tus soluciones son correctas, pero alguna aún no está simplificada: escribe cada una como número o fracción simplificada al máximo.'};return {state:'ok'};}
    if(extra.length)return {state:'extra',msg:'Alguno de los valores que escribiste no es solución. Revísalo e inténtalo de nuevo.'};
    return {state:'missing',msg:'Vas bien, pero faltan soluciones.'};
   }
   if(!same(got.values[0],exp.values[0]))return {state:'wrong',msg:'Todavía no. Revisa el procedimiento e inténtalo nuevamente.'};
-  if(q.reduced&&!irreducible(got.nodes[0]))return {state:'reduce',msg:'Ese valor es equivalente, pero debes escribirlo como número o fracción simplificada.'};
+  // las respuestas numéricas deben venir en su forma más simple (salvo que la pregunta lo desactive con reduced:false)
+  if(q.reduced!==false&&final(exp.nodes[0])&&!final(got.nodes[0])){
+   const w=whyNot(got.nodes[0]);
+   return {state:'reduce',msg:w==='frac'?'Tu valor es correcto, pero la fracción se puede simplificar más. Escríbela simplificada al máximo.':'Tu valor es equivalente, pero aún no está simplificado: resuelve las operaciones y escribe un solo número (o una fracción simplificada).'};
+  }
   return {state:'ok'};
  }
  // teclas del teclado en pantalla: [texto visible, texto a insertar | acción]
  function keys(kind){
-  const k=[['7'],['8'],['9'],['4'],['5'],['6'],['1'],['2'],['3'],['0'],[','],['−','-'],['/'],['^'],['²'],['√'],['π'],['('],[')']];
+  const k=[['7'],['8'],['9'],['4'],['5'],['6'],['1'],['2'],['3'],['0'],[','],['+'],['−','-'],['/'],['^'],['²'],['√'],['π'],['('],[')']];
   if(kind==='set')k.push([';','; '],['y',' y '],['x'],['='],['∅']);
   k.push(['⌫','@del']);
   return k;
