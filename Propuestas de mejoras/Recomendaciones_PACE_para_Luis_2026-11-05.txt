@@ -1,0 +1,111 @@
+PROYECTO PACE UACh
+PROPUESTAS DE MEJORA PARA EL EDITOR Y MOTOR
+5 de noviembre de 2026
+
+PROPÓSITO
+Propuestas concretas para facilitar la edición docente y mejorar la visualización del contenido. Este texto contiene exclusivamente sugerencias para el editor y el motor, con su justificación y una forma de comprobarlas. No es una bitácora de la Unidad I ni solicita rehacer funcionalidades ya implementadas.
+
+PRIORIDADES SUGERIDAS
+Alta: (1) coherencia de validación y exportación; (2) ampliar/ajustar la vista previa; (3) reordenar y distinguir ejemplos.
+Media: (4) mapa jerárquico solo exportable; (5) ayudas de edición y pruebas móviles.
+
+1. PERMITIR «COMENTARIO BREVE» VACÍO EN EJEMPLOS GUIADOS [ALTA]
+
+Situación observada
+La presentación deseada mantiene el desarrollo matemático en una columna central limpia, mientras las justificaciones se muestran en la columna lateral (título, cálculo auxiliar y/o texto). Sin embargo, al importar un paquete con el campo «Comentario breve: qué hacemos y por qué» vacío, el validador puede rechazarlo como «texto inválido».
+
+Propuesta
+- Permitir «Comentario breve» vacío si el paso ya es matemáticamente válido; la explicación lateral podrá ser opcional, o podrá exigirse al menos una explicación en alguno de los campos si se considera pedagógicamente necesario.
+- No insertar comentarios de relleno solo para superar la validación.
+- Alinear las mismas reglas en formulario, importación, exportación y validador automatizado. Un contenido que el propio editor permite guardar debería poder exportarse e importarse sin errores.
+- Si algún campo es obligatorio, marcarlo claramente y mostrar por qué, en el lugar correspondiente.
+
+Comprobación
+Crear un ejemplo con una cadena de igualdades, «Comentario breve» vacío y justificaciones laterales; exportar, reimportar y comprobar que se conserva sin cambios. Repetir con campos laterales vacíos para verificar la regla finalmente acordada.
+
+2. REORDENAR EJEMPLOS GUIADOS [ALTA]
+
+Situación
+Actualmente es posible subir o bajar los PASOS de un ejemplo, pero no se ofrece un mecanismo equivalente claramente identificable para reordenar los EJEMPLOS dentro de Aprende.
+
+Propuesta
+- Incorporar botones «Subir» y «Bajar» en el encabezado de cada ejemplo (1, 2, 3, 4), además de su eliminación.
+- Actualizar la numeración automáticamente, sin modificar ni perder sus pasos, cálculos auxiliares o explicaciones.
+- Deshabilitar las acciones imposibles (Subir en el primero; Bajar en el último).
+- Opcionalmente, permitir duplicar un ejemplo para crear variantes, sin reemplazar el mecanismo anterior.
+
+Comprobación
+Intercambiar el ejemplo 2 con el 3; verificar la vista previa y que el orden se conserve después de exportar y reimportar.
+
+3. DISTINGUIR MEJOR LOS CUADROS DE CADA EJEMPLO [ALTA]
+
+Situación
+Al editar varios ejemplos seguidos, los límites entre uno y otro son poco evidentes. Cuesta ubicar dónde termina un ejemplo y comienza el siguiente.
+
+Propuesta
+- Usar un contenedor visual claramente separado para cada ejemplo: encabezado más visible («Ejemplo guiado 2»), borde/fondo sutil propio y mayor separación vertical entre ejemplos.
+- Mantener el encabezado identificable mientras se edita un ejemplo largo, por ejemplo mediante una cabecera fija dentro del bloque o un indicador de ejemplo activo.
+- Permitir plegar/desplegar cada ejemplo; idealmente abrir solo el que se está editando y mostrar en los cerrados un resumen de su enunciado y cantidad de pasos.
+- Evitar usar demasiados colores: basta una jerarquía clara de bordes, espacios, títulos y un acento para el ejemplo activo.
+
+Comprobación
+Abrir una estación con cuatro ejemplos largos; ubicar, mover y editar el tercero sin desplazamiento ni confusión con los demás.
+
+4. MAPA JERÁRQUICO SOLO COMO ARCHIVO EXPORTADO [MEDIA]
+
+Propuesta
+- Retirar el mapa conceptual/estructural de la vista permanente del editor, liberando espacio para la edición y la vista del estudiante.
+- Generar y descargar el mapa desde una acción explícita del exportador (por ejemplo, «Exportar mapa de la unidad» o incluirlo en la entrega), sin necesidad de mostrarlo dentro del editor.
+- Representar la estructura como ÁRBOL HORIZONTAL de izquierda a derecha:
+
+  [UNIDAD] ---> [BLOQUE 1] ---> [Estación 1]
+             |               +-> [Estación 2]
+             |               +-> [...]
+             +-> [BLOQUE 2] ---> [Estación ...]
+             +-> [BLOQUE 3] ---> [...]
+             +-> [BLOQUE 4] ---> [...]
+
+- Incluir los nombres reales de los nodos, conexiones visibles y numeración; ajustar automáticamente el tamaño y los saltos de línea según la longitud de los títulos.
+- Priorizar SVG (escalable) y ofrecer PNG de alta resolución si resulta sencillo. Preferir un esquema legible en pantalla horizontal, con adaptación a impresión cuando haga falta.
+- Mantener el mapa como recurso para coordinación, no como una vista obligatoria del estudiante.
+
+Comprobación
+Exportar una unidad con cuatro bloques y diferente cantidad de estaciones; comprobar que todos los nodos se leen, no se superponen y coinciden con la unidad editada.
+
+5. MÁS ESPACIO Y CONTROL SOBRE LA VISTA DEL ESTUDIANTE [ALTA]
+
+Situación
+En el editor, el formulario y los paneles auxiliares compiten por ancho con la vista previa del estudiante. Esto puede producir expresiones cortadas o barras de desplazamiento horizontal dentro de los ejemplos.
+
+Propuesta
+- Aprovechar el espacio liberado al retirar el mapa del editor.
+- Ofrecer un botón «Ampliar vista del estudiante» que expanda la previsualización, idealmente a una vista central o pantalla completa, con regreso sencillo a la edición.
+- Si es viable, permitir ajustar manualmente el ancho entre los paneles de edición y previsualización (divisores arrastrables), con tamaños mínimos para evitar controles inutilizables.
+- Como alternativa más sencilla, proporcionar disposiciones predefinidas: «Priorizar edición» / «Mitad y mitad» / «Priorizar vista previa».
+- Conservar la pestaña APAE y la estación seleccionada al cambiar de disposición; no perder datos.
+- Ajustar fórmulas largas sin recortar contenido. Preferir desplazamiento horizontal solo dentro del cálculo cuando sea estrictamente necesario.
+
+Comprobación
+Visualizar un ejemplo extenso con cálculo auxiliar a la derecha, ampliar la vista y regresar a editar sin pérdida de datos; probar diferentes anchos de ventana.
+
+6. MEJORAS COMPLEMENTARIAS RECOMENDADAS [MEDIA]
+
+6.1. Errores de validación más claros
+Antes de exportar, mostrar una lista navegable de errores por estación, ejemplo, paso y campo, con acceso directo para corregirlos. Distinguir «obligatorio», «formato inválido» y «límite de caracteres»; no usar un mensaje genérico para un campo vacío. Evitar que el docente tenga que adivinar por qué falló la exportación.
+
+6.2. Guardado de seguridad durante la edición
+Ofrecer aviso de cambios sin exportar y una opción sencilla de guardar un borrador local. Antes de importar otro ZIP o salir del editor, advertir si hay cambios no conservados. Mantener la exportación como salida principal; no depender exclusivamente de almacenamiento del navegador.
+
+6.3. Ejemplos largos y orientación del teléfono
+Evaluar un aviso discreto «Gira el teléfono para ver el desarrollo y la explicación en paralelo» y/o un botón de vista ampliada. No imponer el modo horizontal: debe existir una alternativa vertical accesible para quien tenga bloqueada la rotación o utilice un teléfono pequeño.
+
+6.4. Consistencia de la edición y vista previa
+Al seleccionar un ejemplo o un paso en el formulario, facilitar que la vista previa muestre ese mismo ejemplo/paso, sin tener que buscarlo manualmente. Conservar el modo de navegación del estudiante sin convertir la vista previa en otra interfaz de edición.
+
+CRITERIOS GENERALES
+- Priorizar cambios que reduzcan desplazamientos, errores de manipulación y duplicación de texto.
+- Mantener compatibilidad con paquetes existentes y con las funciones APAE y SCORM ya disponibles.
+- No cambiar la lógica de avance de Practica/Aplica ni otorgar progreso a Explora.
+- Probar importación -> edición -> exportación -> reimportación, además de escritorio y móvil real.
+
+FIN DEL DOCUMENTO
