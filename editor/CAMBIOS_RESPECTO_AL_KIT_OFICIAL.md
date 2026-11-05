@@ -52,5 +52,7 @@ Límite a respetar: Practica + Aplica que ve cada estudiante, sumando 1 de Apren
 
 30. **Ejemplos de la Unidad III: meta explícita y verificación separada.** Cada «Resolvemos…» indica ahora «Debemos encontrar el valor de $x$…»; el paso final se marca como **Solución**, y la comprobación se muestra aparte, con el rótulo «Verificación (no forma parte de la resolución)», en un recuadro distinto. Convención para el editor: un paso cuya explicación empieza con `**Verificación**` se muestra con ese estilo.
 
+31. **Tres actividades Explora nuevas en la Unidad III:** «Parábola y raíces» (Fórmula general), «Discriminante en vivo» (Discriminante, con retos) y «Rectángulo de área fija» (Problemas cuadráticos). Son HTML autocontenidos (sin librerías), con deslizadores, sin porcentaje de avance.
+
 Los archivos que contienen estos cambios: `motor_bundle.js` (motor del estudiante, en una sola línea enorme), `editor.js`, `validation.js`, `map_artifacts.js`, `content_text.js`, `EDITOR_PACE.html`.
 Quien los modifique debe hacerlo **solo** (ver README). `motor_bundle.js` es un archivo en una sola línea: Git no puede unir cambios de dos personas.
