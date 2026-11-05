@@ -2,428 +2,27 @@
   "id": "u1",
   "roman": "I",
   "title": "Números y operaciones",
-  "subtitle": "APAE · 13 estaciones · Aprende guiado y banco Practica v6 · borrador docente",
+  "subtitle": "APAE · 14 estaciones · Aprende con desarrollo vertical y explicaciones laterales · borrador docente",
   "icon": "01",
   "groups": [
     {
-      "title": "Enteros y conjuntos",
-      "subtitle": "Conjuntos, enteros, divisibilidad y factorización"
+      "title": "Enteros y divisibilidad",
+      "subtitle": "Operaciones, divisibilidad, primos, MCD y MCM"
     },
     {
-      "title": "Divisibilidad y fracciones",
-      "subtitle": "MCD, MCM y operaciones con fracciones"
+      "title": "Números racionales",
+      "subtitle": "Fracciones, decimales y operaciones"
     },
     {
-      "title": "Potencias y racionales",
-      "subtitle": "Exponentes enteros y operaciones combinadas"
+      "title": "Potencias y raíces",
+      "subtitle": "Potencias de exponente entero y raíces cuadradas"
     },
     {
-      "title": "Raíces cuadradas",
-      "subtitle": "Estimación, simplificación y operaciones con radicales"
+      "title": "Integración",
+      "subtitle": "Conjuntos numéricos y operaciones combinadas"
     }
   ],
   "stations": [
-    {
-      "id": "u1-s001",
-      "title": "Conjuntos numéricos",
-      "subtitle": "Naturales, enteros, racionales y reales",
-      "group": 0,
-      "symbol": "✧",
-      "minutes": 20,
-      "concept": "",
-      "example": "",
-      "media": [],
-      "practice": [
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $5$?",
-          "options": [
-            "$\\mathbb Z$",
-            "$\\mathbb Q$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb N$"
-          ],
-          "correct": 3,
-          "why": "El 5 sirve para contar. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $0$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$",
-            "$\\mathbb Z$",
-            "$\\mathbb N$"
-          ],
-          "correct": 2,
-          "why": "Con nuestra convención, el 0 no es natural. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $-7$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Q$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 3,
-          "why": "Es entero negativo. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac34$?",
-          "options": [
-            "$\\mathbb Z$",
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$"
-          ],
-          "correct": 3,
-          "why": "Es un cociente de enteros. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt9$?",
-          "options": [
-            "$\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 1,
-          "why": "La raíz cuadrada principal de 9 es 3. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt2$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 0,
-          "why": "La raíz de 2 es irracional. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $0,75$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 1,
-          "why": "El decimal finito 0,75 equivale a 3/4. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $-\\dfrac{12}{4}$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Z$",
-            "$\\mathbb Q$",
-            "$\\mathbb N$"
-          ],
-          "correct": 1,
-          "why": "La fracción representa el entero -3. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 1
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $0,\\overline3$?",
-          "options": [
-            "$\\mathbb Z$",
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$"
-          ],
-          "correct": 3,
-          "why": "El decimal periódico equivale a 1/3. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt{49}$?",
-          "options": [
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 0,
-          "why": "La raíz de 49 es 7. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $-\\sqrt{25}$?",
-          "options": [
-            "$\\mathbb Q$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Z$",
-            "$\\mathbb N$"
-          ],
-          "correct": 2,
-          "why": "Su valor es -5. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac{-7}{2}$?",
-          "options": [
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 2,
-          "why": "Es racional, pero no entero. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt3$?",
-          "options": [
-            "$\\mathbb N$",
-            "$\\mathbb Z$",
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Q$"
-          ],
-          "correct": 2,
-          "why": "La raíz de 3 es irracional. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac{18}{3}$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Z$",
-            "$\\mathbb Q$"
-          ],
-          "correct": 1,
-          "why": "Su valor es 6. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\pi$?",
-          "options": [
-            "$\\mathbb Z$",
-            "$\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb R\\setminus\\mathbb Q$"
-          ],
-          "correct": 3,
-          "why": "Pi es irracional. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $2,125$?",
-          "options": [
-            "$\\mathbb Z$",
-            "$\\mathbb N$",
-            "$\\mathbb Q$",
-            "$\\mathbb R\\setminus\\mathbb Q$"
-          ],
-          "correct": 2,
-          "why": "Todo decimal finito es racional. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 2
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt{8}$?",
-          "options": [
-            "$\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Z$",
-            "$\\mathbb R\\setminus\\mathbb Q$"
-          ],
-          "correct": 3,
-          "why": "Se simplifica a 2 por raíz de 2, que es irracional. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 3
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $(-3)^2$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb N$",
-            "$\\mathbb Q$",
-            "$\\mathbb Z$"
-          ],
-          "correct": 1,
-          "why": "Al cuadrar -3 se obtiene 9, natural. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 3
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac02$?",
-          "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
-            "$\\mathbb Z$",
-            "$\\mathbb Q$",
-            "$\\mathbb N$"
-          ],
-          "correct": 1,
-          "why": "Vale 0, entero no natural con nuestra convención. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 3
-        },
-        {
-          "q": "¿Cuál es el conjunto más específico al que pertenece $0,\\overline{12}$?",
-          "options": [
-            "$\\mathbb N$",
-            "$\\mathbb Z$",
-            "$\\mathbb Q$",
-            "$\\mathbb R\\setminus\\mathbb Q$"
-          ],
-          "correct": 2,
-          "why": "La expresión decimal es periódica. Aquí $\\mathbb N$ comienza en 1.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $\\sqrt{64}$. Escribe el número natural obtenido.",
-          "answer": "8",
-          "why": "$\\sqrt{64}=8$, que es natural.",
-          "level": 1,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Escribe como fracción irreducible el decimal finito $0,75$.",
-          "answer": "3/4",
-          "why": "$0,75=75/100=3/4$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $\\sqrt{121}$. Escribe solo el valor.",
-          "answer": "11",
-          "why": "$11^2=121$, luego $\\sqrt{121}=11$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Escribe $-1,25$ como fracción irreducible.",
-          "answer": "-5/4",
-          "why": "$-1,25=-125/100=-5/4$.",
-          "level": 3,
-          "reduced": true
-        }
-      ],
-      "check": {
-        "q": "Una medición de temperatura es $-2\\,^\\circ\\mathrm{C}$. ¿En qué conjunto más pequeño de la lista pertenece?",
-        "options": [
-          "$\\mathbb{Z}$",
-          "$\\mathbb{N}$",
-          "$\\mathbb{R}\\setminus\\mathbb{Q}$"
-        ],
-        "correct": 0,
-        "why": "$-2$ es un número entero."
-      },
-      "learn": {
-        "goal": "Identificar naturales, enteros, racionales e irracionales y reconocer sus inclusiones.",
-        "idea": "1. **Naturales**: $\\mathbb N=\\{1,2,3,\\ldots\\}$ (algunos textos incluyen el $0$).\n2. **Enteros**: $\\mathbb Z=\\{\\cdots,-3,-2,-1,0,1,2,3,\\cdots\\}$.\n3. **Racionales**: $\\mathbb Q$, fracciones $\\frac{a}{b}$ de enteros, con $b\\ne0$. Pueden expresarse como decimal finito o periódico.\n4. **Reales**: $\\mathbb R$ reúne racionales e irracionales.\nLos irracionales tienen decimales infinitos no periódicos, como $\\sqrt2$ o $\\pi$.",
-        "steps": {
-          "title": "Clasifica $\\sqrt{16}$ en el conjunto más específico",
-          "items": [
-            {
-              "math": "\\sqrt{16}=4",
-              "why": "Calcula primero el número representado.",
-              "side": {
-                "title": "¿Qué significa la raíz cuadrada de 16?",
-                "text": "Es el número positivo tal que multiplicado por sí mismo da 16."
-              }
-            },
-            {
-              "math": "4\\in\\mathbb N",
-              "why": "El 4 es natural.",
-              "side": {
-                "title": "Recordar",
-                "text": "$\\mathbb N=\\{1,2,3,\\ldots\\}$"
-              }
-            },
-            {
-              "math": "\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R",
-              "why": "Por inclusión, 4 también es entero, racional y real.",
-              "side": {
-                "title": "No confundir",
-                "text": "El conjunto más pequeño es $\\mathbb N$, aunque pertenece a varios."
-              }
-            }
-          ]
-        },
-        "warn": "Aquí $0\\notin\\mathbb N$; en otros libros sí se incluye. Clasifica por el valor: $\\sqrt{16}=4$ es natural; $\\sqrt2$ es irracional. Una aproximación decimal de $\\sqrt2$ no es su valor exacto.",
-        "more": [
-          {
-            "title": "¿Dónde pertenece $-\\frac34$?",
-            "items": [
-              {
-                "math": "-\\frac34=\\frac{-3}{4}",
-                "why": "Es un cociente de enteros y el denominador no es cero.",
-                "side": {
-                  "title": "Definición de racional",
-                  "text": "$a/b$ con $a,b\\in\\mathbb Z$ y $b\\ne0$."
-                }
-              },
-              {
-                "math": "-\\frac34\\in\\mathbb Q",
-                "why": "Es racional, pero no entero.",
-                "side": {
-                  "title": "La forma decimal",
-                  "text": "$-3/4=-0,75$, decimal finito."
-                }
-              },
-              {
-                "math": "\\mathbb Q\\subseteq\\mathbb R",
-                "why": "Todo racional también es real."
-              }
-            ]
-          },
-          {
-            "title": "¿En qué conjunto está $\\sqrt2$?",
-            "items": [
-              {
-                "math": "1^2<2<2^2",
-                "why": "La raíz está entre 1 y 2.",
-                "side": {
-                  "title": "Aproximación",
-                  "text": "No confundas un decimal aproximado con el valor exacto."
-                }
-              },
-              {
-                "math": "1<\\sqrt2<2",
-                "why": "No es raíz exacta; su desarrollo decimal es infinito y no periódico."
-              },
-              {
-                "math": "\\sqrt2\\in\\mathbb R\\setminus\\mathbb Q",
-                "why": "Es irracional y, por tanto, real."
-              }
-            ]
-          }
-        ]
-      },
-      "draw": 5,
-      "checks": [
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente contiene $0,6\\,\\mathrm L$ de muestra. Escribe ese volumen como fracción irreducible de litro (solo el número).",
-          "answer": "3/5",
-          "why": "$0,6=6/10=3/5$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una baldosa cuadrada tiene área $81\\,\\mathrm{cm}^2$. Su lado mide $\\sqrt{81}$ cm. Escribe solo el valor del lado, en centímetros.",
-          "answer": "9",
-          "why": "$\\sqrt{81}=9$.",
-          "level": 2
-        }
-      ],
-      "drawCheck": 2
-    },
     {
       "id": "u1-s002",
       "title": "Operaciones con enteros",
@@ -720,85 +319,148 @@
       },
       "learn": {
         "goal": "Resolver operaciones con enteros respetando paréntesis, signos y prioridad.",
-        "idea": "Orden: 1) paréntesis; 2) potencias, cuando aparezcan; 3) productos y cocientes; 4) sumas y restas.\n• Si hay igual prioridad, avanza de izquierda a derecha.\n• Restar un número equivale a sumar su opuesto.",
+        "idea": "**Los números enteros:** $\\mathbb Z=\\{\\ldots,-3,-2,-1,0,1,2,3,\\ldots\\}$. Incluyen el cero, los positivos y los negativos.\n\n**Prioridad de operaciones:**\n1. Paréntesis.\n2. Potencias.\n3. Multiplicaciones y divisiones.\n4. Sumas y restas.\n\n**¿Cómo se relacionan las operaciones?**\n- Sumas y restas separan términos.\n- Multiplicaciones y divisiones vinculan factores dentro de un término.\n- Las operaciones independientes pueden realizarse en un mismo paso, siempre que se respeten las prioridades y los paréntesis.\n- En una misma cadena de operaciones de igual prioridad, avanzamos de izquierda a derecha.",
         "steps": {
-          "title": "Resuelve $6-2\\cdot(3-7)$.",
+          "title": "Resuelve",
           "items": [
             {
               "math": "6-2\\cdot(3-7)",
-              "why": "Expresión inicial.",
+              "why": "Paréntesis.",
               "side": {
-                "title": "Primero",
-                "text": "El paréntesis tiene prioridad."
+                "title": "PARÉNTESIS",
+                "math": "3-7=-4",
+                "text": "Resta de enteros."
               }
             },
             {
-              "math": "6-2\\cdot(-4)",
-              "why": "Resolvemos el paréntesis.",
+              "math": "=6-2\\cdot(-4)",
+              "why": "Multiplicación.",
               "side": {
-                "title": "Resta en enteros",
-                "text": "$3-7=-4$."
+                "title": "MULTIPLICACIÓN",
+                "math": "2\\cdot(-4)=-8",
+                "text": "El producto de enteros de distintos signos es negativo."
               }
             },
             {
-              "math": "6-(-8)",
-              "why": "Calculamos el producto.",
+              "math": "=6-(-8)",
+              "why": "Resta.",
               "side": {
-                "title": "Signos",
-                "text": "Un positivo por un negativo es negativo."
+                "title": "RESTA",
+                "math": "6-(-8)=6+8",
+                "text": "Restar un negativo equivale a sumar su opuesto."
               }
             },
             {
-              "math": "6+8=14",
-              "why": "Sumamos el opuesto.",
-              "side": {
-                "title": "Doble signo",
-                "text": "Restar $-8$ equivale a sumar $8$."
-              }
+              "math": "=14",
+              "why": "Resultado final."
             }
           ]
         },
-        "warn": "Atención: $24\\div4\\cdot2=12$ porque división y multiplicación tienen igual prioridad y se resuelven de izquierda a derecha. No cambies arbitrariamente el orden.",
+        "warn": "**¡Cuidado con las prioridades!**\n\nMultiplicación y división tienen igual prioridad. Cuando aparecen encadenadas, avanzamos de izquierda a derecha.\n$$24\\div4\\cdot2=6\\cdot2=\\boxed{12}$$\nPero, si agregamos un paréntesis:\n$$24\\div(4\\cdot2)=24\\div8=\\boxed{3}$$\n**Recuerda:** los paréntesis establecen agrupaciones que debemos respetar y pueden cambiar el resultado de una expresión.",
         "more": [
           {
-            "title": "Signos y producto",
+            "title": "Resuelve",
             "items": [
               {
-                "math": "(-3)\\cdot(-5)+2",
-                "why": "Primero efectuamos la multiplicación."
-              },
-              {
-                "math": "15+2",
-                "why": "Dos negativos multiplicados dan positivo.",
+                "math": "(-3)\\cdot(-5)+8\\div4",
+                "why": "Dos operaciones independientes.",
                 "side": {
-                  "title": "Ley de signos",
-                  "text": "El producto de dos enteros negativos es positivo."
+                  "title": "DOS OPERACIONES INDEPENDIENTES",
+                  "math": "\\begin{aligned}(-3)(-5)&=15\\\\8\\div4&=2\\end{aligned}",
+                  "text": "Podemos calcular el producto y el cociente por separado."
                 }
               },
               {
-                "math": "17",
-                "why": "Resolvemos la suma."
+                "math": "=15+2",
+                "why": "Suma.",
+                "side": {
+                  "title": "SUMA",
+                  "text": "Sumamos los resultados obtenidos."
+                }
+              },
+              {
+                "math": "=17",
+                "why": "Resultado final."
               }
             ]
           },
           {
-            "title": "Prioridad de igual nivel",
+            "title": "Resuelve",
             "items": [
               {
-                "math": "24\\div4\\cdot2",
-                "why": "Multiplicación y división tienen igual prioridad."
-              },
-              {
-                "math": "6\\cdot2",
-                "why": "Avanzamos de izquierda a derecha.",
+                "math": "5-3+4\\cdot(3-5\\cdot2+4-8)",
+                "why": "Operaciones independientes.",
                 "side": {
-                  "title": "Misma prioridad",
-                  "text": "División y multiplicación se hacen de izquierda a derecha."
+                  "title": "OPERACIONES INDEPENDIENTES",
+                  "math": "\\begin{aligned}5-3&=2\\\\5\\cdot2&=10\\\\4-8&=-4\\end{aligned}",
+                  "text": "Estos cálculos pueden realizarse sin esperar los resultados de los demás."
                 }
               },
               {
-                "math": "12",
-                "why": "Terminamos el producto."
+                "math": "=2+4\\cdot(3-10-4)",
+                "why": "Resta.",
+                "side": {
+                  "title": "RESTA",
+                  "math": "3-10=-7"
+                }
+              },
+              {
+                "math": "=2+4\\cdot(-7-4)",
+                "why": "Resta.",
+                "side": {
+                  "title": "RESTA",
+                  "math": "-7-4=-11"
+                }
+              },
+              {
+                "math": "=2+4\\cdot(-11)",
+                "why": "Multiplicación.",
+                "side": {
+                  "title": "MULTIPLICACIÓN",
+                  "math": "4\\cdot(-11)=-44",
+                  "text": "El producto de enteros de distinto signo es negativo."
+                }
+              },
+              {
+                "math": "=2+(-44)",
+                "why": "Suma.",
+                "side": {
+                  "title": "SUMA",
+                  "text": "Sumamos los términos restantes."
+                }
+              },
+              {
+                "math": "=-42",
+                "why": "Resultado final."
+              }
+            ]
+          },
+          {
+            "title": "Resuelve",
+            "items": [
+              {
+                "math": "24\\div4\\cdot2",
+                "why": "Misma prioridad.",
+                "side": {
+                  "title": "MISMA PRIORIDAD",
+                  "text": "División y multiplicación tienen igual prioridad: se resuelven de izquierda a derecha."
+                }
+              },
+              {
+                "math": "=6\\cdot2",
+                "why": "División.",
+                "side": {
+                  "title": "DIVISIÓN",
+                  "math": "24\\div4=6"
+                }
+              },
+              {
+                "math": "=12",
+                "why": "Multiplicación.",
+                "side": {
+                  "title": "MULTIPLICACIÓN",
+                  "math": "6\\cdot2=12"
+                }
               }
             ]
           }
@@ -837,7 +499,7 @@
     },
     {
       "id": "u1-s013",
-      "title": "Criterios de divisibilidad",
+      "title": "Divisibilidad",
       "subtitle": "Del resto cero a la factorización",
       "group": 0,
       "symbol": "✧",
@@ -1130,75 +792,84 @@
           "items": [
             {
               "math": "\\text{Última cifra es }6.",
-              "why": "Criterio del 2: última cifra es 0, 2, 4, 6 u 8.",
               "side": {
                 "math": "1236=2\\cdot618\\ (\\text{División - resto 0})",
-                "title": "2 sí lo divide"
-              }
+                "title": "2 sí lo divide",
+                "text": "Criterio del 2: última cifra es 0, 2, 4, 6 u 8."
+              },
+              "why": "2 sí lo divide."
             },
             {
               "math": "1+2+3+6=12\\text{ (da múltiplo de 3).}",
-              "why": "Criterio del 3: la suma de sus cifras es múltiplo de 3.\n",
               "side": {
                 "title": "3 sí lo divide",
-                "math": "1236=3\\cdot412\\ (\\text{División - resto 0})"
-              }
+                "math": "1236=3\\cdot412\\ (\\text{División - resto 0})",
+                "text": "Criterio del 3: la suma de sus cifras es múltiplo de 3."
+              },
+              "why": "3 sí lo divide."
             },
             {
               "math": "\\text{Últimas dos cifras forman el }36\\text{ (que es múltiplo de 4).}",
-              "why": "Criterio del 4: Sus dos últimas cifras forman un múltiplo de 4.",
               "side": {
                 "title": "4 sí lo divide",
-                "math": "1236=4\\cdot309\\ (\\text{División - resto 0})"
-              }
+                "math": "1236=4\\cdot309\\ (\\text{División - resto 0})",
+                "text": "Criterio del 4: Sus dos últimas cifras forman un múltiplo de 4."
+              },
+              "why": "4 sí lo divide."
             },
             {
               "math": "\\text{Última cifra es 6.}",
-              "why": "Criterio del 5: última cifra es 0 o 5.",
               "side": {
                 "title": "5 no lo divide",
-                "math": "1236=5\\cdot247+1\\ (\\text{División - resto }1\\neq0)"
-              }
+                "math": "1236=5\\cdot247+1\\ (\\text{División - resto }1\\neq0)",
+                "text": "Criterio del 5: última cifra es 0 o 5."
+              },
+              "why": "5 no lo divide."
             },
             {
               "math": "2\\text{ y }3\\text{ sí lo dividen.} ",
-              "why": "Criterio del 6: cumple los criterios del 2 y del 3.",
               "side": {
                 "title": "6 sí lo divide",
-                "math": "1236=6\\cdot206\\ (\\text{División - resto 0})"
-              }
+                "math": "1236=6\\cdot206\\ (\\text{División - resto 0})",
+                "text": "Criterio del 6: cumple los criterios del 2 y del 3."
+              },
+              "why": "6 sí lo divide."
             },
             {
               "math": "\\text{Últimas tres cifras forman el }236\\text{ (que no es múltiplo de 8).}",
-              "why": "Criterio del 8: Sus tres últimas cifras forman un múltiplo de 8.\nNotar: $236=8\\cdot29+4$, o sea, 8 no divide a 236.",
               "side": {
                 "title": "8 no lo divide",
-                "math": "1236=8\\cdot154+4\\ (\\text{División - resto }4\\neq0)"
-              }
+                "math": "1236=8\\cdot154+4\\ (\\text{División - resto }4\\neq0)",
+                "text": "Criterio del 8: Sus tres últimas cifras forman un múltiplo de 8. Notar: $236=8\\cdot29+4$, o sea, 8 no divide a 236."
+              },
+              "why": "8 no lo divide."
             },
             {
               "math": "1+2+3+6=12\\text{ (no da múltiplo de 9).}",
-              "why": "Criterio del 9: la suma de sus cifras es múltiplo de 9.\n",
               "side": {
                 "title": "9 no lo divide",
-                "math": "1236=9\\cdot137+3\\ (\\text{División - resto }3\\neq0)"
-              }
+                "math": "1236=9\\cdot137+3\\ (\\text{División - resto }3\\neq0)",
+                "text": "Criterio del 9: la suma de sus cifras es múltiplo de 9."
+              },
+              "why": "9 no lo divide."
             },
             {
               "math": "\\text{Última cifra es 6.}",
-              "why": "Criterio del 10: última cifra es 0.",
               "side": {
                 "title": "10 no lo divide",
-                "math": "1236=10\\cdot123+6\\ (\\text{División - resto }6\\neq0)"
-              }
+                "math": "1236=10\\cdot123+6\\ (\\text{División - resto }6\\neq0)",
+                "text": "Criterio del 10: última cifra es 0."
+              },
+              "why": "10 no lo divide."
             },
             {
               "math": "\\text{Conclusión:}",
-              "why": "De nuestra lista, exclusivamente el 2, 3, 4 y 6 dividen al 1236",
               "side": {
                 "title": "No lo dividen:",
-                "math": "\\text{5, 8, 9 y 10.}"
-              }
+                "math": "\\text{5, 8, 9 y 10.}",
+                "text": "De nuestra lista, exclusivamente el 2, 3, 4 y 6 dividen al 1236"
+              },
+              "why": "No lo dividen:."
             }
           ]
         },
@@ -1209,27 +880,43 @@
             "items": [
               {
                 "math": "3240\\text{ termina en }0",
-                "why": "Es divisible por 2, 5 y 10."
-              },
-              {
-                "math": "3+2+4+0=9",
-                "why": "Es divisible por 3 y por 9.",
+                "why": "Criterios 2, 5 y 10.",
                 "side": {
-                  "title": "Criterio de 3 y 9",
-                  "text": "La suma de cifras permite verificar ambos."
+                  "title": "CRITERIOS 2, 5 Y 10",
+                  "text": "Es divisible por 2, 5 y 10."
                 }
               },
               {
+                "math": "3+2+4+0=9",
+                "side": {
+                  "title": "Criterio de 3 y 9",
+                  "text": "La suma de cifras permite verificar ambos."
+                },
+                "why": "Criterio de 3 y 9."
+              },
+              {
                 "math": "40=4\\cdot10\\quad;\\quad240=8\\cdot30",
-                "why": "Cumple también los criterios del 4 y del 8."
+                "why": "Criterios 4 y 8.",
+                "side": {
+                  "title": "CRITERIOS 4 Y 8",
+                  "text": "Cumple también los criterios del 4 y del 8."
+                }
               },
               {
                 "math": "2\\mid3240\\ \\text{y}\\ 3\\mid3240",
-                "why": "Por el criterio del 6, también es divisible por 6."
+                "why": "Criterio 6.",
+                "side": {
+                  "title": "CRITERIO 6",
+                  "text": "Por el criterio del 6, también es divisible por 6."
+                }
               },
               {
                 "math": "\\{2,3,4,5,6,8,9,10\\}",
-                "why": "Cumple los ocho criterios estudiados."
+                "why": "Conclusión.",
+                "side": {
+                  "title": "CONCLUSIÓN",
+                  "text": "Cumple los ocho criterios estudiados."
+                }
               }
             ]
           },
@@ -1238,23 +925,35 @@
             "items": [
               {
                 "math": "1008\\text{ termina en }8",
-                "why": "Cumple el criterio 2, pero no los de 5 ni 10."
-              },
-              {
-                "math": "1+0+0+8=9",
-                "why": "Cumple los criterios 3 y 9.",
+                "why": "Última cifra.",
                 "side": {
-                  "title": "Criterio de 3 y 9",
-                  "text": "La suma de cifras es $9$."
+                  "title": "ÚLTIMA CIFRA",
+                  "text": "Cumple el criterio 2, pero no los de 5 ni 10."
                 }
               },
               {
+                "math": "1+0+0+8=9",
+                "side": {
+                  "title": "Criterio de 3 y 9",
+                  "text": "La suma de cifras es $9$."
+                },
+                "why": "Criterio de 3 y 9."
+              },
+              {
                 "math": "08=8\\quad;\\quad008=8",
-                "why": "Cumple los criterios 4 y 8."
+                "why": "Criterios 4 y 8.",
+                "side": {
+                  "title": "CRITERIOS 4 Y 8",
+                  "text": "Cumple los criterios 4 y 8."
+                }
               },
               {
                 "math": "2\\mid1008\\ \\text{y}\\ 3\\mid1008",
-                "why": "Cumple también el criterio 6."
+                "why": "Criterio 6.",
+                "side": {
+                  "title": "CRITERIO 6",
+                  "text": "Cumple también el criterio 6."
+                }
               }
             ]
           }
@@ -1570,60 +1269,64 @@
       },
       "learn": {
         "goal": "Reconocer números primos, interpretar cociente y resto y factorizar un entero positivo en primos.",
-        "idea": "División: si $a=bq+r$ y $b>0$, entonces $0\\le r<b$.\n• Primo: entero mayor que $1$ con solo dos divisores positivos: $1$ y él mismo.\n• Todo entero mayor que $1$ se descompone en primos de forma única, salvo el orden.",
+        "idea": "**División:** si $a=bq+r$ y $b>0$, entonces $0\\le r<b$.\n• **Primo:** entero mayor que $1$ con solo dos divisores positivos: $1$ y él mismo.\n• Todo entero mayor que $1$ se descompone en primos de forma única, salvo el orden.",
         "steps": {
           "title": "Descompón $60$ en factores primos.",
           "items": [
             {
               "math": "60=2\\cdot30",
-              "why": "Dividimos por un primo.",
               "side": {
                 "title": "Factor 2",
                 "text": "$60$ es par; por eso $2$ divide a $60$."
-              }
+              },
+              "why": "Factor 2."
             },
             {
-              "math": "60=2\\cdot2\\cdot15",
-              "why": "Seguimos descomponiendo.",
+              "math": "=2\\cdot2\\cdot15",
               "side": {
                 "title": "Otro 2",
                 "text": "También $30$ es divisible por $2$."
-              }
+              },
+              "why": "Otro 2."
             },
             {
-              "math": "60=2\\cdot2\\cdot3\\cdot5",
-              "why": "Todos los factores son primos.",
+              "math": "=2\\cdot2\\cdot3\\cdot5",
               "side": {
                 "title": "Factores finales",
                 "text": "$3$ y $5$ ya son primos."
-              }
+              },
+              "why": "Factores finales."
             },
             {
-              "math": "60=2^2\\cdot3\\cdot5",
-              "why": "Escribimos las repeticiones con potencias.",
+              "math": "=2^2\\cdot3\\cdot5",
               "side": {
                 "title": "Comprobación",
                 "text": "$4\\cdot3\\cdot5=60$."
-              }
+              },
+              "why": "Comprobación."
             }
           ]
         },
-        "warn": "Atención: $1$ no es primo ni compuesto. Para el resto de una división por $b>0$, debe cumplirse $0\\le r<b$.",
+        "warn": "**Cuidado:** el número $1$ no es primo ni compuesto. El resto de una división por un divisor positivo debe satisfacer $0\\le r<b$.",
         "more": [
           {
             "title": "Cociente y resto",
             "items": [
               {
                 "math": "47=5\\cdot9+2",
-                "why": "El cociente es 9 y el resto 2."
+                "why": "Cociente y resto.",
+                "side": {
+                  "title": "COCIENTE Y RESTO",
+                  "text": "El cociente es 9 y el resto 2."
+                }
               },
               {
                 "math": "0\\le2<5",
-                "why": "El resto debe ser menor que el divisor positivo.",
                 "side": {
                   "title": "División euclidiana",
                   "text": "Se escribe $a=bq+r$, con $0\\le r<b$ cuando $b>0$."
-                }
+                },
+                "why": "División euclidiana."
               }
             ]
           },
@@ -1632,19 +1335,27 @@
             "items": [
               {
                 "math": "84=2\\cdot42",
-                "why": "Separamos un factor primo."
+                "why": "Primer factor.",
+                "side": {
+                  "title": "PRIMER FACTOR",
+                  "text": "Separamos un factor primo."
+                }
               },
               {
-                "math": "84=2\\cdot2\\cdot21",
-                "why": "Volvemos a dividir por 2."
+                "math": "=2\\cdot2\\cdot21",
+                "why": "Segundo factor.",
+                "side": {
+                  "title": "SEGUNDO FACTOR",
+                  "text": "Volvemos a dividir por 2."
+                }
               },
               {
-                "math": "84=2^2\\cdot3\\cdot7",
-                "why": "Todos los factores son primos.",
+                "math": "=2^2\\cdot3\\cdot7",
                 "side": {
                   "title": "Producto de primos",
                   "text": "Ya no quedan factores compuestos."
-                }
+                },
+                "why": "Producto de primos."
               }
             ]
           }
@@ -1685,7 +1396,7 @@
       "id": "u1-s004",
       "title": "MCD y MCM",
       "subtitle": "Factores comunes y múltiplos",
-      "group": 1,
+      "group": 0,
       "symbol": "✧",
       "minutes": 35,
       "concept": "Obtener MCD y MCM usando la descomposición prima y explicar cuándo conviene cada uno.\n\nMCD: producto de los factores comunes con el menor exponente.\nMCM: producto de todos los factores presentes con el mayor exponente.\nLa tabla de factores organiza el mismo razonamiento.",
@@ -1977,68 +1688,72 @@
       },
       "learn": {
         "goal": "Obtener MCD y MCM usando la descomposición prima y explicar cuándo conviene cada uno.",
-        "idea": "MCD: producto de los factores comunes con el menor exponente.\nMCM: producto de todos los factores presentes con el mayor exponente.\nLa tabla de factores organiza el mismo razonamiento.",
+        "idea": "**MCD:** producto de los factores comunes con el menor exponente.\n**MCM:** producto de todos los factores presentes con el mayor exponente.\nLa tabla de factores organiza el mismo razonamiento.",
         "steps": {
           "title": "Calcula MCD y MCM de $60$ y $90$.",
           "items": [
             {
               "math": "60=2^2\\cdot3\\cdot5",
-              "why": "Factorizamos el primer número.",
               "side": {
                 "title": "Factores",
                 "text": "El $2$ aparece dos veces; $3$ y $5$, una vez."
-              }
+              },
+              "why": "Factores."
             },
             {
               "math": "90=2\\cdot3^2\\cdot5",
-              "why": "Factorizamos el segundo.",
               "side": {
                 "title": "Comparación",
                 "text": "$90$ tiene un $2$, dos $3$ y un $5$."
-              }
+              },
+              "why": "Comparación."
             },
             {
               "math": "\\mathrm{MCD}(60,90)=2\\cdot3\\cdot5=30",
-              "why": "Tomamos exponentes menores.",
               "side": {
                 "title": "Comunes",
                 "text": "Para dividir a ambos, no podemos usar más copias de un primo que las presentes en cada número."
-              }
+              },
+              "why": "Comunes."
             },
             {
               "math": "\\mathrm{MCM}(60,90)=2^2\\cdot3^2\\cdot5=180",
-              "why": "Tomamos exponentes mayores.",
               "side": {
                 "title": "Todos los factores",
                 "text": "Para ser múltiplo de ambos necesitamos todas las copias requeridas."
-              }
+              },
+              "why": "Todos los factores."
             }
           ]
         },
-        "warn": "Atención: el MCD es divisor de ambos números; el MCM es múltiplo de ambos. No intercambies las reglas de exponentes.",
+        "warn": "**Atención:** el MCD es divisor de ambos números; el MCM es múltiplo de ambos. No intercambies las reglas de exponentes.",
         "more": [
           {
             "title": "MCD y MCM de 12 y 18",
             "items": [
               {
                 "math": "12=2^2\\cdot3,\\quad18=2\\cdot3^2",
-                "why": "Factorizamos."
+                "why": "Factorización.",
+                "side": {
+                  "title": "FACTORIZACIÓN",
+                  "text": "Factorizamos."
+                }
               },
               {
                 "math": "\\mathrm{MCD}(12,18)=2\\cdot3=6",
-                "why": "Exponente menor de cada factor común.",
                 "side": {
                   "title": "MCD",
                   "text": "Considera cada factor primo común con su menor exponente."
-                }
+                },
+                "why": "Mcd."
               },
               {
                 "math": "\\mathrm{MCM}(12,18)=2^2\\cdot3^2=36",
-                "why": "Exponente mayor de cada factor presente.",
                 "side": {
                   "title": "MCM",
                   "text": "Considera cada factor presente con su mayor exponente."
-                }
+                },
+                "why": "Mcm."
               }
             ]
           },
@@ -2047,15 +1762,27 @@
             "items": [
               {
                 "math": "8=2^3,\\quad15=3\\cdot5",
-                "why": "No hay factores primos comunes."
+                "why": "Factores primos.",
+                "side": {
+                  "title": "FACTORES PRIMOS",
+                  "text": "No hay factores primos comunes."
+                }
               },
               {
                 "math": "\\mathrm{MCD}(8,15)=1",
-                "why": "No tienen divisor común mayor que 1."
+                "why": "Mcd.",
+                "side": {
+                  "title": "MCD",
+                  "text": "No tienen divisor común mayor que 1."
+                }
               },
               {
                 "math": "\\mathrm{MCM}(8,15)=2^3\\cdot3\\cdot5=120",
-                "why": "Tomamos todos los factores."
+                "why": "Selección.",
+                "side": {
+                  "title": "SELECCIÓN",
+                  "text": "Tomamos todos los factores."
+                }
               }
             ]
           }
@@ -2080,6 +1807,468 @@
           "answer": "12",
           "why": "$\\mathrm{MCD}(24,36)=12$: cada caja contendrá $2$ de agua y $3$ de suelo.",
           "level": 3
+        }
+      ],
+      "drawCheck": 2
+    },
+    {
+      "id": "u1-s014",
+      "title": "Fracciones y decimales",
+      "subtitle": "Representaciones de un mismo racional",
+      "group": 1,
+      "symbol": "↔",
+      "minutes": 40,
+      "concept": "",
+      "example": "",
+      "media": [],
+      "practice": [
+        {
+          "q": "Expresa $\\frac12$ en decimal.",
+          "options": [
+            "$1{,}5$",
+            "$0{,}5$",
+            "$0{,}25$",
+            "$0{,}2$"
+          ],
+          "correct": 1,
+          "why": "$1\\div2=0{,}5$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac34$ en decimal.",
+          "options": [
+            "$0{,}7$",
+            "$1{,}25$",
+            "$0{,}34$",
+            "$0{,}75$"
+          ],
+          "correct": 3,
+          "why": "$3\\div4=0{,}75$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac25$ en decimal.",
+          "options": [
+            "$0{,}2$",
+            "$0{,}4$",
+            "$0{,}25$",
+            "$0{,}5$"
+          ],
+          "correct": 1,
+          "why": "$2\\div5=0{,}4$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac7{10}$ en decimal.",
+          "options": [
+            "$0{,}7$",
+            "$0{,}07$",
+            "$7{,}0$",
+            "$0{,}17$"
+          ],
+          "correct": 0,
+          "why": "$7\\div10=0{,}7$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac14$ en decimal.",
+          "options": [
+            "$0{,}125$",
+            "$0{,}14$",
+            "$0{,}25$",
+            "$0{,}4$"
+          ],
+          "correct": 2,
+          "why": "$1\\div4=0{,}25$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac35$ en decimal.",
+          "options": [
+            "$0{,}6$",
+            "$1{,}6$",
+            "$0{,}35$",
+            "$0{,}3$"
+          ],
+          "correct": 0,
+          "why": "$3\\div5=0{,}6$.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es la fracción irreducible correspondiente a $0{,}8$?",
+          "options": [
+            "$\\dfrac18$",
+            "$\\dfrac54$",
+            "$\\dfrac8{100}$",
+            "$\\dfrac45$"
+          ],
+          "correct": 3,
+          "why": "$0{,}8=8/10=4/5$.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es la fracción irreducible correspondiente a $0{,}25$?",
+          "options": [
+            "$\\dfrac25$",
+            "$\\dfrac14$",
+            "$\\dfrac12$",
+            "$\\dfrac15$"
+          ],
+          "correct": 1,
+          "why": "$0{,}25=25/100=1/4$.",
+          "level": 1
+        },
+        {
+          "q": "Expresa $\\frac38$ en decimal.",
+          "options": [
+            "$0{,}625$",
+            "$0{,}38$",
+            "$0{,}375$",
+            "$0{,}35$"
+          ],
+          "correct": 2,
+          "why": "$3\\div8=0{,}375$.",
+          "level": 2
+        },
+        {
+          "q": "Expresa $\\frac7{20}$ en decimal.",
+          "options": [
+            "$0{,}14$",
+            "$0{,}27$",
+            "$0{,}7$",
+            "$0{,}35$"
+          ],
+          "correct": 3,
+          "why": "$7\\div20=0{,}35$.",
+          "level": 2
+        },
+        {
+          "q": "Expresa $\\frac{11}{25}$ en decimal.",
+          "options": [
+            "$0{,}25$",
+            "$0{,}11$",
+            "$0{,}44$",
+            "$0{,}52$"
+          ],
+          "correct": 2,
+          "why": "$11/25=44/100=0{,}44$.",
+          "level": 2
+        },
+        {
+          "q": "¿Qué fracción irreducible corresponde a $0{,}125$?",
+          "options": [
+            "$\\dfrac14$",
+            "$\\dfrac{125}{100}$",
+            "$\\dfrac15$",
+            "$\\dfrac18$"
+          ],
+          "correct": 3,
+          "why": "$0{,}125=125/1000=1/8$.",
+          "level": 2
+        },
+        {
+          "q": "¿Qué fracción irreducible corresponde a $1{,}2$?",
+          "options": [
+            "$\\dfrac65$",
+            "$\\dfrac{12}{100}$",
+            "$\\dfrac16$",
+            "$\\dfrac35$"
+          ],
+          "correct": 0,
+          "why": "$1{,}2=12/10=6/5$.",
+          "level": 2
+        },
+        {
+          "q": "¿Qué fracción irreducible corresponde a $0{,}24$?",
+          "options": [
+            "$\\dfrac{12}{25}$",
+            "$\\dfrac4{25}$",
+            "$\\dfrac6{25}$",
+            "$\\dfrac{24}{10}$"
+          ],
+          "correct": 2,
+          "why": "$0{,}24=24/100=6/25$.",
+          "level": 2
+        },
+        {
+          "q": "¿Qué fracción irreducible corresponde a $2{,}75$?",
+          "options": [
+            "$\\dfrac{11}{5}$",
+            "$\\dfrac72$",
+            "$\\dfrac{11}{4}$",
+            "$\\dfrac{275}{10}$"
+          ],
+          "correct": 2,
+          "why": "$2{,}75=275/100=11/4$.",
+          "level": 2
+        },
+        {
+          "q": "Expresa $\\frac78$ en decimal.",
+          "options": [
+            "$0{,}825$",
+            "$0{,}875$",
+            "$0{,}75$",
+            "$0{,}78$"
+          ],
+          "correct": 1,
+          "why": "$7\\div8=0{,}875$.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el valor exacto de $0{,}\\overline3$?",
+          "options": [
+            "$\\dfrac13$",
+            "$\\dfrac3{100}$",
+            "$\\dfrac3{10}$",
+            "$\\dfrac23$"
+          ],
+          "correct": 0,
+          "why": "$1/3=0{,}333\\ldots$; el período continúa indefinidamente.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el valor exacto de $0{,}\\overline6$?",
+          "options": [
+            "$\\dfrac36$",
+            "$\\dfrac6{10}$",
+            "$\\dfrac32$",
+            "$\\dfrac23$"
+          ],
+          "correct": 3,
+          "why": "$2/3=0{,}666\\ldots$.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el valor exacto de $0{,}\\overline{27}$?",
+          "options": [
+            "$\\dfrac3{11}$",
+            "$\\dfrac{27}{100}$",
+            "$\\dfrac2{11}$",
+            "$\\dfrac{27}{90}$"
+          ],
+          "correct": 0,
+          "why": "$0{,}\\overline{27}=27/99=3/11$.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el valor exacto de $0{,}1\\overline6$?",
+          "options": [
+            "$\\dfrac16$",
+            "$\\dfrac{16}{100}$",
+            "$\\dfrac15$",
+            "$\\dfrac{16}{10}$"
+          ],
+          "correct": 0,
+          "why": "$1/6=0{,}1666\\ldots$; el 6 es el período.",
+          "level": 3
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte $0{,}375$ a fracción irreducible. Escribe solo la fracción.",
+          "answer": "3/8",
+          "why": "$0{,}375=375/1000=3/8$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte $\\frac9{20}$ en decimal. Escribe solo el número, con coma o punto decimal.",
+          "answer": "0,45",
+          "why": "$9\\div20=0{,}45$.",
+          "level": 2
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte $0{,}\\overline{12}$ a fracción irreducible.",
+          "answer": "4/33",
+          "why": "$0{,}\\overline{12}=12/99=4/33$.",
+          "level": 3,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte $0{,}1\\overline3$ a fracción irreducible.",
+          "answer": "2/15",
+          "why": "$2/15=0{,}1333\\ldots$.",
+          "level": 3,
+          "reduced": true
+        }
+      ],
+      "check": {
+        "q": "Un matraz contiene $\\dfrac38$ L. ¿Qué decimal representa ese volumen en litros?",
+        "options": [
+          "$0{,}375$",
+          "$0{,}38$",
+          "$0{,}83$"
+        ],
+        "correct": 0,
+        "why": "$3\\div8=0{,}375$ L.",
+        "level": 2
+      },
+      "learn": {
+        "goal": "Convertir fracciones en decimales y decimales finitos o periódicos en fracciones.",
+        "idea": "**Una misma cantidad puede escribirse de distintas formas.**\n1. **Fracción → decimal:** divide el numerador por el denominador.\n2. **Decimal finito → fracción:** elimina la coma y coloca como denominador $10$, $100$, $1000$, ... según las cifras decimales; luego simplifica.\n3. **Decimal periódico:** el mismo bloque de cifras vuelve a repetirse indefinidamente. También representa una fracción.\nLos decimales de un número racional son finitos o **eventualmente periódicos**: el período puede comenzar después de algunas cifras.",
+        "steps": {
+          "title": "Convierte $\\dfrac{3}{8}$ a decimal.",
+          "items": [
+            {
+              "math": "\\dfrac38",
+              "why": "Fracción.",
+              "side": {
+                "title": "FRACCIÓN",
+                "text": "Una fracción representa una división."
+              }
+            },
+            {
+              "math": "=3\\div8",
+              "why": "División.",
+              "side": {
+                "title": "DIVISIÓN",
+                "text": "Dividimos el numerador entre el denominador."
+              }
+            },
+            {
+              "math": "=0{,}375",
+              "why": "Comprobación.",
+              "side": {
+                "title": "COMPROBACIÓN",
+                "math": "8\\cdot0{,}375=3",
+                "text": "El desarrollo decimal termina."
+              }
+            }
+          ]
+        },
+        "warn": "Un decimal periódico **no termina**: $0{,}333\\ldots=0{,}\\overline3$, no $0{,}3$. En cambio, $0{,}375$ es finito. No confundas aproximaciones decimales con valores exactos.",
+        "more": [
+          {
+            "title": "Convierte el decimal finito $0{,}24$ en fracción irreducible.",
+            "items": [
+              {
+                "math": "0{,}24",
+                "why": "Decimal finito.",
+                "side": {
+                  "title": "DECIMAL FINITO",
+                  "text": "Dos cifras decimales equivalen a centésimos."
+                }
+              },
+              {
+                "math": "=\\dfrac{24}{100}",
+                "why": "Fracción.",
+                "side": {
+                  "title": "FRACCIÓN",
+                  "text": "Quitamos la coma y usamos denominador 100."
+                }
+              },
+              {
+                "math": "=\\dfrac6{25}",
+                "why": "Simplificación.",
+                "side": {
+                  "title": "SIMPLIFICACIÓN",
+                  "math": "\\mathrm{MCD}(24,100)=4",
+                  "text": "Dividimos numerador y denominador por 4."
+                }
+              }
+            ]
+          },
+          {
+            "title": "Convierte $0{,}\\overline3$ en fracción.",
+            "items": [
+              {
+                "math": "x=0{,}\\overline3=0{,}333\\ldots",
+                "side": {
+                  "title": "Período",
+                  "text": "No es lo mismo que el decimal finito 0,3."
+                },
+                "why": "Período."
+              },
+              {
+                "math": "10x=3{,}333\\ldots",
+                "side": {
+                  "title": "Observa",
+                  "text": "La parte decimal que se repite sigue siendo la misma."
+                },
+                "why": "Observa."
+              },
+              {
+                "math": "10x-x=3{,}333\\ldots-0{,}333\\ldots",
+                "why": "Restamos las dos expresiones.",
+                "side": {
+                  "title": "RESTAMOS LAS DOS EXPRESIONES",
+                  "text": "Restamos las dos expresiones: desaparece la parte decimal repetida."
+                }
+              },
+              {
+                "math": "9x=3\\quad\\Longrightarrow\\quad x=\\dfrac13",
+                "side": {
+                  "title": "Resultado",
+                  "text": "$0{,}\\overline3=1/3$."
+                },
+                "why": "Resultado."
+              }
+            ]
+          },
+          {
+            "title": "Decimal periódico mixto: $0{,}1\\overline6$.",
+            "items": [
+              {
+                "math": "x=0{,}1\\overline6=0{,}1666\\ldots",
+                "side": {
+                  "title": "Tipo de decimal",
+                  "text": "Es periódico mixto: el período comienza después de una cifra."
+                },
+                "why": "Tipo de decimal."
+              },
+              {
+                "math": "10x=1{,}666\\ldots\\quad\\text{y}\\quad100x=16{,}666\\ldots",
+                "side": {
+                  "title": "Propósito",
+                  "text": "Al restar, las partes decimales iguales desaparecen."
+                },
+                "why": "Propósito."
+              },
+              {
+                "math": "100x-10x=16{,}666\\ldots-1{,}666\\ldots",
+                "why": "Restamos las dos expresiones.",
+                "side": {
+                  "title": "RESTAMOS LAS DOS EXPRESIONES",
+                  "text": "Restamos las dos expresiones: $90x=15$."
+                }
+              },
+              {
+                "math": "90x=15\\quad\\Longrightarrow\\quad\\boxed{x=\\dfrac16}",
+                "why": "División.",
+                "side": {
+                  "title": "DIVISIÓN",
+                  "text": "Dividimos por 90 y simplificamos el resultado."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "draw": 5,
+      "checks": [
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un recipiente contiene $0{,}625$ L. Escribe ese volumen como fracción irreducible de litro (solo el número).",
+          "answer": "5/8",
+          "why": "$0{,}625=625/1000=5/8$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una proporción exacta se escribe $0{,}\\overline6$. Expresa esa proporción como fracción irreducible.",
+          "answer": "2/3",
+          "why": "$0{,}\\overline6=2/3$.",
+          "level": 3,
+          "reduced": true
         }
       ],
       "drawCheck": 2
@@ -2383,64 +2572,62 @@
       },
       "learn": {
         "goal": "Reconocer fracciones equivalentes y simplificarlas hasta una expresión irreducible.",
-        "idea": "Equivalentes: multiplicar o dividir numerador y denominador por el mismo número distinto de cero conserva la fracción.\nIrreducible: numerador y denominador no tienen divisor común mayor que $1$.",
+        "idea": "**Equivalentes:** multiplicar o dividir numerador y denominador por el mismo número distinto de cero conserva la fracción.\n**Irreducible:** numerador y denominador no tienen divisor común mayor que $1$.",
         "steps": {
           "title": "Simplifica $\\frac{42}{56}$.",
           "items": [
             {
-              "math": "\\frac{42}{56}",
-              "why": "Fracción inicial.",
+              "math": "\\dfrac{42}{56}",
+              "why": "Mcd.",
               "side": {
-                "title": "Meta",
-                "text": "Queremos una escritura más sencilla con el mismo valor."
+                "title": "MCD",
+                "math": "\\mathrm{MCD}(42,56)=14",
+                "text": "Nos sirve para simplificar en un solo paso."
               }
             },
             {
-              "math": "\\mathrm{MCD}(42,56)=14",
-              "why": "Buscamos un divisor común máximo.",
+              "math": "=\\dfrac{42\\div14}{56\\div14}",
+              "why": "Mismo divisor.",
               "side": {
-                "title": "Divisores",
-                "text": "$42=3\\cdot14$ y $56=4\\cdot14$."
+                "title": "MISMO DIVISOR",
+                "text": "Dividimos numerador y denominador por 14."
               }
             },
             {
-              "math": "\\frac{42}{56}=\\frac{42\\div14}{56\\div14}",
-              "why": "Dividimos ambas partes por 14.",
+              "math": "=\\dfrac34",
+              "why": "Irreducible.",
               "side": {
-                "title": "Equivalencia",
-                "text": "Realizar la misma división arriba y abajo no altera el cociente."
-              }
-            },
-            {
-              "math": "\\frac{42}{56}=\\frac34",
-              "why": "Obtenemos la forma irreducible.",
-              "side": {
-                "title": "Verificación",
-                "text": "$\\mathrm{MCD}(3,4)=1$."
+                "title": "IRREDUCIBLE",
+                "text": "El numerador y el denominador no tienen divisor común mayor que 1."
               }
             }
           ]
         },
-        "warn": "Atención: $\\frac23$ y $\\frac24$ no son equivalentes. Cambiar solo el denominador cambia el valor. Nunca puede quedar denominador cero.",
+        "warn": "**Atención:** $\\frac23$ y $\\frac24$ no son equivalentes. Cambiar solo el denominador cambia el valor. Nunca puede quedar denominador cero.",
         "more": [
           {
             "title": "Simplificar con signo",
             "items": [
               {
                 "math": "-\\dfrac{18}{24}",
-                "why": "Identificamos una fracción negativa."
-              },
-              {
-                "math": "\\mathrm{MCD}(18,24)=6",
-                "why": "Buscamos un divisor común."
-              },
-              {
-                "math": "-\\dfrac{18\\div6}{24\\div6}=-\\dfrac34",
-                "why": "Simplificamos sin perder el signo.",
+                "why": "Mcd.",
                 "side": {
-                  "title": "Equivalencia",
-                  "text": "Dividir numerador y denominador por el mismo número no nulo conserva el valor."
+                  "title": "MCD",
+                  "math": "\\mathrm{MCD}(18,24)=6",
+                  "text": "Conservamos el signo negativo."
                 }
+              },
+              {
+                "math": "=-\\dfrac{18\\div6}{24\\div6}",
+                "why": "Simplificación.",
+                "side": {
+                  "title": "SIMPLIFICACIÓN",
+                  "text": "Dividimos ambos por 6."
+                }
+              },
+              {
+                "math": "=-\\dfrac34",
+                "why": "Resultado final."
               }
             ]
           },
@@ -2449,19 +2636,23 @@
             "items": [
               {
                 "math": "\\dfrac25",
-                "why": "Partimos de dos quintos."
-              },
-              {
-                "math": "\\dfrac{2\\cdot3}{5\\cdot3}",
-                "why": "Multiplicamos arriba y abajo por 3.",
+                "why": "Amplificación.",
                 "side": {
-                  "title": "Amplificar",
-                  "text": "Multiplicamos arriba y abajo por $3$."
+                  "title": "AMPLIFICACIÓN",
+                  "text": "Queremos una fracción equivalente."
                 }
               },
               {
-                "math": "\\dfrac25=\\dfrac6{15}",
-                "why": "Es la misma cantidad expresada con más partes."
+                "math": "=\\dfrac{2\\cdot3}{5\\cdot3}",
+                "why": "Mismo factor.",
+                "side": {
+                  "title": "MISMO FACTOR",
+                  "text": "Multiplicamos ambos por 3."
+                }
+              },
+              {
+                "math": "=\\dfrac6{15}",
+                "why": "Mismo valor."
               }
             ]
           }
@@ -2502,7 +2693,7 @@
     },
     {
       "id": "u1-s006",
-      "title": "Producto y división de fracciones",
+      "title": "Producto y división",
       "subtitle": "Simplificar antes de multiplicar; invertir al dividir",
       "group": 1,
       "symbol": "✧",
@@ -2800,64 +2991,72 @@
       },
       "learn": {
         "goal": "Multiplicar y dividir fracciones simplificando factores antes de calcular.",
-        "idea": "Producto: multiplica numeradores entre sí y denominadores entre sí.\nAntes: reduce factores comunes entre cualquier numerador y cualquier denominador.\nDivisión: multiplica por el recíproco de la segunda fracción, siempre que sea distinta de cero.",
+        "idea": "**Producto:** multiplica numeradores entre sí y denominadores entre sí.\n**Antes:** reduce factores comunes entre cualquier numerador y cualquier denominador.\n**División:** multiplica por el recíproco de la segunda fracción, siempre que sea distinta de cero.",
         "steps": {
           "title": "Calcula $\\frac{15}{28}\\cdot\\frac{14}{25}$.",
           "items": [
             {
               "math": "\\frac{15}{28}\\cdot\\frac{14}{25}",
-              "why": "Escribimos el producto.",
               "side": {
                 "title": "Idea",
                 "text": "Buscamos factores comunes entre numeradores y denominadores."
-              }
+              },
+              "why": "Idea."
             },
             {
-              "math": "\\frac{3\\cdot5}{2\\cdot14}\\cdot\\frac{14}{5\\cdot5}",
-              "why": "Descomponemos para ver factores.",
+              "math": "=\\frac{3\\cdot5}{2\\cdot14}\\cdot\\frac{14}{5\\cdot5}",
               "side": {
                 "title": "Factorización",
                 "text": "$15=3\\cdot5$, $28=2\\cdot14$, $25=5\\cdot5$."
-              }
+              },
+              "why": "Factorización."
             },
             {
-              "math": "\\frac3{2}\\cdot\\frac1{5}",
-              "why": "Cancelamos factores comunes.",
+              "math": "=\\frac3{2}\\cdot\\frac1{5}",
               "side": {
                 "title": "Simplificación",
                 "text": "Cancelamos un $14$ y un $5$, no sumandos."
-              }
+              },
+              "why": "Simplificación."
             },
             {
-              "math": "\\frac3{10}",
-              "why": "Multiplicamos.",
+              "math": "=\\frac3{10}",
               "side": {
                 "title": "Resultado",
                 "text": "$3\\cdot1=3$ y $2\\cdot5=10$."
-              }
+              },
+              "why": "Resultado."
             }
           ]
         },
-        "warn": "Atención: solo se cancelan factores, nunca términos de una suma. Dividir por una fracción de numerador cero no está definido.",
+        "warn": "**Atención:** solo se cancelan factores, nunca términos de una suma. Dividir por una fracción de numerador cero no está definido.",
         "more": [
           {
             "title": "División de fracciones",
             "items": [
               {
                 "math": "\\dfrac34\\div\\dfrac98",
-                "why": "Identificamos la fracción que divide."
-              },
-              {
-                "math": "\\dfrac34\\cdot\\dfrac89",
-                "why": "Invertimos SOLO la segunda.",
+                "why": "Divisor.",
                 "side": {
-                  "title": "Regla de división",
-                  "text": "Multiplicamos por el inverso de la segunda fracción."
+                  "title": "DIVISOR",
+                  "text": "Identificamos la fracción que divide."
                 }
               },
               {
-                "math": "\\dfrac{3\\cdot8}{4\\cdot9}=\\dfrac23",
-                "why": "Reducimos factores y multiplicamos."
+                "math": "=\\dfrac34\\cdot\\dfrac89",
+                "side": {
+                  "title": "Regla de división",
+                  "text": "Multiplicamos por el inverso de la segunda fracción."
+                },
+                "why": "Regla de división."
+              },
+              {
+                "math": "=\\dfrac{3\\cdot8}{4\\cdot9}=\\dfrac23",
+                "why": "Resultado.",
+                "side": {
+                  "title": "RESULTADO",
+                  "text": "Reducimos factores y multiplicamos."
+                }
               }
             ]
           },
@@ -2866,19 +3065,27 @@
             "items": [
               {
                 "math": "-\\dfrac{10}{21}\\cdot\\dfrac7{15}",
-                "why": "Conservamos el signo negativo."
-              },
-              {
-                "math": "-\\dfrac{2}{3}\\cdot\\dfrac{1}{3}",
-                "why": "Cancelamos 5, 7 y los demás factores comunes.",
+                "why": "Signo.",
                 "side": {
-                  "title": "Cancelación",
-                  "text": "Solo se cancelan factores comunes, nunca sumandos."
+                  "title": "SIGNO",
+                  "text": "Conservamos el signo negativo."
                 }
               },
               {
-                "math": "-\\dfrac29",
-                "why": "Multiplicamos los factores restantes."
+                "math": "=-\\dfrac{2}{3}\\cdot\\dfrac{1}{3}",
+                "side": {
+                  "title": "Cancelación",
+                  "text": "Solo se cancelan factores comunes, nunca sumandos."
+                },
+                "why": "Cancelación."
+              },
+              {
+                "math": "=-\\dfrac29",
+                "why": "Multiplicación.",
+                "side": {
+                  "title": "MULTIPLICACIÓN",
+                  "text": "Multiplicamos los factores restantes."
+                }
               }
             ]
           }
@@ -2909,7 +3116,7 @@
     },
     {
       "id": "u1-s007",
-      "title": "Suma y resta de fracciones",
+      "title": "Suma y resta",
       "subtitle": "Denominador común mediante MCM",
       "group": 1,
       "symbol": "✧",
@@ -3207,76 +3414,67 @@
       },
       "learn": {
         "goal": "Sumar y restar fracciones con distintos denominadores utilizando el MCM.",
-        "idea": "Necesitamos partes del mismo tamaño.\n1) Calcula el MCM de los denominadores.\n2) Escribe fracciones equivalentes con ese denominador.\n3) Suma o resta los numeradores y simplifica si corresponde.",
+        "idea": "**Necesitamos partes del mismo tamaño.**\n1) Calcula el MCM de los denominadores.\n2) Escribe fracciones equivalentes con ese denominador.\n3) Suma o resta los numeradores y simplifica si corresponde.",
         "steps": {
           "title": "Calcula $\\frac16+\\frac14$.",
           "items": [
             {
-              "math": "\\frac16+\\frac14",
-              "why": "Identificamos los denominadores.",
+              "math": "\\dfrac16+\\dfrac14",
+              "why": "Denominador común.",
               "side": {
-                "title": "Denominador común",
-                "text": "No se suman directamente partes de tamaños distintos."
+                "title": "DENOMINADOR COMÚN",
+                "math": "\\mathrm{mcm}(6,4)=12",
+                "text": "Buscamos el menor denominador común."
               }
             },
             {
-              "math": "\\operatorname{mcm}(6,4)=12",
-              "why": "Encontramos el mínimo común múltiplo.",
+              "math": "=\\dfrac2{12}+\\dfrac3{12}",
+              "why": "Fracciones equivalentes.",
               "side": {
-                "title": "Factorización",
-                "math": "\\begin{aligned}6&=2\\cdot3\\\\4&=2^2\\\\\\mathrm{mcm}&=2^2\\cdot3=12\\end{aligned}"
+                "title": "FRACCIONES EQUIVALENTES",
+                "math": "\\begin{aligned}1\\cdot2&=2\\\\1\\cdot3&=3\\end{aligned}",
+                "text": "Ahora las partes son del mismo tamaño."
               }
             },
             {
-              "math": "\\frac2{12}+\\frac3{12}",
-              "why": "Construimos fracciones equivalentes.",
+              "math": "=\\dfrac{2+3}{12}",
+              "why": "Suma.",
               "side": {
-                "title": "Amplificación",
-                "text": "$1/6$ se amplifica por $2$; $1/4$, por $3$."
+                "title": "SUMA",
+                "text": "Sumamos los numeradores."
               }
             },
             {
-              "math": "\\frac{2+3}{12}",
-              "why": "Sumamos numeradores.",
-              "side": {
-                "title": "Misma unidad",
-                "text": "Ahora ambas fracciones están expresadas en doceavos."
-              }
-            },
-            {
-              "math": "\\frac5{12}",
-              "why": "Expresamos el resultado.",
-              "side": {
-                "title": "Comprobación",
-                "text": "La fracción es irreducible."
-              }
+              "math": "=\\dfrac5{12}",
+              "why": "Resultado final."
             }
           ]
         },
-        "warn": "Atención: $\\frac12+\\frac13\\ne\\frac25$. El producto de denominadores también es común, pero usar MCM suele evitar números innecesariamente grandes.",
+        "warn": "**Atención:** $\\frac12+\\frac13\\ne\\frac25$. El producto de denominadores también es común, pero usar MCM suele evitar números innecesariamente grandes.",
         "more": [
           {
             "title": "MCM frente a producto directo",
             "items": [
               {
                 "math": "\\dfrac5{12}+\\dfrac7{18}",
-                "why": "Los denominadores son distintos."
-              },
-              {
-                "math": "\\mathrm{MCM}(12,18)=36",
-                "why": "Elegimos el menor denominador común.",
+                "why": "Denominador común.",
                 "side": {
-                  "title": "MCM",
-                  "math": "12=2^2\\cdot3,\\quad18=2\\cdot3^2"
+                  "title": "DENOMINADOR COMÚN",
+                  "math": "\\mathrm{mcm}(12,18)=36",
+                  "text": "Con el MCM evitamos un denominador innecesariamente grande."
                 }
               },
               {
-                "math": "\\dfrac{15}{36}+\\dfrac{14}{36}",
-                "why": "Construimos equivalentes."
+                "math": "=\\dfrac{15}{36}+\\dfrac{14}{36}",
+                "why": "Amplificación.",
+                "side": {
+                  "title": "AMPLIFICACIÓN",
+                  "text": "Usamos fracciones equivalentes."
+                }
               },
               {
-                "math": "\\dfrac{29}{36}",
-                "why": "Sumamos los numeradores."
+                "math": "=\\dfrac{29}{36}",
+                "why": "Resultado final."
               }
             ]
           },
@@ -3285,19 +3483,27 @@
             "items": [
               {
                 "math": "\\dfrac34-\\dfrac16",
-                "why": "El MCM de 4 y 6 es 12."
-              },
-              {
-                "math": "\\dfrac9{12}-\\dfrac2{12}",
-                "why": "Amplificamos ambas fracciones.",
+                "why": "Mcm.",
                 "side": {
-                  "title": "Equivalencias",
-                  "text": "$3/4=9/12$ y $1/6=2/12$."
+                  "title": "MCM",
+                  "text": "El MCM de 4 y 6 es 12."
                 }
               },
               {
-                "math": "\\dfrac7{12}",
-                "why": "Restamos numeradores."
+                "math": "=\\dfrac9{12}-\\dfrac2{12}",
+                "side": {
+                  "title": "Equivalencias",
+                  "text": "$3/4=9/12$ y $1/6=2/12$."
+                },
+                "why": "Equivalencias."
+              },
+              {
+                "math": "=\\dfrac7{12}",
+                "why": "Resta.",
+                "side": {
+                  "title": "RESTA",
+                  "text": "Restamos numeradores."
+                }
               }
             ]
           }
@@ -3633,64 +3839,68 @@
       },
       "learn": {
         "goal": "Interpretar y calcular potencias con exponente entero, considerando signos y condiciones.",
-        "idea": "Potencia natural: $a^n$ repite $n$ factores iguales a $a$.\nExponente cero: $a^0=1$ si $a\\ne0$.\nExponente negativo: $a^{-n}=1/a^n$ si $a\\ne0$.\nAl multiplicar potencias de igual base se suman exponentes.",
+        "idea": "**Potencia natural:** $a^n$ repite $n$ factores iguales a $a$.\n**Exponente cero:** $a^0=1$ si $a\\ne0$.\n**Exponente negativo:** $a^{-n}=1/a^n$ si $a\\ne0$.\nAl multiplicar potencias de igual base se suman exponentes.",
         "steps": {
           "title": "Calcula $2^{-3}$.",
           "items": [
             {
               "math": "2^{-3}",
-              "why": "Reconocemos el exponente negativo.",
+              "why": "Exponente negativo.",
               "side": {
-                "title": "Sentido",
-                "text": "No significa que la potencia sea negativa."
+                "title": "EXPONENTE NEGATIVO",
+                "text": "La base 2 es distinta de cero."
               }
             },
             {
-              "math": "2^{-3}=\\frac1{2^3}",
-              "why": "Aplicamos la definición.",
+              "math": "=\\dfrac1{2^3}",
+              "why": "Inverso.",
               "side": {
-                "title": "Base no nula",
-                "text": "El recíproco existe porque $2\\ne0$."
+                "title": "INVERSO",
+                "text": "El exponente negativo indica el recíproco."
               }
             },
             {
-              "math": "2^{-3}=\\frac1{2\\cdot2\\cdot2}",
-              "why": "Desarrollamos la potencia.",
+              "math": "=\\dfrac1{2\\cdot2\\cdot2}",
+              "why": "Potencia.",
               "side": {
-                "title": "Multiplicación reiterada",
-                "text": "El exponente positivo $3$ indica tres factores."
+                "title": "POTENCIA",
+                "text": "Desarrollamos el producto."
               }
             },
             {
-              "math": "2^{-3}=\\frac18",
-              "why": "Calculamos.",
-              "side": {
-                "title": "Resultado",
-                "text": "El valor es positivo y menor que $1$."
-              }
+              "math": "=\\dfrac18",
+              "why": "Resultado final."
             }
           ]
         },
-        "warn": "Atención: $(-2)^4=16$, pero $-2^4=-16$: los paréntesis determinan si el signo pertenece a la base. En general, $a^m+a^n\\ne a^{m+n}$.",
+        "warn": "**Atención:** $(-2)^4=16$, pero $-2^4=-16$: los paréntesis determinan si el signo pertenece a la base. En general, $a^m+a^n\\ne a^{m+n}$.",
         "more": [
           {
             "title": "Producto de potencias",
             "items": [
               {
                 "math": "2^3\\cdot2^2",
-                "why": "Ambas potencias tienen la misma base."
-              },
-              {
-                "math": "2^{3+2}=2^5",
-                "why": "Sumamos los exponentes.",
+                "why": "Misma base.",
                 "side": {
-                  "title": "Misma base",
-                  "text": "Los exponentes se suman al multiplicar potencias de igual base."
+                  "title": "MISMA BASE",
+                  "text": "Ambas potencias tienen la misma base."
                 }
               },
               {
-                "math": "32",
-                "why": "Calculamos el resultado."
+                "math": "=2^{3+2}=2^5",
+                "side": {
+                  "title": "Misma base",
+                  "text": "Los exponentes se suman al multiplicar potencias de igual base."
+                },
+                "why": "Misma base."
+              },
+              {
+                "math": "=32",
+                "why": "Cálculo.",
+                "side": {
+                  "title": "CÁLCULO",
+                  "text": "Calculamos el resultado."
+                }
               }
             ]
           },
@@ -3699,15 +3909,19 @@
             "items": [
               {
                 "math": "(-2)^4=(-2)(-2)(-2)(-2)=16",
-                "why": "El signo negativo está dentro de la base."
+                "why": "Base negativa.",
+                "side": {
+                  "title": "BASE NEGATIVA",
+                  "text": "El signo negativo está dentro de la base."
+                }
               },
               {
                 "math": "-2^4=-(2^4)=-16",
-                "why": "Sin paréntesis, el signo queda fuera de la potencia.",
                 "side": {
                   "title": "Paréntesis",
                   "text": "Sin paréntesis, el signo menos no forma parte de la base."
-                }
+                },
+                "why": "Paréntesis."
               }
             ]
           }
@@ -3737,421 +3951,10 @@
       "drawCheck": 2
     },
     {
-      "id": "u1-s009",
-      "title": "Operaciones con racionales",
-      "subtitle": "Fracciones, signos, paréntesis y potencias",
-      "group": 2,
-      "symbol": "✧",
-      "minutes": 60,
-      "concept": "Resolver operaciones combinadas con números racionales, signos, paréntesis y potencias.\n\nOrden: paréntesis, potencias, multiplicaciones o divisiones y finalmente sumas o restas.\nEn operaciones del mismo nivel, avanza de izquierda a derecha.\nConsejo: conserva fracciones exactas y simplifica antes de operar.",
-      "example": "Calcula $-\\frac34+\\frac56\\cdot(-\\frac95)$.\n1. $$-\\frac34+\\frac56\\cdot\\left(-\\frac95\\right)$$ — Leemos la expresión.\n2. $$-\\frac34-\\frac32$$ — Multiplicamos las fracciones.\n3. $$-\\frac34-\\frac64$$ — Igualamos denominadores.\n4. $$\\frac{-3-6}{4}$$ — Reunimos los numeradores.\n5. $$-\\frac94$$ — Concluimos.",
-      "media": [],
-      "practice": [
-        {
-          "q": "Resuelve $\\dfrac{1}{2}+\\dfrac{3}{4}\\cdot\\dfrac{2}{3}$.",
-          "options": [
-            "$-1$",
-            "$0$",
-            "$2$",
-            "$1$"
-          ],
-          "correct": 3,
-          "why": "Primero multiplicamos: $\\dfrac{1}{2}$; después sumamos $\\dfrac{1}{2}+\\dfrac{1}{2}=1$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{3}{4}-\\dfrac{2}{5}\\right)\\cdot\\dfrac{1}{6}$.",
-          "options": [
-            "$-\\dfrac{113}{120}$",
-            "$\\dfrac{127}{120}$",
-            "$-\\dfrac{7}{120}$",
-            "$\\dfrac{7}{120}$"
-          ],
-          "correct": 3,
-          "why": "El paréntesis vale $\\dfrac{7}{20}$; luego multiplicamos por $\\dfrac{1}{6}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\dfrac{5}{6}-\\dfrac{1}{3}\\cdot\\dfrac{3}{4}$.",
-          "options": [
-            "$\\dfrac{19}{12}$",
-            "$-\\dfrac{5}{12}$",
-            "$-\\dfrac{7}{12}$",
-            "$\\dfrac{7}{12}$"
-          ],
-          "correct": 3,
-          "why": "Primero multiplicamos: $\\dfrac{1}{4}$; después restamos $\\dfrac{5}{6}-\\dfrac{1}{4}=\\dfrac{7}{12}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\dfrac{2}{3}+\\dfrac{3}{5}\\cdot\\dfrac{1}{2}$.",
-          "options": [
-            "$-\\dfrac{1}{30}$",
-            "$\\dfrac{59}{30}$",
-            "$\\dfrac{29}{30}$",
-            "$-\\dfrac{29}{30}$"
-          ],
-          "correct": 2,
-          "why": "Primero multiplicamos: $\\dfrac{3}{10}$; después sumamos $\\dfrac{2}{3}+\\dfrac{3}{10}=\\dfrac{29}{30}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{7}{8}-\\dfrac{2}{3}\\right)\\cdot\\dfrac{1}{4}$.",
-          "options": [
-            "$\\dfrac{5}{96}$",
-            "$-\\dfrac{5}{96}$",
-            "$\\dfrac{101}{96}$",
-            "$-\\dfrac{91}{96}$"
-          ],
-          "correct": 0,
-          "why": "El paréntesis vale $\\dfrac{5}{24}$; luego multiplicamos por $\\dfrac{1}{4}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\dfrac{4}{5}-\\dfrac{3}{7}\\cdot\\dfrac{1}{2}$.",
-          "options": [
-            "$-\\dfrac{41}{70}$",
-            "$\\dfrac{41}{70}$",
-            "$-\\dfrac{29}{70}$",
-            "$\\dfrac{111}{70}$"
-          ],
-          "correct": 1,
-          "why": "Primero multiplicamos: $\\dfrac{3}{14}$; después restamos $\\dfrac{4}{5}-\\dfrac{3}{14}=\\dfrac{41}{70}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\dfrac{5}{12}+\\dfrac{3}{4}\\cdot\\dfrac{2}{9}$.",
-          "options": [
-            "$\\dfrac{19}{12}$",
-            "$-\\dfrac{7}{12}$",
-            "$-\\dfrac{5}{12}$",
-            "$\\dfrac{7}{12}$"
-          ],
-          "correct": 3,
-          "why": "Primero multiplicamos: $\\dfrac{1}{6}$; después sumamos $\\dfrac{5}{12}+\\dfrac{1}{6}=\\dfrac{7}{12}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{3}{10}-\\dfrac{5}{6}\\right)\\cdot\\dfrac{1}{3}$.",
-          "options": [
-            "$\\dfrac{37}{45}$",
-            "$-\\dfrac{8}{45}$",
-            "$\\dfrac{8}{45}$",
-            "$-\\dfrac{53}{45}$"
-          ],
-          "correct": 1,
-          "why": "El paréntesis vale $-\\dfrac{8}{15}$; luego multiplicamos por $\\dfrac{1}{3}$.",
-          "level": 1
-        },
-        {
-          "q": "Resuelve $\\dfrac{2}{3}-\\dfrac{7}{10}\\cdot\\dfrac{3}{5}$.",
-          "options": [
-            "$-\\dfrac{113}{150}$",
-            "$-\\dfrac{37}{150}$",
-            "$\\dfrac{37}{150}$",
-            "$\\dfrac{187}{150}$"
-          ],
-          "correct": 2,
-          "why": "Primero multiplicamos: $\\dfrac{21}{50}$; después restamos $\\dfrac{2}{3}-\\dfrac{21}{50}=\\dfrac{37}{150}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\dfrac{5}{8}+\\dfrac{3}{4}\\cdot\\dfrac{1}{6}$.",
-          "options": [
-            "$\\dfrac{3}{4}$",
-            "$-\\dfrac{1}{4}$",
-            "$-\\dfrac{3}{4}$",
-            "$\\dfrac{7}{4}$"
-          ],
-          "correct": 0,
-          "why": "Primero multiplicamos: $\\dfrac{1}{8}$; después sumamos $\\dfrac{5}{8}+\\dfrac{1}{8}=\\dfrac{3}{4}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{7}{9}-\\dfrac{2}{5}\\right)\\cdot\\dfrac{1}{3}$.",
-          "options": [
-            "$\\dfrac{152}{135}$",
-            "$-\\dfrac{118}{135}$",
-            "$-\\dfrac{17}{135}$",
-            "$\\dfrac{17}{135}$"
-          ],
-          "correct": 3,
-          "why": "El paréntesis vale $\\dfrac{17}{45}$; luego multiplicamos por $\\dfrac{1}{3}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\dfrac{5}{6}-\\dfrac{3}{8}\\cdot\\dfrac{1}{4}$.",
-          "options": [
-            "$\\dfrac{71}{96}$",
-            "$-\\dfrac{25}{96}$",
-            "$\\dfrac{167}{96}$",
-            "$-\\dfrac{71}{96}$"
-          ],
-          "correct": 0,
-          "why": "Primero multiplicamos: $\\dfrac{3}{32}$; después restamos $\\dfrac{5}{6}-\\dfrac{3}{32}=\\dfrac{71}{96}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\dfrac{8}{9}+\\dfrac{2}{7}\\cdot\\dfrac{3}{4}$.",
-          "options": [
-            "$\\dfrac{265}{126}$",
-            "$-\\dfrac{139}{126}$",
-            "$\\dfrac{13}{126}$",
-            "$\\dfrac{139}{126}$"
-          ],
-          "correct": 3,
-          "why": "Primero multiplicamos: $\\dfrac{3}{14}$; después sumamos $\\dfrac{8}{9}+\\dfrac{3}{14}=\\dfrac{139}{126}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{11}{12}-\\dfrac{5}{8}\\right)\\cdot\\dfrac{1}{3}$.",
-          "options": [
-            "$\\dfrac{7}{72}$",
-            "$\\dfrac{79}{72}$",
-            "$-\\dfrac{7}{72}$",
-            "$-\\dfrac{65}{72}$"
-          ],
-          "correct": 0,
-          "why": "El paréntesis vale $\\dfrac{7}{24}$; luego multiplicamos por $\\dfrac{1}{3}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\dfrac{3}{5}-\\dfrac{4}{9}\\cdot\\dfrac{1}{6}$.",
-          "options": [
-            "$-\\dfrac{71}{135}$",
-            "$-\\dfrac{64}{135}$",
-            "$\\dfrac{206}{135}$",
-            "$\\dfrac{71}{135}$"
-          ],
-          "correct": 3,
-          "why": "Primero multiplicamos: $\\dfrac{2}{27}$; después restamos $\\dfrac{3}{5}-\\dfrac{2}{27}=\\dfrac{71}{135}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\dfrac{7}{10}+\\dfrac{5}{12}\\cdot\\dfrac{2}{3}$.",
-          "options": [
-            "$\\dfrac{89}{45}$",
-            "$\\dfrac{44}{45}$",
-            "$-\\dfrac{44}{45}$",
-            "$-\\dfrac{1}{45}$"
-          ],
-          "correct": 1,
-          "why": "Primero multiplicamos: $\\dfrac{5}{18}$; después sumamos $\\dfrac{7}{10}+\\dfrac{5}{18}=\\dfrac{44}{45}$.",
-          "level": 2
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{9}{14}-\\dfrac{3}{7}\\right)\\cdot\\dfrac{1}{2}$.",
-          "options": [
-            "$\\dfrac{31}{28}$",
-            "$-\\dfrac{3}{28}$",
-            "$\\dfrac{3}{28}$",
-            "$-\\dfrac{25}{28}$"
-          ],
-          "correct": 2,
-          "why": "El paréntesis vale $\\dfrac{3}{14}$; luego multiplicamos por $\\dfrac{1}{2}$.",
-          "level": 3
-        },
-        {
-          "q": "Resuelve $\\dfrac{4}{11}-\\dfrac{7}{8}\\cdot\\dfrac{3}{5}$.",
-          "options": [
-            "$-\\dfrac{511}{440}$",
-            "$\\dfrac{71}{440}$",
-            "$-\\dfrac{71}{440}$",
-            "$\\dfrac{369}{440}$"
-          ],
-          "correct": 2,
-          "why": "Primero multiplicamos: $\\dfrac{21}{40}$; después restamos $\\dfrac{4}{11}-\\dfrac{21}{40}=-\\dfrac{71}{440}$.",
-          "level": 3
-        },
-        {
-          "q": "Resuelve $\\dfrac{5}{9}+\\dfrac{4}{7}\\cdot\\dfrac{2}{3}$.",
-          "options": [
-            "$\\dfrac{122}{63}$",
-            "$-\\dfrac{4}{63}$",
-            "$\\dfrac{59}{63}$",
-            "$-\\dfrac{59}{63}$"
-          ],
-          "correct": 2,
-          "why": "Primero multiplicamos: $\\dfrac{8}{21}$; después sumamos $\\dfrac{5}{9}+\\dfrac{8}{21}=\\dfrac{59}{63}$.",
-          "level": 3
-        },
-        {
-          "q": "Resuelve $\\left(\\dfrac{11}{15}-\\dfrac{5}{6}\\right)\\cdot\\dfrac{3}{10}$.",
-          "options": [
-            "$\\dfrac{97}{100}$",
-            "$-\\dfrac{3}{100}$",
-            "$\\dfrac{3}{100}$",
-            "$-\\dfrac{103}{100}$"
-          ],
-          "correct": 1,
-          "why": "El paréntesis vale $-\\dfrac{1}{10}$; luego multiplicamos por $\\dfrac{3}{10}$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $\\frac12+\\frac34\\cdot\\frac23$. Escribe la fracción irreducible.",
-          "answer": "1",
-          "why": "$3/4\\cdot2/3=1/2$; sumamos $1/2+1/2=1$.",
-          "level": 1
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $\\left(\\frac12-\\frac34\\right)\\cdot(-8)$. Escribe solo el número.",
-          "answer": "2",
-          "why": "Primero $1/2-3/4=-1/4$; luego $(-1/4)(-8)=2$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $-\\frac34+\\frac56\\cdot\\left(-\\frac95\\right)$. Escribe la fracción irreducible.",
-          "answer": "-9/4",
-          "why": "El producto es $-3/2$; luego $-3/4-3/2=-9/4$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Calcula $\\left(-\\frac23\\right)^2-\\frac56\\div\\frac52$. Escribe la fracción irreducible.",
-          "answer": "1/9",
-          "why": "$4/9-(5/6)(2/5)=4/9-1/3=1/9$.",
-          "level": 3,
-          "reduced": true
-        }
-      ],
-      "check": {
-        "q": "Un experimento utiliza $\\dfrac12$ L y luego otros $\\dfrac14$ L dos veces. ¿Cuánto se utiliza en total?",
-        "options": [
-          "$1$ L",
-          "$\\dfrac34$ L",
-          "$\\dfrac58$ L"
-        ],
-        "correct": 0,
-        "why": "$1/2+2\\cdot(1/4)=1$ L."
-      },
-      "learn": {
-        "goal": "Resolver operaciones combinadas con números racionales, signos, paréntesis y potencias.",
-        "idea": "Orden: paréntesis, potencias, multiplicaciones o divisiones y finalmente sumas o restas.\nEn operaciones del mismo nivel, avanza de izquierda a derecha.\nConsejo: conserva fracciones exactas y simplifica antes de operar.",
-        "steps": {
-          "title": "Calcula $-\\frac34+\\frac56\\cdot(-\\frac95)$.",
-          "items": [
-            {
-              "math": "-\\frac34+\\frac56\\cdot\\left(-\\frac95\\right)",
-              "why": "Leemos la expresión.",
-              "side": {
-                "title": "Prioridad",
-                "text": "La multiplicación se efectúa antes de la suma."
-              }
-            },
-            {
-              "math": "-\\frac34-\\frac32",
-              "why": "Multiplicamos las fracciones.",
-              "side": {
-                "title": "Simplificación",
-                "text": "$\\frac56\\cdot(-\\frac95)=-\\frac32$ después de simplificar."
-              }
-            },
-            {
-              "math": "-\\frac34-\\frac64",
-              "why": "Igualamos denominadores.",
-              "side": {
-                "title": "MCM",
-                "text": "$3/2=6/4$; ambas fracciones se expresan en cuartos."
-              }
-            },
-            {
-              "math": "\\frac{-3-6}{4}",
-              "why": "Reunimos los numeradores.",
-              "side": {
-                "title": "Signos",
-                "text": "Se suman dos cantidades negativas."
-              }
-            },
-            {
-              "math": "-\\frac94",
-              "why": "Concluimos.",
-              "side": {
-                "title": "Resultado",
-                "text": "El resultado es una fracción irreducible."
-              }
-            }
-          ]
-        },
-        "warn": "Atención: no sumes antes de multiplicar. El signo negativo de una fracción debe conservarse en cada paso.",
-        "more": [
-          {
-            "title": "Primero una potencia",
-            "items": [
-              {
-                "math": "\\dfrac12+\\left(-\\dfrac32\\right)^2",
-                "why": "Calculamos la potencia antes de sumar."
-              },
-              {
-                "math": "\\dfrac12+\\dfrac94",
-                "why": "Al cuadrar, el resultado es positivo.",
-                "side": {
-                  "title": "Signo de la potencia",
-                  "text": "Una potencia de exponente par de base negativa es positiva."
-                }
-              },
-              {
-                "math": "\\dfrac24+\\dfrac94=\\dfrac{11}4",
-                "why": "Usamos denominador común y sumamos."
-              }
-            ]
-          },
-          {
-            "title": "Paréntesis y producto",
-            "items": [
-              {
-                "math": "\\left(\\dfrac12-\\dfrac34\\right)\\cdot(-8)",
-                "why": "Primero resolvemos el paréntesis."
-              },
-              {
-                "math": "\\left(-\\dfrac14\\right)\\cdot(-8)",
-                "why": "Calculamos la diferencia."
-              },
-              {
-                "math": "2",
-                "why": "Multiplicamos; negativo por negativo es positivo."
-              }
-            ]
-          }
-        ]
-      },
-      "example2": "Ejemplo 2 · Primero una potencia\n1. $$\\dfrac12+\\left(-\\dfrac32\\right)^2$$\n   Calculamos la potencia antes de sumar.\n2. $$\\dfrac12+\\dfrac94$$\n   Al cuadrar, el resultado es positivo.\n3. $$\\dfrac24+\\dfrac94=\\dfrac{11}4$$\n   Usamos denominador común y sumamos.",
-      "example3": "Ejemplo 3 · Paréntesis y producto\n1. $$\\left(\\dfrac12-\\dfrac34\\right)\\cdot(-8)$$\n   Primero resolvemos el paréntesis.\n2. $$\\left(-\\dfrac14\\right)\\cdot(-8)$$\n   Calculamos la diferencia.\n3. $$2$$\n   Multiplicamos; negativo por negativo es positivo.",
-      "draw": 5,
-      "checks": [
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente tiene $\\frac34$ L. Se usa la mitad de ese volumen y luego se agregan $\\frac18$ L. ¿Cuánto contiene al final, en litros? Escribe una fracción irreducible.",
-          "answer": "1/2",
-          "why": "$(3/4)(1/2)+1/8=3/8+1/8=1/2$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una muestra comienza con $\\frac56$ g. Se retira $\\frac12$ g y el resto se duplica. ¿Cuál es la masa final en gramos? Escribe la fracción irreducible.",
-          "answer": "2/3",
-          "why": "$(5/6-1/2)\\cdot2=(2/6)\\cdot2=2/3$ g.",
-          "level": 3,
-          "reduced": true
-        }
-      ],
-      "drawCheck": 2
-    },
-    {
       "id": "u1-s010",
       "title": "Raíces y aproximaciones",
       "subtitle": "Raíces exactas y estimación",
-      "group": 3,
+      "group": 2,
       "symbol": "✧",
       "minutes": 35,
       "concept": "Calcular raíces cuadradas exactas y acotar raíces no exactas entre enteros consecutivos.\n\nRaíz principal: $\\sqrt a$ es el número no negativo cuyo cuadrado es $a$ (para $a\\ge0$).\nPara estimar $\\sqrt a$, busca cuadrados perfectos consecutivos entre los cuales esté $a$.",
@@ -4443,60 +4246,64 @@
       },
       "learn": {
         "goal": "Calcular raíces cuadradas exactas y acotar raíces no exactas entre enteros consecutivos.",
-        "idea": "Raíz principal: $\\sqrt a$ es el número no negativo cuyo cuadrado es $a$ (para $a\\ge0$).\nPara estimar $\\sqrt a$, busca cuadrados perfectos consecutivos entre los cuales esté $a$.",
+        "idea": "**Raíz principal:** $\\sqrt a$ es el número no negativo cuyo cuadrado es $a$ (para $a\\ge0$).\nPara estimar $\\sqrt a$, busca cuadrados perfectos consecutivos entre los cuales esté $a$.",
         "steps": {
           "title": "¿Entre qué enteros está $\\sqrt{20}$?",
           "items": [
             {
               "math": "4^2=16,\\qquad5^2=25",
-              "why": "Identificamos cuadrados cercanos.",
               "side": {
                 "title": "Cuadrados perfectos",
                 "text": "$16$ y $25$ son cuadrados consecutivos alrededor de $20$."
-              }
+              },
+              "why": "Cuadrados perfectos."
             },
             {
               "math": "16<20<25",
-              "why": "Encerramos el radicando.",
               "side": {
                 "title": "Orden",
                 "text": "El número $20$ queda entre los dos cuadrados."
-              }
+              },
+              "why": "Orden."
             },
             {
               "math": "\\sqrt{16}<\\sqrt{20}<\\sqrt{25}",
-              "why": "Aplicamos raíz a los tres términos.",
               "side": {
                 "title": "Monotonía",
                 "text": "Para números no negativos, la raíz cuadrada conserva el orden."
-              }
+              },
+              "why": "Monotonía."
             },
             {
               "math": "4<\\sqrt{20}<5",
-              "why": "Concluimos la estimación.",
               "side": {
                 "title": "Localización",
                 "text": "La raíz está entre $4$ y $5$."
-              }
+              },
+              "why": "Localización."
             }
           ]
         },
-        "warn": "Atención: $\\sqrt{49}=7$, no $\\pm7$. En cambio, la ecuación $x^2=49$ tiene dos soluciones: $x=7$ y $x=-7$.",
+        "warn": "**Atención:** $\\sqrt{49}=7$, no $\\pm7$. En cambio, la ecuación $x^2=49$ tiene dos soluciones: $x=7$ y $x=-7$.",
         "more": [
           {
             "title": "Encerrar una raíz",
             "items": [
               {
                 "math": "36<40<49",
-                "why": "Buscamos los cuadrados perfectos vecinos."
+                "why": "Cuadrados perfectos.",
+                "side": {
+                  "title": "CUADRADOS PERFECTOS",
+                  "text": "Buscamos los cuadrados perfectos vecinos."
+                }
               },
               {
                 "math": "6<\\sqrt{40}<7",
-                "why": "Aplicamos raíz a cada término.",
                 "side": {
                   "title": "Orden",
                   "text": "Para desigualdades no negativas, la raíz cuadrada conserva el orden."
-                }
+                },
+                "why": "Orden."
               }
             ]
           },
@@ -4505,11 +4312,19 @@
             "items": [
               {
                 "math": "\\sqrt{81}=9",
-                "why": "La raíz principal es no negativa."
+                "why": "Raíz principal.",
+                "side": {
+                  "title": "RAÍZ PRINCIPAL",
+                  "text": "La raíz principal es no negativa."
+                }
               },
               {
                 "math": "x^2=81\\Rightarrow x=9\\ \\text{o}\\ x=-9",
-                "why": "Resolver la ecuación es distinto de calcular la raíz principal."
+                "why": "Resolución.",
+                "side": {
+                  "title": "RESOLUCIÓN",
+                  "text": "Resolver la ecuación es distinto de calcular la raíz principal."
+                }
               }
             ]
           }
@@ -4550,7 +4365,7 @@
       "id": "u1-s011",
       "title": "Simplificación de raíces",
       "subtitle": "Extraer factores cuadrados",
-      "group": 3,
+      "group": 2,
       "symbol": "✧",
       "minutes": 40,
       "concept": "Simplificar raíces cuadradas extrayendo factores cuadrados perfectos.\n\nPropiedad: si $a,b\\ge0$, entonces $\\sqrt{ab}=\\sqrt a\\cdot\\sqrt b$.\nBusca un cuadrado perfecto que divida al radicando. Si eliges el mayor, evitarás pasos adicionales.",
@@ -4842,64 +4657,72 @@
       },
       "learn": {
         "goal": "Simplificar raíces cuadradas extrayendo factores cuadrados perfectos.",
-        "idea": "Propiedad: si $a,b\\ge0$, entonces $\\sqrt{ab}=\\sqrt a\\cdot\\sqrt b$.\nBusca un cuadrado perfecto que divida al radicando. Si eliges el mayor, evitarás pasos adicionales.",
+        "idea": "**Propiedad:** si $a,b\\ge0$, entonces $\\sqrt{ab}=\\sqrt a\\cdot\\sqrt b$.\nBusca un cuadrado perfecto que divida al radicando. Si eliges el mayor, evitarás pasos adicionales.",
         "steps": {
           "title": "Simplifica $\\sqrt{72}$.",
           "items": [
             {
               "math": "\\sqrt{72}",
-              "why": "Partimos del radical.",
               "side": {
                 "title": "Búsqueda",
                 "text": "Buscamos el mayor cuadrado perfecto que divide a $72$."
-              }
+              },
+              "why": "Búsqueda."
             },
             {
-              "math": "\\sqrt{36\\cdot2}",
-              "why": "Separamos un factor cuadrado.",
+              "math": "=\\sqrt{36\\cdot2}",
               "side": {
                 "title": "Factor elegido",
                 "text": "$72=36\\cdot2$ y $36=6^2$."
-              }
+              },
+              "why": "Factor elegido."
             },
             {
-              "math": "\\sqrt{36}\\cdot\\sqrt2",
-              "why": "Aplicamos la propiedad del producto.",
+              "math": "=\\sqrt{36}\\cdot\\sqrt2",
               "side": {
                 "title": "Condición",
                 "text": "Ambos radicandos son no negativos."
-              }
+              },
+              "why": "Condición."
             },
             {
-              "math": "6\\sqrt2",
-              "why": "Extraemos la raíz exacta.",
+              "math": "=6\\sqrt2",
               "side": {
                 "title": "Resultado",
                 "text": "$\\sqrt{36}=6$ y el $2$ no tiene factor cuadrado mayor que $1$."
-              }
+              },
+              "why": "Resultado."
             }
           ]
         },
-        "warn": "Atención: $\\sqrt{9+16}\\ne\\sqrt9+\\sqrt{16}$. La propiedad de extracción se aplica a productos de radicandos no negativos, no a sumas.",
+        "warn": "**Atención:** $\\sqrt{9+16}\\ne\\sqrt9+\\sqrt{16}$. La propiedad de extracción se aplica a productos de radicandos no negativos, no a sumas.",
         "more": [
           {
             "title": "Sacar cuadrados",
             "items": [
               {
                 "math": "\\sqrt{50}",
-                "why": "Buscamos el mayor factor cuadrado posible."
-              },
-              {
-                "math": "\\sqrt{25\\cdot2}",
-                "why": "Separamos el 25, que es cuadrado perfecto.",
+                "why": "Factor cuadrado.",
                 "side": {
-                  "title": "Factor cuadrado",
-                  "text": "Elige $25$, el mayor cuadrado perfecto que divide a $50$."
+                  "title": "FACTOR CUADRADO",
+                  "text": "Buscamos el mayor factor cuadrado posible."
                 }
               },
               {
-                "math": "5\\sqrt2",
-                "why": "Extraemos la raíz de 25."
+                "math": "=\\sqrt{25\\cdot2}",
+                "side": {
+                  "title": "Factor cuadrado",
+                  "text": "Elige $25$, el mayor cuadrado perfecto que divide a $50$."
+                },
+                "why": "Factor cuadrado."
+              },
+              {
+                "math": "=5\\sqrt2",
+                "why": "Extracción.",
+                "side": {
+                  "title": "EXTRACCIÓN",
+                  "text": "Extraemos la raíz de 25."
+                }
               }
             ]
           },
@@ -4908,15 +4731,27 @@
             "items": [
               {
                 "math": "\\sqrt{180}",
-                "why": "El cuadrado perfecto 36 divide a 180."
+                "why": "Factor cuadrado.",
+                "side": {
+                  "title": "FACTOR CUADRADO",
+                  "text": "El cuadrado perfecto 36 divide a 180."
+                }
               },
               {
-                "math": "\\sqrt{36\\cdot5}",
-                "why": "Escribimos el producto."
+                "math": "=\\sqrt{36\\cdot5}",
+                "why": "Reescritura.",
+                "side": {
+                  "title": "REESCRITURA",
+                  "text": "Escribimos el producto."
+                }
               },
               {
-                "math": "6\\sqrt5",
-                "why": "Simplificamos el radical."
+                "math": "=6\\sqrt5",
+                "why": "Simplificación.",
+                "side": {
+                  "title": "SIMPLIFICACIÓN",
+                  "text": "Simplificamos el radical."
+                }
               }
             ]
           }
@@ -4949,7 +4784,7 @@
       "id": "u1-s012",
       "title": "Operaciones con radicales",
       "subtitle": "Reducir radicales semejantes",
-      "group": 3,
+      "group": 2,
       "symbol": "✧",
       "minutes": 45,
       "concept": "Sumar y restar radicales semejantes después de simplificarlos.\n\nSemejantes: los términos comparten el mismo radical simplificado.\nSe suman o restan los coeficientes, como en $2x+3x=5x$.\nSi los radicales son distintos, primero intenta simplificarlos.",
@@ -5241,72 +5076,80 @@
       },
       "learn": {
         "goal": "Sumar y restar radicales semejantes después de simplificarlos.",
-        "idea": "Semejantes: los términos comparten el mismo radical simplificado.\nSe suman o restan los coeficientes, como en $2x+3x=5x$.\nSi los radicales son distintos, primero intenta simplificarlos.",
+        "idea": "**Semejantes:** los términos comparten el mismo radical simplificado.\nSe suman o restan los coeficientes, como en $2x+3x=5x$.\nSi los radicales son distintos, primero intenta simplificarlos.",
         "steps": {
           "title": "Simplifica $\\sqrt{12}+\\sqrt{27}$.",
           "items": [
             {
               "math": "\\sqrt{12}+\\sqrt{27}",
-              "why": "Identificamos dos radicales.",
               "side": {
                 "title": "Primero",
                 "text": "Todavía no se ven semejantes; simplificamos por separado."
-              }
+              },
+              "why": "Primero."
             },
             {
-              "math": "\\sqrt{4\\cdot3}+\\sqrt{9\\cdot3}",
-              "why": "Extraemos factores cuadrados.",
+              "math": "=\\sqrt{4\\cdot3}+\\sqrt{9\\cdot3}",
               "side": {
                 "title": "Cuadrados",
                 "text": "$4=2^2$ y $9=3^2$."
-              }
+              },
+              "why": "Cuadrados."
             },
             {
-              "math": "2\\sqrt3+3\\sqrt3",
-              "why": "Simplificamos cada radical.",
+              "math": "=2\\sqrt3+3\\sqrt3",
               "side": {
                 "title": "Semejantes",
                 "text": "Ambos términos tienen el mismo radical $\\sqrt3$."
-              }
+              },
+              "why": "Semejantes."
             },
             {
-              "math": "(2+3)\\sqrt3",
-              "why": "Factorizamos el radical común.",
+              "math": "=(2+3)\\sqrt3",
               "side": {
                 "title": "Distributiva",
                 "text": "Solo sumamos los coeficientes."
-              }
+              },
+              "why": "Distributiva."
             },
             {
-              "math": "5\\sqrt3",
-              "why": "Obtenemos el resultado.",
+              "math": "=5\\sqrt3",
               "side": {
                 "title": "Resultado",
                 "text": "No quedan términos por reducir."
-              }
+              },
+              "why": "Resultado."
             }
           ]
         },
-        "warn": "Atención: en general, $\\sqrt a+\\sqrt b\\ne\\sqrt{a+b}$. Por ejemplo, $\\sqrt2+\\sqrt3$ no puede reducirse como suma de radicales semejantes.",
+        "warn": "**Atención:** en general, $\\sqrt a+\\sqrt b\\ne\\sqrt{a+b}$. Por ejemplo, $\\sqrt2+\\sqrt3$ no puede reducirse como suma de radicales semejantes.",
         "more": [
           {
             "title": "Resta tras simplificar",
             "items": [
               {
                 "math": "2\\sqrt8-\\sqrt{18}",
-                "why": "Primero simplificamos cada radical."
-              },
-              {
-                "math": "4\\sqrt2-3\\sqrt2",
-                "why": "Ambos tienen ahora el mismo radical.",
+                "why": "Simplificación.",
                 "side": {
-                  "title": "Términos semejantes",
-                  "text": "Solo se suman directamente múltiplos del mismo radical."
+                  "title": "SIMPLIFICACIÓN",
+                  "text": "Primero simplificamos cada radical."
                 }
               },
               {
-                "math": "\\sqrt2",
-                "why": "Restamos coeficientes."
+                "math": "=4\\sqrt2-3\\sqrt2",
+                "side": {
+                  "title": "Términos semejantes",
+                  "text": "Solo se suman directamente múltiplos del mismo radical."
+                },
+                "why": "Términos semejantes."
+              },
+              {
+                "math": "=\\sqrt2",
+                "why": "Resta.",
+                "side": {
+                  "title": "RESTA",
+                  "text": "Restamos coeficientes."
+                }
               }
             ]
           },
@@ -5315,15 +5158,27 @@
             "items": [
               {
                 "math": "\\sqrt{12}+\\sqrt{27}-\\sqrt3",
-                "why": "Simplificamos los dos primeros radicales."
+                "why": "Simplificación.",
+                "side": {
+                  "title": "SIMPLIFICACIÓN",
+                  "text": "Simplificamos los dos primeros radicales."
+                }
               },
               {
-                "math": "2\\sqrt3+3\\sqrt3-\\sqrt3",
-                "why": "Todos son términos semejantes."
+                "math": "=2\\sqrt3+3\\sqrt3-\\sqrt3",
+                "why": "Radicales semejantes.",
+                "side": {
+                  "title": "RADICALES SEMEJANTES",
+                  "text": "Todos son términos semejantes."
+                }
               },
               {
-                "math": "(2+3-1)\\sqrt3=4\\sqrt3",
-                "why": "Sumamos y restamos coeficientes."
+                "math": "=(2+3-1)\\sqrt3=4\\sqrt3",
+                "why": "Suma.",
+                "side": {
+                  "title": "SUMA",
+                  "text": "Sumamos y restamos coeficientes."
+                }
               }
             ]
           }
@@ -5351,16 +5206,937 @@
         }
       ],
       "drawCheck": 2
+    },
+    {
+      "id": "u1-s001",
+      "title": "Conjuntos numéricos",
+      "subtitle": "Naturales, enteros, racionales, irracionales y reales",
+      "group": 3,
+      "symbol": "✧",
+      "minutes": 20,
+      "concept": "",
+      "example": "",
+      "media": [],
+      "practice": [
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $5$?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb N$"
+          ],
+          "correct": 3,
+          "why": "El 5 sirve para contar. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $0$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb N$"
+          ],
+          "correct": 2,
+          "why": "Con nuestra convención, el 0 no es natural. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $-7$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 3,
+          "why": "Es entero negativo. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac34$?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "Es un cociente de enteros. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt9$?",
+          "options": [
+            "$\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 1,
+          "why": "La raíz cuadrada principal de 9 es 3. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt2$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 0,
+          "why": "La raíz de 2 es irracional. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $0,75$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 1,
+          "why": "El decimal finito 0,75 equivale a 3/4. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $-\\dfrac{12}{4}$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
+            "$\\mathbb N$"
+          ],
+          "correct": 1,
+          "why": "La fracción representa el entero -3. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 1
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $0,\\overline3$?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "El decimal periódico equivale a 1/3. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt{49}$?",
+          "options": [
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 0,
+          "why": "La raíz de 49 es 7. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $-\\sqrt{25}$?",
+          "options": [
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb N$"
+          ],
+          "correct": 2,
+          "why": "Su valor es -5. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac{-7}{2}$?",
+          "options": [
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 2,
+          "why": "Es racional, pero no entero. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt3$?",
+          "options": [
+            "$\\mathbb N$",
+            "$\\mathbb Z$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Q$"
+          ],
+          "correct": 2,
+          "why": "La raíz de 3 es irracional. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac{18}{3}$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Z$",
+            "$\\mathbb Q$"
+          ],
+          "correct": 1,
+          "why": "Su valor es 6. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\pi$?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "Pi es irracional. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $2,125$?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 2,
+          "why": "Todo decimal finito es racional. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 2
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\sqrt{8}$?",
+          "options": [
+            "$\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Z$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "Se simplifica a 2 por raíz de 2, que es irracional. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $(-3)^2$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb Z$"
+          ],
+          "correct": 1,
+          "why": "Al cuadrar -3 se obtiene 9, natural. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $\\dfrac02$?",
+          "options": [
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
+            "$\\mathbb N$"
+          ],
+          "correct": 1,
+          "why": "Vale 0, entero no natural con nuestra convención. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 3
+        },
+        {
+          "q": "¿Cuál es el conjunto más específico al que pertenece $0,\\overline{12}$?",
+          "options": [
+            "$\\mathbb N$",
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 2,
+          "why": "La expresión decimal es periódica. Aquí $\\mathbb N$ comienza en 1.",
+          "level": 3
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $\\sqrt{64}$. Escribe el número natural obtenido.",
+          "answer": "8",
+          "why": "$\\sqrt{64}=8$, que es natural.",
+          "level": 1,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Escribe como fracción irreducible el decimal finito $0,75$.",
+          "answer": "3/4",
+          "why": "$0,75=75/100=3/4$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $\\sqrt{121}$. Escribe solo el valor.",
+          "answer": "11",
+          "why": "$11^2=121$, luego $\\sqrt{121}=11$.",
+          "level": 2
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Escribe $-1,25$ como fracción irreducible.",
+          "answer": "-5/4",
+          "why": "$-1,25=-125/100=-5/4$.",
+          "level": 3,
+          "reduced": true
+        }
+      ],
+      "check": {
+        "q": "Una medición de temperatura es $-2\\,^\\circ\\mathrm{C}$. ¿En qué conjunto más pequeño de la lista pertenece?",
+        "options": [
+          "$\\mathbb{Z}$",
+          "$\\mathbb{N}$",
+          "$\\mathbb{R}\\setminus\\mathbb{Q}$"
+        ],
+        "correct": 0,
+        "why": "$-2$ es un número entero."
+      },
+      "learn": {
+        "goal": "Identificar naturales, enteros, racionales e irracionales y reconocer sus inclusiones.",
+        "idea": "1. **Naturales**: $\\mathbb N=\\{1,2,3,\\ldots\\}$ (algunos textos incluyen el $0$).\n2. **Enteros**: $\\mathbb Z=\\{\\cdots,-3,-2,-1,0,1,2,3,\\cdots\\}$.\n3. **Racionales**: $\\mathbb Q$, fracciones $\\frac{a}{b}$ de enteros, con $b\\ne0$. Pueden expresarse como decimal finito o periódico.\n4. **Reales**: $\\mathbb R$ reúne racionales e irracionales.\nLos irracionales tienen decimales infinitos no periódicos, como $\\sqrt2$ o $\\pi$.",
+        "steps": {
+          "title": "¿En qué conjunto más específico está $\\dfrac{18}{6}$?",
+          "items": [
+            {
+              "math": "\\dfrac{18}{6}=3",
+              "side": {
+                "title": "División",
+                "text": "$18\\div6=3$."
+              },
+              "why": "División."
+            },
+            {
+              "math": "3\\in\\mathbb N",
+              "side": {
+                "title": "Nuestra convención",
+                "text": "$\\mathbb N=\\{1,2,3,\\ldots\\}$."
+              },
+              "why": "Nuestra convención."
+            },
+            {
+              "math": "\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R",
+              "side": {
+                "title": "Idea clave",
+                "text": "Clasifica el valor, no solo la forma en que está escrito."
+              },
+              "why": "Idea clave."
+            }
+          ]
+        },
+        "warn": "**Clasifica por el valor, no por la apariencia.** Una fracción puede representar un entero y una raíz exacta puede representar un natural. Una aproximación decimal no es una prueba de irracionalidad.",
+        "more": [
+          {
+            "title": "Una fracción puede representar un entero negativo: $-\\dfrac{15}{5}$.",
+            "items": [
+              {
+                "math": "-\\dfrac{15}{5}=-3",
+                "why": "División.",
+                "side": {
+                  "title": "DIVISIÓN",
+                  "text": "Efectuamos la división y conservamos el signo."
+                }
+              },
+              {
+                "math": "-3\\in\\mathbb Z",
+                "side": {
+                  "title": "Diferencia",
+                  "text": "$\\mathbb Z$ también contiene números negativos y el cero."
+                },
+                "why": "Diferencia."
+              },
+              {
+                "math": "\\boxed{-3\\in\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R}",
+                "why": "Clasificación.",
+                "side": {
+                  "title": "CLASIFICACIÓN",
+                  "text": "El conjunto más específico es $\\mathbb Z$."
+                }
+              }
+            ]
+          },
+          {
+            "title": "Clasifica el decimal periódico $0{,}\\overline6$.",
+            "items": [
+              {
+                "math": "0{,}\\overline6=0{,}666\\ldots",
+                "why": "Decimal periódico.",
+                "side": {
+                  "title": "DECIMAL PERIÓDICO",
+                  "text": "El bloque de cifras 6 se repite indefinidamente."
+                }
+              },
+              {
+                "math": "0{,}\\overline6=\\dfrac23",
+                "side": {
+                  "title": "Recuerda",
+                  "text": "$2\\div3=0{,}666\\ldots$."
+                },
+                "why": "Recuerda."
+              },
+              {
+                "math": "\\dfrac23\\in\\mathbb Q\\subseteq\\mathbb R",
+                "side": {
+                  "title": "Criterio",
+                  "text": "Un decimal periódico representa un número racional."
+                },
+                "why": "Criterio."
+              }
+            ]
+          },
+          {
+            "title": "Compara $\\sqrt{49}$ y $\\sqrt2$.",
+            "items": [
+              {
+                "math": "\\sqrt{49}=7\\in\\mathbb N",
+                "side": {
+                  "title": "Comprobación",
+                  "text": "$7^2=49$."
+                },
+                "why": "Comprobación."
+              },
+              {
+                "math": "\\sqrt2\\in\\mathbb R\\setminus\\mathbb Q",
+                "side": {
+                  "title": "Precaución",
+                  "text": "No basta con afirmar que su raíz no es exacta para justificar la irracionalidad de cualquier número."
+                },
+                "why": "Precaución."
+              },
+              {
+                "math": "\\boxed{\\sqrt{49}\\in\\mathbb N\\quad\\text{y}\\quad\\sqrt2\\notin\\mathbb Q}",
+                "why": "Conclusión.",
+                "side": {
+                  "title": "CONCLUSIÓN",
+                  "text": "El símbolo de raíz no determina por sí mismo el conjunto."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "draw": 5,
+      "checks": [
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un recipiente contiene $0,6\\,\\mathrm L$ de muestra. Escribe ese volumen como fracción irreducible de litro (solo el número).",
+          "answer": "3/5",
+          "why": "$0,6=6/10=3/5$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una baldosa cuadrada tiene área $81\\,\\mathrm{cm}^2$. Su lado mide $\\sqrt{81}$ cm. Escribe solo el valor del lado, en centímetros.",
+          "answer": "9",
+          "why": "$\\sqrt{81}=9$.",
+          "level": 2
+        }
+      ],
+      "drawCheck": 2
+    },
+    {
+      "id": "u1-s009",
+      "title": "Operaciones combinadas",
+      "subtitle": "Enteros, fracciones, potencias, raíces y paréntesis",
+      "group": 3,
+      "symbol": "✧",
+      "minutes": 60,
+      "concept": "Resolver operaciones combinadas con números racionales, signos, paréntesis y potencias.\n\nOrden: paréntesis, potencias, multiplicaciones o divisiones y finalmente sumas o restas.\nEn operaciones del mismo nivel, avanza de izquierda a derecha.\nConsejo: conserva fracciones exactas y simplifica antes de operar.",
+      "example": "Calcula $-\\frac34+\\frac56\\cdot(-\\frac95)$.\n1. $$-\\frac34+\\frac56\\cdot\\left(-\\frac95\\right)$$ — Leemos la expresión.\n2. $$-\\frac34-\\frac32$$ — Multiplicamos las fracciones.\n3. $$-\\frac34-\\frac64$$ — Igualamos denominadores.\n4. $$\\frac{-3-6}{4}$$ — Reunimos los numeradores.\n5. $$-\\frac94$$ — Concluimos.",
+      "media": [],
+      "practice": [
+        {
+          "q": "Resuelve $\\dfrac{1}{2}+\\dfrac{3}{4}\\cdot\\dfrac{2}{3}$.",
+          "options": [
+            "$-1$",
+            "$0$",
+            "$2$",
+            "$1$"
+          ],
+          "correct": 3,
+          "why": "Primero multiplicamos: $\\dfrac{1}{2}$; después sumamos $\\dfrac{1}{2}+\\dfrac{1}{2}=1$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\left(\\dfrac{3}{4}-\\dfrac{2}{5}\\right)\\cdot\\dfrac{1}{6}$.",
+          "options": [
+            "$-\\dfrac{113}{120}$",
+            "$\\dfrac{127}{120}$",
+            "$-\\dfrac{7}{120}$",
+            "$\\dfrac{7}{120}$"
+          ],
+          "correct": 3,
+          "why": "El paréntesis vale $\\dfrac{7}{20}$; luego multiplicamos por $\\dfrac{1}{6}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\dfrac{5}{6}-\\dfrac{1}{3}\\cdot\\dfrac{3}{4}$.",
+          "options": [
+            "$\\dfrac{19}{12}$",
+            "$-\\dfrac{5}{12}$",
+            "$-\\dfrac{7}{12}$",
+            "$\\dfrac{7}{12}$"
+          ],
+          "correct": 3,
+          "why": "Primero multiplicamos: $\\dfrac{1}{4}$; después restamos $\\dfrac{5}{6}-\\dfrac{1}{4}=\\dfrac{7}{12}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\dfrac{2}{3}+\\dfrac{3}{5}\\cdot\\dfrac{1}{2}$.",
+          "options": [
+            "$-\\dfrac{1}{30}$",
+            "$\\dfrac{59}{30}$",
+            "$\\dfrac{29}{30}$",
+            "$-\\dfrac{29}{30}$"
+          ],
+          "correct": 2,
+          "why": "Primero multiplicamos: $\\dfrac{3}{10}$; después sumamos $\\dfrac{2}{3}+\\dfrac{3}{10}=\\dfrac{29}{30}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\left(\\dfrac{7}{8}-\\dfrac{2}{3}\\right)\\cdot\\dfrac{1}{4}$.",
+          "options": [
+            "$\\dfrac{5}{96}$",
+            "$-\\dfrac{5}{96}$",
+            "$\\dfrac{101}{96}$",
+            "$-\\dfrac{91}{96}$"
+          ],
+          "correct": 0,
+          "why": "El paréntesis vale $\\dfrac{5}{24}$; luego multiplicamos por $\\dfrac{1}{4}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\dfrac{4}{5}-\\dfrac{3}{7}\\cdot\\dfrac{1}{2}$.",
+          "options": [
+            "$-\\dfrac{41}{70}$",
+            "$\\dfrac{41}{70}$",
+            "$-\\dfrac{29}{70}$",
+            "$\\dfrac{111}{70}$"
+          ],
+          "correct": 1,
+          "why": "Primero multiplicamos: $\\dfrac{3}{14}$; después restamos $\\dfrac{4}{5}-\\dfrac{3}{14}=\\dfrac{41}{70}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\dfrac{5}{12}+\\dfrac{3}{4}\\cdot\\dfrac{2}{9}$.",
+          "options": [
+            "$\\dfrac{19}{12}$",
+            "$-\\dfrac{7}{12}$",
+            "$-\\dfrac{5}{12}$",
+            "$\\dfrac{7}{12}$"
+          ],
+          "correct": 3,
+          "why": "Primero multiplicamos: $\\dfrac{1}{6}$; después sumamos $\\dfrac{5}{12}+\\dfrac{1}{6}=\\dfrac{7}{12}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\left(\\dfrac{3}{10}-\\dfrac{5}{6}\\right)\\cdot\\dfrac{1}{3}$.",
+          "options": [
+            "$\\dfrac{37}{45}$",
+            "$-\\dfrac{8}{45}$",
+            "$\\dfrac{8}{45}$",
+            "$-\\dfrac{53}{45}$"
+          ],
+          "correct": 1,
+          "why": "El paréntesis vale $-\\dfrac{8}{15}$; luego multiplicamos por $\\dfrac{1}{3}$.",
+          "level": 1
+        },
+        {
+          "q": "Resuelve $\\dfrac{2}{3}-\\dfrac{7}{10}\\cdot\\dfrac{3}{5}$.",
+          "options": [
+            "$-\\dfrac{113}{150}$",
+            "$-\\dfrac{37}{150}$",
+            "$\\dfrac{37}{150}$",
+            "$\\dfrac{187}{150}$"
+          ],
+          "correct": 2,
+          "why": "Primero multiplicamos: $\\dfrac{21}{50}$; después restamos $\\dfrac{2}{3}-\\dfrac{21}{50}=\\dfrac{37}{150}$.",
+          "level": 2
+        },
+        {
+          "q": "Resuelve $\\dfrac{5}{8}+\\dfrac{3}{4}\\cdot\\dfrac{1}{6}$.",
+          "options": [
+            "$\\dfrac{3}{4}$",
+            "$-\\dfrac{1}{4}$",
+            "$-\\dfrac{3}{4}$",
+            "$\\dfrac{7}{4}$"
+          ],
+          "correct": 0,
+          "why": "Primero multiplicamos: $\\dfrac{1}{8}$; después sumamos $\\dfrac{5}{8}+\\dfrac{1}{8}=\\dfrac{3}{4}$.",
+          "level": 2
+        },
+        {
+          "q": "Resuelve $\\left(\\dfrac{7}{9}-\\dfrac{2}{5}\\right)\\cdot\\dfrac{1}{3}$.",
+          "options": [
+            "$\\dfrac{152}{135}$",
+            "$-\\dfrac{118}{135}$",
+            "$-\\dfrac{17}{135}$",
+            "$\\dfrac{17}{135}$"
+          ],
+          "correct": 3,
+          "why": "El paréntesis vale $\\dfrac{17}{45}$; luego multiplicamos por $\\dfrac{1}{3}$.",
+          "level": 2
+        },
+        {
+          "q": "Resuelve $\\dfrac{5}{6}-\\dfrac{3}{8}\\cdot\\dfrac{1}{4}$.",
+          "options": [
+            "$\\dfrac{71}{96}$",
+            "$-\\dfrac{25}{96}$",
+            "$\\dfrac{167}{96}$",
+            "$-\\dfrac{71}{96}$"
+          ],
+          "correct": 0,
+          "why": "Primero multiplicamos: $\\dfrac{3}{32}$; después restamos $\\dfrac{5}{6}-\\dfrac{3}{32}=\\dfrac{71}{96}$.",
+          "level": 2
+        },
+        {
+          "q": "Calcula $\\left(\\frac12+\\frac14\\right)\\cdot2^2-\\sqrt4$.",
+          "options": [
+            "$0$",
+            "$1$",
+            "$2$",
+            "$-1$"
+          ],
+          "correct": 1,
+          "why": "$(3/4)\\cdot4-2=3-2=1$.",
+          "level": 1
+        },
+        {
+          "q": "Calcula $\\left(\\frac34-\\frac12\\right)^2+\\sqrt{36}-2^3$.",
+          "options": [
+            "$\\dfrac{31}{16}$",
+            "$-\\dfrac{47}{16}$",
+            "$-\\dfrac{31}{16}$",
+            "$-\\dfrac{15}{16}$"
+          ],
+          "correct": 2,
+          "why": "$(1/4)^2+6-8=1/16-2=-31/16$.",
+          "level": 2
+        },
+        {
+          "q": "Calcula $\\sqrt{50}-5\\sqrt2+\\frac34$.",
+          "options": [
+            "$\\dfrac{7}{4}$",
+            "$-\\dfrac{1}{4}$",
+            "$\\dfrac{3}{4}$",
+            "$-\\dfrac{3}{4}$"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{50}=5\\sqrt2$; los radicales se cancelan.",
+          "level": 2
+        },
+        {
+          "q": "Calcula $\\left(\\frac56-\\frac13\\right)\\div\\frac12+\\sqrt9$.",
+          "options": [
+            "$3$",
+            "$-4$",
+            "$4$",
+            "$5$"
+          ],
+          "correct": 2,
+          "why": "$(1/2)\\div(1/2)+3=1+3=4$.",
+          "level": 2
+        },
+        {
+          "q": "Calcula $2^3-\\left(\\sqrt{49}+\\frac12\\div\\frac14\\right)$.",
+          "options": [
+            "$-2$",
+            "$-1$",
+            "$0$",
+            "$1$"
+          ],
+          "correct": 1,
+          "why": "$8-(7+2)=-1$.",
+          "level": 2
+        },
+        {
+          "q": "Calcula $(\\sqrt{12}-2\\sqrt3)+\\left(\\frac12\\right)^2$.",
+          "options": [
+            "$-\\dfrac{3}{4}$",
+            "$\\dfrac{1}{4}$",
+            "$\\dfrac{5}{4}$",
+            "$-\\dfrac{1}{4}$"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{12}=2\\sqrt3$; queda $1/4$.",
+          "level": 3
+        },
+        {
+          "q": "Calcula $(-2)^2-\\sqrt{16}+\\frac35$.",
+          "options": [
+            "$-\\dfrac{2}{5}$",
+            "$\\dfrac{8}{5}$",
+            "$-\\dfrac{3}{5}$",
+            "$\\dfrac{3}{5}$"
+          ],
+          "correct": 3,
+          "why": "$4-4+3/5=3/5$.",
+          "level": 1
+        },
+        {
+          "q": "Calcula $\\sqrt{81}-\\left(\\frac23\\right)^{-1}-\\frac12$.",
+          "options": [
+            "$6$",
+            "$8$",
+            "$-7$",
+            "$7$"
+          ],
+          "correct": 3,
+          "why": "$9-3/2-1/2=7$.",
+          "level": 3
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Resuelve $\\sqrt{18}-3\\sqrt2+\\frac23$. Escribe la fracción irreducible.",
+          "answer": "2/3",
+          "why": "$\\sqrt{18}=3\\sqrt2$; ambos términos radicales se cancelan.",
+          "level": 3,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Resuelve $\\frac12+\\sqrt8-2\\sqrt2$. Escribe el resultado como fracción irreducible.",
+          "answer": "1/2",
+          "why": "$\\sqrt8=2\\sqrt2$, por lo que queda $1/2$.",
+          "level": 3,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Resuelve $\\left(\\frac34-\\frac14\\right)^2+\\sqrt{25}$. Escribe una fracción irreducible.",
+          "answer": "21/4",
+          "why": "$(1/2)^2+5=1/4+20/4=21/4$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Resuelve $2^0+\\left(-\\frac32\\right)^2-\\sqrt{16}$. Escribe la fracción irreducible.",
+          "answer": "-3/4",
+          "why": "$1+9/4-4=-3/4$.",
+          "level": 3,
+          "reduced": true
+        }
+      ],
+      "check": {
+        "q": "Un laboratorio calcula $\\left(\\frac12+\\frac14\\right)\\cdot4+\\sqrt{16}$ (en unidades de medida). ¿Qué valor obtiene?",
+        "options": [
+          "$7$",
+          "$5$",
+          "$6$"
+        ],
+        "correct": 0,
+        "why": "$(3/4)\\cdot4+4=3+4=7$.",
+        "level": 2
+      },
+      "learn": {
+        "goal": "Resolver operaciones combinadas con enteros, fracciones, potencias y raíces cuadradas, justificando el orden de los cálculos.",
+        "idea": "**Organiza antes de calcular.**\n1. Resuelve paréntesis y otras agrupaciones desde el interior.\n2. Calcula las potencias y las raíces indicadas.\n3. Efectúa productos y divisiones de izquierda a derecha.\n4. Termina con sumas y restas de izquierda a derecha.\nSi hay radicales semejantes, simplifícalos y agrúpalos cuando corresponda. Justifica cada transformación.",
+        "steps": {
+          "title": "Resuelve $\\left(\\frac34-\\frac12\\right)^2+\\sqrt{36}-2^3$.",
+          "items": [
+            {
+              "math": "\\left(\\dfrac34-\\dfrac12\\right)^2+\\sqrt{36}-2^3",
+              "side": {
+                "title": "Plan",
+                "text": "Primero se resuelve el paréntesis; después las potencias y la raíz."
+              },
+              "why": "Plan."
+            },
+            {
+              "math": "=\\left(\\dfrac14\\right)^2+\\sqrt{36}-2^3",
+              "side": {
+                "title": "Denominador común",
+                "text": "$3/4-1/2=3/4-2/4=1/4$."
+              },
+              "why": "Denominador común."
+            },
+            {
+              "math": "=\\dfrac1{16}+6-8",
+              "side": {
+                "title": "Cálculos auxiliares",
+                "math": "\\left(\\frac14\\right)^2=\\frac1{16},\\quad\\sqrt{36}=6,\\quad2^3=8",
+                "text": "Calculamos la potencia, la raíz principal y $2^3$."
+              },
+              "why": "Cálculos auxiliares."
+            },
+            {
+              "math": "=\\dfrac1{16}-2",
+              "side": {
+                "title": "Orden",
+                "text": "Queda una resta entre un racional y un entero."
+              },
+              "why": "Orden."
+            },
+            {
+              "math": "=\\boxed{-\\dfrac{31}{16}}",
+              "side": {
+                "title": "Comprobación",
+                "text": "$1/16-32/16=-31/16$."
+              },
+              "why": "Comprobación."
+            }
+          ]
+        },
+        "warn": "**Atención:** No realices las operaciones solo de izquierda a derecha: respeta su prioridad. Atención: $(-2)^2\\ne-2^2$ y, en general, $\\sqrt{a+b}\\ne\\sqrt a+\\sqrt b$.",
+        "more": [
+          {
+            "title": "Combina fracciones y raíces semejantes: $\\frac23+\\sqrt{12}-2\\sqrt3$.",
+            "items": [
+              {
+                "math": "\\dfrac23+\\sqrt{12}-2\\sqrt3",
+                "side": {
+                  "title": "Factor cuadrado",
+                  "text": "$12=4\\cdot3$."
+                },
+                "why": "Factor cuadrado."
+              },
+              {
+                "math": "=\\dfrac23+2\\sqrt3-2\\sqrt3",
+                "side": {
+                  "title": "Propiedad",
+                  "text": "$\\sqrt{12}=\\sqrt4\\sqrt3=2\\sqrt3$."
+                },
+                "why": "Propiedad."
+              },
+              {
+                "math": "=\\boxed{\\dfrac23}",
+                "why": "Cancelación.",
+                "side": {
+                  "title": "CANCELACIÓN",
+                  "text": "Los radicales semejantes se cancelan; queda el racional."
+                }
+              }
+            ]
+          },
+          {
+            "title": "Paréntesis, división y raíz: $\\left(\\frac56-\\frac13\\right)\\div\\frac12+\\sqrt9$.",
+            "items": [
+              {
+                "math": "\\left(\\dfrac56-\\dfrac13\\right)\\div\\dfrac12+\\sqrt9",
+                "why": "Paréntesis.",
+                "side": {
+                  "title": "PARÉNTESIS",
+                  "text": "Comenzamos resolviendo el paréntesis."
+                }
+              },
+              {
+                "math": "=\\dfrac12\\div\\dfrac12+\\sqrt9",
+                "side": {
+                  "title": "Fracciones equivalentes",
+                  "text": "Usamos un denominador común."
+                },
+                "why": "Fracciones equivalentes."
+              },
+              {
+                "math": "=\\dfrac12\\cdot\\dfrac21+3",
+                "why": "División.",
+                "side": {
+                  "title": "DIVISIÓN",
+                  "text": "Dividimos multiplicando por el inverso y calculamos la raíz."
+                }
+              },
+              {
+                "math": "=\\boxed{4}",
+                "why": "Resultado final.",
+                "side": {
+                  "title": "RESULTADO FINAL",
+                  "text": "El producto es 1; después sumamos 3."
+                }
+              }
+            ]
+          },
+          {
+            "title": "Signo, potencia y raíz: $-\\left(\\frac12\\right)^2+\\sqrt{49}-\\frac38\\cdot2$.",
+            "items": [
+              {
+                "math": "-\\left(\\dfrac12\\right)^2+\\sqrt{49}-\\dfrac38\\cdot2",
+                "why": "Signo y potencia.",
+                "side": {
+                  "title": "SIGNO Y POTENCIA",
+                  "text": "Distinguimos el signo menos exterior a la potencia."
+                }
+              },
+              {
+                "math": "=-\\dfrac14+7-\\dfrac34",
+                "side": {
+                  "title": "Potencia",
+                  "text": "El signo menos no está dentro de la base."
+                },
+                "why": "Potencia."
+              },
+              {
+                "math": "=7-\\dfrac14-\\dfrac34",
+                "why": "Agrupación.",
+                "side": {
+                  "title": "AGRUPACIÓN",
+                  "text": "Agrupamos términos para facilitar el cálculo."
+                }
+              },
+              {
+                "math": "=\\boxed{6}",
+                "why": "Resultado final.",
+                "side": {
+                  "title": "RESULTADO FINAL",
+                  "text": "Las dos fracciones suman 1, y $7-1=6$."
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "example2": "Ejemplo 2 · Primero una potencia\n1. $$\\dfrac12+\\left(-\\dfrac32\\right)^2$$\n   Calculamos la potencia antes de sumar.\n2. $$\\dfrac12+\\dfrac94$$\n   Al cuadrar, el resultado es positivo.\n3. $$\\dfrac24+\\dfrac94=\\dfrac{11}4$$\n   Usamos denominador común y sumamos.",
+      "example3": "Ejemplo 3 · Paréntesis y producto\n1. $$\\left(\\dfrac12-\\dfrac34\\right)\\cdot(-8)$$\n   Primero resolvemos el paréntesis.\n2. $$\\left(-\\dfrac14\\right)\\cdot(-8)$$\n   Calculamos la diferencia.\n3. $$2$$\n   Multiplicamos; negativo por negativo es positivo.",
+      "draw": 5,
+      "checks": [
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un modelo combina $\\left(\\frac34-\\frac12\\right)^2$ y $\\sqrt{36}$. ¿Cuánto suman? Escribe una fracción irreducible.",
+          "answer": "97/16",
+          "why": "$1/16+6=97/16$.",
+          "level": 2,
+          "reduced": true
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un cálculo requiere $2^3-\\sqrt{49}-\\frac12\\div\\frac14$. Escribe el resultado numérico.",
+          "answer": "-1",
+          "why": "$8-7-2=-1$.",
+          "level": 3
+        }
+      ],
+      "drawCheck": 2
     }
   ],
   "bridges": [],
   "week": 1,
-  "durationMinutes": 505,
+  "durationMinutes": 545,
   "hints": [
-    "Conjuntos, operaciones enteras, criterios de divisibilidad y factorización prima.",
-    "De la divisibilidad al cálculo razonado con fracciones.",
-    "Potencias y operaciones combinadas con racionales.",
-    "Comprensión, simplificación y operaciones con raíces cuadradas."
+    "Operar con enteros y reconocer divisibilidad, primos, MCD y MCM.",
+    "Convertir entre fracciones y decimales; operar con números racionales.",
+    "Interpretar potencias enteras, raíces cuadradas y expresiones con radicales.",
+    "Reconocer conjuntos numéricos y resolver operaciones combinadas."
   ],
   "schema": "pace-unit-v2"
 }
