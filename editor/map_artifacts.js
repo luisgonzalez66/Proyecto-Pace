@@ -40,6 +40,39 @@ function svgMap(unit,mode='structure'){
  add(`<rect x="56" y="${h-94}" width="908" height="58" rx="15" fill="#f0f7f8" stroke="#d9e8e9"/><text x="510" y="${h-59}" text-anchor="middle" fill="${COLORS.navy}" font-family="Arial,sans-serif" font-size="17" font-weight="700">${mode==='example'?'EJEMPLO ILUSTRATIVO · Los porcentajes no corresponden a estudiantes reales':'ESTRUCTURA · Mapa de la unidad sin porcentajes'}</text>`);
  add('</svg>');return svg.join('');
 }
+
+function wrapText(s,max,maxLines){const words=String(s||'').trim().split(/\s+/).filter(Boolean);const rows=[''];for(const w of words){let i=rows.length-1;const cand=(rows[i]?rows[i]+' ':'')+w;if(cand.length<=max||!rows[i])rows[i]=cand;else rows.push(w);}
+ if(rows.length>maxLines){const keep=rows.slice(0,maxLines);let last=keep[maxLines-1];if(last.length>max-1)last=last.slice(0,max-1);keep[maxLines-1]=last.replace(/[\s,.;:]+$/,'')+'…';return keep;}
+ return rows.map(r=>r.length>max?r.slice(0,max-1)+'…':r);}
+/* Mapa jerárquico horizontal: Unidad → Bloques → Estaciones (SVG autoajustable) */
+function hierarchySVG(unit){
+ const W_U=270,W_G=310,W_S=430,GAP=96,PAD=44,TOP=118,SG=14,SB=30,LH=21;
+ const groups=(unit.groups||[]).map((g,i)=>({g,i,st:[]}));unit.stations.forEach((s,i)=>{const gi=Math.min(Math.max(Number(s.group)||0,0),Math.max(groups.length-1,0));if(groups[gi])groups[gi].st.push({s,i});});
+ const xU=PAD,xG=xU+W_U+GAP,xS=xG+W_G+GAP,W=xS+W_S+PAD;let y=TOP;const svg=[],E=escape;
+ const stNodes=[],gNodes=[];
+ groups.forEach((G,gi)=>{const gy0=y;const nodes=G.st.map(({s,i})=>{const lines=wrapText(s.title||'Estación',34,3),h=24+lines.length*LH;const nd={x:xS,y,h,lines,n:i+1};y+=h+SG;stNodes.push(nd);return nd;});
+  if(!nodes.length){const lines=['(sin estaciones)'];const nd={x:xS,y,h:0,empty:true};y+=48+SG;gNodes.push({G,gi,top:gy0,bot:gy0+48,children:[]});return;}
+  gNodes.push({G,gi,top:nodes[0].y,bot:nodes[nodes.length-1].y+nodes[nodes.length-1].h,children:nodes});y+=SB-SG;});
+ const H=Math.max(y+PAD-SB+SG,TOP+260);const mid=a=>(a.top+a.bot)/2;
+ const first=gNodes[0],last=gNodes[gNodes.length-1],uMid=first?(mid(first)+mid(last))/2:TOP+60;
+ svg.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" aria-label="Mapa jerárquico de la Unidad ${E(unit.roman)}: ${E(unit.title)}"><rect width="${W}" height="${H}" fill="#fbfcfd"/><rect width="${W}" height="8" fill="${COLORS.navy}"/><rect x="${W*0.45}" width="${W*0.55}" height="8" fill="${COLORS.cyan}"/>`);
+ svg.push(`<text x="${PAD}" y="58" fill="${COLORS.navy}" font-family="Arial,sans-serif" font-size="30" font-weight="800">MAPA DE LA UNIDAD ${E(unit.roman)} · ${E(String(unit.title||'').toUpperCase().slice(0,60))}</text><text x="${PAD}" y="88" fill="${COLORS.muted}" font-family="Arial,sans-serif" font-size="16">${gNodes.length} bloque${gNodes.length===1?'':'s'} · ${unit.stations.length} estación${unit.stations.length===1?'':'es'} · Unidad → Bloques → Estaciones</text>`);
+ // conexiones
+ const link=(x1,y1,x2,y2,c)=>`<path d="M ${x1} ${y1} C ${x1+GAP*0.55} ${y1}, ${x2-GAP*0.55} ${y2}, ${x2} ${y2}" fill="none" stroke="${c}" stroke-width="3" opacity=".7"/>`;
+ gNodes.forEach(g=>{const c=g.gi%2?COLORS.green:COLORS.cyan;svg.push(link(xU+W_U,uMid,xG,mid(g),COLORS.navy));g.children.forEach(n=>svg.push(link(xG+W_G,mid(g),xS,n.y+n.h/2,c)));});
+ // unidad
+ const uTitle=wrapText(unit.title||'Unidad',22,4),uh=70+uTitle.length*24;
+ svg.push(`<rect x="${xU}" y="${uMid-uh/2}" width="${W_U}" height="${uh}" rx="18" fill="${COLORS.navy}"/><text x="${xU+W_U/2}" y="${uMid-uh/2+36}" text-anchor="middle" fill="#cfe3ee" font-family="Arial,sans-serif" font-size="15" font-weight="700" letter-spacing="2">UNIDAD ${E(unit.roman)}</text>`);
+ uTitle.forEach((l,j)=>svg.push(`<text x="${xU+W_U/2}" y="${uMid-uh/2+68+j*24}" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="800">${E(l)}</text>`));
+ // bloques
+ gNodes.forEach(g=>{const c=g.gi%2?COLORS.green:COLORS.cyan,lines=wrapText(g.G.g.title||'Bloque '+(g.gi+1),26,3),h=Math.max(70,30+lines.length*LH+18),cy=mid(g);
+  svg.push(`<rect x="${xG}" y="${cy-h/2}" width="${W_G}" height="${h}" rx="16" fill="#fff" stroke="${c}" stroke-width="3"/><text x="${xG+20}" y="${cy-h/2+27}" fill="${c}" font-family="Arial,sans-serif" font-size="13" font-weight="800" letter-spacing="1.5">BLOQUE ${String(g.gi+1).padStart(2,'0')}</text>`);
+  lines.forEach((l,j)=>svg.push(`<text x="${xG+20}" y="${cy-h/2+52+j*LH}" fill="${COLORS.navy}" font-family="Arial,sans-serif" font-size="18" font-weight="700">${E(l)}</text>`));
+  if(!g.children.length)svg.push(`<text x="${xS}" y="${cy+5}" fill="${COLORS.muted}" font-family="Arial,sans-serif" font-size="15" font-style="italic">(sin estaciones)</text>`);
+  g.children.forEach(n=>{svg.push(`<rect x="${n.x}" y="${n.y}" width="${W_S}" height="${n.h}" rx="13" fill="#fff" stroke="#b9cfd9" stroke-width="2"/><rect x="${n.x}" y="${n.y+4}" width="6" height="${n.h-8}" rx="3" fill="${c}"/><circle cx="${n.x+34}" cy="${n.y+n.h/2}" r="17" fill="${c}"/><text x="${n.x+34}" y="${n.y+n.h/2+6}" text-anchor="middle" fill="#fff" font-family="Arial,sans-serif" font-size="15" font-weight="800">${String(n.n).padStart(2,'0')}</text>`);
+   n.lines.forEach((l,j)=>svg.push(`<text x="${n.x+64}" y="${n.y+30+j*LH}" fill="${COLORS.ink}" font-family="Arial,sans-serif" font-size="17" font-weight="700">${E(l)}</text>`));});});
+ if(!unit.stations.length&&!gNodes.length)svg.push(`<text x="${W/2}" y="${TOP+80}" text-anchor="middle" fill="${COLORS.muted}" font-family="Arial,sans-serif" font-size="20">Añade bloques y estaciones para construir el mapa.</text>`);
+ svg.push('</svg>');return svg.join('');}
 async function pngFromSVG(svg,width=2040){let img=new Image(),blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'}),url=URL.createObjectURL(blob);try{await new Promise((ok,fail)=>{img.onload=ok;img.onerror=()=>fail(Error('No se pudo convertir el mapa a imagen'));img.src=url;});let sw=parseInt(/width="(\d+)"/.exec(svg)?.[1]||'1020'),sh=parseInt(/height="(\d+)"/.exec(svg)?.[1]||'1020');let scale=Math.min(width/sw,16384/sh);let canvas=document.createElement('canvas');canvas.width=Math.round(sw*scale);canvas.height=Math.round(sh*scale);let ctx=canvas.getContext('2d');ctx.drawImage(img,0,0,canvas.width,canvas.height);return await new Promise((ok,fail)=>canvas.toBlob(b=>b?ok(b):fail(Error('No se pudo generar PNG')),'image/png'));}finally{URL.revokeObjectURL(url);}}
 function texEscapePlain(str){return String(str||'').replace(/([\\{}%&#_^~$])/g,c=>({'\\':'\\textbackslash{}','{':'\\{','}':'\\}','%':'\\%','&':'\\&','#':'\\#','_':'\\_','^':'\\^{}','~':'\\~{}','$':'\\$'}[c])).replace(/[−×÷≤≥π∞√]/g,c=>({'−':'\\ensuremath{-}','×':'\\ensuremath{\\times}','÷':'\\ensuremath{\\div}','≤':'\\ensuremath{\\leq}','≥':'\\ensuremath{\\geq}','π':'\\ensuremath{\\pi}','∞':'\\ensuremath{\\infty}','√':'\\ensuremath{\\sqrt{\\phantom{x}}}'}[c]));}
 function texAnswers(q,t){
@@ -75,5 +108,5 @@ async function bankPDF(unit){if(global.MathJax?.startup?.promise)await global.Ma
  }
  pages.push(await jpegBytes(c));return pdfFromJpegs(pages,width,height);
 }
-global.PACEArtifacts={svgMap,pngFromSVG,bankTex,bankPDF};
+global.PACEArtifacts={svgMap,hierarchySVG,pngFromSVG,bankTex,bankPDF};
 })(window);

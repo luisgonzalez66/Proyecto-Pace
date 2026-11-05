@@ -2,12 +2,12 @@
 const $=id=>document.getElementById(id), $$=(selector,context=document)=>Array.from(context.querySelectorAll(selector));
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const multiline=value=>PACEText.html(value);
-let unit=null,unitFile='',resources={},selected=-1,activeTab='learn',dirty=false,objectURLs={};let mapMode='example';
+let unit=null,unitFile='',resources={},selected=-1,activeTab='learn',dirty=false,objectURLs={};
 const qNew=()=>({q:'Escribe aquí una pregunta',options:['Alternativa A','Alternativa B','Alternativa C'],correct:0,why:'Explica por qué es correcta la respuesta.'});
 function station(){return unit?.stations[selected]||null;}
 function alertMessage(t,bad=false){const box=$('warning');box.textContent=t;box.classList.remove('hidden');box.classList.toggle('warn',bad);}
 function status(t){$('unitStatus').textContent=t;}
-function touch(){dirty=true;status('Cambios sin exportar · descarga el ZIP cuando termines');updateTime();schedulePreview();scheduleMapPreview();}
+function touch(){dirty=true;status('Cambios sin exportar · descarga el ZIP cuando termines');updateTime();schedulePreview();scheduleDraft();}
 function safelyCloseOldObjects(){Object.values(objectURLs).forEach(url=>URL.revokeObjectURL(url));objectURLs={};}
 function fileURL(path){if(!resources[path])return '';if(!objectURLs[path]){
  const ext=path.split('.').pop().toLowerCase();const mime={png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',webp:'image/webp',gif:'image/gif',mp4:'video/mp4',webm:'video/webm',pdf:'application/pdf'}[ext]||'application/octet-stream';
@@ -47,7 +47,7 @@ async function openUnit(file){if(dirty&&!confirm('Hay cambios sin exportar. ¿De
   PACEValidation.validate(d,files);
   safelyCloseOldObjects();resources=files;unit=d;unitFile=names[0];selected=unit.stations.length?0:-1;dirty=false;
   $('exportPackage').disabled=false;$('addGroup').disabled=false;$('addStation').disabled=false;$('unitFields').classList.remove('hidden');
-  changeUnitFields();renderGroups();renderStationList();renderStationEditor();updateTime();scheduleMapPreview();status(`Abierto: ${file.name}`);$('warning').classList.add('hidden');
+  changeUnitFields();renderGroups();renderStationList();renderStationEditor();updateTime();['exportMap','checkErrors','saveDraft'].forEach(i=>$(i).disabled=false);$('issuesBox').classList.add('hidden');status(`Abierto: ${file.name}`);$('warning').classList.add('hidden');offerDraft();
  }catch(e){alertMessage('No se pudo abrir el paquete: '+e.message,true);}
 }
 function nextStationID(){const pref=unit.id+'-s';const ids=new Set(unit.stations.map(s=>s.id));let n=1;while(ids.has(pref+String(n).padStart(3,'0')))n++;return pref+String(n).padStart(3,'0');}
@@ -58,9 +58,9 @@ function selectedQuestion(box){const s=station(),lane=box.dataset.lane,i=Number(
 function validatePackage(){return PACEValidation.validate(unit,resources);}
 async function exportUnit(){if(!unit)return;try{validatePackage();let zip=new JSZip();zip.file(unitFile,JSON.stringify(unit,null,2)+'\n');let used=new Set(unit.stations.flatMap(s=>(s.media||[]).filter(m=>m.type!=='video_url').map(m=>m.src)));for(let path of used)zip.file(path,resources[path]);zip.file('LEEME_ENTREGA.txt',`PACE UACh · entrega individual ${unitFile}\nEl JSON y la carpeta recursos/ de la raíz se utilizan para seguir editando y compilar el curso conjunto.\nVISTA_PREVIA_HTML/index.html: abre localmente una vez extraído el ZIP.\nSCORM_INDIVIDUAL/: paquete de tu unidad para probar directamente en SiveducMD.\nMAPAS/ y BANCO_PREGUNTAS/: materiales docentes complementarios (con respuestas).\nEnvía el ZIP completo a coordinación, sin modificar su estructura.\n`);
  status('Generando mapas, banco LaTeX y PDF…');
- zip.file('MAPAS/MAPA_ESTRUCTURA.svg',PACEArtifacts.svgMap(unit,'structure'));
+ zip.file('MAPAS/MAPA_UNIDAD_ARBOL.svg',PACEArtifacts.hierarchySVG(unit));
  zip.file('MAPAS/MAPA_PROGRESO_EJEMPLO.svg',PACEArtifacts.svgMap(unit,'example'));
- zip.file('MAPAS/MAPA_ESTRUCTURA.png',await PACEArtifacts.pngFromSVG(PACEArtifacts.svgMap(unit,'structure')));
+ zip.file('MAPAS/MAPA_UNIDAD_ARBOL.png',await PACEArtifacts.pngFromSVG(PACEArtifacts.hierarchySVG(unit)));
  zip.file('MAPAS/MAPA_PROGRESO_EJEMPLO.png',await PACEArtifacts.pngFromSVG(PACEArtifacts.svgMap(unit,'example')));
  zip.file('BANCO_PREGUNTAS/BANCO_UNIDAD_'+unit.id[1]+'.tex',PACEArtifacts.bankTex(unit));
  zip.file('BANCO_PREGUNTAS/BANCO_UNIDAD_'+unit.id[1]+'.pdf',await PACEArtifacts.bankPDF(unit));
@@ -68,21 +68,26 @@ async function exportUnit(){if(!unit)return;try{validatePackage();let zip=new JS
  status('Preparando HTML navegable y SCORM individual…');
  await PACEPublisher.publish(unit,resources,zip);
  await PACEValidation.archive(zip);
- const content=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});const url=URL.createObjectURL(content);const a=document.createElement('a');a.href=url;a.download=`ENTREGA_UNIDAD_0${unit.id[1]}.zip`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);dirty=false;status('Exportado: '+a.download+' · HTML local y SCORM individual incluidos.');
- }catch(e){alertMessage('Antes de exportar: '+e.message,true);}}
+ const content=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});const url=URL.createObjectURL(content);const a=document.createElement('a');a.href=url;a.download=`ENTREGA_UNIDAD_0${unit.id[1]}.zip`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);dirty=false;try{localStorage.removeItem(draftKey());}catch(e){}status('Exportado: '+a.download+' · HTML local y SCORM individual incluidos.');
+ }catch(e){alertMessage('Antes de exportar: '+e.message,true);try{const l=collectIssues();if(l.length)showIssues(l);}catch(_){}}}
 
 /* ---- Aprende visual (campo opcional "learn") ---- */
 const bold=t=>multiline(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
 const exList=L=>[L.steps,...(Array.isArray(L.more)?L.more:[])];
 const exAt=(L,n)=>n?L.more[n-1]:L.steps;
-const lpEx=(St,tag)=>{const it=St&&St.items||[];return it.length?`<div class="learn-prev"><span class="lp-t">${tag}</span>${St.title?`<p class="math-fragment">${bold(St.title)}</p>`:''}<ol>${it.map(x=>`<li class="lp-row"><div class="lp-main">${x.math?`<div class="math-fragment">$$${esc(x.math)}$$</div>`:''}<span class="math-fragment lp-why">${bold(x.why||'')}</span></div>${x.side&&(x.side.math||x.side.text)?`<div class="lp-side"><b>${esc(x.side.title||'Cálculo auxiliar')}</b>${x.side.math?`<div class="math-fragment">$$${esc(x.side.math)}$$</div>`:''}${x.side.text?`<span class="math-fragment">${bold(x.side.text)}</span>`:''}</div>`:''}</li>`).join('')}</ol></div>`:'';};
-function stepMarkup(it,i,n,items){return `<div class="learn-step" data-step="${i}" data-ex="${n}"><div class="inline-head"><strong>Paso ${i+1}</strong><button type="button" class="btn small-btn danger" data-lact="del" data-ex="${n}" data-i="${i}" ${items.length<=1?'disabled':''}>Quitar</button></div><div class="fields"><label class="field full">Línea del desarrollo (LaTeX, sin $)<input data-ls="math" data-ex="${n}" data-i="${i}" value="${esc(it.math||'')}"></label><label class="field full">Comentario breve: qué hacemos y por qué<textarea data-ls="why" data-ex="${n}" data-i="${i}" rows="2">${esc(it.why||'')}</textarea></label><label class="field full">Cálculo auxiliar a la derecha · título (opcional)<input data-ls="stitle" data-ex="${n}" data-i="${i}" value="${esc(it.side?.title||'')}" placeholder="mcm de 3, 2 y 6"></label><label class="field full">Cálculo auxiliar · LaTeX (opcional; usa \\begin{aligned} para varias líneas)<input data-ls="smath" data-ex="${n}" data-i="${i}" value="${esc(it.side?.math||'')}"></label><label class="field full">Cálculo auxiliar · texto (opcional)<input data-ls="stext" data-ex="${n}" data-i="${i}" value="${esc(it.side?.text||'')}"></label></div><div class="hstack"><button type="button" class="btn small-btn" data-lact="up" data-ex="${n}" data-i="${i}" ${i===0?'disabled':''}>↑</button><button type="button" class="btn small-btn" data-lact="down" data-ex="${n}" data-i="${i}" ${i===items.length-1?'disabled':''}>↓</button></div></div>`;}
+const lpEx=(St,tag,n)=>{const it=St&&St.items||[];return it.length?`<div class="learn-prev" data-pex="${n}"><span class="lp-t">${tag}</span>${St.title?`<p class="math-fragment">${bold(St.title)}</p>`:''}<ol>${it.map(x=>`<li class="lp-row" data-pi="${it.indexOf(x)}"><div class="lp-main">${x.math?`<div class="math-fragment">$$${esc(x.math)}$$</div>`:''}${(x.why||'').trim()?`<span class="math-fragment lp-why">${bold(x.why)}</span>`:''}</div>${x.side&&(x.side.title||x.side.math||x.side.text)?`<div class="lp-side"><b>${esc(x.side.title||(x.side.math?'Cálculo auxiliar':''))}</b>${x.side.math?`<div class="math-fragment">$$${esc(x.side.math)}$$</div>`:''}${x.side.text?`<span class="math-fragment">${bold(x.side.text)}</span>`:''}</div>`:''}</li>`).join('')}</ol></div>`:'';};
+const hasTxt=k=>typeof k==='string'&&k.trim()!=='';
+const stepNeeds=it=>!(hasTxt(it.why)||(it.side&&(hasTxt(it.side.title)||hasTxt(it.side.text))));
+function stepMarkup(it,i,n,items){return `<div class="learn-step${stepNeeds(it)?' need':''}" data-step="${i}" data-ex="${n}"><div class="inline-head"><strong>Paso ${i+1}</strong><button type="button" class="btn small-btn danger" data-lact="del" data-ex="${n}" data-i="${i}" ${items.length<=1?'disabled':''}>Quitar</button></div><div class="fields"><label class="field full">Línea del desarrollo (LaTeX, sin $)<input data-ls="math" data-ex="${n}" data-i="${i}" value="${esc(it.math||'')}"></label><label class="field full">Comentario breve: qué hacemos y por qué <span class="muted-note">(opcional si escribes título o texto del cálculo auxiliar)</span><textarea data-ls="why" data-ex="${n}" data-i="${i}" rows="2">${esc(it.why||'')}</textarea></label><label class="field full">Cálculo auxiliar a la derecha · título (opcional)<input data-ls="stitle" data-ex="${n}" data-i="${i}" value="${esc(it.side?.title||'')}" placeholder="mcm de 3, 2 y 6"></label><label class="field full">Cálculo auxiliar · LaTeX (opcional; usa \\begin{aligned} para varias líneas)<input data-ls="smath" data-ex="${n}" data-i="${i}" value="${esc(it.side?.math||'')}"></label><label class="field full">Cálculo auxiliar · texto (opcional)<input data-ls="stext" data-ex="${n}" data-i="${i}" value="${esc(it.side?.text||'')}"></label></div><p class="need-msg" role="alert">Falta una explicación: escribe el comentario breve o el título o el texto del cálculo auxiliar. Así el estudiante nunca ve un paso sin justificación.</p><div class="hstack"><button type="button" class="btn small-btn" data-lact="up" data-ex="${n}" data-i="${i}" ${i===0?'disabled':''}>↑</button><button type="button" class="btn small-btn" data-lact="down" data-ex="${n}" data-i="${i}" ${i===items.length-1?'disabled':''}>↓</button></div></div>`;}
+const exOpenBy={};let exActive=0;
+function exSummary(St){const x=(St.title||'').replace(/\\d?frac\{([^{}]*)\}\{([^{}]*)\}/g,'($1)/($2)').replace(/\\(cdot|times)/g,'·').replace(/\\[a-zA-Z]+/g,'').replace(/[$*{}]/g,'').replace(/\s+/g,' ').trim(),n=(St.items||[]).length;return (x?x.slice(0,64)+(x.length>64?'…':''):'(sin enunciado)')+' · '+n+(n===1?' paso':' pasos');}
 function renderLearnEditor(){const s=station();if(!s)return;const L=s.learn;$('learnOn').checked=!!L;$('learnBody').classList.toggle('hidden',!L);
  const cl=$('classicEd');if(cl){cl.open=!L;$('classicHint').textContent=L?'Con Aprende visual activo, el estudiante ve la «idea» y los ejemplos guiados de arriba. La explicación breve y el ejemplo de texto solo sirven de respaldo si dejas vacía la idea o los pasos; no se borran.':'Mientras Aprende visual esté desactivado, el estudiante ve estos textos.';}
  if(!L)return;
  for(const el of $$('[data-l]')){const k=el.dataset.l;el.value=L[k]||'';}
  L.steps=L.steps||{title:'',items:[{why:'',math:''}]};const exs=exList(L);
- $('learnSteps').innerHTML=exs.map((St,n)=>{const items=St.items||[];return `<div class="ex-group" data-exg="${n}"><div class="inline-head"><h4>${n?'Ejemplo guiado '+(n+1):'Ejemplo guiado principal'}</h4>${n?`<button type="button" class="btn small-btn danger" data-lact="delex" data-ex="${n}">Quitar ejemplo</button>`:''}</div><label class="field full">Enunciado<input data-ls="etitle" data-ex="${n}" value="${esc(St.title||'')}" placeholder="Resolvemos $2x+3=5$."></label>${items.map((it,i)=>stepMarkup(it,i,n,items)).join('')}<div class="hstack"><button type="button" class="btn small-btn" data-lact="addstep" data-ex="${n}" ${items.length>=20?'disabled':''}>+ Paso</button></div></div>`;}).join('');
+ const open=Math.min(exOpenBy[s.id]??0,exs.length-1);
+ $('learnSteps').innerHTML=exs.map((St,n)=>{const items=St.items||[],isOpen=n===open;return `<div class="ex-group${isOpen?'':' folded'}${n===exActive?' active':''}" data-exg="${n}"><div class="ex-head" data-exhead="${n}" role="button" tabindex="0" aria-expanded="${isOpen}" title="Clic para abrir o plegar este ejemplo"><span class="ex-chev" aria-hidden="true">${isOpen?'▾':'▸'}</span><span class="ex-num">Ejemplo guiado ${n+1}</span><span class="ex-sum">${esc(exSummary(St))}</span><span class="ex-acts"><button type="button" class="btn small-btn" data-lact="exup" data-ex="${n}" ${n===0?'disabled':''} aria-label="Subir el ejemplo ${n+1}">↑ Subir</button><button type="button" class="btn small-btn" data-lact="exdown" data-ex="${n}" ${n===exs.length-1?'disabled':''} aria-label="Bajar el ejemplo ${n+1}">↓ Bajar</button><button type="button" class="btn small-btn" data-lact="exdup" data-ex="${n}" ${exs.length>=4?'disabled':''} aria-label="Duplicar el ejemplo ${n+1}">⧉ Duplicar</button><button type="button" class="btn small-btn danger" data-lact="delex" data-ex="${n}" ${exs.length<=1?'disabled':''} aria-label="Quitar el ejemplo ${n+1}">Quitar</button></span></div><div class="ex-body"><label class="field full">Enunciado<input data-ls="etitle" data-ex="${n}" value="${esc(St.title||'')}" placeholder="Resolvemos $2x+3=5$."></label>${items.map((it,i)=>stepMarkup(it,i,n,items)).join('')}<div class="hstack"><button type="button" class="btn small-btn" data-lact="addstep" data-ex="${n}" ${items.length>=20?'disabled':''}>+ Paso</button></div></div></div>`;}).join('');
  $('addLearnEx').disabled=exs.length>=4;$('learnExCount').textContent=exs.length+' de 4 ejemplos guiados';
 }
 $('learnOn').addEventListener('change',e=>{const s=station();if(!s)return;
@@ -92,13 +97,23 @@ $('learnOn').addEventListener('change',e=>{const s=station();if(!s)return;
 $('learnEd').addEventListener('input',e=>{const el=e.target,s=station();if(!s||!s.learn)return;const L=s.learn;
  if(el.dataset.l){L[el.dataset.l]=el.value;touch();}
  else if(el.dataset.ls){const n=Number(el.dataset.ex||0),St=exAt(L,n),k=el.dataset.ls;if(!St)return;
-  if(k==='etitle'){St.title=el.value;touch();return;}
+  if(k==='etitle'){St.title=el.value;const sm=el.closest('.ex-group').querySelector('.ex-sum');if(sm)sm.textContent=exSummary(St);touch();return;}
   const it=St.items[Number(el.dataset.i)],k2=k;
   if(k2==='why'||k2==='math'){it[k2]=el.value;}
   else{const f={stitle:'title',smath:'math',stext:'text'}[k2];it.side=it.side||{};if(el.value==='')delete it.side[f];else it.side[f]=el.value;if(!Object.keys(it.side).length)delete it.side;}
-  touch();}});
-$('learnEd').addEventListener('click',e=>{const b=e.target.closest('button[data-lact]'),s=station();if(!b||!s||!s.learn)return;const L=s.learn,n=Number(b.dataset.ex||0),i=Number(b.dataset.i),act=b.dataset.lact;
- if(act==='delex'){if(!n||!confirm('¿Quitar este ejemplo guiado?'))return;L.more.splice(n-1,1);if(!L.more.length)delete L.more;touch();renderLearnEditor();return;}
+  const stEl=el.closest('.learn-step');if(stEl)stEl.classList.toggle('need',stepNeeds(it));touch();}});
+function exToggle(n){const s=station();if(!s)return;const cur=exOpenBy[s.id]??0;exOpenBy[s.id]=cur===n?-1:n;exActive=n;renderLearnEditor();}
+$('learnEd').addEventListener('keydown',e=>{const h=e.target.closest&&e.target.closest('[data-exhead]');if(h&&e.target===h&&(e.key==='Enter'||e.key===' ')){e.preventDefault();exToggle(Number(h.dataset.exhead));}});
+$('learnEd').addEventListener('click',e=>{const s=station();if(!s||!s.learn)return;const L=s.learn;
+ const hd=e.target.closest('[data-exhead]');if(hd&&!e.target.closest('button')){exToggle(Number(hd.dataset.exhead));return;}
+ const b=e.target.closest('button[data-lact]');if(!b)return;const n=Number(b.dataset.ex||0),i=Number(b.dataset.i),act=b.dataset.lact;
+ if(act==='exup'||act==='exdown'||act==='exdup'||act==='delex'){const arr=exList(L);
+  if(act==='exup'&&n>0){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];exOpenBy[s.id]=n-1;exActive=n-1;}
+  else if(act==='exdown'&&n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];exOpenBy[s.id]=n+1;exActive=n+1;}
+  else if(act==='exdup'&&arr.length<4){arr.splice(n+1,0,JSON.parse(JSON.stringify(arr[n])));exOpenBy[s.id]=n+1;exActive=n+1;}
+  else if(act==='delex'&&arr.length>1){if(!confirm('¿Quitar el ejemplo guiado '+(n+1)+'?'))return;arr.splice(n,1);exOpenBy[s.id]=Math.min(n,arr.length-1);exActive=exOpenBy[s.id];}
+  else return;
+  L.steps=arr[0];if(arr.length>1)L.more=arr.slice(1);else delete L.more;touch();renderLearnEditor();return;}
  const St=exAt(L,n);if(!St)return;const it=St.items;
  if(act==='addstep'){if(it.length>=20)return;it.push({why:'',math:''});}
  else if(act==='del'&&it.length>1)it.splice(i,1);else if(act==='up'&&i>0)[it[i-1],it[i]]=[it[i],it[i-1]];else if(act==='down'&&i<it.length-1)[it[i+1],it[i]]=[it[i],it[i+1]];else return;
@@ -130,7 +145,7 @@ function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<
  if(window.MathJax?.typesetClear)try{MathJax.typesetClear([$('studentPreview')]);}catch(e){}
  let piece=`<span class="badge">UNIDAD ${esc(unit.roman)} · ESTACIÓN ${selected+1}</span><h2>${esc(s.title)}</h2><p style="margin:0;color:#647785">${esc(s.subtitle)}</p>`;
  if(activeTab==='learn'){
-  if(s.learn){const L=s.learn;piece+=(L.goal?`<div class="learn-prev"><span class="lp-t">QUÉ APRENDERÁS</span><p class="math-fragment">${bold(L.goal)}</p></div>`:'')+`<div class="learn-prev"><span class="lp-t">COMPRENDE LA IDEA</span><p class="math-fragment">${bold(L.idea||s.concept)}</p></div>`+exList(L).map((St,n)=>lpEx(St,n?'EJEMPLO '+(n+1)+' · PASO A PASO':'EJEMPLO GUIADO · PASO A PASO')).join('')+(L.warn?`<div class="learn-prev"><span class="lp-t">PRESTA ATENCIÓN</span><p class="math-fragment">${bold(L.warn)}</p></div>`:'');}
+  if(s.learn){const L=s.learn;piece+=(L.goal?`<div class="learn-prev"><span class="lp-t">QUÉ APRENDERÁS</span><p class="math-fragment">${bold(L.goal)}</p></div>`:'')+`<div class="learn-prev"><span class="lp-t">COMPRENDE LA IDEA</span><p class="math-fragment">${bold(L.idea||s.concept)}</p></div>`+exList(L).map((St,n)=>lpEx(St,n?'EJEMPLO '+(n+1)+' · PASO A PASO':'EJEMPLO 1 · PASO A PASO',n)).join('')+(L.warn?`<div class="learn-prev"><span class="lp-t">PRESTA ATENCIÓN</span><p class="math-fragment">${bold(L.warn)}</p></div>`:'');}
   else piece+=`<h3>La idea esencial</h3><p class="math-fragment">${multiline(s.concept)}</p><div class="example"><strong>Ejemplo</strong><p class="math-fragment">${multiline(s.example)}</p></div>`;
   piece+=['example2','example3','example4'].filter(k=>!(s.learn&&s.learn.more&&s.learn.more.length)&&s[k]&&s[k].trim()).map((k,i)=>`<div class="example"><strong>Ejemplo ${i+2}</strong><p class="math-fragment">${multiline(s[k])}</p></div>`).join('');
   for(const m of s.media||[]){let cap=esc(m.caption||'');if(m.type==='image'){const src=fileURL(m.src);piece+=`<div class="media-sample">${src?`<img src="${src}" alt="${cap||'Imagen'}">`:'Archivo faltante'}<p>${cap}</p></div>`;}else if(m.type==='pdf'){const src=fileURL(m.src);piece+=`<div class="media-sample">📄 <a target="_blank" rel="noopener" href="${src}">Abrir PDF adjunto</a><p>${cap}</p></div>`;}else if(m.type==='video_file'){const src=fileURL(m.src);piece+=`<div class="media-sample"><video controls src="${src}"></video><p>${cap}</p></div>`;}else if(m.type==='video_url'){piece+=`<div class="media-sample">▶ <a rel="noopener noreferrer" target="_blank" href="${esc(m.src)}">Abrir video externo</a><p>${cap}</p></div>`;}}
@@ -147,18 +162,14 @@ function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<
  $('studentPreview').innerHTML=piece;{const pf=$('pvFrame');if(pf&&s.explore&&s.explore.html)pf.srcdoc=s.explore.html;}
  $$('button.preview-choice',$('studentPreview')).forEach(b=>b.onclick=()=>{$('previewFeedback').textContent=b.dataset.correct==='true'?'Correcta · '+b.dataset.why:'Vuelve a intentarlo. (Solo vista previa)';});
  $$('button[data-tpb]',$('studentPreview')).forEach(b=>b.onclick=()=>{const i=+b.dataset.tpb,q=window.__pq[i],inp=$('studentPreview').querySelector('input[data-tp="'+i+'"]'),r=PACETyped.check(q,inp.value);$('previewFeedback').textContent=r.state==='ok'?'Correcta · '+(q.why||''):r.msg+' (Solo vista previa)';});
- if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([$('studentPreview')]).catch(()=>{});
+ if(window.MathJax?.typesetPromise)window.MathJax.typesetPromise([$('studentPreview')]).then(()=>applyPvFocus(false)).catch(()=>{});
+ applyPvFocus(false);
 }
-let mapRenderTimer=null;
-function scheduleMapPreview(){clearTimeout(mapRenderTimer);mapRenderTimer=setTimeout(renderMapPreview,280);}
-function renderMapPreview(){if(!unit){$('mapPreviewBox').textContent='Abre una unidad para visualizar el mapa';return;}$('mapPreviewBox').innerHTML=PACEArtifacts.svgMap(unit,mapMode);}
-$('modeProgress').addEventListener('click',()=>{mapMode='example';$('modeProgress').classList.add('active');$('modeStructure').classList.remove('active');renderMapPreview();});
-$('modeStructure').addEventListener('click',()=>{mapMode='structure';$('modeStructure').classList.add('active');$('modeProgress').classList.remove('active');renderMapPreview();});
 $('openPackage').addEventListener('change',e=>{const file=e.target.files[0];if(file)openUnit(file);e.target.value='';});
 $('exportPackage').onclick=exportUnit;
 $('addStation').onclick=()=>{if(unit)newStation();};
 $('addGroup').onclick=()=>{if(!unit)return;if(unit.groups.length>=PACEContract.maxGroups){alertMessage('Máximo 15 bloques por unidad',true);return;}unit.groups.push({title:'Nuevo bloque',subtitle:''});touch();renderGroups();renderStationEditor();};
-$('stationList').addEventListener('click',e=>{const b=e.target.closest('button[data-index]');if(!b)return;selected=Number(b.dataset.index);renderStationList();renderStationEditor();});
+$('stationList').addEventListener('click',e=>{const b=e.target.closest('button[data-index]');if(!b)return;selected=Number(b.dataset.index);exActive=0;pvLast=null;renderStationList();renderStationEditor();});
 $('unitFields').addEventListener('input',e=>{const el=e.target;if(el.dataset.u){unit[el.dataset.u]=el.value;if(el.dataset.u==='title')$('unitName').textContent='Unidad '+unit.roman;touch();}else if(el.dataset.groupindex!==undefined){unit.groups[Number(el.dataset.groupindex)][el.dataset.groupfield]=el.value;touch();}});
 $('groupList').addEventListener('click',e=>{const b=e.target.closest('button[data-removegroup]');if(!b)return;const i=+b.dataset.removegroup;if(!confirm('Eliminar este bloque? Sus estaciones pasarán al primer bloque disponible.'))return;unit.groups.splice(i,1);unit.stations.forEach(s=>{if(s.group===i)s.group=0;else if(s.group>i)s.group--;});touch();renderGroups();renderStationEditor();});
 $('stationEditor').addEventListener('input',e=>{const el=e.target,s=station();if(!s)return;
@@ -206,4 +217,46 @@ function applyQView(){['practice','check'].forEach(k=>{const box=document.queryS
  document.addEventListener('input',e=>{if(e.target.closest('.q-tools'))applyQView();});document.addEventListener('change',e=>{if(e.target.closest('.q-tools')||e.target.matches('[data-qfield="level"]'))applyQView();});
  const _rse=renderStationEditor;renderStationEditor=function(){_rse();syncEdTabs();};
  $$('button[data-preview-tab]').forEach(b=>b.addEventListener('click',()=>{if(b.dataset.previewTab!==edTab)setEdTab(b.dataset.previewTab,true);}));})();
+/* ---- La vista previa acompaña al ejemplo o paso que se edita ---- */
+var pvLast=null;
+function applyPvFocus(smooth){const box=$('studentPreview');if(!box)return;box.querySelectorAll('.pv-active').forEach(x=>x.classList.remove('pv-active'));if(!pvLast||activeTab!=='learn')return;
+ const g=box.querySelector('[data-pex="'+pvLast.n+'"]');if(!g)return;const el=pvLast.i!=null?g.querySelector('[data-pi="'+pvLast.i+'"]'):null;(el||g).classList.add('pv-active');
+ const pane=box.closest('.preview-pane');if(pane&&pane.scrollHeight>pane.clientHeight+4){const top=(el||g).getBoundingClientRect().top-pane.getBoundingClientRect().top+pane.scrollTop-110;pane.scrollTo({top:Math.max(0,top),behavior:smooth&&!matchMedia('(prefers-reduced-motion:reduce)').matches?'smooth':'auto'});}}
+$('learnEd').addEventListener('focusin',e=>{const g=e.target.closest('[data-exg]');if(!g)return;const n=Number(g.dataset.exg);exActive=n;$$('.ex-group',$('learnEd')).forEach(x=>x.classList.toggle('active',x===g));
+ const st=e.target.closest('[data-step]');pvLast={n,i:st?Number(st.dataset.step):null};
+ if(activeTab!=='learn'){const pb=document.querySelector('button[data-preview-tab="learn"]');if(pb)pb.click();}else applyPvFocus(true);});
+/* ---- Disposición del editor y vista ampliada del estudiante ---- */
+const LAYOUTS={edit:'lay-edit',half:'lay-half',prev:'lay-prev'};
+function setLayout(k,save=true){const L=document.querySelector('.layout');Object.values(LAYOUTS).forEach(c=>L.classList.remove(c));L.classList.add(LAYOUTS[k]||LAYOUTS.half);$$('[data-layout]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.layout===k)));if(save)try{localStorage.setItem('pace_layout',k);}catch(e){}}
+$$('[data-layout]').forEach(b=>b.onclick=()=>setLayout(b.dataset.layout));
+{let k='half';try{k=localStorage.getItem('pace_layout')||'half';}catch(e){}setLayout(LAYOUTS[k]?k:'half',false);}
+function setBig(on){const pane=document.querySelector('.preview-pane');pane.classList.toggle('big',on);document.body.classList.toggle('pv-big',on);$('pvBig').setAttribute('aria-pressed',String(on));$('pvBig').textContent=on?'✕ Volver a editar':'⤢ Ampliar vista';if(window.MathJax?.typesetPromise)MathJax.typesetPromise([$('studentPreview')]).catch(()=>{});$('pvBig').focus();}
+$('pvBig').onclick=()=>setBig(!document.querySelector('.preview-pane').classList.contains('big'));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.preview-pane.big'))setBig(false);});
+/* ---- Revisión de errores antes de exportar ---- */
+function classify(msg){return /falta|obligatori|necesita|crea al menos|elige|repetido/i.test(msg)?'Obligatorio':/máximo|caracteres|demasiado grande|admite hasta|entre \d/i.test(msg)?'Límite':'Formato inválido';}
+function tabOf(msg){return /Explora/.test(msg)?'explore':/Aplica/.test(msg)?'check':/práctica|pregunta/i.test(msg)?'practice':'learn';}
+function collectIssues(){const out=[];if(!unit)return out;const seen=new Set();
+ const add=(o)=>{const k=o.station+'|'+o.msg;if(seen.has(k))return;seen.add(k);out.push(o);};
+ unit.stations.forEach((s,i)=>{const L=s.learn;if(L&&L.steps){exList(L).forEach((St,n)=>(St&&St.items||[]).forEach((it,k)=>{if(stepNeeds(it))add({station:i,tab:'learn',ex:n,step:k,kind:'Obligatorio',where:'Estación '+(i+1)+' · Ejemplo '+(n+1)+' · Paso '+(k+1),msg:'Falta una explicación: escribe el comentario breve o el título o el texto del cálculo auxiliar.'});}));}
+  try{PACEValidation.validate({...unit,stations:[s]},resources);}catch(e){const msg=String(e.message).replace(/^Estación 1: /,'');if(/falta una explicación/.test(msg))return;add({station:i,tab:tabOf(msg),kind:classify(msg),where:'Estación '+(i+1)+(s.title?' · '+s.title:''),msg});}});
+ try{PACEValidation.validate(unit,resources);}catch(e){const m=String(e.message);if(!out.some(o=>m.includes(o.msg.slice(0,30))||/falta una explicación/.test(m))){const mm=/^Estación (\d+)/.exec(m);add({station:mm?Number(mm[1])-1:-1,tab:tabOf(m),kind:classify(m),where:mm?'Estación '+mm[1]:'Unidad',msg:m.replace(/^Estación \d+: /,'')});}}
+ return out;}
+function showIssues(list){const box=$('issuesBox');if(!list.length){box.classList.add('hidden');return;}
+ box.innerHTML=`<div class="issues-in" role="region" aria-label="Errores por corregir"><div class="inline-head"><strong>${list.length} punto${list.length===1?'':'s'} por corregir antes de exportar</strong><button type="button" class="btn small-btn" id="issuesClose">Cerrar</button></div><ol>${list.map((o,n)=>`<li><button type="button" class="issue-go" data-issue="${n}"><span class="issue-kind k-${o.kind[0]}">${o.kind}</span><b>${esc(o.where)}</b> — ${esc(o.msg)}</button></li>`).join('')}</ol></div>`;box.classList.remove('hidden');window.__issues=list;}
+$('issuesBox').addEventListener('click',e=>{if(e.target.id==='issuesClose'){$('issuesBox').classList.add('hidden');return;}const b=e.target.closest('[data-issue]');if(!b)return;const o=window.__issues[Number(b.dataset.issue)];if(!o||o.station<0)return;
+ selected=o.station;renderStationList();renderStationEditor();setEdTab(o.tab);
+ if(o.ex!==undefined){const s=station();exOpenBy[s.id]=o.ex;exActive=o.ex;renderLearnEditor();const f=document.querySelector('.learn-step[data-ex="'+o.ex+'"][data-step="'+o.step+'"] [data-ls="why"]');if(f){f.scrollIntoView({block:'center'});f.focus();}}
+ else{const pane=document.querySelector('.ed-pane[data-pane="'+o.tab+'"]');if(pane)pane.scrollIntoView({block:'start'});}});
+$('checkErrors').onclick=()=>{if(!unit)return;const l=collectIssues();if(l.length)showIssues(l);else{$('issuesBox').classList.add('hidden');status('Revisión completa: no se encontraron errores. Puedes exportar.');}};
+/* ---- Borrador local (solo el contenido de la unidad; los archivos adjuntos salen con la exportación) ---- */
+var draftTimer=null;const draftKey=()=>unit?'pace_draft_'+unit.id:null;
+function saveDraft(manual){const k=draftKey();if(!k)return;try{localStorage.setItem(k,JSON.stringify({savedAt:Date.now(),file:unitFile,unit}));if(manual)status('Borrador guardado en este navegador ('+new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})+'). La exportación sigue siendo la copia oficial.');}catch(e){if(manual)alertMessage('No se pudo guardar el borrador (almacenamiento lleno o bloqueado). Exporta el ZIP para conservar tu trabajo.',true);}}
+function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(()=>saveDraft(false),4000);}
+$('saveDraft').onclick=()=>saveDraft(true);
+function offerDraft(){const k=draftKey();if(!k)return;let d=null;try{d=JSON.parse(localStorage.getItem(k)||'null');}catch(e){}if(!d||!d.unit)return;if(JSON.stringify(d.unit)===JSON.stringify(unit))return;
+ if(confirm('Hay un borrador de esta unidad guardado en este navegador ('+new Date(d.savedAt).toLocaleString('es-CL')+'). ¿Quieres recuperarlo en lugar del paquete que acabas de abrir?')){unit=d.unit;selected=unit.stations.length?0:-1;dirty=true;changeUnitFields();renderGroups();renderStationList();renderStationEditor();updateTime();status('Borrador recuperado · exporta el ZIP cuando termines');}}
+/* ---- Mapa jerárquico: solo como archivo exportado ---- */
+function download(blob,name){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);}
+$('exportMap').onclick=async()=>{if(!unit)return;try{const svg=PACEArtifacts.hierarchySVG(unit),n='MAPA_UNIDAD_0'+unit.id[1];download(new Blob([svg],{type:'image/svg+xml'}),n+'.svg');download(await PACEArtifacts.pngFromSVG(svg),n+'.png');status('Mapa exportado: '+n+'.svg y '+n+'.png');}catch(e){alertMessage('No se pudo generar el mapa: '+e.message,true);}};
 })();
