@@ -54,5 +54,7 @@ Límite a respetar: Practica + Aplica que ve cada estudiante, sumando 1 de Apren
 
 31. **Tres actividades Explora nuevas en la Unidad III:** «Parábola y raíces» (Fórmula general), «Discriminante en vivo» (Discriminante, con retos) y «Rectángulo de área fija» (Problemas cuadráticos). Son HTML autocontenidos (sin librerías), con deslizadores, sin porcentaje de avance.
 
+32. **Cinco actividades Explora más en la Unidad III:** «Balanza con dos lados» (Ecuaciones lineales), «Despeje paso a paso» (Despeje de fórmulas), «Rectas que se cortan» (Problemas lineales), «Lanzamiento de una piedra» (Cuadráticas incompletas) y «Buscador de factores» (Factorización). Con ellas, 9 de las 11 estaciones tienen Explora (Del enunciado a la ecuación y la balanza inicial ya estaban o quedan sin Explora).
+
 Los archivos que contienen estos cambios: `motor_bundle.js` (motor del estudiante, en una sola línea enorme), `editor.js`, `validation.js`, `map_artifacts.js`, `content_text.js`, `EDITOR_PACE.html`.
 Quien los modifique debe hacerlo **solo** (ver README). `motor_bundle.js` es un archivo en una sola línea: Git no puede unir cambios de dos personas.
