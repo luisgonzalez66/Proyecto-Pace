@@ -820,6 +820,113 @@
     "alt": "Hay una balanza de dos platos que representa una ecuación. Con los botones puedes sumar o restar fichas en un plato o en los dos. Si haces algo en un solo plato, la balanza se inclina y la igualdad se rompe. Si haces lo mismo en ambos, queda en equilibrio. El objetivo es dejar la incógnita x sola en un plato, y el valor que queda en el otro plato es la solución.",
     "height": 560,
     "html": "<!doctype html><html lang=\"es\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Balanza de ecuaciones</title>\n<style>\n*{box-sizing:border-box}body{margin:0;font:600 15px/1.4 Nunito,system-ui,-apple-system,Segoe UI,sans-serif;color:#2b2a6b;background:#fffdf6;padding:10px}\n.top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}\n.eq{font-size:24px;font-weight:900;letter-spacing:.02em}.eq i{color:#c2406f;font-style:normal}\nselect,button{font:inherit;font-weight:800;color:#2b2a6b}\nselect{min-height:40px;border:2px solid #2b2a6b;border-radius:10px;padding:4px 8px;background:#fff}\nbutton{min-height:42px;border:2px solid #2b2a6b;border-radius:10px;background:#fff;padding:6px 10px;cursor:pointer;box-shadow:2px 2px 0 #2b2a6b}\nbutton:hover:not(:disabled){background:#fff1c4}button:disabled{opacity:.4;cursor:default;box-shadow:none}\nbutton:focus-visible,select:focus-visible{outline:3px solid #4b49a3;outline-offset:2px}\nsvg{display:block;width:100%;max-height:300px;margin:4px auto}\n.msg{min-height:44px;padding:8px 12px;border-radius:12px;background:#eef0ff;border:2px solid #4b49a3;font-weight:700}\n.msg.ok{background:#e8f6f1;border-color:#2f9a78}.msg.bad{background:#fdebf1;border-color:#c2406f}\n.pads{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}\n.grp{border:2px dashed #b9bcd8;border-radius:12px;padding:6px 8px}.grp b{display:block;font-size:12px;letter-spacing:.08em;color:#5b6070;margin-bottom:4px}\n.grp .r{display:flex;gap:6px;flex-wrap:wrap}.hint{font-size:13px;color:#5b6070;margin:6px 0 0}\n</style></head><body>\n<div class=\"top\"><div class=\"eq\" id=\"eq\" aria-live=\"polite\"></div><label>Ecuación <select id=\"pick\"><option value=\"0\">2x + 3 = 7</option><option value=\"1\">3x + 2 = x + 8</option><option value=\"2\">4x = 12</option></select></label></div>\n<svg id=\"sv\" viewBox=\"0 0 640 330\" role=\"img\" aria-label=\"Balanza de dos platos\"><rect x=\"312\" y=\"80\" width=\"16\" height=\"212\" fill=\"#2b2a6b\"/><rect x=\"230\" y=\"290\" width=\"180\" height=\"16\" rx=\"6\" fill=\"#2b2a6b\"/><g id=\"beam\" style=\"transform-origin:320px 80px\"></g><g id=\"pg\"></g></svg>\n<div class=\"msg\" id=\"msg\" role=\"status\" aria-live=\"polite\"></div>\n<div class=\"pads\">\n<div class=\"grp\"><b>SOLO A LA IZQUIERDA</b><div class=\"r\"><button id=\"lp\">+1</button><button id=\"lm\">−1</button></div></div>\n<div class=\"grp\"><b>SOLO A LA DERECHA</b><div class=\"r\"><button id=\"rp\">+1</button><button id=\"rm\">−1</button></div></div>\n<div class=\"grp\"><b>A LOS DOS LADOS</b><div class=\"r\"><button id=\"bp\">+1</button><button id=\"bm\">−1</button><button id=\"bx\">quitar x</button></div></div>\n<div class=\"grp\"><b>REPARTIR</b><div class=\"r\"><button id=\"dv\">÷ 2</button><button id=\"rs\">↺ Reiniciar</button></div></div>\n</div>\n<p class=\"hint\">Cada bolsa <b>x</b> esconde el mismo número de fichas. Prueba hacer algo en un solo plato y mira qué pasa. El objetivo es dejar la bolsa sola en un plato.</p>\n<script>\nvar EQ=[{a1:2,b1:3,a2:0,b2:7,X:2},{a1:3,b1:2,a2:1,b2:8,X:3},{a1:4,b1:0,a2:0,b2:12,X:3}];\nvar S,X,N=document.getElementById('beam'),NS='http://www.w3.org/2000/svg';\nfunction $(i){return document.getElementById(i)}\nfunction gcd(a,b){return b?gcd(b,a%b):a}\nfunction load(i){var e=EQ[i];S={a1:e.a1,b1:e.b1,a2:e.a2,b2:e.b2};X=e.X;draw(true)}\nfunction side(a,b){return (a?(a>1?a:'')+'x':'')+(a&&b?' + ':'')+(b||!a?b:'')}\nfunction el(t,at,p){var e=document.createElementNS(NS,t);for(var k in at)e.setAttribute(k,at[k]);if(p)p.appendChild(e);return e}\nfunction pan(g,x,y,a,b){var p=el('g',{class:'pan',transform:'translate('+x+','+y+')'},g);\n el('line',{x1:0,y1:0,x2:-70,y2:70,stroke:'#2b2a6b','stroke-width':3},p);el('line',{x1:0,y1:0,x2:70,y2:70,stroke:'#2b2a6b','stroke-width':3},p);\n el('path',{d:'M-90 70 H90 Q80 100 50 100 H-50 Q-80 100 -90 70Z',fill:'#4b49a3',stroke:'#2b2a6b','stroke-width':3},p);\n var items=[];for(var i=0;i<a;i++)items.push('x');for(var j=0;j<b;j++)items.push('1');\n var per=items.length>12?8:6,sz=items.length>12?24:30;\n items.forEach(function(t,k){var r=Math.floor(k/per),c=k%per,n=Math.min(per,items.length-r*per),px=(c-(n-1)/2)*(sz+4),py=66-sz/2-r*(sz+4)-2;\n  if(t==='x'){el('rect',{x:px-sz/2,y:py-sz/2,width:sz,height:sz,rx:8,fill:'#c2406f',stroke:'#2b2a6b','stroke-width':2},p)}\n  else{el('circle',{cx:px,cy:py,r:sz/2,fill:'#f0b54a',stroke:'#2b2a6b','stroke-width':2},p)}\n  var tx=el('text',{x:px,y:py+5,'text-anchor':'middle','font-size':sz*.55,'font-weight':900,fill:t==='x'?'#fff':'#2b2a6b'},p);tx.textContent=t;});}\nfunction draw(first){\n var L=S.a1*X+S.b1,R=S.a2*X+S.b2,d=L-R,m=Math.max(L,R,1),th=-Math.max(-1,Math.min(1,d/m*2))*14;\n N.innerHTML='';\n N.style.transform='rotate('+th+'deg)';\n el('rect',{x:120,y:74,width:400,height:12,rx:6,fill:'#2b2a6b'},N);el('circle',{cx:320,cy:80,r:9,fill:'#f0b54a',stroke:'#2b2a6b','stroke-width':3},N);\n var rad=th*Math.PI/180,lx=320-200*Math.cos(rad),ly=80-200*Math.sin(rad),rx=320+200*Math.cos(rad),ry=80+200*Math.sin(rad);\n var pg=$('pg');pg.innerHTML='';\n pan(pg,lx,ly,S.a1,S.b1);pan(pg,rx,ry,S.a2,S.b2);\n $('eq').innerHTML=side(S.a1,S.b1).replace(/x/g,'<i>x</i>')+' = '+side(S.a2,S.b2).replace(/x/g,'<i>x</i>');\n var done=S.a1===1&&S.b1===0&&S.a2===0,eq=d===0,m2=$('msg');\n if(done){m2.className='msg ok';m2.textContent='¡Lo lograste! La bolsa vale '+S.b2+': x = '+S.b2+'. Dejaste la incógnita sola haciendo lo mismo en los dos platos.'}\n else if(!eq){m2.className='msg bad';m2.textContent='La balanza se inclina: el plato '+(d>0?'izquierdo':'derecho')+' pesa más. Ya no hay igualdad. Haz lo mismo en el otro plato o deshaz el último paso.'}\n else{m2.className='msg';m2.textContent=first?'La balanza está en equilibrio: los dos lados valen lo mismo. ¿Cómo dejarías la bolsa x sola en un plato?':'Sigue en equilibrio: hiciste lo mismo en los dos platos.'}\n $('lm').disabled=S.b1<1;$('rm').disabled=S.b2<1;$('bm').disabled=S.b1<1||S.b2<1;$('bx').disabled=S.a1<1||S.a2<1;\n var g=gcd(gcd(S.a1,S.b1),gcd(S.a2,S.b2));$('dv').disabled=!(g>1);$('dv').textContent='÷ '+(g>1?g:2);$('dv').dataset.g=g>1?g:0;\n}\nfunction go(k){return function(){var s=S;if(k==='lp')s.b1++;if(k==='rp')s.b2++;if(k==='lm'&&s.b1>0)s.b1--;if(k==='rm'&&s.b2>0)s.b2--;\n if(k==='bp'){s.b1++;s.b2++}if(k==='bm'&&s.b1>0&&s.b2>0){s.b1--;s.b2--}if(k==='bx'&&s.a1>0&&s.a2>0){s.a1--;s.a2--}\n if(k==='dv'){var g=+$('dv').dataset.g;if(g>1){s.a1/=g;s.b1/=g;s.a2/=g;s.b2/=g;X=X}}\n draw(false)}}\n['lp','lm','rp','rm','bp','bm','bx','dv'].forEach(function(k){$(k).onclick=go(k)});\n$('rs').onclick=function(){load(+$('pick').value)};$('pick').onchange=function(){load(+$('pick').value)};\nload(0);\nfunction rep(){try{parent.postMessage({pace:'explora-h',h:document.documentElement.scrollHeight},'*')}catch(e){}}\nnew ResizeObserver(rep).observe(document.body);window.addEventListener('load',rep);rep();\n</script></body></html>\n"
+   },
+   "learn": {
+    "goal": "Al terminar podrás resolver ecuaciones simples **deshaciendo** una operación a la vez, haciendo siempre lo mismo en los dos lados de la igualdad.",
+    "idea": "Una ecuación es una igualdad con una cantidad desconocida, la **incógnita** (por ejemplo $x$). Piensa en una **balanza en equilibrio**: si sumas, restas, multiplicas o divides (por un número distinto de cero) **en ambos platos**, la balanza se mantiene y la nueva ecuación tiene la misma solución.",
+    "steps": {
+     "title": "Resolvemos $x+5=12$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+     "items": [
+      {
+       "math": "x+5=12",
+       "why": "Partimos de la ecuación. La incógnita está **sumada** con 5."
+      },
+      {
+       "math": "x+5-5=12-5",
+       "why": "Para dejar sola a $x$ **restamos 5 en ambos lados**.",
+       "side": {
+        "title": "Operación inversa",
+        "text": "La inversa de **sumar 5** es **restar 5**."
+       }
+      },
+      {
+       "math": "x=7",
+       "why": "**Solución.** Al simplificar, $x+5-5=x$ y $12-5=7$."
+      },
+      {
+       "math": "7+5=12\\ \\checkmark",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos: ambos lados valen 12."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Resolvemos $x-9=4$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "x-9=4",
+        "why": "La incógnita está **restada** con 9."
+       },
+       {
+        "math": "x-9+9=4+9",
+        "why": "Para dejar sola a $x$ **sumamos 9 en ambos lados**.",
+        "side": {
+         "title": "Operación inversa",
+         "text": "La inversa de **restar 9** es **sumar 9**."
+        }
+       },
+       {
+        "math": "x=13",
+        "why": "**Solución.** Simplificamos ambos lados."
+       },
+       {
+        "math": "13-9=4\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: se cumple la igualdad."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $3x=21$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "3x=21",
+        "why": "La incógnita está **multiplicada** por 3."
+       },
+       {
+        "math": "\\dfrac{3x}{3}=\\dfrac{21}{3}",
+        "why": "**Dividimos ambos lados entre 3**.",
+        "side": {
+         "title": "Operación inversa",
+         "text": "La inversa de **multiplicar por 3** es **dividir entre 3**."
+        }
+       },
+       {
+        "math": "x=7",
+        "why": "**Solución.** Simplificamos: $\\frac{3x}{3}=x$ y $\\frac{21}{3}=7$."
+       },
+       {
+        "math": "3\\cdot7=21\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $\\dfrac{x}{4}=5$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "\\dfrac{x}{4}=5",
+        "why": "La incógnita está **dividida** entre 4."
+       },
+       {
+        "math": "4\\cdot\\dfrac{x}{4}=4\\cdot5",
+        "why": "**Multiplicamos ambos lados por 4**.",
+        "side": {
+         "title": "Operación inversa",
+         "text": "La inversa de **dividir entre 4** es **multiplicar por 4**."
+        }
+       },
+       {
+        "math": "x=20",
+        "why": "**Solución.** Simplificamos el lado izquierdo y calculamos $4\\cdot5$."
+       },
+       {
+        "math": "\\dfrac{20}{4}=5\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos."
+       }
+      ]
+     }
+    ],
+    "warn": "Lo que haces en un lado **debes hacerlo también en el otro**. Si solo cambias un lado, la igualdad se rompe y la solución deja de ser válida."
    }
   },
   {
@@ -1616,7 +1723,118 @@
    "drawCheck": 5,
    "example2": "Resolvemos $3x + 4 = 19$. Primero restamos 4 y luego dividimos por 3:\n$$\\begin{aligned}3x + 4 &= 19\\\\ 3x &= 15\\\\ x &= 5\\end{aligned}$$\nVerificamos: $3\\cdot 5 + 4 = 19$.",
    "example3": "Resolvemos $4x - 7 = 2x + 9$. Juntamos las $x$ a la izquierda y los números a la derecha:\n$$\\begin{aligned}4x - 7 &= 2x + 9\\\\ 4x - 2x &= 9 + 7\\\\ 2x &= 16\\\\ x &= 8\\end{aligned}$$\nVerificamos: $4\\cdot 8 - 7 = 25$ y $2\\cdot 8 + 9 = 25$.",
-   "example4": "Resolvemos $2x + 3 = 5x - 12$. Esta vez conviene juntar las $x$ a la derecha, donde hay más:\n$$\\begin{aligned}2x + 3 &= 5x - 12\\\\ 3 + 12 &= 5x - 2x\\\\ 15 &= 3x\\\\ x &= 5\\end{aligned}$$\nVerificamos: $2\\cdot 5 + 3 = 13$ y $5\\cdot 5 - 12 = 13$."
+   "example4": "Resolvemos $2x + 3 = 5x - 12$. Esta vez conviene juntar las $x$ a la derecha, donde hay más:\n$$\\begin{aligned}2x + 3 &= 5x - 12\\\\ 3 + 12 &= 5x - 2x\\\\ 15 &= 3x\\\\ x &= 5\\end{aligned}$$\nVerificamos: $2\\cdot 5 + 3 = 13$ y $5\\cdot 5 - 12 = 13$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver ecuaciones lineales con una incógnita, incluso cuando $x$ aparece **a ambos lados**.",
+    "idea": "Una ecuación lineal tiene la forma $ax+b=c$ con $a\\neq0$. Se **deshacen las operaciones en orden inverso**: primero se eliminan las sumas y restas, y luego se divide entre el número que multiplica a $x$. Si $x$ aparece a ambos lados, se juntan los términos con $x$ en un lado y los números en el otro.",
+    "steps": {
+     "title": "Resolvemos $5x-2=3x+8$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+     "items": [
+      {
+       "math": "5x-2=3x+8",
+       "why": "Hay incógnita en **ambos lados**."
+      },
+      {
+       "math": "5x-3x=8+2",
+       "why": "Restamos $3x$ y sumamos $2$ en ambos lados: las $x$ quedan a la izquierda y los números a la derecha.",
+       "side": {
+        "title": "Cambio de lado",
+        "math": "\\begin{aligned}-3x&:\\ \\text{resta }3x\\\\+2&:\\ \\text{suma }2\\end{aligned}"
+       }
+      },
+      {
+       "math": "2x=10",
+       "why": "Reducimos: $5x-3x=2x$ y $8+2=10$."
+      },
+      {
+       "math": "x=5",
+       "why": "**Solución.** Dividimos ambos lados entre 2."
+      },
+      {
+       "math": "5\\cdot5-2=23\\ \\text{ y }\\ 3\\cdot5+8=23\\ \\checkmark",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 23."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Resolvemos $3x+4=19$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "3x+4=19",
+        "why": "Hay que deshacer primero la **suma** y luego la **multiplicación**."
+       },
+       {
+        "math": "3x=15",
+        "why": "Restamos 4 en ambos lados.",
+        "side": {
+         "title": "Operación",
+         "math": "19-4=15"
+        }
+       },
+       {
+        "math": "x=5",
+        "why": "**Solución.** Dividimos ambos lados entre 3."
+       },
+       {
+        "math": "3\\cdot5+4=19\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $4x-7=2x+9$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "4x-7=2x+9",
+        "why": "Hay incógnita en ambos lados."
+       },
+       {
+        "math": "4x-2x=9+7",
+        "why": "Juntamos las $x$ a la izquierda y los números a la derecha."
+       },
+       {
+        "math": "2x=16",
+        "why": "Reducimos ambos lados."
+       },
+       {
+        "math": "x=8",
+        "why": "**Solución.** Dividimos ambos lados entre 2."
+       },
+       {
+        "math": "4\\cdot8-7=25\\ \\text{ y }\\ 2\\cdot8+9=25\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 25."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $2x+3=5x-12$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "items": [
+       {
+        "math": "2x+3=5x-12",
+        "why": "Esta vez hay **más $x$ a la derecha**."
+       },
+       {
+        "math": "3+12=5x-2x",
+        "why": "Conviene juntar las $x$ a la derecha, donde hay más, para no trabajar con coeficientes negativos."
+       },
+       {
+        "math": "15=3x",
+        "why": "Reducimos ambos lados."
+       },
+       {
+        "math": "x=5",
+        "why": "**Solución.** Dividimos entre 3 (la igualdad se puede leer en cualquier sentido)."
+       },
+       {
+        "math": "2\\cdot5+3=13\\ \\text{ y }\\ 5\\cdot5-12=13\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 13."
+       }
+      ]
+     }
+    ],
+    "warn": "Cuando **cambias un término de lado**, también cambia su signo (en realidad sumas o restas ese término en ambos lados). Revisa el signo de cada término antes de reducir."
+   }
   },
   {
    "id": "u3-s003",
@@ -2423,7 +2641,7 @@
     "goal": "Al terminar podrás resolver ecuaciones lineales con **paréntesis** o con **fracciones**, eliminándolos antes de despejar la incógnita.",
     "idea": "Una ecuación se mantiene verdadera si hacemos **la misma operación en los dos lados**. Con paréntesis aplicamos la propiedad distributiva: $a(b+c)=ab+ac$. Con fracciones multiplicamos toda la ecuación por el **mínimo común múltiplo** (mcm) de los denominadores, y así desaparecen.",
     "steps": {
-     "title": "Resolvemos $\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$.",
+     "title": "Resolvemos $\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
      "items": [
       {
        "why": "Partimos de la ecuación con fracciones.",
@@ -2455,7 +2673,7 @@
        }
       },
       {
-       "why": "Dividimos ambos lados por 2.",
+       "why": "**Solución.** Dividimos ambos lados por 2.",
        "math": "x=1",
        "side": {
         "title": "Equivalencia",
@@ -2463,7 +2681,7 @@
        }
       },
       {
-       "why": "Verificamos reemplazando en la ecuación original.",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en la ecuación original.",
        "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{5}{6}\\;\\checkmark",
        "side": {
         "title": "Comprobación",
@@ -2475,7 +2693,7 @@
     "warn": "Multiplica **todos** los términos por el mcm, también los que no tienen fracción. Si olvidas uno, la igualdad deja de ser verdadera. Por ejemplo, $6\\cdot\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$ **no** es equivalente a la ecuación original.",
     "more": [
      {
-      "title": "Resolvemos $2(x-3)=10$.",
+      "title": "Resolvemos $2(x-3)=10$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
       "items": [
        {
         "math": "2(x-3)=10",
@@ -2495,16 +2713,16 @@
        },
        {
         "math": "x=8",
-        "why": "Dividimos ambos lados por 2."
+        "why": "**Solución.** Dividimos ambos lados por 2."
        },
        {
         "math": "2(8-3)=2\\cdot5=10\\ \\checkmark",
-        "why": "Verificamos reemplazando en la ecuación original."
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en la ecuación original."
        }
       ]
      },
      {
-      "title": "Resolvemos $3(x+2)=2x+11$.",
+      "title": "Resolvemos $3(x+2)=2x+11$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
       "items": [
        {
         "math": "3(x+2)=2x+11",
@@ -2524,16 +2742,16 @@
        },
        {
         "math": "x=5",
-        "why": "Reducimos términos semejantes."
+        "why": "**Solución.** Reducimos términos semejantes."
        },
        {
         "math": "3(5+2)=21\\ \\text{y}\\ 2\\cdot5+11=21",
-        "why": "Verificamos: ambos lados valen 21."
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 21."
        }
       ]
      },
      {
-      "title": "Resolvemos $\\frac{2x}{3}-1=\\frac{x}{2}$.",
+      "title": "Resolvemos $\\frac{2x}{3}-1=\\frac{x}{2}$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
       "items": [
        {
         "math": "\\frac{2x}{3}-1=\\frac{x}{2}",
@@ -2554,11 +2772,11 @@
        },
        {
         "math": "x=6",
-        "why": "Restamos $3x$ en ambos lados y sumamos 6."
+        "why": "**Solución.** Restamos $3x$ en ambos lados y sumamos 6."
        },
        {
         "math": "\\frac{2\\cdot6}{3}-1=3\\ \\text{y}\\ \\frac{6}{2}=3",
-        "why": "Verificamos: ambos lados valen 3."
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 3."
        }
       ]
      }
@@ -3520,7 +3738,106 @@
    "drawCheck": 5,
    "example2": "Despejamos la altura $h$ en el área de un rectángulo $A = bh$ (con $b \\neq 0$). Dividimos ambos lados por $b$:\n$$h = \\frac{A}{b}$$\nPor ejemplo, si $A = 24\\,\\mathrm{cm}^2$ y $b = 6\\,\\mathrm{cm}$, entonces $h = 4\\,\\mathrm{cm}$.",
    "example3": "Despejamos la aceleración $a$ en la segunda ley de Newton $F = ma$ (con $m \\neq 0$). Dividimos ambos lados por $m$:\n$$a = \\frac{F}{m}$$\nPor ejemplo, si $F = 20\\,\\mathrm{N}$ y $m = 4\\,\\mathrm{kg}$, entonces $a = 5\\,\\mathrm{m/s^2}$.",
-   "example4": "Despejamos el ancho $a$ en el perímetro de un rectángulo $P = 2L + 2a$. Primero restamos $2L$ y luego dividimos por 2:\n$$2a = P - 2L \\quad\\Rightarrow\\quad a = \\frac{P - 2L}{2}$$\nPor ejemplo, si $P = 30\\,\\mathrm{cm}$ y $L = 9\\,\\mathrm{cm}$, entonces $a = \\frac{30 - 18}{2} = 6\\,\\mathrm{cm}$."
+   "example4": "Despejamos el ancho $a$ en el perímetro de un rectángulo $P = 2L + 2a$. Primero restamos $2L$ y luego dividimos por 2:\n$$2a = P - 2L \\quad\\Rightarrow\\quad a = \\frac{P - 2L}{2}$$\nPor ejemplo, si $P = 30\\,\\mathrm{cm}$ y $L = 9\\,\\mathrm{cm}$, entonces $a = \\frac{30 - 18}{2} = 6\\,\\mathrm{cm}$.",
+   "learn": {
+    "goal": "Al terminar podrás **despejar una letra** en una fórmula, usando los mismos pasos que en una ecuación con números.",
+    "idea": "Muchas fórmulas de ciencias son ecuaciones con varias letras. **Despejar** una letra es dejarla sola en un lado de la igualdad. Las demás letras se tratan como si fueran **números conocidos** y se aplican las operaciones inversas en ambos lados.",
+    "steps": {
+     "title": "Despejamos $v$ en la rapidez media $d=vt$ (con $t\\neq0$).",
+     "items": [
+      {
+       "math": "d=vt",
+       "why": "Queremos $v$ sola. Está **multiplicada** por $t$."
+      },
+      {
+       "math": "\\dfrac{d}{t}=\\dfrac{vt}{t}",
+       "why": "Dividimos ambos lados entre $t$.",
+       "side": {
+        "title": "Operación inversa",
+        "text": "La inversa de **multiplicar por $t$** es **dividir entre $t$**."
+       }
+      },
+      {
+       "math": "v=\\dfrac{d}{t}",
+       "why": "Simplificamos: $\\frac{vt}{t}=v$."
+      },
+      {
+       "math": "v=\\dfrac{120}{2}=60\\ \\mathrm{km/h}",
+       "why": "Por ejemplo, con $d=120\\,\\mathrm{km}$ y $t=2\\,\\mathrm{h}$."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Despejamos la altura $h$ en el área del rectángulo $A=bh$ (con $b\\neq0$).",
+      "items": [
+       {
+        "math": "A=bh",
+        "why": "La altura $h$ está **multiplicada** por $b$."
+       },
+       {
+        "math": "\\dfrac{A}{b}=\\dfrac{bh}{b}",
+        "why": "Dividimos ambos lados entre $b$."
+       },
+       {
+        "math": "h=\\dfrac{A}{b}",
+        "why": "Simplificamos y obtenemos la altura."
+       },
+       {
+        "math": "h=\\dfrac{24}{6}=4\\ \\mathrm{cm}",
+        "why": "Por ejemplo, con $A=24\\,\\mathrm{cm^2}$ y $b=6\\,\\mathrm{cm}$."
+       }
+      ]
+     },
+     {
+      "title": "Despejamos la aceleración $a$ en la segunda ley de Newton $F=ma$ (con $m\\neq0$).",
+      "items": [
+       {
+        "math": "F=ma",
+        "why": "La aceleración $a$ está **multiplicada** por $m$."
+       },
+       {
+        "math": "\\dfrac{F}{m}=\\dfrac{ma}{m}",
+        "why": "Dividimos ambos lados entre $m$."
+       },
+       {
+        "math": "a=\\dfrac{F}{m}",
+        "why": "Simplificamos y obtenemos la aceleración."
+       },
+       {
+        "math": "a=\\dfrac{20}{4}=5\\ \\mathrm{m/s^2}",
+        "why": "Por ejemplo, con $F=20\\,\\mathrm{N}$ y $m=4\\,\\mathrm{kg}$."
+       }
+      ]
+     },
+     {
+      "title": "Despejamos el ancho $a$ en el perímetro del rectángulo $P=2L+2a$.",
+      "items": [
+       {
+        "math": "P=2L+2a",
+        "why": "El ancho $a$ está **multiplicado por 2** y **sumado** con $2L$."
+       },
+       {
+        "math": "P-2L=2a",
+        "why": "Restamos $2L$ en ambos lados.",
+        "side": {
+         "title": "Operación inversa",
+         "text": "La inversa de **sumar $2L$** es **restar $2L$**."
+        }
+       },
+       {
+        "math": "a=\\dfrac{P-2L}{2}",
+        "why": "Dividimos **todo** el lado izquierdo entre 2."
+       },
+       {
+        "math": "a=\\dfrac{30-2\\cdot9}{2}=\\dfrac{12}{2}=6\\ \\mathrm{cm}",
+        "why": "Por ejemplo, con $P=30\\,\\mathrm{cm}$ y $L=9\\,\\mathrm{cm}$."
+       }
+      ]
+     }
+    ],
+    "warn": "Al dividir entre una letra, esa letra debe ser **distinta de cero**. Además, divide **todo** el lado completo: en $2a=P-2L$ se divide entre 2 la expresión completa $P-2L$."
+   }
   },
   {
    "id": "u3-s005",
@@ -4477,7 +4794,107 @@
    "drawCheck": 5,
    "example2": "Enunciado: la mitad de un número, aumentada en 3, es igual a 10. Si el número es $x$, «la mitad» es $\\frac{x}{2}$ y «aumentada en 3» es $+3$:\n$$\\frac{x}{2} + 3 = 10$$",
    "example3": "Enunciado: la suma de tres números consecutivos es 48. Si el menor es $x$, los otros son $x + 1$ y $x + 2$:\n$$x + (x + 1) + (x + 2) = 48 \\quad\\Rightarrow\\quad 3x + 3 = 48$$",
-   "example4": "Enunciado: el doble de la suma de un número y 5 es 26. «La suma de un número y 5» es $x + 5$ y debe ir entre paréntesis, porque el doble afecta a toda la suma:\n$$2(x + 5) = 26$$\nCuidado: $2x + 5 = 26$ diría otra cosa («el doble del número, más 5»)."
+   "example4": "Enunciado: el doble de la suma de un número y 5 es 26. «La suma de un número y 5» es $x + 5$ y debe ir entre paréntesis, porque el doble afecta a toda la suma:\n$$2(x + 5) = 26$$\nCuidado: $2x + 5 = 26$ diría otra cosa («el doble del número, más 5»).",
+   "learn": {
+    "goal": "Al terminar podrás **traducir un enunciado** a una ecuación, eligiendo una incógnita y expresando cada relación con operaciones.",
+    "idea": "Se elige una letra para la cantidad desconocida y se traduce cada frase del texto. Algunas traducciones frecuentes: «el doble de un número» es $2x$; «un número aumentado en 5» es $x+5$; «tres números consecutivos» son $x$, $x+1$ y $x+2$; «es igual a» o «resulta» se escribe con $=$.",
+    "steps": {
+     "title": "El triple de un número, disminuido en 4, es igual a 20.",
+     "items": [
+      {
+       "math": "x",
+       "why": "Llamamos $x$ al número desconocido."
+      },
+      {
+       "math": "3x",
+       "why": "«El triple de un número» se escribe $3x$.",
+       "side": {
+        "title": "Traducción",
+        "text": "«triple» → multiplicar por **3**"
+       }
+      },
+      {
+       "math": "3x-4",
+       "why": "«Disminuido en 4» significa restar 4.",
+       "side": {
+        "title": "Traducción",
+        "text": "«disminuido en» → **restar**"
+       }
+      },
+      {
+       "math": "3x-4=20",
+       "why": "«Es igual a 20» se escribe con el signo $=$. Esta es la ecuación."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "La mitad de un número, aumentada en 3, es igual a 10.",
+      "items": [
+       {
+        "math": "x",
+        "why": "Llamamos $x$ al número."
+       },
+       {
+        "math": "\\dfrac{x}{2}",
+        "why": "«La mitad de un número» es $\\frac{x}{2}$."
+       },
+       {
+        "math": "\\dfrac{x}{2}+3",
+        "why": "«Aumentada en 3» significa sumar 3."
+       },
+       {
+        "math": "\\dfrac{x}{2}+3=10",
+        "why": "«Es igual a 10»: esta es la ecuación."
+       }
+      ]
+     },
+     {
+      "title": "La suma de tres números consecutivos es 48.",
+      "items": [
+       {
+        "math": "x,\\ x+1,\\ x+2",
+        "why": "Si el menor es $x$, los otros dos son $x+1$ y $x+2$.",
+        "side": {
+         "title": "Consecutivos",
+         "text": "Cada número **sigue al anterior**: se suma 1."
+        }
+       },
+       {
+        "math": "x+(x+1)+(x+2)=48",
+        "why": "«La suma de los tres es 48»."
+       },
+       {
+        "math": "3x+3=48",
+        "why": "Reducimos términos semejantes: $x+x+x=3x$ y $1+2=3$."
+       }
+      ]
+     },
+     {
+      "title": "El doble de la suma de un número y 5 es 26.",
+      "items": [
+       {
+        "math": "x+5",
+        "why": "«La suma de un número y 5» es $x+5$."
+       },
+       {
+        "math": "2(x+5)",
+        "why": "El doble afecta a **toda la suma**, por eso va entre paréntesis.",
+        "side": {
+         "title": "Cuidado",
+         "math": "2x+5\\ne2(x+5)",
+         "text": "$2x+5$ diría «el doble del número, más 5»."
+        }
+       },
+       {
+        "math": "2(x+5)=26",
+        "why": "«Es 26»: esta es la ecuación."
+       }
+      ]
+     }
+    ],
+    "warn": "Cuando una operación afecta a **toda una suma**, esa suma debe ir **entre paréntesis**. «El doble de la suma de un número y 5» es $2(x+5)$, no $2x+5$ (que significa «el doble del número, más 5»)."
+   }
   },
   {
    "id": "u3-s006",
@@ -5208,7 +5625,142 @@
    "drawCheck": 5,
    "example2": "Marta tiene 5 años más que su hermano, y entre ambos suman 29 años. Si el hermano tiene $x$ años, Marta tiene $x + 5$:\n$$x + (x + 5) = 29 \\quad\\Rightarrow\\quad 2x = 24 \\quad\\Rightarrow\\quad x = 12$$\nEl hermano tiene 12 años y Marta 17; en total son 29, así que la solución es correcta.",
    "example3": "Un rectángulo tiene el largo 3 cm mayor que el ancho y su perímetro es 26 cm. Si el ancho es $x$, el largo es $x + 3$:\n$$2x + 2(x + 3) = 26 \\quad\\Rightarrow\\quad 4x + 6 = 26 \\quad\\Rightarrow\\quad x = 5$$\nEl ancho mide 5 cm y el largo 8 cm; el perímetro es $2\\cdot 5 + 2\\cdot 8 = 26$ cm, así que la solución es correcta.",
-   "example4": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200. Si recorrió $x$ kilómetros:\n$$800 + 400x = 3200 \\quad\\Rightarrow\\quad 400x = 2400 \\quad\\Rightarrow\\quad x = 6$$\nEl viaje fue de 6 km; verificamos: $800 + 400\\cdot 6 = 3200$."
+   "example4": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200. Si recorrió $x$ kilómetros:\n$$800 + 400x = 3200 \\quad\\Rightarrow\\quad 400x = 2400 \\quad\\Rightarrow\\quad x = 6$$\nEl viaje fue de 6 km; verificamos: $800 + 400\\cdot 6 = 3200$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver problemas con ecuaciones lineales siguiendo cuatro pasos: **definir, plantear, resolver y verificar**.",
+    "idea": "Un problema se resuelve en cuatro pasos: 1) leer el enunciado y definir la incógnita; 2) plantear la ecuación; 3) resolverla; 4) verificar que la solución cumple el enunciado y que tiene sentido (una longitud no puede ser negativa). Al final se escribe la respuesta **con sus unidades**.",
+    "steps": {
+     "title": "Ana y Luis tienen 36 libros en total, y Ana tiene el triple que Luis.",
+     "items": [
+      {
+       "math": "x",
+       "why": "Si Luis tiene $x$ libros, Ana tiene $3x$.",
+       "side": {
+        "title": "Datos",
+        "math": "\\begin{aligned}\\text{Luis}&:\\ x\\\\ \\text{Ana}&:\\ 3x\\end{aligned}"
+       }
+      },
+      {
+       "math": "x+3x=36",
+       "why": "Entre los dos suman 36."
+      },
+      {
+       "math": "4x=36",
+       "why": "Reducimos: $x+3x=4x$."
+      },
+      {
+       "math": "x=9",
+       "why": "Dividimos entre 4."
+      },
+      {
+       "math": "\\text{Luis: }9,\\quad \\text{Ana: }3\\cdot9=27",
+       "why": "Calculamos lo que pide el problema."
+      },
+      {
+       "math": "9+27=36\\ \\checkmark",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: en total son 36 libros."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Marta tiene 5 años más que su hermano y entre ambos suman 29 años.",
+      "items": [
+       {
+        "math": "x",
+        "why": "Si el hermano tiene $x$ años, Marta tiene $x+5$.",
+        "side": {
+         "title": "Datos",
+         "math": "\\begin{aligned}\\text{Hermano}&:\\ x\\\\ \\text{Marta}&:\\ x+5\\end{aligned}"
+        }
+       },
+       {
+        "math": "x+(x+5)=29",
+        "why": "Entre ambos suman 29."
+       },
+       {
+        "math": "2x=24",
+        "why": "Reducimos: $2x+5=29$ y restamos 5."
+       },
+       {
+        "math": "x=12",
+        "why": "Dividimos entre 2."
+       },
+       {
+        "math": "\\text{Hermano: }12,\\quad \\text{Marta: }12+5=17",
+        "why": "Calculamos las dos edades."
+       },
+       {
+        "math": "12+17=29\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: suman 29 años."
+       }
+      ]
+     },
+     {
+      "title": "Un rectángulo tiene el largo 3 cm mayor que el ancho y su perímetro es 26 cm.",
+      "items": [
+       {
+        "math": "x",
+        "why": "Si el ancho es $x$, el largo es $x+3$.",
+        "side": {
+         "title": "Perímetro",
+         "math": "P=2\\cdot\\text{ancho}+2\\cdot\\text{largo}"
+        }
+       },
+       {
+        "math": "2x+2(x+3)=26",
+        "why": "Planteamos el perímetro."
+       },
+       {
+        "math": "4x+6=26",
+        "why": "Eliminamos el paréntesis y reducimos."
+       },
+       {
+        "math": "x=5",
+        "why": "Restamos 6 (queda $4x=20$) y dividimos entre 4."
+       },
+       {
+        "math": "\\text{ancho: }5\\ \\mathrm{cm},\\quad \\text{largo: }8\\ \\mathrm{cm}",
+        "why": "Calculamos las dos medidas."
+       },
+       {
+        "math": "2\\cdot5+2\\cdot8=26\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos el perímetro."
+       }
+      ]
+     },
+     {
+      "title": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200.",
+      "items": [
+       {
+        "math": "x",
+        "why": "Si el viaje fue de $x$ kilómetros, el costo es $800+400x$.",
+        "side": {
+         "title": "Costo",
+         "text": "**fijo** + **variable** por cada kilómetro"
+        }
+       },
+       {
+        "math": "800+400x=3200",
+        "why": "El costo total fue 3200."
+       },
+       {
+        "math": "400x=2400",
+        "why": "Restamos 800 en ambos lados."
+       },
+       {
+        "math": "x=6",
+        "why": "Dividimos entre 400. **Solución:** el viaje fue de **6 km**."
+       },
+       {
+        "math": "800+400\\cdot6=3200\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos: se cumple el costo de CLP 3200."
+       }
+      ]
+     }
+    ],
+    "warn": "No basta con encontrar $x$: **responde lo que pregunta el problema**. A veces hay que calcular otra cantidad (por ejemplo, la edad de Marta y no solo la del hermano) y revisarla en el enunciado."
+   }
   },
   {
    "id": "u3-s007",
@@ -5998,7 +6550,126 @@
    "drawCheck": 5,
    "example2": "Resolvemos $3x^2 - 12 = 0$. Despejamos $x^2$:\n$$3x^2 = 12 \\quad\\Rightarrow\\quad x^2 = 4 \\quad\\Rightarrow\\quad x = \\pm 2$$\nVerificamos con $x = -2$: $3\\cdot 4 - 12 = 0$.",
    "example3": "Resolvemos $2x^2 + 8x = 0$. Sacamos factor común $2x$:\n$$2x(x + 4) = 0 \\quad\\Rightarrow\\quad x = 0 \\ \\text{ o } \\ x = -4$$\nVerificamos con $x = -4$: $2\\cdot 16 - 32 = 0$.",
-   "example4": "Resolvemos $4x^2 - 25 = 0$. Despejamos $x^2$ y aplicamos raíz cuadrada:\n$$x^2 = \\frac{25}{4} \\quad\\Rightarrow\\quad x = \\pm\\frac{5}{2}$$\nVerificamos con $x = \\frac{5}{2}$: $4\\cdot\\frac{25}{4} - 25 = 0$."
+   "example4": "Resolvemos $4x^2 - 25 = 0$. Despejamos $x^2$ y aplicamos raíz cuadrada:\n$$x^2 = \\frac{25}{4} \\quad\\Rightarrow\\quad x = \\pm\\frac{5}{2}$$\nVerificamos con $x = \\frac{5}{2}$: $4\\cdot\\frac{25}{4} - 25 = 0$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver ecuaciones cuadráticas **incompletas**: las que no tienen el término $bx$ o el término $c$.",
+    "idea": "Una ecuación cuadrática es $ax^2+bx+c=0$ con $a\\neq0$. Si **falta $bx$**, se despeja $x^2$ y se aplica raíz cuadrada con **las dos raíces**: si $x^2=k$ con $k>0$, entonces $x=\\pm\\sqrt{k}$. Si **falta $c$**, se saca $x$ como factor común: $x(ax+b)=0$, y como un producto es cero cuando algún factor es cero, $x=0$ o $x=-\\frac{b}{a}$.",
+    "steps": {
+     "title": "Resolvemos $x^2-5x=0$ (falta $c$). Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+     "items": [
+      {
+       "math": "x^2-5x=0",
+       "why": "No hay término independiente: ambos términos tienen $x$."
+      },
+      {
+       "math": "x(x-5)=0",
+       "why": "Sacamos **factor común** $x$."
+      },
+      {
+       "math": "x=0\\quad\\text{o}\\quad x-5=0",
+       "why": "Un producto es cero cuando alguno de sus factores es cero.",
+       "side": {
+        "title": "Propiedad",
+        "math": "A\\cdot B=0\\Rightarrow A=0\\ \\text{o}\\ B=0"
+       }
+      },
+      {
+       "math": "x=0\\quad\\text{o}\\quad x=5",
+       "why": "**Solución.** Despejamos en cada caso."
+      },
+      {
+       "math": "5^2-5\\cdot5=0\\ \\checkmark",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=5$."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Resolvemos $3x^2-12=0$ (falta $bx$). Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "3x^2-12=0",
+        "why": "No hay término con $x$ solo."
+       },
+       {
+        "math": "3x^2=12",
+        "why": "Sumamos 12 en ambos lados."
+       },
+       {
+        "math": "x^2=4",
+        "why": "Dividimos entre 3."
+       },
+       {
+        "math": "x=\\pm2",
+        "why": "**Solución.** Aplicamos raíz cuadrada considerando **las dos raíces**.",
+        "side": {
+         "title": "Raíces",
+         "math": "\\sqrt{4}=2,\\quad -\\sqrt{4}=-2"
+        }
+       },
+       {
+        "math": "3\\cdot(-2)^2-12=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=-2$: $3\\cdot4-12=0$."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $2x^2+8x=0$ (falta $c$). Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "2x^2+8x=0",
+        "why": "Ambos términos tienen $2x$ como factor común."
+       },
+       {
+        "math": "2x(x+4)=0",
+        "why": "Sacamos factor común $2x$."
+       },
+       {
+        "math": "2x=0\\quad\\text{o}\\quad x+4=0",
+        "why": "Cada factor puede ser cero."
+       },
+       {
+        "math": "x=0\\quad\\text{o}\\quad x=-4",
+        "why": "**Solución.** Despejamos en cada caso."
+       },
+       {
+        "math": "2\\cdot16-32=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=-4$."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $4x^2-25=0$ (falta $bx$). Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "4x^2-25=0",
+        "why": "No hay término con $x$ solo."
+       },
+       {
+        "math": "4x^2=25",
+        "why": "Sumamos 25 en ambos lados."
+       },
+       {
+        "math": "x^2=\\dfrac{25}{4}",
+        "why": "Dividimos entre 4."
+       },
+       {
+        "math": "x=\\pm\\dfrac{5}{2}",
+        "why": "**Solución.** Aplicamos raíz cuadrada con las dos raíces.",
+        "side": {
+         "title": "Raíces",
+         "math": "\\sqrt{\\dfrac{25}{4}}=\\dfrac{5}{2}"
+        }
+       },
+       {
+        "math": "4\\cdot\\dfrac{25}{4}-25=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=\\frac{5}{2}$."
+       }
+      ]
+     }
+    ],
+    "warn": "Al sacar raíz cuadrada **no olvides la raíz negativa**: $x^2=4$ tiene dos soluciones, $x=2$ y $x=-2$. Y al factorizar, **no dividas entre $x$**: perderías la solución $x=0$."
+   }
   },
   {
    "id": "u3-s008",
@@ -6804,7 +7475,122 @@
    "drawCheck": 5,
    "example2": "Resolvemos $x^2 + x - 12 = 0$. Buscamos dos números que multiplicados den $-12$ y sumados den $1$: son $4$ y $-3$.\n$$(x + 4)(x - 3) = 0 \\quad\\Rightarrow\\quad x = -4 \\ \\text{ o } \\ x = 3$$\nVerificamos con $x = 3$: $9 + 3 - 12 = 0$.",
    "example3": "Resolvemos $x^2 - 6x + 9 = 0$. Buscamos dos números que multiplicados den 9 y sumados den $-6$: son $-3$ y $-3$.\n$$(x - 3)(x - 3) = 0 \\quad\\Rightarrow\\quad x = 3$$\nLos dos factores son iguales, por eso hay una sola solución. Verificamos: $9 - 18 + 9 = 0$.",
-   "example4": "Resolvemos $x^2 - 2x - 15 = 0$. Buscamos dos números que multiplicados den $-15$ y sumados den $-2$: son $-5$ y $3$.\n$$(x - 5)(x + 3) = 0 \\quad\\Rightarrow\\quad x = 5 \\ \\text{ o } \\ x = -3$$\nSi $x$ fuera una longitud, solo serviría $x = 5$. Verificamos: $25 - 10 - 15 = 0$."
+   "example4": "Resolvemos $x^2 - 2x - 15 = 0$. Buscamos dos números que multiplicados den $-15$ y sumados den $-2$: son $-5$ y $3$.\n$$(x - 5)(x + 3) = 0 \\quad\\Rightarrow\\quad x = 5 \\ \\text{ o } \\ x = -3$$\nSi $x$ fuera una longitud, solo serviría $x = 5$. Verificamos: $25 - 10 - 15 = 0$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver ecuaciones cuadráticas **factorizándolas** y usando que un producto es cero cuando alguno de sus factores es cero.",
+    "idea": "Si la ecuación cuadrática se puede factorizar, se escribe como un producto igual a cero y se usa: si $A\\cdot B=0$, entonces $A=0$ o $B=0$. Para factorizar $x^2+bx+c$ se buscan **dos números que multiplicados den $c$ y sumados den $b$**. Si el problema trata de una longitud, se descartan las soluciones negativas.",
+    "steps": {
+     "title": "Resolvemos $x^2-5x+6=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+     "items": [
+      {
+       "math": "x^2-5x+6=0",
+       "why": "Ya está igualada a cero. Buscamos dos números que multiplicados den $6$ y sumados den $-5$.",
+       "side": {
+        "title": "Buscamos",
+        "math": "\\begin{aligned}m\\cdot n&=6\\\\ m+n&=-5\\end{aligned}",
+        "text": "Sirven **$-2$ y $-3$**."
+       }
+      },
+      {
+       "math": "(x-2)(x-3)=0",
+       "why": "Factorizamos el trinomio."
+      },
+      {
+       "math": "x-2=0\\quad\\text{o}\\quad x-3=0",
+       "why": "Un producto es cero cuando alguno de sus factores es cero."
+      },
+      {
+       "math": "x=2\\quad\\text{o}\\quad x=3",
+       "why": "**Solución.** Despejamos en cada caso."
+      },
+      {
+       "math": "2^2-5\\cdot2+6=4-10+6=0\\ \\checkmark",
+       "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=2$."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Resolvemos $x^2+x-12=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "x^2+x-12=0",
+        "why": "Buscamos dos números que multiplicados den $-12$ y sumados den $1$.",
+        "side": {
+         "title": "Buscamos",
+         "math": "\\begin{aligned}m\\cdot n&=-12\\\\ m+n&=1\\end{aligned}",
+         "text": "Sirven **$4$ y $-3$**."
+        }
+       },
+       {
+        "math": "(x+4)(x-3)=0",
+        "why": "Factorizamos el trinomio."
+       },
+       {
+        "math": "x=-4\\quad\\text{o}\\quad x=3",
+        "why": "**Solución.** Igualamos cada factor a cero y despejamos."
+       },
+       {
+        "math": "3^2+3-12=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=3$."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $x^2-6x+9=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "x^2-6x+9=0",
+        "why": "Buscamos dos números que multiplicados den $9$ y sumados den $-6$.",
+        "side": {
+         "title": "Buscamos",
+         "math": "\\begin{aligned}m\\cdot n&=9\\\\ m+n&=-6\\end{aligned}",
+         "text": "Sirven **$-3$ y $-3$**."
+        }
+       },
+       {
+        "math": "(x-3)(x-3)=0",
+        "why": "Los dos factores son iguales."
+       },
+       {
+        "math": "x=3",
+        "why": "**Solución.** Como los factores son iguales, hay **una sola solución**."
+       },
+       {
+        "math": "9-18+9=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $x^2-2x-15=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "x^2-2x-15=0",
+        "why": "Buscamos dos números que multiplicados den $-15$ y sumados den $-2$.",
+        "side": {
+         "title": "Buscamos",
+         "math": "\\begin{aligned}m\\cdot n&=-15\\\\ m+n&=-2\\end{aligned}",
+         "text": "Sirven **$-5$ y $3$**."
+        }
+       },
+       {
+        "math": "(x-5)(x+3)=0",
+        "why": "Factorizamos el trinomio."
+       },
+       {
+        "math": "x=5\\quad\\text{o}\\quad x=-3",
+        "why": "**Solución.** Igualamos cada factor a cero. Si $x$ fuera una longitud, solo serviría $x=5$."
+       },
+       {
+        "math": "25-10-15=0\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Con $x=5$."
+       }
+      ]
+     }
+    ],
+    "warn": "La ecuación debe estar **igualada a cero** antes de factorizar. Y revisa los signos: los dos números deben **multiplicar a $c$** y **sumar $b$**, no al revés."
+   }
   },
   {
    "id": "u3-s009",
@@ -7611,7 +8397,134 @@
    "drawCheck": 5,
    "example2": "Resolvemos $x^2 - 4x + 1 = 0$, con $a = 1$, $b = -4$ y $c = 1$:\n$$x = \\frac{4 \\pm \\sqrt{16 - 4}}{2} = \\frac{4 \\pm 2\\sqrt{3}}{2} = 2 \\pm \\sqrt{3}$$\nLas soluciones no son enteras, pero la fórmula las entrega igual: $x = 2 + \\sqrt{3}$ o $x = 2 - \\sqrt{3}$.",
    "example3": "Resolvemos $3x^2 - 5x - 2 = 0$, con $a = 3$, $b = -5$ y $c = -2$:\n$$x = \\frac{5 \\pm \\sqrt{25 + 24}}{6} = \\frac{5 \\pm 7}{6}$$\nEntonces $x = \\frac{12}{6} = 2$ o $x = \\frac{-2}{6} = -\\frac{1}{3}$.",
-   "example4": "Resolvemos $2x^2 - x - 1 = 0$, con $a = 2$, $b = -1$ y $c = -1$. Cuidado con los signos: $-b = 1$.\n$$x = \\frac{1 \\pm \\sqrt{1 + 8}}{4} = \\frac{1 \\pm 3}{4}$$\nEntonces $x = 1$ o $x = -\\frac{1}{2}$."
+   "example4": "Resolvemos $2x^2 - x - 1 = 0$, con $a = 2$, $b = -1$ y $c = -1$. Cuidado con los signos: $-b = 1$.\n$$x = \\frac{1 \\pm \\sqrt{1 + 8}}{4} = \\frac{1 \\pm 3}{4}$$\nEntonces $x = 1$ o $x = -\\frac{1}{2}$.",
+   "learn": {
+    "goal": "Al terminar podrás resolver **cualquier** ecuación cuadrática con la fórmula general, identificando bien $a$, $b$ y $c$.",
+    "idea": "No toda ecuación cuadrática se factoriza con facilidad. La fórmula general resuelve cualquier $ax^2+bx+c=0$ con $a\\neq0$: $x=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}$. El signo $\\pm$ indica que se calculan dos valores, uno con $+$ y otro con $-$.",
+    "steps": {
+     "title": "Resolvemos $2x^2+3x-2=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+     "items": [
+      {
+       "math": "a=2,\\quad b=3,\\quad c=-2",
+       "why": "Identificamos los coeficientes con sus signos."
+      },
+      {
+       "math": "x=\\dfrac{-3\\pm\\sqrt{3^2-4\\cdot2\\cdot(-2)}}{2\\cdot2}",
+       "why": "Reemplazamos en la fórmula general.",
+       "side": {
+        "title": "Discriminante",
+        "math": "\\begin{aligned}3^2-4\\cdot2\\cdot(-2)&=9+16\\\\ &=25\\end{aligned}"
+       }
+      },
+      {
+       "math": "x=\\dfrac{-3\\pm5}{4}",
+       "why": "Como $\\sqrt{25}=5$, queda $\\frac{-3\\pm5}{4}$."
+      },
+      {
+       "math": "x=\\dfrac{-3+5}{4}=\\dfrac{1}{2}",
+       "why": "Con el signo $+$."
+      },
+      {
+       "math": "x=\\dfrac{-3-5}{4}=-2",
+       "why": "Con el signo $-$."
+      },
+      {
+       "math": "x=\\dfrac{1}{2}\\quad\\text{o}\\quad x=-2",
+       "why": "**Solución.** La ecuación tiene dos soluciones."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Resolvemos $x^2-4x+1=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "a=1,\\quad b=-4,\\quad c=1",
+        "why": "Identificamos los coeficientes con sus signos."
+       },
+       {
+        "math": "x=\\dfrac{4\\pm\\sqrt{16-4}}{2}",
+        "why": "Reemplazamos: $-b=4$, $b^2=16$, $-4ac=-4$ y $2a=2$.",
+        "side": {
+         "title": "Discriminante",
+         "math": "\\begin{aligned}(-4)^2-4\\cdot1\\cdot1&=16-4\\\\ &=12\\end{aligned}"
+        }
+       },
+       {
+        "math": "x=\\dfrac{4\\pm2\\sqrt{3}}{2}",
+        "why": "Simplificamos la raíz: $\\sqrt{12}=\\sqrt{4\\cdot3}=2\\sqrt{3}$."
+       },
+       {
+        "math": "x=2\\pm\\sqrt{3}",
+        "why": "Dividimos cada término del numerador entre 2."
+       },
+       {
+        "math": "x=2+\\sqrt{3}\\quad\\text{o}\\quad x=2-\\sqrt{3}",
+        "why": "**Solución.** Las soluciones no son enteras, pero la fórmula las entrega igual."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $3x^2-5x-2=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "a=3,\\quad b=-5,\\quad c=-2",
+        "why": "Identificamos los coeficientes con sus signos."
+       },
+       {
+        "math": "x=\\dfrac{5\\pm\\sqrt{25+24}}{6}",
+        "why": "Reemplazamos: $-b=5$, $b^2=25$, $-4ac=-4\\cdot3\\cdot(-2)=24$ y $2a=6$."
+       },
+       {
+        "math": "x=\\dfrac{5\\pm7}{6}",
+        "why": "Como $\\sqrt{49}=7$."
+       },
+       {
+        "math": "x=\\dfrac{12}{6}=2",
+        "why": "Con el signo $+$."
+       },
+       {
+        "math": "x=\\dfrac{-2}{6}=-\\dfrac{1}{3}",
+        "why": "Con el signo $-$, y simplificamos la fracción."
+       },
+       {
+        "math": "x=2\\quad\\text{o}\\quad x=-\\dfrac{1}{3}",
+        "why": "**Solución.** La ecuación tiene dos soluciones."
+       }
+      ]
+     },
+     {
+      "title": "Resolvemos $2x^2-x-1=0$. Debemos encontrar los valores de $x$ que cumplen la ecuación.",
+      "items": [
+       {
+        "math": "a=2,\\quad b=-1,\\quad c=-1",
+        "why": "Identificamos los coeficientes. Cuidado con los signos: $-b=1$."
+       },
+       {
+        "math": "x=\\dfrac{1\\pm\\sqrt{1+8}}{4}",
+        "why": "Reemplazamos: $b^2=1$, $-4ac=-4\\cdot2\\cdot(-1)=8$ y $2a=4$."
+       },
+       {
+        "math": "x=\\dfrac{1\\pm3}{4}",
+        "why": "Como $\\sqrt{9}=3$."
+       },
+       {
+        "math": "x=\\dfrac{4}{4}=1",
+        "why": "Con el signo $+$."
+       },
+       {
+        "math": "x=\\dfrac{-2}{4}=-\\dfrac{1}{2}",
+        "why": "Con el signo $-$, y simplificamos la fracción."
+       },
+       {
+        "math": "x=1\\quad\\text{o}\\quad x=-\\dfrac{1}{2}",
+        "why": "**Solución.** La ecuación tiene dos soluciones."
+       }
+      ]
+     }
+    ],
+    "warn": "Antes de reemplazar, identifica **$a$, $b$ y $c$ con sus signos**. Cuidado con $-b$: si $b=-1$, entonces $-b=1$. Y el denominador $2a$ divide a **todo** el numerador."
+   }
   },
   {
    "id": "u3-s010",
@@ -8426,7 +9339,102 @@
    "drawCheck": 5,
    "example2": "Analizamos $x^2 - 6x + 9 = 0$, con $a = 1$, $b = -6$ y $c = 9$:\n$$\\Delta = (-6)^2 - 4\\cdot 1\\cdot 9 = 36 - 36 = 0$$\nComo $\\Delta = 0$, hay una única solución real: $x = 3$.",
    "example3": "Analizamos $2x^2 + x - 3 = 0$, con $a = 2$, $b = 1$ y $c = -3$:\n$$\\Delta = 1^2 - 4\\cdot 2\\cdot(-3) = 1 + 24 = 25 > 0$$\nComo $\\Delta > 0$, hay dos soluciones reales distintas (en este caso, $x = 1$ y $x = -\\frac{3}{2}$).",
-   "example4": "¿Para qué valor de $k$ la ecuación $x^2 + 4x + k = 0$ tiene una única solución real? Con $a = 1$, $b = 4$ y $c = k$ imponemos $\\Delta = 0$:\n$$\\Delta = 16 - 4k = 0 \\quad\\Rightarrow\\quad k = 4$$\nVerificamos: $x^2 + 4x + 4 = (x + 2)^2 = 0$ tiene solo $x = -2$."
+   "example4": "¿Para qué valor de $k$ la ecuación $x^2 + 4x + k = 0$ tiene una única solución real? Con $a = 1$, $b = 4$ y $c = k$ imponemos $\\Delta = 0$:\n$$\\Delta = 16 - 4k = 0 \\quad\\Rightarrow\\quad k = 4$$\nVerificamos: $x^2 + 4x + 4 = (x + 2)^2 = 0$ tiene solo $x = -2$.",
+   "learn": {
+    "goal": "Al terminar podrás usar el **discriminante** para saber cuántas soluciones reales tiene una ecuación cuadrática, sin resolverla.",
+    "idea": "La expresión bajo la raíz de la fórmula general es el **discriminante**: $\\Delta=b^2-4ac$. Si $\\Delta>0$, hay **dos** soluciones reales distintas. Si $\\Delta=0$, hay **una** solución real. Si $\\Delta<0$, **no hay** soluciones reales, porque no existe la raíz cuadrada de un número negativo en los reales.",
+    "steps": {
+     "title": "Analizamos $x^2+2x+5=0$.",
+     "items": [
+      {
+       "math": "a=1,\\quad b=2,\\quad c=5",
+       "why": "Identificamos los coeficientes."
+      },
+      {
+       "math": "\\Delta=2^2-4\\cdot1\\cdot5",
+       "why": "Reemplazamos en el discriminante."
+      },
+      {
+       "math": "\\Delta=4-20=-16",
+       "why": "Calculamos."
+      },
+      {
+       "math": "\\Delta<0",
+       "why": "Como el discriminante es **negativo**, la ecuación **no tiene soluciones reales**."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "Analizamos $x^2-6x+9=0$.",
+      "items": [
+       {
+        "math": "a=1,\\quad b=-6,\\quad c=9",
+        "why": "Identificamos los coeficientes."
+       },
+       {
+        "math": "\\Delta=(-6)^2-4\\cdot1\\cdot9",
+        "why": "Reemplazamos, con paréntesis en $b=-6$."
+       },
+       {
+        "math": "\\Delta=36-36=0",
+        "why": "Calculamos."
+       },
+       {
+        "math": "x=3",
+        "why": "Como $\\Delta=0$, hay **una única solución real**: $x=\\frac{6}{2}=3$."
+       }
+      ]
+     },
+     {
+      "title": "Analizamos $2x^2+x-3=0$.",
+      "items": [
+       {
+        "math": "a=2,\\quad b=1,\\quad c=-3",
+        "why": "Identificamos los coeficientes."
+       },
+       {
+        "math": "\\Delta=1^2-4\\cdot2\\cdot(-3)",
+        "why": "Reemplazamos."
+       },
+       {
+        "math": "\\Delta=1+24=25",
+        "why": "Calculamos: $-4\\cdot2\\cdot(-3)=+24$."
+       },
+       {
+        "math": "\\Delta>0",
+        "why": "Hay **dos soluciones reales distintas** (en este caso, $x=1$ y $x=-\\frac{3}{2}$)."
+       }
+      ]
+     },
+     {
+      "title": "¿Para qué valor de $k$ la ecuación $x^2+4x+k=0$ tiene una única solución real?",
+      "items": [
+       {
+        "math": "a=1,\\quad b=4,\\quad c=k",
+        "why": "Identificamos los coeficientes; $c$ es desconocido."
+       },
+       {
+        "math": "\\Delta=4^2-4\\cdot1\\cdot k=16-4k",
+        "why": "Calculamos el discriminante en función de $k$."
+       },
+       {
+        "math": "16-4k=0",
+        "why": "Una única solución real significa $\\Delta=0$."
+       },
+       {
+        "math": "k=4",
+        "why": "**Solución.** Despejamos: $4k=16$."
+       },
+       {
+        "math": "x^2+4x+4=(x+2)^2=0",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: solo tiene la solución $x=-2$."
+       }
+      ]
+     }
+    ],
+    "warn": "Calcula $b^2$ con paréntesis cuando $b$ es negativo: $(-6)^2=36$, no $-36$. Y recuerda que $-4ac$ cambia de signo si $a$ o $c$ es negativo."
+   }
   },
   {
    "id": "u3-s011",
@@ -9157,7 +10165,134 @@
    "drawCheck": 5,
    "example2": "El producto de dos números enteros positivos consecutivos es 56. Si el menor es $x$, el otro es $x + 1$:\n$$x(x + 1) = 56 \\quad\\Rightarrow\\quad x^2 + x - 56 = 0 \\quad\\Rightarrow\\quad (x + 8)(x - 7) = 0$$\nLas soluciones son $x = -8$ y $x = 7$; se descarta $-8$ porque los números son positivos. Los números son 7 y 8, y $7\\cdot 8 = 56$.",
    "example3": "Un rectángulo tiene el largo igual al doble del ancho y un área de $50\\,\\mathrm{cm}^2$. Si el ancho es $x$, el largo es $2x$:\n$$x\\cdot 2x = 50 \\quad\\Rightarrow\\quad x^2 = 25 \\quad\\Rightarrow\\quad x = \\pm 5$$\nSe descarta $x = -5$; el ancho mide 5 cm y el largo 10 cm, y $5\\cdot 10 = 50$.",
-   "example4": "Una piedra se lanza hacia arriba y su altura (en metros) a los $t$ segundos es $h = 20t - 5t^2$. ¿Cuándo vuelve al suelo? Imponemos $h = 0$:\n$$20t - 5t^2 = 0 \\quad\\Rightarrow\\quad 5t(4 - t) = 0 \\quad\\Rightarrow\\quad t = 0 \\ \\text{ o } \\ t = 4$$\n$t = 0$ es el instante del lanzamiento; la piedra vuelve al suelo a los 4 s."
+   "example4": "Una piedra se lanza hacia arriba y su altura (en metros) a los $t$ segundos es $h = 20t - 5t^2$. ¿Cuándo vuelve al suelo? Imponemos $h = 0$:\n$$20t - 5t^2 = 0 \\quad\\Rightarrow\\quad 5t(4 - t) = 0 \\quad\\Rightarrow\\quad t = 0 \\ \\text{ o } \\ t = 4$$\n$t = 0$ es el instante del lanzamiento; la piedra vuelve al suelo a los 4 s.",
+   "learn": {
+    "goal": "Al terminar podrás resolver problemas de áreas, productos de números y movimiento que llevan a **ecuaciones cuadráticas**, revisando cada solución en el contexto.",
+    "idea": "Se sigue el mismo método de los problemas lineales: definir la incógnita, plantear la ecuación, llevarla a la forma $ax^2+bx+c=0$, resolverla (factorizando o con la fórmula general) y **revisar cada solución en el contexto**. Con frecuencia una de las dos soluciones no tiene sentido (un tiempo o una longitud negativos) y se descarta.",
+    "steps": {
+     "title": "Un rectángulo tiene un área de $45\\,\\mathrm{cm^2}$ y su largo mide 4 cm más que su ancho.",
+     "items": [
+      {
+       "math": "x",
+       "why": "Si el ancho es $x$, el largo es $x+4$.",
+       "side": {
+        "title": "Área",
+        "math": "A=\\text{ancho}\\cdot\\text{largo}"
+       }
+      },
+      {
+       "math": "x(x+4)=45",
+       "why": "Planteamos el área."
+      },
+      {
+       "math": "x^2+4x-45=0",
+       "why": "Desarrollamos y llevamos todo a un lado."
+      },
+      {
+       "math": "(x+9)(x-5)=0",
+       "why": "Factorizamos: dos números que multiplicados den $-45$ y sumados den $4$ son $9$ y $-5$."
+      },
+      {
+       "math": "x=-9\\quad\\text{o}\\quad x=5",
+       "why": "Igualamos cada factor a cero."
+      },
+      {
+       "math": "x=5",
+       "why": "Se descarta $-9$, porque una longitud no puede ser negativa. **Solución:** el ancho mide **5 cm** y el largo 9 cm."
+      }
+     ]
+    },
+    "more": [
+     {
+      "title": "El producto de dos números enteros positivos consecutivos es 56.",
+      "items": [
+       {
+        "math": "x,\\ x+1",
+        "why": "Si el menor es $x$, el otro es $x+1$."
+       },
+       {
+        "math": "x(x+1)=56",
+        "why": "Planteamos el producto."
+       },
+       {
+        "math": "x^2+x-56=0",
+        "why": "Desarrollamos y llevamos todo a un lado."
+       },
+       {
+        "math": "(x+8)(x-7)=0",
+        "why": "Factorizamos: dos números que multiplicados den $-56$ y sumados den $1$ son $8$ y $-7$."
+       },
+       {
+        "math": "x=-8\\quad\\text{o}\\quad x=7",
+        "why": "Igualamos cada factor a cero."
+       },
+       {
+        "math": "x=7",
+        "why": "Se descarta $-8$, porque los números son positivos. **Solución:** los números son **7 y 8**."
+       },
+       {
+        "math": "7\\cdot8=56\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en el enunciado: se cumple."
+       }
+      ]
+     },
+     {
+      "title": "Un rectángulo tiene el largo igual al doble del ancho y un área de $50\\,\\mathrm{cm^2}$.",
+      "items": [
+       {
+        "math": "x,\\ 2x",
+        "why": "Si el ancho es $x$, el largo es $2x$."
+       },
+       {
+        "math": "x\\cdot2x=50",
+        "why": "Planteamos el área."
+       },
+       {
+        "math": "x^2=25",
+        "why": "Reducimos: $2x^2=50$ y dividimos entre 2."
+       },
+       {
+        "math": "x=\\pm5",
+        "why": "Aplicamos raíz cuadrada con las dos raíces."
+       },
+       {
+        "math": "x=5",
+        "why": "Se descarta $x=-5$. **Solución:** el ancho mide **5 cm** y el largo **10 cm**."
+       },
+       {
+        "math": "5\\cdot10=50\\ \\checkmark",
+        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en el enunciado: se cumple."
+       }
+      ]
+     },
+     {
+      "title": "Una piedra se lanza hacia arriba y su altura (en metros) a los $t$ segundos es $h=20t-5t^2$. ¿Cuándo vuelve al suelo?",
+      "items": [
+       {
+        "math": "20t-5t^2=0",
+        "why": "Vuelve al suelo cuando la altura es cero: imponemos $h=0$."
+       },
+       {
+        "math": "5t(4-t)=0",
+        "why": "Sacamos factor común $5t$."
+       },
+       {
+        "math": "5t=0\\quad\\text{o}\\quad 4-t=0",
+        "why": "Cada factor puede ser cero."
+       },
+       {
+        "math": "t=0\\quad\\text{o}\\quad t=4",
+        "why": "Despejamos en cada caso."
+       },
+       {
+        "math": "t=4\\ \\mathrm{s}",
+        "why": "$t=0$ es el instante del lanzamiento; **Solución:** la piedra vuelve al suelo a los **4 s**."
+       }
+      ]
+     }
+    ],
+    "warn": "**No descartes soluciones sin mirar el contexto**, pero tampoco las aceptes todas: una longitud, una edad o un número de personas no pueden ser negativos. Escribe siempre la respuesta con sus unidades."
+   }
   }
  ],
  "bridges": [],

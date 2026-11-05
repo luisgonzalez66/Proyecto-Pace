@@ -648,3 +648,20 @@ img[data-mascot].celebra{animation:chucaoSalto .9s ease-out 1}
 body.ex-big-on{overflow:hidden}
 
 .mt-dev{margin-top:8px;padding:10px 12px;border-left:4px solid var(--coral,#e0566b);background:#fff8f0;border-radius:0 10px 10px 0}.mt-devlist{margin:6px 0 0;padding-left:22px}.mt-devlist li{margin:6px 0}
+
+.go-up{position:fixed;right:14px;bottom:14px;z-index:15;width:42px;height:42px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(13,137,147,.35);background:rgba(255,255,255,.7);color:var(--teal);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s;padding:0;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.go-up.on{opacity:.55;visibility:visible;transform:none}
+.go-up.on:hover,.go-up.on:focus-visible{opacity:1;background:#fff}
+@media(max-width:700px){.go-up{right:10px;bottom:76px;width:40px;height:40px}}
+@media print{.go-up{display:none}}
+
+.ls-item.ls-check{margin-top:10px;border-top:2px dotted rgba(13,137,147,.55)!important;padding-top:14px;background:rgba(13,137,147,.07);border-radius:10px}
+.ls-item.ls-check .ls-math{color:var(--teal);font-size:.95em}
+.ls-item.ls-check.cur .ls-math{color:var(--teal)}
+.ls-item.ls-check .ls-why{font-style:italic}
+/* Ecuaciones siempre centradas en la tarjeta; el cálculo auxiliar va a la derecha */
+.ls-item.has-side{grid-template-columns:minmax(0,1fr) minmax(0,1.9fr) minmax(0,1fr)}
+.ls-item.has-side .ls-main{grid-column:2;grid-row:1}
+.ls-item.has-side .ls-side{grid-column:3;grid-row:1}
+.ls-math{text-align:center}.ls-math mjx-container{margin:0 auto!important}
+@media(max-width:900px){.ls-item.has-side{grid-template-columns:minmax(0,1fr)}.ls-item.has-side .ls-main,.ls-item.has-side .ls-side{grid-column:1;grid-row:auto}.ls-side{margin:2px 8px 0}}
