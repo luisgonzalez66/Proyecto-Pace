@@ -325,7 +325,6 @@
           "items": [
             {
               "math": "6-2\\cdot(3-7)",
-              "why": "Paréntesis.",
               "side": {
                 "title": "PARÉNTESIS",
                 "math": "3-7=-4",
@@ -334,7 +333,6 @@
             },
             {
               "math": "=6-2\\cdot(-4)",
-              "why": "Multiplicación.",
               "side": {
                 "title": "MULTIPLICACIÓN",
                 "math": "2\\cdot(-4)=-8",
@@ -343,7 +341,6 @@
             },
             {
               "math": "=6-(-8)",
-              "why": "Resta.",
               "side": {
                 "title": "RESTA",
                 "math": "6-(-8)=6+8",
@@ -352,7 +349,10 @@
             },
             {
               "math": "=14",
-              "why": "Resultado final."
+              "side": {
+                "title": "RESULTADO",
+                "text": "Sumamos 6 y 8 para obtener 14."
+              }
             }
           ]
         },
@@ -363,7 +363,6 @@
             "items": [
               {
                 "math": "(-3)\\cdot(-5)+8\\div4",
-                "why": "Dos operaciones independientes.",
                 "side": {
                   "title": "DOS OPERACIONES INDEPENDIENTES",
                   "math": "\\begin{aligned}(-3)(-5)&=15\\\\8\\div4&=2\\end{aligned}",
@@ -372,7 +371,6 @@
               },
               {
                 "math": "=15+2",
-                "why": "Suma.",
                 "side": {
                   "title": "SUMA",
                   "text": "Sumamos los resultados obtenidos."
@@ -380,7 +378,10 @@
               },
               {
                 "math": "=17",
-                "why": "Resultado final."
+                "side": {
+                  "title": "RESULTADO",
+                  "text": "Finalmente sumamos 15 y 2."
+                }
               }
             ]
           },
@@ -389,7 +390,6 @@
             "items": [
               {
                 "math": "5-3+4\\cdot(3-5\\cdot2+4-8)",
-                "why": "Operaciones independientes.",
                 "side": {
                   "title": "OPERACIONES INDEPENDIENTES",
                   "math": "\\begin{aligned}5-3&=2\\\\5\\cdot2&=10\\\\4-8&=-4\\end{aligned}",
@@ -398,23 +398,22 @@
               },
               {
                 "math": "=2+4\\cdot(3-10-4)",
-                "why": "Resta.",
                 "side": {
                   "title": "RESTA",
-                  "math": "3-10=-7"
+                  "math": "3-10=-7",
+                  "text": "Resolvemos 3 − 10 dentro del paréntesis."
                 }
               },
               {
                 "math": "=2+4\\cdot(-7-4)",
-                "why": "Resta.",
                 "side": {
                   "title": "RESTA",
-                  "math": "-7-4=-11"
+                  "math": "-7-4=-11",
+                  "text": "Calculamos −7 − 4 dentro del paréntesis."
                 }
               },
               {
                 "math": "=2+4\\cdot(-11)",
-                "why": "Multiplicación.",
                 "side": {
                   "title": "MULTIPLICACIÓN",
                   "math": "4\\cdot(-11)=-44",
@@ -423,7 +422,6 @@
               },
               {
                 "math": "=2+(-44)",
-                "why": "Suma.",
                 "side": {
                   "title": "SUMA",
                   "text": "Sumamos los términos restantes."
@@ -431,7 +429,10 @@
               },
               {
                 "math": "=-42",
-                "why": "Resultado final."
+                "side": {
+                  "title": "RESULTADO",
+                  "text": "Sumamos 2 y −44."
+                }
               }
             ]
           },
@@ -440,7 +441,6 @@
             "items": [
               {
                 "math": "24\\div4\\cdot2",
-                "why": "Misma prioridad.",
                 "side": {
                   "title": "MISMA PRIORIDAD",
                   "text": "División y multiplicación tienen igual prioridad: se resuelven de izquierda a derecha."
@@ -448,18 +448,18 @@
               },
               {
                 "math": "=6\\cdot2",
-                "why": "División.",
                 "side": {
                   "title": "DIVISIÓN",
-                  "math": "24\\div4=6"
+                  "math": "24\\div4=6",
+                  "text": "Resolvemos primero 24 ÷ 4 porque aparece a la izquierda."
                 }
               },
               {
                 "math": "=12",
-                "why": "Multiplicación.",
                 "side": {
                   "title": "MULTIPLICACIÓN",
-                  "math": "6\\cdot2=12"
+                  "math": "6\\cdot2=12",
+                  "text": "Luego multiplicamos el cociente por 2."
                 }
               }
             ]
@@ -1278,32 +1278,28 @@
               "side": {
                 "title": "Factor 2",
                 "text": "$60$ es par; por eso $2$ divide a $60$."
-              },
-              "why": "Factor 2."
+              }
             },
             {
               "math": "=2\\cdot2\\cdot15",
               "side": {
                 "title": "Otro 2",
                 "text": "También $30$ es divisible por $2$."
-              },
-              "why": "Otro 2."
+              }
             },
             {
               "math": "=2\\cdot2\\cdot3\\cdot5",
               "side": {
                 "title": "Factores finales",
                 "text": "$3$ y $5$ ya son primos."
-              },
-              "why": "Factores finales."
+              }
             },
             {
               "math": "=2^2\\cdot3\\cdot5",
               "side": {
                 "title": "Comprobación",
                 "text": "$4\\cdot3\\cdot5=60$."
-              },
-              "why": "Comprobación."
+              }
             }
           ]
         },
@@ -1314,7 +1310,6 @@
             "items": [
               {
                 "math": "47=5\\cdot9+2",
-                "why": "Cociente y resto.",
                 "side": {
                   "title": "COCIENTE Y RESTO",
                   "text": "El cociente es 9 y el resto 2."
@@ -1325,8 +1320,7 @@
                 "side": {
                   "title": "División euclidiana",
                   "text": "Se escribe $a=bq+r$, con $0\\le r<b$ cuando $b>0$."
-                },
-                "why": "División euclidiana."
+                }
               }
             ]
           },
@@ -1335,7 +1329,6 @@
             "items": [
               {
                 "math": "84=2\\cdot42",
-                "why": "Primer factor.",
                 "side": {
                   "title": "PRIMER FACTOR",
                   "text": "Separamos un factor primo."
@@ -1343,7 +1336,6 @@
               },
               {
                 "math": "=2\\cdot2\\cdot21",
-                "why": "Segundo factor.",
                 "side": {
                   "title": "SEGUNDO FACTOR",
                   "text": "Volvemos a dividir por 2."
@@ -1354,8 +1346,7 @@
                 "side": {
                   "title": "Producto de primos",
                   "text": "Ya no quedan factores compuestos."
-                },
-                "why": "Producto de primos."
+                }
               }
             ]
           }
@@ -1697,32 +1688,28 @@
               "side": {
                 "title": "Factores",
                 "text": "El $2$ aparece dos veces; $3$ y $5$, una vez."
-              },
-              "why": "Factores."
+              }
             },
             {
               "math": "90=2\\cdot3^2\\cdot5",
               "side": {
                 "title": "Comparación",
                 "text": "$90$ tiene un $2$, dos $3$ y un $5$."
-              },
-              "why": "Comparación."
+              }
             },
             {
               "math": "\\mathrm{MCD}(60,90)=2\\cdot3\\cdot5=30",
               "side": {
                 "title": "Comunes",
                 "text": "Para dividir a ambos, no podemos usar más copias de un primo que las presentes en cada número."
-              },
-              "why": "Comunes."
+              }
             },
             {
               "math": "\\mathrm{MCM}(60,90)=2^2\\cdot3^2\\cdot5=180",
               "side": {
                 "title": "Todos los factores",
                 "text": "Para ser múltiplo de ambos necesitamos todas las copias requeridas."
-              },
-              "why": "Todos los factores."
+              }
             }
           ]
         },
@@ -1733,7 +1720,6 @@
             "items": [
               {
                 "math": "12=2^2\\cdot3,\\quad18=2\\cdot3^2",
-                "why": "Factorización.",
                 "side": {
                   "title": "FACTORIZACIÓN",
                   "text": "Factorizamos."
@@ -1744,16 +1730,14 @@
                 "side": {
                   "title": "MCD",
                   "text": "Considera cada factor primo común con su menor exponente."
-                },
-                "why": "Mcd."
+                }
               },
               {
                 "math": "\\mathrm{MCM}(12,18)=2^2\\cdot3^2=36",
                 "side": {
                   "title": "MCM",
                   "text": "Considera cada factor presente con su mayor exponente."
-                },
-                "why": "Mcm."
+                }
               }
             ]
           },
@@ -1762,7 +1746,6 @@
             "items": [
               {
                 "math": "8=2^3,\\quad15=3\\cdot5",
-                "why": "Factores primos.",
                 "side": {
                   "title": "FACTORES PRIMOS",
                   "text": "No hay factores primos comunes."
@@ -1770,7 +1753,6 @@
               },
               {
                 "math": "\\mathrm{MCD}(8,15)=1",
-                "why": "Mcd.",
                 "side": {
                   "title": "MCD",
                   "text": "No tienen divisor común mayor que 1."
@@ -1778,7 +1760,6 @@
               },
               {
                 "math": "\\mathrm{MCM}(8,15)=2^3\\cdot3\\cdot5=120",
-                "why": "Selección.",
                 "side": {
                   "title": "SELECCIÓN",
                   "text": "Tomamos todos los factores."
@@ -2117,7 +2098,6 @@
           "items": [
             {
               "math": "\\dfrac38",
-              "why": "Fracción.",
               "side": {
                 "title": "FRACCIÓN",
                 "text": "Una fracción representa una división."
@@ -2125,7 +2105,6 @@
             },
             {
               "math": "=3\\div8",
-              "why": "División.",
               "side": {
                 "title": "DIVISIÓN",
                 "text": "Dividimos el numerador entre el denominador."
@@ -2133,7 +2112,6 @@
             },
             {
               "math": "=0{,}375",
-              "why": "Comprobación.",
               "side": {
                 "title": "COMPROBACIÓN",
                 "math": "8\\cdot0{,}375=3",
@@ -2149,7 +2127,6 @@
             "items": [
               {
                 "math": "0{,}24",
-                "why": "Decimal finito.",
                 "side": {
                   "title": "DECIMAL FINITO",
                   "text": "Dos cifras decimales equivalen a centésimos."
@@ -2157,7 +2134,6 @@
               },
               {
                 "math": "=\\dfrac{24}{100}",
-                "why": "Fracción.",
                 "side": {
                   "title": "FRACCIÓN",
                   "text": "Quitamos la coma y usamos denominador 100."
@@ -2165,7 +2141,6 @@
               },
               {
                 "math": "=\\dfrac6{25}",
-                "why": "Simplificación.",
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "math": "\\mathrm{MCD}(24,100)=4",
@@ -2182,20 +2157,17 @@
                 "side": {
                   "title": "Período",
                   "text": "No es lo mismo que el decimal finito 0,3."
-                },
-                "why": "Período."
+                }
               },
               {
                 "math": "10x=3{,}333\\ldots",
                 "side": {
                   "title": "Observa",
                   "text": "La parte decimal que se repite sigue siendo la misma."
-                },
-                "why": "Observa."
+                }
               },
               {
                 "math": "10x-x=3{,}333\\ldots-0{,}333\\ldots",
-                "why": "Restamos las dos expresiones.",
                 "side": {
                   "title": "RESTAMOS LAS DOS EXPRESIONES",
                   "text": "Restamos las dos expresiones: desaparece la parte decimal repetida."
@@ -2206,8 +2178,7 @@
                 "side": {
                   "title": "Resultado",
                   "text": "$0{,}\\overline3=1/3$."
-                },
-                "why": "Resultado."
+                }
               }
             ]
           },
@@ -2219,20 +2190,17 @@
                 "side": {
                   "title": "Tipo de decimal",
                   "text": "Es periódico mixto: el período comienza después de una cifra."
-                },
-                "why": "Tipo de decimal."
+                }
               },
               {
-                "math": "10x=1{,}666\\ldots\\quad\\text{y}\\quad100x=16{,}666\\ldots",
+                "math": "\\begin{aligned}10x&=1{,}666\\ldots\\\\100x&=16{,}666\\ldots\\end{aligned}",
                 "side": {
                   "title": "Propósito",
                   "text": "Al restar, las partes decimales iguales desaparecen."
-                },
-                "why": "Propósito."
+                }
               },
               {
                 "math": "100x-10x=16{,}666\\ldots-1{,}666\\ldots",
-                "why": "Restamos las dos expresiones.",
                 "side": {
                   "title": "RESTAMOS LAS DOS EXPRESIONES",
                   "text": "Restamos las dos expresiones: $90x=15$."
@@ -2240,7 +2208,6 @@
               },
               {
                 "math": "90x=15\\quad\\Longrightarrow\\quad\\boxed{x=\\dfrac16}",
-                "why": "División.",
                 "side": {
                   "title": "DIVISIÓN",
                   "text": "Dividimos por 90 y simplificamos el resultado."
@@ -2578,7 +2545,6 @@
           "items": [
             {
               "math": "\\dfrac{42}{56}",
-              "why": "Mcd.",
               "side": {
                 "title": "MCD",
                 "math": "\\mathrm{MCD}(42,56)=14",
@@ -2587,7 +2553,6 @@
             },
             {
               "math": "=\\dfrac{42\\div14}{56\\div14}",
-              "why": "Mismo divisor.",
               "side": {
                 "title": "MISMO DIVISOR",
                 "text": "Dividimos numerador y denominador por 14."
@@ -2595,7 +2560,6 @@
             },
             {
               "math": "=\\dfrac34",
-              "why": "Irreducible.",
               "side": {
                 "title": "IRREDUCIBLE",
                 "text": "El numerador y el denominador no tienen divisor común mayor que 1."
@@ -2610,7 +2574,6 @@
             "items": [
               {
                 "math": "-\\dfrac{18}{24}",
-                "why": "Mcd.",
                 "side": {
                   "title": "MCD",
                   "math": "\\mathrm{MCD}(18,24)=6",
@@ -2619,7 +2582,6 @@
               },
               {
                 "math": "=-\\dfrac{18\\div6}{24\\div6}",
-                "why": "Simplificación.",
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "text": "Dividimos ambos por 6."
@@ -2627,7 +2589,10 @@
               },
               {
                 "math": "=-\\dfrac34",
-                "why": "Resultado final."
+                "side": {
+                  "title": "RESULTADO",
+                  "text": "La fracción irreducible conserva el signo negativo."
+                }
               }
             ]
           },
@@ -2636,7 +2601,6 @@
             "items": [
               {
                 "math": "\\dfrac25",
-                "why": "Amplificación.",
                 "side": {
                   "title": "AMPLIFICACIÓN",
                   "text": "Queremos una fracción equivalente."
@@ -2644,7 +2608,6 @@
               },
               {
                 "math": "=\\dfrac{2\\cdot3}{5\\cdot3}",
-                "why": "Mismo factor.",
                 "side": {
                   "title": "MISMO FACTOR",
                   "text": "Multiplicamos ambos por 3."
@@ -2652,7 +2615,10 @@
               },
               {
                 "math": "=\\dfrac6{15}",
-                "why": "Mismo valor."
+                "side": {
+                  "title": "EQUIVALENCIA",
+                  "text": "El numerador y el denominador se multiplicaron por el mismo factor no nulo."
+                }
               }
             ]
           }
@@ -3000,32 +2966,28 @@
               "side": {
                 "title": "Idea",
                 "text": "Buscamos factores comunes entre numeradores y denominadores."
-              },
-              "why": "Idea."
+              }
             },
             {
               "math": "=\\frac{3\\cdot5}{2\\cdot14}\\cdot\\frac{14}{5\\cdot5}",
               "side": {
                 "title": "Factorización",
                 "text": "$15=3\\cdot5$, $28=2\\cdot14$, $25=5\\cdot5$."
-              },
-              "why": "Factorización."
+              }
             },
             {
               "math": "=\\frac3{2}\\cdot\\frac1{5}",
               "side": {
                 "title": "Simplificación",
                 "text": "Cancelamos un $14$ y un $5$, no sumandos."
-              },
-              "why": "Simplificación."
+              }
             },
             {
               "math": "=\\frac3{10}",
               "side": {
                 "title": "Resultado",
                 "text": "$3\\cdot1=3$ y $2\\cdot5=10$."
-              },
-              "why": "Resultado."
+              }
             }
           ]
         },
@@ -3036,7 +2998,6 @@
             "items": [
               {
                 "math": "\\dfrac34\\div\\dfrac98",
-                "why": "Divisor.",
                 "side": {
                   "title": "DIVISOR",
                   "text": "Identificamos la fracción que divide."
@@ -3047,12 +3008,10 @@
                 "side": {
                   "title": "Regla de división",
                   "text": "Multiplicamos por el inverso de la segunda fracción."
-                },
-                "why": "Regla de división."
+                }
               },
               {
                 "math": "=\\dfrac{3\\cdot8}{4\\cdot9}=\\dfrac23",
-                "why": "Resultado.",
                 "side": {
                   "title": "RESULTADO",
                   "text": "Reducimos factores y multiplicamos."
@@ -3065,7 +3024,6 @@
             "items": [
               {
                 "math": "-\\dfrac{10}{21}\\cdot\\dfrac7{15}",
-                "why": "Signo.",
                 "side": {
                   "title": "SIGNO",
                   "text": "Conservamos el signo negativo."
@@ -3076,12 +3034,10 @@
                 "side": {
                   "title": "Cancelación",
                   "text": "Solo se cancelan factores comunes, nunca sumandos."
-                },
-                "why": "Cancelación."
+                }
               },
               {
                 "math": "=-\\dfrac29",
-                "why": "Multiplicación.",
                 "side": {
                   "title": "MULTIPLICACIÓN",
                   "text": "Multiplicamos los factores restantes."
@@ -3420,7 +3376,6 @@
           "items": [
             {
               "math": "\\dfrac16+\\dfrac14",
-              "why": "Denominador común.",
               "side": {
                 "title": "DENOMINADOR COMÚN",
                 "math": "\\mathrm{mcm}(6,4)=12",
@@ -3429,7 +3384,6 @@
             },
             {
               "math": "=\\dfrac2{12}+\\dfrac3{12}",
-              "why": "Fracciones equivalentes.",
               "side": {
                 "title": "FRACCIONES EQUIVALENTES",
                 "math": "\\begin{aligned}1\\cdot2&=2\\\\1\\cdot3&=3\\end{aligned}",
@@ -3438,7 +3392,6 @@
             },
             {
               "math": "=\\dfrac{2+3}{12}",
-              "why": "Suma.",
               "side": {
                 "title": "SUMA",
                 "text": "Sumamos los numeradores."
@@ -3446,7 +3399,10 @@
             },
             {
               "math": "=\\dfrac5{12}",
-              "why": "Resultado final."
+              "side": {
+                "title": "RESULTADO",
+                "text": "La fracción obtenida es irreducible."
+              }
             }
           ]
         },
@@ -3457,7 +3413,6 @@
             "items": [
               {
                 "math": "\\dfrac5{12}+\\dfrac7{18}",
-                "why": "Denominador común.",
                 "side": {
                   "title": "DENOMINADOR COMÚN",
                   "math": "\\mathrm{mcm}(12,18)=36",
@@ -3466,7 +3421,6 @@
               },
               {
                 "math": "=\\dfrac{15}{36}+\\dfrac{14}{36}",
-                "why": "Amplificación.",
                 "side": {
                   "title": "AMPLIFICACIÓN",
                   "text": "Usamos fracciones equivalentes."
@@ -3474,7 +3428,10 @@
               },
               {
                 "math": "=\\dfrac{29}{36}",
-                "why": "Resultado final."
+                "side": {
+                  "title": "RESULTADO",
+                  "text": "Sumamos los numeradores y conservamos el denominador común. La fracción final es irreducible."
+                }
               }
             ]
           },
@@ -3483,7 +3440,6 @@
             "items": [
               {
                 "math": "\\dfrac34-\\dfrac16",
-                "why": "Mcm.",
                 "side": {
                   "title": "MCM",
                   "text": "El MCM de 4 y 6 es 12."
@@ -3494,12 +3450,10 @@
                 "side": {
                   "title": "Equivalencias",
                   "text": "$3/4=9/12$ y $1/6=2/12$."
-                },
-                "why": "Equivalencias."
+                }
               },
               {
                 "math": "=\\dfrac7{12}",
-                "why": "Resta.",
                 "side": {
                   "title": "RESTA",
                   "text": "Restamos numeradores."
@@ -3845,7 +3799,6 @@
           "items": [
             {
               "math": "2^{-3}",
-              "why": "Exponente negativo.",
               "side": {
                 "title": "EXPONENTE NEGATIVO",
                 "text": "La base 2 es distinta de cero."
@@ -3853,7 +3806,6 @@
             },
             {
               "math": "=\\dfrac1{2^3}",
-              "why": "Inverso.",
               "side": {
                 "title": "INVERSO",
                 "text": "El exponente negativo indica el recíproco."
@@ -3861,7 +3813,6 @@
             },
             {
               "math": "=\\dfrac1{2\\cdot2\\cdot2}",
-              "why": "Potencia.",
               "side": {
                 "title": "POTENCIA",
                 "text": "Desarrollamos el producto."
@@ -3869,7 +3820,10 @@
             },
             {
               "math": "=\\dfrac18",
-              "why": "Resultado final."
+              "side": {
+                "title": "RESULTADO",
+                "text": "Calculamos la potencia del denominador: 2³ = 8."
+              }
             }
           ]
         },
@@ -3880,7 +3834,6 @@
             "items": [
               {
                 "math": "2^3\\cdot2^2",
-                "why": "Misma base.",
                 "side": {
                   "title": "MISMA BASE",
                   "text": "Ambas potencias tienen la misma base."
@@ -3891,12 +3844,10 @@
                 "side": {
                   "title": "Misma base",
                   "text": "Los exponentes se suman al multiplicar potencias de igual base."
-                },
-                "why": "Misma base."
+                }
               },
               {
                 "math": "=32",
-                "why": "Cálculo.",
                 "side": {
                   "title": "CÁLCULO",
                   "text": "Calculamos el resultado."
@@ -3909,7 +3860,6 @@
             "items": [
               {
                 "math": "(-2)^4=(-2)(-2)(-2)(-2)=16",
-                "why": "Base negativa.",
                 "side": {
                   "title": "BASE NEGATIVA",
                   "text": "El signo negativo está dentro de la base."
@@ -3920,8 +3870,7 @@
                 "side": {
                   "title": "Paréntesis",
                   "text": "Sin paréntesis, el signo menos no forma parte de la base."
-                },
-                "why": "Paréntesis."
+                }
               }
             ]
           }
@@ -4255,32 +4204,28 @@
               "side": {
                 "title": "Cuadrados perfectos",
                 "text": "$16$ y $25$ son cuadrados consecutivos alrededor de $20$."
-              },
-              "why": "Cuadrados perfectos."
+              }
             },
             {
               "math": "16<20<25",
               "side": {
                 "title": "Orden",
                 "text": "El número $20$ queda entre los dos cuadrados."
-              },
-              "why": "Orden."
+              }
             },
             {
               "math": "\\sqrt{16}<\\sqrt{20}<\\sqrt{25}",
               "side": {
                 "title": "Monotonía",
                 "text": "Para números no negativos, la raíz cuadrada conserva el orden."
-              },
-              "why": "Monotonía."
+              }
             },
             {
               "math": "4<\\sqrt{20}<5",
               "side": {
                 "title": "Localización",
                 "text": "La raíz está entre $4$ y $5$."
-              },
-              "why": "Localización."
+              }
             }
           ]
         },
@@ -4291,7 +4236,6 @@
             "items": [
               {
                 "math": "36<40<49",
-                "why": "Cuadrados perfectos.",
                 "side": {
                   "title": "CUADRADOS PERFECTOS",
                   "text": "Buscamos los cuadrados perfectos vecinos."
@@ -4302,8 +4246,7 @@
                 "side": {
                   "title": "Orden",
                   "text": "Para desigualdades no negativas, la raíz cuadrada conserva el orden."
-                },
-                "why": "Orden."
+                }
               }
             ]
           },
@@ -4312,15 +4255,13 @@
             "items": [
               {
                 "math": "\\sqrt{81}=9",
-                "why": "Raíz principal.",
                 "side": {
                   "title": "RAÍZ PRINCIPAL",
                   "text": "La raíz principal es no negativa."
                 }
               },
               {
-                "math": "x^2=81\\Rightarrow x=9\\ \\text{o}\\ x=-9",
-                "why": "Resolución.",
+                "math": "x^2=81\\;\\Longrightarrow\\; x\\in\\{-9,9\\}",
                 "side": {
                   "title": "RESOLUCIÓN",
                   "text": "Resolver la ecuación es distinto de calcular la raíz principal."
@@ -4666,32 +4607,28 @@
               "side": {
                 "title": "Búsqueda",
                 "text": "Buscamos el mayor cuadrado perfecto que divide a $72$."
-              },
-              "why": "Búsqueda."
+              }
             },
             {
               "math": "=\\sqrt{36\\cdot2}",
               "side": {
                 "title": "Factor elegido",
                 "text": "$72=36\\cdot2$ y $36=6^2$."
-              },
-              "why": "Factor elegido."
+              }
             },
             {
               "math": "=\\sqrt{36}\\cdot\\sqrt2",
               "side": {
                 "title": "Condición",
                 "text": "Ambos radicandos son no negativos."
-              },
-              "why": "Condición."
+              }
             },
             {
               "math": "=6\\sqrt2",
               "side": {
                 "title": "Resultado",
                 "text": "$\\sqrt{36}=6$ y el $2$ no tiene factor cuadrado mayor que $1$."
-              },
-              "why": "Resultado."
+              }
             }
           ]
         },
@@ -4702,7 +4639,6 @@
             "items": [
               {
                 "math": "\\sqrt{50}",
-                "why": "Factor cuadrado.",
                 "side": {
                   "title": "FACTOR CUADRADO",
                   "text": "Buscamos el mayor factor cuadrado posible."
@@ -4713,12 +4649,10 @@
                 "side": {
                   "title": "Factor cuadrado",
                   "text": "Elige $25$, el mayor cuadrado perfecto que divide a $50$."
-                },
-                "why": "Factor cuadrado."
+                }
               },
               {
                 "math": "=5\\sqrt2",
-                "why": "Extracción.",
                 "side": {
                   "title": "EXTRACCIÓN",
                   "text": "Extraemos la raíz de 25."
@@ -4731,7 +4665,6 @@
             "items": [
               {
                 "math": "\\sqrt{180}",
-                "why": "Factor cuadrado.",
                 "side": {
                   "title": "FACTOR CUADRADO",
                   "text": "El cuadrado perfecto 36 divide a 180."
@@ -4739,7 +4672,6 @@
               },
               {
                 "math": "=\\sqrt{36\\cdot5}",
-                "why": "Reescritura.",
                 "side": {
                   "title": "REESCRITURA",
                   "text": "Escribimos el producto."
@@ -4747,7 +4679,6 @@
               },
               {
                 "math": "=6\\sqrt5",
-                "why": "Simplificación.",
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "text": "Simplificamos el radical."
@@ -5085,40 +5016,35 @@
               "side": {
                 "title": "Primero",
                 "text": "Todavía no se ven semejantes; simplificamos por separado."
-              },
-              "why": "Primero."
+              }
             },
             {
               "math": "=\\sqrt{4\\cdot3}+\\sqrt{9\\cdot3}",
               "side": {
                 "title": "Cuadrados",
                 "text": "$4=2^2$ y $9=3^2$."
-              },
-              "why": "Cuadrados."
+              }
             },
             {
               "math": "=2\\sqrt3+3\\sqrt3",
               "side": {
                 "title": "Semejantes",
                 "text": "Ambos términos tienen el mismo radical $\\sqrt3$."
-              },
-              "why": "Semejantes."
+              }
             },
             {
               "math": "=(2+3)\\sqrt3",
               "side": {
                 "title": "Distributiva",
                 "text": "Solo sumamos los coeficientes."
-              },
-              "why": "Distributiva."
+              }
             },
             {
               "math": "=5\\sqrt3",
               "side": {
                 "title": "Resultado",
                 "text": "No quedan términos por reducir."
-              },
-              "why": "Resultado."
+              }
             }
           ]
         },
@@ -5129,7 +5055,6 @@
             "items": [
               {
                 "math": "2\\sqrt8-\\sqrt{18}",
-                "why": "Simplificación.",
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "text": "Primero simplificamos cada radical."
@@ -5140,12 +5065,10 @@
                 "side": {
                   "title": "Términos semejantes",
                   "text": "Solo se suman directamente múltiplos del mismo radical."
-                },
-                "why": "Términos semejantes."
+                }
               },
               {
                 "math": "=\\sqrt2",
-                "why": "Resta.",
                 "side": {
                   "title": "RESTA",
                   "text": "Restamos coeficientes."
@@ -5158,7 +5081,6 @@
             "items": [
               {
                 "math": "\\sqrt{12}+\\sqrt{27}-\\sqrt3",
-                "why": "Simplificación.",
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "text": "Simplificamos los dos primeros radicales."
@@ -5166,7 +5088,6 @@
               },
               {
                 "math": "=2\\sqrt3+3\\sqrt3-\\sqrt3",
-                "why": "Radicales semejantes.",
                 "side": {
                   "title": "RADICALES SEMEJANTES",
                   "text": "Todos son términos semejantes."
@@ -5174,7 +5095,6 @@
               },
               {
                 "math": "=(2+3-1)\\sqrt3=4\\sqrt3",
-                "why": "Suma.",
                 "side": {
                   "title": "SUMA",
                   "text": "Sumamos y restamos coeficientes."
@@ -5515,24 +5435,21 @@
               "side": {
                 "title": "División",
                 "text": "$18\\div6=3$."
-              },
-              "why": "División."
+              }
             },
             {
               "math": "3\\in\\mathbb N",
               "side": {
                 "title": "Nuestra convención",
                 "text": "$\\mathbb N=\\{1,2,3,\\ldots\\}$."
-              },
-              "why": "Nuestra convención."
+              }
             },
             {
               "math": "\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R",
               "side": {
                 "title": "Idea clave",
                 "text": "Clasifica el valor, no solo la forma en que está escrito."
-              },
-              "why": "Idea clave."
+              }
             }
           ]
         },
@@ -5543,7 +5460,6 @@
             "items": [
               {
                 "math": "-\\dfrac{15}{5}=-3",
-                "why": "División.",
                 "side": {
                   "title": "DIVISIÓN",
                   "text": "Efectuamos la división y conservamos el signo."
@@ -5554,12 +5470,10 @@
                 "side": {
                   "title": "Diferencia",
                   "text": "$\\mathbb Z$ también contiene números negativos y el cero."
-                },
-                "why": "Diferencia."
+                }
               },
               {
                 "math": "\\boxed{-3\\in\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R}",
-                "why": "Clasificación.",
                 "side": {
                   "title": "CLASIFICACIÓN",
                   "text": "El conjunto más específico es $\\mathbb Z$."
@@ -5572,7 +5486,6 @@
             "items": [
               {
                 "math": "0{,}\\overline6=0{,}666\\ldots",
-                "why": "Decimal periódico.",
                 "side": {
                   "title": "DECIMAL PERIÓDICO",
                   "text": "El bloque de cifras 6 se repite indefinidamente."
@@ -5583,16 +5496,14 @@
                 "side": {
                   "title": "Recuerda",
                   "text": "$2\\div3=0{,}666\\ldots$."
-                },
-                "why": "Recuerda."
+                }
               },
               {
                 "math": "\\dfrac23\\in\\mathbb Q\\subseteq\\mathbb R",
                 "side": {
                   "title": "Criterio",
                   "text": "Un decimal periódico representa un número racional."
-                },
-                "why": "Criterio."
+                }
               }
             ]
           },
@@ -5604,20 +5515,17 @@
                 "side": {
                   "title": "Comprobación",
                   "text": "$7^2=49$."
-                },
-                "why": "Comprobación."
+                }
               },
               {
                 "math": "\\sqrt2\\in\\mathbb R\\setminus\\mathbb Q",
                 "side": {
                   "title": "Precaución",
                   "text": "No basta con afirmar que su raíz no es exacta para justificar la irracionalidad de cualquier número."
-                },
-                "why": "Precaución."
+                }
               },
               {
-                "math": "\\boxed{\\sqrt{49}\\in\\mathbb N\\quad\\text{y}\\quad\\sqrt2\\notin\\mathbb Q}",
-                "why": "Conclusión.",
+                "math": "\\boxed{\\sqrt{49}\\in\\mathbb N\\,,\\quad\\sqrt2\\notin\\mathbb Q}",
                 "side": {
                   "title": "CONCLUSIÓN",
                   "text": "El símbolo de raíz no determina por sí mismo el conjunto."
@@ -5959,16 +5867,14 @@
               "side": {
                 "title": "Plan",
                 "text": "Primero se resuelve el paréntesis; después las potencias y la raíz."
-              },
-              "why": "Plan."
+              }
             },
             {
               "math": "=\\left(\\dfrac14\\right)^2+\\sqrt{36}-2^3",
               "side": {
                 "title": "Denominador común",
                 "text": "$3/4-1/2=3/4-2/4=1/4$."
-              },
-              "why": "Denominador común."
+              }
             },
             {
               "math": "=\\dfrac1{16}+6-8",
@@ -5976,24 +5882,21 @@
                 "title": "Cálculos auxiliares",
                 "math": "\\left(\\frac14\\right)^2=\\frac1{16},\\quad\\sqrt{36}=6,\\quad2^3=8",
                 "text": "Calculamos la potencia, la raíz principal y $2^3$."
-              },
-              "why": "Cálculos auxiliares."
+              }
             },
             {
               "math": "=\\dfrac1{16}-2",
               "side": {
                 "title": "Orden",
                 "text": "Queda una resta entre un racional y un entero."
-              },
-              "why": "Orden."
+              }
             },
             {
               "math": "=\\boxed{-\\dfrac{31}{16}}",
               "side": {
                 "title": "Comprobación",
                 "text": "$1/16-32/16=-31/16$."
-              },
-              "why": "Comprobación."
+              }
             }
           ]
         },
@@ -6007,20 +5910,17 @@
                 "side": {
                   "title": "Factor cuadrado",
                   "text": "$12=4\\cdot3$."
-                },
-                "why": "Factor cuadrado."
+                }
               },
               {
                 "math": "=\\dfrac23+2\\sqrt3-2\\sqrt3",
                 "side": {
                   "title": "Propiedad",
                   "text": "$\\sqrt{12}=\\sqrt4\\sqrt3=2\\sqrt3$."
-                },
-                "why": "Propiedad."
+                }
               },
               {
                 "math": "=\\boxed{\\dfrac23}",
-                "why": "Cancelación.",
                 "side": {
                   "title": "CANCELACIÓN",
                   "text": "Los radicales semejantes se cancelan; queda el racional."
@@ -6033,7 +5933,6 @@
             "items": [
               {
                 "math": "\\left(\\dfrac56-\\dfrac13\\right)\\div\\dfrac12+\\sqrt9",
-                "why": "Paréntesis.",
                 "side": {
                   "title": "PARÉNTESIS",
                   "text": "Comenzamos resolviendo el paréntesis."
@@ -6044,12 +5943,10 @@
                 "side": {
                   "title": "Fracciones equivalentes",
                   "text": "Usamos un denominador común."
-                },
-                "why": "Fracciones equivalentes."
+                }
               },
               {
                 "math": "=\\dfrac12\\cdot\\dfrac21+3",
-                "why": "División.",
                 "side": {
                   "title": "DIVISIÓN",
                   "text": "Dividimos multiplicando por el inverso y calculamos la raíz."
@@ -6057,7 +5954,6 @@
               },
               {
                 "math": "=\\boxed{4}",
-                "why": "Resultado final.",
                 "side": {
                   "title": "RESULTADO FINAL",
                   "text": "El producto es 1; después sumamos 3."
@@ -6070,7 +5966,6 @@
             "items": [
               {
                 "math": "-\\left(\\dfrac12\\right)^2+\\sqrt{49}-\\dfrac38\\cdot2",
-                "why": "Signo y potencia.",
                 "side": {
                   "title": "SIGNO Y POTENCIA",
                   "text": "Distinguimos el signo menos exterior a la potencia."
@@ -6081,12 +5976,10 @@
                 "side": {
                   "title": "Potencia",
                   "text": "El signo menos no está dentro de la base."
-                },
-                "why": "Potencia."
+                }
               },
               {
                 "math": "=7-\\dfrac14-\\dfrac34",
-                "why": "Agrupación.",
                 "side": {
                   "title": "AGRUPACIÓN",
                   "text": "Agrupamos términos para facilitar el cálculo."
@@ -6094,7 +5987,6 @@
               },
               {
                 "math": "=\\boxed{6}",
-                "why": "Resultado final.",
                 "side": {
                   "title": "RESULTADO FINAL",
                   "text": "Las dos fracciones suman 1, y $7-1=6$."
