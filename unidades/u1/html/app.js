@@ -51,7 +51,7 @@ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const rich=v=>PACEText.html(v);
 function typesetMath(el){if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([el]).catch(()=>{});}
 function renderMedia(items){return items.map(m=>{const cap=m.caption?'<figcaption>'+esc(m.caption)+'</figcaption>':'';if(m.type==='image')return '<figure class="media-box"><img loading="lazy" src="'+esc(m.src)+'" alt="'+esc(m.caption||'Imagen del contenido')+'">'+cap+'</figure>';if(m.type==='video_file')return '<figure class="media-box"><video controls preload="metadata" src="'+esc(m.src)+'"></video>'+cap+'</figure>';if(m.type==='pdf')return '<div class="media-link">📄 <a href="'+esc(m.src)+'" target="_blank" rel="noopener noreferrer">Abrir PDF</a> '+esc(m.caption||'')+'</div>';if(m.type==='video_url')return '<div class="media-link">▶ <a href="'+esc(m.src)+'" target="_blank" rel="noopener noreferrer">Ver video</a> '+esc(m.caption||'')+'</div>';return '';}).join('');}
-const emptyState=()=>({v:7,p:Object.create(null),last:null,tab:'learn',seed:null,rd:Object.create(null),dn:Object.create(null),sk:null,mt:null});
+const emptyState=()=>({v:7,p:Object.create(null),last:null,tab:'learn',seed:null,rd:Object.create(null),dn:Object.create(null),sk:null,mts:{}});
 let state=emptyState();
 let api=null,connected=false,mode='local',writeBlocked=false,restored=false,closed=false;
 let view='home',selectedUnit=0,stationIndex=0,activeTab='learn',activeGroup=-1;
@@ -63,11 +63,11 @@ const percent=(done,total)=>!total?0:done===total?100:Math.min(99,Math.round(100
 const stationPercent=i=>percent(stationDone(i),milestoneCount(STATIONS[i]));
 const stepDone=(i,j)=>stationBits(i)[j]==='1';
 const doneCount=()=>STATIONS.reduce((n,s,i)=>n+stationDone(i),0);
-const overall=()=>{const p=percent(doneCount(),COUNT);return p===100&&metaCfg()&&!metaDone()?99:p;};
-const unitPct=u=>{const a=ownStations(u);const p=percent(a.reduce((n,x)=>n+stationDone(x.i),0),a.reduce((n,x)=>n+milestoneCount(x.s),0));return p===100&&UNITS[u]&&UNITS[u].meta&&!metaDone()?99:p;};
+const overall=()=>{const p=percent(doneCount(),COUNT);return p===100&&metaUnits().some(u=>!metaDoneU(u))?99:p;};
+const unitPct=u=>{const a=ownStations(u);const p=percent(a.reduce((n,x)=>n+stationDone(x.i),0),a.reduce((n,x)=>n+milestoneCount(x.s),0));return p===100&&UNITS[u]&&UNITS[u].meta&&!metaDoneU(u)?99:p;};
 const unitDone=u=>ownStations(u).filter(x=>stationDone(x.i)===milestoneCount(x.s)).length;
 const completedStations=()=>STATIONS.filter((s,i)=>stationDone(i)===milestoneCount(s)).length;
-const completed=()=>COUNT>0&&doneCount()===COUNT&&(!metaCfg()||metaDone());
+const completed=()=>COUNT>0&&doneCount()===COUNT&&metaUnits().every(metaDoneU);
 const progressClass=p=>p===100?'completed':p>0?'progress':'pending';
 function updateStep(i,j){const id=STATIONS[i].id;let bits=stationBits(i);state.p[id]=bits.slice(0,j)+'1'+bits.slice(j+1);}
 function checkState(d){return !!(d&&[6,7].includes(d.v)&&d.p&&typeof d.p==='object'&&!Array.isArray(d.p)&&Object.entries(d.p).every(([k,v])=>typeof k==='string'&&/^[01]{2,80}$/.test(v))&&(d.last===null||typeof d.last==='string')&&['learn','practice','check'].includes(d.tab)&&(d.seed===undefined||d.seed===null||(Number.isInteger(d.seed)&&d.seed>=0&&d.seed<1073741824))&&(d.rd===undefined||(d.rd&&typeof d.rd==='object'&&Object.values(d.rd).every(x=>Number.isInteger(x)&&x>=0&&x<1000)))&&(d.dn===undefined||(d.dn&&typeof d.dn==='object'&&Object.values(d.dn).every(x=>x===1)))&&(d.sk===undefined||d.sk===null||(Array.isArray(d.sk)&&d.sk.length===3&&d.sk.every(x=>Number.isInteger(x)&&x>=0&&x<10000000))));}
@@ -90,15 +90,15 @@ function serializeState(){
   return s.id+':'+packed+(roundOf(s)?':r'+roundOf(s):'')+(Object.hasOwn(state.dn,s.id)?':d':'');
  });
  const last=STATIONS.some(s=>s.id===state.last)?state.last:'';
- return 'P8|'+last+'|'+['learn','practice','check'].indexOf(state.tab)+(Number.isInteger(state.seed)?'|'+state.seed.toString(36):'')+(state.sk?'|k'+state.sk.map(x=>x.toString(36)).join('.'):'')+'\n'+rows.join('\n')+(state.mt&&state.mt.s?'\nM|'+state.mt.n.toString(36)+'|'+state.mt.s.toString(36)+'|'+(state.mt.e||0).toString(36)+'|'+(state.mt.a.join('')||'-')+'|'+(state.mt.b>=0?state.mt.b.toString(36):'-'):'');
+ return 'P8|'+last+'|'+['learn','practice','check'].indexOf(state.tab)+(Number.isInteger(state.seed)?'|'+state.seed.toString(36):'')+(state.sk?'|k'+state.sk.map(x=>x.toString(36)).join('.'):'')+'\n'+rows.join('\n')+Object.keys(state.mts||{}).filter(u=>state.mts[u]&&state.mts[u].s).sort().map(u=>{const m=state.mts[u];return '\nM'+u+'|'+m.n.toString(36)+'|'+m.s.toString(36)+'|'+(m.e||0).toString(36)+'|'+(m.a.join('')||'-')+'|'+(m.b>=0?m.b.toString(36):'-');}).join('');
 }
 function restoreCompact(raw){
- const lines=raw.split('\n');let mtv=null;{const mi=lines.findIndex((l,i)=>i>0&&l.startsWith('M|'));if(mi>0){const m=/^M\|([0-9a-z]{1,3})\|([0-9a-z]{1,8})\|([0-9a-z]{1,8})\|([-01]{1,80})\|([0-9a-z]{1,3}|-)$/.exec(lines[mi]);if(!m)return null;mtv={n:parseInt(m[1],36),s:parseInt(m[2],36),e:parseInt(m[3],36),a:m[4].split(''),b:m[5]==='-'?-1:parseInt(m[5],36)};lines.splice(mi,1);}}const head=/^P8\|([A-Za-z0-9_-]{2,44}|)\|([012])(?:\|([0-9a-z]{1,7}))?(?:\|k([0-9a-z]{1,6})\.([0-9a-z]{1,4})\.([0-9a-z]{1,4}))?$/.exec(lines.shift());
+ const lines=raw.split('\n');let mtv={};for(let mi=1;mi<lines.length;){if(/^M\d*\|/.test(lines[mi])){const m=/^M(\d*)\|([0-9a-z]{1,3})\|([0-9a-z]{1,8})\|([0-9a-z]{1,8})\|([-01]{1,120})\|([0-9a-z]{1,3}|-)$/.exec(lines[mi]);if(!m)return null;mtv[m[1]===''?String(Math.max(0,UNITS.findIndex(x=>x&&x.meta&&x.meta.minutes))):m[1]]={n:parseInt(m[2],36),s:parseInt(m[3],36),e:parseInt(m[4],36),a:m[5].split(''),b:m[6]==='-'?-1:parseInt(m[6],36)};lines.splice(mi,1);}else mi++;}const head=/^P8\|([A-Za-z0-9_-]{2,44}|)\|([012])(?:\|([0-9a-z]{1,7}))?(?:\|k([0-9a-z]{1,6})\.([0-9a-z]{1,4})\.([0-9a-z]{1,4}))?$/.exec(lines.shift());
  if(!head||lines.length>PACEContract.maxCourseStations)return null;
  const n=emptyState();n.last=head[1]||null;n.tab=['learn','practice','check'][+head[2]];if(head[3]){const sd=parseInt(head[3],36);if(sd>=0&&sd<1073741824)n.seed=sd;}if(head[4])n.sk=[parseInt(head[4],36),parseInt(head[5],36),parseInt(head[6],36)];
  for(const line of lines){if(!line)continue;const row=/^([A-Za-z0-9_-]{2,44}):([A-Za-z0-9_-]{1,4})(?::r([0-9]{1,3}))?(:d)?$/.exec(line);if(!row||Object.hasOwn(n.p,row[1]))return null;
   n.p[row[1]]=[...row[2]].map(c=>BITS64.indexOf(c).toString(2).padStart(6,'0')).join('');if(row[3])n.rd[row[1]]=+row[3];if(row[4])n.dn[row[1]]=1;
- }n.mt=mtv;return {val:n,migrated:false};
+ }n.mts=mtv;return {val:n,migrated:false};
 }
 function restore(raw){
  if(typeof raw==='string'&&raw.startsWith('P8|'))return restoreCompact(raw);
@@ -129,7 +129,7 @@ function init(){
   try{connected=String(api.LMSInitialize('')).toLowerCase()==='true';}catch(e){connected=false;}
   if(!connected){mode='error';sync('⚠ SCORM no pudo iniciar','error');tracking('Sin conexión válida: avance deshabilitado');return;}
   mode='scorm';let raw=get('cmi.suspend_data'),previousScore=get('cmi.core.score.raw');
-  if(raw){let result=restore(raw);if(!result){writeBlocked=true;sync('⚠ Datos no reconocidos','error');tracking('Datos previos conservados; no se sobrescriben');return;}state=result.val;restored=true;if(state.mt&&!(Number.isInteger(state.mt.s)&&Array.isArray(state.mt.a)))state.mt=null;}
+  if(raw){let result=restore(raw);if(!result){writeBlocked=true;sync('⚠ Datos no reconocidos','error');tracking('Datos previos conservados; no se sobrescriben');return;}state=result.val;restored=true;if(!state.mts)state.mts={};for(const k of Object.keys(state.mts)){const t=state.mts[k];if(!(t&&Number.isInteger(t.s)&&Array.isArray(t.a)))delete state.mts[k];}}
   else if(previousScore!==''&&Number.isFinite(Number(previousScore))&&Number(previousScore)>0){writeBlocked=true;sync('⚠ Faltan datos detallados','error');tracking('Hay calificación previa sin detalle; escritura bloqueada');return;}
   ensureSeed();save();return;
  }
@@ -151,7 +151,7 @@ ensureSeed();
 function save(){try{paintMascot()}catch(e){}
  if(mode==='error'||writeBlocked)return false;
  if(mode==='scorm'&&connected){
-  let score=metaDone()?state.mt.b:overall();
+  let score=(metaUnits().length&&metaUnits().every(metaDoneU))?Math.round(metaUnits().reduce((s,u)=>s+state.mts[u].b,0)/metaUnits().length):overall();
   const encoded=serializeState();
   if(new TextEncoder().encode(encoded).length>PACEContract.maxSuspendBytes){sync('⚠ Límite de progreso SCORM','error');tracking('El progreso supera los 4096 bytes de cmi.suspend_data');return false;}
   const a=[set('cmi.suspend_data',encoded),set('cmi.core.score.min','0'),set('cmi.core.score.max','100'),set('cmi.core.score.raw',score),set('cmi.core.lesson_status',completed()?'completed':'incomplete'),set('cmi.core.exit','suspend')];
@@ -164,7 +164,7 @@ function save(){try{paintMascot()}catch(e){}
 }
 function canChange(){return mode==='local'||mode==='preview'||(mode==='scorm'&&connected&&!writeBlocked);}
 function shutdown(){if(closed||!connected)return;save();try{api.LMSFinish('');}catch(e){}closed=true;connected=false;}
-function showOnly(next){if(next!=='meta'){clearInterval(metaTimer);metaTimer=null;}for(let id of ['homeView','mapView','stationView','metaView'])$(id).classList.toggle('hidden',id!==next+'View');view=next;window.scrollTo({top:0,behavior:'instant'});}
+function showOnly0(next){if(next!=='meta'){clearInterval(metaTimer);metaTimer=null;}for(let id of ['homeView','mapView','stationView','metaView'])$(id).classList.toggle('hidden',id!==next+'View');view=next;window.scrollTo({top:0,behavior:'instant'});}
 function breadcrumbs(){
  let segments=[{label:'Inicio',action:()=>openHome()}];
  if(view!=='home')segments.push({label:'Unidad '+UNITS[selectedUnit].roman,action:()=>openMap(selectedUnit)});
@@ -249,9 +249,9 @@ function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTM
   const g=Number(b.dataset.acc);activeGroup=(activeGroup===g&&!PHONE.matches)?-1:g;renderMap();
   const h=$('route').querySelector('.acc-head[data-acc="'+g+'"]');if(h){h.focus({preventScroll:true});h.scrollIntoView({block:'nearest'});}
  }));
- const MC=UNITS[selectedUnit].meta,fin=$('mapFinish');
+ mu=selectedUnit;const MC=UNITS[selectedUnit].meta,fin=$('mapFinish');
  if(MC&&MC.minutes){const run=metaRunning(),done=metaDone();fin.classList.add('meta-on');
-  fin.innerHTML=`<div class="finish-icon" aria-hidden="true"><img data-mascot alt=""></div><div><span class="eyebrow">META FINAL</span><h2>${run?'Evaluación en curso':done?'Meta final registrada':'Evaluación de la unidad'}</h2><p>${run?'Tu reloj sigue corriendo. Continúa cuando quieras.':done?'Mejor resultado: '+state.mt.b+' %. Puedes intentarlo de nuevo.':MC.minutes+' minutos · con simulacro de práctica · el reloj parte cuando tú decides.'}</p></div><button type="button" class="primary-btn" id="metaOpen">${run?'Continuar':done?'Ver META FINAL':'Conocer la META FINAL'}</button>`;
+  fin.innerHTML=`<div class="finish-icon" aria-hidden="true"><img data-mascot alt=""></div><div><span class="eyebrow">META FINAL</span><h2>${run?'Evaluación en curso':done?'Meta final registrada':'Evaluación de la unidad'}</h2><p>${run?'Tu reloj sigue corriendo. Continúa cuando quieras.':done?'Mejor resultado: '+MT().b+' %. Puedes intentarlo de nuevo.':MC.minutes+' minutos · con simulacro de práctica · el reloj parte cuando tú decides.'}</p></div><button type="button" class="primary-btn" id="metaOpen">${run?'Continuar':done?'Ver META FINAL':'Conocer la META FINAL'}</button>`;
   $('metaOpen').addEventListener('click',openMeta);paintMascot();
  }else{fin.classList.remove('meta-on');if(FIN0!==null)fin.innerHTML=FIN0;
  $('finishCounter').textContent=unitDone(selectedUnit)+'/'+unitItems.length;
@@ -307,7 +307,7 @@ function bindLearn(){for(let e=0;e<4;e++)bindLearnOne(e);
   const t=ev.target;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable))return;
   const c=lsPickEx();if(!c)return;const btn=c.querySelector(ev.key==='ArrowRight'?'.ls-next':'.ls-nav .ls-btn:not(.ls-next)');if(btn&&!btn.disabled){ev.preventDefault();btn.click();}};
  document.addEventListener('keydown',window.__lsKey);}
-function renderStation(){paintMascot();$('stationContent').classList.remove('lfocus');document.body.classList.remove('ex-big-on');{const x=document.getElementById('exClose');if(x)x.remove();}
+function renderStation0(){paintMascot();$('stationContent').classList.remove('lfocus');document.body.classList.remove('ex-big-on');{const x=document.getElementById('exClose');if(x)x.remove();}
  let s=STATIONS[stationIndex],p=stationPercent(stationIndex);
  $('stationNo').textContent=String(stationIndex+1).padStart(2,'0');$('stationTitle').textContent=s.title;$('stationSub').textContent=s.subtitle;
  $('stationView').dataset.pose=String(s.group%4);$('stationBlock').textContent='BLOQUE '+String(s.group+1).padStart(2,'0')+' · '+(UNITS[s.unit].groups[s.group]?.title||'');
@@ -351,7 +351,7 @@ function questionAt(step){const st=STATIONS[stationIndex],dp=drawCount(st);retur
 function renderTyped(q,step,label,done){
  const T=PACETyped;let body;
  if(done){let t='';try{t=T.answerTex(q);}catch(e){}body=`<div class="typed-done"><span>Respuesta:</span> <b class="math-content">${rich('\\('+t+'\\)')}</b></div>`;}
- else body=`<div class="typed" data-kind="${esc(q.kind)}"><div class="typed-row"><input class="typed-input" type="text" inputmode="none" enterkeyhint="done" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Escribe tu respuesta" placeholder="Escribe tu respuesta"><button type="button" class="primary-btn typed-check">Comprobar</button></div><div class="typed-preview math-content" aria-hidden="true"></div><div class="keypad" role="group" aria-label="Teclado matemático">${T.keys(q.kind).map(k=>`<button type="button" class="key${k[1]==='@del'?' key-del':''}" data-key="${esc(k[1]||k[0])}"${k[1]==='@del'?' aria-label="Borrar"':''}>${esc(k[0])}</button>`).join('')}</div><small class="typed-hint">${esc(T.hint(q))}</small></div>`;
+ else body=`<div class="typed" data-kind="${esc(q.kind)}"><div class="typed-row"><input class="typed-input" type="text" inputmode="none" enterkeyhint="done" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" aria-label="Escribe tu respuesta" placeholder="Escribe tu respuesta"><button type="button" class="primary-btn typed-check">Comprobar</button></div><div class="typed-preview math-content" aria-hidden="true"></div><div class="keypad" role="group" aria-label="Teclado matemático">${zsKeys(T.keys(q.kind)).map(k=>`<button type="button" class="key${k[1]==='@del'?' key-del':''}" data-key="${esc(k[1]||k[0])}"${k[1]==='@del'?' aria-label="Borrar"':''}>${esc(k[0])}</button>`).join('')}</div><small class="typed-hint">${esc(T.hint(q))}</small></div>`;
  return `<article class="quiz typed-quiz ${done?'done':''}" data-step="${step}"><div class="quiz-head"><span>${esc(label)}</span><span>${done?'✓ Resuelto':'Por resolver'}</span></div><h3 class="math-content">${rich(q.q)}</h3>${body}<p class="feedback ${done?'correct':''}" role="status" aria-live="polite">${done?'✓ '+rich(q.why):''}</p></article>`;}
 function typedInsert(inp,k){const a=inp.selectionStart==null?inp.value.length:inp.selectionStart,b=inp.selectionEnd==null?a:inp.selectionEnd;
  if(k==='@del'){if(a!==b)inp.setRangeText('',a,b,'end');else if(a>0)inp.setRangeText('',a-1,a,'end');}else inp.setRangeText(k,a,b,'end');}
@@ -368,10 +368,12 @@ function bindTyped(box){
  inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();checkTyped(art,inp);}});}
 function checkTyped(art,inp){const step=Number(art.dataset.step);if(stepDone(stationIndex,step))return;
  const q=questionAt(step),r=PACETyped.check(q,inp.value);
+ if(r.state!=='empty'&&r.state!=='invalid'){const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,inp.value,r.state==='ok');}
  if(r.state==='ok'){mark(step);return;}
  const el=art.querySelector('.feedback');el.textContent=r.msg;el.className='feedback incorrect';inp.focus();}
 function answer(b){const box=b.closest('.quiz');let step=Number(box.dataset.step);if(stepDone(stationIndex,step))return;
  const q=questionAt(step);
+ {const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,b.dataset.answer,Number(b.dataset.answer)===q.correct);}
  if(Number(b.dataset.answer)===q.correct)mark(step);
  else{let el=box.querySelector('.feedback');el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';}
 }
@@ -389,6 +391,23 @@ function renderStreak(){const el=$('streakChip');if(!el)return;const s=streakNow
  else el.innerHTML='<b aria-hidden="true">🔥</b> <span class="streak-extra">Empieza tu racha</span>';
  const tip=s.n>0?('Racha: '+d(s.n)+' seguidos. '+(s.today?'Hoy ya sumaste.':'Completa una actividad hoy para mantenerla.')):'Completa una actividad hoy para iniciar tu racha.';
  el.title=tip+(s.best>0?' Mejor racha: '+d(s.best)+'.':'');el.setAttribute('aria-label',el.title);}
+/* Interacciones SCORM 1.2: una fila por respuesta (id, tipo, respuesta, correcta, resultado) para el informe de Interacciones de Moodle. */
+let intN=-1,intTimer=null;
+function reportInt(kind,s,q,resp,ok){try{
+ if(mode!=='scorm'||!connected||writeBlocked||!q||!s)return;
+ if(intN<0){const c=parseInt(get('cmi.interactions._count'),10);intN=Number.isFinite(c)&&c>=0?c:0;}
+ if(intN>=2000)return;
+ const n=intN++,p='cmi.interactions.'+n+'.',choice=Array.isArray(q.options),L=k=>String.fromCharCode(97+k);
+ const id=s.id+'.'+kind+'.'+hashStr(String(q.q)).toString(36);
+ let sr='';
+ if(choice){const k=(resp===undefined||resp===null||resp==='')?NaN:Number(resp);sr=Number.isInteger(k)&&k>=0&&k<26?L(k):(ok&&Number.isInteger(q.correct)?L(q.correct):'');}
+ else sr=String(resp==null?'':resp).replace(/[\r\n]+/g,' ').trim().slice(0,250);
+ const cr=choice?(Number.isInteger(q.correct)?L(q.correct):''):String(q.answer==null?'':q.answer).replace(/[\r\n]+/g,' ').slice(0,250);
+ set(p+'id',id);set(p+'time',new Date().toTimeString().slice(0,8));set(p+'type',choice?'choice':'fill-in');
+ if(cr!=='')set(p+'correct_responses.0.pattern',cr);
+ set(p+'weighting','1');if(sr!=='')set(p+'student_response',sr);set(p+'result',ok?'correct':'wrong');
+ clearTimeout(intTimer);intTimer=setTimeout(commit,1500);
+}catch(e){}}
 function mark(step){
  if(stepDone(stationIndex,step))return;
  if(!canChange()){$('stationFeedback').textContent='La conexión SCORM no está disponible. No se registra avance.';return;}
@@ -397,20 +416,25 @@ function mark(step){
 /* ===== META FINAL · evaluación cronometrada (prototipo) =====
  * Dos modalidades: «Simulacro» (reloj que no cierra, no se guarda) y «Oficial» (120 min, se cierra, se registra el mejor intento).
  * Estado oficial en suspend_data: línea  M|n|inicio|fin|respuestas|mejor  (n = intento, respuestas: '-' sin responder, '1' bien, '0' mal). */
-const metaCfg=()=>{const u=UNITS.find(x=>x&&x.meta&&x.meta.minutes);return u?u.meta:null;};
+let mu=Math.max(0,UNITS.findIndex(x=>x&&x.meta&&x.meta.minutes));
+const metaUnits=()=>UNITS.map((u,i)=>u&&u.meta&&u.meta.minutes?i:-1).filter(i=>i>=0);
+const MT=()=>(state.mts&&state.mts[mu])||null;
+const setMT=v=>{if(!state.mts)state.mts={};if(v)state.mts[mu]=v;else delete state.mts[mu];};
+const metaDoneU=u=>!!(state.mts&&state.mts[u]&&state.mts[u].b>=0);
+const metaCfg=()=>{const x=UNITS[mu];return x&&x.meta&&x.meta.minutes?x.meta:null;};
 const metaSecs=()=>((metaCfg()&&metaCfg().minutes)||120)*60;
 const nowSec=()=>Math.floor(Date.now()/1000);
-const metaDone=()=>!!(state.mt&&state.mt.b>=0);
-const metaRunning=()=>!!(state.mt&&state.mt.s&&!state.mt.e);
+const metaDone=()=>metaDoneU(mu);
+const metaRunning=()=>!!(MT()&&MT().s&&!MT().e);
 const metaCount=a=>a.filter(c=>c==='1').length;
 const metaPct=a=>a.length?Math.round(100*metaCount(a)/a.length):0;
 const mmss=t=>{t=Math.max(0,Math.floor(t));const h=Math.floor(t/3600),m=Math.floor(t%3600/60),s=t%60;return (h?h+':'+String(m).padStart(2,'0'):String(m))+':'+String(s).padStart(2,'0');};
 const metaQCache={};
 function metaQs(salt,min){
- const M0=metaCfg();if(min&&M0&&min<M0.minutes){const key=salt+'|'+state.seed+'|'+min;if(metaQCache[key])return metaQCache[key];return metaQCache[key]=metaSub(metaQs(salt),min,M0.minutes,salt);}
- const key=salt+'|'+state.seed;if(metaQCache[key])return metaQCache[key];
+ const M0=metaCfg();if(min&&M0&&min<M0.minutes){const key=salt+'|'+state.seed+'|U'+mu+'|'+min;if(metaQCache[key])return metaQCache[key];return metaQCache[key]=metaSub(metaQs(salt),min,M0.minutes,salt);}
+ const key=salt+'|'+state.seed+'|U'+mu;if(metaQCache[key])return metaQCache[key];
  const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];
- STATIONS.forEach(s=>{
+ STATIONS.filter(s=>s.unit===mu).forEach(s=>{
   const r=rng(((state.seed||0)^hashStr(s.id+'M'+salt))>>>0);
   const by=[[],[],[]];s.practice.forEach(q=>by[lvlOf(q)-1].push(q));
   const used=new Set(),all=s.practice.slice();
@@ -433,24 +457,24 @@ const metaOptN=m=>metaQs('PV',m).length;
 let metaMode='off',metaPhase='hub',metaIdx=0,metaTimer=null,metaPrac=null,metaConfirm=false;const metaVals={};
 function metaSess(){
  if(metaMode==='prac'&&metaPrac)return {mode:'prac',qs:metaQs(metaPrac.salt,metaPrac.min),a:metaPrac.a,s:metaPrac.s,e:metaPrac.e,n:0,secs:metaPrac.min*60};
- if(state.mt)return {mode:'off',qs:metaQs('O'+state.mt.n),a:state.mt.a,s:state.mt.s,e:state.mt.e,n:state.mt.n};
+ if(MT())return {mode:'off',qs:metaQs('O'+MT().n),a:MT().a,s:MT().s,e:MT().e,n:MT().n};
  return null;}
 function metaPersist(){if(metaMode==='off'){const ok=save();if(!ok)$('mtMsg')&&($('mtMsg').textContent='⚠ No se confirmó el guardado de tu respuesta.');}}
 function metaRemaining(S){return (S.secs||metaSecs())-(nowSec()-S.s);}
 function metaFinish(auto){
  const S=metaSess();if(!S||S.e)return;
- if(S.mode==='off'){const total=metaSecs(),end=Math.min(nowSec(),S.s+total);state.mt.e=end;const sc=metaPct(state.mt.a);if(sc>state.mt.b)state.mt.b=sc;save();}
+ if(S.mode==='off'){const total=metaSecs(),end=Math.min(nowSec(),S.s+total);MT().e=end;const sc=metaPct(MT().a);if(sc>MT().b)MT().b=sc;S.qs.forEach((x,i)=>{const r=S.a[i];if(r==='-')return;const st=STATIONS.find(z=>z.id===x.sid);reportInt('M',st,x.q,metaVals[S.mode+S.n+':'+i],r==='1');});save();}
  else{metaPrac.e=nowSec();}
  metaPhase='res';metaConfirm=false;metaNote=auto?'El tiempo terminó: la evaluación se cerró y se entregó con tus respuestas guardadas.':'';
  if(view==='meta')renderMeta();}
 let metaNote='';const metaWarned={};
-function metaExpiryCheck(){if(metaRunning()&&metaRemaining({s:state.mt.s})<=0)metaFinish(true);}
-function openMeta(){selectedUnit=Math.max(0,UNITS.findIndex(u=>u&&u.meta));metaExpiryCheck();metaPhase='hub';metaConfirm=false;showOnly('meta');renderMeta();breadcrumbs();}
+function metaExpiryCheck(){if(metaRunning()&&metaRemaining({s:MT().s})<=0)metaFinish(true);}
+function openMeta(){mu=selectedUnit;metaMode='off';metaPrac=null;metaExpiryCheck();metaPhase='hub';metaConfirm=false;showOnly('meta');renderMeta();breadcrumbs();}
 function metaStartOff(){
  if(!canChange()){$('mtMsg').textContent='La conexión SCORM no está disponible. No se puede iniciar.';return;}
- const prev=state.mt,n=prev?(prev.e?prev.n+1:prev.n):0,b=prev?prev.b:-1,N=metaQs('O'+n).length;
- state.mt={n,s:nowSec(),e:0,a:Array(N).fill('-'),b};
- if(!save()){state.mt=prev;$('mtMsg').textContent='⚠ No se pudo guardar el inicio. Revisa la conexión e inténtalo de nuevo.';return;}
+ const prev=MT(),n=prev?(prev.e?prev.n+1:prev.n):0,b=prev?prev.b:-1,N=metaQs('O'+n).length;
+ setMT({n,s:nowSec(),e:0,a:Array(N).fill('-'),b});
+ if(!save()){setMT(prev);$('mtMsg').textContent='⚠ No se pudo guardar el inicio. Revisa la conexión e inténtalo de nuevo.';return;}
  metaMode='off';metaPhase='run';metaIdx=0;metaNote='';for(const k in metaVals)delete metaVals[k];renderMeta();}
 function metaStartPrac(){
  const salt='P'+Math.floor(Math.random()*1e9),min=metaPracMin,N=metaQs(salt,min).length;
@@ -499,10 +523,10 @@ function metaRunHTML(S){
  <aside class="mt-side" aria-label="Preguntas"><div class="mt-sidehead"><b>Tus preguntas</b><span id="mtCount"></span></div><div class="mt-pal" id="mtPal"></div>
  <div class="mt-submit">${metaConfirm?`<p class="mt-warn">${left?`Te faltan <b>${left}</b> pregunta${left===1?'':'s'} por responder. `:''}¿Entregar ahora? No podrás cambiar tus respuestas.</p><div class="mt-row"><button type="button" class="primary-btn" id="mtYes">Sí, entregar</button><button type="button" class="ls-btn ghost" id="mtNo">Seguir revisando</button></div>`:`<button type="button" class="primary-btn" id="mtDeliver">Entregar evaluación</button>`}<p id="mtMsg" class="mt-msg" role="status" aria-live="polite"></p></div></aside></div>`;}
 function metaHubHTML(){
- const M=metaCfg(),N=metaQs(state.mt?'O'+(state.mt.e?state.mt.n+1:state.mt.n):'O0').length,min=M.minutes,mt=state.mt;
- const att=mt?(mt.n+(mt.e?1:0)):0,run=metaRunning(),left=run?metaRemaining({s:mt.s}):0,all=STATIONS.every((s,i)=>stationDone(i)===milestoneCount(s));
- const ready=all?'':`<p class="mt-soft">Te recomendamos completar primero las ${STATIONS.length} estaciones. Aún no estás obligado a hacerlo para entrar.</p>`;
- return `<div class="mt-hero"><span class="eyebrow">META FINAL</span><h1>Evaluación de la unidad</h1><p>Mide lo que aprendiste en las ${STATIONS.length} estaciones: <b>${N} preguntas</b> pensadas para <b>${min} minutos</b>. Puedes intentarlo cuantas veces quieras.</p>${ready}</div>
+ const M=metaCfg(),N=metaQs(MT()?'O'+(MT().e?MT().n+1:MT().n):'O0').length,min=M.minutes,mt=MT();
+ const att=mt?(mt.n+(mt.e?1:0)):0,run=metaRunning(),left=run?metaRemaining({s:mt.s}):0,all=STATIONS.every((s,i)=>s.unit!==mu||stationDone(i)===milestoneCount(s));
+ const ready=all?'':`<p class="mt-soft">Te recomendamos completar primero las ${STATIONS.filter(s=>s.unit===mu).length} estaciones. Aún no estás obligado a hacerlo para entrar.</p>`;
+ return `<div class="mt-hero"><span class="eyebrow">META FINAL</span><h1>Evaluación de la Unidad ${UNITS[mu].roman}</h1><p>Mide lo que aprendiste en las ${STATIONS.filter(s=>s.unit===mu).length} estaciones: <b>${N} preguntas</b> pensadas para <b>${min} minutos</b>. Puedes intentarlo cuantas veces quieras.</p>${ready}</div>
  <div class="mt-cards"><section class="mt-card mt-prac"><span class="lc-tag">SIMULACRO</span><h2>Practica con reloj</h2><p class="mt-optlbl" id="mtOptLbl">Elige cuánto tiempo quieres practicar:</p><div class="mt-opts" role="radiogroup" aria-labelledby="mtOptLbl">${META_OPTS.map(m=>`<button type="button" role="radio" aria-checked="${m===metaPracMin}" class="mt-opt${m===metaPracMin?' on':''}" data-min="${m}"><b>${m} min</b><small>${metaOptN(m)} preguntas</small></button>`).join('')}</div><ul><li>Se arma una evaluación acorde al tiempo elegido, con preguntas de todas las estaciones.</li><li>El reloj corre, pero <b>no se cierra</b>: si pasas de los ${metaPracMin} minutos sigues y ves tu tiempo extra.</li><li>Las preguntas se sortean distintas cada vez.</li><li><b>El resultado no se guarda</b> ni se envía a SiveducMD.</li></ul><button type="button" class="ls-btn ls-next" id="mtPrac">Comenzar simulacro de ${metaPracMin} min</button></section>
  <section class="mt-card mt-off"><span class="lc-tag">OFICIAL</span><h2>META FINAL oficial</h2>${run?`<p class="mt-run">Tienes una evaluación <b>en curso</b>. Tiempo restante: <b id="mtHubLeft">${mmss(left)}</b>.</p><button type="button" class="primary-btn" id="mtResume">Continuar evaluación</button>`:`<ul><li><b>${min} minutos</b>. El reloj comienza <b>cuando tú aprietas «Comenzar»</b> y <b>no se detiene</b> aunque salgas o cierres la ventana.</li><li>Al terminar el tiempo la evaluación <b>se cierra sola</b> y se entrega con las respuestas que alcanzaste a guardar.</li><li>Puedes cambiar tus respuestas hasta entregar. No verás si son correctas hasta el final.</li><li>Cada intento trae preguntas distintas. Se registra en SiveducMD <b>tu mejor resultado</b>.</li><li>No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial.</li></ul><label class="mt-check"><input type="checkbox" id="mtOk"> Entendí cómo funciona y quiero comenzar ahora.</label><button type="button" class="primary-btn" id="mtGo" disabled>Comenzar evaluación oficial</button>`}
  ${mt&&mt.b>=0?`<p class="mt-hist">Intentos entregados: <b>${att}</b> · Mejor resultado: <b>${mt.b} %</b>${mt.e?` · <button type="button" class="linklike" id="mtLast">Ver último intento</button>`:''}</p>`:''}<p id="mtMsg" class="mt-msg" role="status"></p></section></div>`;}
@@ -513,7 +537,7 @@ function metaResHTML(S){
  const T=PACETyped;
  const rev=S.qs.map((x,i)=>{const q=x.q,st=S.a[i];let corr='';if(q.type==='input'){let t='';try{t=T.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
   return `<details class="mt-rev ${st==='1'?'ok':st==='0'?'bad':'no'}"><summary><span class="mt-mark">${st==='1'?'✓':st==='0'?'✗':'–'}</span> Pregunta ${i+1} · ${esc(x.st)}</summary><div class="mt-revbody"><p class="math-content">${rich(q.q)}</p><p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>${st!=='1'&&q.solution?`<div class="mt-dev"><b>Desarrollo:</b><ol class="mt-devlist">${String(q.solution).split(/\n+/).filter(x=>x.trim()).map(x=>`<li class="math-content">${rich(x)}</li>`).join('')}</ol></div>`:`<p class="math-content">${st!=='1'?'<b>Retroalimentación:</b> ':''}${rich(q.why||'')}</p>`}</div></details>`;}).join('');
- const reg=S.mode==='off'?`<p class="mt-regok">✓ Resultado registrado${state.mt&&state.mt.b===pct?'. Es tu mejor resultado hasta ahora.':'. Tu mejor resultado registrado es '+state.mt.b+' %.'}</p><p class="mt-soft">No aprueba ni reprueba: ${completed()?'¡completaste el curso!':'completa también todas las estaciones para terminar el curso.'}</p>`:`<p class="mt-regno">Este fue un simulacro: el resultado <b>no se guarda</b>.</p>`;
+ const reg=S.mode==='off'?`<p class="mt-regok">✓ Resultado registrado${MT()&&MT().b===pct?'. Es tu mejor resultado hasta ahora.':'. Tu mejor resultado registrado es '+MT().b+' %.'}</p><p class="mt-soft">No aprueba ni reprueba: ${completed()?'¡completaste el curso!':'completa también todas las estaciones para terminar el curso.'}</p>`:`<p class="mt-regno">Este fue un simulacro: el resultado <b>no se guarda</b>.</p>`;
  return `<div class="mt-hero"><span class="eyebrow">${S.mode==='off'?'META FINAL OFICIAL · RESULTADO':'SIMULACRO · RESULTADO'}</span>${metaNote?`<p class="mt-timeup">${esc(metaNote)}</p>`:''}<div class="mt-score"><strong>${pct}%</strong><span>${c} de ${N} correctas</span><span>Tiempo usado: ${mmss(used)}${S.mode==='prac'&&used>(S.secs||metaSecs())?' (pasaste el tiempo previsto)':''}</span></div>${reg}</div>
  <section class="lc lc-steps"><span class="lc-tag">POR ESTACIÓN</span><table class="mt-table"><tbody>${rows}</tbody></table><p class="mt-soft"><i class="d1"></i> correcta <i class="d0"></i> incorrecta <i class="d-"></i> sin responder</p></section>
  <section class="lc"><span class="lc-tag">REVISA TUS PREGUNTAS</span><div class="mt-revlist">${rev}</div></section>
@@ -526,7 +550,7 @@ function renderMeta(){
   const ok=$('mtOk');if(ok)ok.addEventListener('change',()=>{$('mtGo').disabled=!ok.checked;});
   if($('mtGo'))$('mtGo').addEventListener('click',metaStartOff);if($('mtPrac'))$('mtPrac').addEventListener('click',metaStartPrac);root.querySelectorAll('.mt-opt').forEach(b=>b.addEventListener('click',()=>{metaPracMin=Number(b.dataset.min);renderMeta();const nb=root.querySelector('.mt-opt.on');if(nb)nb.focus();}));if($('mtResume'))$('mtResume').addEventListener('click',metaResume);
   if($('mtLast'))$('mtLast').addEventListener('click',()=>{metaMode='off';metaPhase='res';renderMeta();});
-  if(metaRunning()){clearInterval(metaTimer);metaTimer=setInterval(()=>{const el=$('mtHubLeft');if(!el||view!=='meta'||metaPhase!=='hub'){clearInterval(metaTimer);return;}const r=metaRemaining({s:state.mt.s});if(r<=0){metaFinish(true);return;}el.textContent=mmss(r);},1000);}
+  if(metaRunning()){clearInterval(metaTimer);metaTimer=setInterval(()=>{const el=$('mtHubLeft');if(!el||view!=='meta'||metaPhase!=='hub'){clearInterval(metaTimer);return;}const r=metaRemaining({s:MT().s});if(r<=0){metaFinish(true);return;}el.textContent=mmss(r);},1000);}
  }else if(metaPhase==='run'){
   root.innerHTML='<div class="mt-wrap">'+metaRunHTML(S)+'</div>';metaPalette(S);metaBindQ(S);
   $('mtPrev').addEventListener('click',()=>{if(metaIdx>0){metaIdx--;metaConfirm=false;renderMeta();window.scrollTo({top:0,behavior:'instant'});}});
@@ -552,4 +576,246 @@ document.addEventListener('click',function(e){var b=e.target.closest&&e.target.c
 var t=0;function upd(){t=0;b.classList.toggle('on',window.scrollY>600);}
 window.addEventListener('scroll',function(){if(!t)t=requestAnimationFrame(upd);},{passive:true});
 b.addEventListener('click',function(){var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;window.scrollTo({top:0,behavior:rm?'auto':'smooth'});var h=document.querySelector('h1,h2');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}});upd();})();
-init();metaExpiryCheck();renderStreak();openHome();
+(function(){var tabs=[].slice.call(document.querySelectorAll('.htab'));function show(k){tabs.forEach(function(b){var on=b.dataset.hp===k;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});[].slice.call(document.querySelectorAll('.pt .hp')).forEach(function(p){p.hidden=p.id!=='hp-'+k;});if(k!=='tour'){var v=document.querySelector('.pt video');if(v&&!v.paused)v.pause();}}
+tabs.forEach(function(b,i){b.addEventListener('click',function(){show(b.dataset.hp);});b.addEventListener('keydown',function(e){var n=-1;if(e.key==='ArrowRight')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;if(n>=0){e.preventDefault();tabs[n].focus();show(tabs[n].dataset.hp);}});});
+[].slice.call(document.querySelectorAll('[data-open-unit]')).forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();openMap(Number(l.dataset.openUnit));});});})();
+/* ===== Navegación por pantallas · «cero scroll» (propuesta de Henry, V4) =====
+ * Capa de presentación sobre el motor: no cambia el estado, el progreso, las interacciones SCORM ni la META FINAL.
+ *  - Aprende: Idea → Ejemplos (pasos progresivos) → Cierre, con accesos directos y un solo par Anterior/Siguiente.
+ *  - Practica / Aplica: una pregunta a la vez (las mismas preguntas y la misma lógica de respuesta).
+ *  - Explora: la simulación ocupa el espacio disponible.
+ *  El desplazamiento solo aparece como respaldo cuando el contenido no cabe ni reduciendo la letra al mínimo legible. */
+const zsPos={},zsQ={};
+let zsRO=null,zsTimer=null,zsToastT=null;
+const zsOn=()=>document.body.classList.contains('zs');
+function zsFit(box,inner,min){
+ if(!box||!inner)return;const m=min||.7,WMIN=.6;
+ const wide=()=>{const q=box.querySelectorAll('mjx-container,.zs-aux');for(let i=0;i<q.length;i++){if(q[i].scrollWidth>q[i].clientWidth+1)return true;}return false;};
+ let fh=null,fhw=null;
+ for(let z=1;z>=m-.001;z-=.04){box.style.setProperty('--z',z.toFixed(2));
+  const h=box.scrollHeight<=box.clientHeight+1&&box.scrollWidth<=box.clientWidth+1;
+  if(h&&fh===null)fh=z;
+  if(h&&!wide()){fhw=z;break;}
+ }
+ /* La letra baja hasta que cabe a lo alto y a lo ancho; a lo ancho no baja de 0,7 (una línea muy larga se desplaza sola). */
+ let r=m;if(fh!==null)r=Math.min(fh,Math.max(fhw||0,Math.max(WMIN,m)));
+ box.style.setProperty('--z',r.toFixed(2));
+}
+const zsNorm=t=>String(t||'').toLowerCase().replace(/[*_`$\\.:;,!¡¿?\s]+/g,' ').trim();
+function zsFitQ(b){for(let z=1;z>=.77;z-=.04){b.style.setProperty('--z',z.toFixed(2));if(b.scrollHeight<=b.clientHeight+1)return;}}
+function zsFitAll(){document.querySelectorAll('#stationContent .zs-fit').forEach(b=>{
+  const inner=b.firstElementChild,mn=Number(b.dataset.min)||.7,zv=()=>parseFloat(b.style.getPropertyValue('--z'))||1;
+  if(inner&&inner.classList.contains('zs-cols')){
+   /* Idea: una sola columna; si obliga a letra chica y hay ancho, se reparte en dos columnas. */
+   inner.classList.remove('zs-two');zsFit(b,inner,mn);const z1=zv();
+   if(z1<.9&&b.clientWidth>=640){inner.classList.add('zs-two');zsFit(b,inner,mn);if(zv()<=z1+.001){inner.classList.remove('zs-two');zsFit(b,inner,mn);}}
+  }else zsFit(b,inner,mn);});document.querySelectorAll('#stationContent .zs-qbody').forEach(zsFitQ);}
+function zsTypeset(el,cb){
+ const done=()=>{try{cb&&cb();}catch(e){}};
+ if(window.MathJax&&MathJax.typesetPromise){MathJax.typesetPromise([el]).then(done,done);}
+ else{let n=0;const t=setInterval(()=>{if(window.MathJax&&MathJax.typesetPromise){clearInterval(t);MathJax.typesetPromise([el]).then(done,done);}else if(++n>60){clearInterval(t);done();}},150);}
+}
+function zsRefit(){clearTimeout(zsTimer);zsTimer=setTimeout(zsFitAll,60);}
+window.addEventListener('resize',zsRefit);
+window.addEventListener('orientationchange',zsRefit);
+
+/* ---------- APRENDE ---------- */
+function zsScreens(s){
+ const L=s.learn||{},ex=[];
+ if(L.steps&&(L.steps.items||[]).length)ex.push(L.steps);
+ (Array.isArray(L.more)?L.more:[]).slice(0,3).forEach(m=>{if(m&&(m.items||[]).length)ex.push(m);});
+ const scr=[{k:'idea',lab:'Idea'}];
+ ex.forEach((e,i)=>scr.push({k:'ex',e:e,n:i+1,lab:'Ej. '+(i+1)}));
+ if(!ex.length&&(s.example||'').trim())scr.push({k:'txt',lab:'Ejemplo',t:s.example});
+ if(L.warn||(s.media&&s.media.length))scr.push({k:'end',lab:'Cierre'});
+ return {scr:scr,total:ex.length};
+}
+function zsHead(sc,pg,tot){
+ if(sc.k==='idea')return 'Conceptos esenciales';
+ if(sc.k==='end')return 'Presta atención';
+ return 'Ejemplo guiado'+(tot>1?' '+sc.n+' de '+tot:'');
+}
+function zsCap(sc,k){
+ const it=sc.e.items,vi=(()=>{const v=it.findIndex(x=>/^\*\*Verificaci/.test(x.why||''));return v<0?it.length:v;})();
+ if(vi>=it.length)return `Ejemplo ${sc.n} · Paso ${k+1} de ${it.length}`;
+ return k<vi?`Ejemplo ${sc.n} · Resolución ${k+1} de ${vi}`:`Ejemplo ${sc.n} · Verificación`;
+}
+function zsSceneHTML(s,sc,pos,tot){
+ const L=s.learn||{};
+ if(sc.k==='idea'){
+  return `<div class="zs-idea">${L.goal?`<section class="zs-card zs-goal"><span class="zs-tag">QUÉ APRENDERÁS</span><p class="math-content">${rb(L.goal)}</p></section>`:''}<section class="zs-card zs-ideac"><span class="zs-tag">COMPRENDE LA IDEA</span><div class="zs-fit zs-body" data-min=".6"><div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div></div></section></div>`;
+ }
+ if(sc.k==='txt'){
+  return `<div class="zs-idea"><section class="zs-card zs-ideac"><span class="zs-tag">EJEMPLO</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${rich(sc.t)}</div></div></section></div>`;
+ }
+ if(sc.k==='end'){
+  return `<div class="zs-idea"><section class="zs-card zs-warn"><span class="zs-tag">PRESTA ATENCIÓN</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${L.warn?rb(L.warn):''}${renderMedia(s.media||[])}</div></div></section></div>`;
+ }
+ const items=sc.e.items,k=Math.min(pos.step,items.length-1),cur=items[k],sd=cur.side||{},hasSd=!!(sd.title||sd.math||sd.text);
+ const isV=it=>/^\*\*Verificaci/.test(it.why||'');
+ let vi=items.findIndex(isV);if(vi<0)vi=items.length;
+ const inV=k>=vi,nRes=vi,nVer=items.length-vi;
+ const mk=(it,i)=>`<div class="zs-line ${i===k?'cur':i<k?'past':'fut'}" ${i===k?'aria-current="step"':''}>${it.math?`<div class="math-content">$$${it.math}$$</div>`:''}</div>`;
+ const resL=items.slice(0,vi).map((it,i)=>mk(it,i)).join('');
+ const verL=(nVer&&inV)?`<div class="zs-verif"><span class="zs-vlab">VERIFICACIÓN · fuera de la resolución</span>${items.slice(vi).map((it,i)=>mk(it,i+vi)).join('')}</div>`:'';
+ const lines=resL+verL;
+ const pillTxt=inV?(nVer>1?`Verificación ${k-vi+1} de ${nVer}`:'Verificación'):(nVer?`Resolución ${k+1} de ${nRes}`:`Paso ${k+1} de ${items.length}`);
+ const why=(cur.why||'').trim();
+ return `<div class="zs-ex"><div class="zs-ex-title"><div class="zs-ex-t"><span class="zs-tag coral">EJEMPLO ${sc.n}${tot>1?' DE '+tot:''}</span>${sc.e.title?`<h2 class="math-content">${rb(sc.e.title)}</h2>`:''}</div><span class="zs-pill${inV?' ver':''}">${pillTxt}</span></div>
+  <div class="zs-worked${inV?' isver':''}"><div class="zs-lines zs-fit" data-min=".5"><div class="zs-lines-in">${lines}</div></div>
+  <aside class="zs-side" aria-label="Explicación del paso actual"><span class="zs-tag ${inV?'ver':'teal'}">${inV?'VERIFICACIÓN · SOLO UNA COMPROBACIÓN':'¿POR QUÉ ESTE PASO?'}</span><div class="zs-fit zs-side-b" data-min=".6"><div>${hasSd&&sd.title?`<h4 class="math-content">${rb(sd.title)}</h4>`:''}${why&&!(hasSd&&sd.title&&zsNorm(why)===zsNorm(sd.title))?`<p class="zs-why math-content">${rb(why)}</p>`:''}${hasSd&&sd.math?`<div class="zs-aux math-content">$$${sd.math}$$</div>`:''}${hasSd&&sd.text?`<p class="zs-st math-content">${rb(sd.text)}</p>`:''}${!why&&!hasSd?'<p class="zs-st">Observa la operación realizada en este paso.</p>':''}</div></div></aside></div></div>`;
+}
+function zsRenderLearn(){
+ const s=STATIONS[stationIndex],host=$('stationContent'),done=stepDone(stationIndex,0);
+ const {scr,total}=zsScreens(s);
+ const pos=zsPos[s.id]||(zsPos[s.id]={page:0,step:0});
+ pos.page=Math.max(0,Math.min(scr.length-1,pos.page));
+ const sc=scr[pos.page],nSteps=sc.k==='ex'?sc.e.items.length:0;
+ if(sc.k==='ex')pos.step=Math.max(0,Math.min(nSteps-1,pos.step));else pos.step=0;
+ const last=pos.page===scr.length-1;
+ let nextTxt;
+ if(sc.k==='ex'&&pos.step<nSteps-1)nextTxt='Siguiente paso →';
+ else if(last)nextTxt='Ir a Practica →';
+ else{const nx=scr[pos.page+1];nextTxt=nx.k==='ex'?'Ejemplo '+nx.n+' →':nx.k==='end'?'Cierre →':'Siguiente →';}
+ const cap=sc.k==='ex'?zsCap(sc,pos.step):(sc.k==='idea'?'Idea clave de la estación':sc.k==='end'?'Antes de practicar':'Ejemplo');
+ host.innerHTML=`<div class="zs-stage zs-learn"><div class="zs-top"><div class="zs-kick">APRENDE <i>·</i> <b>${zsHead(sc,pos.page,total)}</b></div><span class="zs-pg">Pantalla ${pos.page+1} de ${scr.length}</span></div>
+  <nav class="zs-jump" aria-label="Ir directamente a una pantalla de Aprende">${scr.map((c,i)=>`<button type="button" class="zs-chip${i===pos.page?' on':''}" data-pg="${i}" ${i===pos.page?'aria-current="step"':''}>${c.lab}</button>`).join('')}</nav>
+  <div class="zs-scene" id="zsScene" aria-live="polite">${zsSceneHTML(s,sc,pos,total)}</div>
+  <div class="zs-bottom"><button type="button" class="zs-btn" id="zsPrev" ${pos.page===0&&pos.step===0?'disabled':''}>← Anterior</button><div class="zs-mid"><span class="zs-cap">${cap}</span><div class="zs-pips" aria-hidden="true">${scr.map((c,i)=>`<span class="${i===pos.page?'on':i<pos.page?'done':''}"></span>`).join('')}</div></div><button type="button" class="zs-btn next" id="zsNext">${nextTxt}</button></div></div>`;
+ const go=(page,step)=>{pos.page=page;pos.step=step;zsRenderLearn();};
+ const nxt=()=>{
+  if(sc.k==='ex'&&pos.step<nSteps-1){go(pos.page,pos.step+1);return;}
+  if(!last){go(pos.page+1,0);return;}
+  activeTab='practice';state.tab='practice';
+  if(!stepDone(stationIndex,0)){mark(0);}   /* mark() guarda, vuelve a dibujar la estación (ya en Practica) y avisa «Avance actualizado» */
+  else{save();renderStation();}
+ };
+ const prv=()=>{
+  if(sc.k==='ex'&&pos.step>0){go(pos.page,pos.step-1);return;}
+  if(pos.page>0){const p=scr[pos.page-1];go(pos.page-1,p.k==='ex'?p.e.items.length-1:0);}
+ };
+ $('zsNext').onclick=nxt;$('zsPrev').onclick=prv;
+ host.querySelectorAll('.zs-chip').forEach(b=>b.onclick=()=>go(Number(b.dataset.pg),0));
+ zsBindKeys(nxt,prv);
+ const scene=$('zsScene');
+ let tx=null;
+ scene.addEventListener('touchstart',e=>{if(e.touches.length===1)tx={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
+ scene.addEventListener('touchend',e=>{if(!tx||!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-tx.x,dy=e.changedTouches[0].clientY-tx.y;tx=null;if(Math.abs(dx)>80&&Math.abs(dx)>Math.abs(dy)*1.6){if(dx<0)nxt();else prv();}},{passive:true});
+ zsFitAll();zsTypeset(scene,zsFitAll);
+}
+function zsBindKeys(nxt,prv){
+ if(window.__zsKey)document.removeEventListener('keydown',window.__zsKey);
+ window.__zsKey=function(ev){
+  if(!document.getElementById('zsScene')){document.removeEventListener('keydown',window.__zsKey);window.__zsKey=null;return;}
+  if(ev.key!=='ArrowRight'&&ev.key!=='ArrowLeft')return;
+  if(ev.altKey||ev.ctrlKey||ev.metaKey||ev.shiftKey)return;
+  const t=ev.target;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable))return;
+  ev.preventDefault();if(ev.key==='ArrowRight')nxt();else prv();
+ };
+ document.addEventListener('keydown',window.__zsKey);
+}
+
+/* ---------- PRACTICA / APLICA: una pregunta a la vez ---------- */
+function zsRenderQuiz(){
+ const host=$('stationContent'),s=STATIONS[stationIndex],qs=[...host.querySelectorAll(':scope > .quiz')];
+ if(!qs.length)return;
+ const key=s.id+'|'+activeTab,n=qs.length;
+ let cur=zsQ[key];
+ if(cur==null||cur<0||cur>=n){cur=qs.findIndex(q=>!q.classList.contains('done'));if(cur<0)cur=0;}
+ zsQ[key]=cur;
+ const nDone=qs.filter(q=>q.classList.contains('done')).length;
+ const title=activeTab==='practice'?'PRACTICA':'APLICA';
+ const wrap=document.createElement('div');wrap.className='zs-stage zs-quiz';
+ const body=document.createElement('div');body.className='zs-qbody';
+ qs.forEach((q,i)=>{q.classList.toggle('zs-cur',i===cur);body.appendChild(q);});
+ const redo=host.querySelector(':scope > .learn-finish');
+ const pips=qs.map((q,i)=>`<button type="button" class="zs-qpip${q.classList.contains('done')?' ok':''}${i===cur?' on':''}" data-q="${i}" aria-label="Ir al ejercicio ${i+1}${q.classList.contains('done')?' (resuelto)':''}"><span>${i+1}</span></button>`).join('');
+ const stats=`<div class="zs-qstats" aria-label="Resumen de avance"><span>Resueltas <b>${nDone}/${n}</b></span><span>Pendientes <b>${n-nDone}</b></span></div>`;
+ const top=document.createElement('div');top.className='zs-top';
+ top.innerHTML=`<div class="zs-kick">${title} <i>·</i> <b>Ejercicio ${cur+1} de ${n}</b></div>${stats}`;
+ const bar=document.createElement('div');bar.className='zs-bottom';
+ bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0?'disabled':''}>← Anterior</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div><button type="button" class="zs-btn next" id="zsQNext" ${cur===n-1?'disabled':''}>Siguiente →</button>`;
+ host.innerHTML='';wrap.append(top,body,bar);host.appendChild(wrap);
+ if(redo){redo.classList.add('zs-redo');if(cur===n-1&&nDone===n)body.appendChild(redo);}
+ const go=i=>{zsQ[key]=Math.max(0,Math.min(n-1,i));renderStation();};
+ bar.querySelector('#zsQPrev').onclick=()=>go(cur-1);
+ bar.querySelector('#zsQNext').onclick=()=>go(cur+1);
+ bar.querySelectorAll('.zs-qpip').forEach(b=>b.onclick=()=>go(Number(b.dataset.q)));
+ new MutationObserver(zsRefit).observe(body,{childList:true,subtree:true,characterData:true});
+ /* Teclado matemático: 5 columnas ordenadas (dígitos y paréntesis · operaciones · potencias y raíz). */
+ const ORD=['7','8','9','(',')','4','5','6','+','-','1','2','3','/','^','0',',','²','√','π','; ',' y ','x','=','∅','@del'];
+ body.querySelectorAll('.keypad').forEach(pad=>{const ks=[...pad.children];ks.sort((a,b)=>{const ia=ORD.indexOf(a.dataset.key),ib=ORD.indexOf(b.dataset.key);return(ia<0?99:ia)-(ib<0?99:ib);});ks.forEach(k=>pad.appendChild(k));});
+ /* Flechas del teclado: ← → cambian de ejercicio (no mientras se escribe una respuesta). */
+ if(window.__zsQKey)document.removeEventListener('keydown',window.__zsQKey);
+ window.__zsQKey=function(ev){
+  if(!document.querySelector('.zs-quiz')){document.removeEventListener('keydown',window.__zsQKey);window.__zsQKey=null;return;}
+  if(ev.key!=='ArrowRight'&&ev.key!=='ArrowLeft')return;
+  if(ev.altKey||ev.ctrlKey||ev.metaKey||ev.shiftKey)return;
+  const t=ev.target,cq=document.querySelector('.zs-qbody>.zs-cur');
+  if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.disabled&&String(t.value||'').trim()!==''&&!(cq&&cq.classList.contains('done')))return;   /* con texto escrito, las flechas mueven el cursor */
+  if(t&&t.isContentEditable)return;
+  const to=ev.key==='ArrowRight'?cur+1:cur-1;if(to<0||to>=n)return;
+  ev.preventDefault();go(to);
+ };
+ document.addEventListener('keydown',window.__zsQKey);
+ /* Los manejadores de respuesta se ligaron a los mismos nodos en renderStation0; al moverlos se conservan. */
+ const first=body.querySelector('.zs-cur .typed-input');if(first&&!body.querySelector('.zs-cur.done')&&matchMedia('(hover:hover)').matches)first.focus({preventScroll:true});
+}
+
+/* ---------- EXPLORA ---------- */
+function zsRenderExplore(){
+ const host=$('stationContent');if(!host.querySelector('.ex-frame')&&!host.querySelector('.ex-link'))return;
+ host.classList.add('zs-explore');
+ const h2=host.querySelector(':scope > h2'),desc=host.querySelector(':scope > p.math-content'),note=host.querySelector(':scope > .ex-note'),instr=host.querySelector(':scope > .lc'),
+  fr=host.querySelector('.ex-frame'),ctl=host.querySelector(':scope > .ls-ctl'),alt=host.querySelector(':scope > .ex-alt'),link=host.querySelector(':scope > p .ex-link');
+ const info=document.createElement('details');info.className='zs-exinfo';
+ info.innerHTML='<summary>¿Qué puedes hacer aquí?</summary>';
+ const box=document.createElement('div');box.className='zs-exinfo-b';
+ if(desc)box.appendChild(desc);if(instr)box.appendChild(instr);if(alt)box.appendChild(alt);
+ info.appendChild(box);
+ const top=document.createElement('div');top.className='zs-top';
+ top.innerHTML=`<div class="zs-kick">✦ EXPLORA <i>·</i> <b></b></div><span class="zs-pill soft">No cuenta para tu avance</span>`;
+ top.querySelector('b').textContent=h2?h2.textContent:'Explora';
+ const stage=document.createElement('div');stage.className='zs-stage zs-expl';
+ const area=document.createElement('div');area.className='zs-exarea';
+ if(fr)area.appendChild(fr);else{const p=host.querySelector(':scope > p');if(p)area.appendChild(p);}
+ const bar=document.createElement('div');bar.className='zs-exbar';
+ bar.appendChild(info);if(ctl)bar.appendChild(ctl);
+ const keep=[...host.children].filter(e=>e.id==='exClose');
+ host.innerHTML='';stage.append(top,area,bar);host.appendChild(stage);
+ /* Los botones «Reiniciar» y «Vista ampliada» conservan sus manejadores porque se mueven los mismos nodos. */
+}
+
+/* ---------- envoltorio de renderStation ---------- */
+function zsAfter(){
+ if(!zsOn()){document.body.classList.remove('zs-ex');return;}
+ try{
+  if(activeTab==='learn'){zsRenderLearn();}
+  else if(activeTab==='explore'){zsRenderExplore();}
+  else{zsRenderQuiz();}
+  document.body.classList.toggle('zs-ex',activeTab==='explore');
+  const sc=document.querySelector('#stationContent');if(sc)sc.scrollTop=0;
+  zsRefit();
+ }catch(e){try{console.error('zs',e);}catch(_){}}
+}
+function zsToast(){
+ const el=$('stationFeedback');if(!el)return;
+ new MutationObserver(()=>{
+  const p=el.parentElement;if(!p)return;
+  if(!el.textContent.trim()){p.classList.remove('zs-toast');return;}
+  p.classList.remove('zs-toast');void p.offsetWidth;p.classList.add('zs-toast');
+  clearTimeout(zsToastT);zsToastT=setTimeout(()=>p.classList.remove('zs-toast'),4500);
+ }).observe(el,{childList:true,characterData:true,subtree:true});
+}
+
+/* Teclado matemático: mismo orden en estaciones y en META FINAL (5 columnas: dígitos y paréntesis · operaciones · potencias y raíz) */
+function zsKeys(list){
+ const ORD=['7','8','9','(',')','4','5','6','+','-','1','2','3','/','^','0',',','²','√','π','; ',' y ','x','=','∅','@del'];
+ const pos=k=>{const i=ORD.indexOf(k[1]||k[0]);return i<0?99:i;};
+ return list.slice().sort((a,b)=>pos(a)-pos(b));
+}
+
+function renderStation(){renderStation0();zsAfter();}
+function showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}
+zsToast();
+init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();

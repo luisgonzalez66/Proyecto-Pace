@@ -664,4 +664,8 @@ body.ex-big-on{overflow:hidden}
 .ls-item.has-side .ls-main{grid-column:2;grid-row:1}
 .ls-item.has-side .ls-side{grid-column:3;grid-row:1}
 .ls-math{text-align:center}.ls-math mjx-container{margin:0 auto!important}
-@media(max-width:900px){.ls-item.has-side{grid-template-columns:minmax(0,1fr)}.ls-item.has-side .ls-main,.ls-item.has-side .ls-side{grid-column:1;grid-row:auto}.ls-side{margin:2px 8px 0}}
+@media(max-width:720px){.ls-item.has-side{grid-template-columns:minmax(0,1fr)}.ls-item.has-side .ls-main,.ls-item.has-side .ls-side{grid-column:1;grid-row:auto}.ls-side{margin:2px 8px 0}}
+
+.ls-rot{display:none;margin:0 0 8px;padding:6px 8px 6px 10px;border-radius:10px;background:#eef6fa;border:1px solid #cfe3ec;font-size:.82rem;color:#3b5d75;align-items:center;gap:8px}
+.ls-rot .ls-rot-x{border:0;background:transparent;font-size:1.2rem;line-height:1;min-width:32px;min-height:32px;color:#3b5d75;cursor:pointer}
+@media(max-width:720px) and (orientation:portrait){.ls-rot{display:flex}.ls-rot span{flex:1}}
