@@ -263,3 +263,13 @@ body.zs.zs-ex #stationView .station-head,body.zs.zs-ex #stationView .station-pro
  .typed .keypad{grid-area:pad;max-width:none;margin:0}
 }
 @media(max-width:700px){.keypad{max-width:none}}
+
+/* Verificación separada de la resolución */
+.zs-pill.ver{color:#0b6b57;background:#e3f6ef;border-color:#a9dcc9}
+.zs-tag.ver{color:#0b6b57;background:#e3f6ef;border-color:#a9dcc9}
+.zs-verif{margin-top:10px;padding:6px 8px 8px;border:2px dashed #3aa88a;border-radius:12px;background:#e8f7f1;display:flex;flex-direction:column}
+.zs-vlab{align-self:flex-start;font-size:11px;font-weight:850;letter-spacing:.04em;color:#0b6b57;margin:0 0 2px 6px}
+.zs-verif .zs-line.cur{border-left-color:#3aa88a}
+.zs-worked.isver .zs-side{background:#f1fbf7}
+.zs-line:last-child{margin-bottom:0}
+.zs-line{padding-top:4px;padding-bottom:4px}

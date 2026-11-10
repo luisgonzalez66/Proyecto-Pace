@@ -841,7 +841,7 @@
       },
       {
        "math": "x=7",
-       "why": "Simplificamos ambos lados y obtenemos la **solución**.",
+       "why": "Simplificamos ambos lados y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
        "side": {
         "math": "\\begin{aligned}&\\text{izquierda:}& x+5-5&=x\\\\&\\text{derecha:}&12-5&=7\\end{aligned}"
        }
@@ -870,7 +870,7 @@
        },
        {
         "math": "x=13",
-        "why": "Simplificamos ambos lados y obtenemos la **solución**.",
+        "why": "Simplificamos ambos lados y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "side": {
          "math": "\\begin{aligned}&\\text{izquierda:}& x-9+9&=x\\\\&\\text{derecha:}&4+9&=13\\end{aligned}"
         }
@@ -898,7 +898,7 @@
        },
        {
         "math": "x=7",
-        "why": "Simplificamos ambos lados y obtenemos la **solución**.",
+        "why": "Simplificamos ambos lados y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "side": {
          "math": "\\begin{aligned}&\\text{izquierda:}& \\tfrac{3x}{3}&=x\\\\&\\text{derecha:}&\\tfrac{21}{3}&=7\\end{aligned}"
         }
@@ -926,7 +926,7 @@
        },
        {
         "math": "x=20",
-        "why": "Simplificamos ambos lados y obtenemos la **solución**.",
+        "why": "Simplificamos ambos lados y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "side": {
          "math": "\\begin{aligned}&\\text{izquierda:}& 4\\cdot\\tfrac{x}{4}&=x\\\\&\\text{derecha:}&4\\cdot5&=20\\end{aligned}"
         }
@@ -1770,7 +1770,7 @@
       },
       {
        "math": "x=5",
-       "why": "**Solución** "
+       "why": "**La resolución termina aquí:** ya encontramos la solución de la ecuación."
       },
       {
        "math": "5\\cdot5-2= 3\\cdot5+8\\ \\checkmark",
@@ -1806,7 +1806,7 @@
         }
        },
        {
-        "why": "**Solución**",
+        "why": "**La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "math": "x=5"
        },
        {
@@ -1832,7 +1832,7 @@
        },
        {
         "math": "x=8",
-        "why": "Dividimos ambos lados entre 2 y obtenemos la **solución**."
+        "why": "Dividimos ambos lados entre 2 y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "4\\cdot8-7=2\\cdot8+9\\ \\checkmark",
@@ -1860,7 +1860,7 @@
        },
        {
         "math": "x=5",
-        "why": "Dividimos entre $(-3)$ y obtenemos la **solución**."
+        "why": "Dividimos entre $(-3)$ y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "2\\cdot5+3= 5\\cdot5-12\\ \\checkmark",
@@ -2720,7 +2720,7 @@
        }
       },
       {
-       "why": "Dividimos ambos lados por 2 y obtenemos la **solución.** ",
+       "why": "Dividimos ambos lados por 2 y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
        "math": "x=1",
        "side": {
         "title": "Equivalencia",
@@ -2763,7 +2763,7 @@
        },
        {
         "math": "x=8",
-        "why": "Dividimos ambos lados por 2 y obtenemos la **solución.** ",
+        "why": "Dividimos ambos lados por 2 y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "side": {
          "title": "Equivalencia",
          "math": "\\frac{2x}{2}=\\frac{16}{2}"
@@ -2799,7 +2799,7 @@
        },
        {
         "math": "x=5",
-        "why": "Reducimos términos semejantes y obtenemos la **solución.** "
+        "why": "Reducimos términos semejantes y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "3(5+2)=2\\cdot5+11",
@@ -2839,7 +2839,7 @@
         "why": "Agrupamos términos restando $2x$ y sumando 12."
        },
        {
-        "why": "Dividimos ambos lados por 7 y obtenemos la **solución**.",
+        "why": "Dividimos ambos lados por 7 y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación.",
         "math": "x=\\frac{12}{7}"
        },
        {
@@ -5745,7 +5745,7 @@
       },
       {
        "math": "\\text{Luis: }9,\\quad \\text{Ana: }3\\cdot9=27",
-       "why": "Calculamos lo que pide el problema."
+       "why": "Calculamos lo que pide el problema. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
       },
       {
        "math": "9+27=36\\ \\checkmark",
@@ -5779,7 +5779,7 @@
        },
        {
         "math": "\\text{Hermano: }12,\\quad \\text{Marta: }12+5=17",
-        "why": "Calculamos las dos edades."
+        "why": "Calculamos las dos edades. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
        },
        {
         "math": "12+17=29\\ \\checkmark",
@@ -5812,7 +5812,7 @@
        },
        {
         "math": "\\text{ancho: }5\\ \\mathrm{cm},\\quad \\text{largo: }8\\ \\mathrm{cm}",
-        "why": "Calculamos las dos medidas."
+        "why": "Calculamos las dos medidas. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
        },
        {
         "math": "2\\cdot5+2\\cdot8=26\\ \\checkmark",
@@ -5841,7 +5841,7 @@
        },
        {
         "math": "x=6",
-        "why": "Dividimos ambos lados entre 400 y obtenemos la **solución**: el viaje fue de **6 km**."
+        "why": "Dividimos ambos lados entre 400 y obtenemos la **solución**: el viaje fue de **6 km**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "800+400\\cdot6=3200\\ \\checkmark",
@@ -6674,7 +6674,7 @@
       },
       {
        "math": "x=0\\quad\\text{o}\\quad x=5",
-       "why": "Despejamos en cada caso y obtenemos la **solución**."
+       "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
       },
       {
        "math": "5^2-5\\cdot5=0\\ \\checkmark",
@@ -6700,7 +6700,7 @@
        },
        {
         "math": "x=\\pm2",
-        "why": "Aplicamos raíz cuadrada considerando **las dos raíces** y obtenemos la **solución**.",
+        "why": "Aplicamos raíz cuadrada considerando **las dos raíces** y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación.",
         "side": {
          "title": "Raíces",
          "math": "\\sqrt{4}=2,\\quad -\\sqrt{4}=-2"
@@ -6729,7 +6729,7 @@
        },
        {
         "math": "x=0\\quad\\text{o}\\quad x=-4",
-        "why": "Despejamos en cada caso y obtenemos la **solución**."
+        "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
         "math": "2\\cdot16-32=0\\ \\checkmark",
@@ -6754,7 +6754,7 @@
        },
        {
         "math": "x=\\pm\\dfrac{5}{2}",
-        "why": "Aplicamos raíz cuadrada con las dos raíces y obtenemos la **solución**.",
+        "why": "Aplicamos raíz cuadrada con las dos raíces y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación.",
         "side": {
          "title": "Raíces",
          "math": "\\sqrt{\\dfrac{25}{4}}=\\dfrac{5}{2}"
@@ -7608,7 +7608,7 @@
       },
       {
        "math": "x=2\\quad\\text{o}\\quad x=3",
-       "why": "Despejamos en cada caso y obtenemos la **solución**."
+       "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
       },
       {
        "math": "2^2-5\\cdot2+6=4-10+6=0\\ \\checkmark",
@@ -7635,7 +7635,7 @@
        },
        {
         "math": "x=-4\\quad\\text{o}\\quad x=3",
-        "why": "Igualamos cada factor a cero, despejamos y obtenemos la **solución**."
+        "why": "Igualamos cada factor a cero, despejamos y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
         "math": "3^2+3-12=0\\ \\checkmark",
@@ -7661,7 +7661,7 @@
        },
        {
         "math": "x=3",
-        "why": "Como los factores son iguales, hay **una sola solución**."
+        "why": "Como los factores son iguales, hay **una sola solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "9-18+9=0\\ \\checkmark",
@@ -7687,7 +7687,7 @@
        },
        {
         "math": "x=5\\quad\\text{o}\\quad x=-3",
-        "why": "Igualamos cada factor a cero y obtenemos la **solución**. Si $x$ fuera una longitud, solo serviría $x=5$."
+        "why": "Igualamos cada factor a cero y obtenemos la **solución**. Si $x$ fuera una longitud, solo serviría $x=5$. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
         "math": "25-10-15=0\\ \\checkmark",
@@ -8545,7 +8545,7 @@
       },
       {
        "math": "x=\\dfrac{1}{2}\\quad\\text{o}\\quad x=-2",
-       "why": "La ecuación tiene dos **soluciones**."
+       "why": "La ecuación tiene dos **soluciones**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
       }
      ]
     },
@@ -8575,7 +8575,7 @@
        },
        {
         "math": "x=2+\\sqrt{3}\\quad\\text{o}\\quad x=2-\\sqrt{3}",
-        "why": "Las **soluciones** no son enteras, pero la fórmula las entrega igual."
+        "why": "Las **soluciones** no son enteras, pero la fórmula las entrega igual. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        }
       ]
      },
@@ -8604,7 +8604,7 @@
        },
        {
         "math": "x=2\\quad\\text{o}\\quad x=-\\dfrac{1}{3}",
-        "why": "La ecuación tiene dos **soluciones**."
+        "why": "La ecuación tiene dos **soluciones**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        }
       ]
      },
@@ -8633,7 +8633,7 @@
        },
        {
         "math": "x=1\\quad\\text{o}\\quad x=-\\dfrac{1}{2}",
-        "why": "La ecuación tiene dos **soluciones**."
+        "why": "La ecuación tiene dos **soluciones**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        }
       ]
      }
@@ -9547,7 +9547,7 @@
        },
        {
         "math": "k=4",
-        "why": "Despejamos y obtenemos la **solución**: $4k=16$."
+        "why": "Despejamos y obtenemos la **solución**: $4k=16$. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
         "math": "x^2+4x+4=(x+2)^2=0",
