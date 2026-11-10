@@ -273,3 +273,7 @@ body.zs.zs-ex #stationView .station-head,body.zs.zs-ex #stationView .station-pro
 .zs-worked.isver .zs-side{background:#f1fbf7}
 .zs-line:last-child{margin-bottom:0}
 .zs-line{padding-top:4px;padding-bottom:4px}
+/* El desarrollo parte desde arriba del cuadro y va bajando */
+.zs-line:first-child{margin-top:0}
+.zs-line:last-child{margin-bottom:0}
+.zs-lines-in{justify-content:flex-start}
