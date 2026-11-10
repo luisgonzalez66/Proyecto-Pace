@@ -162,3 +162,20 @@ with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:
     z.writestr('data.js',datajs(units,'curso_completo'))
     for n,b in tour.items(): z.writestr('tour/'+n,b)
 print(path, os.path.getsize(path)//1024,'KB')
+
+# ---------- páginas de cada unidad para el sitio (unidades/uN/html), con la misma capa de pantallas ----------
+# Uso: python3 herramientas/curso_completo/construir_curso.py <salida> sitio   (escribe en <repo>/unidades/uN/html)
+if len(sys.argv)>2 and sys.argv[2]=='sitio':
+    zscss=open(HERE+'/zs.css',encoding='utf8').read()
+    idx_u=sub1(idx,'</head>','<style>\n'+zscss+'\n</style></head>')
+    for i,n in enumerate('123'):
+        d=f'{REPO}/unidades/u{n}/html'
+        os.makedirs(d+'/mathjax',exist_ok=True)
+        open(d+'/index.html','w',encoding='utf8').write(idx_u)
+        open(d+'/app.js','w',encoding='utf8').write(a)
+        for f in ['styles.css','contract.js','content_text.js']: open(d+'/'+f,'wb').write(motor.read(f))
+        open(d+'/mathjax/tex-svg.js','wb').write(motor.read('mathjax/tex-svg.js'))
+        dj=datajs([units[i]],'individual_u'+n).replace('curso completo','generado desde u'+n,1)
+        dj=re.sub(r'const PACE_BUILD=\{[^}]*\};',lambda m:'const PACE_BUILD={"scope":"individual_u'+n+'","showWeek4":false};',dj)
+        open(d+'/data.js','w',encoding='utf8').write(dj)
+        print('sitio',d)

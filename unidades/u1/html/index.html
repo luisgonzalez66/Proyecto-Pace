@@ -6,7 +6,288 @@
   <meta name="color-scheme" content="light">
   <title>PACE UACh · Mi ruta de matemática</title>
   <link rel="stylesheet" href="styles.css?v=sim2">
-</head>
+<style>
+/* ===== Estación por pantallas · «cero scroll» (solo vista de estación: body.zs) ===== */
+html.zs,body.zs{height:100%;overflow:hidden}
+body.zs{height:100dvh;overscroll-behavior:none}
+body.zs .top-accent,body.zs .footer,body.zs .breadcrumbs,body.zs .float-back{display:none!important}
+body.zs .app{height:100dvh;max-width:1180px;padding:0 14px 6px;display:flex;flex-direction:column}
+body.zs .app-top{flex:none;padding:5px 0;gap:8px}
+body.zs .brand small,body.zs .brand .brand-credit{display:none}
+body.zs .brand-mark{width:30px;height:30px}
+body.zs main{flex:1;min-height:0;display:flex;flex-direction:column}
+body.zs #stationView{flex:1;min-height:0;display:flex;flex-direction:column}
+body.zs #stationView.hidden{display:none}
+body.zs #stationView .station-nav{flex:none;display:flex;align-items:center;justify-content:space-between;min-height:24px;margin:0;padding:0}
+body.zs #stationView .station-head{flex:none;margin:3px 0 4px;padding:4px 12px;gap:10px;min-height:0;border-radius:14px}
+body.zs #stationView .station-no{width:34px;height:34px;font-size:15px;border-radius:10px}
+body.zs #stationView .station-main-title h1{font-size:18px;margin:0;line-height:1.15}
+body.zs #stationView .station-main-title .eyebrow,body.zs #stationView .station-main-title p{display:none}
+body.zs #stationView .st-mascot{width:56px;height:40px;margin:-4px 2px -4px auto}
+body.zs #stationView .st-mascot .pose,body.zs #stationView .st-mascot .pose.pose-all{height:54px!important;bottom:-5px}
+body.zs #stationView .st-bubble{display:none!important}
+body.zs #stationView .station-pct{font-size:18px;display:block}
+body.zs #stationView .station-progress{flex:none;display:flex;align-items:center;gap:10px;padding:0 2px 4px}
+body.zs #stationView .station-progress>span{margin:0;text-align:left;flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:10px}
+body.zs #stationView .station-progress .track{flex:1 1 80px;height:5px;min-width:60px}
+body.zs #stationView .tabs{flex:none;margin:0 0 6px}
+body.zs #stationView .tab{min-height:38px;padding:4px 6px}
+body.zs #stationContent{flex:1;min-height:0;margin:0;padding:10px 14px;display:flex;flex-direction:column;overflow:auto;overflow-x:hidden}
+body.zs #stationContent>.zs-stage{flex:1;min-height:0}
+body.zs #stationView .station-actions{position:static;flex:none;margin:0;padding:0;min-height:0}
+body.zs #stationView .station-actions .primary-btn{display:none}
+body.zs #stationView .station-actions p{display:none}
+body.zs #stationView .station-actions.zs-toast p{display:block;position:fixed;left:50%;bottom:78px;transform:translateX(-50%);z-index:40;max-width:min(92vw,520px);padding:7px 14px;border-radius:14px;background:var(--navy);color:#fff;font-size:12px;font-weight:700;box-shadow:0 6px 18px rgba(0,0,0,.25);animation:zsToast 4.5s ease forwards;pointer-events:none}
+@keyframes zsToast{0%{opacity:0;transform:translate(-50%,8px)}8%,85%{opacity:1;transform:translate(-50%,0)}100%{opacity:0}}
+
+/* ---- estructura común de las pantallas ---- */
+.zs-stage{display:flex;flex-direction:column;gap:6px;--zb:clamp(14px,calc(1.05vw + 1.05vh + 4px),21px)}
+.zs-top{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:24px}
+.zs-kick{font-size:12px;font-weight:900;letter-spacing:.06em;color:var(--navy);min-width:0}
+.zs-kick i{color:var(--coral);font-style:normal;padding:0 3px}
+.zs-pg{font-size:12px;color:var(--muted);font-weight:800;white-space:nowrap}
+.zs-jump{flex:none;display:flex;gap:6px;overflow-x:auto;padding:1px 2px 4px;scrollbar-width:none}
+.zs-jump::-webkit-scrollbar{display:none}
+.zs-chip{flex:none;font:inherit;font-size:12px;font-weight:850;min-height:32px;padding:4px 13px;border-radius:999px;border:2px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer}
+.zs-chip.on{background:var(--navy);color:#fff}
+.zs-chip:focus-visible,.zs-btn:focus-visible,.zs-qpip:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.zs-scene{flex:1;min-height:0;display:flex;flex-direction:column}
+.zs-scene>div{flex:1;min-height:0}
+.zs-bottom{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:6px;border-top:1px dashed rgba(43,42,107,.25)}
+.zs-btn{font:inherit;font-weight:800;font-size:14px;min-height:42px;min-width:116px;padding:6px 14px;border-radius:12px;border:2px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer;box-shadow:3px 3px 0 var(--navy)}
+.zs-btn.next{background:var(--sun)}
+.zs-btn:disabled{opacity:.45;cursor:default;box-shadow:none}
+.zs-mid{flex:1;min-width:0;text-align:center}
+.zs-cap{display:block;font-size:12px;font-weight:800;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.zs-pips{display:flex;justify-content:center;gap:5px;margin-top:4px}
+.zs-pips span{width:14px;height:5px;border-radius:6px;background:#dcd8ee}
+.zs-pips span.on{width:22px;background:var(--coral)}.zs-pips span.done{background:var(--green)}
+.zs-pill{flex:none;font-size:12px;font-weight:850;color:var(--coral);background:#fdebf1;border:1px solid #f0c3d3;border-radius:999px;padding:4px 11px;white-space:nowrap}
+.zs-pill.soft{color:var(--teal);background:#eceafa;border-color:#d6d2f1}
+.zs-tag{display:inline-block;font-size:10px;font-weight:900;letter-spacing:.13em;padding:3px 9px;border-radius:20px;color:#fff;background:var(--navy);align-self:flex-start}
+.zs-tag.coral{background:var(--coral)}.zs-tag.teal{background:var(--teal)}
+
+/* ---- ajuste automático de la letra (la reducción tiene piso; bajo el piso queda el desplazamiento de respaldo) ---- */
+.zs-fit{overflow:auto;font-size:calc(var(--zb,16px)*var(--z,1));line-height:1.45;overscroll-behavior:contain}
+.zs-fit mjx-container[display="true"]{margin:.25em 0!important}
+.zs-fit p{margin:.35em 0}
+
+/* ---- Idea y Cierre ---- */
+.zs-idea{display:flex;flex-direction:column;gap:8px;min-height:0}
+.zs-card{position:relative;padding:12px 16px;border-radius:14px;border:2px solid var(--navy);background:#fff;box-shadow:4px 4px 0 var(--navy);display:flex;flex-direction:column;gap:6px;min-height:0}
+.zs-card p{margin:0}
+.zs-goal{flex:none;background:#e8f6f1;box-shadow:4px 4px 0 var(--green)}.zs-goal .zs-tag{background:var(--green)}
+.zs-goal p{font-size:calc(var(--zb)*.95);line-height:1.4}
+.zs-ideac{flex:1;background:#fff}.zs-ideac .zs-tag{background:var(--teal)}
+.zs-warn{flex:1;background:#fdebf1;box-shadow:4px 4px 0 var(--coral)}.zs-warn .zs-tag{background:var(--coral)}
+.zs-body{flex:1;min-height:0}
+.zs-body b,.zs-side b{color:var(--navy)}
+
+/* ---- Ejemplos ---- */
+.zs-ex{display:flex;flex-direction:column;gap:6px;min-height:0}
+.zs-ex-title{flex:none;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.zs-ex-t{min-width:0;display:flex;flex-direction:column;gap:3px}
+.zs-ex-t h2{margin:0;font-size:clamp(15px,calc(.7vw + 1.2vh + 6px),21px);line-height:1.25;color:var(--navy);font-weight:800}
+.zs-worked{flex:1;min-height:0;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:10px}
+.zs-lines{min-height:0;border:2px solid var(--navy);border-radius:14px;background:#fff6dc;box-shadow:4px 4px 0 var(--sun);padding:8px 10px;font-size:calc(var(--zb)*1.2*var(--z,1))}
+.zs-lines-in{min-height:100%;display:flex;flex-direction:column}
+.zs-line{flex:none;padding:2px 8px;border-radius:10px;border-left:4px solid transparent;transition:opacity .25s ease}
+.zs-line:first-child{margin-top:auto}.zs-line:last-child{margin-bottom:auto}
+.zs-line .math-content{text-align:center;overflow-x:auto;overflow-y:hidden}
+.zs-line.past{opacity:.78}
+.zs-line.cur{opacity:1;background:#fff;border-left-color:var(--coral);box-shadow:0 2px 8px rgba(43,42,107,.12)}
+.zs-line.fut{opacity:.28}
+.zs-line.chk{border-top:1px dashed rgba(43,42,107,.3);margin-top:6px}
+.zs-side{min-height:0;display:flex;flex-direction:column;gap:6px;padding:10px 14px;border-radius:14px;border:2px solid var(--teal);background:#eef7f7}
+.zs-side-b{flex:1;min-height:0}
+.zs-side h4{margin:0 0 4px;font-size:calc(var(--zb)*.9);letter-spacing:.04em;color:var(--teal);font-weight:900}
+.zs-why{font-size:calc(var(--zb)*.95)}
+.zs-aux{margin:4px 0;padding:4px 8px;border-radius:10px;background:#fff;border:1px dashed var(--teal);text-align:center;font-size:calc(var(--zb)*.9)}
+.zs-st{font-size:calc(var(--zb)*.92);color:#35506a}
+
+/* ---- Practica / Aplica: una pregunta ---- */
+.zs-quiz .zs-qbody{flex:1;min-height:0;overflow:auto;padding:2px 2px 4px}
+.zs-quiz .zs-qbody>.quiz{display:none;margin:0}
+.zs-quiz .zs-qbody>.quiz.zs-cur{display:block;padding:12px 14px}
+.zs-quiz .quiz h3{font-size:calc(clamp(16px,calc(.6vw + 1.6vh + 5px),22px)*var(--z,1));margin:8px 0 12px}
+.zs-quiz .choices button{min-height:calc(clamp(40px,6vh,52px)*var(--z,1));font-size:calc(14px*var(--z,1))}
+.zs-quiz .keypad{max-width:420px;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;margin:6px 0}
+.zs-quiz .keypad .key-del{grid-column:1/-1}
+.zs-quiz .keypad .key{min-height:calc(clamp(32px,4.8vh,42px)*var(--z,1))}
+.zs-quiz .typed-preview{min-height:calc(clamp(30px,5vh,40px)*var(--z,1));margin:6px 0 2px}
+.zs-quiz .typed-input{min-height:44px}
+.zs-quiz .typed-row{flex-wrap:nowrap}
+.zs-quiz .feedback{margin:8px 0 0;min-height:1.2em}
+.zs-quiz .zs-redo{margin:10px 0 0;padding:0}
+.zs-quiz .zs-redo small{display:block;font-size:11px;margin-top:4px}
+.zs-qstats{display:flex;gap:14px;font-size:12px;color:var(--muted);font-weight:700}
+.zs-qstats b{color:var(--navy)}
+.zs-qpips{display:flex;justify-content:center;gap:5px;flex-wrap:nowrap}
+.zs-qpip{font:inherit;font-size:12px;font-weight:850;width:32px;height:32px;padding:0;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);cursor:pointer}
+.zs-qpip.ok{background:#e5f8ee;border-color:var(--green);color:var(--green)}
+.zs-qpip.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.zs-qpip.on.ok{background:var(--green);border-color:var(--green)}
+
+/* ---- Explora ---- */
+.zs-expl{gap:6px}
+.zs-exarea{flex:1;min-height:0;display:flex;flex-direction:column}
+.zs-exarea .ex-frame{flex:1 1 auto;width:100%;height:100%!important;min-height:0;border:2px solid var(--navy);border-radius:12px;background:#fff}
+.zs-exarea .ex-frame.ex-big{position:fixed!important;inset:0;width:100vw;height:100dvh!important;z-index:2147483000;border-radius:0}
+.zs-exbar{flex:none;display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative}
+.zs-exbar .ls-ctl{margin:0;display:flex;gap:8px;align-items:center;flex-wrap:nowrap}
+.zs-exbar .ls-btn{min-height:36px;padding:4px 12px;font-size:13px;box-shadow:none}
+.zs-exinfo summary{cursor:pointer;font-size:13px;font-weight:850;color:var(--teal);padding:7px 12px;border:2px solid var(--teal);border-radius:12px;list-style:none;min-height:36px;display:inline-flex;align-items:center}
+.zs-exinfo summary::-webkit-details-marker{display:none}
+.zs-exinfo[open] summary{background:var(--teal);color:#fff}
+.zs-exinfo[open] .zs-exinfo-b{position:absolute;left:0;bottom:calc(100% + 6px);z-index:30;width:min(560px,92vw);max-height:60dvh;overflow:auto;background:#fff;border:2px solid var(--navy);border-radius:12px;padding:10px 14px;box-shadow:4px 4px 0 var(--navy);font-size:14px}
+.zs-exinfo-b>*{margin-top:0}
+
+/* ---- pantallas pequeñas ---- */
+@media(max-width:700px){
+ body.zs .app{padding:0 7px 4px}
+ body.zs .brand>div{display:none}
+ body.zs .app-top{padding:4px 0}
+ body.zs .brand-mark{width:26px;height:26px}
+ body.zs .top-chips{flex-wrap:nowrap;gap:5px;min-width:0}
+ body.zs #syncIndicator,body.zs #streakChip{font-size:10px;padding:3px 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46vw}
+ body.zs #stationView .station-nav .map-unit-tag{display:none}
+ body.zs #stationView .station-nav{min-height:20px}
+ body.zs #stationView .text-back{font-size:12px;white-space:nowrap}
+ body.zs #stationView .station-head{padding:3px 8px;gap:7px}
+ body.zs #stationView .station-no{width:30px;height:30px;font-size:13px}
+ body.zs #stationView .station-main-title h1{font-size:15px}
+ body.zs #stationView .st-mascot{width:44px}
+ body.zs #stationView .tab{font-size:11px;min-height:36px}
+ body.zs #stationContent{padding:7px 8px}
+ .zs-btn{min-width:0;padding:6px 10px;font-size:12px}
+ .zs-kick{font-size:11px}
+ .zs-pg{font-size:11px}
+ .zs-card{padding:9px 11px;box-shadow:3px 3px 0 var(--navy)}
+ .zs-quiz .choices{grid-template-columns:1fr;gap:5px}
+}
+@media(max-width:700px) and (orientation:portrait){
+ .zs-worked{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1.25fr) minmax(0,1fr)}
+}
+@media(max-height:660px){
+ body.zs #stationView .station-nav,body.zs #stationView .station-progress,body.zs #stationView .st-mascot{display:none}
+ body.zs .brand>div{display:none}
+ body.zs .app-top{padding:3px 0}
+}
+@media(max-height:500px){
+ body.zs #stationView .station-head{display:none}
+ body.zs .brand-mark{width:24px;height:24px}
+ .zs-top{display:none}
+ .zs-ex-t .zs-tag{display:none}
+ .zs-cap,.zs-pips{display:none}
+ .zs-stage{gap:4px}
+ body.zs #stationView .tab{min-height:30px}
+ .zs-btn{min-height:34px}.zs-chip{min-height:28px}
+ .zs-top{min-height:18px}
+}
+@media(prefers-reduced-motion:reduce){.zs-line,.zs-pips span{transition:none}body.zs #stationView .station-actions.zs-toast p{animation:none}}
+
+/* Idea en columnas cuando hay ancho (aprovecha el espacio horizontal en vez de crecer hacia abajo) */
+.zs-cols{min-height:0}
+.zs-two{height:100%;column-count:2;column-gap:34px;column-fill:auto}
+.zs-cols>*{break-inside:avoid}
+.zs-cols li{break-inside:avoid}
+.zs-cols>p:first-child,.zs-cols>ol:first-child,.zs-cols>ul:first-child{margin-top:0}
+/* Escritorio bajo (p. ej. 1366×768): menos cromo arriba para dar altura al contenido */
+@media(max-height:800px){
+ body.zs .brand>div{display:none}
+ body.zs .brand-mark{width:28px;height:28px}
+ body.zs .app-top{padding:3px 0}
+ body.zs #stationView .station-nav{min-height:20px}
+ body.zs #stationView .station-head{margin:2px 0 3px;padding:2px 12px}
+ body.zs #stationView .station-no{width:30px;height:30px;font-size:14px}
+ body.zs #stationView .station-main-title h1{font-size:16px}
+ body.zs #stationView .st-mascot{height:34px}
+ body.zs #stationView .st-mascot .pose,body.zs #stationView .st-mascot .pose.pose-all{height:46px!important}
+ body.zs #stationView .station-progress{padding-bottom:2px}
+ body.zs #stationView .tabs{margin-bottom:4px}
+ body.zs #stationView .tab{min-height:34px}
+ body.zs #stationContent{padding:6px 12px}
+ .zs-jump{padding-bottom:2px}.zs-chip{min-height:30px}
+ .zs-line{padding:1px 8px}
+ .zs-bottom{padding-top:4px}.zs-btn{min-height:38px}
+}
+
+/* La rejilla del motor (.math-content: interlineado 1.75, mjx con relleno) es muy holgada para pantallas sin scroll */
+.zs-stage .math-content{line-height:1.38}
+.zs-stage .math-content mjx-container[display=true]{padding:0!important;margin:.15em auto!important;overflow-y:hidden}
+.zs-line .math-content{line-height:1.15}
+.zs-line .math-content mjx-container[display=true]{margin:0 auto!important}
+.zs-aux mjx-container[display=true]{margin:0 auto!important}
+.zs-aux{overflow-x:auto}
+
+@media(max-width:700px) and (orientation:portrait){
+ .zs-learn .zs-top{display:none}
+ .zs-ex-t .zs-tag{display:none}
+ body.zs #stationView .station-progress>span{display:none}
+ body.zs #stationView .station-progress{padding-bottom:3px}
+ body.zs #stationView .station-progress .track{height:4px}
+ .zs-ex-t h2{font-size:15px}
+}
+
+@media(max-height:500px){
+ body.zs .brand{display:none}
+ body.zs .app-top{padding:2px 0;min-height:0;justify-content:flex-end}
+ body.zs #syncIndicator,body.zs #streakChip{font-size:10px;padding:2px 8px}
+ body.zs #stationView .tabs{margin-bottom:3px}
+ body.zs #stationView .tab{min-height:30px}
+ body.zs #stationContent{padding:5px 10px}
+ .zs-bottom{padding-top:3px}.zs-btn{min-height:34px;padding:3px 12px}
+ .zs-chip{min-height:26px;padding:2px 11px}
+ .zs-side{padding:6px 10px}.zs-card{padding:6px 10px}
+ .zs-ex-t h2{font-size:14px}
+ .zs-quiz .zs-qbody>.quiz.zs-cur{padding:8px 10px}
+ .zs-quiz .quiz h3{margin:4px 0 8px}
+}
+
+body.zs #stationView .tabs.has-explore{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:700px){body.zs #stationView .tabs{gap:4px}body.zs #stationView .tab{padding:4px 1px;font-size:10.5px}}
+
+body.zs.zs-ex #stationView .station-head,body.zs.zs-ex #stationView .station-progress{display:none}
+
+/* Porcentaje de avance junto al chucao también en móvil */
+@media(max-width:700px){body.zs #stationView .station-pct{display:block;font-size:15px;margin-left:auto}}
+/* Negritas junto a fórmulas: las fórmulas dentro de texto en negrita también se engruesan, y el título usa la misma letra que el cuerpo */
+.zs-stage b mjx-container[jax] use[data-c],.zs-stage b mjx-container[jax] path[data-c],.zs-stage strong mjx-container[jax] use[data-c],.zs-stage strong mjx-container[jax] path[data-c],.zs-ex-t h2 mjx-container[jax] use[data-c],.zs-ex-t h2 mjx-container[jax] path[data-c],.zs-side h4 mjx-container[jax] use[data-c],.zs-side h4 mjx-container[jax] path[data-c]{stroke-width:55px}
+.zs-ex-t h2{font-family:Nunito,system-ui,-apple-system,'Segoe UI',sans-serif;font-weight:800}
+.zs-stage b,.zs-stage strong{font-weight:800}
+/* Practica/Aplica con teclado: en pantallas anchas el teclado va a la derecha de la pregunta */
+@media(min-width:900px) and (min-height:520px){
+ .zs-quiz .typed{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,340px);grid-template-areas:"row pad" "prev pad" "hint pad";grid-template-rows:auto auto 1fr;column-gap:22px;align-items:start}
+ .zs-quiz .typed-row{grid-area:row}.zs-quiz .typed-preview{grid-area:prev}.zs-quiz .typed-hint{grid-area:hint;margin-top:4px}
+ .zs-quiz .typed .keypad{grid-area:pad;max-width:none;margin:0}
+}
+@media(max-width:700px){.zs-quiz .keypad{max-width:none}.zs-quiz .keypad .key{min-height:calc(clamp(30px,4.4vh,40px)*var(--z,1));font-size:16px}}
+
+/* Teclado y disposición también en META FINAL (misma plantilla de pregunta escrita) */
+.keypad{max-width:420px;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px}
+.keypad .key-del{grid-column:1/-1}
+@media(min-width:900px){
+ .typed{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,340px);grid-template-areas:"row pad" "prev pad" "hint pad";grid-template-rows:auto auto 1fr;column-gap:22px;align-items:start}
+ .typed-row{grid-area:row}.typed-preview{grid-area:prev}.typed-hint{grid-area:hint;margin-top:4px}
+ .typed .keypad{grid-area:pad;max-width:none;margin:0}
+}
+@media(max-width:700px){.keypad{max-width:none}}
+
+/* Verificación separada de la resolución */
+.zs-pill.ver{color:#0b6b57;background:#e3f6ef;border-color:#a9dcc9}
+.zs-tag.ver{color:#0b6b57;background:#e3f6ef;border-color:#a9dcc9}
+.zs-verif{margin-top:10px;padding:6px 8px 8px;border:2px dashed #3aa88a;border-radius:12px;background:#e8f7f1;display:flex;flex-direction:column}
+.zs-vlab{align-self:flex-start;font-size:11px;font-weight:850;letter-spacing:.04em;color:#0b6b57;margin:0 0 2px 6px}
+.zs-verif .zs-line.cur{border-left-color:#3aa88a}
+.zs-worked.isver .zs-side{background:#f1fbf7}
+.zs-line:last-child{margin-bottom:0}
+.zs-line{padding-top:4px;padding-bottom:4px}
+/* El desarrollo parte desde arriba del cuadro y va bajando */
+.zs-line:first-child{margin-top:0}
+.zs-line:last-child{margin-bottom:0}
+.zs-lines-in{justify-content:flex-start}
+
+</style></head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
 <symbol id="pingu" viewBox="0 0 120 150">
