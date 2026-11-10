@@ -54,6 +54,11 @@ function zsHead(sc,pg,tot){
  if(sc.k==='end')return 'Presta atención';
  return 'Ejemplo guiado'+(tot>1?' '+sc.n+' de '+tot:'');
 }
+function zsCap(sc,k){
+ const it=sc.e.items,vi=(()=>{const v=it.findIndex(x=>/^\*\*Verificaci/.test(x.why||''));return v<0?it.length:v;})();
+ if(vi>=it.length)return `Ejemplo ${sc.n} · Paso ${k+1} de ${it.length}`;
+ return k<vi?`Ejemplo ${sc.n} · Resolución ${k+1} de ${vi}`:`Ejemplo ${sc.n} · Verificación`;
+}
 function zsSceneHTML(s,sc,pos,tot){
  const L=s.learn||{};
  if(sc.k==='idea'){
@@ -66,11 +71,18 @@ function zsSceneHTML(s,sc,pos,tot){
   return `<div class="zs-idea"><section class="zs-card zs-warn"><span class="zs-tag">PRESTA ATENCIÓN</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${L.warn?rb(L.warn):''}${renderMedia(s.media||[])}</div></div></section></div>`;
  }
  const items=sc.e.items,k=Math.min(pos.step,items.length-1),cur=items[k],sd=cur.side||{},hasSd=!!(sd.title||sd.math||sd.text);
- const lines=items.map((it,i)=>`<div class="zs-line ${i===k?'cur':i<k?'past':'fut'}${/^\*\*Verificaci/.test(it.why||'')?' chk':''}" ${i===k?'aria-current="step"':''}>${it.math?`<div class="math-content">$$${it.math}$$</div>`:''}</div>`).join('');
+ const isV=it=>/^\*\*Verificaci/.test(it.why||'');
+ let vi=items.findIndex(isV);if(vi<0)vi=items.length;
+ const inV=k>=vi,nRes=vi,nVer=items.length-vi;
+ const mk=(it,i)=>`<div class="zs-line ${i===k?'cur':i<k?'past':'fut'}" ${i===k?'aria-current="step"':''}>${it.math?`<div class="math-content">$$${it.math}$$</div>`:''}</div>`;
+ const resL=items.slice(0,vi).map((it,i)=>mk(it,i)).join('');
+ const verL=(nVer&&inV)?`<div class="zs-verif"><span class="zs-vlab">VERIFICACIÓN · fuera de la resolución</span>${items.slice(vi).map((it,i)=>mk(it,i+vi)).join('')}</div>`:'';
+ const lines=resL+verL;
+ const pillTxt=inV?(nVer>1?`Verificación ${k-vi+1} de ${nVer}`:'Verificación'):(nVer?`Resolución ${k+1} de ${nRes}`:`Paso ${k+1} de ${items.length}`);
  const why=(cur.why||'').trim();
- return `<div class="zs-ex"><div class="zs-ex-title"><div class="zs-ex-t"><span class="zs-tag coral">EJEMPLO ${sc.n}${tot>1?' DE '+tot:''}</span>${sc.e.title?`<h2 class="math-content">${rb(sc.e.title)}</h2>`:''}</div><span class="zs-pill">Paso ${k+1} de ${items.length}</span></div>
-  <div class="zs-worked"><div class="zs-lines zs-fit" data-min=".5"><div class="zs-lines-in">${lines}</div></div>
-  <aside class="zs-side" aria-label="Explicación del paso actual"><span class="zs-tag teal">¿POR QUÉ ESTE PASO?</span><div class="zs-fit zs-side-b" data-min=".6"><div>${hasSd&&sd.title?`<h4 class="math-content">${rb(sd.title)}</h4>`:''}${why&&!(hasSd&&sd.title&&zsNorm(why)===zsNorm(sd.title))?`<p class="zs-why math-content">${rb(why)}</p>`:''}${hasSd&&sd.math?`<div class="zs-aux math-content">$$${sd.math}$$</div>`:''}${hasSd&&sd.text?`<p class="zs-st math-content">${rb(sd.text)}</p>`:''}${!why&&!hasSd?'<p class="zs-st">Observa la operación realizada en este paso.</p>':''}</div></div></aside></div></div>`;
+ return `<div class="zs-ex"><div class="zs-ex-title"><div class="zs-ex-t"><span class="zs-tag coral">EJEMPLO ${sc.n}${tot>1?' DE '+tot:''}</span>${sc.e.title?`<h2 class="math-content">${rb(sc.e.title)}</h2>`:''}</div><span class="zs-pill${inV?' ver':''}">${pillTxt}</span></div>
+  <div class="zs-worked${inV?' isver':''}"><div class="zs-lines zs-fit" data-min=".5"><div class="zs-lines-in">${lines}</div></div>
+  <aside class="zs-side" aria-label="Explicación del paso actual"><span class="zs-tag ${inV?'ver':'teal'}">${inV?'VERIFICACIÓN · SOLO UNA COMPROBACIÓN':'¿POR QUÉ ESTE PASO?'}</span><div class="zs-fit zs-side-b" data-min=".6"><div>${hasSd&&sd.title?`<h4 class="math-content">${rb(sd.title)}</h4>`:''}${why&&!(hasSd&&sd.title&&zsNorm(why)===zsNorm(sd.title))?`<p class="zs-why math-content">${rb(why)}</p>`:''}${hasSd&&sd.math?`<div class="zs-aux math-content">$$${sd.math}$$</div>`:''}${hasSd&&sd.text?`<p class="zs-st math-content">${rb(sd.text)}</p>`:''}${!why&&!hasSd?'<p class="zs-st">Observa la operación realizada en este paso.</p>':''}</div></div></aside></div></div>`;
 }
 function zsRenderLearn(){
  const s=STATIONS[stationIndex],host=$('stationContent'),done=stepDone(stationIndex,0);
@@ -84,7 +96,7 @@ function zsRenderLearn(){
  if(sc.k==='ex'&&pos.step<nSteps-1)nextTxt='Siguiente paso →';
  else if(last)nextTxt='Ir a Practica →';
  else{const nx=scr[pos.page+1];nextTxt=nx.k==='ex'?'Ejemplo '+nx.n+' →':nx.k==='end'?'Cierre →':'Siguiente →';}
- const cap=sc.k==='ex'?`Ejemplo ${sc.n} · Paso ${pos.step+1} de ${nSteps}`:(sc.k==='idea'?'Idea clave de la estación':sc.k==='end'?'Antes de practicar':'Ejemplo');
+ const cap=sc.k==='ex'?zsCap(sc,pos.step):(sc.k==='idea'?'Idea clave de la estación':sc.k==='end'?'Antes de practicar':'Ejemplo');
  host.innerHTML=`<div class="zs-stage zs-learn"><div class="zs-top"><div class="zs-kick">APRENDE <i>·</i> <b>${zsHead(sc,pos.page,total)}</b></div><span class="zs-pg">Pantalla ${pos.page+1} de ${scr.length}</span></div>
   <nav class="zs-jump" aria-label="Ir directamente a una pantalla de Aprende">${scr.map((c,i)=>`<button type="button" class="zs-chip${i===pos.page?' on':''}" data-pg="${i}" ${i===pos.page?'aria-current="step"':''}>${c.lab}</button>`).join('')}</nav>
   <div class="zs-scene" id="zsScene" aria-live="polite">${zsSceneHTML(s,sc,pos,total)}</div>
