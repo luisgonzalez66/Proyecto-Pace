@@ -623,7 +623,7 @@
     "kind": "number",
     "q": "Una muestra de agua se calienta $6\\,^\\circ\\mathrm{C}$ y queda a $25\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ (en $^\\circ\\mathrm{C}$) cumple la ecuación $T + 6 = 25$. ¿Cuál era la temperatura inicial? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
     "answer": "19",
-    "why": "Restamos 6 a ambos lados: $T = 25 - 6 = 19$."
+    "why": "Restamos 6 a ambos lados: $T = 25 - 6 $ → $T = 19$."
    },
    "draw": 5,
    "checks": [
@@ -636,14 +636,14 @@
       "$28\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 3,
-     "why": "Restamos 6 a ambos lados: $T + 6 = 34$ → $T = 34 - 6 = 28$."
+     "why": "Restamos 6 a ambos lados: $T + 6 = 34$ → $T = 34 - 6$ → $T = 28$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "En una probeta hay cierto volumen $V$ de agua. Se agregan $11\\,\\mathrm{mL}$ de ácido y el total es $41\\,\\mathrm{mL}$, es decir $V + 11 = 41$. ¿Cuál era el volumen inicial de agua? Escribe solo el número, en $\\mathrm{mL}$.",
+     "q": "En una probeta hay cierto volumen $V$ de agua. Se agregan $11\\,\\mathrm{mL}$ de ácido y el total es $41\\,\\mathrm{mL}$, es decir $V + 11 = 41$. ¿Cuál es el volumen inicial de agua? Escribe solo el número, en $\\mathrm{mL}$.",
      "answer": "30",
-     "why": "Restamos 11 a ambos lados: $V + 11 = 41$ → $V = 41 - 11 = 30$."
+     "why": "Restamos 11 a ambos lados: $V + 11 = 41$ → $V = 41 - 11$ → $V = 30$."
     },
     {
      "q": "Sobre una balanza hay un vaso de masa $m$. Al agregar $9\\,\\mathrm{g}$ de sal, la balanza marca $47\\,\\mathrm{g}$, así que $m + 9 = 47$. ¿Cuál es la masa del vaso?",
@@ -654,14 +654,14 @@
       "$47\\,\\mathrm{g}$"
      ],
      "correct": 2,
-     "why": "Restamos 9 a ambos lados: $m + 9 = 47$ → $m = 47 - 9 = 38$."
+     "why": "Restamos 9 a ambos lados: $m + 9 = 47$ → $m = 47 - 9$ → $m = 38$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Una plántula crece $4\\,\\mathrm{cm}$ durante una semana y llega a medir $40\\,\\mathrm{cm}$. Su altura inicial $h$ cumple $h + 4 = 40$. ¿Cuánto medía al inicio? Escribe solo el número, en $\\mathrm{cm}$.",
      "answer": "36",
-     "why": "Restamos 4 a ambos lados: $h + 4 = 40$ → $h = 40 - 4 = 36$."
+     "why": "Restamos 4 a ambos lados: $h + 4 = 40$ → $h = 40 - 4 $ → $h= 36$."
     },
     {
      "q": "Un globo sonda sube $12\\,\\mathrm{m}$ y alcanza una altura de $29\\,\\mathrm{m}$. Su altura inicial $y$ cumple $y + 12 = 29$. ¿Cuál era su altura inicial?",
@@ -672,14 +672,14 @@
       "$29\\,\\mathrm{m}$"
      ],
      "correct": 1,
-     "why": "Restamos 12 a ambos lados: $y + 12 = 29$ → $y = 29 - 12 = 17$."
+     "why": "Restamos 12 a ambos lados: $y + 12 = 29$ → $y = 29 - 12$ → $y = 17$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Una solución se enfría $13\\,^\\circ\\mathrm{C}$ hasta quedar a $18\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T - 13 = 18$. ¿Cuál era la temperatura inicial? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
      "answer": "31",
-     "why": "Sumamos 13 a ambos lados: $T - 13 = 18$ → $T = 18 + 13 = 31$."
+     "why": "Sumamos 13 a ambos lados: $T - 13 = 18$ → $T = 18 + 13$ → $T = 31$."
     },
     {
      "q": "Al evaporarse $6\\,\\mathrm{mL}$ de una solución quedan $21\\,\\mathrm{mL}$. El volumen inicial $V$ cumple $V - 6 = 21$. ¿Cuál era el volumen inicial?",
@@ -690,14 +690,14 @@
       "$6\\,\\mathrm{mL}$"
      ],
      "correct": 0,
-     "why": "Sumamos 6 a ambos lados: $V - 6 = 21$ → $V = 21 + 6 = 27$."
+     "why": "Sumamos 6 a ambos lados: $V - 6 = 21$ → $V = 21 + 6 $ → $V= 27$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "En una reacción se consumen $15\\,\\mathrm{g}$ de un reactivo y quedan $14\\,\\mathrm{g}$. La masa inicial $m$ cumple $m - 15 = 14$. ¿Cuál era la masa inicial? Escribe solo el número, en $\\mathrm{g}$.",
      "answer": "29",
-     "why": "Sumamos 15 a ambos lados: $m - 15 = 14$ → $m = 14 + 15 = 29$."
+     "why": "Sumamos 15 a ambos lados: $m - 15 = 14$ → $m = 14 + 15$ → $m = 29$."
     },
     {
      "q": "Un buzo asciende $3\\,\\mathrm{m}$ y queda a $11\\,\\mathrm{m}$ de profundidad. Su profundidad inicial $p$ cumple $p - 3 = 11$. ¿A qué profundidad estaba?",
@@ -708,14 +708,14 @@
       "$33\\,\\mathrm{m}$"
      ],
      "correct": 2,
-     "why": "Sumamos 3 a ambos lados: $p - 3 = 11$ → $p = 11 + 3 = 14$."
+     "why": "Sumamos 3 a ambos lados: $p - 3 = 11$ → $p = 11 + 3$ → $p = 14$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Una colonia de bacterias pierde $8$ miles de individuos y quedan $36$ miles. El tamaño inicial $n$ cumple $n - 8 = 36$. ¿Cuántos miles había al inicio?",
+     "q": "Una colonia de bacterias pierde $8$ miles de individuos y quedan $36$ miles. El tamaño inicial $n$ cumple $n - 8 = 36$. ¿Cuántos miles de individuos había al inicio?",
      "answer": "44",
-     "why": "Sumamos 8 a ambos lados: $n - 8 = 36$ → $n = 36 + 8 = 44$."
+     "why": "Sumamos 8 a ambos lados: $n - 8 = 36$ → $n = 36 + 8$ → $n = 44$."
     },
     {
      "q": "Un auto avanza a $6\\,\\mathrm{km/h}$ y recorre $60\\,\\mathrm{km}$. El tiempo $t$ cumple $6t = 60$. ¿Cuántas horas viajó?",
@@ -726,14 +726,14 @@
       "$66\\,\\mathrm{h}$"
      ],
      "correct": 0,
-     "why": "Dividimos por 6: $t = \\frac{60}{6} = 10$."
+     "why": "Dividimos por 6 ambos lados: $\\frac{6t}{6}=\\frac{60}{6}$ → $t = 10$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Una bomba entrega $3\\,\\mathrm{mL}$ por minuto y llena un recipiente con $36\\,\\mathrm{mL}$. El tiempo $t$ cumple $3t = 36$. ¿Cuántos minutos tarda? Escribe solo el número, en $\\mathrm{min}$.",
+     "q": "Una bomba entrega $3\\,\\mathrm{mL}$ por minuto, llenando un recipiente con $36\\,\\mathrm{mL}$ en $t$ minutos. El tiempo $t$ cumple $3t = 36$. ¿Cuántos minutos tarda? Escribe solo el número, en $\\mathrm{min}$.",
      "answer": "12",
-     "why": "Dividimos por 3: $t = \\frac{36}{3} = 12$."
+     "why": "Dividimos por 3 ambos lados: $\\frac{3t}{3} = \\frac{36}{3}$ → $t = 12$."
     },
     {
      "q": "Cada pastilla contiene $7\\,\\mathrm{mg}$ de un compuesto y se necesitan $35\\,\\mathrm{mg}$ en total. El número de pastillas $n$ cumple $7n = 35$. ¿Cuántas pastillas se requieren?",
@@ -744,17 +744,17 @@
       "$5$"
      ],
      "correct": 3,
-     "why": "Dividimos por 7: $n = \\frac{35}{7} = 5$."
+     "why": "Dividimos por 7 ambos lados: $\\frac{7n}{7} = \\frac{35}{7}$ → $n = 5$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un material tiene densidad de $6\\,\\mathrm{g/cm^3}$ y una muestra tiene masa $60\\,\\mathrm{g}$. El volumen $V$ cumple $6V = 60$. ¿Cuál es el volumen en $\\mathrm{cm^3}$? Escribe solo el número, en $\\mathrm{cm^3}$.",
+     "q": "Un material tiene densidad de $6\\,\\mathrm{g/cm^3}$ y una muestra tiene masa $60\\,\\mathrm{g}$. El volumen $V$ de la muestra cumple $6V = 60$. ¿Cuál es el volumen en $\\mathrm{cm^3}$? Escribe solo el número, en $\\mathrm{cm^3}$.",
      "answer": "10",
-     "why": "Dividimos por 6: $V = \\frac{60}{6} = 10$."
+     "why": "Dividimos por 6 ambos lados: $\\frac{6V}{6} = \\frac{60}{6}$ → $V = 10$."
     },
     {
-     "q": "Una muestra de volumen $V$ se reparte en $5$ tubos iguales de $16\\,\\mathrm{mL}$ cada uno, así que $\\dfrac{V}{5} = 16$. ¿Cuál era el volumen total?",
+     "q": "Una muestra de volumen $V$ se reparte en $5$ tubos iguales de $16\\,\\mathrm{mL}$ cada uno, así que $\\dfrac{V}{5} = 16$. ¿Cuál es el volumen total?",
      "options": [
       "$11\\,\\mathrm{mL}$",
       "$16\\,\\mathrm{mL}$",
@@ -762,7 +762,7 @@
       "$21\\,\\mathrm{mL}$"
      ],
      "correct": 2,
-     "why": "Multiplicamos por 5: $V = 5 \\cdot 16 = 80$."
+     "why": "Multiplicamos por 5 ambos lados: $5\\cdot\\frac{V}{5} = 5 \\cdot 16 $ → $V= 80$."
     },
     {
      "q": "Una masa $m$ se divide en $8$ porciones iguales de $11\\,\\mathrm{g}$ cada una, es decir $\\dfrac{m}{8} = 11$. ¿Cuál era la masa total?",
@@ -773,10 +773,10 @@
       "$3\\,\\mathrm{g}$"
      ],
      "correct": 2,
-     "why": "Multiplicamos por 8: $m = 8 \\cdot 11 = 88$."
+     "why": "Multiplicamos por 8 ambos lados: $8\\cdot \\frac{m}{8} = 8 \\cdot 11$→ $m = 88$."
     },
     {
-     "q": "Un tanque tiene $40\\,\\mathrm{L}$ de agua y se llena a $3\\,\\mathrm{L}$ por minuto. Llega a $70\\,\\mathrm{L}$ cuando $3t + 40 = 70$. ¿Cuántos minutos pasaron?",
+     "q": "Un tanque tiene $40\\,\\mathrm{L}$ de agua y se llena a $3\\,\\mathrm{L}$ por minuto. Llega a $70\\,\\mathrm{L}$ cuando el total de minutos transcurridos $t$ cumple $3t + 40 = 70$. ¿Cuántos minutos pasaron?",
      "options": [
       "$10\\,\\mathrm{min}$",
       "$\\dfrac{110}{3}\\,\\mathrm{min}$",
@@ -784,10 +784,10 @@
       "$30\\,\\mathrm{min}$"
      ],
      "correct": 0,
-     "why": "Restamos 40: $3t = 30$; dividimos por 3: $t = 10$."
+     "why": "Restamos 40 a ambos lados: $3t = 30$; dividimos por 3 ambos lados: $t = 10$."
     },
     {
-     "q": "Una planta mide $5\\,\\mathrm{cm}$ y crece $7\\,\\mathrm{cm}$ por día. Mide $110\\,\\mathrm{cm}$ cuando $7t + 5 = 110$. ¿Cuántos días han pasado?",
+     "q": "Una planta mide $5\\,\\mathrm{cm}$ y crece $7\\,\\mathrm{cm}$ por día. Mide $110\\,\\mathrm{cm}$ cuando el total de días transcurridos $t$ cumple $7t + 5 = 110$. ¿Cuántos días han pasado?",
      "options": [
       "$16\\ \\text{días}$",
       "$15\\ \\text{días}$",
@@ -798,7 +798,7 @@
      "why": "Restamos 5: $7t = 105$; dividimos por 7: $t = 15$."
     },
     {
-     "q": "Un sensor registra $15\\,^\\circ\\mathrm{C}$ y la temperatura sube $3\\,^\\circ\\mathrm{C}$ por minuto. Llega a $33\\,^\\circ\\mathrm{C}$ cuando $3t + 15 = 33$. ¿Cuántos minutos transcurrieron?",
+     "q": "Un sensor registra $15\\,^\\circ\\mathrm{C}$ y la temperatura sube $3\\,^\\circ\\mathrm{C}$ por minuto. Llega a $33\\,^\\circ\\mathrm{C}$ cuando la cantidad de minutos transcurridos $t$ cumple $3t + 15 = 33$. ¿Cuántos minutos transcurrieron?",
      "options": [
       "$7\\,\\mathrm{min}$",
       "$18\\,\\mathrm{min}$",
@@ -945,7 +945,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$3x + 4 = 19$$\n\nEscribe el valor de $x$.",
      "answer": "5",
-     "why": "Primero restamos 4 y luego dividimos por 3: $3x = 15$, de donde $x = 5$.",
+     "why": "Restamos 4: $3x = 15$; luego dividimos por 3: $x = 5$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3x + 4 = 19$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 15$.\nDividimos ambos lados entre 3: $x = 5$."
     },
@@ -954,7 +954,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$2x+4 = 8$$\n\nEscribe el valor de $x$.",
      "answer": "2",
-     "why": "Pasamos $4$ al otro lado: $2x = 4$; luego dividimos por 2: $x = 2$.",
+     "why": "Restamos $4$: $2x = 4$; luego dividimos por 2: $x = 2$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $2x+4 = 8$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 4$.\nDividimos ambos lados entre 2: $x = 2$."
     },
@@ -967,7 +967,7 @@
       "$x=8$"
      ],
      "correct": 0,
-     "why": "Pasamos $10$ al otro lado: $7x = 49$; luego dividimos por 7: $x = 7$.",
+     "why": "Sumamos $10$: $7x = 49$; luego dividimos por 7: $x = 7$.",
      "level": 1
     },
     {
@@ -979,7 +979,7 @@
       "$x=2$"
      ],
      "correct": 3,
-     "why": "Pasamos $10$ al otro lado: $2x = 4$; luego dividimos por 2: $x = 2$.",
+     "why": "Sumamos $10$: $2x = 4$; luego dividimos por 2: $x = 2$.",
      "level": 1
     },
     {
@@ -987,7 +987,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$3x+5 = 26$$\n\nEscribe el valor de $x$.",
      "answer": "7",
-     "why": "Pasamos $5$ al otro lado: $3x = 21$; luego dividimos por 3: $x = 7$.",
+     "why": "Restamos $5$: $3x = 21$; luego dividimos por 3: $x = 7$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3x+5 = 26$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 21$.\nDividimos ambos lados entre 3: $x = 7$."
     },
@@ -1000,7 +1000,7 @@
       "$x=-6$"
      ],
      "correct": 0,
-     "why": "Juntamos las $x$ a un lado: $5x - 3x = 19 - 7$, es decir $2x = 12$. Entonces $x = 6$.",
+     "why": "Juntamos las $x$ a un lado: $5x - 3x = 19 - 7$, es decir $2x = 12$; dividimos por 2: $x = 6$.",
      "level": 1
     },
     {
@@ -1019,7 +1019,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3x + 8 = 44$$ Escribe el valor de $x$.",
      "answer": "12",
-     "why": "Al reemplazar $x = 12$ en la ecuación, ambos lados valen $44$.",
+     "why": "Restamos 8: $3x=36$; dividimos por 3: $x=12$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3x + 8 = 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 36$.\nDividimos ambos lados entre 3: $x = 12$."
     },
@@ -1028,7 +1028,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$2x + 1 = 23$$ Escribe el valor de $x$.",
      "answer": "11",
-     "why": "Al reemplazar $x = 11$ en la ecuación, ambos lados valen $23$.",
+     "why": "Restamos 1: $2x=22$; dividimos por 2: $x=11$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $2x + 1 = 23$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 22$.\nDividimos ambos lados entre 2: $x = 11$."
     },
@@ -1037,7 +1037,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$6x + 10 = 16$$ Escribe el valor de $x$.",
      "answer": "1",
-     "why": "Al reemplazar $x = 1$ en la ecuación, ambos lados valen $16$.",
+     "why": "Restamos 10: $6x=6$; dividimos entre 6: $x=1$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $6x + 10 = 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 6$.\nDividimos ambos lados entre 6: $x = 1$."
     },
@@ -1046,7 +1046,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3x + 14 = 2x + 9$$ Escribe el valor de $x$.",
      "answer": "-5",
-     "why": "Al reemplazar $x = -5$ en la ecuación, ambos lados valen $-1$.",
+     "why": "Agrupamos $x$ a la izquierda: $3x-2x=9-14$; reducimos: $x=-5$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3x + 14 = 2x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -5$."
     },
@@ -1055,7 +1055,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$2x - 5 = x$$ Escribe el valor de $x$.",
      "answer": "5",
-     "why": "Al reemplazar $x = 5$ en la ecuación, ambos lados valen $5$.",
+     "why": "Agrupamos $x$ a la izquierda: $2x-x=0+5$; reducimos: $x=5$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $2x - 5 = x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 5$."
     },
@@ -1064,7 +1064,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$7x - 15 = 4x + 27$$ Escribe el valor de $x$.",
      "answer": "14",
-     "why": "Al reemplazar $x = 14$ en la ecuación, ambos lados valen $83$.",
+     "why": "Agrupamos $x$ a la izquierda: $7x-4x=27+15$; reducimos: $3x=42$; dividimos por 3: $x=14$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $7x - 15 = 4x + 27$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 42$.\nDividimos ambos lados entre 3: $x = 14$."
     },
@@ -1073,7 +1073,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3x - 3 = x - 7$$ Escribe el valor de $x$.",
      "answer": "-2",
-     "why": "Al reemplazar $x = -2$ en la ecuación, ambos lados valen $-9$.",
+     "why": "Agrupamos $x$ a la izquierda: $3x-x=-7+3$; reducimos: $2x=-4$; dividimos entre 2: $x=-2$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3x - 3 = x - 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = -4$.\nDividimos ambos lados entre 2: $x = -2$."
     },
@@ -1082,7 +1082,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$13 - 8x = 21$$ Escribe el valor de $x$.",
      "answer": "-1",
-     "why": "Al reemplazar $x = -1$ en la ecuación, ambos lados valen $21$.",
+     "why": "Restamos 13: $-8x=8$; dividimos por $(-8)$: $x=-1$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $13 - 8x = 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = 8$.\nDividimos ambos lados entre -8: $x = -1$."
     },
@@ -1091,7 +1091,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$4 - 4x = 40$$ Escribe el valor de $x$.",
      "answer": "-9",
-     "why": "Al reemplazar $x = -9$ en la ecuación, ambos lados valen $40$.",
+     "why": "Restar 4: $-4x=36$; dividir por $(-4)$: $x=-9$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $4 - 4x = 40$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-4x = 36$.\nDividimos ambos lados entre -4: $x = -9$."
     },
@@ -1100,7 +1100,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$24 = 3x + 12$$ Escribe el valor de $x$.",
      "answer": "4",
-     "why": "Al reemplazar $x = 4$ en la ecuación, ambos lados valen $24$.",
+     "why": "Restar 12: $12=3x$; dividir por 3: $4=x$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $24 = 3x + 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = -12$.\nDividimos ambos lados entre -3: $x = 4$."
     },
@@ -1109,17 +1109,17 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$37 = 3x + 7$$ Escribe el valor de $x$.",
      "answer": "10",
-     "why": "Al reemplazar $x = 10$ en la ecuación, ambos lados valen $37$.",
+     "why": "Restar 7: $30=3x$; dividir por 3: $10=x$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $37 = 3x + 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = -30$.\nDividimos ambos lados entre -3: $x = 10$."
     },
     {
-     "q": "Para resolver $5x - 9 = 1x + 8$, ¿cuál es un primer paso correcto?",
+     "q": "Para resolver $5x - 9 =8 - x$, ¿cuál es un primer paso correcto?",
      "options": [
       "Dividir ambos lados por $5$",
       "Sumar $9$ a ambos lados",
-      "Restar $1x$ a ambos lados",
-      "Restar $8$ a ambos lados"
+      "Restar $x$ a ambos lados",
+      "Sumar $8$ a ambos lados"
      ],
      "correct": 2,
      "why": "Se busca agrupar los términos con $x$ y los números por separado, aplicando la operación inversa en ambos lados.",
@@ -1131,14 +1131,14 @@
       "Multiplicar ambos lados por $7$",
       "Sumar $7$ a ambos lados",
       "Restar $7$ a ambos lados",
-      "Dividir ambos lados por $7$"
+      "Dividir ambos lados por $7x$"
      ],
      "correct": 1,
      "why": "Se busca agrupar los términos con $x$ y los números por separado, aplicando la operación inversa en ambos lados.",
      "level": 1
     },
     {
-     "q": "Resuelve la ecuación:\n$$4x-3 = 2x+9$$",
+     "q": "La solución de la ecuación\n$$4x-3 = 2x+9$$\nes:",
      "options": [
       "$x=2$",
       "$x=3$",
@@ -1146,7 +1146,7 @@
       "$x=6$"
      ],
      "correct": 3,
-     "why": "Juntamos las $x$ a un lado: $4x - 2x = 9 - -3$, es decir $2x = 12$. Entonces $x = 6$.",
+     "why": "Juntamos las $x$ a un lado: $4x - 2x = 9 +3$, es decir $2x = 12$; dividimos por 2: $x = 6$.",
      "level": 2
     },
     {
@@ -1154,7 +1154,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$4x+5 = x+8$$\n\nEscribe el valor de $x$.",
      "answer": "1",
-     "why": "Juntamos las $x$ a un lado: $4x - 1x = 8 - 5$, es decir $3x = 3$. Entonces $x = 1$.",
+     "why": "Juntamos las $x$ a un lado: $4x - x = 8 - 5$, es decir $3x = 3$; dividimos por 3: $x = 1$.",
      "level": 2,
      "solution": "Partimos de la ecuación: $4x+5 = x+8$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 3$.\nDividimos ambos lados entre 3: $x = 1$."
     },
@@ -1163,7 +1163,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$2x+11 = 5$$\n\nEscribe el valor de $x$.",
      "answer": "-3",
-     "why": "Pasamos $11$ al otro lado: $2x = -6$; luego dividimos por 2: $x = -3$.",
+     "why": "Restamos $11$: $2x = -6$; dividimos por 2: $x = -3$.",
      "level": 2,
      "solution": "Partimos de la ecuación: $2x+11 = 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = -6$.\nDividimos ambos lados entre 2: $x = -3$."
     },
@@ -1176,7 +1176,7 @@
       "$x=36$"
      ],
      "correct": 0,
-     "why": "Restamos 41 a ambos lados: $-6x = -36$; dividimos por $-6$: $x = 6$.",
+     "why": "Restamos 41: $-6x = -36$; dividimos por $(-6)$: $x = 6$.",
      "level": 2
     },
     {
@@ -1184,7 +1184,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$5x - 2 = 2x + 3$$ Escribe el valor de $x$.",
      "answer": "5/3",
-     "why": "Al reemplazar $x = \\dfrac{5}{3}$ en la ecuación, ambos lados valen $\\dfrac{19}{3}$.",
+     "why": "Agrupar $x$ a la izquierda: $5x-2x=3+2$; reducir: $3x=5$; dividir por 3: $x=\\dfrac{5}{3}$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $5x - 2 = 2x + 3$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 5$.\nDividimos ambos lados entre 3: $x = \\dfrac{5}{3}$."
@@ -1194,7 +1194,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$6x + 4 = 2x + 7$$ Escribe el valor de $x$.",
      "answer": "3/4",
-     "why": "Al reemplazar $x = \\dfrac{3}{4}$ en la ecuación, ambos lados valen $\\dfrac{17}{2}$.",
+     "why": "Agrupar $x$: $6x-2x=7-4$; reducir: $4x=3$; dividir por 4: $x=\\frac{3}{4}$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $6x + 4 = 2x + 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 3$.\nDividimos ambos lados entre 4: $x = \\dfrac{3}{4}$."
@@ -1204,27 +1204,27 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$4x + 3 = 10x - 5$$ Escribe el valor de $x$.",
      "answer": "4/3",
-     "why": "Al reemplazar $x = \\dfrac{4}{3}$ en la ecuación, ambos lados valen $\\dfrac{25}{3}$.",
+     "why": "Agrupar $x$: $4x-10x=-5-3$; reducir: $-6x=-8$; dividir por $(-6)$ y simplificar: $x=\\dfrac{4}{3}$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $4x + 3 = 10x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-6x = -8$.\nDividimos ambos lados entre -6: $x = \\dfrac{4}{3}$."
+     "solution": "Partimos de la ecuación: $4x + 3 = 10x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-6x = -8$.\nDividimos ambos lados entre -6: $x = \\dfrac{-8}{-6}$.\nSimplificamos: $x=\\dfrac{4}{3}$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$8x + 22 = 2x + 44$$ Escribe el valor de $x$.",
      "answer": "11/3",
-     "why": "Al reemplazar $x = \\dfrac{11}{3}$ en la ecuación, ambos lados valen $\\dfrac{154}{3}$.",
+     "why": "Agrupar: $8x-2x=44-22$; reducir: $6x=22$: dividir por 6 y simplificar: $x=\\frac{11}{3}$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $8x + 22 = 2x + 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 22$.\nDividimos ambos lados entre 6: $x = \\dfrac{11}{3}$."
+     "solution": "Partimos de la ecuación: $8x + 22 = 2x + 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 22$.\nDividimos ambos lados entre 6: $x = \\dfrac{22}{6}$.\nSimplificamos: $x=\\dfrac{11}{3}$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$11x + 25 = 9x + 46$$ Escribe el valor de $x$.",
      "answer": "21/2",
-     "why": "Al reemplazar $x = \\dfrac{21}{2}$ en la ecuación, ambos lados valen $\\dfrac{281}{2}$.",
+     "why": "Agrupar: $11x-9x=46-25$; reducir: $2x=21$; dividir por 2: $x=\\frac{21}{2}$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $11x + 25 = 9x + 46$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 21$.\nDividimos ambos lados entre 2: $x = \\dfrac{21}{2}$."
@@ -1234,7 +1234,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$8x + 4 = x - 12$$ Escribe el valor de $x$.",
      "answer": "-16/7",
-     "why": "Al reemplazar $x = -\\dfrac{16}{7}$ en la ecuación, ambos lados valen $-\\dfrac{100}{7}$.",
+     "why": "Agrupar: $8x-x=-12-4$; reducir: $7x=-16$; dividir por 7: $x=-\\dfrac{16}{7}$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $8x + 4 = x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = -16$.\nDividimos ambos lados entre 7: $x = -\\dfrac{16}{7}$."
@@ -1244,7 +1244,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$10x + 7 = 3x - 26$$ Escribe el valor de $x$.",
      "answer": "-33/7",
-     "why": "Al reemplazar $x = -\\dfrac{33}{7}$ en la ecuación, ambos lados valen $-\\dfrac{281}{7}$.",
+     "why": "Agrupar: $10x-3x=-26-7$; reducir: $7x=-33$; dividir por 7: $x=-\\dfrac{33}{7}$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $10x + 7 = 3x - 26$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = -33$.\nDividimos ambos lados entre 7: $x = -\\dfrac{33}{7}$."
@@ -1254,40 +1254,40 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$14 - 3x = 2x - 12$$ Escribe el valor de $x$.",
      "answer": "26/5",
-     "why": "Al reemplazar $x = \\dfrac{26}{5}$ en la ecuación, ambos lados valen $-\\dfrac{8}{5}$.",
+     "why": "Agrupar: $-3x-2x=-12-14$; reducir: $-5x=-26$; dividir por $(-5)$ y simplificar: $x=\\dfrac{26}{5}$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $14 - 3x = 2x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-5x = -26$.\nDividimos ambos lados entre -5: $x = \\dfrac{26}{5}$."
+     "solution": "Partimos de la ecuación: $14 - 3x = 2x - 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-5x = -26$.\nDividimos ambos lados entre -5: $x = \\dfrac{-26}{-5}$.\nSimplificamos: $x=\\dfrac{26}{5}$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$5 - 10x = x - 5$$ Escribe el valor de $x$.",
      "answer": "10/11",
-     "why": "Al reemplazar $x = \\dfrac{10}{11}$ en la ecuación, ambos lados valen $-\\dfrac{45}{11}$.",
+     "why": "Agrupar: $-10x-x=-5-5$; reducir: $-11x=-10$; dividir por $(-11)$ y simplificar: $x=\\dfrac{10}{11}$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $5 - 10x = x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-11x = -10$.\nDividimos ambos lados entre -11: $x = \\dfrac{10}{11}$."
+     "solution": "Partimos de la ecuación: $5 - 10x = x - 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-11x = -10$.\nDividimos ambos lados entre -11: $x = \\dfrac{-10}{-11}$.\nSimplificamos: $x=\\dfrac{10}{11}$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$32 - 11x = x + 9$$ Escribe el valor de $x$.",
      "answer": "23/12",
-     "why": "Al reemplazar $x = \\dfrac{23}{12}$ en la ecuación, ambos lados valen $\\dfrac{131}{12}$.",
+     "why": "Agrupar: $32-9=x+11x$; reducir: $23=12x$; dividir por 12: $\\dfrac{23}{12}=x$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $32 - 11x = x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-12x = -23$.\nDividimos ambos lados entre -12: $x = \\dfrac{23}{12}$."
+     "solution": "Partimos de la ecuación: $32 - 11x = x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-12x = -23$.\nDividimos ambos lados entre -12: $x = \\dfrac{-23}{-12}$.\nSimplificamos: $x=\\dfrac{23}{12}$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$3x - 31 = 1 - 7x$$ Escribe el valor de $x$.",
      "answer": "16/5",
-     "why": "Al reemplazar $x = \\dfrac{16}{5}$ en la ecuación, ambos lados valen $-\\dfrac{107}{5}$.",
+     "why": "Agrupar: $3x+7x=1+31$; reducir: $10x=32$; dividir por 10 y simplificar: $x=\\dfrac{16}{5}$.",
      "level": 2,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $3x - 31 = 1 - 7x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $10x = 32$.\nDividimos ambos lados entre 10: $x = \\dfrac{16}{5}$."
+     "solution": "Partimos de la ecuación: $3x - 31 = 1 - 7x$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $10x = 32$.\nDividimos ambos lados entre 10: $x = \\dfrac{32}{10}$.\nSimplificamos: $x=\\dfrac{16}{5}$."
     },
     {
      "type": "input",
@@ -1357,7 +1357,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3x + 5x - 12 = 2x + 30$$ Escribe el valor de $x$.",
      "answer": "7",
-     "why": "Al reemplazar $x = 7$ en la ecuación, ambos lados valen $44$.",
+     "why": "Agrupar: $3x+5x-2x=30+12$; reducir: $6x=42$; dividir por 6 y simplificar: $x=7$.",
      "level": 3,
      "solution": "Partimos de la ecuación: $3x + 5x - 12 = 2x + 30$.\nReducimos los términos semejantes de cada lado: $8x - 12 = 2x + 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 42$.\nDividimos ambos lados entre 6: $x = 7$."
     },
@@ -1367,7 +1367,7 @@
      "q": "Resuelve la ecuación: $$9x - 15 = 7x + 9$$ Escribe el valor de $x$.",
      "answer": "12",
      "why": "Al reemplazar $x = 12$ en la ecuación, ambos lados valen $93$.",
-     "level": 3,
+     "level": 2,
      "solution": "Partimos de la ecuación: $9x - 15 = 7x + 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 24$.\nDividimos ambos lados entre 2: $x = 12$."
     },
     {
@@ -1385,7 +1385,7 @@
      "q": "Resuelve la ecuación: $$2x + 4 = 11x - 17$$ Escribe el valor de $x$.",
      "answer": "7/3",
      "why": "Al reemplazar $x = \\dfrac{7}{3}$ en la ecuación, ambos lados valen $\\dfrac{26}{3}$.",
-     "level": 3,
+     "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $2x + 4 = 11x - 17$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-9x = -21$.\nDividimos ambos lados entre -9: $x = \\dfrac{7}{3}$."
     },
@@ -1545,12 +1545,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Un ciclista parte a $32\\,\\mathrm{m}$ del inicio de una ruta y avanza a $6\\,\\mathrm{m/s}$. Su posición cumple $x = 32 + 6t$. ¿En cuántos segundos estará a $98\\,\\mathrm{m}$ del inicio? Escribe solo el número, en $\\mathrm{s}$.",
+     "q": "Un ciclista parte a $32\\,\\mathrm{m}$ del inicio de una ruta y avanza a $6\\,\\mathrm{m/s}$. Su posición tras $t$ segundos es $32 + 6t$. ¿En cuántos segundos estará a $98\\,\\mathrm{m}$ del inicio? Escribe solo el número, en $\\mathrm{s}$.",
      "answer": "11",
-     "why": "Restamos 32: $6t = 66$; luego $t = 11$."
+     "why": "Planteamos: $32+6t=98$; restamos 32: $6t = 66$; dividimos por 6: $t = 11$."
     },
     {
-     "q": "Un dron está a $39\\,\\mathrm{m}$ de altura y asciende $5\\,\\mathrm{m}$ cada segundo, de modo que $y = 39 + 5t$. ¿Cuántos segundos tarda en llegar a $79\\,\\mathrm{m}$?",
+     "q": "Un dron está a $39\\,\\mathrm{m}$ de altura y asciende $5\\,\\mathrm{m}$ cada segundo, de modo que su altura (en metros) tras $t$ segundos es $39 + 5t$. ¿Cuántos segundos tarda en llegar a $79\\,\\mathrm{m}$?",
      "options": [
       "$9\\,\\mathrm{s}$",
       "$\\dfrac{118}{5}\\,\\mathrm{s}$",
@@ -1558,17 +1558,17 @@
       "$8\\,\\mathrm{s}$"
      ],
      "correct": 3,
-     "why": "Restamos 39: $5t = 40$; luego $t = 8$."
+     "why": "Planteamos: $39+5t=79$; restamos 39: $5t = 40$; dividimos por 5: $t = 8$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Una planta mide $17\\,\\mathrm{cm}$ y crece $8\\,\\mathrm{cm}$ por día, así que $h = 17 + 8t$. ¿En cuántos días medirá $33\\,\\mathrm{cm}$? Escribe solo el número, en $\\text{días}$.",
+     "q": "Una planta mide $17\\,\\mathrm{cm}$ y crece $8\\,\\mathrm{cm}$ por día, así, su altura (en $\\mathrm{cm}$) tras $t$ días es $17 + 8t$. ¿En cuántos días medirá $33\\,\\mathrm{cm}$? Escribe solo el número, en $\\text{días}$.",
      "answer": "2",
-     "why": "Restamos 17: $8t = 16$; luego $t = 2$."
+     "why": "Planteamos: $17+8t=33$; restamos 17: $8t = 16$; dividimos por 8: $t = 2$."
     },
     {
-     "q": "La temperatura de una reacción es $21\\,^\\circ\\mathrm{C}$ y aumenta $5\\,^\\circ\\mathrm{C}$ cada minuto: $T = 21 + 5t$. ¿En cuántos minutos llegará a $41\\,^\\circ\\mathrm{C}$?",
+     "q": "La temperatura de una reacción es $21\\,^\\circ\\mathrm{C}$ y aumenta $5\\,^\\circ\\mathrm{C}$ cada minuto, de modo que tras $t$ minutos, la temperatura (en $^\\circ\\mathrm{C}$) es $21 + 5t$. ¿En cuántos minutos llegará a $41\\,^\\circ\\mathrm{C}$?",
      "options": [
       "$20\\,\\mathrm{min}$",
       "$\\dfrac{62}{5}\\,\\mathrm{min}$",
@@ -1576,17 +1576,17 @@
       "$4\\,\\mathrm{min}$"
      ],
      "correct": 3,
-     "why": "Restamos 21: $5t = 20$; luego $t = 4$."
+     "why": "Planteamos: $21+5t=41$; restamos 21: $5t = 20$; dividimos por 5: $t = 4$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un reactor ya produjo $29\\,\\mathrm{g}$ de un compuesto y produce $7\\,\\mathrm{g}$ por hora: $m = 29 + 7t$. ¿En cuántas horas habrá $78\\,\\mathrm{g}$? Escribe solo el número, en $\\mathrm{h}$.",
+     "q": "Un reactor ya produjo $29\\,\\mathrm{g}$ de un compuesto y produce $7\\,\\mathrm{g}$ por hora, así, el total de compuesto (en $\\mathrm{g}$) tras $t$ horas es $29 + 7t$. ¿En cuántas horas habrá $78\\,\\mathrm{g}$? Escribe solo el número, en horas.",
      "answer": "7",
-     "why": "Restamos 29: $7t = 49$; luego $t = 7$."
+     "why": "Planteamos: $29+7t=78$; restamos 29: $7t = 49$; dividimos por 7: $t = 7$."
     },
     {
-     "q": "Un submarino está a $39\\,\\mathrm{m}$ de profundidad y desciende $3\\,\\mathrm{m}$ por minuto: $p = 39 + 3t$. ¿Cuántos minutos tarda en llegar a $57\\,\\mathrm{m}$?",
+     "q": "Un submarino está a $39\\,\\mathrm{m}$ de profundidad y desciende $3\\,\\mathrm{m}$ por minuto. La profundidad alcanzada (en $\\mathrm{m}$) tras $t$ minutos es $39 + 3t$. ¿Cuántos minutos tarda en llegar a $57\\,\\mathrm{m}$ de profundidad?",
      "options": [
       "$32\\,\\mathrm{min}$",
       "$6\\,\\mathrm{min}$",
@@ -1594,17 +1594,17 @@
       "$18\\,\\mathrm{min}$"
      ],
      "correct": 1,
-     "why": "Restamos 39: $3t = 18$; luego $t = 6$."
+     "why": "Planteamos: $39+3t=57$; restamos 39: $3t = 18$; dividimos por 3: $t = 6$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "La relación entre grados Celsius y Fahrenheit es $F = \\dfrac{9}{5}C + 32$. ¿Cuántos grados Celsius corresponden a $59\\,^\\circ\\mathrm{F}$? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
+     "q": "La relación entre grados Celsius ($C$) y grados Fahrenheit ($F$) es $F = \\dfrac{9}{5}C + 32$. ¿Cuántos grados Celsius corresponden a $59\\,^\\circ\\mathrm{F}$? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
      "answer": "15",
      "why": "Reemplazamos: $59 = \\frac{9}{5}C + 32$. Restamos 32: $27 = \\frac{9}{5}C$; multiplicamos por $\\frac{5}{9}$: $C = 15$."
     },
     {
-     "q": "La relación entre grados Celsius y Fahrenheit es $F = \\dfrac{9}{5}C + 32$. ¿Cuántos grados Celsius corresponden a $95\\,^\\circ\\mathrm{F}$?",
+     "q": "La relación entre grados Celsius ($C$) y grados Fahrenheit ($F$) es $F = \\dfrac{9}{5}C + 32$. ¿Cuántos grados Celsius corresponden a $95\\,^\\circ\\mathrm{F}$?",
      "options": [
       "$\\dfrac{567}{5}\\,^\\circ\\mathrm{C}$",
       "$63\\,^\\circ\\mathrm{C}$",
@@ -1617,12 +1617,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Un tanque tiene $38\\,\\mathrm{L}$ y se vacía a $2\\,\\mathrm{L}$ por minuto: $V = 38 - 2t$. ¿Cuántos minutos pasan hasta que quedan $28\\,\\mathrm{L}$? Escribe solo el número, en $\\mathrm{min}$.",
+     "q": "Un tanque tiene $38\\,\\mathrm{L}$ y se vacía a $2\\,\\mathrm{L}$ por minuto. El volumen del tanque (en $\\mathrm{L}$) tras $t$ minutos es $38 - 2t$. ¿Cuántos minutos pasan hasta que quedan $28\\,\\mathrm{L}$? Escribe solo el número, en $\\mathrm{min}$.",
      "answer": "5",
-     "why": "Restamos 38: $-2t = -10$; dividimos por $-2$: $t = 5$."
+     "why": "Planteamos: $38-2t=28$; restamos 38: $-2t = -10$; dividimos por $-2$: $t = 5$."
     },
     {
-     "q": "Una vela mide $50\\,\\mathrm{cm}$ y se consume $5\\,\\mathrm{cm}$ por hora: $h = 50 - 5t$. ¿Cuántas horas pasan hasta que mide $30\\,\\mathrm{cm}$?",
+     "q": "Una vela mide $50\\,\\mathrm{cm}$ y se consume $5\\,\\mathrm{cm}$ cada hora, de modo que la altura de la vela (en $\\mathrm{cm}$) tras $t$ horas es $50 - 5t$. ¿Cuántas horas pasan hasta que mide $30\\,\\mathrm{cm}$?",
      "options": [
       "$-4\\,\\mathrm{h}$",
       "$16\\,\\mathrm{h}$",
@@ -1630,17 +1630,17 @@
       "$20\\,\\mathrm{h}$"
      ],
      "correct": 2,
-     "why": "Restamos 50: $-5t = -20$; dividimos por $-5$: $t = 4$."
+     "why": "Planteamos: $50-5t=30$; restamos 50: $-5t = -20$; dividimos por $-5$: $t = 4$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un cultivo tiene $69$ unidades de nutriente y consume $5$ por día: $n = 69 - 5t$. ¿Cuántos días pasan hasta que quedan $9$ unidades? Escribe solo el número, en $\\text{días}$.",
+     "q": "Un cultivo de bacterias se alimenta con $69$ unidades de nutriente y consume $5$ unidades por día. La cantidad de nutriente disponible tras $t$ días es $69 - 5t$. ¿Cuántos días pasan hasta que quedan $9$ unidades? Escribe solo el número, en $\\text{días}$.",
      "answer": "12",
-     "why": "Restamos 69: $-5t = -60$; dividimos por $-5$: $t = 12$."
+     "why": "Planteamos: $69-5t=9$; restamos 69: $-5t = -60$; dividimos por $-5$: $t = 12$."
     },
     {
-     "q": "Dos ciclistas salen en la misma dirección: el primero va a $6\\,\\mathrm{m/s}$ y el segundo, que parte $12\\,\\mathrm{m}$ adelante, va a $4\\,\\mathrm{m/s}$. Se encuentran cuando $6t = 4t + 12$. ¿Después de cuántos segundos?",
+     "q": "Dos ciclistas salen en la misma dirección: el primero va a $6\\,\\mathrm{m/s}$ y el segundo, que parte $12\\,\\mathrm{m}$ adelante, va a $4\\,\\mathrm{m/s}$. Se encuentran cuando el tiempo $t$ (en segundos) cumple $6t = 4t + 12$. ¿Después de cuántos segundos se encuentran los ciclistas?",
      "options": [
       "$6\\,\\mathrm{s}$",
       "$2\\,\\mathrm{s}$",
@@ -1648,17 +1648,17 @@
       "$12\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Igualamos: $6t = 4t + 12$. Entonces $2t = 12$ y $t = 6$."
+     "why": "Agrupamos: $2t = 12$; dividimos por 2: $t = 6$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un robot A avanza $7\\,\\mathrm{cm}$ por segundo y un robot B, con $35\\,\\mathrm{cm}$ de ventaja, avanza $2\\,\\mathrm{cm}$ por segundo. A alcanza a B cuando $7t = 2t + 35$. ¿En cuántos segundos? Escribe solo el número, en $\\mathrm{s}$.",
+     "q": "Un robot A avanza $7\\,\\mathrm{cm}$ por segundo y un robot B, con $35\\,\\mathrm{cm}$ de ventaja, avanza $2\\,\\mathrm{cm}$ por segundo. A alcanza a B cuando el tiempo $t$ en segundos cumple $7t = 2t + 35$. ¿En cuántos segundos A alcanza a B? Escribe solo el número, en $\\mathrm{s}$.",
      "answer": "7",
-     "why": "Igualamos: $7t = 2t + 35$. Entonces $5t = 35$ y $t = 7$."
+     "why": "Agrupamos: $5t = 35$; dividimos por 5: $t = 7$."
     },
     {
-     "q": "Dos lanchas siguen la misma ruta: la rápida va a $5\\,\\mathrm{km/h}$ y la lenta, que salió $36\\,\\mathrm{km}$ antes, va a $1\\,\\mathrm{km/h}$. La rápida la alcanza cuando $5t = 1t + 36$. ¿Cuántas horas después?",
+     "q": "Dos lanchas siguen la misma ruta: la rápida va a $5\\,\\mathrm{km/h}$ y la lenta, que salió $36\\,\\mathrm{km}$ antes, va a $1\\,\\mathrm{km/h}$. La lancha rápida alcanza a la otra lancha cuando el tiempo $t$ en horas cumple $5t = t + 36$. ¿Cuántas horas después se encuentran las lanchas?",
      "options": [
       "$36\\,\\mathrm{h}$",
       "$9\\,\\mathrm{h}$",
@@ -1666,17 +1666,17 @@
       "$\\dfrac{36}{5}\\,\\mathrm{h}$"
      ],
      "correct": 1,
-     "why": "Igualamos: $5t = 1t + 36$. Entonces $4t = 36$ y $t = 9$."
+     "why": "Agrupamos: $4t = 36$; dividimos por 4: $t = 9$."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "En un cultivo A hay $0$ células y se agregan $7$ por hora; en B hay $10$ células y se agregan $2$ por hora. Hay igual cantidad cuando $7t = 2t + 10$. ¿Después de cuántas horas? Escribe solo el número, en $\\mathrm{h}$.",
+     "q": "En un cultivo A hay $0$ células y se agregan $7$ por hora; en B hay $10$ células y se agregan $2$ por hora. Los cultivos tienen la misma cantidad de células cuando el tiempo $t$ en horas cumple $7t = 2t + 10$. ¿Después de cuántas horas tienen la misma cantidad de células? Escribe solo el número, en $\\mathrm{h}$.",
      "answer": "2",
-     "why": "Igualamos: $7t = 2t + 10$. Entonces $5t = 10$ y $t = 2$."
+     "why": "Agrupamos: $5t = 10$; dividimos por 5: $t = 2$."
     },
     {
-     "q": "Dos velas miden $28\\,\\mathrm{cm}$ y $20\\,\\mathrm{cm}$. La primera se consume $7\\,\\mathrm{cm}$ por hora y la segunda $5\\,\\mathrm{cm}$ por hora. Tienen la misma altura cuando $28 - 7t = 20 - 5t$. ¿Después de cuántas horas?",
+     "q": "Dos velas miden $28\\,\\mathrm{cm}$ y $20\\,\\mathrm{cm}$. La primera se consume $7\\,\\mathrm{cm}$ por hora y la segunda $5\\,\\mathrm{cm}$ por hora. Tienen la misma altura cuando el tiempo $t$ en horas cumple $28 - 7t = 20 - 5t$. ¿Después de cuántas horas ocurre esto?",
      "options": [
       "$4\\,\\mathrm{h}$",
       "$\\dfrac{2}{3}\\,\\mathrm{h}$",
@@ -1684,10 +1684,10 @@
       "$5\\,\\mathrm{h}$"
      ],
      "correct": 0,
-     "why": "Igualamos las alturas: $28 - 7t = 20 - 5t$. Entonces $2t = 8$ y $t = 4$."
+     "why": "Agrupamos: $2t = 8$; dividimos por 2: $t = 4$."
     },
     {
-     "q": "Dos tanques tienen $39\\,\\mathrm{L}$ y $18\\,\\mathrm{L}$ y se vacían a $9\\,\\mathrm{L}$ y $6\\,\\mathrm{L}$ por hora. Tienen igual volumen cuando $39 - 9t = 18 - 6t$. ¿Después de cuántas horas?",
+     "q": "Dos tanques tienen $39\\,\\mathrm{L}$ y $18\\,\\mathrm{L}$, y se vacían a $9\\,\\mathrm{L}$ y $6\\,\\mathrm{L}$ por hora, respectivamente. Tienen igual volumen cuando el tiempo $t$ en horas cumple $39 - 9t = 18 - 6t$. ¿Después de cuántas horas esto ocurre?",
      "options": [
       "$8\\,\\mathrm{h}$",
       "$7\\,\\mathrm{h}$",
@@ -1695,10 +1695,10 @@
       "$21\\,\\mathrm{h}$"
      ],
      "correct": 1,
-     "why": "Igualamos las alturas: $39 - 9t = 18 - 6t$. Entonces $3t = 21$ y $t = 7$."
+     "why": "Agrupamos: $3t = 21$; dividimos por 3: $t = 7$."
     },
     {
-     "q": "Un resorte tiene largo natural de $11\\,\\mathrm{cm}$. Al estirarlo, la fuerza (en N) cumple $6(L - 11) = 12$, donde $L$ es su largo en cm. ¿Cuánto mide el resorte estirado?",
+     "q": "Un resorte tiene largo natural de $11\\,\\mathrm{cm}$. Su longitud $L$ (en $\\mathrm{cm}$) al ser estirado cumple $6(L - 11) = 12$. ¿Cuánto mide el resorte estirado?",
      "options": [
       "$23\\,\\mathrm{cm}$",
       "$2\\,\\mathrm{cm}$",
@@ -1706,10 +1706,10 @@
       "$14\\,\\mathrm{cm}$"
      ],
      "correct": 2,
-     "why": "Dividimos por 6: $L - 11 = 2$, luego $L = 13$."
+     "why": "Dividimos por 6: $L - 11 = 2$; sumamos 11: $L = 13$."
     },
     {
-     "q": "Un resorte de largo natural $5\\,\\mathrm{cm}$ ejerce una fuerza que cumple $3(L - 5) = 18$ (con $L$ en cm). ¿Cuál es el largo $L$ del resorte?",
+     "q": "Un resorte de largo natural $5\\,\\mathrm{cm}$ se estira hasta tener una longitud $L$ (en $\\mathrm{cm}$) que cumple $3(L - 5) = 18$. ¿Cuál es el largo $L$ del resorte estirado?",
      "options": [
       "$11\\,\\mathrm{cm}$",
       "$23\\,\\mathrm{cm}$",
@@ -1717,7 +1717,7 @@
       "$6\\,\\mathrm{cm}$"
      ],
      "correct": 0,
-     "why": "Dividimos por 3: $L - 5 = 6$, luego $L = 11$."
+     "why": "Dividimos por 3: $L - 5 = 6$; sumamos 5: $L = 11$."
     }
    ],
    "drawCheck": 5,
@@ -1726,7 +1726,7 @@
    "example4": "Resolvemos $2x + 3 = 5x - 12$. Esta vez conviene juntar las $x$ a la derecha, donde hay más:\n$$\\begin{aligned}2x + 3 &= 5x - 12\\\\ 3 + 12 &= 5x - 2x\\\\ 15 &= 3x\\\\ x &= 5\\end{aligned}$$\nVerificamos: $2\\cdot 5 + 3 = 13$ y $5\\cdot 5 - 12 = 13$.",
    "learn": {
     "goal": "Al terminar podrás resolver ecuaciones lineales con una incógnita, incluso cuando $x$ aparece **a ambos lados**.",
-    "idea": "Una ecuación lineal tiene la forma $ax+b=c$ con $a\\neq0$. Se **deshacen las operaciones en orden inverso**: primero se eliminan las sumas y restas, y luego se divide entre el número que multiplica a $x$. Si $x$ aparece a ambos lados, se juntan los términos con $x$ en un lado y los números en el otro.",
+    "idea": "Una ecuación lineal tiene la forma $ax+b=c$ con $a\\neq0$. Para resolverla se deben **deshacer las operaciones en orden inverso**: primero se eliminan las sumas y restas, y luego se divide entre el número que multiplica a $x$. Si $x$ aparece a ambos lados, se juntan los términos con $x$ en un lado y los números en el otro.",
     "steps": {
      "title": "Resolvemos $5x-2=3x+8$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
      "items": [
@@ -1736,23 +1736,36 @@
       },
       {
        "math": "5x-3x=8+2",
-       "why": "Restamos $3x$ y sumamos $2$ en ambos lados: las $x$ quedan a la izquierda y los números a la derecha.",
+       "why": "Restamos $3x$ y sumamos $2$ en ambos lados: los términos con $x$ quedan a la izquierda y los números a la derecha.",
        "side": {
-        "title": "Cambio de lado",
+        "title": "Juntar términos semejantes",
         "math": "\\begin{aligned}-3x&:\\ \\text{resta }3x\\\\+2&:\\ \\text{suma }2\\end{aligned}"
        }
       },
       {
        "math": "2x=10",
-       "why": "Reducimos: $5x-3x=2x$ y $8+2=10$."
+       "why": "Reducimos términos semejantes",
+       "side": {
+        "math": "\\begin{aligned}&\\text{izquierda:}& 5x-3x&=2x\\\\&\\text{derecha:}&8+2&=10\\end{aligned}"
+       }
+      },
+      {
+       "why": "Dividimos ambos lados entre 2.",
+       "math": "\\dfrac{2x}{2}=\\dfrac{10}{2}",
+       "side": {
+        "math": "\\begin{aligned}&\\text{izquierda:}& \\tfrac{2x}{2}&=x\\\\&\\text{derecha:}&\\tfrac{10}{2}&=5\\end{aligned}"
+       }
       },
       {
        "math": "x=5",
-       "why": "**Solución.** Dividimos ambos lados entre 2."
+       "why": "**Solución** "
       },
       {
-       "math": "5\\cdot5-2=23\\ \\text{ y }\\ 3\\cdot5+8=23\\ \\checkmark",
-       "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 23."
+       "math": "5\\cdot5-2= 3\\cdot5+8\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): reemplazamos $x$ por el valor de la solución.",
+       "side": {
+        "math": "\\begin{aligned}&\\text{izquierda:}&5\\cdot5-2&=23\\\\&\\text{derecha:}&  3\\cdot5+8&=23\\end{aligned}"
+       }
       }
      ]
     },
@@ -1773,12 +1786,20 @@
         }
        },
        {
-        "math": "x=5",
-        "why": "**Solución.** Dividimos ambos lados entre 3."
+        "math": "\\frac{3x}{3}=\\frac{15}{3}",
+        "why": "Dividimos ambos lados entre 3.",
+        "side": {
+         "title": "Operación",
+         "math": "\\begin{aligned}&\\text{izquierda:}& \\tfrac{3x}{3}&=x\\\\&\\text{derecha:}&\\tfrac{15}{3}&=5\\end{aligned}"
+        }
+       },
+       {
+        "why": "**Solución**",
+        "math": "x=5"
        },
        {
         "math": "3\\cdot5+4=19\\ \\checkmark",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos."
+        "why": "**Verificación** (no forma parte de la resolución). Reemplazamos."
        }
       ]
      },
@@ -1791,19 +1812,22 @@
        },
        {
         "math": "4x-2x=9+7",
-        "why": "Juntamos las $x$ a la izquierda y los números a la derecha."
+        "why": "Juntamos los términos con $x$ a la izquierda y los números a la derecha."
        },
        {
         "math": "2x=16",
-        "why": "Reducimos ambos lados."
+        "why": "Reducimos términos semejantes en ambos lados."
        },
        {
         "math": "x=8",
-        "why": "**Solución.** Dividimos ambos lados entre 2."
+        "why": "Dividimos ambos lados entre 2 y obtenemos la **solución**."
        },
        {
-        "math": "4\\cdot8-7=25\\ \\text{ y }\\ 2\\cdot8+9=25\\ \\checkmark",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 25."
+        "math": "4\\cdot8-7=2\\cdot8+9\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos $x$ por el valor de la solución.",
+        "side": {
+         "math": "\\begin{aligned}&\\text{izquierda:}& 4\\cdot8-7&=25\\\\&\\text{derecha:}&2\\cdot8+9&=25\\end{aligned}"
+        }
        }
       ]
      },
@@ -1812,28 +1836,31 @@
       "items": [
        {
         "math": "2x+3=5x-12",
-        "why": "Esta vez hay **más $x$ a la derecha**."
+        "why": "Hay incógnita en ambos lados."
        },
        {
-        "math": "3+12=5x-2x",
-        "why": "Conviene juntar las $x$ a la derecha, donde hay más, para no trabajar con coeficientes negativos."
+        "math": "2x-5x=-12-3",
+        "why": "Juntamos los términos con $x$ a la izquierda y los números a la derecha."
        },
        {
-        "math": "15=3x",
+        "math": "-3x=-15",
         "why": "Reducimos ambos lados."
        },
        {
         "math": "x=5",
-        "why": "**Solución.** Dividimos entre 3 (la igualdad se puede leer en cualquier sentido)."
+        "why": "Dividimos entre $(-3)$ y obtenemos la **solución**."
        },
        {
-        "math": "2\\cdot5+3=13\\ \\text{ y }\\ 5\\cdot5-12=13\\ \\checkmark",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 13."
+        "math": "2\\cdot5+3= 5\\cdot5-12\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos $x$ por el valor de la solución.",
+        "side": {
+         "math": "\\begin{aligned}&\\text{izquierda:}& 2\\cdot5+3&=13\\\\&\\text{derecha:}&5\\cdot5-12&=13\\end{aligned}"
+        }
        }
       ]
      }
     ],
-    "warn": "Cuando **cambias un término de lado**, también cambia su signo (en realidad sumas o restas ese término en ambos lados). Revisa el signo de cada término antes de reducir."
+    "warn": "Cuando **cambias un término de lado** que está sumando o restando, también cambia su signo (en realidad, sumas o restas ese término en ambos lados). Revisa el signo a la izquierda de cada término antes de reducir."
    },
    "explore": {
     "title": "Balanza con dos lados",
@@ -1860,7 +1887,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$2(x - 3) = 10$$\n\nEscribe el valor de $x$.",
      "answer": "8",
-     "why": "Dividimos ambos lados por 2 y luego sumamos 3: $x - 3 = 5$, de donde $x = 8$.",
+     "why": "Distribuir: $2x-6=10$; sumar 6: $2x=16$; dividir por 2: $x=8$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $2(x - 3) = 10$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 6 = 10$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 16$.\nDividimos ambos lados entre 2: $x = 8$."
     },
@@ -1869,7 +1896,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$6(x + 4) = 48$$\n\nEscribe el valor de $x$.",
      "answer": "4",
-     "why": "Dividimos por 6: $x + 4 = 8$, y despejamos: $x = 4$.",
+     "why": "Distribuir: $6x+24=48$; restar 24: $6x=24$; dividir por 6: $x=4$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $6(x + 4) = 48$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $6x + 24 = 48$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $6x = 24$.\nDividimos ambos lados entre 6: $x = 4$."
     },
@@ -1894,7 +1921,7 @@
       "$x=4$"
      ],
      "correct": 0,
-     "why": "Restamos 4: $\\frac{x}{4} = 4$. Multiplicamos por 4: $x = 16$.",
+     "why": "Multiplicar por 4: $x+16=32$; restar 16: $x=16$.",
      "level": 1
     },
     {
@@ -1902,7 +1929,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$\\frac{x}{3} + 1 = 2$$\n\nEscribe el valor de $x$.",
      "answer": "3",
-     "why": "Restamos 1: $\\frac{x}{3} = 1$. Multiplicamos por 3: $x = 3$.",
+     "why": "Multiplicar por 3: $x+3 = 6$; restar 3: $x=3$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $\\frac{x}{3} + 1 = 2$.\nMultiplicamos ambos lados por 3 para eliminar los denominadores: $x + 3 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 3$."
     },
@@ -1935,7 +1962,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$2(x - 5) = 6$$ Escribe el valor de $x$.",
      "answer": "8",
-     "why": "Al reemplazar $x = 8$ en la ecuación, ambos lados valen $6$.",
+     "why": "Distribuir: $2x-10=6$; sumar 10: $2x=16$; dividir por 2: $x=8$",
      "level": 1,
      "solution": "Partimos de la ecuación: $2(x - 5) = 6$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 10 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $2x = 16$.\nDividimos ambos lados entre 2: $x = 8$."
     },
@@ -1953,7 +1980,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3(x - 12) + 3 = 12$$ Escribe el valor de $x$.",
      "answer": "15",
-     "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $12$.",
+     "why": "Distribuir: $3x-36+3=12$; reducir: $3x-33=12$; sumar 33 y dividir por 3: $x=15$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $3(x - 12) + 3 = 12$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $3x - 33 = 12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 45$.\nDividimos ambos lados entre 3: $x = 15$."
     },
@@ -1971,7 +1998,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$\\dfrac{x - 10}{5} = 1$$ Escribe el valor de $x$.",
      "answer": "15",
-     "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $1$.",
+     "why": "Multiplicar por 5: $x-10=5$; sumar 10: $x=15$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $\\dfrac{x - 10}{5} = 1$.\nMultiplicamos ambos lados por 5 para eliminar los denominadores: $x - 10 = 5$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
     },
@@ -2007,7 +2034,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$2(x - 1) = x + 13$$ Escribe el valor de $x$.",
      "answer": "15",
-     "why": "Al reemplazar $x = 15$ en la ecuación, ambos lados valen $28$.",
+     "why": "Distribuir: $2x-2=x+13$; agrupar: $x=15$.",
      "level": 1,
      "solution": "Partimos de la ecuación: $2(x - 1) = x + 13$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $2x - 2 = x + 13$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
     },
@@ -2020,19 +2047,19 @@
       "$8x - 32$"
      ],
      "correct": 0,
-     "why": "Se multiplica $8$ por cada término del paréntesis: $8x + 32$.",
+     "why": "Se multiplica $8$ por cada término del paréntesis: $8\\cdot x + 8\\cdot4$.",
      "level": 1
     },
     {
-     "q": "Al aplicar la propiedad distributiva a $2(x + 3)$ se obtiene:",
+     "q": "Al aplicar la propiedad distributiva a $2(4x + 3)$ se obtiene:",
      "options": [
-      "$x + 6$",
-      "$2x + 3$",
-      "$2x - 6$",
-      "$2x + 6$"
+      "$8x + 3$",
+      "$4x + 6$",
+      "$4x - 6$",
+      "$8x + 6$"
      ],
      "correct": 3,
-     "why": "Se multiplica $2$ por cada término del paréntesis: $2x + 6$.",
+     "why": "Se multiplica $2$ por cada término del paréntesis: $2\\cdot 4x + 2\\cdot6$.",
      "level": 1
     },
     {
@@ -2100,7 +2127,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación:\n$$\\frac{x}{2} + \\frac{x}{3} = 15$$\n\nEscribe el valor de $x$.",
      "answer": "18",
-     "why": "Multiplicamos por 6 (mínimo común múltiplo): $3x + 2x = 90$, es decir $5x = 90$, y $x = 18$.",
+     "why": "Multiplicamos por 6 (mcm): $3x + 2x = 90$, es decir $5x = 90$, y $x = 18$.",
      "level": 2,
      "solution": "Partimos de la ecuación: $\\frac{x}{2} + \\frac{x}{3} = 15$.\nReducimos los términos semejantes de cada lado: $\\dfrac{5}{6}x = 15$.\nMultiplicamos ambos lados por 6 para eliminar los denominadores: $5x = 90$.\nDividimos ambos lados entre 5: $x = 18$."
     },
@@ -2121,7 +2148,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$3(2x + 1) = 2(x + 5)$$ Escribe el valor de $x$.",
      "answer": "7/4",
-     "why": "Al reemplazar $x = \\dfrac{7}{4}$ en la ecuación, ambos lados valen $\\dfrac{27}{2}$.",
+     "why": "Distribuir: $6x+3=2x+10$; agrupar: $4x=7$; dividir por 4: $x=7/4$.",
      "level": 2,
      "reduced": true,
      "solution": "Partimos de la ecuación: $3(2x + 1) = 2(x + 5)$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $6x + 3 = 2x + 10$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 7$.\nDividimos ambos lados entre 4: $x = \\dfrac{7}{4}$."
@@ -2228,7 +2255,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$\\dfrac{x - 10}{8} = \\dfrac{x + 3}{9}$$ Escribe el valor de $x$.",
      "answer": "114",
-     "why": "Al reemplazar $x = 114$ en la ecuación, ambos lados valen $13$.",
+     "why": "Multiplicar por 72 (mcm): $9(x-10)=8(x+3)$; distribuir: $9x-90=8x+24$; agrupar: $x=114$.",
      "level": 2,
      "solution": "Partimos de la ecuación: $\\dfrac{x - 10}{8} = \\dfrac{x + 3}{9}$.\nMultiplicamos ambos lados por 72 para eliminar los denominadores: $9x - 90 = 8x + 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 114$."
     },
@@ -2241,19 +2268,19 @@
       "$-5x - 50$"
      ],
      "correct": 3,
-     "why": "El signo negativo multiplica a cada término: $-5x - 50$.",
+     "why": "El $(-5)$ multiplica a cada término: $(-5)\\cdot x + (-5)\\cdot10$.",
      "level": 2
     },
     {
-     "q": "Al aplicar la propiedad distributiva a $-8(x + 12)$ se obtiene:",
+     "q": "Al aplicar la propiedad distributiva a $-8(x - 12)$ se obtiene:",
      "options": [
       "$-8x - 12$",
       "$8x - 96$",
       "$-8x + 96$",
       "$-8x - 96$"
      ],
-     "correct": 3,
-     "why": "El signo negativo multiplica a cada término: $-8x - 96$.",
+     "correct": 2,
+     "why": "El $(-8)$ multiplica a cada término: $(-8)\\cdot x - (-8)\\cdot12$.",
      "level": 2
     },
     {
@@ -2261,7 +2288,7 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$4(3x - 2) - 5(x + 1) = 6$$ Escribe el valor de $x$.",
      "answer": "19/7",
-     "why": "Al reemplazar $x = \\dfrac{19}{7}$ en la ecuación, ambos lados valen $6$.",
+     "why": "Distribuir: $12x-8-5x-5=6$; reducir y agrupar: $7x=19$; dividir por 7: $x=19/7$.",
      "level": 3,
      "reduced": true,
      "solution": "Partimos de la ecuación: $4(3x - 2) - 5(x + 1) = 6$.\nEliminamos los paréntesis con la propiedad distributiva y reducimos términos semejantes: $7x - 13 = 6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 19$.\nDividimos ambos lados entre 7: $x = \\dfrac{19}{7}$."
@@ -2289,19 +2316,19 @@
      "kind": "number",
      "q": "Resuelve la ecuación: $$\\dfrac{x}{6} + \\dfrac{x}{4} - \\dfrac{x}{3} = 5$$ Escribe el valor de $x$.",
      "answer": "60",
-     "why": "Al reemplazar $x = 60$ en la ecuación, ambos lados valen $5$.",
+     "why": "Multiplicar por 12 (mcm): $2x+3x-4x=60$; reducir: $x=60$.",
      "level": 3,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{6} + \\dfrac{x}{4} - \\dfrac{x}{3} = 5$.\nReducimos los términos semejantes de cada lado: $\\dfrac{1}{12}x = 5$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $x = 60$."
+     "solution": "Partimos de la ecuación: $\\dfrac{x}{6} + \\dfrac{x}{4} - \\dfrac{x}{3} = 5$.\nMultiplicamos ambos lados por el mcm entre los denominadores y simplificamos las fracciones: $2x + 3x - 4x = 60$.\nReducimos términos semejantes y obtenemos la solución: $x=60$."
     },
     {
      "type": "input",
      "kind": "number",
      "q": "Resuelve la ecuación: $$\\dfrac{3x + 1}{4} - \\dfrac{x - 2}{6} = 2$$ Escribe el valor de $x$.",
      "answer": "17/7",
-     "why": "Al reemplazar $x = \\dfrac{17}{7}$ en la ecuación, ambos lados valen $2$.",
+     "why": "Multiplicar por 12 (mcm): $3(3x+1)-2(x-2)=24$; distribuir: $9x+3-2x+4=24$; reducir y agrupar: $7x=17$; dividir por 7: $x=\\dfrac{17}{7}$.",
      "level": 3,
      "reduced": true,
-     "solution": "Partimos de la ecuación: $\\dfrac{3x + 1}{4} - \\dfrac{x - 2}{6} = 2$.\nReducimos los términos semejantes de cada lado: $\\dfrac{7}{12}x + \\dfrac{7}{12} = 2$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $7x + 7 = 24$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $7x = 17$.\nDividimos ambos lados entre 7: $x = \\dfrac{17}{7}$."
+     "solution": "Partimos de la ecuación: $\\dfrac{3x + 1}{4} - \\dfrac{x - 2}{6} = 2$.\nMultiplicamos ambos lados por el mcm y simplificamos las fracciones: $3(3x+1)-2(x-2)=24$.\nDistribuimos: $9x+3-2x+4=24$.\nReducimos términos semejantes: $7x+7=24$.\nRestamos 7 en ambos lados: $7x=17$.\nDividimos ambos lados entre 7: $x=\\dfrac{17}{7}$."
     },
     {
      "type": "input",
@@ -2466,12 +2493,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Se reparten $x + 1\\,\\mathrm{mL}$ de reactivo a cada uno de $4$ tubos y se usan $12\\,\\mathrm{mL}$ en total: $4(x + 1) = 12$. ¿Cuánto es $x$ (en mL)?",
+     "q": "Se reparten $(x + 1)\\,\\mathrm{mL}$ de reactivo a cada uno de $4$ tubos y se usan $12\\,\\mathrm{mL}$ en total: $4(x + 1) = 12$. ¿Cuánto vale $x$ (en mL)?",
      "answer": "2",
      "why": "Dividimos por 4: $x + 1 = 3$; entonces $x = 2$."
     },
     {
-     "q": "Cada una de $2$ jaulas recibe $(x + 4)$ gramos de alimento y se entregan $20$ gramos en total: $2(x + 4) = 20$. ¿Cuánto vale $x$?",
+     "q": "Cada una de $2$ jaulas recibe $(x + 4)$ gramos de alimento y se entregan $20$ gramos en total, de modo que $x$ cumple $2(x + 4) = 20$. ¿Cuánto vale $x$ (en gramos)?",
      "options": [
       "$10$",
       "$14$",
@@ -2484,12 +2511,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Un grupo de $4$ estudiantes mide, cada uno, $(x + 2)$ plantas y registran $36$ en total: $4(x + 2) = 36$. ¿Cuánto vale $x$?",
+     "q": "Un grupo de $4$ estudiantes mide, cada uno, $(x + 2)$ plantas y registran $36$ plantas en total, de modo que $x$ cumple $4(x + 2) = 36$. ¿Cuánto vale $x$?",
      "answer": "7",
      "why": "Dividimos por 4: $x + 2 = 9$; entonces $x = 7$."
     },
     {
-     "q": "Cada uno de $5$ recipientes pierde $1\\,\\mathrm{mL}$ por evaporación y queda con $(x - 1)\\,\\mathrm{mL}$. En total quedan $10\\,\\mathrm{mL}$: $5(x - 1) = 10$. ¿Cuántos mL tenía inicialmente cada recipiente?",
+     "q": "Cada uno de $5$ recipientes comienza con $x\\,\\mathrm{mL}$ y pierde $1\\,\\mathrm{mL}$ por evaporación. En total quedan $10\\,\\mathrm{mL}$, de modo que $5(x - 1) = 10$. ¿Cuántos mL tenía inicialmente cada recipiente?",
      "options": [
       "$2$",
       "$\\dfrac{11}{5}$",
@@ -2502,12 +2529,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "En $5$ parcelas se cosecha $(x - 2)$ kg por parcela, con un total de $35$ kg: $5(x - 2) = 35$. ¿Cuánto vale $x$?",
+     "q": "En $5$ parcelas se cosecha $(x - 2)$ kg por parcela, con un total de $35$ kg, de modo que $x$ cumple $5(x - 2) = 35$. ¿Cuánto vale $x$?",
      "answer": "9",
      "why": "Dividimos por 5: $x - 2 = 7$; entonces $x = 9$."
     },
     {
-     "q": "Cada una de $5$ muestras pierde $5\\,\\mathrm{g}$ al secarse y queda con $(x - 5)\\,\\mathrm{g}$. Quedan $50\\,\\mathrm{g}$ en total: $5(x - 5) = 50$. ¿Cuánto pesaba cada muestra antes?",
+     "q": "Cada una de $5$ muestras tiene $x\\,\\mathrm{g}$ y pierde $5\\,\\mathrm{g}$ al secarse. Quedan $50\\,\\mathrm{g}$ en total, de modo que $5(x - 5) = 50$. ¿Cuánto pesaba cada muestra antes de secarse?",
      "options": [
       "$5$",
       "$15$",
@@ -2520,12 +2547,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "La temperatura media de $4$ mediciones es $25\\,^\\circ\\mathrm{C}$. Se conocen $3$ de ellas: $26 + 23 + 29$ (en $^\\circ\\mathrm{C}$). Si la medición que falta es $x$, se cumple $\\dfrac{x + 26 + 23 + 29}{4} = 25$. ¿Cuánto vale $x$? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
+     "q": "La temperatura media de cuatro mediciones es $25\\,^\\circ\\mathrm{C}$. Se conocen $3$ de ellas: $26, 23$ y $29$ (en $^\\circ\\mathrm{C}$). Si la medición que falta es $x$, se cumple $\\dfrac{x + 26 + 23 + 29}{4} = 25$. ¿Cuánto vale $x$? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
      "answer": "22",
      "why": "Multiplicamos por 4: $x + 26 + 23 + 29 = 100$. Entonces $x = 100 - 78 = 22$."
     },
     {
-     "q": "La masa media de $3$ muestras es $17\\,\\mathrm{g}$. Se conocen $2$ masas: $17 + 17$ (en g). Para la que falta, $\\dfrac{x + 17 + 17}{3} = 17$. ¿Cuánto pesa la muestra faltante?",
+     "q": "La masa media de tres muestras es $17\\,\\mathrm{g}$. Se conocen $2$ masas: $14$ y $20$ (en g). La masa de la muestra que falta cumple $\\dfrac{x + 14 + 20}{3} = 17$. ¿Cuánto pesa la muestra faltante?",
      "options": [
       "$20\\,\\mathrm{g}$",
       "$17\\,\\mathrm{g}$",
@@ -2538,12 +2565,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "El pH medio de $4$ soluciones es $16$ en una escala ficticia. Se conocen $3$ valores: $15 + 18 + 13$. Para el que falta, $\\dfrac{x + 15 + 18 + 13}{4} = 16$. ¿Cuánto vale $x$?",
+     "q": "El pH medio de cuatro soluciones es $16$ en una escala ficticia. Se conocen $3$ valores: $15$, $18$ y $13$. Para el dato que falta resuelve $\\dfrac{x + 15 + 18 + 13}{4} = 16$. ¿Cuánto vale $x$?",
      "answer": "18",
      "why": "Multiplicamos por 4: $x + 15 + 18 + 13 = 64$. Entonces $x = 64 - 46 = 18$."
     },
     {
-     "q": "La altura media de $5$ plantas es $21\\,\\mathrm{cm}$. Se conocen $4$ alturas: $20 + 25 + 22 + 24$ (en cm). Para la que falta, $\\dfrac{x + 20 + 25 + 22 + 24}{5} = 21$. ¿Cuánto mide esa planta?",
+     "q": "La altura media de cinco plantas es $21\\,\\mathrm{cm}$. Se conocen $4$ alturas: $20$, $ 25$, $ 22$ y $ 24$ (en cm). Para la que falta, $\\dfrac{x + 20 + 25 + 22 + 24}{5} = 21$. ¿Cuánto mide esa planta?",
      "options": [
       "$105\\,\\mathrm{cm}$",
       "$14\\,\\mathrm{cm}$",
@@ -2579,7 +2606,7 @@
      "why": "Restamos 7: $\\frac{x}{6} = 6$. Multiplicamos por 6: $x = 36$."
     },
     {
-     "q": "Una llave llena un tanque en $10$ horas y otra lo llena en $15$ horas. Si ambas están abiertas, el tiempo $t$ cumple $\\dfrac{t}{10} + \\dfrac{t}{15} = 1$. ¿Cuántas horas tardan juntas?",
+     "q": "Una llave llena un estanque en $10$ horas y otra lo llena en $15$ horas. Si ambas están abiertas, el tiempo $t$ que tarda en llenarse el estanque cumple $\\dfrac{t}{10} + \\dfrac{t}{15} = 1$. ¿Cuántas horas tardan juntas en llenar el estanque?",
      "options": [
       "$6\\,\\mathrm{h}$",
       "$150\\,\\mathrm{h}$",
@@ -2592,12 +2619,12 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Una bomba vacía un estanque en $12$ horas y otra lo vacía en $4$ horas. Trabajando juntas, $\\dfrac{t}{12} + \\dfrac{t}{4} = 1$. ¿Cuántas horas tardan en vaciarlo? Escribe solo el número, en $\\mathrm{h}$.",
+     "q": "Una bomba vacía un estanque en $12$ horas y otra lo vacía en $4$ horas. Trabajando juntas el tiempo $t$ que tardan en vaciar el estanque cumple, $\\dfrac{t}{12} + \\dfrac{t}{4} = 1$. ¿Cuántas horas tardan en vaciarlo? Escribe solo el número, en $\\mathrm{h}$.",
      "answer": "3",
      "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 3$ horas."
     },
     {
-     "q": "Un técnico limpia un laboratorio en $10$ horas y su ayudante en $15$ horas. Juntos, $\\dfrac{t}{10} + \\dfrac{t}{15} = 1$. ¿Cuántas horas tardan?",
+     "q": "Un técnico limpia un laboratorio en $10$ horas y su ayudante en $15$ horas. Juntos limpian un laboratorio en $t$ horas, donde $t$ resuelve $\\dfrac{t}{10} + \\dfrac{t}{15} = 1$. ¿Cuántas horas tardan en limpiar un laboratorio?",
      "options": [
       "$6\\,\\mathrm{h}$",
       "$150\\,\\mathrm{h}$",
@@ -2608,7 +2635,7 @@
      "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 6$ horas."
     },
     {
-     "q": "Una dosis $x$ (en mg) cumple que su $\\dfrac{1}{3}$ menos su $\\dfrac{1}{4}$ es igual a $5\\,\\mathrm{mg}$, es decir $\\dfrac{x}{3} - \\dfrac{x}{4} = 5$. ¿Cuánto vale $x$?",
+     "q": "Una dosis $x$ (en mg) cumple que su tercio menos su cuarto es igual a $5\\,\\mathrm{mg}$, es decir $\\dfrac{x}{3} - \\dfrac{x}{4} = 5$. ¿Cuánto vale $x$?",
      "options": [
       "$57\\,\\mathrm{mg}$",
       "$35\\,\\mathrm{mg}$",
@@ -2619,7 +2646,7 @@
      "why": "Multiplicamos por 12 (múltiplo común): $4x - 3x = 60$; luego $x = 60$."
     },
     {
-     "q": "De un volumen $x$ de gas, la $\\dfrac{1}{3}$ parte menos la $\\dfrac{1}{6}$ parte es $12\\,\\mathrm{L}$: $\\dfrac{x}{3} - \\dfrac{x}{6} = 12$. ¿Cuánto vale $x$ en litros?",
+     "q": "De un volumen $x$ de gas, la tercera parte menos la sexta parte es $12\\,\\mathrm{L}$: $\\dfrac{x}{3} - \\dfrac{x}{6} = 12$. ¿Cuánto vale $x$ en litros?",
      "options": [
       "$72\\,\\mathrm{L}$",
       "$108\\,\\mathrm{L}$",
@@ -2630,7 +2657,7 @@
      "why": "Multiplicamos por 18 (múltiplo común): $6x - 3x = 216$; luego $x = 72$."
     },
     {
-     "q": "De una masa $x$, la $\\dfrac{1}{2}$ parte menos la $\\dfrac{1}{3}$ parte es $1\\,\\mathrm{g}$: $\\dfrac{x}{2} - \\dfrac{x}{3} = 1$. ¿Cuánto vale $x$ en gramos?",
+     "q": "De una masa $x$, la mitad menos la tercera parte es $1\\,\\mathrm{g}$: $\\dfrac{x}{2} - \\dfrac{x}{3} = 1$. ¿Cuánto vale $x$ en gramos?",
      "options": [
       "$4\\,\\mathrm{g}$",
       "$7\\,\\mathrm{g}$",
@@ -2647,7 +2674,7 @@
    "example4": "Resolvemos $\\frac{2x}{3} - 1 = \\frac{x}{2}$. El mínimo común múltiplo de 3 y 2 es 6; multiplicamos todos los términos por 6:\n$$4x - 6 = 3x \\quad\\Rightarrow\\quad 4x - 3x = 6 \\quad\\Rightarrow\\quad x = 6$$\nVerificamos: $\\frac{2\\cdot 6}{3} - 1 = 3$ y $\\frac{6}{2} = 3$.",
    "learn": {
     "goal": "Al terminar podrás resolver ecuaciones lineales con **paréntesis** o con **fracciones**, eliminándolos antes de despejar la incógnita.",
-    "idea": "Una ecuación se mantiene verdadera si hacemos **la misma operación en los dos lados**. Con paréntesis aplicamos la propiedad distributiva: $a(b+c)=ab+ac$. Con fracciones multiplicamos toda la ecuación por el **mínimo común múltiplo** (mcm) de los denominadores, y así desaparecen.",
+    "idea": "Una ecuación se mantiene verdadera si hacemos **la misma operación en los dos lados**. Con paréntesis aplicamos la propiedad distributiva: $a(b+c)=ab+ac$. Con fracciones multiplicamos toda la ecuación por el **mínimo común múltiplo** (mcm) de los denominadores.",
     "steps": {
      "title": "Resolvemos $\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
      "items": [
@@ -2665,7 +2692,7 @@
        }
       },
       {
-       "why": "Distribuimos el 6 y simplificamos: los denominadores desaparecen.",
+       "why": "Distribuimos el 6 y simplificamos.",
        "math": "2x+3=5",
        "side": {
         "title": "Cada término por 6",
@@ -2681,7 +2708,7 @@
        }
       },
       {
-       "why": "**Solución.** Dividimos ambos lados por 2.",
+       "why": "Dividimos ambos lados por 2 y obtenemos la **solución.** ",
        "math": "x=1",
        "side": {
         "title": "Equivalencia",
@@ -2689,16 +2716,15 @@
        }
       },
       {
-       "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en la ecuación original.",
+       "why": "**Verificación** (no forma parte de la resolución): reemplazamos en la ecuación original.",
        "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{5}{6}\\;\\checkmark",
        "side": {
-        "title": "Comprobación",
         "math": "\\frac{1}{3}+\\frac{1}{2}=\\frac{2}{6}+\\frac{3}{6}=\\frac{5}{6}"
        }
       }
      ]
     },
-    "warn": "Multiplica **todos** los términos por el mcm, también los que no tienen fracción. Si olvidas uno, la igualdad deja de ser verdadera. Por ejemplo, $6\\cdot\\frac{x}{3}+\\frac{1}{2}=\\frac{5}{6}$ **no** es equivalente a la ecuación original.",
+    "warn": "Multiplica **todos** los términos por el mcm, también los que no tienen fracción. Si olvidas uno, la igualdad deja de ser verdadera. ",
     "more": [
      {
       "title": "Resolvemos $2(x-3)=10$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
@@ -2717,15 +2743,26 @@
        },
        {
         "math": "2x=16",
-        "why": "Sumamos 6 en ambos lados."
+        "why": "Sumamos 6 en ambos lados.",
+        "side": {
+         "title": "Equivalencia",
+         "math": "2x-6+6=10+6"
+        }
        },
        {
         "math": "x=8",
-        "why": "**Solución.** Dividimos ambos lados por 2."
+        "why": "Dividimos ambos lados por 2 y obtenemos la **solución.** ",
+        "side": {
+         "title": "Equivalencia",
+         "math": "\\frac{2x}{2}=\\frac{16}{2}"
+        }
        },
        {
-        "math": "2(8-3)=2\\cdot5=10\\ \\checkmark",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Reemplazamos en la ecuación original."
+        "math": "2(8-3)=10\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos en la ecuación original.",
+        "side": {
+         "math": "2(8-3)=2\\cdot5=10"
+        }
        }
       ]
      },
@@ -2738,9 +2775,9 @@
        },
        {
         "math": "3x+6=2x+11",
-        "why": "Eliminamos el paréntesis con la distributiva.",
+        "why": "Eliminamos el paréntesis distribuyendo.",
         "side": {
-         "title": "Distributiva",
+         "title": "Propiedad Distributiva",
          "math": "\\begin{aligned}3\\cdot x&=3x\\\\ 3\\cdot2&=6\\end{aligned}"
         }
        },
@@ -2750,41 +2787,55 @@
        },
        {
         "math": "x=5",
-        "why": "**Solución.** Reducimos términos semejantes."
+        "why": "Reducimos términos semejantes y obtenemos la **solución.** "
        },
        {
-        "math": "3(5+2)=21\\ \\text{y}\\ 2\\cdot5+11=21",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 21."
+        "math": "3(5+2)=2\\cdot5+11",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos en la ecuación original.",
+        "side": {
+         "math": "\\begin{aligned}&\\text{izquierda:}&3(5+2)&=21 \\\\&\\text{derecha:}&2\\cdot5+11&=21\\end{aligned}"
+        }
        }
       ]
      },
      {
-      "title": "Resolvemos $\\frac{2x}{3}-1=\\frac{x}{2}$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
+      "title": "Resolvemos $\\frac{3x}{4}-1=\\frac{x}{6}$. Debemos encontrar el valor de $x$ que cumple la ecuación.",
       "items": [
        {
-        "math": "\\frac{2x}{3}-1=\\frac{x}{2}",
+        "math": "\\frac{3x}{4}-1=\\frac{x}{6}",
         "why": "Partimos de la ecuación con fracciones."
        },
        {
-        "math": "6\\left(\\frac{2x}{3}-1\\right)=6\\cdot\\frac{x}{2}",
+        "math": "12\\left(\\frac{3x}{4}-1\\right)=12\\cdot\\frac{x}{6}",
         "why": "Multiplicamos ambos lados por el **mcm** de los denominadores.",
         "side": {
-         "title": "mcm de 3 y 2",
-         "math": "\\begin{aligned}3&:\\ 3,\\mathbf{6}\\\\ 2&:\\ 2,4,\\mathbf{6}\\end{aligned}",
-         "text": "El menor múltiplo común es 6."
+         "title": "mcm de 4 y 6",
+         "math": "\\begin{aligned}4&:\\ 4,8,\\mathbf{12}\\\\ 6&:\\ 6,\\mathbf{12}\\end{aligned}",
+         "text": "El menor múltiplo común es 12."
         }
        },
        {
-        "math": "4x-6=3x",
-        "why": "Cada término queda multiplicado por 6 y los denominadores desaparecen."
+        "math": "9x-12=2x",
+        "why": "Cada término queda multiplicado por 12.",
+        "side": {
+         "title": "Cada término por 12",
+         "math": "\\begin{aligned}&12\\cdot\\frac{3x}{4}=3\\cdot3x=9x\\\\&12\\cdot1=12\\\\&12\\cdot\\frac{x}{6}=2x\\end{aligned}"
+        }
        },
        {
-        "math": "x=6",
-        "why": "**Solución.** Restamos $3x$ en ambos lados y sumamos 6."
+        "math": "7x=12",
+        "why": "Agrupamos términos restando $2x$ y sumando 12."
        },
        {
-        "math": "\\frac{2\\cdot6}{3}-1=3\\ \\text{y}\\ \\frac{6}{2}=3",
-        "why": "**Verificación** (comprobación, no forma parte de la resolución). Comprobamos: ambos lados valen 3."
+        "why": "Dividimos ambos lados por 7 y obtenemos la **solución**.",
+        "math": "x=\\frac{12}{7}"
+       },
+       {
+        "math": "\\frac{3\\cdot\\tfrac{12}{7}}{4}-1=\\frac{\\tfrac{12}{7}}{6}",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos en la ecuación original.",
+        "side": {
+         "math": "\\begin{aligned}&\\dfrac{3\\cdot\\tfrac{12}{7}}{4}-1=\\dfrac{3\\cdot12}{4\\cdot7}-1=\\dfrac{9}{7}-\\dfrac{7}{7}=\\dfrac{2}{7}\\\\& \\dfrac{\\tfrac{12}{7}}{6}=\\dfrac{12}{7\\cdot6}=\\dfrac{2}{7}\\end{aligned}"
+        }
        }
       ]
      }
@@ -3748,36 +3799,40 @@
    "example3": "Despejamos la aceleración $a$ en la segunda ley de Newton $F = ma$ (con $m \\neq 0$). Dividimos ambos lados por $m$:\n$$a = \\frac{F}{m}$$\nPor ejemplo, si $F = 20\\,\\mathrm{N}$ y $m = 4\\,\\mathrm{kg}$, entonces $a = 5\\,\\mathrm{m/s^2}$.",
    "example4": "Despejamos el ancho $a$ en el perímetro de un rectángulo $P = 2L + 2a$. Primero restamos $2L$ y luego dividimos por 2:\n$$2a = P - 2L \\quad\\Rightarrow\\quad a = \\frac{P - 2L}{2}$$\nPor ejemplo, si $P = 30\\,\\mathrm{cm}$ y $L = 9\\,\\mathrm{cm}$, entonces $a = \\frac{30 - 18}{2} = 6\\,\\mathrm{cm}$.",
    "learn": {
-    "goal": "Al terminar podrás **despejar una letra** en una fórmula, usando los mismos pasos que en una ecuación con números.",
-    "idea": "Muchas fórmulas de ciencias son ecuaciones con varias letras. **Despejar** una letra es dejarla sola en un lado de la igualdad. Las demás letras se tratan como si fueran **números conocidos** y se aplican las operaciones inversas en ambos lados.",
+    "goal": "Al terminar podrás **despejar una variable** en una fórmula, usando los mismos pasos que en una ecuación con números.",
+    "idea": "Muchas fórmulas de ciencias son ecuaciones en varias variables representadas con diferentes letras. **Despejar** una variable es dejarla sola en un lado de la igualdad. Las demás variables se tratan como si fueran **números conocidos** y se aplican las operaciones inversas en ambos lados.",
     "steps": {
-     "title": "Despejamos $v$ en la rapidez media $d=vt$ (con $t\\neq0$).",
+     "title": "Despejar la distancia $d$ en la fórmula $v=\\frac{d}{t}$, donde $v$ es la rapidez media, y $t$ es el tiempo (con $t\\neq0$).",
      "items": [
       {
-       "math": "d=vt",
-       "why": "Queremos $v$ sola. Está **multiplicada** por $t$."
+       "math": "v=\\frac{d}{t}",
+       "why": "Queremos despejar $d$. Está **dividida** por $t$."
       },
       {
-       "math": "\\dfrac{d}{t}=\\dfrac{vt}{t}",
-       "why": "Dividimos ambos lados entre $t$.",
+       "math": "v\\cdot t=\\dfrac{d}{t}\\cdot t",
+       "why": "Multiplicamos ambos lados por $t$.",
        "side": {
         "title": "Operación inversa",
-        "text": "La inversa de **multiplicar por $t$** es **dividir entre $t$**."
+        "text": "La operación inversa de **dividir por $t$** es **multiplicar por $t$**."
        }
       },
       {
-       "math": "v=\\dfrac{d}{t}",
-       "why": "Simplificamos: $\\frac{vt}{t}=v$."
+       "math": "v\\cdot t=d",
+       "why": "Simplificamos: $\\frac{d}{t}\\cdot t=d$.",
+       "side": {
+        "math": "d=v\\cdot t",
+        "title": "equivalente"
+       }
       },
       {
-       "math": "v=\\dfrac{120}{2}=60\\ \\mathrm{km/h}",
-       "why": "Por ejemplo, con $d=120\\,\\mathrm{km}$ y $t=2\\,\\mathrm{h}$."
+       "math": "d=90\\ \\mathrm{km}",
+       "why": "Por ejemplo, cuando $v=60\\,\\mathrm{km/h}$ y $t=1.5\\,\\mathrm{h}$."
       }
      ]
     },
     "more": [
      {
-      "title": "Despejamos la altura $h$ en el área del rectángulo $A=bh$ (con $b\\neq0$).",
+      "title": "Despejar la altura en la fórmula del área $A$ de un rectángulo de base $b$ y altura $h$: $A=bh$ (con $b\\neq0$ y $h\\neq0$).",
       "items": [
        {
         "math": "A=bh",
@@ -3788,8 +3843,12 @@
         "why": "Dividimos ambos lados entre $b$."
        },
        {
-        "math": "h=\\dfrac{A}{b}",
-        "why": "Simplificamos y obtenemos la altura."
+        "math": "\\dfrac{A}{b}=h",
+        "why": "Simplificamos y obtenemos la altura.",
+        "side": {
+         "title": "equivalente",
+         "math": "h=\\frac{A}{b}"
+        }
        },
        {
         "math": "h=\\dfrac{24}{6}=4\\ \\mathrm{cm}",
@@ -3798,7 +3857,7 @@
       ]
      },
      {
-      "title": "Despejamos la aceleración $a$ en la segunda ley de Newton $F=ma$ (con $m\\neq0$).",
+      "title": "Despejar la aceleración $a$ en la segunda ley de Newton $F=ma$ (con $m\\neq0$).",
       "items": [
        {
         "math": "F=ma",
@@ -3819,7 +3878,7 @@
       ]
      },
      {
-      "title": "Despejamos el ancho $a$ en el perímetro del rectángulo $P=2L+2a$.",
+      "title": "Despejar el ancho de un rectángulo en la fórmula del perímetro $P$ de un rectángulo de largo $L$ y ancho $a$: $P=2L+2a$ ($L\\neq0$ y $a\\neq0$).",
       "items": [
        {
         "math": "P=2L+2a",
@@ -3830,12 +3889,16 @@
         "why": "Restamos $2L$ en ambos lados.",
         "side": {
          "title": "Operación inversa",
-         "text": "La inversa de **sumar $2L$** es **restar $2L$**."
+         "text": "La operación inversa de **sumar $2L$** es **restar $2L$**."
         }
        },
        {
         "math": "a=\\dfrac{P-2L}{2}",
-        "why": "Dividimos **todo** el lado izquierdo entre 2."
+        "why": "Dividimos **todo** el lado izquierdo entre 2.",
+        "side": {
+         "title": "equivalente",
+         "math": "a=\\frac{P}{2}-L"
+        }
        },
        {
         "math": "a=\\dfrac{30-2\\cdot9}{2}=\\dfrac{12}{2}=6\\ \\mathrm{cm}",
@@ -3844,7 +3907,7 @@
       ]
      }
     ],
-    "warn": "Al dividir entre una letra, esa letra debe ser **distinta de cero**. Además, divide **todo** el lado completo: en $2a=P-2L$ se divide entre 2 la expresión completa $P-2L$."
+    "warn": "Al dividir entre una variable, esa variable debe representar un valor **distinto de cero**. Además, divide **toda** la expresión del lado opuesto: en $2a=P-2L$, dividimos entre 2 la expresión completa $(P-2L)$."
    },
    "explore": {
     "title": "Despeje paso a paso",
