@@ -168,6 +168,8 @@ print(path, os.path.getsize(path)//1024,'KB')
 if len(sys.argv)>2 and sys.argv[2]=='sitio':
     zscss=open(HERE+'/zs.css',encoding='utf8').read()
     idx_u=sub1(idx,'</head>','<style>\n'+zscss+'\n</style></head>')
+    VER='v'+__import__('time').strftime('%m%d%H%M')  # cambia en cada regeneración: evita que el navegador use archivos viejos en caché
+    idx_u=idx_u.replace('?v=sim2','?'+VER)
     for i,n in enumerate('123'):
         d=f'{REPO}/unidades/u{n}/html'
         os.makedirs(d+'/mathjax',exist_ok=True)
