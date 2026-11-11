@@ -3,7 +3,8 @@ HERE=os.path.dirname(os.path.abspath(__file__))
 REPO=os.path.abspath(os.path.join(HERE,'..','..'))
 OUT=os.path.abspath(sys.argv[1]) if len(sys.argv)>1 else os.path.join(REPO,'paquetes_locales')
 os.makedirs(OUT,exist_ok=True)
-bundle=open(REPO+'/editor/motor_bundle.js').read()
+# El motor original (sin parches) vive en motor_base.js; editor/motor_bundle.js es el motor ya parcheado que usa el editor.
+bundle=open(HERE+'/motor_base.js').read()
 mm=re.search(r'["\']([A-Za-z0-9+/=]{1000,})["\']',bundle)
 motor=zipfile.ZipFile(io.BytesIO(base64.b64decode(mm.group(1))))
 app=motor.read('app.js').decode(); idx=motor.read('index.html').decode()
@@ -91,7 +92,7 @@ a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderSt
 # ---------- index.html: pestañas + paneles de la portada ----------
 panels=portal[portal.index('<div id="hp-bien"'):portal.index('<aside class="credits"')]
 for n in (1,2,3):
-    panels=panels.replace(f'href="unidades/u{n}/html/index.html?v=sim2"',f'href="#" data-open-unit="{n-1}"')
+    panels=re.sub(rf'href="unidades/u{n}/html/index.html[^"]*"',f'href="#" data-open-unit="{n-1}"',panels)
 assert 'unidades/u' not in panels
 tabsbar='<div class="home-tabs" role="tablist" aria-label="Secciones de la portada" id="unidades"><button type="button" role="tab" class="htab active" id="ht-units" data-hp="units" aria-selected="true" aria-controls="hp-units">Unidades</button><button type="button" role="tab" class="htab" id="ht-bien" data-hp="bien" aria-selected="false" aria-controls="hp-bien">Bienvenida</button><button type="button" role="tab" class="htab" id="ht-tour" data-hp="tour" aria-selected="false" aria-controls="hp-tour">Tour por el curso</button><button type="button" role="tab" class="htab" id="ht-como" data-hp="como" aria-selected="false" aria-controls="hp-como">Cómo avanzar</button></div>'
 old=re.search(r'(      <div class="section-heading">.*?</div>\n      <div class="units-grid" id="unitsGrid"></div>)',idx,re.S); assert old
@@ -165,11 +166,12 @@ print(path, os.path.getsize(path)//1024,'KB')
 
 # ---------- páginas de cada unidad para el sitio (unidades/uN/html), con la misma capa de pantallas ----------
 # Uso: python3 herramientas/curso_completo/construir_curso.py <salida> sitio   (escribe en <repo>/unidades/uN/html)
-if len(sys.argv)>2 and sys.argv[2]=='sitio':
+if 'sitio' in sys.argv[2:]:
     zscss=open(HERE+'/zs.css',encoding='utf8').read()
     idx_u=sub1(idx,'</head>','<style>\n'+zscss+'\n</style></head>')
     VER='v'+__import__('time').strftime('%m%d%H%M')  # cambia en cada regeneración: evita que el navegador use archivos viejos en caché
     idx_u=idx_u.replace('?v=sim2','?'+VER)
+    open(REPO+'/index.html','w',encoding='utf8').write(re.sub(r'(html/index\.html)\?[A-Za-z0-9=]+',r'\1?'+VER,portal))
     for i,n in enumerate('123'):
         d=f'{REPO}/unidades/u{n}/html'
         os.makedirs(d+'/mathjax',exist_ok=True)
@@ -181,3 +183,18 @@ if len(sys.argv)>2 and sys.argv[2]=='sitio':
         dj=re.sub(r'const PACE_BUILD=\{[^}]*\};',lambda m:'const PACE_BUILD={"scope":"individual_u'+n+'","showWeek4":false};',dj)
         open(d+'/data.js','w',encoding='utf8').write(dj)
         print('sitio',d)
+
+# ---------- motor del editor: el HTML y el SCORM que genera el editor salen con la misma presentación ----------
+# Uso: python3 herramientas/curso_completo/construir_curso.py <salida> motor   (reescribe editor/motor_bundle.js)
+if 'motor' in sys.argv[2:]:
+    zscss=open(HERE+'/zs.css',encoding='utf8').read()
+    idx_m=sub1(idx,'</head>','<style>\n'+zscss+'\n</style></head>')
+    buf=io.BytesIO()
+    with zipfile.ZipFile(buf,'w',zipfile.ZIP_DEFLATED) as z:
+        for info in motor.infolist():
+            data=motor.read(info.filename)
+            if info.filename=='app.js': data=a.encode('utf8')
+            elif info.filename=='index.html': data=idx_m.encode('utf8')
+            z.writestr(info.filename,data)
+    open(REPO+'/editor/motor_bundle.js','w').write('window.PACE_MOTOR_ZIP_BASE64="'+base64.b64encode(buf.getvalue()).decode()+'";')
+    print('motor', REPO+'/editor/motor_bundle.js', len(buf.getvalue())//1024,'KB')
