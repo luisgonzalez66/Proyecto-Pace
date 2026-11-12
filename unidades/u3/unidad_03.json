@@ -31,7 +31,7 @@
    "symbol": "✧",
    "minutes": 40,
    "concept": "Una ecuación es una igualdad en la que hay una cantidad desconocida, llamada incógnita, que suele representarse con una letra como $x$. Una solución es un valor de la incógnita que hace verdadera la igualdad: al reemplazarlo, el lado izquierdo y el lado derecho dan el mismo número. Para saber si un valor es solución, se evalúa cada lado por separado y se comparan los resultados.\n\nDos ecuaciones son equivalentes cuando tienen exactamente las mismas soluciones. Se obtiene una ecuación equivalente al hacer la misma operación en ambos lados completos (sumar o restar el mismo número, o multiplicar o dividir por un número distinto de cero), como en una balanza en equilibrio.\n\nErrores comunes: operar solo en un lado de la igualdad, operar solo con un término de un lado (por ejemplo, dividir solo uno de los sumandos) o multiplicar por cero. Esas acciones no conservan las soluciones y producen una ecuación que no es equivalente.",
-   "example": "¿Son $x = 4$ y $x = 3$ soluciones de $2x + 1 = 9$? Reemplazamos cada valor y calculamos el lado izquierdo:\n$$x = 4:\\quad 2\\cdot 4 + 1 = 9 \\quad\\Rightarrow\\quad 9 = 9 \\ \\checkmark$$\n$$x = 3:\\quad 2\\cdot 3 + 1 = 7 \\quad\\Rightarrow\\quad 7 \\neq 9$$\nCon $x = 4$ ambos lados coinciden, así que es solución. Con $x = 3$ no coinciden, así que no lo es.",
+   "example": "¿Son $x = 4$ y $x = 3$ soluciones de $2x + 1 = 9$? Para probar un valor, reemplazamos $x$ por ese número y calculamos cada lado por separado.\n\nProbamos $x = 4$:\n$$\\begin{aligned}\\text{lado izquierdo:}\\quad &2\\cdot 4 + 1 = 8 + 1 = 9\\\\[0.7em]\\text{lado derecho:}\\quad &9\\end{aligned}$$\nLos dos lados dan $9$: $x = 4$ es solución.\n\nProbamos $x = 3$:\n$$\\begin{aligned}\\text{lado izquierdo:}\\quad &2\\cdot 3 + 1 = 6 + 1 = 7\\\\[0.7em]\\text{lado derecho:}\\quad &9\\end{aligned}$$\nLos lados dan $7$ y $9$, que son distintos: $x = 3$ no es solución.",
    "media": [],
    "practice": [
     {
@@ -810,9 +810,9 @@
     }
    ],
    "drawCheck": 5,
-   "example2": "¿Cuáles de los valores $x = 5$, $x = 4$ y $x = 0$ son soluciones de $5x - 2 = 3x + 8$? Evaluamos cada lado por separado:\n$$x = 5:\\quad 5\\cdot 5 - 2 = 23 \\quad\\text{y}\\quad 3\\cdot 5 + 8 = 23$$\n$$x = 4:\\quad 5\\cdot 4 - 2 = 18 \\quad\\text{y}\\quad 3\\cdot 4 + 8 = 20$$\n$$x = 0:\\quad 5\\cdot 0 - 2 = -2 \\quad\\text{y}\\quad 3\\cdot 0 + 8 = 8$$\nDe los tres valores, solo $x = 5$ hace que ambos lados den el mismo número.",
-   "example3": "Las ecuaciones $2x + 6 = 14$ y $x + 3 = 7$ son equivalentes. Para pasar de la primera a la segunda dividimos ambos lados completos entre 2:\n$$\\frac{2x + 6}{2} = \\frac{14}{2} \\quad\\Rightarrow\\quad x + 3 = 7$$\nComprobamos que tienen la misma solución: con $x = 4$, $2\\cdot 4 + 6 = 14$ y también $4 + 3 = 7$.",
-   "example4": "Partimos de $2x + 6 = 14$, cuya solución es $x = 4$. Estas operaciones no son válidas:\n• Dividir entre 2 solo uno de los sumandos: $x + 6 = 7$. Esta ecuación tiene solución $x = 1$, pero $2\\cdot 1 + 6 = 8 \\neq 14$. No es equivalente.\n• Restar 6 solo en el lado izquierdo: $2x = 14$. Esta ecuación tiene solución $x = 7$, pero $2\\cdot 7 + 6 = 20 \\neq 14$. No es equivalente.\n• Multiplicar ambos lados por 0: $0 = 0$ es verdadera para cualquier $x$, y se pierde la información de la ecuación.",
+   "example2": "¿Son $x = 5$ y $x = 4$ soluciones de $5x - 2 = 3x + 8$? Ahora la incógnita aparece en los dos lados: al probar un valor, lo reemplazamos en todas las $x$.\n\nProbamos $x = 5$:\n$$\\begin{aligned}\\text{lado izquierdo:}\\quad &5\\cdot 5 - 2 = 25 - 2 = 23\\\\[0.7em]\\text{lado derecho:}\\quad &3\\cdot 5 + 8 = 15 + 8 = 23\\end{aligned}$$\nLos dos lados dan $23$: $x = 5$ es solución.\n\nProbamos $x = 4$:\n$$\\begin{aligned}\\text{lado izquierdo:}\\quad &5\\cdot 4 - 2 = 20 - 2 = 18\\\\[0.7em]\\text{lado derecho:}\\quad &3\\cdot 4 + 8 = 12 + 8 = 20\\end{aligned}$$\nLos lados dan $18$ y $20$, que son distintos: $x = 4$ no es solución.",
+   "example3": "Las ecuaciones $2x + 6 = 14$ y $x + 3 = 7$ son equivalentes. Pasamos de la primera a la segunda dividiendo ambos lados completos entre 2:\n$$\\frac{2x + 6}{2} = \\frac{14}{2} \\quad\\Rightarrow\\quad x + 3 = 7$$\nVeamos que responden igual ante cada valor. Probamos $x = 4$ en las dos:\n$$\\begin{aligned}\\text{en }2x + 6 = 14\\text{:}\\quad &2\\cdot 4 + 6 = 14\\\\[0.7em]\\text{en }x + 3 = 7\\text{:}\\quad &4 + 3 = 7\\end{aligned}$$\nEs solución de ambas.\n\nProbamos $x = 1$ en las dos:\n$$\\begin{aligned}\\text{en }2x + 6 = 14\\text{:}\\quad &2\\cdot 1 + 6 = 8 \\neq 14\\\\[0.7em]\\text{en }x + 3 = 7\\text{:}\\quad &1 + 3 = 4 \\neq 7\\end{aligned}$$\nNo es solución de ninguna.\n\nDos ecuaciones son equivalentes cuando tienen exactamente las mismas soluciones: lo que sirve en una sirve en la otra.",
+   "example4": "Partimos de $2x + 6 = 14$, cuya solución es $x = 4$. Veamos tres operaciones que no son válidas y por qué.\n\nError 1: dividir solo uno de los sumandos. Dividimos entre 2 el término $2x$ y el lado derecho, pero no el $6$, y queda $x + 6 = 7$. Esta ecuación se cumple con $x = 1$, pero ese valor no sirve en la original:\n$$\\begin{aligned}\\text{en }x + 6 = 7\\text{:}\\quad &1 + 6 = 7\\\\[0.7em]\\text{en }2x + 6 = 14\\text{:}\\quad &2\\cdot 1 + 6 = 8 \\neq 14\\end{aligned}$$\nLas soluciones cambiaron: no es equivalente.\n\nError 2: operar solo en un lado. Restamos $6$ solo a la izquierda y queda $2x = 14$. Esta ecuación se cumple con $x = 7$, pero ese valor no sirve en la original:\n$$\\begin{aligned}\\text{en }2x = 14\\text{:}\\quad &2\\cdot 7 = 14\\\\[0.7em]\\text{en }2x + 6 = 14\\text{:}\\quad &2\\cdot 7 + 6 = 20 \\neq 14\\end{aligned}$$\nTampoco es equivalente.\n\nError 3: multiplicar por cero. Al multiplicar ambos lados por $0$ queda $0 = 0$, que es verdadera para cualquier $x$, incluso para los valores que no son solución. Se pierde la información de la ecuación: solo se multiplica o divide por números distintos de cero.",
    "explore": {
     "title": "Balanza de ecuaciones",
     "desc": "Una ecuación es como una balanza en equilibrio: los dos platos pesan lo mismo.",
@@ -829,19 +829,19 @@
      "items": [
       {
        "math": "2x+1=9",
-       "why": "Partimos de la ecuación. Probaremos dos valores de $x$."
+       "why": "Partimos de la ecuación. Para probar un valor, **reemplazamos $x$ por ese número** y calculamos **cada lado por separado**."
       },
       {
-       "math": "2\\cdot4+1=8+1=9",
-       "why": "Reemplazamos $x=4$ y calculamos el **lado izquierdo**. El lado derecho es $9$."
+       "math": "\\begin{aligned}\\text{izquierda:}\\quad &2\\cdot4+1=8+1=9\\\\[0.7em]\\text{derecha:}\\quad &9\\end{aligned}",
+       "why": "Probamos $x=4$. El lado izquierdo da $9$ y el derecho ya es $9$."
       },
       {
        "math": "9=9\\ \\checkmark",
-       "why": "Ambos lados coinciden: $x=4$ **es solución**."
+       "why": "Los dos lados coinciden: $x=4$ **es solución**."
       },
       {
-       "math": "2\\cdot3+1=6+1=7",
-       "why": "Reemplazamos $x=3$ y calculamos el lado izquierdo."
+       "math": "\\begin{aligned}\\text{izquierda:}\\quad &2\\cdot3+1=6+1=7\\\\[0.7em]\\text{derecha:}\\quad &9\\end{aligned}",
+       "why": "Probamos $x=3$. Ahora el lado izquierdo da $7$."
       },
       {
        "math": "7\\neq9",
@@ -851,32 +851,32 @@
     },
     "more": [
      {
-      "title": "¿Cuáles de los valores $x=5$, $x=4$ y $x=0$ son soluciones de $5x-2=3x+8$? Debemos evaluar cada lado por separado.",
+      "title": "¿Son $x=5$ y $x=4$ soluciones de $5x-2=3x+8$? Debemos reemplazar $x$ en **los dos lados**.",
       "items": [
        {
         "math": "5x-2=3x+8",
-        "why": "Partimos de la ecuación. La incógnita aparece en **los dos lados**."
+        "why": "Partimos de la ecuación. Ahora la incógnita aparece en **ambos lados**: al probar un valor, lo reemplazamos en **todas** las $x$."
        },
        {
-        "math": "x=5:\\quad 5\\cdot5-2=23\\quad\\text{y}\\quad 3\\cdot5+8=23",
-        "why": "Con $x=5$ ambos lados dan $23$: **es solución**."
+        "math": "\\begin{aligned}\\text{izquierda:}\\quad &5\\cdot5-2=25-2=23\\\\[0.7em]\\text{derecha:}\\quad &3\\cdot5+8=15+8=23\\end{aligned}",
+        "why": "Probamos $x=5$ y calculamos cada lado."
        },
        {
-        "math": "x=4:\\quad 5\\cdot4-2=18\\quad\\text{y}\\quad 3\\cdot4+8=20",
-        "why": "Con $x=4$ los lados dan $18$ y $20$: **no es solución**."
+        "math": "23=23\\ \\checkmark",
+        "why": "Los dos lados coinciden: $x=5$ **es solución**."
        },
        {
-        "math": "x=0:\\quad 5\\cdot0-2=-2\\quad\\text{y}\\quad 3\\cdot0+8=8",
-        "why": "Con $x=0$ los lados dan $-2$ y $8$: **no es solución**."
+        "math": "\\begin{aligned}\\text{izquierda:}\\quad &5\\cdot4-2=20-2=18\\\\[0.7em]\\text{derecha:}\\quad &3\\cdot4+8=12+8=20\\end{aligned}",
+        "why": "Probamos $x=4$ y calculamos cada lado."
        },
        {
-        "math": "x=5",
-        "why": "De los tres valores probados, solo $x=5$ hace verdadera la igualdad."
+        "math": "18\\neq20",
+        "why": "Los lados **no** coinciden: $x=4$ **no es solución**."
        }
       ]
      },
      {
-      "title": "Las ecuaciones $2x+6=14$ y $x+3=7$ ¿son equivalentes? Debemos ver cómo se pasa de una a otra y si tienen las mismas soluciones.",
+      "title": "¿Son equivalentes $2x+6=14$ y $x+3=7$? Debemos ver cómo se pasa de una a otra y si responden igual ante cada valor.",
       "items": [
        {
         "math": "2x+6=14",
@@ -892,16 +892,28 @@
        },
        {
         "math": "x+3=7",
-        "why": "Simplificamos: $\\frac{2x+6}{2}=x+3$ y $\\frac{14}{2}=7$. Obtuvimos una ecuación **equivalente**."
+        "why": "Simplificamos: $\\frac{2x+6}{2}=x+3$ y $\\frac{14}{2}=7$."
        },
        {
-        "math": "2\\cdot4+6=14\\quad\\text{y}\\quad 4+3=7",
-        "why": "**Comprobación:** $x=4$ es solución de **ambas** ecuaciones. Ser equivalentes significa tener las mismas soluciones."
+        "math": "\\begin{aligned}\\text{en }2x+6=14\\text{:}\\quad &2\\cdot4+6=14\\\\[0.7em]\\text{en }x+3=7\\text{:}\\quad &4+3=7\\end{aligned}",
+        "why": "Probamos $x=4$ en las dos ecuaciones: es solución de **ambas**."
+       },
+       {
+        "math": "\\begin{aligned}\\text{en }2x+6=14\\text{:}\\quad &2\\cdot1+6=8\\neq14\\\\[0.7em]\\text{en }x+3=7\\text{:}\\quad &1+3=4\\neq7\\end{aligned}",
+        "why": "Probamos $x=1$ en las dos: **no** es solución de ninguna."
+       },
+       {
+        "math": "2x+6=14\\quad\\Longleftrightarrow\\quad x+3=7",
+        "why": "Ante cada valor, las dos ecuaciones responden **igual**: son **equivalentes**, es decir, tienen exactamente las mismas soluciones.",
+        "side": {
+         "title": "Símbolo",
+         "text": "$\\Longleftrightarrow$ se lee «es equivalente a»."
+        }
        }
       ]
      },
      {
-      "title": "A partir de $2x+6=14$, cuya solución es $x=4$, ¿qué operaciones **no** son válidas? Debemos comprobar si la nueva ecuación conserva la solución.",
+      "title": "A partir de $2x+6=14$, cuya solución es $x=4$, ¿qué operaciones **no** son válidas? Debemos comprobar si la nueva ecuación conserva las soluciones.",
       "items": [
        {
         "math": "2x+6=14",
@@ -909,23 +921,27 @@
        },
        {
         "math": "x+6=7",
-        "why": "**Error:** dividir entre $2$ solo el término $2x$ y el lado derecho, pero no el $6$."
+        "why": "**Error 1:** dividir entre $2$ solo el término $2x$ y el lado derecho, pero no el $6$. Hay que dividir cada lado **completo**."
        },
        {
-        "math": "x=1:\\quad 2\\cdot1+6=8\\neq14",
-        "why": "La nueva ecuación tiene solución $x=1$, pero ese valor **no** es solución de la original: **no son equivalentes**."
+        "math": "\\begin{aligned}\\text{en }x+6=7\\text{:}\\quad &1+6=7\\\\[0.7em]\\text{en }2x+6=14\\text{:}\\quad &2\\cdot1+6=8\\neq14\\end{aligned}",
+        "why": "La nueva ecuación se cumple con $x=1$, pero ese valor **no** es solución de la original: **no son equivalentes**."
        },
        {
         "math": "2x=14",
-        "why": "**Error:** restar $6$ solo en el lado izquierdo. La balanza se desequilibra."
+        "why": "**Error 2:** restar $6$ solo en el lado izquierdo. La balanza se desequilibra."
        },
        {
-        "math": "x=7:\\quad 2\\cdot7+6=20\\neq14",
-        "why": "El valor que resuelve la nueva ecuación no resuelve la original: **no son equivalentes**."
+        "math": "\\begin{aligned}\\text{en }2x=14\\text{:}\\quad &2\\cdot7=14\\\\[0.7em]\\text{en }2x+6=14\\text{:}\\quad &2\\cdot7+6=20\\neq14\\end{aligned}",
+        "why": "La nueva ecuación se cumple con $x=7$, pero ese valor **no** es solución de la original: **no son equivalentes**."
        },
        {
-        "math": "0\\cdot(2x+6)=0\\cdot14\\ \\Rightarrow\\ 0=0",
-        "why": "**Error:** multiplicar por $0$ da una igualdad verdadera para **cualquier** $x$ y se pierde la información. Solo se multiplica o divide por números **distintos de cero**."
+        "math": "0\\cdot(2x+6)=0\\cdot14",
+        "why": "**Error 3:** multiplicar ambos lados por $0$."
+       },
+       {
+        "math": "0=0",
+        "why": "Es verdadera para **cualquier** $x$, incluso para los que no son solución: se pierde la información de la ecuación. Solo se multiplica o divide por números **distintos de cero**."
        }
       ]
      }
