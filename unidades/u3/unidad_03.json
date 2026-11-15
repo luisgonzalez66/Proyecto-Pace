@@ -37,776 +37,861 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "¿Cuál es la solución de la ecuación $x + 5 = 12$? Escribe el valor de $x$.",
-     "answer": "7",
-     "why": "Restar 5: $x=7$.",
+     "q": "Reemplaza $x = 4$ en el lado izquierdo de la ecuación $$x + 9 = 15$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "13",
+     "why": "$4 + 9 = 13$, que no es $15$: ese valor no es solución.",
      "level": 1
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "¿Cuál es la solución de la ecuación $4x = 20$? Escribe el valor de $x$.",
-     "answer": "5",
-     "why": "Dividir por 4: $x=5$.",
+     "q": "Reemplaza $x = 7$ en el lado izquierdo de la ecuación $$5x = 30$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "35",
+     "why": "$5\\cdot 7 = 35$, que no es $30$: ese valor no es solución.",
      "level": 1
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "¿Cuál es la solución de la ecuación $\\dfrac{x}{3} = 12$? Escribe el valor de $x$.",
-     "answer": "36",
-     "why": "Multiplicar por 3: $x=36$.",
+     "q": "Reemplaza $x = 8$ en el lado izquierdo de la ecuación $$x - 6 = 2$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "2",
+     "why": "$8 - 6 = 2$, que coincide con el lado derecho: es solución.",
      "level": 1
     },
     {
-     "q": "Para despejar $x$ en la ecuación $x + 8 = 20$, ¿qué operación se debe aplicar a ambos lados?",
+     "q": "¿Es $x = 8$ solución de la ecuación $x + 7 = 15$?",
      "options": [
-      "Dividir ambos lados por $8$",
-      "Multiplicar ambos lados por $8$",
-      "Sumar $8$ a ambos lados",
-      "Restar $8$ a ambos lados"
+      "No: el lado izquierdo da $15$ y el derecho da $22$",
+      "Sí: los dos lados dan $22$",
+      "Sí: los dos lados dan $15$",
+      "No: el lado izquierdo da $22$ y el derecho da $15$"
      ],
-     "correct": 3,
-     "why": "La suma se deshace restando.",
+     "correct": 2,
+     "why": "Reemplazamos: $8 + 7 = 15$ y el lado derecho es $15$. Coinciden: es solución.",
      "level": 1
     },
     {
-     "q": "Para despejar $x$ en la ecuación $x - 8 = 13$, ¿qué operación se debe aplicar a ambos lados?",
+     "q": "¿Es $x = 6$ solución de la ecuación $4x = 28$?",
      "options": [
-      "Dividir ambos lados por $8$",
-      "Restar $8$ a ambos lados",
-      "Multiplicar ambos lados por $8$",
-      "Sumar $8$ a ambos lados"
-     ],
-     "correct": 3,
-     "why": "La resta se deshace sumando.",
-     "level": 1
-    },
-    {
-     "q": "Para despejar $x$ en la ecuación $2x = 6$, ¿qué operación se debe aplicar a ambos lados?",
-     "options": [
-      "Dividir ambos lados por $2$",
-      "Sumar $2$ a ambos lados",
-      "Restar $2$ a ambos lados",
-      "Multiplicar ambos lados por $2$"
-     ],
-     "correct": 0,
-     "why": "La multiplicación por 2 se deshace dividiendo por 2.",
-     "level": 1
-    },
-    {
-     "q": "¿Cuál de las siguientes expresiones es una ecuación?",
-     "options": [
-      "$8x^2 + 7$",
-      "$8x + 7 = 31$",
-      "$8 + 7$",
-      "$8x + 7$"
+      "Sí: los dos lados dan $24$",
+      "No: el lado izquierdo da $24$ y el derecho da $28$",
+      "No: el lado izquierdo da $10$ y el derecho da $28$",
+      "Sí: los dos lados dan $28$"
      ],
      "correct": 1,
-     "why": "Una ecuación es una igualdad que contiene una incógnita. Las demás expresiones no tienen el signo $=$.",
+     "why": "Reemplazamos: $4\\cdot 6 = 24$ y el lado derecho es $28$. No coinciden: no es solución.",
+     "level": 1
+    },
+    {
+     "q": "¿Es $x = 14$ solución de la ecuación $x - 5 = 9$?",
+     "options": [
+      "Sí: los dos lados dan $19$",
+      "Sí: los dos lados dan $9$",
+      "No: el lado izquierdo da $19$ y el derecho da $9$",
+      "No: el lado izquierdo da $9$ y el derecho da $19$"
+     ],
+     "correct": 1,
+     "why": "Reemplazamos: $14 - 5 = 9$ y el lado derecho es $9$. Coinciden: es solución.",
+     "level": 1
+    },
+    {
+     "q": "¿Es $x = 5$ solución de la ecuación $3x = 18$?",
+     "options": [
+      "Sí: los dos lados dan $18$",
+      "Sí: los dos lados dan $15$",
+      "No: el lado izquierdo da $8$ y el derecho da $18$",
+      "No: el lado izquierdo da $15$ y el derecho da $18$"
+     ],
+     "correct": 3,
+     "why": "Reemplazamos: $3\\cdot 5 = 15$ y el lado derecho es $18$. No coinciden: no es solución.",
+     "level": 1
+    },
+    {
+     "q": "¿Cuál de estos valores es solución de la ecuación $x + 4 = 11$?",
+     "options": [
+      "$x = 6$",
+      "$x = 4$",
+      "$x = 7$",
+      "$x = 15$"
+     ],
+     "correct": 2,
+     "why": "Con $x = 7$: $7 + 4 = 11$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
+     "level": 1
+    },
+    {
+     "q": "¿Cuál de estos valores es solución de la ecuación $6x = 42$?",
+     "options": [
+      "$x = 48$",
+      "$x = 36$",
+      "$x = 7$",
+      "$x = 6$"
+     ],
+     "correct": 2,
+     "why": "Con $x = 7$: $6\\cdot 7 = 42$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
+     "level": 1
+    },
+    {
+     "q": "¿Cuál de estos valores es solución de la ecuación $x - 8 = 5$?",
+     "options": [
+      "$x = 40$",
+      "$x = 3$",
+      "$x = 13$",
+      "$x = -3$"
+     ],
+     "correct": 2,
+     "why": "Con $x = 13$: $13 - 8 = 5$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
+     "level": 1
+    },
+    {
+     "q": "¿Qué significa que $x = 4$ sea solución de una ecuación?",
+     "options": [
+      "Que al reemplazar $x$ por $4$, el lado izquierdo da $0$",
+      "Que al reemplazar $x$ por $4$, los dos lados dan el mismo número",
+      "Que el número $4$ aparece escrito en la ecuación",
+      "Que $4$ es el mayor número de la ecuación"
+     ],
+     "correct": 1,
+     "why": "Una solución es un valor de la incógnita que hace verdadera la igualdad.",
+     "level": 1
+    },
+    {
+     "q": "Dos ecuaciones son equivalentes cuando:",
+     "options": [
+      "Usan la misma letra como incógnita",
+      "Tienen escritos los mismos números",
+      "Tienen la misma cantidad de términos",
+      "Tienen exactamente las mismas soluciones"
+     ],
+     "correct": 3,
+     "why": "Ser equivalentes significa tener exactamente las mismas soluciones, aunque se vean distintas.",
+     "level": 1
+    },
+    {
+     "q": "Al reemplazar $x = 3$ en una ecuación, el lado izquierdo da $7$ y el lado derecho da $9$. ¿Qué se concluye?",
+     "options": [
+      "La ecuación no tiene solución",
+      "La solución de la ecuación es $x = 7$",
+      "$x = 3$ es solución de la ecuación",
+      "$x = 3$ no es solución de la ecuación"
+     ],
+     "correct": 3,
+     "why": "Los lados no coinciden, así que la igualdad es falsa para $x = 3$. Eso no dice nada sobre otros valores.",
+     "level": 1
+    },
+    {
+     "q": "¿Cuál de estas acciones entrega siempre una ecuación equivalente?",
+     "options": [
+      "Sumar el mismo número en ambos lados",
+      "Sumar un número solo en el lado izquierdo",
+      "Dividir solo uno de los términos de un lado",
+      "Multiplicar ambos lados por $0$"
+     ],
+     "correct": 0,
+     "why": "La misma operación en ambos lados completos conserva las soluciones, porque se puede deshacer.",
+     "level": 1
+    },
+    {
+     "q": "Las ecuaciones $x + 8 = 20$ y $x = 12$ son equivalentes. ¿Qué operación permite pasar de la primera a la segunda?",
+     "options": [
+      "Dividir ambos lados entre $8$",
+      "Restar $8$ en ambos lados",
+      "Sumar $8$ en ambos lados",
+      "Multiplicar ambos lados por $8$"
+     ],
+     "correct": 1,
+     "why": "Restar $8$ en ambos lados transforma $x + 8 = 20$ en $x = 12$ y conserva las soluciones.",
+     "level": 1
+    },
+    {
+     "q": "Las ecuaciones $5x = 35$ y $x = 7$ son equivalentes. ¿Qué operación permite pasar de la primera a la segunda?",
+     "options": [
+      "Multiplicar ambos lados por $5$",
+      "Sumar $5$ en ambos lados",
+      "Dividir ambos lados entre $5$",
+      "Restar $5$ en ambos lados"
+     ],
+     "correct": 2,
+     "why": "Dividir ambos lados entre $5$ transforma $5x = 35$ en $x = 7$ y conserva las soluciones.",
+     "level": 1
+    },
+    {
+     "q": "Las ecuaciones $x - 4 = 9$ y $x = 13$ son equivalentes. ¿Qué operación permite pasar de la primera a la segunda?",
+     "options": [
+      "Restar $4$ en ambos lados",
+      "Sumar $4$ en ambos lados",
+      "Dividir ambos lados entre $4$",
+      "Multiplicar ambos lados por $4$"
+     ],
+     "correct": 1,
+     "why": "Sumar $4$ en ambos lados transforma $x - 4 = 9$ en $x = 13$ y conserva las soluciones.",
+     "level": 1
+    },
+    {
+     "q": "Un estudiante pasa de $x + 5 = 12$ a $x = 17$. Para revisar, reemplaza $x = 17$ en la ecuación original. ¿Qué obtiene?",
+     "options": [
+      "$17 + 5 = 22$, que no es $12$: las ecuaciones no son equivalentes",
+      "$17 + 5 = 12$: las ecuaciones son equivalentes",
+      "$17 - 5 = 12$: las ecuaciones son equivalentes",
+      "$17 + 5 = 22$, que es mayor que $12$: las ecuaciones son equivalentes"
+     ],
+     "correct": 0,
+     "why": "El valor $17$ cumple la nueva ecuación pero no la original. El error fue sumar $5$ en vez de restarlo en ambos lados.",
+     "level": 1
+    },
+    {
+     "q": "En la ecuación $3x = 12$, el $3$ está multiplicando a $x$. ¿Qué operación entrega una ecuación equivalente con $x$ sola?",
+     "options": [
+      "Restar $3$ en ambos lados",
+      "Dividir ambos lados entre $3$",
+      "Multiplicar ambos lados por $3$",
+      "Restar $3$ solo en el lado derecho"
+     ],
+     "correct": 1,
+     "why": "Al dividir ambos lados entre $3$ queda $x = 4$, y $3\\cdot 4 = 12$. Restar $3$ daría $3x - 3 = 9$, donde $x$ no queda sola.",
+     "level": 1
+    },
+    {
+     "q": "Un estudiante resta $4$ solo en el lado izquierdo de $x + 4 = 10$ y obtiene $x = 10$. ¿Es equivalente a la ecuación original?",
+     "options": [
+      "No: debió sumar $4$ en el lado izquierdo",
+      "Sí, porque la $x$ quedó sola",
+      "No: $x = 10$ no cumple la original, porque $10 + 4 = 14$",
+      "Sí, porque restó el número correcto"
+     ],
+     "correct": 2,
+     "why": "La operación debe hacerse en ambos lados. Al evaluar, $10 + 4 = 14 \\neq 10$: las soluciones cambiaron.",
      "level": 1
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Resuelve la ecuación: $$x + 5 = 18$$ Escribe el valor de $x$.",
-     "answer": "13",
-     "why": "Restar 5: $x=13$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $x + 5 = 18$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 13$."
+     "q": "Reemplaza $x = 3$ en el lado derecho de la ecuación $$5x - 2 = 3x + 8$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "17",
+     "why": "Lado derecho: $3\\cdot 3 + 8 = 17$. El lado izquierdo da $5\\cdot 3 - 2 = 13$, así que $x = 3$ no es solución.",
+     "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Resuelve la ecuación: $$x + 13 = 16$$ Escribe el valor de $x$.",
-     "answer": "3",
-     "why": "Restar 13: $x=3$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $x + 13 = 16$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 3$."
+     "q": "Reemplaza $x = 2$ en el lado derecho de la ecuación $$4x + 1 = 7x - 5$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "9",
+     "why": "Lado derecho: $7\\cdot 2 - 5 = 9$. El lado izquierdo da $4\\cdot 2 + 1 = 9$, así que $x = 2$ es solución.",
+     "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Resuelve la ecuación: $$x - 6 = 9$$ Escribe el valor de $x$.",
-     "answer": "15",
-     "why": "Sumar 6: $x=15$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $x - 6 = 9$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 15$."
+     "q": "Reemplaza $x = 6$ en el lado izquierdo de la ecuación $$3x - 4 = 14$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "14",
+     "why": "Lado izquierdo: $3\\cdot 6 - 4 = 14$. El lado derecho es $14$, así que $x = 6$ es solución.",
+     "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Resuelve la ecuación: $$x - 8 = 2$$ Escribe el valor de $x$.",
-     "answer": "10",
-     "why": "Sumar 8: $x=10$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $x - 8 = 2$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 10$."
+     "q": "Reemplaza $x = 5$ en el lado izquierdo de la ecuación $$2x + 7 = 20$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "17",
+     "why": "Lado izquierdo: $2\\cdot 5 + 7 = 17$. El lado derecho es $20$, así que $x = 5$ no es solución.",
+     "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$9x = 117$$ Escribe el valor de $x$.",
-     "answer": "13",
-     "why": "Dividir por 9: $x=13$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $9x = 117$.\nDividimos ambos lados entre 9: $x = 13$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$5x = 50$$ Escribe el valor de $x$.",
-     "answer": "10",
-     "why": "Dividir por 5: $x=10$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $5x = 50$.\nDividimos ambos lados entre 5: $x = 10$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{4} = 3$$ Escribe el valor de $x$.",
-     "answer": "12",
-     "why": "Multiplicar por 4: $x=12$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{4} = 3$.\nMultiplicamos ambos lados por 4 para eliminar los denominadores: $x = 12$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$3x + 4 = 19$$ Escribe el valor de $x$.",
-     "answer": "5",
-     "why": "Restar 4: $3x=15$; dividir por 3: $x=5$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $3x + 4 = 19$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 15$.\nDividimos ambos lados entre 3: $x = 5$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$8x - 10 = 30$$ Escribe el valor de $x$.",
-     "answer": "5",
-     "why": "Sumar 10: $8x=40$; dividir por 8: $x=5$.",
-     "level": 1,
-     "solution": "Partimos de la ecuación: $8x - 10 = 30$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = 40$.\nDividimos ambos lados entre 8: $x = 5$."
-    },
-    {
-     "q": "¿Cuál de estos valores es solución de la ecuación $5x + 5 = 15$?",
+     "q": "¿Es $x = 4$ solución de la ecuación $4x - 3 = 2x + 5$?",
      "options": [
-      "$x = 1$",
+      "Sí: los dos lados dan $13$",
+      "Sí: los dos lados dan $19$",
+      "No: el lado izquierdo da $13$ y el derecho da $19$",
+      "No: el lado izquierdo da $19$ y el derecho da $13$"
+     ],
+     "correct": 0,
+     "why": "Lado izquierdo: $4\\cdot 4 - 3 = 13$. Lado derecho: $2\\cdot 4 + 5 = 13$. Coinciden: es solución.",
+     "level": 2
+    },
+    {
+     "q": "¿Es $x = 3$ solución de la ecuación $3x + 2 = x + 9$?",
+     "options": [
+      "Sí: los dos lados dan $12$",
+      "No: el lado izquierdo da $11$ y el derecho da $12$",
+      "No: el lado izquierdo da $9$ y el derecho da $12$",
+      "Sí: los dos lados dan $11$"
+     ],
+     "correct": 1,
+     "why": "Lado izquierdo: $3\\cdot 3 + 2 = 11$. Lado derecho: $3 + 9 = 12$. No coinciden: no es solución.",
+     "level": 2
+    },
+    {
+     "q": "¿Es $x = 4$ solución de la ecuación $6x - 5 = 4x + 3$?",
+     "options": [
+      "No: el lado izquierdo da $24$ y el derecho da $19$",
+      "No: el lado izquierdo da $19$ y el derecho da $24$",
+      "Sí: los dos lados dan $24$",
+      "Sí: los dos lados dan $19$"
+     ],
+     "correct": 3,
+     "why": "Lado izquierdo: $6\\cdot 4 - 5 = 19$. Lado derecho: $4\\cdot 4 + 3 = 19$. Coinciden: es solución.",
+     "level": 2
+    },
+    {
+     "q": "¿De cuál de estas ecuaciones es solución $x = 3$?",
+     "options": [
+      "$2x + 5 = 11$",
+      "$3x + 1 = 9$",
+      "$x + 7 = 11$",
+      "$4x - 2 = 12$"
+     ],
+     "correct": 0,
+     "why": "En $2x + 5 = 11$: $2\\cdot 3 + 5 = 11$. En las otras, los lados no coinciden.",
+     "level": 2
+    },
+    {
+     "q": "¿De cuál de estas ecuaciones es solución $x = 5$?",
+     "options": [
+      "$x + 9 = 13$",
+      "$3x - 4 = 11$",
+      "$4x - 5 = 10$",
+      "$2x + 3 = 12$"
+     ],
+     "correct": 1,
+     "why": "En $3x - 4 = 11$: $3\\cdot 5 - 4 = 11$. En las otras, los lados no coinciden.",
+     "level": 2
+    },
+    {
+     "q": "¿De cuál de estas ecuaciones es solución $x = 2$?",
+     "options": [
+      "$5x + 1 = 12$",
+      "$6x - 2 = 8$",
+      "$7x - 3 = 11$",
+      "$3x + 4 = 11$"
+     ],
+     "correct": 2,
+     "why": "En $7x - 3 = 11$: $7\\cdot 2 - 3 = 11$. En las otras, los lados no coinciden.",
+     "level": 2
+    },
+    {
+     "q": "¿Cuál de estas ecuaciones es equivalente a $2x + 9 = 21$?",
+     "options": [
+      "$2x = 12$",
+      "$2x = 30$",
+      "$x + 9 = 19$",
+      "$2x = 21$"
+     ],
+     "correct": 0,
+     "why": "Al restar $9$ en ambos lados se obtiene $2x = 12$. Las otras no conservan las soluciones.",
+     "level": 2
+    },
+    {
+     "q": "¿Cuál de estas ecuaciones es equivalente a $5x - 4 = 16$?",
+     "options": [
+      "$x - 4 = 11$",
+      "$5x = 12$",
+      "$5x = 16$",
+      "$5x = 20$"
+     ],
+     "correct": 3,
+     "why": "Al sumar $4$ en ambos lados se obtiene $5x = 20$. Las otras no conservan las soluciones.",
+     "level": 2
+    },
+    {
+     "q": "¿Cuál de estas ecuaciones es equivalente a $3x + 12 = 27$?",
+     "options": [
+      "$x + 4 = 9$",
+      "$x + 12 = 9$",
+      "$3x + 4 = 9$",
+      "$x + 4 = 27$"
+     ],
+     "correct": 0,
+     "why": "Al dividir ambos lados completos entre $3$, cada término se divide: $x + 4 = 9$.",
+     "level": 2
+    },
+    {
+     "q": "¿Cuál de estas ecuaciones es equivalente a $4x - 8 = 20$?",
+     "options": [
+      "$4x - 2 = 5$",
+      "$x - 8 = 5$",
+      "$x - 2 = 20$",
+      "$x - 2 = 5$"
+     ],
+     "correct": 3,
+     "why": "Al dividir ambos lados completos entre $4$, cada término se divide: $x - 2 = 5$.",
+     "level": 2
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Si restas $6$ en ambos lados de $2x + 6 = 14$, obtienes la ecuación equivalente $2x = k$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "8",
+     "why": "$14 - 6 = 8$, así que queda $2x = 8$.",
+     "level": 2
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Si divides ambos lados completos de $4x + 8 = 20$ entre $4$, obtienes la ecuación equivalente $x + 2 = k$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "5",
+     "why": "$\\frac{20}{4} = 5$, así que queda $x + 2 = 5$.",
+     "level": 2
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Si sumas $7$ en ambos lados de $3x - 7 = 11$, obtienes la ecuación equivalente $3x = k$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "18",
+     "why": "$11 + 7 = 18$, así que queda $3x = 18$.",
+     "level": 2
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Las ecuaciones $3x + 5 = 20$ y $3x = 15$ son equivalentes. Se sabe que $x = 5$ es la única solución de $3x = 15$. ¿Cuál es la solución de $3x + 5 = 20$? Escribe solo el número.",
+     "answer": "5",
+     "why": "Ecuaciones equivalentes tienen las mismas soluciones: también es $x = 5$. En efecto, $3\\cdot 5 + 5 = 20$.",
+     "level": 2
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Las ecuaciones $2x - 3 = 9$ y $x = 6$ son equivalentes. Si reemplazas $x = 6$ en el lado izquierdo de $2x - 3 = 9$, ¿qué número se obtiene? Escribe solo el número.",
+     "answer": "9",
+     "why": "Como son equivalentes, $x = 6$ es solución de ambas: $2\\cdot 6 - 3 = 9$, igual al lado derecho.",
+     "level": 2
+    },
+    {
+     "q": "A partir de $3x + 6 = 18$, ¿cuál de estas acciones NO entrega una ecuación equivalente?",
+     "options": [
+      "Dividir ambos lados completos entre $3$",
+      "Restar $6$ en ambos lados",
+      "Sumar $2$ en ambos lados",
+      "Restar $6$ solo en el lado izquierdo"
+     ],
+     "correct": 3,
+     "why": "Restar solo en un lado da $3x = 18$, que se cumple con $x = 6$; pero $3\\cdot 6 + 6 = 24 \\neq 18$.",
+     "level": 2
+    },
+    {
+     "q": "¿Cuántas soluciones tiene la ecuación $x + 3 = x + 5$?",
+     "options": [
+      "Exactamente una",
+      "Exactamente dos",
+      "Ninguna",
+      "Todo número es solución"
+     ],
+     "correct": 2,
+     "why": "El lado derecho vale siempre $2$ más que el izquierdo, sea cual sea $x$: ningún valor hace verdadera la igualdad.",
+     "level": 3
+    },
+    {
+     "q": "¿Cuántas soluciones tiene la ecuación $4(x + 1) = 4x + 4$?",
+     "options": [
+      "Exactamente una",
+      "Exactamente dos",
+      "Todo número es solución",
+      "Ninguna"
+     ],
+     "correct": 2,
+     "why": "Por la propiedad distributiva, $4(x + 1)$ es siempre $4x + 4$: la igualdad es verdadera con cualquier valor.",
+     "level": 3
+    },
+    {
+     "q": "¿Cuántas soluciones tiene la ecuación $2x + 3 = 2x + 7$?",
+     "options": [
+      "Exactamente dos",
+      "Exactamente una",
+      "Ninguna",
+      "Todo número es solución"
+     ],
+     "correct": 2,
+     "why": "Ambos lados tienen $2x$, pero uno suma $3$ y el otro $7$: nunca coinciden.",
+     "level": 3
+    },
+    {
+     "q": "¿Cuántas soluciones tiene la ecuación $x - 2 = x - 2$?",
+     "options": [
+      "Exactamente una",
+      "Exactamente dos",
+      "Ninguna",
+      "Todo número es solución"
+     ],
+     "correct": 3,
+     "why": "Los dos lados son la misma expresión: la igualdad es verdadera con cualquier valor.",
+     "level": 3
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Se sabe que $x = 3$ es solución de la ecuación $2x + k = 11$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "5",
+     "why": "Al reemplazar $x = 3$ la igualdad debe ser verdadera: $6 + k = 11$, así que $k = 5$.",
+     "level": 3
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Se sabe que $x = -2$ es solución de la ecuación $kx + 10 = 4$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "3",
+     "why": "Al reemplazar $x = -2$: $-2k + 10 = 4$. Con $k = 3$ se cumple: $-6 + 10 = 4$.",
+     "level": 3
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Se sabe que $x = 4$ es solución de la ecuación $3x - k = x + 5$. ¿Cuánto vale $k$? Escribe solo el número.",
+     "answer": "3",
+     "why": "Al reemplazar $x = 4$: el lado derecho da $9$ y el izquierdo $12 - k$. Deben coincidir, así que $k = 3$.",
+     "level": 3
+    },
+    {
+     "q": "Para mostrar que $x + 6 = 7$ y $2x + 6 = 14$ no son equivalentes basta un valor que sea solución de una y no de la otra. ¿Cuál de estos valores sirve?",
+     "options": [
+      "$x = 0$",
       "$x = 2$",
+      "$x = 1$",
+      "$x = 3$"
+     ],
+     "correct": 2,
+     "why": "$x = 1$ cumple $x + 6 = 7$ (pues $1 + 6 = 7$), pero no $2x + 6 = 14$ (pues $2 + 6 = 8$). Un solo valor así basta.",
+     "level": 3
+    },
+    {
+     "q": "Para mostrar que $3x = 12$ y $x = 9$ no son equivalentes basta un valor que sea solución de una y no de la otra. ¿Cuál de estos valores sirve?",
+     "options": [
+      "$x = 3$",
+      "$x = 12$",
+      "$x = 6$",
+      "$x = 9$"
+     ],
+     "correct": 3,
+     "why": "$x = 9$ cumple $x = 9$, pero no $3x = 12$ (pues $3\\cdot 9 = 27$). Un solo valor así basta.",
+     "level": 3
+    },
+    {
+     "q": "Para mostrar que $2x - 4 = 10$ y $2x = 6$ no son equivalentes basta un valor que sea solución de una y no de la otra. ¿Cuál de estos valores sirve?",
+     "options": [
+      "$x = 10$",
+      "$x = 3$",
+      "$x = 5$",
+      "$x = 1$"
+     ],
+     "correct": 1,
+     "why": "$x = 3$ cumple $2x = 6$, pero no $2x - 4 = 10$ (pues $6 - 4 = 2$). Un solo valor así basta.",
+     "level": 3
+    },
+    {
+     "q": "¿Es $x = 5$ solución de la ecuación $3(x - 2) = x + 4$?",
+     "options": [
+      "No: el lado izquierdo da $9$ y el derecho da $13$",
+      "Sí: los dos lados dan $13$",
+      "Sí: los dos lados dan $9$",
+      "No: el lado izquierdo da $13$ y el derecho da $9$"
+     ],
+     "correct": 2,
+     "why": "Lado izquierdo: $3(5 - 2) = 3\\cdot 3 = 9$. Lado derecho: $5 + 4 = 9$. Coinciden: es solución.",
+     "level": 3
+    },
+    {
+     "q": "¿Es $x = 8$ solución de la ecuación $\\dfrac{x}{2} + 3 = x - 1$?",
+     "options": [
+      "Sí: los dos lados dan $7$",
+      "No: el lado izquierdo da $11$ y el derecho da $7$",
+      "Sí: los dos lados dan $11$",
+      "No: el lado izquierdo da $7$ y el derecho da $11$"
+     ],
+     "correct": 0,
+     "why": "Lado izquierdo: $\\frac{8}{2} + 3 = 7$. Lado derecho: $8 - 1 = 7$. Coinciden: es solución.",
+     "level": 3
+    },
+    {
+     "q": "¿Es $x = 2$ solución de la ecuación $4 - 3x = 10$?",
+     "options": [
+      "Sí: los dos lados dan $-2$",
+      "Sí: los dos lados dan $10$",
+      "No: el lado izquierdo da $2$ y el derecho da $10$",
+      "No: el lado izquierdo da $-2$ y el derecho da $10$"
+     ],
+     "correct": 3,
+     "why": "Lado izquierdo: $4 - 3\\cdot 2 = -2$. Lado derecho: $10$. No coinciden: no es solución.",
+     "level": 3
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Reemplaza $x = -3$ en la expresión $5 - 2x$. ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "11",
+     "why": "$5 - 2\\cdot(-3) = 5 + 6 = 11$. Cuidado con el signo al reemplazar un valor negativo.",
+     "level": 3
+    },
+    {
+     "type": "input",
+     "kind": "number",
+     "q": "Reemplaza $x = 6$ en el lado izquierdo de la ecuación $$\\dfrac{x}{3} + 4(x - 5) = 6$$ ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "6",
+     "why": "$\\frac{6}{3} + 4(6 - 5) = 2 + 4 = 6$, igual al lado derecho: $x = 6$ es solución.",
+     "level": 3
+    },
+    {
+     "q": "¿Cuál de estas ecuaciones NO es equivalente a $2x + 6 = 14$?",
+     "options": [
+      "$x + 3 = 7$",
+      "$2x = 8$",
+      "$x + 6 = 7$",
       "$x = 4$"
      ],
-     "correct": 1,
-     "why": "Al reemplazar $x = 2$ se cumple la igualdad.",
-     "level": 1
+     "correct": 2,
+     "why": "$x + 6 = 7$ se cumple con $x = 1$, que no es solución de la original. Las otras tres tienen solución $x = 4$, igual que la original.",
+     "level": 3
     },
     {
-     "q": "¿Cuál de estos valores es solución de la ecuación $x + 3 = 9$?",
+     "q": "¿Cuál de estas ecuaciones NO es equivalente a $3x - 6 = 12$?",
      "options": [
-      "$x = 12$",
-      "$x = 7$",
       "$x = 6$",
-      "$x = \\dfrac{1}{6}$"
+      "$x - 2 = 4$",
+      "$x - 6 = 4$",
+      "$3x = 18$"
      ],
      "correct": 2,
-     "why": "Al reemplazar $x = 6$ se cumple la igualdad.",
-     "level": 1
+     "why": "$x - 6 = 4$ se cumple con $x = 10$, que no es solución de la original. Las otras tres tienen solución $x = 6$.",
+     "level": 3
     },
     {
-     "q": "Para despejar $x$ en la ecuación $x - 7 = 17$, ¿qué operación se debe aplicar a ambos lados?",
+     "q": "¿Cuál de estas ecuaciones NO es equivalente a $5x + 10 = 30$?",
      "options": [
-      "Multiplicar ambos lados por $7$",
-      "Restar $7$ a ambos lados",
-      "Sumar $7$ a ambos lados",
-      "Dividir ambos lados por $7$"
+      "$x = 4$",
+      "$x + 2 = 6$",
+      "$5x = 20$",
+      "$5x = 40$"
+     ],
+     "correct": 3,
+     "why": "$5x = 40$ se cumple con $x = 8$, que no es solución de la original. Las otras tres tienen solución $x = 4$.",
+     "level": 3
+    },
+    {
+     "q": "Al dividir ambos lados completos de $4x + 8 = 20$ entre $4$, ¿qué ecuación se obtiene?",
+     "options": [
+      "$x + 2 = 5$",
+      "$4x + 2 = 5$",
+      "$x + 2 = 20$",
+      "$x + 8 = 5$"
+     ],
+     "correct": 0,
+     "why": "Se divide cada término de ambos lados entre $4$: queda $x + 2 = 5$.",
+     "level": 3
+    },
+    {
+     "q": "Al dividir ambos lados completos de $6x - 12 = 18$ entre $6$, ¿qué ecuación se obtiene?",
+     "options": [
+      "$x - 12 = 3$",
+      "$x - 2 = 18$",
+      "$x - 2 = 3$",
+      "$6x - 2 = 3$"
      ],
      "correct": 2,
-     "why": "La resta se deshace sumando.",
-     "level": 1
-    },
-    {
-     "q": "Para despejar $x$ en la ecuación $x + 11 = 20$, ¿qué operación se debe aplicar a ambos lados?",
-     "options": [
-      "Multiplicar ambos lados por $11$",
-      "Dividir ambos lados por $11$",
-      "Sumar $11$ a ambos lados",
-      "Restar $11$ a ambos lados"
-     ],
-     "correct": 3,
-     "why": "La suma se deshace restando.",
-     "level": 1
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "¿Cuál es la solución de la ecuación $3x + 8 = 14$? Escribe el valor de $x$.",
-     "answer": "2",
-     "why": "Restar 8: $3x=6$; dividir por 3: $x=2$.",
-     "level": 2
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Si $x = 8$, ¿cuánto vale la expresión $5x + 7$?",
-     "answer": "47",
-     "why": "Reemplazamos: $5 \\cdot 8 + 7 = 47$.",
-     "level": 2
-    },
-    {
-     "q": "Al reemplazar $x = 5$ en la ecuación $4x + 2 = 23$, ¿qué ocurre?",
-     "options": [
-      "Se cumple la igualdad",
-      "El lado izquierdo vale $23$ y la igualdad se cumple",
-      "No se puede reemplazar un valor en una ecuación",
-      "No se cumple la igualdad, porque el lado izquierdo vale $22$ y no $23$"
-     ],
-     "correct": 3,
-     "why": "El lado izquierdo es $4 \\cdot 5 + 2 = 22$, que es distinto de $23$.",
-     "level": 2
-    },
-    {
-     "q": "¿Cuál de estas ecuaciones NO tiene como solución a $x = 2$?",
-     "options": [
-      "$2x + 2 = 8$",
-      "$2x + 6 = 10$",
-      "$3x + 4 = 10$",
-      "$3x + 3 = 9$"
-     ],
-     "correct": 0,
-     "why": "Al reemplazar $x = 2$, el lado izquierdo de esa ecuación vale $6$, no $8$.",
-     "level": 2
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$6x = 4$$ Escribe el valor de $x$.",
-     "answer": "2/3",
-     "why": "Dividir por 6 y simplificar: $x=\\dfrac{2}{3}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $6x = 4$.\nDividimos ambos lados entre 6: $x = \\dfrac{4}{6}$.\nSimplificamos: $x=\\dfrac{2}{3}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$10x + 2 = 7$$ Escribe el valor de $x$.",
-     "answer": "1/2",
-     "why": "Restar 2: $10x=5$; dividir por 10 y simplificar: $x=\\dfrac{1}{2}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $10x + 2 = 7$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $10x = 5$.\nDividimos ambos lados entre 10: $x = \\dfrac{5}{10}$.\nSimplificamos: $x=\\dfrac{1}{2}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$8x - 6 = 0$$ Escribe el valor de $x$.",
-     "answer": "3/4",
-     "why": "Sumar 6: $8x=6$; dividir por 8 y simplificar: $x=\\dfrac{3}{4}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $8x - 6 = 0$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $8x = 6$.\nDividimos ambos lados entre 8: $x = \\dfrac{6}{8}$.\nSimplificamos: $x=\\dfrac{3}{4}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$16x = 24$$ Escribe el valor de $x$.",
-     "answer": "3/2",
-     "why": "Dividir por 16 y simplificar: $x=\\dfrac{3}{2}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $16x = 24$.\nDividimos ambos lados entre 16: $x = \\dfrac{24}{16}$.\nSimplificamos: $x=\\dfrac{3}{2}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$6x = 33$$ Escribe el valor de $x$.",
-     "answer": "11/2",
-     "why": "Dividir por 6 y simplificar: $x=\\dfrac{11}{2}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $6x = 33$.\nDividimos ambos lados entre 6: $x = \\dfrac{33}{6}$.\nSimplificamos: $x=\\dfrac{11}{2}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$15x = 3$$ Escribe el valor de $x$.",
-     "answer": "1/5",
-     "why": "Dividir por 15 y simplificar: $x=\\dfrac{1}{5}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $15x = 3$.\nDividimos ambos lados entre 15: $x = \\dfrac{3}{15}$.\nSimplificamos: $x=\\dfrac{1}{5}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$9x = 39$$ Escribe el valor de $x$.",
-     "answer": "13/3",
-     "why": "Dividir por 9 y simplificar: $x=\\dfrac{13}{3}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $9x = 39$.\nDividimos ambos lados entre 9: $x = \\dfrac{39}{9}$.\nSimplificamos: $x=\\dfrac{13}{3}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$5x + 1 = 32$$ Escribe el valor de $x$.",
-     "answer": "31/5",
-     "why": "Restar 1: $5x=31$; dividir por 5: $x=\\dfrac{31}{5}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $5x + 1 = 32$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 31$.\nDividimos ambos lados entre 5: $x = \\dfrac{31}{5}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$5x + 1 = -6$$ Escribe el valor de $x$.",
-     "answer": "-7/5",
-     "why": "Restar 1: $5x=-7$; dividir por 5: $x=-\\dfrac{7}{5}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $5x + 1 = -6$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = -7$.\nDividimos ambos lados entre 5: $x = -\\dfrac{7}{5}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$11x + 18 = -12$$ Escribe el valor de $x$.",
-     "answer": "-30/11",
-     "why": "Restar 18: $11x=-30$; dividir por 11: $x=-\\dfrac{30}{11}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $11x + 18 = -12$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $11x = -30$.\nDividimos ambos lados entre 11: $x = -\\dfrac{30}{11}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$13 - 8x = 21$$ Escribe el valor de $x$.",
-     "answer": "-1",
-     "why": "Restar 13: $-8x=8$; dividir por $(-8)$: $x=-1$.",
-     "level": 2,
-     "solution": "Partimos de la ecuación: $13 - 8x = 21$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-8x = 8$.\nDividimos ambos lados entre -8: $x = -1$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$8 - 3x = 11$$ Escribe el valor de $x$.",
-     "answer": "-1",
-     "why": "Restar 8: $-3x=3$; dividir por $(-3)$: $x=-1$.",
-     "level": 2,
-     "solution": "Partimos de la ecuación: $8 - 3x = 11$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $-3x = 3$.\nDividimos ambos lados entre -3: $x = -1$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{5} = \\dfrac{6}{9}$$ Escribe el valor de $x$.",
-     "answer": "10/3",
-     "why": "Multiplicar por 45 (mcm): $9x=30$; dividir por 9 y simplificar: $x=\\dfrac{10}{3}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{5} = \\dfrac{6}{9}$.\nMultiplicamos ambos lados por 15 para eliminar los denominadores: $3x = 10$.\nDividimos ambos lados entre 3: $x = \\dfrac{10}{3}$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{2} = \\dfrac{5}{9}$$ Escribe el valor de $x$.",
-     "answer": "10/9",
-     "why": "Multiplicar por 18 (mcm): $9x=10$; dividir por 9: $x=\\dfrac{10}{9}$.",
-     "level": 2,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{2} = \\dfrac{5}{9}$.\nMultiplicamos ambos lados por 18 para eliminar los denominadores: $9x = 10$.\nDividimos ambos lados entre 9: $x = \\dfrac{10}{9}$."
-    },
-    {
-     "q": "¿Cuál es la solución de la ecuación $18x = 10$?",
-     "options": [
-      "$x = \\dfrac{5}{9}$",
-      "$x = \\dfrac{10}{9}$",
-      "$x = -\\dfrac{5}{9}$",
-      "$x = \\dfrac{9}{5}$"
-     ],
-     "correct": 0,
-     "why": "Al despejar se obtiene $x = \\dfrac{5}{9}$; al reemplazar, ambos lados valen $10$.",
-     "level": 2
-    },
-    {
-     "q": "¿Cuál es la solución de la ecuación $5x + 9 = 21$?",
-     "options": [
-      "$x = \\dfrac{5}{12}$",
-      "$x = \\dfrac{12}{5}$",
-      "$x = \\dfrac{17}{5}$",
-      "$x = \\dfrac{2}{5}$"
-     ],
-     "correct": 1,
-     "why": "Al despejar se obtiene $x = \\dfrac{12}{5}$; al reemplazar, ambos lados valen $21$.",
-     "level": 2
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$15x - 120 = 1230$$ Escribe el valor de $x$.",
-     "answer": "90",
-     "why": "Sumar 120: $15x=1350$; dividir por 15: $x=90$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $15x - 120 = 1230$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $15x = 1350$.\nDividimos ambos lados entre 15: $x = 90$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$7x + 3x = 350$$ Escribe el valor de $x$.",
-     "answer": "35",
-     "why": "Reducir: $10x=350$; dividir por 10: $x=35$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $7x + 3x = 350$.\nReducimos los términos semejantes de cada lado: $10x = 350$.\nDividimos ambos lados entre 10: $x = 35$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$9x - 4x + 12 = 87$$ Escribe el valor de $x$.",
-     "answer": "15",
-     "why": "Reducir: $5x+12=87$; restar 12: $5x=75$; dividir por 5: $x=15$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $9x - 4x + 12 = 87$.\nReducimos los términos semejantes de cada lado: $5x + 12 = 87$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 75$.\nDividimos ambos lados entre 5: $x = 15$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{12} + 5 = 38$$ Escribe el valor de $x$.",
-     "answer": "396",
-     "why": "Multiplicar por 12: $x+60=456$; restar 60: $x=396$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{12} + 5 = 38$.\nMultiplicamos ambos lados por 12 para eliminar los denominadores: $x + 60 = 456$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 396$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$25x + 80 = 1330$$ Escribe el valor de $x$.",
-     "answer": "50",
-     "why": "Restar 80: $25x=1250$; dividir por 25: $x=50$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $25x + 80 = 1330$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $25x = 1250$.\nDividimos ambos lados entre 25: $x = 50$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$8x - 3x + 7 = 2x + 40$$ Escribe el valor de $x$.",
-     "answer": "11",
-     "why": "Reducir: $5x+7=2x+40$; agrupar $x$ a la izquierda: $5x-2x=40-7$; reducir: $3x=33$; dividir por 3: $x=11$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $8x - 3x + 7 = 2x + 40$.\nReducimos los términos semejantes de cada lado: $5x + 7 = 2x + 40$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 33$.\nDividimos ambos lados entre 3: $x = 11$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$5x + 109 = 599$$ Escribe el valor de $x$.",
-     "answer": "98",
-     "why": "Restar 109: $5x=490$; dividir por 5: $x=98$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $5x + 109 = 599$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 490$.\nDividimos ambos lados entre 5: $x = 98$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$3x + 28 = 1363$$ Escribe el valor de $x$.",
-     "answer": "445",
-     "why": "Restar 28: $3x=1335$; dividir por 3: $x=445$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $3x + 28 = 1363$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 1335$.\nDividimos ambos lados entre 3: $x = 445$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$56x - 163 = 901$$ Escribe el valor de $x$.",
-     "answer": "19",
-     "why": "Sumar 163: $56x=1064$; dividir por 56: $x=19$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $56x - 163 = 901$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $56x = 1064$.\nDividimos ambos lados entre 56: $x = 19$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{22} + 23 = 2$$ Escribe el valor de $x$.",
-     "answer": "-462",
-     "why": "Multiplicar por 22: $x+506=44$; restar 506: $x=-462$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{22} + 23 = 2$.\nMultiplicamos ambos lados por 22 para eliminar los denominadores: $x + 506 = 44$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -462$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$\\dfrac{x}{2} + 174 = 131$$ Escribe el valor de $x$.",
-     "answer": "-86",
-     "why": "Multiplicar por 2: $x+348=262$; restar 348: $x=-86$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $\\dfrac{x}{2} + 174 = 131$.\nMultiplicamos ambos lados por 2 para eliminar los denominadores: $x + 348 = 262$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = -86$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$29x + 21x = 2050$$ Escribe el valor de $x$.",
-     "answer": "41",
-     "why": "Reducir: $50x=2050$; dividir por 50: $x=41$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $29x + 21x = 2050$.\nReducimos los términos semejantes de cada lado: $50x = 2050$.\nDividimos ambos lados entre 50: $x = 41$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$13x + 3x = 320$$ Escribe el valor de $x$.",
-     "answer": "20",
-     "why": "Reducir: $16x=320$; dividir por 16: $x=20$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $13x + 3x = 320$.\nReducimos los términos semejantes de cada lado: $16x = 320$.\nDividimos ambos lados entre 16: $x = 20$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$21x - 18x - 25 = 407$$ Escribe el valor de $x$.",
-     "answer": "144",
-     "why": "Reducir: $3x-25=407$; sumar 25: $3x=432$; dividir por 3: $x=144$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $21x - 18x - 25 = 407$.\nReducimos los términos semejantes de cada lado: $3x - 25 = 407$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 432$.\nDividimos ambos lados entre 3: $x = 144$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$8x - 7x + 59 = 442$$ Escribe el valor de $x$.",
-     "answer": "383",
-     "why": "Reducir: $x+59=442$; restar 59: $x=383$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $8x - 7x + 59 = 442$.\nReducimos los términos semejantes de cada lado: $x + 59 = 442$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 383$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$4x - 61 = 3x + 345$$ Escribe el valor de $x$.",
-     "answer": "406",
-     "why": "Agrupar $x$ a la izquierda: $4x-3x=345+61$; reducir: $x=406$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $4x - 61 = 3x + 345$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $x = 406$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$18x + 48 = 14x + 372$$ Escribe el valor de $x$.",
-     "answer": "81",
-     "why": "Agrupar $x$ a la izquierda: $18x-14x=372-48$; reducir: $4x=324$; dividir por 4: $x=81$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $18x + 48 = 14x + 372$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $4x = 324$.\nDividimos ambos lados entre 4: $x = 81$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$0{,}5 x + 0{,}4 = 21{,}9$$ Escribe el valor de $x$.",
-     "answer": "43",
-     "why": "Multiplicar por 10: $5x+4=219$; restar 4: $5x=215$; dividir por 5: $x=43$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $0{,}5 x + 0{,}4 = 21{,}9$.\nMultiplicamos ambos lados por 10 para eliminar los decimales: $5x + 4 = 219$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $5x = 215$.\nDividimos ambos lados entre 5: $x = 43$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$0{,}15x + 2{,}6 = 62{,}60$$ Escribe el valor de $x$.",
-     "answer": "400",
-     "why": "Multiplicar por 100: $15x+260=6260$; restar 260: $15x=6000$; dividir por 15: $x=400$.",
-     "level": 3,
-     "solution": "Partimos de la ecuación: $0{,}15x + 2{,}6 = 62{,}60$.\nMultiplicamos ambos lados por 20 para eliminar los decimales: $3x + 52 = 1252$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $3x = 1200$.\nDividimos ambos lados entre 3: $x = 400$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Resuelve la ecuación: $$9x + 9 = 29$$ Escribe el valor de $x$.",
-     "answer": "20/9",
-     "why": "Restar 9: $9x=20$; dividir por 9: $x=\\dfrac{20}{9}$.",
-     "level": 3,
-     "reduced": true,
-     "solution": "Partimos de la ecuación: $9x + 9 = 29$.\nAgrupamos los términos con $x$ en un lado y los números en el otro: $9x = 20$.\nDividimos ambos lados entre 9: $x = \\dfrac{20}{9}$."
+     "why": "Se divide cada término de ambos lados entre $6$: queda $x - 2 = 3$.",
+     "level": 3
     }
    ],
    "check": {
     "type": "input",
     "kind": "number",
-    "q": "Una muestra de agua se calienta $6\\,^\\circ\\mathrm{C}$ y queda a $25\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ (en $^\\circ\\mathrm{C}$) cumple la ecuación $T + 6 = 25$. ¿Cuál era la temperatura inicial? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
-    "answer": "19",
-    "why": "Restamos 6 a ambos lados: $T = 25 - 6 $ → $T = 19$."
+    "q": "Una probeta contiene $20\\,\\mathrm{mL}$ de agua y cada gota agrega $3\\,\\mathrm{mL}$. El número de gotas $g$ para llegar a $41\\,\\mathrm{mL}$ cumple $3g + 20 = 41$. Reemplaza $g = 5$ en el lado izquierdo. ¿Qué número se obtiene? Escribe solo el número.",
+    "answer": "35",
+    "why": "$3\\cdot 5 + 20 = 35$, que no es $41$: con $5$ gotas aún no se llega."
    },
    "draw": 5,
    "checks": [
     {
-     "q": "Una muestra de agua se calienta $6\\,^\\circ\\mathrm{C}$ y queda a $34\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T + 6 = 34$. ¿Cuál era la temperatura inicial?",
+     "q": "Una muestra de agua se calienta $6\\,^\\circ\\mathrm{C}$ y queda a $34\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T + 6 = 34$. Una estudiante propone $T = 40$. ¿Es solución?",
      "options": [
-      "$34\\,^\\circ\\mathrm{C}$",
-      "$40\\,^\\circ\\mathrm{C}$",
-      "$6\\,^\\circ\\mathrm{C}$",
-      "$28\\,^\\circ\\mathrm{C}$"
+      "Sí: los dos lados dan $46$",
+      "No: el lado izquierdo da $46$ y el derecho da $34$",
+      "Sí: los dos lados dan $34$",
+      "No: el lado izquierdo da $28$ y el derecho da $34$"
+     ],
+     "correct": 1,
+     "why": "$40 + 6 = 46$, que no es $34$. El valor propuesto no cumple la ecuación."
+    },
+    {
+     "q": "Cada pastilla contiene $7\\,\\mathrm{mg}$ de un compuesto y se necesitan $35\\,\\mathrm{mg}$ en total. El número de pastillas $n$ cumple $7n = 35$. ¿Es $n = 5$ solución?",
+     "options": [
+      "No: el lado izquierdo da $12$ y el derecho da $35$",
+      "Sí: los dos lados dan $35$",
+      "Sí: los dos lados dan $12$",
+      "No: el lado izquierdo da $35$ y el derecho da $12$"
+     ],
+     "correct": 1,
+     "why": "$7\\cdot 5 = 35$, igual al lado derecho: con $5$ pastillas se cumple la ecuación."
+    },
+    {
+     "q": "Un sensor registra $15\\,^\\circ\\mathrm{C}$ y la temperatura sube $3\\,^\\circ\\mathrm{C}$ por minuto. Llega a $33\\,^\\circ\\mathrm{C}$ cuando el tiempo $t$ (en minutos) cumple $3t + 15 = 33$. ¿Es $t = 6$ solución?",
+     "options": [
+      "No: el lado izquierdo da $24$ y el derecho da $33$",
+      "Sí: los dos lados dan $33$",
+      "Sí: los dos lados dan $24$",
+      "No: el lado izquierdo da $33$ y el derecho da $24$"
+     ],
+     "correct": 1,
+     "why": "$3\\cdot 6 + 15 = 33$, igual al lado derecho: a los $6$ minutos se alcanza esa temperatura."
+    },
+    {
+     "q": "Dos esferas idénticas de masa $m$ (en gramos) junto a una pesa de $50\\,\\mathrm{g}$ equilibran una balanza con $130\\,\\mathrm{g}$ en el otro plato: $2m + 50 = 130$. ¿Es $m = 30$ solución?",
+     "options": [
+      "Sí: los dos lados dan $130$",
+      "Sí: los dos lados dan $110$",
+      "No: el lado izquierdo da $82$ y el derecho da $130$",
+      "No: el lado izquierdo da $110$ y el derecho da $130$"
      ],
      "correct": 3,
-     "why": "Restamos 6 a ambos lados: $T + 6 = 34$ → $T = 34 - 6$ → $T = 28$."
+     "why": "$2\\cdot 30 + 50 = 110$, que no es $130$: con esferas de $30\\,\\mathrm{g}$ la balanza no queda en equilibrio."
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "En una probeta hay cierto volumen $V$ de agua. Se agregan $11\\,\\mathrm{mL}$ de ácido y el total es $41\\,\\mathrm{mL}$, es decir $V + 11 = 41$. ¿Cuál es el volumen inicial de agua? Escribe solo el número, en $\\mathrm{mL}$.",
-     "answer": "30",
-     "why": "Restamos 11 a ambos lados: $V + 11 = 41$ → $V = 41 - 11$ → $V = 30$."
-    },
-    {
-     "q": "Sobre una balanza hay un vaso de masa $m$. Al agregar $9\\,\\mathrm{g}$ de sal, la balanza marca $47\\,\\mathrm{g}$, así que $m + 9 = 47$. ¿Cuál es la masa del vaso?",
+     "q": "Un cultivo tiene $40$ mil bacterias y aumenta en $5$ mil por hora. Llega a $70$ mil cuando el tiempo $t$ (en horas) cumple $5t + 40 = 70$. ¿Es $t = 6$ solución?",
      "options": [
-      "$9\\,\\mathrm{g}$",
-      "$56\\,\\mathrm{g}$",
-      "$38\\,\\mathrm{g}$",
-      "$47\\,\\mathrm{g}$"
+      "Sí: los dos lados dan $51$",
+      "Sí: los dos lados dan $70$",
+      "No: el lado izquierdo da $70$ y el derecho da $51$",
+      "No: el lado izquierdo da $51$ y el derecho da $70$"
      ],
-     "correct": 2,
-     "why": "Restamos 9 a ambos lados: $m + 9 = 47$ → $m = 47 - 9$ → $m = 38$."
+     "correct": 1,
+     "why": "$5\\cdot 6 + 40 = 70$, igual al lado derecho: a las $6$ horas hay $70$ mil bacterias."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Una plántula crece $4\\,\\mathrm{cm}$ durante una semana y llega a medir $40\\,\\mathrm{cm}$. Su altura inicial $h$ cumple $h + 4 = 40$. ¿Cuánto medía al inicio? Escribe solo el número, en $\\mathrm{cm}$.",
+     "q": "El perímetro de un cuadrado de lado $L$ (en cm) es $36\\,\\mathrm{cm}$, así que $4L = 36$. Reemplaza $L = 9$ en el lado izquierdo. ¿Qué número se obtiene? Escribe solo el número.",
      "answer": "36",
-     "why": "Restamos 4 a ambos lados: $h + 4 = 40$ → $h = 40 - 4 $ → $h= 36$."
-    },
-    {
-     "q": "Un globo sonda sube $12\\,\\mathrm{m}$ y alcanza una altura de $29\\,\\mathrm{m}$. Su altura inicial $y$ cumple $y + 12 = 29$. ¿Cuál era su altura inicial?",
-     "options": [
-      "$41\\,\\mathrm{m}$",
-      "$17\\,\\mathrm{m}$",
-      "$12\\,\\mathrm{m}$",
-      "$29\\,\\mathrm{m}$"
-     ],
-     "correct": 1,
-     "why": "Restamos 12 a ambos lados: $y + 12 = 29$ → $y = 29 - 12$ → $y = 17$."
+     "why": "$4\\cdot 9 = 36$, igual al lado derecho: $L = 9$ es solución."
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Una solución se enfría $13\\,^\\circ\\mathrm{C}$ hasta quedar a $18\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T - 13 = 18$. ¿Cuál era la temperatura inicial? Escribe solo el número, en $^\\circ\\mathrm{C}$.",
-     "answer": "31",
-     "why": "Sumamos 13 a ambos lados: $T - 13 = 18$ → $T = 18 + 13$ → $T = 31$."
+     "q": "Una solución se enfría $13\\,^\\circ\\mathrm{C}$ hasta quedar a $18\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T - 13 = 18$. Reemplaza $T = 30$ en el lado izquierdo. ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "17",
+     "why": "$30 - 13 = 17$, que no es $18$: $T = 30$ no es solución."
     },
     {
-     "q": "Al evaporarse $6\\,\\mathrm{mL}$ de una solución quedan $21\\,\\mathrm{mL}$. El volumen inicial $V$ cumple $V - 6 = 21$. ¿Cuál era el volumen inicial?",
+     "type": "input",
+     "kind": "number",
+     "q": "Un vehículo recorre $60\\,\\mathrm{km}$ en $5$ horas a rapidez constante $v$ (en km/h), así que $5v = 60$. Reemplaza $v = 12$ en el lado izquierdo. ¿Qué número se obtiene? Escribe solo el número.",
+     "answer": "60",
+     "why": "$5\\cdot 12 = 60$, igual al lado derecho: $v = 12$ es solución."
+    },
+    {
+     "q": "Un termómetro marca $12\\,^\\circ\\mathrm{C}$ y la temperatura sube $4\\,^\\circ\\mathrm{C}$ por minuto. Llega a $40\\,^\\circ\\mathrm{C}$ cuando $4t + 12 = 40$. ¿Cuál de estos tiempos cumple la ecuación?",
      "options": [
-      "$27\\,\\mathrm{mL}$",
-      "$15\\,\\mathrm{mL}$",
-      "$126\\,\\mathrm{mL}$",
-      "$6\\,\\mathrm{mL}$"
+      "$t = 7\\,\\mathrm{min}$",
+      "$t = 10\\,\\mathrm{min}$",
+      "$t = 28\\,\\mathrm{min}$",
+      "$t = 13\\,\\mathrm{min}$"
      ],
      "correct": 0,
-     "why": "Sumamos 6 a ambos lados: $V - 6 = 21$ → $V = 21 + 6 $ → $V= 27$."
+     "why": "Con $t = 7$: $4\\cdot 7 + 12 = 40$. Con los otros valores, el lado izquierdo no da $40$."
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "En una reacción se consumen $15\\,\\mathrm{g}$ de un reactivo y quedan $14\\,\\mathrm{g}$. La masa inicial $m$ cumple $m - 15 = 14$. ¿Cuál era la masa inicial? Escribe solo el número, en $\\mathrm{g}$.",
-     "answer": "29",
-     "why": "Sumamos 15 a ambos lados: $m - 15 = 14$ → $m = 14 + 15$ → $m = 29$."
-    },
-    {
-     "q": "Un buzo asciende $3\\,\\mathrm{m}$ y queda a $11\\,\\mathrm{m}$ de profundidad. Su profundidad inicial $p$ cumple $p - 3 = 11$. ¿A qué profundidad estaba?",
+     "q": "Una caja vacía tiene masa $200\\,\\mathrm{g}$ y cada tubo de ensayo tiene masa $25\\,\\mathrm{g}$. La caja con $n$ tubos tiene masa $350\\,\\mathrm{g}$: $25n + 200 = 350$. ¿Cuál valor de $n$ cumple la ecuación?",
      "options": [
-      "$3\\,\\mathrm{m}$",
-      "$8\\,\\mathrm{m}$",
-      "$14\\,\\mathrm{m}$",
-      "$33\\,\\mathrm{m}$"
+      "$n = 14$",
+      "$n = 150$",
+      "$n = 6$",
+      "$n = 22$"
      ],
      "correct": 2,
-     "why": "Sumamos 3 a ambos lados: $p - 3 = 11$ → $p = 11 + 3$ → $p = 14$."
+     "why": "Con $n = 6$: $25\\cdot 6 + 200 = 350$. Con los otros valores, el lado izquierdo no da $350$."
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Una colonia de bacterias pierde $8$ miles de individuos y quedan $36$ miles. El tamaño inicial $n$ cumple $n - 8 = 36$. ¿Cuántos miles de individuos había al inicio?",
-     "answer": "44",
-     "why": "Sumamos 8 a ambos lados: $n - 8 = 36$ → $n = 36 + 8$ → $n = 44$."
-    },
-    {
-     "q": "Un auto avanza a $6\\,\\mathrm{km/h}$ y recorre $60\\,\\mathrm{km}$. El tiempo $t$ cumple $6t = 60$. ¿Cuántas horas viajó?",
+     "q": "Un estanque tiene $90\\,\\mathrm{L}$ y pierde $6\\,\\mathrm{L}$ por hora. Quedan $48\\,\\mathrm{L}$ cuando $90 - 6t = 48$. ¿Cuál de estos tiempos cumple la ecuación?",
      "options": [
-      "$10\\,\\mathrm{h}$",
-      "$360\\,\\mathrm{h}$",
-      "$54\\,\\mathrm{h}$",
-      "$66\\,\\mathrm{h}$"
-     ],
-     "correct": 0,
-     "why": "Dividimos por 6 ambos lados: $\\frac{6t}{6}=\\frac{60}{6}$ → $t = 10$."
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Una bomba entrega $3\\,\\mathrm{mL}$ por minuto, llenando un recipiente con $36\\,\\mathrm{mL}$ en $t$ minutos. El tiempo $t$ cumple $3t = 36$. ¿Cuántos minutos tarda? Escribe solo el número, en $\\mathrm{min}$.",
-     "answer": "12",
-     "why": "Dividimos por 3 ambos lados: $\\frac{3t}{3} = \\frac{36}{3}$ → $t = 12$."
-    },
-    {
-     "q": "Cada pastilla contiene $7\\,\\mathrm{mg}$ de un compuesto y se necesitan $35\\,\\mathrm{mg}$ en total. El número de pastillas $n$ cumple $7n = 35$. ¿Cuántas pastillas se requieren?",
-     "options": [
-      "$28$",
-      "$42$",
-      "$245$",
-      "$5$"
+      "$t = 23\\,\\mathrm{h}$",
+      "$t = 42\\,\\mathrm{h}$",
+      "$t = 8\\,\\mathrm{h}$",
+      "$t = 7\\,\\mathrm{h}$"
      ],
      "correct": 3,
-     "why": "Dividimos por 7 ambos lados: $\\frac{7n}{7} = \\frac{35}{7}$ → $n = 5$."
+     "why": "Con $t = 7$: $90 - 6\\cdot 7 = 48$. Con los otros valores, el lado izquierdo no da $48$."
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un material tiene densidad de $6\\,\\mathrm{g/cm^3}$ y una muestra tiene masa $60\\,\\mathrm{g}$. El volumen $V$ de la muestra cumple $6V = 60$. ¿Cuál es el volumen en $\\mathrm{cm^3}$? Escribe solo el número, en $\\mathrm{cm^3}$.",
-     "answer": "10",
-     "why": "Dividimos por 6 ambos lados: $\\frac{6V}{6} = \\frac{60}{6}$ → $V = 10$."
-    },
-    {
-     "q": "Una muestra de volumen $V$ se reparte en $5$ tubos iguales de $16\\,\\mathrm{mL}$ cada uno, así que $\\dfrac{V}{5} = 16$. ¿Cuál es el volumen total?",
+     "q": "Tres muestras idénticas de masa $m$ (en gramos) tienen en total $72\\,\\mathrm{g}$: $3m = 72$. ¿Cuál valor de $m$ cumple la ecuación?",
      "options": [
-      "$11\\,\\mathrm{mL}$",
-      "$16\\,\\mathrm{mL}$",
-      "$80\\,\\mathrm{mL}$",
-      "$21\\,\\mathrm{mL}$"
+      "$m = 216\\,\\mathrm{g}$",
+      "$m = 69\\,\\mathrm{g}$",
+      "$m = 24\\,\\mathrm{g}$",
+      "$m = 75\\,\\mathrm{g}$"
      ],
      "correct": 2,
-     "why": "Multiplicamos por 5 ambos lados: $5\\cdot\\frac{V}{5} = 5 \\cdot 16 $ → $V= 80$."
+     "why": "Con $m = 24$: $3\\cdot 24 = 72$. Los otros valores no cumplen la igualdad."
     },
     {
-     "q": "Una masa $m$ se divide en $8$ porciones iguales de $11\\,\\mathrm{g}$ cada una, es decir $\\dfrac{m}{8} = 11$. ¿Cuál era la masa total?",
+     "q": "Para el sensor del laboratorio se planteó $3t + 15 = 33$. Otro estudiante escribe $3t = 18$. ¿Describen ambas ecuaciones el mismo tiempo $t$?",
      "options": [
-      "$19\\,\\mathrm{g}$",
-      "$11\\,\\mathrm{g}$",
-      "$88\\,\\mathrm{g}$",
-      "$3\\,\\mathrm{g}$"
-     ],
-     "correct": 2,
-     "why": "Multiplicamos por 8 ambos lados: $8\\cdot \\frac{m}{8} = 8 \\cdot 11$→ $m = 88$."
-    },
-    {
-     "q": "Un tanque tiene $40\\,\\mathrm{L}$ de agua y se llena a $3\\,\\mathrm{L}$ por minuto. Llega a $70\\,\\mathrm{L}$ cuando el total de minutos transcurridos $t$ cumple $3t + 40 = 70$. ¿Cuántos minutos pasaron?",
-     "options": [
-      "$10\\,\\mathrm{min}$",
-      "$\\dfrac{110}{3}\\,\\mathrm{min}$",
-      "$11\\,\\mathrm{min}$",
-      "$30\\,\\mathrm{min}$"
-     ],
-     "correct": 0,
-     "why": "Restamos 40 a ambos lados: $3t = 30$; dividimos por 3 ambos lados: $t = 10$."
-    },
-    {
-     "q": "Una planta mide $5\\,\\mathrm{cm}$ y crece $7\\,\\mathrm{cm}$ por día. Mide $110\\,\\mathrm{cm}$ cuando el total de días transcurridos $t$ cumple $7t + 5 = 110$. ¿Cuántos días han pasado?",
-     "options": [
-      "$16\\ \\text{días}$",
-      "$15\\ \\text{días}$",
-      "$\\dfrac{115}{7}\\ \\text{días}$",
-      "$105\\ \\text{días}$"
+      "Sí: son equivalentes, porque se restó $15$ solo en el lado derecho",
+      "Sí: son equivalentes, porque se restó $15$ en ambos lados",
+      "No: la segunda ecuación no menciona la temperatura inicial",
+      "No: al cambiar los números cambia la solución"
      ],
      "correct": 1,
-     "why": "Restamos 5: $7t = 105$; dividimos por 7: $t = 15$."
+     "why": "$33 - 15 = 18$: se restó $15$ en ambos lados, así que tienen las mismas soluciones. Ambas se cumplen con $t = 6$."
     },
     {
-     "q": "Un sensor registra $15\\,^\\circ\\mathrm{C}$ y la temperatura sube $3\\,^\\circ\\mathrm{C}$ por minuto. Llega a $33\\,^\\circ\\mathrm{C}$ cuando la cantidad de minutos transcurridos $t$ cumple $3t + 15 = 33$. ¿Cuántos minutos transcurrieron?",
+     "q": "La masa $m$ de una esfera cumple $2m + 50 = 130$. ¿Cuál de estas ecuaciones es equivalente y describe la misma masa?",
      "options": [
-      "$7\\,\\mathrm{min}$",
-      "$18\\,\\mathrm{min}$",
-      "$6\\,\\mathrm{min}$",
-      "$16\\,\\mathrm{min}$"
+      "$m + 25 = 65$",
+      "$2m = 180$",
+      "$m + 50 = 65$",
+      "$m + 25 = 130$"
      ],
-     "correct": 2,
-     "why": "Restamos 15: $3t = 18$; dividimos por 3: $t = 6$."
+     "correct": 0,
+     "why": "Al dividir ambos lados completos entre $2$ queda $m + 25 = 65$. Las dos se cumplen con $m = 40$."
+    },
+    {
+     "q": "Un informe indica que el tiempo $t$ de un experimento cumple $5t + 40 = 70$ y, más adelante, que cumple $t = 6$. ¿Qué garantiza que ambas afirmaciones dicen lo mismo?",
+     "options": [
+      "Que en las dos aparece un número mayor que $5$",
+      "Que las dos ecuaciones son equivalentes: tienen exactamente las mismas soluciones",
+      "Que la segunda ecuación es más corta",
+      "Que en las dos aparece la letra $t$"
+     ],
+     "correct": 1,
+     "why": "Dos ecuaciones describen lo mismo cuando son equivalentes. Aquí, $5\\cdot 6 + 40 = 70$."
+    },
+    {
+     "q": "En un cuaderno de laboratorio aparece: «$T + 6 = 34$, entonces $T = 40$». Al reemplazar $T = 40$ en la ecuación original, ¿qué se observa?",
+     "options": [
+      "$40 + 6 = 46$, que no es $34$: el paso no entregó una ecuación equivalente",
+      "$40 + 6 = 46$, que es mayor que $34$: el paso es correcto",
+      "$40 + 6 = 34$: el paso es correcto",
+      "$40 - 6 = 34$: el paso es correcto"
+     ],
+     "correct": 0,
+     "why": "Se sumó $6$ en vez de restarlo en ambos lados. Evaluar permite detectar el error."
+    },
+    {
+     "q": "Para saber cuántas pastillas de $7\\,\\mathrm{mg}$ completan $35\\,\\mathrm{mg}$ se planteó $7n = 35$, y alguien concluyó $n = 28$. ¿Cuál fue el error?",
+     "options": [
+      "Dividió ambos lados entre $7$",
+      "No hay error: $n = 28$ es solución",
+      "Sumó $7$ en ambos lados",
+      "Restó $7$ en lugar de dividir ambos lados entre $7$"
+     ],
+     "correct": 3,
+     "why": "$35 - 7 = 28$, pero el $7$ multiplica a $n$. Al evaluar, $7\\cdot 28 = 196 \\neq 35$."
+    },
+    {
+     "q": "Para la balanza $2m + 50 = 130$, un estudiante divide entre $2$ y escribe $m + 50 = 65$. ¿Es equivalente a la ecuación original?",
+     "options": [
+      "Sí: dividió ambos lados entre $2$",
+      "No: $m = 15$ cumple la nueva ecuación, pero $2\\cdot 15 + 50 = 80$",
+      "No: debió dividir solo el lado derecho",
+      "Sí: la $m$ quedó sin coeficiente"
+     ],
+     "correct": 1,
+     "why": "Dividió solo uno de los sumandos del lado izquierdo. Lo correcto es $m + 25 = 65$."
+    },
+    {
+     "q": "Dos plantas miden hoy lo mismo, $x$ centímetros. Una crece $5\\,\\mathrm{cm}$ y la otra $8\\,\\mathrm{cm}$. ¿Para qué valor de $x$ vuelven a medir lo mismo, es decir, $x + 5 = x + 8$?",
+     "options": [
+      "Para ninguno: la ecuación no tiene solución",
+      "Para $x = 13$",
+      "Para cualquier valor de $x$",
+      "Para $x = 3$"
+     ],
+     "correct": 0,
+     "why": "El lado derecho vale siempre $3$ más que el izquierdo, sea cual sea $x$: la segunda planta siempre queda más alta."
     }
    ],
    "drawCheck": 5,
