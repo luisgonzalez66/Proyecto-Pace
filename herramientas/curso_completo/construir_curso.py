@@ -75,12 +75,15 @@ a=sub1(a," const q=questionAt(step),r=PACETyped.check(q,inp.value);\n if(r.state
 a=sub1(a,"if(sc>MT().b)MT().b=sc;save();",
  "if(sc>MT().b)MT().b=sc;S.qs.forEach((x,i)=>{const r=S.a[i];if(r==='-')return;const st=STATIONS.find(z=>z.id===x.sid);reportInt('M',st,x.q,metaVals[S.mode+S.n+':'+i],r==='1');});save();")
 
-# portada: pestañas, abrir unidad desde la ruta
+# portada: dos pantallas (Inicio con la bienvenida · Curso con las unidades)
+a=sub1(a,"function openHome(){showOnly('home');","function openHome(){paceSub('curso');showOnly('home');")
 a=sub1(a,"init();metaExpiryCheck();renderStreak();openHome();",
-r"""(function(){var tabs=[].slice.call(document.querySelectorAll('.htab'));function show(k){tabs.forEach(function(b){var on=b.dataset.hp===k;b.classList.toggle('active',on);b.setAttribute('aria-selected',String(on));b.tabIndex=on?0:-1;});[].slice.call(document.querySelectorAll('.pt .hp')).forEach(function(p){p.hidden=p.id!=='hp-'+k;});if(k!=='tour'){var v=document.querySelector('.pt video');if(v&&!v.paused)v.pause();}}
-tabs.forEach(function(b,i){b.addEventListener('click',function(){show(b.dataset.hp);});b.addEventListener('keydown',function(e){var n=-1;if(e.key==='ArrowRight')n=(i+1)%tabs.length;else if(e.key==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(e.key==='Home')n=0;else if(e.key==='End')n=tabs.length-1;if(n>=0){e.preventDefault();tabs[n].focus();show(tabs[n].dataset.hp);}});});
-[].slice.call(document.querySelectorAll('[data-open-unit]')).forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();openMap(Number(l.dataset.openUnit));});});})();
-init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();""")
+r"""function paceSub(k){var I=document.getElementById('ptInicio'),C=document.getElementById('ptCurso');if(!I||!C)return;I.hidden=k!=='inicio';C.hidden=k==='inicio';if(k!=='inicio'){var v=I.querySelector('video');if(v&&!v.paused)v.pause();}window.scrollTo(0,0);}
+(function(){[].slice.call(document.querySelectorAll('[data-go-curso]')).forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();paceSub('curso');var h=document.querySelector('#ptCurso h1');if(h){h.setAttribute('tabindex','-1');h.focus({preventScroll:true});}});});
+var b=document.getElementById('ptBack');if(b)b.addEventListener('click',function(){paceSub('inicio');});
+[].slice.call(document.querySelectorAll('[data-open-unit]')).forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();openMap(Number(l.dataset.openUnit));});});
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches){[].forEach.call(document.querySelectorAll('.board animate'),function(x){var r=x.parentNode;r.setAttribute('width',x.getAttribute('to'));r.removeChild(x);});}})();
+init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();paceSub('inicio');""")
 
 # ---------- Estación por pantallas · cero scroll (propuesta de Henry V4) ----------
 ZSJS=open(HERE+'/zs.js',encoding='utf8').read()
@@ -89,27 +92,62 @@ a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
 a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\ninit();(()=>{const keep=mu;")
 
-# ---------- index.html: pestañas + paneles de la portada ----------
-panels=portal[portal.index('<div id="hp-bien"'):portal.index('<aside class="credits"')]
+# ---------- index.html: portada en dos pantallas (Inicio y Curso) ----------
+# Inicio = encabezado con pizarra + Bienvenida + Cómo se estudia + Tour (todo tomado de index.html del repositorio).
+# Curso  = la bienvenida del motor (retoma tu ruta y avance) + las tarjetas de unidades.
+vi0=portal.index('<div id="vInicio" class="view">')+len('<div id="vInicio" class="view">')
+vi1=portal.index('<div id="vCurso"')
+inicio=portal[vi0:vi1].rstrip()
+assert inicio.endswith('</div>'); inicio=inicio[:-len('</div>')]
+inicio=inicio.replace('href="#curso"','href="#" data-go-curso')
 for n in (1,2,3):
-    panels=re.sub(rf'href="unidades/u{n}/html/index.html[^"]*"',f'href="#" data-open-unit="{n-1}"',panels)
-assert 'unidades/u' not in panels
-tabsbar='<div class="home-tabs" role="tablist" aria-label="Secciones de la portada" id="unidades"><button type="button" role="tab" class="htab active" id="ht-units" data-hp="units" aria-selected="true" aria-controls="hp-units">Unidades</button><button type="button" role="tab" class="htab" id="ht-bien" data-hp="bien" aria-selected="false" aria-controls="hp-bien">Bienvenida</button><button type="button" role="tab" class="htab" id="ht-tour" data-hp="tour" aria-selected="false" aria-controls="hp-tour">Tour por el curso</button><button type="button" role="tab" class="htab" id="ht-como" data-hp="como" aria-selected="false" aria-controls="hp-como">Cómo avanzar</button></div>'
+    inicio=re.sub(rf'href="unidades/u{n}/html/index.html[^"]*"',f'href="#" data-open-unit="{n-1}"',inicio)
+assert 'unidades/u' not in inicio and 'href="#curso"' not in inicio
+wel=re.search(r'      <section class="welcome".*?\n      </section>\n',idx,re.S).group(0)
+wel2=sub1(wel,'<h1>Aprende a<br><em>tu ritmo.</em></h1>','<h1>Tu ruta de<br><em>aprendizaje.</em></h1>')
+wel2=sub1(wel2,'<p>Elige una unidad y comienza.</p>','<p>Retoma donde quedaste o elige una unidad.</p>')
 old=re.search(r'(      <div class="section-heading">.*?</div>\n      <div class="units-grid" id="unitsGrid"></div>)',idx,re.S); assert old
-new='<div class="pt">'+tabsbar+'<div id="hp-units" class="hp" role="tabpanel" aria-labelledby="ht-units">\n'+old.group(1)+'\n</div>\n'+panels+'</div>'
-i2=idx.replace(old.group(1),new)
-# CSS de la portada acotado a .pt
-st=re.sub(r'data:[a-z/+0-9.-]+;base64,[A-Za-z0-9+/=]+','DATA',portal[portal.index('<style>')+7:portal.index('</style>')])
-lines=st.split('\n')
-s0=next(i for i,l in enumerate(lines) if l.startswith('.home-tabs{')); s1=next(i for i,l in enumerate(lines) if l.startswith('.credits{'))
-rules=[l for l in lines[s0:s1] if not l.startswith(('a.ucard','.units{','.hp[hidden]','a.ucard:hover'))]
-def pref(rule):
-    m=re.match(r'^(.*?)\{(.*)\}$',rule); sel,body=m.group(1),m.group(2)
-    return ','.join('.pt '+s.strip() for s in sel.split(','))+'{'+body+'}'
-css='.pt{--navy:#2b2a6b;--teal:#4b49a3;--coral:#c2406f;--green:#2f9a78;--sun:#f0b54a;--paper:#f6f1e7;--muted:#5b6070;margin-top:8px}\n.pt .hp[hidden]{display:none!important}\n.pt .wel-card,.pt .htab{font-family:inherit}.pt h2,.pt .rt-n{font-family:Fraunces,Georgia,serif}\n'+'\n'.join(pref(r) for r in rules)
-css+="\n.pt .htab.active:hover{background:var(--navy);color:#fff}"
+i2=sub1(idx,wel+old.group(1),
+ '<div class="pt" id="ptInicio">'+inicio+'</div>\n'
+ '<div id="ptCurso" hidden><div class="pt"><button type="button" class="back" id="ptBack"><span aria-hidden="true">←</span> Volver al inicio</button></div>\n'
+ +wel2+old.group(1)+'\n</div>')
+# CSS de la portada, acotado a .pt (se omiten reglas generales de la página y fuentes que el motor ya trae)
+st=portal[portal.index('<style>')+7:portal.index('</style>')]
+def blocks(t):
+    out=[];i=0;n=len(t)
+    while i<n:
+        j=t.find('{',i)
+        if j<0: break
+        sel=t[i:j].strip();d=0;k=j
+        while True:
+            if t[k]=='{': d+=1
+            elif t[k]=='}':
+                d-=1
+                if d==0: break
+            k+=1
+        out.append((sel,t[j+1:k]));i=k+1
+    return out
+SKIP=re.compile(r'^(\*|html|body|main|:root|footer|\.top\b|\.stripe|\.credits|a\.ucard|\.ucard|\.units\b|\.home-tabs|\.htab|\.hp\[|\.view\[|\.rt-|\.wel-route)')
+def scope(sel): return ','.join('.pt '+x.strip() for x in sel.split(','))
+def conv(bl):
+    o=[]
+    for sel,body in bl:
+        if sel.startswith('@font-face'):
+            if 'Kalam' in body: o.append(sel+'{'+body+'}')
+        elif sel.startswith('@keyframes'): o.append(sel+'{'+body+'}')
+        elif sel.startswith('@media'):
+            inner=conv(blocks(body))
+            if inner: o.append(sel+'{'+''.join(inner)+'}')
+        else:
+            keep=[x for x in sel.split(',') if not SKIP.match(x.strip())]
+            if keep: o.append(scope(','.join(keep))+'{'+body+'}')
+    return o
+css=('.pt{--navy:#2b2a6b;--teal:#4b49a3;--coral:#c2406f;--green:#2f9a78;--sun:#f0b54a;--paper:#f6f1e7;--muted:#5b6070;margin-top:8px;color:var(--navy);font-family:Nunito,system-ui,sans-serif;font-weight:600;line-height:1.5}\n'
+     '#ptInicio{padding-top:6px}.pt h1,.pt h2,.pt .cta-end b{font-family:Fraunces,Georgia,serif}.pt .wel-card{font-family:inherit}\n'
+     'body:has(#homeView:not(.hidden)){background-image:linear-gradient(rgba(43,42,107,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(43,42,107,.055) 1px,transparent 1px);background-size:26px 26px}\n'
+     '.pt .back{font:inherit;cursor:pointer}\n'
+     +'\n'.join(conv(blocks(st))))
 css+='\n'+open(HERE+'/zs.css',encoding='utf8').read()
-css+="\n@media(max-width:820px){.pt .wel-grid{grid-template-columns:minmax(0,1fr)}.pt .how-steps{grid-template-columns:1fr}.pt .rt-sep{display:none}}\n@media(max-width:560px){.pt .home-tabs{flex-wrap:nowrap;overflow-x:auto}.pt .htab{flex:none;font-size:14px;padding:9px 14px}.pt .chu-row{overflow-x:auto;grid-template-columns:repeat(5,minmax(70px,1fr))}}"
 i2=sub1(i2,'</head>','<style>\n'+css+'\n</style></head>')
 FIT=r'''<script>/* Ventana emergente de SiveducMD (Moodle): el curso ocupa toda la ventana, sin marco ni barras dobles.
  Solo actua si corre dentro de un marco del mismo sitio abierto como ventana emergente. */
