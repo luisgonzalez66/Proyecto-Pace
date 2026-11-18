@@ -109,11 +109,10 @@ Los chequeos automáticos salieron limpios: no hay preguntas duplicadas, todas t
 
 La portada nueva tiene personalidad y conecta con Valdivia. Dentro de las unidades el diseño es ordenado, pero tiene demasiados colores, mucho espacio vacío en Aprende y algunos textos difíciles de leer.
 
-**Colores y tipografía**
+**Colores y contraste**
 
 - **Reducir la paleta en las estaciones.** Conviven azul marino, morado, coral, verde, amarillo, turquesa y beige, además de la franja de cinco colores y las manchas moradas decorativas a los lados. Sugiero un color de acento por unidad, usado de forma constante en su tarjeta, su mapa y sus estaciones, y quitar las manchas decorativas de las estaciones.
 - **Contraste.** Textos como «0 de 11 actividades completadas» (unos 10 px, gris) y el «0%» gris claro de la cabecera quedan bajo el contraste mínimo recomendado. Subir el tamaño a 13 px como mínimo y oscurecer el gris.
-- **Tipografías.** Fraunces para títulos y Nunito para el texto funcionan bien juntas. La letra tipo tiza (Kalam) conviene dejarla solo en la pizarra de la portada.
 
 **Presentación en pantalla**
 
