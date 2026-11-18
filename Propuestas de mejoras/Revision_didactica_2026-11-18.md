@@ -18,7 +18,7 @@ Las diez prioridades:
 4. **Ampliar el banco de la Unidad I** (24 de Practica y 3 de Aplica por estación), sobre todo ahora que tiene META FINAL.
 5. **Agregar práctica mixta al cerrar cada bloque,** para entrenar la elección del método y no solo su aplicación.
 6. **Reemplazar los contextos «de ciencias» de plantilla** de la Unidad II por fórmulas y situaciones reales.
-7. **Alinear los ejercicios entre unidades:** «Cuadráticas por factorización» pide factorizar trinomios con a ≠ 1 que la Unidad II no enseña.
+7. **Agregar a la Unidad II los trinomios ax²+bx+c con a ≠ 1:** la Unidad III ya los usa en «Cuadráticas por factorización».
 8. **Unificar el formato entre unidades:** objetivos «Al terminar podrás…», avisos de error específicos y nombres de las unidades.
 9. **Numerar las estaciones por unidad** (II·4 en vez de 18) y abrir por defecto el bloque en curso en el mapa.
 10. **Revisar contraste y textos pequeños,** y simplificar la paleta de colores en las estaciones.
@@ -67,6 +67,7 @@ Es la unidad que más trabajo necesita. La secuencia es buena: expresiones, prod
 
 **Agregar**
 
+- **Trinomios ax²+bx+c con a ≠ 1.** La Unidad III ya los usa: en «Cuadráticas por factorización» aparecen 3x² − 11x + 10 y 2x² + 3x − 9. Puede ir como una estación propia o como ampliación de «Trinomios y elección del método».
 - **Explora.** Es la única unidad sin ninguno. Un modelo de área (cuadrado de lado a+b, fichas algebraicas) es el recurso clásico para productos notables y factorización.
 - **Una pantalla de cierre «¿Qué método uso?»** con práctica mezclada de las estaciones de factorización. «Trinomios y elección del método» lo promete, pero sus 60 ejercicios de Practica se resuelven todos con suma y producto.
 
@@ -80,7 +81,7 @@ Es la unidad más cuidada. Los ejemplos explicitan la meta, la verificación va 
 
 **Mejorar**
 
-- **Cuadráticas por factorización** incluye trinomios con coeficiente principal distinto de 1 (por ejemplo 3x² − 11x + 10 y 2x² + 3x − 9), pero la Unidad II solo enseña a factorizar x² + bx + c, a veces después de sacar un factor común. Conviene dejar en esa estación solo trinomios que se puedan factorizar con lo visto, o indicar que los demás se resuelven con la fórmula general.
+- **Cuadráticas por factorización** incluye trinomios con coeficiente principal distinto de 1 (por ejemplo 3x² − 11x + 10 y 2x² + 3x − 9), que hoy la Unidad II no enseña. Queda resuelto al agregarlos en la Unidad II (ver esa sección); conviene enlazar desde esta estación a la de la Unidad II.
 - **Despeje de fórmulas** tiene el 100 % de Practica con alternativas. Elegir la fórmula despejada se puede hacer por descarte. Conviene que una parte pida el despeje paso a paso o un valor numérico después de despejar.
 - **Problemas.** Pedir siempre las unidades y la interpretación de la solución («¿tiene sentido un tiempo negativo?») como parte de la respuesta, no solo en la explicación. Incluir algún problema donde ninguna solución sirva en el contexto.
 - **Igualdad e incógnita.** El bloque 1 todavía anuncia «despejar paso a paso»; ajustar ese texto al nuevo foco.
@@ -143,7 +144,7 @@ Son 35 sugerencias, ordenadas por prioridad.
 | 4 | Ampliar el banco de la Unidad I (nivel 3 y Aplica) | Mejorar | Unidad I | Alta |
 | 5 | Agregar práctica mixta al cerrar cada bloque | Agregar | Ejercicios | Alta |
 | 6 | Usar representaciones visuales en Aprende (recta numérica, área, barras) | Mejorar | Aprende | Alta |
-| 7 | Ajustar «Cuadráticas por factorización»: sus trinomios con a ≠ 1 no se enseñan en la Unidad II | Mejorar | Unidad III | Alta |
+| 7 | Agregar trinomios ax²+bx+c con a ≠ 1 (la Unidad III ya los usa) | Agregar | Unidad II | Alta |
 | 8 | Agregar «¿Qué método conviene?» al cerrar las cuadráticas | Agregar | Unidad III | Media |
 | 9 | Reemplazar los contextos de plantilla de Aplica en la Unidad II por fórmulas reales | Mejorar | Unidad II | Media |
 | 10 | Agregar Explora en la Unidad II (modelo de área) | Agregar | Unidad II | Media |
