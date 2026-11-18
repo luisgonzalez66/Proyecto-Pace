@@ -9,13 +9,24 @@ mm=re.search(r'["\']([A-Za-z0-9+/=]{1000,})["\']',bundle)
 motor=zipfile.ZipFile(io.BytesIO(base64.b64decode(mm.group(1))))
 app=motor.read('app.js').decode(); idx=motor.read('index.html').decode()
 portal=open(REPO+'/index.html',encoding='utf8').read()
-
 def sub1(s, old, new, count=1):
     assert s.count(old)==count, (s.count(old), old[:90])
     return s.replace(old,new)
 def rsub1(s, pat, new, flags=re.S):
     r=re.compile(pat,flags); assert len(r.findall(s))==1,(len(r.findall(s)),pat[:80])
     return r.sub(lambda m:new,s)
+
+# Nombre: «Preparación matemática» (sin «PACE» en el encabezado)
+idx=sub1(idx,'<title>PACE UACh · Mi ruta de matemática</title>','<title>UACh · Preparación matemática</title>')
+idx=sub1(idx,'<strong>PACE <span>· UACh</span></strong><small>NIVELACIÓN MATEMÁTICA</small>','<strong><span>UACh</span></strong><small>PREPARACIÓN MATEMÁTICA</small>')
+idx=sub1(idx,'<small>Nivelación matemática PACE · Valdivia, Región de Los Ríos</small>','<small>Preparación matemática · Valdivia, Región de Los Ríos</small>')
+idx=sub1(idx,'Curso de nivelación · aprende a tu ritmo.','Preparación matemática · aprende a tu ritmo.')
+# Chucao en todo el curso (chucao.js / chucao.css)
+CHUJS=open(HERE+'/chucao.js',encoding='utf8').read(); CHUCSS=open(HERE+'/chucao.css',encoding='utf8').read()
+_k="window.addEventListener('load',function(){setTimeout(function(){try{paintMascot();}catch(e){}},400);});"
+idx=sub1(idx,_k,_k+'\n'+CHUJS)
+idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n</style></head>')
+
 
 # ---------- app.js: META FINAL por unidad ----------
 a=app
@@ -69,11 +80,14 @@ function mark(step){
 """
 a=sub1(a,"function mark(step){\n",REP)
 a=sub1(a," const q=questionAt(step);\n if(Number(b.dataset.answer)===q.correct)mark(step);",
- " const q=questionAt(step);\n {const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,b.dataset.answer,Number(b.dataset.answer)===q.correct);}\n if(Number(b.dataset.answer)===q.correct)mark(step);")
+ " const q=questionAt(step);\n {const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,b.dataset.answer,Number(b.dataset.answer)===q.correct);window.chuReact&&chuReact(Number(b.dataset.answer)===q.correct);}\n if(Number(b.dataset.answer)===q.correct)mark(step);")
 a=sub1(a," const q=questionAt(step),r=PACETyped.check(q,inp.value);\n if(r.state==='ok'){mark(step);return;}",
- " const q=questionAt(step),r=PACETyped.check(q,inp.value);\n if(r.state!=='empty'&&r.state!=='invalid'){const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,inp.value,r.state==='ok');}\n if(r.state==='ok'){mark(step);return;}")
+ " const q=questionAt(step),r=PACETyped.check(q,inp.value);\n if(r.state!=='empty'&&r.state!=='invalid'){const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,inp.value,r.state==='ok');window.chuReact&&chuReact(r.state==='ok');}\n if(r.state==='ok'){mark(step);return;}")
 a=sub1(a,"if(sc>MT().b)MT().b=sc;save();",
  "if(sc>MT().b)MT().b=sc;S.qs.forEach((x,i)=>{const r=S.a[i];if(r==='-')return;const st=STATIONS.find(z=>z.id===x.sid);reportInt('M',st,x.q,metaVals[S.mode+S.n+':'+i],r==='1');});save();")
+
+a=sub1(a,"root.innerHTML='<div class=\"mt-wrap\">'+metaHubHTML()+'</div>';","root.innerHTML='<div class=\"mt-wrap\">'+metaHubHTML()+'</div>';window.chuMeta&&chuMeta(root,false);")
+a=sub1(a,"root.innerHTML='<div class=\"mt-wrap\">'+metaResHTML(S)+'</div>';","root.innerHTML='<div class=\"mt-wrap\">'+metaResHTML(S)+'</div>';window.chuMeta&&chuMeta(root,true);")
 
 # portada: dos pantallas (Inicio con la bienvenida · Curso con las unidades)
 a=sub1(a,"function openHome(){showOnly('home');","function openHome(){paceSub('curso');showOnly('home');")
@@ -100,6 +114,7 @@ vi1=portal.index('<div id="vCurso"')
 inicio=portal[vi0:vi1].rstrip()
 assert inicio.endswith('</div>'); inicio=inicio[:-len('</div>')]
 inicio=inicio.replace('href="#curso"','href="#" data-go-curso')
+inicio=sub1(inicio,'<img class="chu" alt=""','<img class="chu" data-mascot alt=""')
 for n in (1,2,3):
     inicio=re.sub(rf'href="unidades/u{n}/html/index.html[^"]*"',f'href="#" data-open-unit="{n-1}"',inicio)
 assert 'unidades/u' not in inicio and 'href="#curso"' not in inicio
@@ -192,7 +207,7 @@ def datajs(us,scope):
     return '// PACE UACh V3.1 · curso completo\n'+'\n'.join(f'const {k}={json.dumps(v,ensure_ascii=False,separators=(",",":"))};' for k,v in L)+'\n'
 
 tour={n:open(f'{REPO}/tour/{n}','rb').read() for n in ('tour_curso.mp4','tour_curso.webm','tour_poster.jpg')}
-man=motor.read('imsmanifest.xml').decode().replace('PACE_MATEMATICA_MODULAR_V7','PACE_CURSO_COMPLETO_U1_U2_U3_V4').replace('PACE UACh · Plataforma de nivelación · editable modular','PACE UACh · Curso de nivelación matemática (Unidades I, II y III)')
+man=motor.read('imsmanifest.xml').decode().replace('PACE_MATEMATICA_MODULAR_V7','PACE_CURSO_COMPLETO_U1_U2_U3_V4').replace('PACE UACh · Plataforma de nivelación · editable modular','PACE UACh · Curso de preparación matemática (Unidades I, II y III)')
 man=sub1(man,'</resource></resources>',''.join(f'<file href="tour/{n}"/>' for n in tour)+'</resource></resources>')
 path=OUT+'/SCORM_CURSO_COMPLETO.zip'
 with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:

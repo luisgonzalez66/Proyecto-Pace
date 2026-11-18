@@ -1,0 +1,29 @@
+/* Chucao en todo el curso */
+.chu-card{display:flex;align-items:center;gap:16px;margin:4px 0 18px;padding:12px 18px;border:2px solid var(--navy,#2b2a6b);border-radius:18px;background:#fff8e6;box-shadow:4px 4px 0 var(--navy,#2b2a6b)}
+.chu-card img{width:110px;height:110px;object-fit:contain;flex:none;filter:drop-shadow(0 3px 4px rgba(0,0,0,.18))}
+.chu-card>div{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.chu-eb{font-size:11px;font-weight:900;letter-spacing:.1em;color:#c2406f}
+.chu-card b{font-size:18px;color:var(--navy,#2b2a6b)}
+.chu-card #chuMapNext{font-size:14px;color:#5b6070}
+.chu-track{height:8px;border-radius:99px;background:#eadfc4;overflow:hidden;margin-top:6px;max-width:360px}
+.chu-track span{display:block;height:100%;width:0;background:linear-gradient(90deg,#f0b54a,#c2406f);border-radius:99px;transition:width .6s}
+@media(max-width:560px){.chu-card{padding:8px 12px;gap:10px;margin:2px 0 12px}.chu-card img{width:58px;height:58px}.chu-card b{font-size:15px}.chu-card #chuMapNext{font-size:12.5px;line-height:1.3}.chu-card .chu-eb{display:none}.chu-track{margin-top:3px;height:6px}}
+/* reacción en las estaciones */
+#stationView .st-mascot{position:relative}
+#stationView .st-mascot .chu-say{position:absolute;right:calc(100% + 8px);top:50%;transform:translateY(-50%);white-space:nowrap;padding:5px 10px;border-radius:12px 12px 2px 12px;background:#2f9a78;color:#fff;font-size:13px;font-weight:800;box-shadow:0 3px 8px rgba(0,0,0,.15);opacity:0;pointer-events:none;transition:opacity .2s;z-index:5}
+#stationView .st-mascot .chu-say.no{background:#c2406f}
+#stationView .st-mascot.say .chu-say{opacity:1}
+img.hop{animation:chuHop .55s ease-out}
+img.sway{animation:chuSway .6s ease-in-out}
+@keyframes chuHop{0%,100%{translate:0 0}35%{translate:0 -12px}60%{translate:0 0}75%{translate:0 -4px}}
+@keyframes chuSway{0%,100%{rotate:0deg}25%{rotate:-8deg}75%{rotate:8deg}}
+/* META FINAL: entrada y resultados */
+.chu-meta{float:right;display:flex;align-items:flex-end;gap:8px;margin:0 0 8px 16px;max-width:330px}
+.chu-meta img{width:110px;height:110px;object-fit:contain;flex:none}
+.chu-meta span{background:#fff;border:2px solid var(--navy,#2b2a6b);border-radius:14px 14px 2px 14px;padding:8px 12px;font-size:14px;font-weight:700;color:var(--navy,#2b2a6b);margin-bottom:46px}
+@media(max-width:700px){.chu-meta{float:none;margin:0 0 10px auto;justify-content:flex-end}.chu-meta img{width:80px;height:80px}.chu-meta span{margin-bottom:28px}}
+/* aviso de cambio de etapa */
+#chuToast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,140%);display:flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:18px;background:#2b2a6b;color:#fff;font-size:16px;font-weight:700;box-shadow:0 10px 26px rgba(0,0,0,.28);z-index:9999;transition:transform .45s cubic-bezier(.2,1.3,.4,1)}
+#chuToast img{width:56px;height:56px;object-fit:contain}
+#chuToast.on{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){img.hop,img.sway{animation:none}#chuToast{transition:none}}
