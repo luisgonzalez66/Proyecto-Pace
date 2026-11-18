@@ -6030,5 +6030,13 @@
     "Interpretar potencias enteras, raíces cuadradas y expresiones con radicales.",
     "Reconocer conjuntos numéricos y resolver operaciones combinadas."
   ],
-  "schema": "pace-unit-v2"
+  "schema": "pace-unit-v2",
+  "meta": {
+    "minutes": 120,
+    "mix": [
+      2,
+      3,
+      "a"
+    ]
+  }
 }
