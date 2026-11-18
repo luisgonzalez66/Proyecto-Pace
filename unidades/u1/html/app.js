@@ -189,11 +189,11 @@ function renderHome(){paintMascot();
  $('unitsGrid').innerHTML=UNITS.map((u,i)=>{
   const avail=ownStations(i).length>0;
   const pct=unitPct(i);const status=!avail?'upcoming':pct===100?'completed':pct>0?'progress':'available';
-  const note=avail?(pct===100?'Completada':pct>0?pct+'% de avance':'Lista para explorar'):'En preparación';
+  const nT=ownStations(i).length,nD=ownStations(i).filter(x=>stationDone(x.i)===milestoneCount(x.s)).length;const note=avail?(pct===100?'Completada · '+nT+' de '+nT+' estaciones':pct>0?'En curso · '+nD+' de '+nT+' estaciones':'No iniciada · 0 de '+nT+' estaciones'):'En preparación';
   const signs=UNITS.map(u=>u.icon||'◇');
   return `<button class="unit-card theme-${i} ${status}" type="button" data-unit="${i}" aria-label="Unidad ${u.roman}, ${u.title}. ${note}. Abrir mapa">
    <div class="unit-top"><span class="unit-number">UNIDAD ${u.roman}</span><span class="unit-bubble" aria-hidden="true">${signs[i]}</span></div>
-   <div class="unit-main"><h3>${esc(u.title)}</h3><p>${avail?ownStations(i).length+' estaciones · '+Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10+' h previstas':'Contenido por definir'}</p></div>
+   <div class="unit-main"><h3>${esc(u.title)}</h3><p>${avail?ownStations(i).length+' estaciones · '+String(Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10).replace('.',',')+' h previstas':'Contenido por definir'}</p></div>
    <div class="unit-bottom"><span class="unit-status">${esc(note)}</span><strong>Ver mapa <span aria-hidden="true">↗</span></strong></div>
   </button>`;
  }).join('')+(BUILD.showWeek4?'<div class="unit-card theme-3 upcoming week4" aria-label="Semana 4 pendiente de definición"><div class="unit-top"><span class="unit-number">SEMANA 4</span><span class="unit-bubble">✦</span></div><div class="unit-main"><h3>Etapa final</h3><p>Por definir · cierre o refuerzo</p></div><div class="unit-bottom"><span class="unit-status">Sin actividades aún</span></div></div>':'');
@@ -235,7 +235,7 @@ function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTM
     <span class="route-arrow" aria-hidden="true">↗</span>
   </button>`;}).join('');
  const hints=u.hints||[];let html='';
- if(PHONE.matches&&groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);activeGroup=ls>=0&&STATIONS[ls].unit===selectedUnit?STATIONS[ls].group:0;}
+ if(groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);if(ls>=0&&STATIONS[ls].unit===selectedUnit)activeGroup=STATIONS[ls].group;else{const f=unitItems.find(x=>stationDone(x.i)<milestoneCount(x.s));activeGroup=f?f.s.group:0;}}
  groups.forEach((group,g)=>{
   const items=unitItems.filter(x=>x.s.group===g),open=activeGroup===g,num=String(g+1).padStart(2,'0');
   const done=items.filter(x=>stationDone(x.i)===milestoneCount(x.s)).length;
@@ -246,7 +246,7 @@ function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTM
  $('route').className='route acc-list';$('route').style.setProperty('--n',groups.length||1);if(activeGroup<0&&html)html+='<div class="acc-empty">Elige un bloque para ver sus estaciones.</div>';$('route').innerHTML=html||'<p class="hint">Esta unidad todavía no contiene estaciones.</p>';
  $('route').querySelectorAll('button[data-index]').forEach(b=>b.addEventListener('click',()=>openStation(Number(b.dataset.index))));
  $('route').querySelectorAll('.acc-head').forEach(b=>b.addEventListener('click',()=>{
-  const g=Number(b.dataset.acc);activeGroup=(activeGroup===g&&!PHONE.matches)?-1:g;renderMap();
+  const g=Number(b.dataset.acc);activeGroup=g;renderMap();
   const h=$('route').querySelector('.acc-head[data-acc="'+g+'"]');if(h){h.focus({preventScroll:true});h.scrollIntoView({block:'nearest'});}
  }));
  mu=selectedUnit;const MC=UNITS[selectedUnit].meta,fin=$('mapFinish');
@@ -645,7 +645,7 @@ function zsCap(sc,k){
 function zsSceneHTML(s,sc,pos,tot){
  const L=s.learn||{};
  if(sc.k==='idea'){
-  return `<div class="zs-idea">${L.goal?`<section class="zs-card zs-goal"><span class="zs-tag">QUÉ APRENDERÁS</span><p class="math-content">${rb(L.goal)}</p></section>`:''}<section class="zs-card zs-ideac"><span class="zs-tag">COMPRENDE LA IDEA</span><div class="zs-fit zs-body" data-min=".6"><div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div></div></section></div>`;
+  return `<div class="zs-idea">${L.goal?`<section class="zs-card zs-goal"><span class="zs-tag">QUÉ APRENDERÁS</span><p class="math-content">${rb(L.goal)}</p></section>`:''}<section class="zs-card zs-ideac"><span class="zs-tag">COMPRENDE LA IDEA</span><div class="zs-fit zs-body" data-min=".6">${L.figure&&L.figure.svg?`<div class="zs-figwrap"><div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div><figure class="zs-fig">${L.figure.svg}${L.figure.caption?`<figcaption>${rb(L.figure.caption)}</figcaption>`:''}</figure></div>`:`<div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div>`}</div></section></div>`;
  }
  if(sc.k==='txt'){
   return `<div class="zs-idea"><section class="zs-card zs-ideac"><span class="zs-tag">EJEMPLO</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${rich(sc.t)}</div></div></section></div>`;
@@ -820,4 +820,12 @@ function zsKeys(list){
 function renderStation(){renderStation0();zsAfter();}
 function showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}
 zsToast();
+/* Presentación (18-11-2026): color de la unidad en el body, mapa con el bloque en curso abierto, tarjetas con su avance. */
+(function(){
+ function setU(u){try{var x=UNITS[u];document.body.dataset.u=x&&x.id?x.id:String(u);}catch(e){}}
+ var _os=openStation;openStation=function(i){setU(STATIONS[i]&&STATIONS[i].unit);return _os.apply(this,arguments);};
+ var _om=openMap;openMap=function(u){setU(u);return _om.apply(this,arguments);};
+ var _oh=openHome;openHome=function(){try{delete document.body.dataset.u;}catch(e){}return _oh.apply(this,arguments);};
+})();
+
 init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();paceSub('inicio');

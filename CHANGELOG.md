@@ -1,5 +1,14 @@
 # Versiones del curso (SCORM único)
 
+## 18-11-2026 — Presentación y contraste (revisión didáctica)
+- Color de acento por unidad (I coral, II verde, III índigo) en panel, encabezado, pestaña activa y mapa; fondo sin manchas en las estaciones.
+- Mayor contraste en textos pequeños y estados pendientes.
+- Mapa: abre el bloque en curso y se mantiene abierto al hacer clic.
+- Tarjetas de unidad: «No iniciada / En curso / Completada · n de N estaciones»; horas con coma (9,1 h).
+- Chucao en el mapa: «Te faltan unas k estaciones para llegar a…».
+- Unidad III: figura en «Comprende la idea» de las 11 estaciones; nueva pista inicial.
+- El editor muestra la figura en la vista previa; motor_bundle.js regenerado.
+
 * **Motor del editor actualizado (18-11-2026)** — `editor/motor_bundle.js` se regeneró con `construir_curso.py … motor`: la exportación individual (HTML y SCORM por unidad) sale con la misma interfaz que el curso completo (pantallas, nombre «Preparación matemática», chucao en todo el recorrido, META FINAL).
 * **META FINAL en la Unidad I (17-11-2026)** — Se activa la evaluación final de la Unidad I (120 minutos, simulacro y oficial): por estación, una pregunta de Practica de nivel 2, una de nivel 3 y una de Aplica (42 preguntas). Para completar el curso ahora se requiere la META FINAL oficial de las tres unidades.
 * **Nombre y chucao (17-11-2026)** — El curso pasa a llamarse «Preparación matemática» y el encabezado ya no dice «PACE». Los símbolos del banner cruzan en una franja horizontal. El chucao crece con el avance de todo el curso y aparece en todo el recorrido: grande en la portada (con la etapa real) y en la pantalla de unidades, mediano en el mapa de cada unidad (etapa y cuánto falta para la siguiente) y en la entrada y resultados de la META FINAL, pequeño en las estaciones (reacciona a cada respuesta); aviso al subir de etapa (`chucao.js`, `chucao.css`).

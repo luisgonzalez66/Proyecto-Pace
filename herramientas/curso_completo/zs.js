@@ -62,7 +62,7 @@ function zsCap(sc,k){
 function zsSceneHTML(s,sc,pos,tot){
  const L=s.learn||{};
  if(sc.k==='idea'){
-  return `<div class="zs-idea">${L.goal?`<section class="zs-card zs-goal"><span class="zs-tag">QUÉ APRENDERÁS</span><p class="math-content">${rb(L.goal)}</p></section>`:''}<section class="zs-card zs-ideac"><span class="zs-tag">COMPRENDE LA IDEA</span><div class="zs-fit zs-body" data-min=".6"><div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div></div></section></div>`;
+  return `<div class="zs-idea">${L.goal?`<section class="zs-card zs-goal"><span class="zs-tag">QUÉ APRENDERÁS</span><p class="math-content">${rb(L.goal)}</p></section>`:''}<section class="zs-card zs-ideac"><span class="zs-tag">COMPRENDE LA IDEA</span><div class="zs-fit zs-body" data-min=".6">${L.figure&&L.figure.svg?`<div class="zs-figwrap"><div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div><figure class="zs-fig">${L.figure.svg}${L.figure.caption?`<figcaption>${rb(L.figure.caption)}</figcaption>`:''}</figure></div>`:`<div class="math-content zs-cols">${rb(L.idea||s.concept||'')}</div>`}</div></section></div>`;
  }
  if(sc.k==='txt'){
   return `<div class="zs-idea"><section class="zs-card zs-ideac"><span class="zs-tag">EJEMPLO</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${rich(sc.t)}</div></div></section></div>`;

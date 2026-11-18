@@ -30,7 +30,7 @@
    if(n){
     if(st>=5)n.textContent='¡Completaste el curso! Tu chucao llegó a su última etapa.';
     else if(st===4)n.textContent='Termina el curso para que llegue a «'+NAME[4]+'».';
-    else{var falta=Math.max(1,Math.ceil(TH[st]*COUNT/100)-doneCount());n.textContent='Te faltan '+falta+(falta===1?' actividad':' actividades')+' para llegar a «'+NAME[st]+'».';}
+    else{var falta=Math.max(1,Math.ceil(TH[st]*COUNT/100)-doneCount()),k=Math.max(1,Math.round(falta/(COUNT/STATIONS.length)));n.textContent=(k===1?'Te falta más o menos 1 estación':'Te faltan unas '+k+' estaciones')+' para llegar a «'+NAME[st]+'».';}
    }
    if(f)f.style.width=(st>=5?100:Math.max(0,Math.min(100,100*(p-TH[st-1])/(TH[st]-TH[st-1]))))+'%';
    if(prev&&st>prev)toast('¡Tu chucao pasó a la etapa '+st+': <b>'+NAME[st-1]+'</b>!');

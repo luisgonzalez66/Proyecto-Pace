@@ -1,0 +1,23 @@
+/* Presentación (18-11-2026): un acento por unidad, sin manchas decorativas en las estaciones, mejor contraste, figuras en Aprende */
+body[data-u="u1"]{--acc:#c2406f;--acc-soft:#fbe6ee}
+body[data-u="u2"]{--acc:#2f9a78;--acc-soft:#e2f4ee}
+body[data-u="u3"]{--acc:#4b49a3;--acc-soft:#e9e8fa}
+body.zs{background-image:none!important}
+body[data-u] #stationView .learning-panel{border-top-color:var(--acc)!important}
+body[data-u] #stationView .station-head{border-left-color:var(--acc)!important}
+body[data-u] #stationView .station-no{background:var(--acc)!important}
+body[data-u] #stationView .tabs button.active,body[data-u] #stationView .tabs .active{box-shadow:3px 3px 0 var(--acc)!important}
+body[data-u] #stationView .map-unit-tag{color:var(--acc)!important;background:var(--acc-soft)!important}
+body[data-u] #mapView *{--block-accent:var(--acc)!important;--block-soft:var(--acc-soft)!important}
+#stationView .map-unit-tag{font-size:12px!important}
+#stationView .station-progress span{font-size:13px!important;color:#3f3f66!important}
+#stationView .station-pct.pending{color:#55606b!important}
+.zs-pg,.zs-cap{font-size:13px!important;color:#3f3f66!important}
+.unit-status{color:#3f3f66!important;font-weight:800}
+/* figura junto a la idea */
+.zs-figwrap{display:flex;gap:28px;align-items:center}
+.zs-figwrap>.zs-cols{flex:1;min-width:0}
+.zs-fig{flex:none;margin:0;display:flex;flex-direction:column;align-items:center;gap:6px;width:min(300px,38%)}
+.zs-fig svg{width:100%;height:auto;max-height:260px}
+.zs-fig figcaption{font-size:.82em;line-height:1.35;color:#3f3f66;font-weight:700;text-align:center}
+@media(max-width:700px){.zs-figwrap{flex-direction:column;gap:12px}.zs-fig{width:min(280px,90%)}}

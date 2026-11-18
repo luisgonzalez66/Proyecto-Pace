@@ -25,7 +25,8 @@ idx=sub1(idx,'Curso de nivelación · aprende a tu ritmo.','Preparación matemá
 CHUJS=open(HERE+'/chucao.js',encoding='utf8').read(); CHUCSS=open(HERE+'/chucao.css',encoding='utf8').read()
 _k="window.addEventListener('load',function(){setTimeout(function(){try{paintMascot();}catch(e){}},400);});"
 idx=sub1(idx,_k,_k+'\n'+CHUJS)
-idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n</style></head>')
+PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
+idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n</style></head>')
 
 
 # ---------- app.js: META FINAL por unidad ----------
@@ -101,10 +102,19 @@ init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=
 
 # ---------- Estación por pantallas · cero scroll (propuesta de Henry V4) ----------
 ZSJS=open(HERE+'/zs.js',encoding='utf8').read()
+# ---------- Presentación (18-11-2026): mapa con el bloque en curso abierto, tarjetas con avance, horas con coma ----------
+PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
+a=sub1(a,"if(PHONE.matches&&groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);activeGroup=ls>=0&&STATIONS[ls].unit===selectedUnit?STATIONS[ls].group:0;}",
+ "if(groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);if(ls>=0&&STATIONS[ls].unit===selectedUnit)activeGroup=STATIONS[ls].group;else{const f=unitItems.find(x=>stationDone(x.i)<milestoneCount(x.s));activeGroup=f?f.s.group:0;}}")
+a=sub1(a,"activeGroup=(activeGroup===g&&!PHONE.matches)?-1:g;","activeGroup=g;")
+a=sub1(a,"const note=avail?(pct===100?'Completada':pct>0?pct+'% de avance':'Lista para explorar'):'En preparación';",
+ "const nT=ownStations(i).length,nD=ownStations(i).filter(x=>stationDone(x.i)===milestoneCount(x.s)).length;const note=avail?(pct===100?'Completada · '+nT+' de '+nT+' estaciones':pct>0?'En curso · '+nD+' de '+nT+' estaciones':'No iniciada · 0 de '+nT+' estaciones'):'En preparación';")
+a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10+' h previstas'",
+ "String(Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10).replace('.',',')+' h previstas'")
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
 a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
-a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\ninit();(()=>{const keep=mu;")
+a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\ninit();(()=>{const keep=mu;")
 
 # ---------- index.html: portada en dos pantallas (Inicio y Curso) ----------
 # Inicio = encabezado con pizarra + Bienvenida + Cómo se estudia + Tour (todo tomado de index.html del repositorio).
