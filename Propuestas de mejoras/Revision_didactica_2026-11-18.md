@@ -6,19 +6,19 @@ Copia del documento de trabajo de Luis, donde se lleva el estado de cada sugeren
 
 ## Resumen
 
-El curso tiene una base sólida: la estructura Aprende – Practica – Aplica es igual en las 37 estaciones, los bancos son grandes, hay retroalimentación en cada ejercicio y la META FINAL no castiga. Los problemas principales están en la **desigualdad entre unidades**, en **contenidos que faltan** para primer año de Ciencias y en el **poco uso de representaciones visuales**.
+El curso tiene una base sólida: la estructura Aprende – Practica – Aplica es igual en las 37 estaciones, los bancos son grandes, hay retroalimentación en cada ejercicio y la META FINAL no castiga. Los contenidos de las tres unidades están fijos; esta revisión trabaja solo sobre cómo se enseñan. Los problemas principales están en la **desigualdad entre unidades**, en el **formato de los ejercicios** y en el **poco uso de representaciones visuales**.
 
 Revisé los JSON de las tres unidades (Aprende, ejemplos guiados, Practica, Aplica y Explora), el SCORM completo en escritorio y en móvil, y la portada nueva. No revisé cada uno de los 2.600 ejercicios uno por uno: hice chequeos automáticos (duplicados, explicaciones, opciones, contexto) y leí muestras.
 
 Las diez prioridades:
 
 1. **Reescribir los ejemplos guiados de la Unidad II.** Los ejemplos 2 a 4 de cada estación son ejercicios generados automáticamente, con números poco didácticos y solo 2 pasos.
-2. **Agregar contenidos clave que faltan:** porcentajes y proporcionalidad, notación científica, fracciones algebraicas, trinomios con coeficiente principal distinto de 1, sistemas de ecuaciones 2×2 e inecuaciones lineales.
-3. **Usar representaciones visuales en Aprende:** recta numérica, modelo de área para productos notables y barras para fracciones. Hoy casi todo es texto.
-4. **Bajar la proporción de alternativas en la Unidad II:** 11 de 12 estaciones tienen el 100 % de Practica con alternativas, y se pueden resolver trabajando hacia atrás.
-5. **Ampliar el banco de la Unidad I** (24 de Practica y 3 de Aplica por estación), sobre todo ahora que tiene META FINAL.
-6. **Agregar práctica mixta al cerrar cada bloque,** para entrenar la elección del método y no solo su aplicación.
-7. **Reemplazar los contextos «de ciencias» de plantilla** de la Unidad II por fórmulas y situaciones reales.
+2. **Usar representaciones visuales en Aprende:** recta numérica, modelo de área para productos notables y barras para fracciones. Hoy casi todo es texto.
+3. **Bajar la proporción de alternativas en la Unidad II:** 11 de 12 estaciones tienen el 100 % de Practica con alternativas, y se pueden resolver trabajando hacia atrás.
+4. **Ampliar el banco de la Unidad I** (24 de Practica y 3 de Aplica por estación), sobre todo ahora que tiene META FINAL.
+5. **Agregar práctica mixta al cerrar cada bloque,** para entrenar la elección del método y no solo su aplicación.
+6. **Reemplazar los contextos «de ciencias» de plantilla** de la Unidad II por fórmulas y situaciones reales.
+7. **Alinear los ejercicios entre unidades:** «Cuadráticas por factorización» pide factorizar trinomios con a ≠ 1 que la Unidad II no enseña.
 8. **Unificar el formato entre unidades:** objetivos «Al terminar podrás…», avisos de error específicos y nombres de las unidades.
 9. **Numerar las estaciones por unidad** (II·4 en vez de 18) y abrir por defecto el bloque en curso en el mapa.
 10. **Revisar contraste y textos pequeños,** y simplificar la paleta de colores en las estaciones.
@@ -38,15 +38,7 @@ La secuencia general (números → álgebra → ecuaciones) es correcta. Hoy son
 
 ## Unidad I · Números y operaciones
 
-Las ideas de Aprende son claras y los avisos apuntan a errores reales, como (−2)⁴ frente a −2⁴, o √(9+16) ≠ √9 + √16. Lo más débil es el tamaño del banco y la ausencia de temas muy usados en Ciencias.
-
-**Agregar**
-
-- **Porcentajes, razones y proporcionalidad** (directa e inversa). Es probablemente lo que más usarán en química, biología y física: diluciones, concentraciones, escalas.
-- **Notación científica y potencias de 10,** con orden de magnitud. Es imprescindible en Ciencias y encaja natural en el bloque de potencias.
-- **Orden en la recta numérica y valor absoluto.** Prepara las inecuaciones y la noción de distancia.
-- **Redondeo y aproximación,** con cuándo usar el valor exacto y cuándo el aproximado (ya aparece en el aviso de «Fracciones y decimales», pero sin práctica).
-- **Racionalización de denominadores sencilla** (1/√2), como cierre de «Operaciones con radicales».
+Las ideas de Aprende son claras y los avisos apuntan a errores reales, como (−2)⁴ frente a −2⁴, o √(9+16) ≠ √9 + √16. Lo más débil es el tamaño del banco y la falta de representaciones.
 
 **Mejorar**
 
@@ -75,11 +67,8 @@ Es la unidad que más trabajo necesita. La secuencia es buena: expresiones, prod
 
 **Agregar**
 
-- **Trinomios ax²+bx+c con a ≠ 1.** La Unidad III ya los usa: en «Cuadráticas por factorización» aparecen 3x² − 11x + 10 y 2x² + 3x − 9.
-- **Fracciones algebraicas:** simplificar, multiplicar y sumar. Es lo que más usarán en Cálculo y en las ecuaciones con x en el denominador.
-- **Completar el cuadrado.** Une productos notables con la fórmula general y permite mostrar de dónde sale.
 - **Explora.** Es la única unidad sin ninguno. Un modelo de área (cuadrado de lado a+b, fichas algebraicas) es el recurso clásico para productos notables y factorización.
-- **Una estación de cierre «¿Qué método uso?»** con práctica mezclada. «Trinomios y elección del método» lo promete, pero sus 60 ejercicios de Practica se resuelven todos con suma y producto.
+- **Una pantalla de cierre «¿Qué método uso?»** con práctica mezclada de las estaciones de factorización. «Trinomios y elección del método» lo promete, pero sus 60 ejercicios de Practica se resuelven todos con suma y producto.
 
 ## Unidad III · Ecuaciones
 
@@ -87,13 +76,11 @@ Es la unidad más cuidada. Los ejemplos explicitan la meta, la verificación va 
 
 **Agregar**
 
-- **Sistemas de ecuaciones lineales 2×2** (sustitución e igualación, con interpretación gráfica como rectas que se cortan; ya existe un Explora con ese nombre). Aparecen en mezclas, balances y circuitos.
-- **Inecuaciones lineales e intervalos,** con el cambio de sentido al multiplicar por un negativo.
-- **Ecuaciones con la incógnita en el denominador,** sencillas, con verificación de soluciones que no sirven (x = 0). Une las fracciones algebraicas de la Unidad II con esta unidad.
-- **Una estación o pantalla «¿Qué método conviene?»** al cerrar el bloque de cuadráticas: si falta un término, la vía directa; si Δ es un cuadrado perfecto, factorizar; si no, la fórmula. Con práctica mezclada, porque el riesgo que se quiso evitar con el nuevo orden es justamente aplicar un método por costumbre.
+- **Una pantalla «¿Qué método conviene?»** al cerrar el bloque de cuadráticas: si falta un término, la vía directa; si Δ es un cuadrado perfecto, factorizar; si no, la fórmula. Con práctica mezclada, porque el riesgo que se quiso evitar con el nuevo orden es justamente aplicar un método por costumbre.
 
 **Mejorar**
 
+- **Cuadráticas por factorización** incluye trinomios con coeficiente principal distinto de 1 (por ejemplo 3x² − 11x + 10 y 2x² + 3x − 9), pero la Unidad II solo enseña a factorizar x² + bx + c, a veces después de sacar un factor común. Conviene dejar en esa estación solo trinomios que se puedan factorizar con lo visto, o indicar que los demás se resuelven con la fórmula general.
 - **Despeje de fórmulas** tiene el 100 % de Practica con alternativas. Elegir la fórmula despejada se puede hacer por descarte. Conviene que una parte pida el despeje paso a paso o un valor numérico después de despejar.
 - **Problemas.** Pedir siempre las unidades y la interpretación de la solución («¿tiene sentido un tiempo negativo?») como parte de la respuesta, no solo en la explicación. Incluir algún problema donde ninguna solución sirva en el contexto.
 - **Igualdad e incógnita.** El bloque 1 todavía anuncia «despejar paso a paso»; ajustar ese texto al nuevo foco.
@@ -146,52 +133,42 @@ La portada nueva tiene personalidad y conecta con Valdivia. Dentro de las unidad
 
 ## Lista completa
 
-Son 45 sugerencias, ordenadas por prioridad.
+Son 35 sugerencias, ordenadas por prioridad.
 
 | # | Sugerencia | Tipo | Área | Prioridad |
 | --- | --- | --- | --- | --- |
 | 1 | Reescribir los ejemplos guiados 2 a 4 de la Unidad II con una progresión pensada | Mejorar | Unidad II | Alta |
 | 2 | Reescribir «Qué aprenderás» y los avisos de error de la Unidad II, uno propio por estación | Mejorar | Unidad II | Alta |
 | 3 | Llevar al menos un tercio de Practica de la Unidad II a respuesta escrita o de completar | Mejorar | Ejercicios | Alta |
-| 4 | Agregar trinomios ax²+bx+c con a ≠ 1 | Agregar | Unidad II | Alta |
-| 5 | Agregar fracciones algebraicas (simplificar y operar) | Agregar | Unidad II | Alta |
-| 6 | Agregar porcentajes, razones y proporcionalidad | Agregar | Unidad I | Alta |
-| 7 | Agregar notación científica y potencias de 10 | Agregar | Unidad I | Alta |
-| 8 | Ampliar el banco de la Unidad I (nivel 3 y Aplica) | Mejorar | Unidad I | Alta |
-| 9 | Agregar sistemas de ecuaciones lineales 2×2 | Agregar | Unidad III | Alta |
-| 10 | Agregar práctica mixta al cerrar cada bloque | Agregar | Ejercicios | Alta |
-| 11 | Usar representaciones visuales en Aprende (recta numérica, área, barras) | Mejorar | Aprende | Alta |
-| 12 | Agregar inecuaciones lineales e intervalos | Agregar | Unidad III | Media |
-| 13 | Agregar ecuaciones con la incógnita en el denominador | Agregar | Unidad III | Media |
-| 14 | Agregar «¿Qué método conviene?» al cerrar las cuadráticas | Agregar | Unidad III | Media |
-| 15 | Reemplazar los contextos de plantilla de Aplica en la Unidad II por fórmulas reales | Mejorar | Unidad II | Media |
-| 16 | Agregar Explora en la Unidad II (modelo de área) | Agregar | Unidad II | Media |
-| 17 | Agregar completar el cuadrado | Agregar | Unidad II | Media |
-| 18 | Agregar orden en la recta numérica y valor absoluto | Agregar | Unidad I | Media |
-| 19 | Diagnóstico breve al inicio de cada unidad | Agregar | Estructura | Media |
-| 20 | Recuadros «Recuerda» con enlace a estaciones previas | Agregar | Estructura | Media |
-| 21 | Retroalimentación asociada a cada alternativa incorrecta | Mejorar | Ejercicios | Media |
-| 22 | Ejemplo con el último paso en blanco entre el guiado y la práctica | Agregar | Aprende | Media |
-| 23 | Numerar estaciones dentro de la unidad (II·4) | Mejorar | Diseño | Media |
-| 24 | Reducir la paleta de colores en las estaciones y quitar manchas decorativas | Mejorar | Diseño | Media |
-| 25 | Subir tamaño y contraste de textos pequeños y grises | Mejorar | Diseño | Media |
-| 26 | Abrir por defecto el bloque en curso en el mapa | Mejorar | Diseño | Media |
-| 27 | Corregir los pendientes de móvil y teclado ya anotados | Mejorar | Diseño | Media |
-| 28 | Unificar el nombre de la Unidad I (Números y operaciones / Números reales) | Mejorar | Estructura | Media |
-| 29 | Despeje de fórmulas: parte de Practica con respuesta escrita | Mejorar | Unidad III | Baja |
-| 30 | Pedir unidades e interpretación en los problemas | Mejorar | Unidad III | Baja |
-| 31 | Objetivos de la Unidad I con el formato «Al terminar podrás…» | Mejorar | Unidad I | Baja |
-| 32 | Unificar MCD/MCM y mcm entre unidades | Mejorar | Estructura | Baja |
-| 33 | Reordenar o renombrar «Conjuntos numéricos» | Mejorar | Unidad I | Baja |
-| 34 | Dar menos peso a memorizar criterios de divisibilidad | Quitar | Unidad I | Baja |
-| 35 | Agregar racionalización de denominadores sencilla | Agregar | Unidad I | Baja |
-| 36 | Agregar redondeo y aproximación | Agregar | Unidad I | Baja |
-| 37 | Repaso espaciado al entrar (3 preguntas de estaciones previas) | Agregar | Ejercicios | Baja |
-| 38 | Pregunta de conclusión al final de cada Explora | Mejorar | Ejercicios | Baja |
-| 39 | Validar los tiempos previstos con un piloto y escribir «9,1 h» | Mejorar | Estructura | Baja |
-| 40 | Actualizar el texto del bloque 1 de la Unidad III | Mejorar | Unidad III | Baja |
-| 41 | Cambiar «Lista para explorar» por el avance en las tarjetas | Mejorar | Diseño | Baja |
-| 42 | Expresar en estaciones lo que falta para la siguiente etapa del chucao | Mejorar | Diseño | Baja |
-| 43 | Quitar el subtítulo interno «APAE … borrador docente» de la Unidad I | Quitar | Unidad I | Baja |
-| 44 | Regrabar el video del tour | Mejorar | Portada | Baja |
-| 45 | Quitar «PACE» del pie de página y de la transcripción | Quitar | Portada | Baja |
+| 4 | Ampliar el banco de la Unidad I (nivel 3 y Aplica) | Mejorar | Unidad I | Alta |
+| 5 | Agregar práctica mixta al cerrar cada bloque | Agregar | Ejercicios | Alta |
+| 6 | Usar representaciones visuales en Aprende (recta numérica, área, barras) | Mejorar | Aprende | Alta |
+| 7 | Ajustar «Cuadráticas por factorización»: sus trinomios con a ≠ 1 no se enseñan en la Unidad II | Mejorar | Unidad III | Alta |
+| 8 | Agregar «¿Qué método conviene?» al cerrar las cuadráticas | Agregar | Unidad III | Media |
+| 9 | Reemplazar los contextos de plantilla de Aplica en la Unidad II por fórmulas reales | Mejorar | Unidad II | Media |
+| 10 | Agregar Explora en la Unidad II (modelo de área) | Agregar | Unidad II | Media |
+| 11 | Diagnóstico breve al inicio de cada unidad | Agregar | Estructura | Media |
+| 12 | Recuadros «Recuerda» con enlace a estaciones previas | Agregar | Estructura | Media |
+| 13 | Retroalimentación asociada a cada alternativa incorrecta | Mejorar | Ejercicios | Media |
+| 14 | Ejemplo con el último paso en blanco entre el guiado y la práctica | Agregar | Aprende | Media |
+| 15 | Numerar estaciones dentro de la unidad (II·4) | Mejorar | Diseño | Media |
+| 16 | Reducir la paleta de colores en las estaciones y quitar manchas decorativas | Mejorar | Diseño | Media |
+| 17 | Subir tamaño y contraste de textos pequeños y grises | Mejorar | Diseño | Media |
+| 18 | Abrir por defecto el bloque en curso en el mapa | Mejorar | Diseño | Media |
+| 19 | Corregir los pendientes de móvil y teclado ya anotados | Mejorar | Diseño | Media |
+| 20 | Unificar el nombre de la Unidad I (Números y operaciones / Números reales) | Mejorar | Estructura | Media |
+| 21 | Despeje de fórmulas: parte de Practica con respuesta escrita | Mejorar | Unidad III | Baja |
+| 22 | Pedir unidades e interpretación en los problemas | Mejorar | Unidad III | Baja |
+| 23 | Objetivos de la Unidad I con el formato «Al terminar podrás…» | Mejorar | Unidad I | Baja |
+| 24 | Unificar MCD/MCM y mcm entre unidades | Mejorar | Estructura | Baja |
+| 25 | Reordenar o renombrar «Conjuntos numéricos» | Mejorar | Unidad I | Baja |
+| 26 | Dar menos peso a memorizar criterios de divisibilidad | Quitar | Unidad I | Baja |
+| 27 | Repaso espaciado al entrar (3 preguntas de estaciones previas) | Agregar | Ejercicios | Baja |
+| 28 | Pregunta de conclusión al final de cada Explora | Mejorar | Ejercicios | Baja |
+| 29 | Validar los tiempos previstos con un piloto y escribir «9,1 h» | Mejorar | Estructura | Baja |
+| 30 | Actualizar el texto del bloque 1 de la Unidad III | Mejorar | Unidad III | Baja |
+| 31 | Cambiar «Lista para explorar» por el avance en las tarjetas | Mejorar | Diseño | Baja |
+| 32 | Expresar en estaciones lo que falta para la siguiente etapa del chucao | Mejorar | Diseño | Baja |
+| 33 | Quitar el subtítulo interno «APAE … borrador docente» de la Unidad I | Quitar | Unidad I | Baja |
+| 34 | Regrabar el video del tour | Mejorar | Portada | Baja |
+| 35 | Quitar «PACE» del pie de página y de la transcripción | Quitar | Portada | Baja |
