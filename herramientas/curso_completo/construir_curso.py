@@ -28,6 +28,8 @@ idx=sub1(idx,_k,_k+'\n'+CHUJS)
 PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
 CICSS=open(HERE+'/cierre.css',encoding='utf8').read()
 idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n</style></head>')
+# Texto dentro de fórmulas (\\text{...}) con la letra del curso: así la ñ y las tildes no salen de otra fuente (19-11-2026)
+idx=sub1(idx,"svg:{fontCache:'local'}","svg:{fontCache:'local',mtextInheritFont:true}")
 idx=sub1(idx,'<section id="metaView" class="view hidden" aria-label="META FINAL"></section>','<section id="metaView" class="view hidden" aria-label="META FINAL"></section>\n<section id="cierreView" class="view hidden" aria-label="Cierre del bloque"></section>')
 
 

@@ -1,5 +1,8 @@
 # Versiones del curso (SCORM único)
 
+## 19-11-2026 — Ñ y tildes dentro de fórmulas
+- El texto dentro de fórmulas (`\text{…}`) se dibuja con la letra del curso. Antes, la ñ y las vocales con tilde salían de otra tipografía (la fuente matemática no las tiene) y parecían negritas. Aplica a las tres unidades, al editor y a los HTML/SCORM que exporta. En el banco PDF, ese texto sale en Helvetica/Arial completo.
+
 ## 19-11-2026 — Correcciones de Luis (Practica y ejemplos de la Unidad III)
 - Practica y Aplica: al empezar una ronda nueva, el primer ejercicio que se muestra es el 1 (antes se conservaba la posición de la ronda anterior y partía, por ejemplo, en el 5).
 - Unidad III, cuadráticas incompletas y por factorización: los ejemplos verifican **las dos soluciones** (una pantalla por solución, con «x = …:» al inicio).
