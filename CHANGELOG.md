@@ -1,5 +1,14 @@
 # Versiones del curso (SCORM único)
 
+## 19-11-2026 — Unidad II: revisión completa (autorizada por Luis; responsable de la unidad: Bastián)
+Los contenidos (temas y estaciones) no cambian; cambia cómo se enseñan y se ejercitan.
+- **Aprende:** las 12 estaciones tienen un objetivo «Al terminar podrás…», 4 ejemplos guiados nuevos con el desarrollo línea a línea en el cuadro izquierdo (caso básico, coeficiente distinto de 1, dos variables o fracciones, y un error típico o la elección del método), verificación aparte y un aviso de error propio. Antes, 44 de 48 ejemplos tenían el cuadro izquierdo vacío y las 12 estaciones compartían el mismo aviso.
+- **Figuras:** modelo de área en «Comprende la idea» de las 12 estaciones (distributiva, productos notables, factor común, agrupación, diferencia de cuadrados, trinomios).
+- **Practica (720):** varias plantillas por estación (antes una), números pequeños en los niveles 1 y 2, alternativas incorrectas que corresponden a errores típicos, respuesta correcta repartida en las cuatro posiciones y 278 ejercicios de respuesta escrita (completar el número que falta). «Trinomios y elección del método» ahora mezcla suma y producto, factor común, diferencia de cuadrados, cuadrado perfecto y agrupación. Verificación algebraica automática (sympy): 0 errores.
+- **Aplica (240):** situaciones y fórmulas reales en lugar de «En geología, se usa una región cuadrada…»: caída libre, energía cinética y mecánica, temperatura, crecimiento de un cultivo, terrenos y baldosas, anillo circular, altura de un proyectil, cálculo mental con identidades. 133 de respuesta escrita.
+- **Explora:** «El cuadrado de una suma, pieza por pieza» (Cuadrado de una suma) y «Fichas: arma el rectángulo» (Trinomios y elección del método), cada uno con una pregunta final para pensar.
+- Ajuste de diseño: en celular, las figuras de «Comprende la idea» ocupan menos alto.
+
 ## 19-11-2026 — Ñ y tildes dentro de fórmulas
 - El texto dentro de fórmulas (`\text{…}`) se dibuja con la letra del curso. Antes, la ñ y las vocales con tilde salían de otra tipografía (la fuente matemática no las tiene) y parecían negritas. Aplica a las tres unidades, al editor y a los HTML/SCORM que exporta. En el banco PDF, ese texto sale en Helvetica/Arial completo.
 
