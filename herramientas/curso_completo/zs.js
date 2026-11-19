@@ -138,7 +138,7 @@ function zsBindKeys(nxt,prv){
 function zsRenderQuiz(){
  const host=$('stationContent'),s=STATIONS[stationIndex],qs=[...host.querySelectorAll(':scope > .quiz')];
  if(!qs.length)return;
- const key=s.id+'|'+activeTab,n=qs.length;
+ const key=s.id+'|'+activeTab+'|'+(typeof roundOf==='function'?roundOf(s):0),n=qs.length;   /* la ronda va en la clave: una ronda nueva parte en su primer ejercicio */
  let cur=zsQ[key];
  if(cur==null||cur<0||cur>=n){cur=qs.findIndex(q=>!q.classList.contains('done'));if(cur<0)cur=0;}
  zsQ[key]=cur;

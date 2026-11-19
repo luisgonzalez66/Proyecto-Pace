@@ -5923,11 +5923,11 @@
     "goal": "Al terminar podrás resolver problemas con ecuaciones lineales siguiendo cuatro pasos: **definir, plantear, resolver y verificar**.",
     "idea": "Un problema se resuelve en cuatro pasos: 1) leer el enunciado y definir la incógnita; 2) plantear la ecuación; 3) resolverla; 4) verificar que la solución cumple el enunciado y que tiene sentido (una longitud no puede ser negativa). Al final se escribe la respuesta **con sus unidades**.",
     "steps": {
-     "title": "Ana y Luis tienen 36 libros en total, y Ana tiene el triple que Luis.",
+     "title": "Ana y Luis tienen 36 libros en total, y Ana tiene el triple que Luis. ¿Cuántos libros tiene cada uno?",
      "items": [
       {
-       "math": "x",
-       "why": "Si Luis tiene $x$ libros, Ana tiene $3x$.",
+       "math": "x=\\text{libros de Luis},\\quad 3x=\\text{libros de Ana}",
+       "why": "**Definimos** la incógnita: si Luis tiene $x$ libros, Ana tiene el triple, $3x$.",
        "side": {
         "title": "Datos",
         "math": "\\begin{aligned}\\text{Luis}&:\\ x\\\\ \\text{Ana}&:\\ 3x\\end{aligned}"
@@ -5935,7 +5935,7 @@
       },
       {
        "math": "x+3x=36",
-       "why": "Entre los dos suman 36."
+       "why": "**Planteamos** la ecuación: entre los dos tienen 36 libros."
       },
       {
        "math": "4x=36",
@@ -5943,25 +5943,25 @@
       },
       {
        "math": "x=9",
-       "why": "Dividimos ambos lados entre 4."
+       "why": "Dividimos ambos lados entre 4. Ojo: $x=9$ es solo lo que tiene Luis; la pregunta es por **los dos**."
       },
       {
-       "math": "\\text{Luis: }9,\\quad \\text{Ana: }3\\cdot9=27",
-       "why": "Calculamos lo que pide el problema. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
+       "math": "\\textbf{Respuesta: }\\text{Luis tiene 9 libros y Ana, 27.}",
+       "why": "**Respondemos** la pregunta: Ana tiene $3\\cdot9=27$ libros. **La resolución termina aquí:** ya respondimos la pregunta del problema."
       },
       {
-       "math": "9+27=36\\ \\checkmark",
-       "why": "**Verificación** (no forma parte de la resolución): comprobamos que en total son 36 libros."
+       "math": "9+27=36\\ \\checkmark\\qquad 27=3\\cdot9\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): comprobamos las **dos** condiciones del enunciado: en total son 36 libros y Ana tiene el triple que Luis."
       }
      ]
     },
     "more": [
      {
-      "title": "Marta tiene 5 años más que su hermano y entre ambos suman 29 años.",
+      "title": "Marta tiene 5 años más que su hermano y entre ambos suman 29 años. ¿Qué edad tiene cada uno?",
       "items": [
        {
-        "math": "x",
-        "why": "Si el hermano tiene $x$ años, Marta tiene $x+5$.",
+        "math": "x=\\text{edad del hermano},\\quad x+5=\\text{edad de Marta}",
+        "why": "**Definimos** la incógnita: si el hermano tiene $x$ años, Marta tiene $x+5$.",
         "side": {
          "title": "Datos",
          "math": "\\begin{aligned}\\text{Hermano}&:\\ x\\\\ \\text{Marta}&:\\ x+5\\end{aligned}"
@@ -5969,32 +5969,36 @@
        },
        {
         "math": "x+(x+5)=29",
-        "why": "Entre ambos suman 29."
+        "why": "**Planteamos** la ecuación: entre ambos suman 29 años."
+       },
+       {
+        "math": "2x+5=29",
+        "why": "Reducimos términos semejantes: $x+x=2x$."
        },
        {
         "math": "2x=24",
-        "why": "Reducimos: $2x+5=29$ y restamos 5."
+        "why": "Restamos 5 en ambos lados."
        },
        {
         "math": "x=12",
-        "why": "Dividimos ambos lados entre 2."
+        "why": "Dividimos ambos lados entre 2. Es la edad del hermano; falta la de Marta."
        },
        {
-        "math": "\\text{Hermano: }12,\\quad \\text{Marta: }12+5=17",
-        "why": "Calculamos las dos edades. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
+        "math": "\\textbf{Respuesta: }\\text{el hermano tiene 12 años y Marta, 17.}",
+        "why": "**Respondemos** la pregunta: Marta tiene $12+5=17$ años. **La resolución termina aquí:** ya respondimos la pregunta del problema."
        },
        {
-        "math": "12+17=29\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): comprobamos que suman 29 años."
+        "math": "12+17=29\\ \\checkmark\\qquad 17-12=5\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): suman 29 años y Marta tiene 5 años más que su hermano."
        }
       ]
      },
      {
-      "title": "Un rectángulo tiene el largo 3 cm mayor que el ancho y su perímetro es 26 cm.",
+      "title": "Un rectángulo tiene el largo 3 cm mayor que el ancho y su perímetro es 26 cm. ¿Cuánto miden su ancho y su largo?",
       "items": [
        {
-        "math": "x",
-        "why": "Si el ancho es $x$, el largo es $x+3$.",
+        "math": "x=\\text{ancho (cm)},\\quad x+3=\\text{largo (cm)}",
+        "why": "**Definimos** la incógnita: si el ancho mide $x$ cm, el largo mide $x+3$ cm.",
         "side": {
          "title": "Perímetro",
          "math": "P=2\\cdot\\text{ancho}+2\\cdot\\text{largo}"
@@ -6002,32 +6006,36 @@
        },
        {
         "math": "2x+2(x+3)=26",
-        "why": "Planteamos el perímetro."
+        "why": "**Planteamos** la ecuación con el perímetro."
        },
        {
         "math": "4x+6=26",
-        "why": "Eliminamos el paréntesis y reducimos."
+        "why": "Eliminamos el paréntesis y reducimos: $2x+2x+6$."
+       },
+       {
+        "math": "4x=20",
+        "why": "Restamos 6 en ambos lados."
        },
        {
         "math": "x=5",
-        "why": "Restamos 6 (queda $4x=20$) y dividimos entre 4."
+        "why": "Dividimos ambos lados entre 4. Es el ancho; falta el largo."
        },
        {
-        "math": "\\text{ancho: }5\\ \\mathrm{cm},\\quad \\text{largo: }8\\ \\mathrm{cm}",
-        "why": "Calculamos las dos medidas. **La resolución termina aquí:** ya tenemos lo que pedía el problema."
+        "math": "\\textbf{Respuesta: }\\text{el ancho mide 5 cm y el largo, 8 cm.}",
+        "why": "**Respondemos** la pregunta, con unidades: el largo mide $5+3=8$ cm. **La resolución termina aquí:** ya respondimos la pregunta del problema."
        },
        {
-        "math": "2\\cdot5+2\\cdot8=26\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): comprobamos el perímetro."
+        "math": "2\\cdot5+2\\cdot8=26\\ \\checkmark\\qquad 8-5=3\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): el perímetro es 26 cm y el largo es 3 cm mayor que el ancho."
        }
       ]
      },
      {
-      "title": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200.",
+      "title": "Un taxi cobra CLP 800 fijos más CLP 400 por kilómetro. Un viaje costó CLP 3200. ¿Cuántos kilómetros se recorrieron?",
       "items": [
        {
-        "math": "x",
-        "why": "Si el viaje fue de $x$ kilómetros, el costo es $800+400x$.",
+        "math": "x=\\text{kilómetros recorridos}",
+        "why": "**Definimos** la incógnita: si el viaje fue de $x$ kilómetros, el costo es $800+400x$ pesos.",
         "side": {
          "title": "Costo",
          "text": "**fijo** + **variable** por cada kilómetro"
@@ -6035,7 +6043,7 @@
        },
        {
         "math": "800+400x=3200",
-        "why": "El costo total fue 3200."
+        "why": "**Planteamos** la ecuación: el costo total fue CLP 3200."
        },
        {
         "math": "400x=2400",
@@ -6043,11 +6051,15 @@
        },
        {
         "math": "x=6",
-        "why": "Dividimos ambos lados entre 400 y obtenemos la **solución**: el viaje fue de **6 km**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
+        "why": "Dividimos ambos lados entre 400."
+       },
+       {
+        "math": "\\textbf{Respuesta: }\\text{se recorrieron 6 km.}",
+        "why": "**Respondemos** la pregunta, con unidades. **La resolución termina aquí:** ya respondimos la pregunta del problema."
        },
        {
         "math": "800+400\\cdot6=3200\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos y se cumple el costo de CLP 3200."
+        "why": "**Verificación** (no forma parte de la resolución): con 6 km el viaje cuesta CLP 3200."
        }
       ]
      }
@@ -8759,8 +8771,12 @@
        "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
       },
       {
-       "math": "5^2-5\\cdot5=0\\ \\checkmark",
-       "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=5$."
+       "math": "x=0:\\quad 0^2-5\\cdot0=0\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=0$."
+      },
+      {
+       "math": "x=5:\\quad 5^2-5\\cdot5=25-25=0\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): ahora con $x=5$. Las dos soluciones cumplen la ecuación."
       }
      ]
     },
@@ -8789,8 +8805,12 @@
         }
        },
        {
-        "math": "3\\cdot(-2)^2-12=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=-2$: $3\\cdot4-12=0$."
+        "math": "x=2:\\quad 3\\cdot2^2-12=12-12=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=2$."
+       },
+       {
+        "math": "x=-2:\\quad 3\\cdot(-2)^2-12=12-12=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): ahora con $x=-2$. Las dos soluciones cumplen la ecuación."
        }
       ]
      },
@@ -8814,8 +8834,12 @@
         "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
-        "math": "2\\cdot16-32=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=-4$."
+        "math": "x=0:\\quad 2\\cdot0^2+8\\cdot0=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=0$."
+       },
+       {
+        "math": "x=-4:\\quad 2\\cdot(-4)^2+8\\cdot(-4)=32-32=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): ahora con $x=-4$. Las dos soluciones cumplen la ecuación."
        }
       ]
      },
@@ -8843,8 +8867,12 @@
         }
        },
        {
-        "math": "4\\cdot\\dfrac{25}{4}-25=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=\\frac{5}{2}$."
+        "math": "x=\\tfrac{5}{2}:\\quad 4\\cdot\\left(\\tfrac{5}{2}\\right)^2-25=25-25=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=\\tfrac{5}{2}$."
+       },
+       {
+        "math": "x=-\\tfrac{5}{2}:\\quad 4\\cdot\\left(-\\tfrac{5}{2}\\right)^2-25=25-25=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): ahora con $x=-\\tfrac{5}{2}$. Las dos soluciones cumplen la ecuación."
        }
       ]
      }
@@ -9697,8 +9725,12 @@
        "why": "Despejamos en cada caso y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
       },
       {
-       "math": "2^2-5\\cdot2+6=4-10+6=0\\ \\checkmark",
-       "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=2$."
+       "math": "x=2:\\quad 2^2-5\\cdot2+6=4-10+6=0\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=2$."
+      },
+      {
+       "math": "x=3:\\quad 3^2-5\\cdot3+6=9-15+6=0\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): ahora con $x=3$. Las dos soluciones cumplen la ecuación."
       }
      ]
     },
@@ -9724,8 +9756,12 @@
         "why": "Igualamos cada factor a cero, despejamos y obtenemos la **solución**. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
-        "math": "3^2+3-12=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=3$."
+        "math": "x=-4:\\quad (-4)^2+(-4)-12=16-4-12=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=-4$."
+       },
+       {
+        "math": "x=3:\\quad 3^2+3-12=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): ahora con $x=3$. Las dos soluciones cumplen la ecuación."
        }
       ]
      },
@@ -9750,8 +9786,8 @@
         "why": "Como los factores son iguales, hay **una sola solución**. **La resolución termina aquí:** ya encontramos la solución de la ecuación."
        },
        {
-        "math": "9-18+9=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos $x$ por el valor de la solución."
+        "math": "x=3:\\quad 3^2-6\\cdot3+9=9-18+9=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos $x$ por la única solución, $x=3$."
        }
       ]
      },
@@ -9776,8 +9812,12 @@
         "why": "Igualamos cada factor a cero y obtenemos la **solución**. Si $x$ fuera una longitud, solo serviría $x=5$. **La resolución termina aquí:** ya encontramos las dos soluciones de la ecuación."
        },
        {
-        "math": "25-10-15=0\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos con $x=5$."
+        "math": "x=5:\\quad 5^2-2\\cdot5-15=25-10-15=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): reemplazamos **cada** solución en la ecuación original. Primero, $x=5$."
+       },
+       {
+        "math": "x=-3:\\quad (-3)^2-2\\cdot(-3)-15=9+6-15=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): ahora con $x=-3$. Las dos soluciones cumplen la ecuación."
        }
       ]
      }
@@ -10531,11 +10571,11 @@
     "goal": "Al terminar podrás resolver problemas de áreas, productos de números y movimiento que llevan a **ecuaciones cuadráticas**, revisando cada solución en el contexto.",
     "idea": "Se sigue el mismo método de los problemas lineales: definir la incógnita, plantear la ecuación, llevarla a la forma $ax^2+bx+c=0$, resolverla (factorizando o con la fórmula general) y **revisar cada solución en el contexto**. Con frecuencia una de las dos soluciones no tiene sentido (un tiempo o una longitud negativos) y se descarta.",
     "steps": {
-     "title": "Un rectángulo tiene un área de $45\\,\\mathrm{cm^2}$ y su largo mide 4 cm más que su ancho.",
+     "title": "Un rectángulo tiene un área de $45\\,\\mathrm{cm^2}$ y su largo mide 4 cm más que su ancho. ¿Cuánto miden el ancho y el largo?",
      "items": [
       {
-       "math": "x",
-       "why": "Si el ancho es $x$, el largo es $x+4$.",
+       "math": "x=\\text{ancho (cm)},\\quad x+4=\\text{largo (cm)}",
+       "why": "**Definimos** la incógnita: si el ancho mide $x$ cm, el largo mide $x+4$ cm.",
        "side": {
         "title": "Área",
         "math": "A=\\text{ancho}\\cdot\\text{largo}"
@@ -10543,7 +10583,7 @@
       },
       {
        "math": "x(x+4)=45",
-       "why": "Planteamos el área."
+       "why": "**Planteamos** la ecuación con el área."
       },
       {
        "math": "x^2+4x-45=0",
@@ -10555,25 +10595,33 @@
       },
       {
        "math": "x=-9\\quad\\text{o}\\quad x=5",
-       "why": "Igualamos cada factor a cero."
+       "why": "Igualamos cada factor a cero: la ecuación tiene dos soluciones."
       },
       {
        "math": "x=5",
-       "why": "Se descarta $-9$, porque una longitud no puede ser negativa. **Solución:** el ancho mide **5 cm** y el largo 9 cm."
+       "why": "**Interpretamos**: se descarta $x=-9$, porque una longitud no puede ser negativa."
+      },
+      {
+       "math": "\\textbf{Respuesta: }\\text{el ancho mide 5 cm y el largo, 9 cm.}",
+       "why": "**Respondemos** la pregunta, con unidades: el largo mide $5+4=9$ cm. **La resolución termina aquí:** ya respondimos la pregunta del problema."
+      },
+      {
+       "math": "5\\cdot9=45\\ \\checkmark\\qquad 9-5=4\\ \\checkmark",
+       "why": "**Verificación** (no forma parte de la resolución): el área es 45 cm² y el largo mide 4 cm más que el ancho."
       }
      ]
     },
     "more": [
      {
-      "title": "El producto de dos números enteros positivos consecutivos es 56.",
+      "title": "El producto de dos números enteros positivos consecutivos es 56. ¿Cuáles son esos números?",
       "items": [
        {
-        "math": "x,\\ x+1",
-        "why": "Si el menor es $x$, el otro es $x+1$."
+        "math": "x=\\text{el menor},\\quad x+1=\\text{el siguiente}",
+        "why": "**Definimos** la incógnita: si el menor es $x$, el siguiente es $x+1$."
        },
        {
         "math": "x(x+1)=56",
-        "why": "Planteamos el producto."
+        "why": "**Planteamos** la ecuación con el producto."
        },
        {
         "math": "x^2+x-56=0",
@@ -10585,44 +10633,56 @@
        },
        {
         "math": "x=-8\\quad\\text{o}\\quad x=7",
-        "why": "Igualamos cada factor a cero."
+        "why": "Igualamos cada factor a cero: la ecuación tiene dos soluciones."
        },
        {
         "math": "x=7",
-        "why": "Se descarta $-8$, porque los números son positivos. **Solución:** los números son **7 y 8**."
+        "why": "**Interpretamos**: se descarta $x=-8$, porque los números deben ser positivos."
+       },
+       {
+        "math": "\\textbf{Respuesta: }\\text{los números son 7 y 8.}",
+        "why": "**Respondemos** la pregunta: el siguiente de 7 es 8. **La resolución termina aquí:** ya respondimos la pregunta del problema."
        },
        {
         "math": "7\\cdot8=56\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos en el enunciado: se cumple."
+        "why": "**Verificación** (no forma parte de la resolución): 7 y 8 son enteros positivos consecutivos y su producto es 56."
        }
       ]
      },
      {
-      "title": "Un rectángulo tiene el largo igual al doble del ancho y un área de $50\\,\\mathrm{cm^2}$.",
+      "title": "Un rectángulo tiene el largo igual al doble del ancho y un área de $50\\,\\mathrm{cm^2}$. ¿Cuánto miden el ancho y el largo?",
       "items": [
        {
-        "math": "x,\\ 2x",
-        "why": "Si el ancho es $x$, el largo es $2x$."
+        "math": "x=\\text{ancho (cm)},\\quad 2x=\\text{largo (cm)}",
+        "why": "**Definimos** la incógnita: si el ancho mide $x$ cm, el largo mide $2x$ cm."
        },
        {
         "math": "x\\cdot2x=50",
-        "why": "Planteamos el área."
+        "why": "**Planteamos** la ecuación con el área."
+       },
+       {
+        "math": "2x^2=50",
+        "why": "Reducimos: $x\\cdot2x=2x^2$."
        },
        {
         "math": "x^2=25",
-        "why": "Reducimos: $2x^2=50$ y dividimos entre 2."
+        "why": "Dividimos ambos lados entre 2."
        },
        {
-        "math": "x=\\pm5",
-        "why": "Aplicamos raíz cuadrada con las dos raíces."
+        "math": "x=5\\quad\\text{o}\\quad x=-5",
+        "why": "Aplicamos raíz cuadrada con **las dos raíces**."
        },
        {
         "math": "x=5",
-        "why": "Se descarta $x=-5$. **Solución:** el ancho mide **5 cm** y el largo **10 cm**."
+        "why": "**Interpretamos**: se descarta $x=-5$, porque una longitud no puede ser negativa."
        },
        {
-        "math": "5\\cdot10=50\\ \\checkmark",
-        "why": "**Verificación** (no forma parte de la resolución): reemplazamos en el enunciado: se cumple."
+        "math": "\\textbf{Respuesta: }\\text{el ancho mide 5 cm y el largo, 10 cm.}",
+        "why": "**Respondemos** la pregunta, con unidades: el largo mide $2\\cdot5=10$ cm. **La resolución termina aquí:** ya respondimos la pregunta del problema."
+       },
+       {
+        "math": "5\\cdot10=50\\ \\checkmark\\qquad 10=2\\cdot5\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): el área es 50 cm² y el largo es el doble del ancho."
        }
       ]
      },
@@ -10631,7 +10691,7 @@
       "items": [
        {
         "math": "20t-5t^2=0",
-        "why": "Vuelve al suelo cuando la altura es cero: imponemos $h=0$."
+        "why": "**Planteamos** la ecuación: la piedra está en el suelo cuando su altura es cero, $h=0$."
        },
        {
         "math": "5t(4-t)=0",
@@ -10639,15 +10699,23 @@
        },
        {
         "math": "5t=0\\quad\\text{o}\\quad 4-t=0",
-        "why": "Cada factor puede ser cero."
+        "why": "Un producto es cero cuando alguno de sus factores es cero."
        },
        {
         "math": "t=0\\quad\\text{o}\\quad t=4",
-        "why": "Despejamos en cada caso."
+        "why": "Despejamos en cada caso: la ecuación tiene dos soluciones."
        },
        {
-        "math": "t=4\\ \\mathrm{s}",
-        "why": "$t=0$ es el instante del lanzamiento; **Solución:** la piedra vuelve al suelo a los **4 s**."
+        "math": "t=4",
+        "why": "**Interpretamos**: $t=0$ es el instante del lanzamiento, cuando la piedra aún no sube; el regreso al suelo es en $t=4$."
+       },
+       {
+        "math": "\\textbf{Respuesta: }\\text{la piedra vuelve al suelo a los 4 segundos.}",
+        "why": "**Respondemos** la pregunta, con unidades. **La resolución termina aquí:** ya respondimos la pregunta del problema."
+       },
+       {
+        "math": "20\\cdot4-5\\cdot4^2=80-80=0\\ \\checkmark",
+        "why": "**Verificación** (no forma parte de la resolución): a los 4 s la altura es cero."
        }
       ]
      }

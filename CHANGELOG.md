@@ -1,5 +1,10 @@
 # Versiones del curso (SCORM único)
 
+## 19-11-2026 — Correcciones de Luis (Practica y ejemplos de la Unidad III)
+- Practica y Aplica: al empezar una ronda nueva, el primer ejercicio que se muestra es el 1 (antes se conservaba la posición de la ronda anterior y partía, por ejemplo, en el 5).
+- Unidad III, cuadráticas incompletas y por factorización: los ejemplos verifican **las dos soluciones** (una pantalla por solución, con «x = …:» al inicio).
+- Unidad III, «Resolver problemas lineales» y «Problemas cuadráticos»: cada ejemplo incluye la pregunta del problema y termina con una línea «Respuesta: …» completa, con unidades, en el cuadro izquierdo; el cuadro derecho queda solo para explicaciones. Los pasos se nombran (definimos, planteamos, interpretamos, respondemos) y la verificación revisa todas las condiciones del enunciado.
+
 ## 19-11-2026 — Editor: exportar por modalidades con avance visible (propuesta de Henry)
 - El botón «Exportar…» abre un cuadro para elegir: HTML navegable, SCORM individual (se descarga directo), Mapas (SVG/PNG), Banco de preguntas (PDF/LaTeX), Respaldo editable (JSON + recursos) o Paquete completo. Cada opción hace solo sus tareas y recuerda la última elección.
 - Durante la exportación: cronómetro de tiempo transcurrido, lista de etapas con su duración, detalle de la etapa en curso (por ejemplo «Estación 3 de 14 · pregunta 180 de 1120»), barra de avance y «última actividad». Botón «Detener». Si una etapa falla, se indica cuál y se puede reintentar sin perder el trabajo.
