@@ -1,0 +1,156 @@
+PROYECTO PACE UACh OBSERVACIONES Y PROPUESTA: EXPORTACIÓN Y DESCARGA DEL
+EDITOR 18 de noviembre de 2026
+
+Hola, Luis:
+
+Al probar el nuevo editor con la Unidad I ampliada, observé que al
+exportar aparece el mensaje «Preparando HTML navegable y SCORM
+individual…» durante bastante tiempo, sin que se indique cuánto ha
+avanzado el proceso. Finalmente no queda claro si sigue trabajando o si
+se quedó detenido.
+
+Revisé el flujo de exportación de editor/editor.js, publisher.js y
+map_artifacts.js. Actualmente, al pulsar «Exportar unidad + HTML +
+SCORM», el editor realiza varias tareas consecutivas:
+
+1.  Incorpora el JSON de la unidad y sus recursos.
+2.  Genera los mapas en SVG y PNG.
+3.  Genera el banco de preguntas en LaTeX y PDF.
+4.  Prepara el HTML navegable.
+5.  Construye el SCORM individual.
+6.  Revisa el contenido del paquete.
+7.  Comprime el ZIP final y dispara la descarga.
+
+Esto significa que, aunque en ese momento solo necesitemos el HTML para
+subirlo a GitHub, el editor también genera mapas, banco PDF y SCORM. Con
+los bancos ampliados, la generación del PDF puede ser especialmente
+costosa, pues procesa las preguntas y sus expresiones matemáticas.
+Además, el ZIP final vuelve a comprimir los distintos materiales.
+
+No puedo afirmar que la exportación esté bloqueada: el mensaje actual
+simplemente no permite saber en qué etapa está ni cuánto falta. Propongo
+separar las exportaciones y mejorar la información de progreso.
+
+1.  SELECCIONAR QUÉ SE DESEA EXPORTAR
+
+Antes de iniciar, ofrecer opciones independientes:
+
+A. HTML navegable solamente - Generar la carpeta VISTA_PREVIA_HTML con
+los archivos y recursos necesarios. - No generar SCORM, mapas ni banco
+de preguntas. - Esta sería la opción habitual cuando queremos actualizar
+los HTML individuales en GitHub.
+
+B. SCORM individual solamente - Generar únicamente el ZIP SCORM de la
+unidad, listo para subir a SiveducMD. - No generar una segunda copia del
+HTML como material independiente, mapas ni banco docente. - Evitar
+envolver el SCORM en otro ZIP si es posible descargar directamente el
+archivo SCORM.
+
+C. Mapas solamente - Generar los mapas solicitados (SVG y/o PNG). - No
+generar HTML, SCORM ni banco de preguntas.
+
+D. Banco de preguntas solamente - Generar el banco docente en PDF y
+LaTeX. - No generar HTML, SCORM ni mapas. - Si se estima conveniente,
+permitir elegir PDF, LaTeX o ambos.
+
+E. Paquete completo - Mantener la exportación actual, incluyendo JSON,
+recursos, HTML, SCORM, mapas y banco de preguntas. - Esta opción sirve
+como entrega integral y respaldo.
+
+Sería útil que cada opción indique claramente qué archivos incluirá. Si
+se necesita conservar el JSON y los recursos para continuar editando en
+otro momento, se puede ofrecer también una opción separada de «Respaldo
+editable» (JSON + recursos), sin obligar a generar todos los demás
+materiales.
+
+Importante: no basta con ocultar o eliminar archivos al final. La opción
+seleccionada debería evitar desde el comienzo las tareas de generación
+que no se necesitan. Así se ahorra tiempo de procesamiento y compresión.
+
+2.  MOSTRAR UN TEMPORIZADOR Y EL AVANCE REAL
+
+Independientemente de la opción seleccionada, propongo mostrar un
+temporizador de tiempo transcurrido desde que se pulsa Exportar, por
+ejemplo:
+
+Tiempo transcurrido: 00:01:24 Etapa: Generando banco de preguntas
+(estación 6 de 14) Avance de esta etapa: 42 %
+
+La información debería actualizarse durante el proceso, con etapas
+reconocibles:
+
+-   Preparando archivos.
+-   Generando mapas.
+-   Generando banco PDF / LaTeX.
+-   Preparando HTML.
+-   Construyendo SCORM.
+-   Validando archivos.
+-   Comprimiendo paquete.
+-   Descarga iniciada.
+
+No todas las etapas aparecerán en cada modalidad: solo deben mostrarse
+las que correspondan a la selección.
+
+El temporizador debería ser de tiempo transcurrido (cronómetro), no una
+cuenta regresiva ni una estimación inventada del tiempo restante. Si no
+es posible calcular cuánto falta, es preferible no mostrar una ETA.
+
+En la etapa de compresión, JSZip permite informar el porcentaje y el
+archivo que está procesando mediante su callback de progreso
+(generateAsync con onUpdate). Para las etapas anteriores se podrían
+añadir avisos de progreso propios, por ejemplo, indicando la estación o
+el número de preguntas procesadas.
+
+También sería útil mostrar cuándo se actualizó por última vez el avance.
+Un cronómetro que sigue corriendo, pero no informa actividad, no basta
+para distinguir un proceso lento de uno bloqueado. Conviene que la
+interfaz se mantenga receptiva y que las tareas largas informen avances
+periódicos; si alguna operación bloquea la interfaz, evaluar dividirla
+en partes o ejecutarla en segundo plano cuando sea viable.
+
+Al terminar la preparación, mostrar explícitamente «Descarga iniciada» y
+el nombre del archivo. Hay una distinción técnica: al generar un Blob y
+disparar una descarga mediante un enlace del navegador, el editor puede
+informar que inició la descarga, pero no siempre puede confirmar cuándo
+terminó de guardarse físicamente en el computador. No conviene presentar
+ese evento como una confirmación de descarga completada si el navegador
+no lo informa.
+
+3.  OPTIMIZACIONES TÉCNICAS A EVALUAR
+
+-   No generar el PDF del banco cuando se elija HTML o SCORM.
+-   No generar mapas PNG cuando se elija HTML o SCORM.
+-   Evitar construir el SCORM cuando se elija HTML, y viceversa.
+-   Evitar volver a comprimir un ZIP SCORM que ya está comprimido al
+    incorporarlo al paquete completo; evaluar almacenarlo sin una
+    segunda compresión.
+-   Evitar duplicar recursos multimedia en distintas carpetas del ZIP si
+    no son necesarios para el propósito de esa modalidad.
+-   Mantener la validación de los archivos que efectivamente se van a
+    exportar.
+-   Si la compresión final sigue siendo costosa, revisar el nivel de
+    compresión y si se puede ofrecer una alternativa razonable entre
+    velocidad y tamaño.
+-   Informar errores concretos si falla una etapa, indicando cuál fue y
+    permitiendo volver a intentar sin perder el trabajo del editor.
+
+4.  COMPORTAMIENTO ESPERADO
+
+La idea no es eliminar la exportación completa, que sigue siendo útil
+como respaldo y entrega integral. Lo que necesitamos es poder elegir el
+producto concreto que vamos a utilizar en cada momento, sin tener que
+generar todos los demás.
+
+Por ejemplo: - Para actualizar GitHub: HTML solamente. - Para probar una
+unidad en SiveducMD: SCORM individual solamente. - Para revisar o
+imprimir los recursos gráficos: mapas solamente. - Para revisar o
+entregar el banco docente: banco de preguntas solamente. - Para
+respaldar o entregar todo el trabajo: paquete completo o respaldo
+editable.
+
+Mi prioridad sería implementar primero las modalidades independientes y
+el indicador de avance con cronómetro. Así podremos saber si el editor
+sigue trabajando, evitar esperas innecesarias y no generar materiales
+que no necesitamos.
+
+Gracias.
