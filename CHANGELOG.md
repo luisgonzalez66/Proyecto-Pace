@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 19-11-2026 — Cierre de bloque, «¿Qué método conviene?» y despeje con respuesta escrita
+- Nuevo «Cierre del bloque» al final de cada bloque con 2 o más estaciones (las tres unidades): práctica mixta de 8 ejercicios de las estaciones del bloque, sin decir de cuál viene cada uno; un intento por ejercicio y resumen por estación con «Repasar». No cuenta para el avance ni se registra en el SCORM.
+- Unidad III, bloque «Ecuaciones cuadráticas»: pantalla-guía «¿Qué método conviene?» (pasos y diagrama) y 12 preguntas de elección de método; cada ronda tiene 9 ejercicios (3 de elección de método).
+- Unidad III, «Despeje de fórmulas»: 20 de los 60 ejercicios de Practica pasan a respuesta escrita (despejar y calcular el valor, con datos y unidades reales). Quedan 40 de alternativas.
+- Catálogo de preguntas regenerado.
+
 ## 18-11-2026 — Presentación y contraste (revisión didáctica)
 - Color de acento por unidad (I coral, II verde, III índigo) en panel, encabezado, pestaña activa y mapa; fondo sin manchas en las estaciones.
 - Mayor contraste en textos pequeños y estados pendientes.

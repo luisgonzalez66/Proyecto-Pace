@@ -19,6 +19,15 @@ Análisis de errores con el informe de Interacciones: `python3 herramientas/anal
 
 ---
 
+## Cierre de bloque (`cierre.js`, `cierre.css`)
+
+Al final de cada bloque con 2 o más estaciones, el mapa muestra «Cierre del bloque»: práctica mixta con ejercicios de nivel 2 y 3 de las estaciones del bloque, mezclados y sin indicar de qué estación vienen. Un intento por ejercicio; al final, resumen por estación con botón «Repasar». No se registra en el SCORM.
+
+- Los enunciados que nombran el método («Resuelve con la fórmula general», «Factoriza por agrupación», etc.) se neutralizan solo en el cierre (`CI_NEUTRO` en `cierre.js`); el JSON no cambia.
+- Opcional en el JSON de la unidad: `groups[g].cierre = {title, idea, pasos:[...], figure:{svg, caption}, practice:[...], take, n}`. Muestra una pantalla-guía antes de la práctica y suma `take` preguntas propias (de `practice`) a una ronda de `n` ejercicios. Hoy lo usa el bloque «Ecuaciones cuadráticas» de la Unidad III («¿Qué método conviene?»). El editor conserva este campo, pero todavía no lo edita.
+
+---
+
 ## Flujo cuando se cambian textos de una unidad (paso a paso)
 
 1. **Editar la unidad** con el editor (`editor/EDITOR_PACE.html`) y guardar `unidad_0X.json` en `unidades/uX/` (ver README principal).

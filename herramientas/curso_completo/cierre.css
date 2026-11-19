@@ -1,0 +1,58 @@
+/* Cierre de bloque · práctica mixta (19-11-2026) */
+.ci-card{display:flex;align-items:center;gap:14px;width:100%;margin:12px 0 4px;padding:14px 16px;border:2px dashed color-mix(in srgb,var(--acc,#4b49a3) 45%,#fff);border-radius:14px;background:color-mix(in srgb,var(--acc,#4b49a3) 6%,#fff);color:var(--ink);text-align:left;cursor:pointer;font:inherit}
+.ci-card:hover{border-style:solid;background:color-mix(in srgb,var(--acc,#4b49a3) 11%,#fff)}
+.ci-card:focus-visible{outline:3px solid var(--acc,#4b49a3);outline-offset:2px}
+.ci-card.ready{border-style:solid}
+.ci-ico{flex:0 0 42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--acc,#4b49a3);color:#fff;font-size:20px;font-weight:900}
+.ci-copy{flex:1;display:flex;flex-direction:column;gap:3px}
+.ci-copy strong{font-size:15px;color:var(--navy)}
+.ci-copy small{font-size:13px;color:#3f3f66;line-height:1.35}
+.ci-st{flex:0 0 auto;font-size:12.5px;font-weight:800;color:var(--acc,#4b49a3);white-space:nowrap}
+.ci-wrap{max-width:860px;margin:0 auto;padding:8px 0 48px}
+.ci-wrap>h1{font-family:Fraunces,serif;font-size:clamp(24px,3.6vw,34px);margin:4px 0 16px;color:var(--navy)}
+.ci-wrap .eyebrow{font-size:12px;color:var(--acc,var(--teal))}
+.ci-guide{background:#fff;border:1px solid var(--line);border-top:5px solid var(--acc,#4b49a3);border-radius:14px;padding:18px 20px;margin-bottom:16px;box-shadow:var(--shadow)}
+.ci-guide h2{margin:4px 0 10px;font-size:22px;color:var(--navy)}
+.ci-guide-body{display:flex;gap:22px;align-items:flex-start}
+.ci-guide-body>.math-content{flex:1;font-size:15.5px;line-height:1.55}
+.ci-guide-body ol,.ci-guide-body ul{padding-left:20px;margin:6px 0}
+.ci-guide-body li{margin:5px 0}
+.ci-fig{flex:0 0 min(330px,44%);margin:0}
+.ci-fig svg{width:100%;height:auto;display:block}
+.ci-fig figcaption{font-size:13px;color:#3f3f66;text-align:center;margin-top:6px}
+.ci-how{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 20px;font-size:15px;line-height:1.5}
+.ci-how p{margin:6px 0}
+.ci-list{margin:6px 0 8px;padding-left:20px;columns:2;column-gap:28px}
+.ci-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.ci-dots{display:flex;gap:6px;margin:0 0 12px}
+.ci-dots i{width:14px;height:14px;border-radius:50%;background:#d5d3e6}
+.ci-dots i.ok{background:var(--green)}.ci-dots i.bad{background:var(--coral)}
+.ci-dots i.cur{box-shadow:0 0 0 3px color-mix(in srgb,var(--acc,#4b49a3) 35%,#fff)}
+.ci-q .quiz{margin:0}
+.ci-q .choices button.wrong{background:#fdecef;border-color:#e7a3b6;color:#a3284f}
+.ci-q .quiz.ci-ok,.ci-q .quiz.ci-bad{background:#fff}
+.ci-q .quiz.ci-ok{border-color:#a9dec6}.ci-q .quiz.ci-bad{border-color:#e7a3b6}
+.ci-q .quiz.ci-ok .quiz-head span:last-child{color:#16845f}.ci-q .quiz.ci-bad .quiz-head span:last-child{color:#a3284f}
+.ci-q .quiz .choices button:disabled{opacity:1}
+.ci-q .feedback{font-size:15px;line-height:1.5}
+.ci-q .feedback{min-height:1.4em}
+.ci-after{margin-top:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:space-between}
+.ci-after.hidden{display:none}
+.ci-from{margin:0;font-size:15px;color:var(--ink)}
+.ci-score{display:flex;align-items:baseline;gap:10px;margin:4px 0}
+.ci-score b{font-size:48px;font-family:Fraunces,serif;color:var(--acc,var(--navy))}
+.ci-score span{font-size:17px;color:#3f3f66}
+.ci-msg{font-size:16px;margin:4px 0 14px}
+.ci-tab{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;font-size:14.5px}
+.ci-tab th,.ci-tab td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line)}
+.ci-tab th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#3f3f66;background:#faf8f3}
+.ci-rep{padding:6px 12px;font-size:13px}
+.ci-okk{color:var(--green);font-weight:900}
+@media (max-width:700px){
+ .ci-guide-body{flex-direction:column}.ci-fig{flex-basis:auto;width:100%;max-width:360px;align-self:center}
+ .ci-list{columns:1}.ci-card{flex-wrap:wrap}.ci-st{width:100%;padding-left:56px;white-space:normal}
+ .ci-tab th:nth-child(2),.ci-tab td:nth-child(2){display:none}
+}
+.ci-guide-body p{margin:0 0 8px}
+.ci-pasos li{margin:8px 0;padding-left:2px}
+.ci-pasos li::marker{font-weight:900;color:var(--acc,#4b49a3)}

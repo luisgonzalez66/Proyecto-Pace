@@ -26,7 +26,9 @@ CHUJS=open(HERE+'/chucao.js',encoding='utf8').read(); CHUCSS=open(HERE+'/chucao.
 _k="window.addEventListener('load',function(){setTimeout(function(){try{paintMascot();}catch(e){}},400);});"
 idx=sub1(idx,_k,_k+'\n'+CHUJS)
 PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
-idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n</style></head>')
+CICSS=open(HERE+'/cierre.css',encoding='utf8').read()
+idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n</style></head>')
+idx=sub1(idx,'<section id="metaView" class="view hidden" aria-label="META FINAL"></section>','<section id="metaView" class="view hidden" aria-label="META FINAL"></section>\n<section id="cierreView" class="view hidden" aria-label="Cierre del bloque"></section>')
 
 
 # ---------- app.js: META FINAL por unidad ----------
@@ -104,6 +106,11 @@ init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=
 ZSJS=open(HERE+'/zs.js',encoding='utf8').read()
 # ---------- Presentación (18-11-2026): mapa con el bloque en curso abierto, tarjetas con avance, horas con coma ----------
 PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
+# ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
+CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
+a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView'])")
+a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});")
+a=sub1(a,'<div class="station-list">${cards(items)}</div>','<div class="station-list">${cards(items)}</div>${cierreCard(g,items)}')
 a=sub1(a,"if(PHONE.matches&&groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);activeGroup=ls>=0&&STATIONS[ls].unit===selectedUnit?STATIONS[ls].group:0;}",
  "if(groups.length&&(activeGroup<0||activeGroup>=groups.length)){const ls=STATIONS.findIndex(x=>x.id===state.last);if(ls>=0&&STATIONS[ls].unit===selectedUnit)activeGroup=STATIONS[ls].group;else{const f=unitItems.find(x=>stationDone(x.i)<milestoneCount(x.s));activeGroup=f?f.s.group:0;}}")
 a=sub1(a,"activeGroup=(activeGroup===g&&!PHONE.matches)?-1:g;","activeGroup=g;")
@@ -114,7 +121,7 @@ a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/1
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
 a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
-a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\ninit();(()=>{const keep=mu;")
+a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\n"+CIJS+"\ninit();(()=>{const keep=mu;")
 
 # ---------- index.html: portada en dos pantallas (Inicio y Curso) ----------
 # Inicio = encabezado con pizarra + Bienvenida + Cómo se estudia + Tour (todo tomado de index.html del repositorio).

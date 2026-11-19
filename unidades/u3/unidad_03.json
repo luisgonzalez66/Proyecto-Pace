@@ -15,7 +15,168 @@
   },
   {
    "title": "Ecuaciones cuadráticas",
-   "subtitle": "Discriminante, fórmula general, incompletas y factorización"
+   "subtitle": "Discriminante, fórmula general, incompletas y factorización",
+   "cierre": {
+    "title": "¿Qué método conviene?",
+    "n": 9,
+    "take": 3,
+    "idea": "Las cuatro estaciones del bloque te dieron cuatro herramientas. Antes de resolver, **ordena** la ecuación para que quede $ax^2 + bx + c = 0$ y mira qué términos tiene:",
+    "pasos": [
+     "**Falta el término en $x$** ($ax^2 + c = 0$, o un cuadrado aislado como $(x - 3)^2 = 25$): despeja el cuadrado y saca raíz. No olvides el $\\pm$.",
+     "**Falta el término independiente** ($ax^2 + bx = 0$): saca $x$ como factor común. Una de las soluciones es siempre $x = 0$.",
+     "**Está completa**: calcula $\\Delta = b^2 - 4ac$. Si $\\Delta < 0$, no tiene soluciones reales. Si $\\Delta$ es un cuadrado perfecto, se puede factorizar: hazlo si ves rápido los dos números. Si no, usa la fórmula general, que siempre funciona."
+    ],
+    "figure": {
+     "svg": "<svg viewBox=\"0 0 362 300\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Diagrama para elegir el método\" font-family=\"Nunito, system-ui, sans-serif\">\n<defs><marker id=\"ciar\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" fill=\"#4b49a3\"/></marker></defs>\n<rect x=\"80\" y=\"6\" width=\"200\" height=\"38\" rx=\"10\" fill=\"#4b49a3\"/>\n<text x=\"180\" y=\"30\" text-anchor=\"middle\" font-size=\"15\" font-weight=\"800\" fill=\"#fff\">Ordena: ax² + bx + c = 0</text>\n<line x1=\"60\" y1=\"44\" x2=\"60\" y2=\"236\" stroke=\"#4b49a3\" stroke-width=\"2\"/>\n<line x1=\"60\" y1=\"44\" x2=\"80\" y2=\"44\" stroke=\"#4b49a3\" stroke-width=\"2\"/>\n<g font-size=\"13.5\">\n<rect x=\"14\" y=\"62\" width=\"92\" height=\"40\" rx=\"8\" fill=\"#fff\" stroke=\"#4b49a3\" stroke-width=\"2\"/><text x=\"60\" y=\"87\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#2a2a52\">¿Falta bx?</text>\n<line x1=\"106\" y1=\"82\" x2=\"150\" y2=\"82\" stroke=\"#4b49a3\" stroke-width=\"2\" marker-end=\"url(#ciar)\"/><text x=\"128\" y=\"76\" text-anchor=\"middle\" font-size=\"11\" fill=\"#55606b\">sí</text>\n<rect x=\"152\" y=\"62\" width=\"202\" height=\"40\" rx=\"8\" fill=\"#eceafa\"/><text x=\"253\" y=\"80\" text-anchor=\"middle\" font-weight=\"700\" fill=\"#2a2a52\">Despeja x² y saca raíz</text><text x=\"253\" y=\"96\" text-anchor=\"middle\" font-size=\"12\" fill=\"#3f3f66\">(no olvides el ±)</text>\n<rect x=\"14\" y=\"124\" width=\"92\" height=\"40\" rx=\"8\" fill=\"#fff\" stroke=\"#4b49a3\" stroke-width=\"2\"/><text x=\"60\" y=\"149\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#2a2a52\">¿Falta c?</text>\n<line x1=\"106\" y1=\"144\" x2=\"150\" y2=\"144\" stroke=\"#4b49a3\" stroke-width=\"2\" marker-end=\"url(#ciar)\"/><text x=\"128\" y=\"138\" text-anchor=\"middle\" font-size=\"11\" fill=\"#55606b\">sí</text>\n<rect x=\"152\" y=\"124\" width=\"202\" height=\"40\" rx=\"8\" fill=\"#eceafa\"/><text x=\"253\" y=\"142\" text-anchor=\"middle\" font-weight=\"700\" fill=\"#2a2a52\">Factor común x</text><text x=\"253\" y=\"158\" text-anchor=\"middle\" font-size=\"12\" fill=\"#3f3f66\">(una solución es x = 0)</text>\n<rect x=\"14\" y=\"186\" width=\"92\" height=\"50\" rx=\"8\" fill=\"#fff\" stroke=\"#4b49a3\" stroke-width=\"2\"/><text x=\"60\" y=\"207\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#2a2a52\">Completa:</text><text x=\"60\" y=\"225\" text-anchor=\"middle\" font-weight=\"800\" fill=\"#2a2a52\">calcula Δ</text>\n<line x1=\"106\" y1=\"211\" x2=\"150\" y2=\"211\" stroke=\"#4b49a3\" stroke-width=\"2\" marker-end=\"url(#ciar)\"/>\n<rect x=\"152\" y=\"180\" width=\"202\" height=\"34\" rx=\"8\" fill=\"#fdecef\"/><text x=\"253\" y=\"202\" text-anchor=\"middle\" font-weight=\"700\" fill=\"#2a2a52\">Δ &lt; 0: sin soluciones</text>\n<rect x=\"152\" y=\"220\" width=\"202\" height=\"34\" rx=\"8\" fill=\"#e5f8ee\"/><text x=\"253\" y=\"242\" text-anchor=\"middle\" font-weight=\"700\" font-size=\"12.5\" fill=\"#2a2a52\">Δ cuadrado perfecto: factoriza</text>\n<rect x=\"152\" y=\"260\" width=\"202\" height=\"34\" rx=\"8\" fill=\"#fff4dc\"/><text x=\"253\" y=\"282\" text-anchor=\"middle\" font-weight=\"700\" fill=\"#2a2a52\">Si no: fórmula general</text>\n<line x1=\"142\" y1=\"211\" x2=\"142\" y2=\"277\" stroke=\"#4b49a3\" stroke-width=\"2\"/><line x1=\"142\" y1=\"197\" x2=\"150\" y2=\"197\" stroke=\"#4b49a3\" stroke-width=\"2\"/><line x1=\"142\" y1=\"237\" x2=\"150\" y2=\"237\" stroke=\"#4b49a3\" stroke-width=\"2\"/><line x1=\"142\" y1=\"277\" x2=\"150\" y2=\"277\" stroke=\"#4b49a3\" stroke-width=\"2\"/><line x1=\"142\" y1=\"197\" x2=\"142\" y2=\"211\" stroke=\"#4b49a3\" stroke-width=\"2\"/>\n</g>\n</svg>",
+     "caption": "Del camino más corto al que siempre funciona."
+    },
+    "practice": [
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$3x^2 - 48 = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 0,
+      "why": "Falta el término en $x$: $x^2 = 16$, así que $x = \\pm 4$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$5x^2 + 20x = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 1,
+      "why": "Falta el término independiente: $5x(x + 4) = 0$, así que $x = 0$ o $x = -4$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$x^2 - 7x + 12 = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 2,
+      "why": "Está completa y $\\Delta = 49 - 48 = 1$ es un cuadrado perfecto. Como $3\\cdot 4 = 12$ y $3 + 4 = 7$: $(x - 3)(x - 4) = 0$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$x^2 + 4x - 3 = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 3,
+      "why": "$\\Delta = 16 + 12 = 28$ no es un cuadrado perfecto: no se factoriza con enteros. La fórmula da $x = -2 \\pm \\sqrt{7}$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$(x - 3)^2 = 25$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 0,
+      "why": "Ya hay un cuadrado aislado: $x - 3 = \\pm 5$, así que $x = 8$ o $x = -2$. Desarrollar el cuadrado sería dar un rodeo.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$2x^2 = 7x$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 1,
+      "why": "Al ordenar queda $2x^2 - 7x = 0$, sin término independiente: $x(2x - 7) = 0$, así que $x = 0$ o $x = \\tfrac{7}{2}$. No se puede dividir por $x$: se perdería la solución $x = 0$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$x^2 - x - 30 = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 2,
+      "why": "$\\Delta = 1 + 120 = 121 = 11^2$. Dos números con producto $-30$ y suma $-1$: $-6$ y $5$. Entonces $(x - 6)(x + 5) = 0$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$3x^2 - 5x + 1 = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 3,
+      "why": "$\\Delta = 25 - 12 = 13$ no es un cuadrado perfecto: $x = \\dfrac{5 \\pm \\sqrt{13}}{6}$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$4x^2 = 9$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 0,
+      "why": "Falta el término en $x$: $x^2 = \\tfrac{9}{4}$, así que $x = \\pm \\tfrac{3}{2}$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$x^2 + 2x = 15$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 2,
+      "why": "Primero se ordena: $x^2 + 2x - 15 = 0$. Está completa y $\\Delta = 4 + 60 = 64 = 8^2$. Como $5\\cdot(-3) = -15$ y $5 - 3 = 2$: $(x + 5)(x - 3) = 0$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$x^2 = 6x - 2$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 3,
+      "why": "Primero se ordena: $x^2 - 6x + 2 = 0$. $\\Delta = 36 - 8 = 28$ no es un cuadrado perfecto: $x = 3 \\pm \\sqrt{7}$.",
+      "level": 2
+     },
+     {
+      "q": "Sin resolverla todavía: ¿cuál es el camino más directo para resolver la ecuación\n$$7x^2 - 14x = 0$$",
+      "options": [
+       "Despejar $x^2$ y sacar raíz cuadrada",
+       "Sacar $x$ como factor común",
+       "Factorizar el trinomio",
+       "Usar la fórmula general"
+      ],
+      "correct": 1,
+      "why": "Falta el término independiente: $7x(x - 2) = 0$, así que $x = 0$ o $x = 2$.",
+      "level": 2
+     }
+    ]
+   }
   },
   {
    "title": "Problemas con ecuaciones cuadráticas",
@@ -3062,27 +3223,19 @@
      "level": 1
     },
     {
-     "q": "Despeja $r$ en la fórmula: $$s = rE$$",
-     "options": [
-      "$r = s - E$",
-      "$r = \\dfrac{s}{E}$",
-      "$r = \\dfrac{E}{s}$",
-      "$r = sE$"
-     ],
-     "correct": 1,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $r$ solo: $r = \\dfrac{s}{E}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$P = 4\\ell$$\ndespeja $\\ell$ y luego calcula su valor si $P = 36$ cm (perímetro de un cuadrado de lado $\\ell$). Escribe solo el número.",
+     "answer": "9",
+     "why": "Dividimos por $4$: $\\ell = \\dfrac{P}{4} = \\dfrac{36}{4} = 9$ cm.",
      "level": 1
     },
     {
-     "q": "Despeja $H$ en la fórmula: $$m = vH$$",
-     "options": [
-      "$H = m - v$",
-      "$H = \\dfrac{v}{m}$",
-      "$H = mv$",
-      "$H = \\dfrac{m}{v}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $H$ solo: $H = \\dfrac{m}{v}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$d = vt$$\ndespeja $t$ y luego calcula su valor si $d = 150$ km y $v = 60$ km/h. Escribe solo el número.",
+     "answer": "2.5",
+     "why": "Dividimos por $v$: $t = \\dfrac{d}{v} = \\dfrac{150}{60} = 2{,}5$ h.",
      "level": 1
     },
     {
@@ -3098,15 +3251,11 @@
      "level": 1
     },
     {
-     "q": "Despeja $N$ en la fórmula: $$v = T + N$$",
-     "options": [
-      "$N = v + T$",
-      "$N = v - T$",
-      "$N = \\dfrac{v}{T}$",
-      "$N = T - v$"
-     ],
-     "correct": 1,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $N$ solo: $N = v - T$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$F = ma$$\ndespeja $a$ y luego calcula su valor si $F = 30$ N y $m = 6$ kg. Escribe solo el número.",
+     "answer": "5",
+     "why": "Dividimos por $m$: $a = \\dfrac{F}{m} = \\dfrac{30}{6} = 5$ m/s².",
      "level": 1
     },
     {
@@ -3122,15 +3271,11 @@
      "level": 1
     },
     {
-     "q": "Despeja $r$ en la fórmula: $$a = v - r$$",
-     "options": [
-      "$r = a + v$",
-      "$r = a - v$",
-      "$r = v - a$",
-      "$r = \\dfrac{v}{a}$"
-     ],
-     "correct": 2,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $r$ solo: $r = v - a$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$V = IR$$\ndespeja $I$ y luego calcula su valor si $V = 12$ V y $R = 4$ Ω. Escribe solo el número.",
+     "answer": "3",
+     "why": "Dividimos por $R$: $I = \\dfrac{V}{R} = \\dfrac{12}{4} = 3$ A.",
      "level": 1
     },
     {
@@ -3182,39 +3327,27 @@
      "level": 1
     },
     {
-     "q": "Despeja $z$ en la fórmula: $$J = hLz$$",
-     "options": [
-      "$z = \\dfrac{J}{hL}$",
-      "$z = \\dfrac{hL}{J}$",
-      "$z = \\dfrac{J}{h} - L$",
-      "$z = JhL$"
-     ],
-     "correct": 0,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $z$ solo: $z = \\dfrac{J}{hL}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$K = C + 273$$\ndespeja $C$ y luego calcula su valor si $K = 300$ (temperatura en kelvin). Escribe solo el número.",
+     "answer": "27",
+     "why": "Restamos $273$: $C = K - 273 = 300 - 273 = 27$ °C.",
      "level": 1
     },
     {
-     "q": "Despeja $f$ en la fórmula: $$D = fwM$$",
-     "options": [
-      "$f = \\dfrac{D}{w} - M$",
-      "$f = DwM$",
-      "$f = \\dfrac{wM}{D}$",
-      "$f = \\dfrac{D}{wM}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $f$ solo: $f = \\dfrac{D}{wM}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$A = bh$$\ndespeja $b$ y luego calcula su valor si $A = 48$ cm² y $h = 6$ cm. Escribe solo el número.",
+     "answer": "8",
+     "why": "Dividimos por $h$: $b = \\dfrac{A}{h} = \\dfrac{48}{6} = 8$ cm.",
      "level": 1
     },
     {
-     "q": "Despeja $K$ en la fórmula: $$Z = 4K$$",
-     "options": [
-      "$K = \\dfrac{Z}{4}$",
-      "$K = \\dfrac{4}{Z}$",
-      "$K = 4Z$",
-      "$K = Z - 4$"
-     ],
-     "correct": 0,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $K$ solo: $K = \\dfrac{Z}{4}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$\\rho = \\dfrac{m}{V}$$\ndespeja $m$ y luego calcula su valor si $\\rho = 2$ g/cm³ y $V = 15$ cm³. Escribe solo el número.",
+     "answer": "30",
+     "why": "Multiplicamos por $V$: $m = \\rho V = 2\\cdot 15 = 30$ g.",
      "level": 1
     },
     {
@@ -3301,15 +3434,11 @@
      "level": 2
     },
     {
-     "q": "Despeja $V$ en la fórmula: $$H = TV + b$$",
-     "options": [
-      "$V = \\dfrac{H + b}{T}$",
-      "$V = \\dfrac{H}{T} - b$",
-      "$V = H - \\dfrac{b}{T}$",
-      "$V = \\dfrac{H - b}{T}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $V$ solo: $V = \\dfrac{H - b}{T}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$v = v_0 + at$$\ndespeja $t$ y luego calcula su valor si $v = 26$ m/s, $v_0 = 6$ m/s y $a = 4$ m/s². Escribe solo el número.",
+     "answer": "5",
+     "why": "Restamos $v_0$ y dividimos por $a$: $t = \\dfrac{v - v_0}{a} = \\dfrac{26 - 6}{4} = 5$ s.",
      "level": 2
     },
     {
@@ -3325,39 +3454,27 @@
      "level": 2
     },
     {
-     "q": "Despeja $v$ en la fórmula: $$t = vn + z$$",
-     "options": [
-      "$v = t - \\dfrac{z}{n}$",
-      "$v = \\dfrac{t}{n} - z$",
-      "$v = \\dfrac{t - z}{n}$",
-      "$v = \\dfrac{t + z}{n}$"
-     ],
-     "correct": 2,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $v$ solo: $v = \\dfrac{t - z}{n}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$P = 2\\ell + 2a$$\ndespeja $\\ell$ y luego calcula su valor si $P = 50$ cm y $a = 10$ cm. Escribe solo el número.",
+     "answer": "15",
+     "why": "Restamos $2a$ y dividimos por $2$: $\\ell = \\dfrac{P - 2a}{2} = \\dfrac{50 - 20}{2} = 15$ cm.",
      "level": 2
     },
     {
-     "q": "Despeja $S$ en la fórmula: $$d = Q + wS$$",
-     "options": [
-      "$S = \\dfrac{d + Q}{w}$",
-      "$S = d - Q - w$",
-      "$S = \\dfrac{d - Q}{w}$",
-      "$S = \\dfrac{d}{w} - Q$"
-     ],
-     "correct": 2,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $S$ solo: $S = \\dfrac{d - Q}{w}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$y = mx + n$$\ndespeja $x$ y luego calcula su valor si $y = 23$, $m = 4$ y $n = 3$. Escribe solo el número.",
+     "answer": "5",
+     "why": "Restamos $n$ y dividimos por $m$: $x = \\dfrac{y - n}{m} = \\dfrac{23 - 3}{4} = 5$.",
      "level": 2
     },
     {
-     "q": "Despeja $V$ en la fórmula: $$J = T + Vq$$",
-     "options": [
-      "$V = \\dfrac{J - T}{q}$",
-      "$V = \\dfrac{J}{q} - T$",
-      "$V = J - T - q$",
-      "$V = \\dfrac{J + T}{q}$"
-     ],
-     "correct": 0,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $V$ solo: $V = \\dfrac{J - T}{q}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$C = 500 + 20n$$\ndespeja $n$ y luego calcula su valor si $C = 1300$ (costo en pesos de fabricar $n$ piezas). Escribe solo el número.",
+     "answer": "40",
+     "why": "Restamos $500$ y dividimos por $20$: $n = \\dfrac{C - 500}{20} = \\dfrac{800}{20} = 40$ piezas.",
      "level": 2
     },
     {
@@ -3385,27 +3502,19 @@
      "level": 2
     },
     {
-     "q": "Despeja $f$ en la fórmula: $$Lp + Bf = V$$",
-     "options": [
-      "$f = \\dfrac{V + Lp}{B}$",
-      "$f = V - Lp - B$",
-      "$f = \\dfrac{V}{B} - Lp$",
-      "$f = \\dfrac{V - Lp}{B}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $f$ solo: $f = \\dfrac{V - Lp}{B}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$d = d_0 + vt$$\ndespeja $v$ y luego calcula su valor si $d = 170$ m, $d_0 = 20$ m y $t = 5$ s. Escribe solo el número.",
+     "answer": "30",
+     "why": "Restamos $d_0$ y dividimos por $t$: $v = \\dfrac{d - d_0}{t} = \\dfrac{170 - 20}{5} = 30$ m/s.",
      "level": 2
     },
     {
-     "q": "Despeja $y$ en la fórmula: $$Hy + hg = W$$",
-     "options": [
-      "$y = W - hg - H$",
-      "$y = \\dfrac{W + hg}{H}$",
-      "$y = \\dfrac{W}{H} - hg$",
-      "$y = \\dfrac{W - hg}{H}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $y$ solo: $y = \\dfrac{W - hg}{H}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$T = 15 - 6h$$\ndespeja $h$ y luego calcula su valor si $T = -3$ (temperatura en °C a una altura de $h$ km). Escribe solo el número.",
+     "answer": "3",
+     "why": "Restamos $15$ y dividimos por $-6$: $h = \\dfrac{T - 15}{-6} = \\dfrac{-18}{-6} = 3$ km. Ojo con el signo: se divide por $-6$, no por $6$.",
      "level": 2
     },
     {
@@ -3421,15 +3530,11 @@
      "level": 2
     },
     {
-     "q": "Despeja $L$ en la fórmula: $$k = hD - L$$",
-     "options": [
-      "$L = k + hD$",
-      "$L = k - hD$",
-      "$L = \\dfrac{hD}{k}$",
-      "$L = hD - k$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $L$ solo: $L = hD - k$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$L = L_0 + kF$$\ndespeja $F$ y luego calcula su valor si $L = 18$ cm, $L_0 = 10$ cm y $k = 0{,}5$ cm/N. Escribe solo el número.",
+     "answer": "16",
+     "why": "Restamos $L_0$ y dividimos por $k$: $F = \\dfrac{L - L_0}{k} = \\dfrac{18 - 10}{0{,}5} = 16$ N.",
      "level": 2
     },
     {
@@ -3541,27 +3646,19 @@
      "level": 3
     },
     {
-     "q": "Despeja $d$ en la fórmula: $$P = \\dfrac{(d + Z)p}{2}$$",
-     "options": [
-      "$d = \\dfrac{P}{2p} - Z$",
-      "$d = \\dfrac{2P}{p} + Z$",
-      "$d = \\dfrac{2P}{p} - Z$",
-      "$d = \\dfrac{2P - Z}{p}$"
-     ],
-     "correct": 2,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $d$ solo: $d = \\dfrac{2P}{p} - Z$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$F = \\dfrac{9}{5}C + 32$$\ndespeja $C$ y luego calcula su valor si $F = 212$ (temperatura en grados Fahrenheit). Escribe solo el número.",
+     "answer": "100",
+     "why": "Restamos $32$ y multiplicamos por $\\tfrac{5}{9}$: $C = \\dfrac{5(F - 32)}{9} = \\dfrac{5\\cdot 180}{9} = 100$ °C.",
      "level": 3
     },
     {
-     "q": "Despeja $h$ en la fórmula: $$L = \\dfrac{9}{5}h + 32$$",
-     "options": [
-      "$h = \\dfrac{5L - 32}{9}$",
-      "$h = \\dfrac{5(L - 32)}{9}$",
-      "$h = \\dfrac{9(L - 32)}{5}$",
-      "$h = \\dfrac{5(L + 32)}{9}$"
-     ],
-     "correct": 1,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $h$ solo: $h = \\dfrac{5(L - 32)}{9}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$A = \\dfrac{(B + b)h}{2}$$\ndespeja $h$ y luego calcula su valor si $A = 60$ cm², $B = 11$ cm y $b = 9$ cm. Escribe solo el número.",
+     "answer": "6",
+     "why": "Multiplicamos por $2$ y dividimos por $B + b$: $h = \\dfrac{2A}{B + b} = \\dfrac{120}{20} = 6$ cm.",
      "level": 3
     },
     {
@@ -3613,39 +3710,27 @@
      "level": 3
     },
     {
-     "q": "Despeja $h$ en la fórmula: $$t = s^2 + 2hT$$",
-     "options": [
-      "$h = \\dfrac{t - s}{2T}$",
-      "$h = \\dfrac{t - s^2}{T}$",
-      "$h = \\dfrac{t + s^2}{2T}$",
-      "$h = \\dfrac{t - s^2}{2T}$"
-     ],
-     "correct": 3,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $h$ solo: $h = \\dfrac{t - s^2}{2T}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$A = \\dfrac{(B + b)h}{2}$$\ndespeja $B$ y luego calcula su valor si $A = 40$ cm², $b = 6$ cm y $h = 5$ cm. Escribe solo el número.",
+     "answer": "10",
+     "why": "Multiplicamos por $2$, dividimos por $h$ y restamos $b$: $B = \\dfrac{2A}{h} - b = \\dfrac{80}{5} - 6 = 10$ cm.",
      "level": 3
     },
     {
-     "q": "Despeja $c$ en la fórmula: $$z = R^2 + 2Ec$$",
-     "options": [
-      "$c = \\dfrac{z - R}{2E}$",
-      "$c = \\dfrac{z - R^2}{E}$",
-      "$c = \\dfrac{z - R^2}{2E}$",
-      "$c = \\dfrac{z + R^2}{2E}$"
-     ],
-     "correct": 2,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $c$ solo: $c = \\dfrac{z - R^2}{2E}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$\\dfrac{1}{R} = \\dfrac{1}{R_1} + \\dfrac{1}{R_2}$$\ndespeja $R_2$ y luego calcula su valor si $R = 4$ Ω y $R_1 = 12$ Ω. Escribe solo el número.",
+     "answer": "6",
+     "why": "Restamos $\\tfrac{1}{R_1}$: $\\dfrac{1}{R_2} = \\dfrac{1}{4} - \\dfrac{1}{12} = \\dfrac{2}{12} = \\dfrac{1}{6}$. Invirtiendo, $R_2 = 6$ Ω. Error común: $R_2 \\neq R - R_1$.",
      "level": 3
     },
     {
-     "q": "Despeja $h$ en la fórmula: $$f = \\dfrac{B(h - q)}{n}$$",
-     "options": [
-      "$h = \\dfrac{fn + q}{B}$",
-      "$h = \\dfrac{fn}{B} + q$",
-      "$h = \\dfrac{f}{Bn} + q$",
-      "$h = \\dfrac{fn}{B} - q$"
-     ],
-     "correct": 1,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $h$ solo: $h = \\dfrac{fn}{B} + q$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$E = \\dfrac{1}{2}mv^2$$\ndespeja $m$ y luego calcula su valor si $E = 100$ J y $v = 5$ m/s. Escribe solo el número.",
+     "answer": "8",
+     "why": "Multiplicamos por $2$ y dividimos por $v^2$: $m = \\dfrac{2E}{v^2} = \\dfrac{200}{25} = 8$ kg.",
      "level": 3
     },
     {
@@ -3685,15 +3770,11 @@
      "level": 3
     },
     {
-     "q": "Despeja $r$ en la fórmula: $$y = n(1 + Dr)$$",
-     "options": [
-      "$r = \\dfrac{y + n}{nD}$",
-      "$r = \\dfrac{y - n}{nD}$",
-      "$r = \\dfrac{y}{nD} - 1$",
-      "$r = \\dfrac{y - n}{D}$"
-     ],
-     "correct": 1,
-     "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $r$ solo: $r = \\dfrac{y - n}{nD}$.",
+     "type": "input",
+     "kind": "number",
+     "q": "En la fórmula\n$$M = C(1 + rt)$$\ndespeja $t$ y luego calcula su valor si $M = 1300$, $C = 1000$ y $r = 0{,}05$ (interés simple anual). Escribe solo el número.",
+     "answer": "6",
+     "why": "Dividimos por $C$, restamos $1$ y dividimos por $r$: $t = \\dfrac{M/C - 1}{r} = \\dfrac{1{,}3 - 1}{0{,}05} = 6$ años.",
      "level": 3
     }
    ],
