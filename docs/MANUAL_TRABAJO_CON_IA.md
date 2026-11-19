@@ -64,7 +64,7 @@ Guarda el archivo que te entrega en `unidades/uX/unidad_0X.json` (reemplazando e
 ### Paso 7 · Revisarlo como estudiante
 1. Abre `editor/EDITOR_PACE.html` en Chrome o Edge (desde su carpeta). *Abrir paquete ZIP* y selecciona un ZIP con tu `unidad_0X.json` (ver el README para empaquetarlo).
 2. Recorre la **Vista estudiante** de cada estación: fórmulas bien dibujadas, enunciados claros.
-3. Pulsa **Exportar unidad + HTML + SCORM** y prueba el HTML completo.
+3. Pulsa **Exportar…**, elige *HTML navegable* y prueba el HTML.
 
 ### Paso 8 · Subirlo al repositorio
 Sigue el README: copiar el resultado a tu carpeta, *Commit*, *Push* y *Pull Request*. La verificación automática te avisa si algo no cumple.

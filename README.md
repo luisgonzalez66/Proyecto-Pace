@@ -33,7 +33,7 @@ El control es automático: todo cambio entra por un *Pull Request* y una verific
    * Con Python: `python3 herramientas/empaquetar.py u1` crea `paquetes_locales/PAQUETE_UNIDAD_01.zip`.
    * Sin Python: en la carpeta de tu unidad selecciona `unidad_0X.json` y la carpeta `recursos`, clic derecho → *Comprimir* (Mac) o *Enviar a → Carpeta comprimida* (Windows).
    * Abre `editor/EDITOR_PACE.html` en **Chrome o Edge**, desde su carpeta (no lo muevas de ahí) y elige *Abrir paquete ZIP*.
-5. Edita y, al terminar, pulsa **Exportar unidad + HTML + SCORM**. Se descarga `ENTREGA_UNIDAD_0X.zip`. **Guárdalo:** es tu respaldo y lo que se entrega a coordinación.
+5. Edita y, al terminar, pulsa **Exportar…** y elige qué necesitas: *HTML navegable* (para GitHub), *SCORM individual* (para SiveducMD), *Mapas*, *Banco de preguntas*, *Respaldo editable* (JSON + recursos) o *Paquete completo* (`ENTREGA_UNIDAD_0X.zip`, todo junto: es el respaldo y lo que se entrega a coordinación). Solo *Respaldo editable* y *Paquete completo* guardan tu trabajo editable. Mientras exporta, el editor muestra el tiempo transcurrido, la etapa y su avance.
 6. **Devuelve el trabajo al repositorio:**
    * Con Python: `python3 herramientas/desempaquetar.py ~/Descargas/ENTREGA_UNIDAD_0X.zip`. Copia el contenido, los recursos y la página `html/`.
    * Sin Python: abre el ZIP y copia `unidad_0X.json` (y la carpeta `recursos`, si existe) a `unidades/uX/`, y el contenido de la carpeta `VISTA_PREVIA_HTML` a `unidades/uX/html/`, reemplazando lo anterior.

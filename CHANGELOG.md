@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 19-11-2026 — Editor: exportar por modalidades con avance visible (propuesta de Henry)
+- El botón «Exportar…» abre un cuadro para elegir: HTML navegable, SCORM individual (se descarga directo), Mapas (SVG/PNG), Banco de preguntas (PDF/LaTeX), Respaldo editable (JSON + recursos) o Paquete completo. Cada opción hace solo sus tareas y recuerda la última elección.
+- Durante la exportación: cronómetro de tiempo transcurrido, lista de etapas con su duración, detalle de la etapa en curso (por ejemplo «Estación 3 de 14 · pregunta 180 de 1120»), barra de avance y «última actividad». Botón «Detener». Si una etapa falla, se indica cuál y se puede reintentar sin perder el trabajo.
+- Al terminar: «Descarga iniciada», nombre y tamaño del archivo. Solo «Respaldo editable» y «Paquete completo» marcan el trabajo como guardado.
+- Banco PDF: las fórmulas ya dibujadas se reutilizan (la segunda exportación de la Unidad I bajó de 96 s a 9 s). En el paquete completo, el SCORM se guarda sin volver a comprimirlo.
+
 ## 19-11-2026 — Cierre de bloque, «¿Qué método conviene?» y despeje con respuesta escrita
 - Nuevo «Cierre del bloque» al final de cada bloque con 2 o más estaciones (las tres unidades): práctica mixta de 8 ejercicios de las estaciones del bloque, sin decir de cuál viene cada uno; un intento por ejercicio y resumen por estación con «Repasar». No cuenta para el avance ni se registra en el SCORM.
 - Unidad III, bloque «Ecuaciones cuadráticas»: pantalla-guía «¿Qué método conviene?» (pasos y diagrama) y 12 preguntas de elección de método; cada ronda tiene 9 ejercicios (3 de elección de método).

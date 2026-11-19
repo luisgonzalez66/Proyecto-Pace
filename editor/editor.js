@@ -56,20 +56,7 @@ function newStation(){if(unit.stations.length>=PACEContract.maxStations){alertMe
  const s={id:nextStationID(),title:'Nueva estación',subtitle:'Escribe un resumen breve',group:current,symbol:'✧',minutes:60,concept:'Explica aquí el concepto. Puedes escribir $\\frac{1}{2}$.',example:'Agrega un ejemplo resuelto.',media:[],learn:{goal:'',idea:'',steps:{title:'',items:[{why:'',math:''}]},warn:''},practice:[qNew(),qNew()],check:qNew()};unit.stations.push(s);selected=unit.stations.length-1;touch();renderStationList();renderStationEditor();}
 function selectedQuestion(box){const s=station(),lane=box.dataset.lane,i=Number(box.dataset.qi);return lane==='check'?s.check:lane==='checks'?s.checks[i]:s.practice[i];}
 function validatePackage(){return PACEValidation.validate(unit,resources);}
-async function exportUnit(){if(!unit)return;try{validatePackage();let zip=new JSZip();zip.file(unitFile,JSON.stringify(unit,null,2)+'\n');let used=new Set(unit.stations.flatMap(s=>(s.media||[]).filter(m=>m.type!=='video_url').map(m=>m.src)));for(let path of used)zip.file(path,resources[path]);zip.file('LEEME_ENTREGA.txt',`PACE UACh · entrega individual ${unitFile}\nEl JSON y la carpeta recursos/ de la raíz se utilizan para seguir editando y compilar el curso conjunto.\nVISTA_PREVIA_HTML/index.html: abre localmente una vez extraído el ZIP.\nSCORM_INDIVIDUAL/: paquete de tu unidad para probar directamente en SiveducMD.\nMAPAS/ y BANCO_PREGUNTAS/: materiales docentes complementarios (con respuestas).\nEnvía el ZIP completo a coordinación, sin modificar su estructura.\n`);
- status('Generando mapas, banco LaTeX y PDF…');
- zip.file('MAPAS/MAPA_UNIDAD_ARBOL.svg',PACEArtifacts.hierarchySVG(unit));
- zip.file('MAPAS/MAPA_PROGRESO_EJEMPLO.svg',PACEArtifacts.svgMap(unit,'example'));
- zip.file('MAPAS/MAPA_UNIDAD_ARBOL.png',await PACEArtifacts.pngFromSVG(PACEArtifacts.hierarchySVG(unit)));
- zip.file('MAPAS/MAPA_PROGRESO_EJEMPLO.png',await PACEArtifacts.pngFromSVG(PACEArtifacts.svgMap(unit,'example')));
- zip.file('BANCO_PREGUNTAS/BANCO_UNIDAD_'+unit.id[1]+'.tex',PACEArtifacts.bankTex(unit));
- zip.file('BANCO_PREGUNTAS/BANCO_UNIDAD_'+unit.id[1]+'.pdf',await PACEArtifacts.bankPDF(unit));
- zip.file('BANCO_PREGUNTAS/NOTA.txt','Banco docente: contiene preguntas, respuestas y retroalimentaciones. El PDF presenta las fórmulas mediante renderizado matemático cuando MathJax está disponible. Los adjuntos se listan por nombre; las imágenes y videos originales están en recursos/.\n');
- status('Preparando HTML navegable y SCORM individual…');
- await PACEPublisher.publish(unit,resources,zip);
- await PACEValidation.archive(zip);
- const content=await zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}});const url=URL.createObjectURL(content);const a=document.createElement('a');a.href=url;a.download=`ENTREGA_UNIDAD_0${unit.id[1]}.zip`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);dirty=false;try{localStorage.removeItem(draftKey());}catch(e){}status('Exportado: '+a.download+' · HTML local y SCORM individual incluidos.');
- }catch(e){alertMessage('Antes de exportar: '+e.message,true);try{const l=collectIssues();if(l.length)showIssues(l);}catch(_){}}}
+/* La exportación está al final de este archivo (modalidades y avance, 19-11-2026). */
 
 /* ---- Aprende visual (campo opcional "learn") ---- */
 const bold=t=>multiline(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
@@ -166,7 +153,6 @@ function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<
  applyPvFocus(false);
 }
 $('openPackage').addEventListener('change',e=>{const file=e.target.files[0];if(file)openUnit(file);e.target.value='';});
-$('exportPackage').onclick=exportUnit;
 $('addStation').onclick=()=>{if(unit)newStation();};
 $('addGroup').onclick=()=>{if(!unit)return;if(unit.groups.length>=PACEContract.maxGroups){alertMessage('Máximo 15 bloques por unidad',true);return;}unit.groups.push({title:'Nuevo bloque',subtitle:''});touch();renderGroups();renderStationEditor();};
 $('stationList').addEventListener('click',e=>{const b=e.target.closest('button[data-index]');if(!b)return;selected=Number(b.dataset.index);exActive=0;pvLast=null;renderStationList();renderStationEditor();});
@@ -272,5 +258,138 @@ $('exportMap').onclick=async()=>{if(!unit)return;try{const svg=PACEArtifacts.hie
  sp.addEventListener('dblclick',()=>{L.style.removeProperty('--cols');try{localStorage.removeItem('pace_split');}catch(e){}setLayout('half');});
  try{const s=(localStorage.getItem('pace_split')||'').split(',').map(Number);if(s.length===2&&s[0]>0&&s[1]>0)set(s[0],s[1],false);}catch(e){}
  $$('[data-layout]').forEach(b=>b.addEventListener('click',()=>{L.style.removeProperty('--cols');try{localStorage.removeItem('pace_split');}catch(e){}}));
+})();
+
+/* PACE UACh · Exportación por modalidades con avance visible (19-11-2026).
+ * Propuesta de Henry (Propuestas de mejoras/COMENTARIOS_LUIS_OPTIMIZACION_EXPORTACION.txt):
+ * elegir qué exportar y hacer solo esas tareas; cronómetro, etapa en curso, avance y última actividad.
+ * Usa las variables y funciones de editor.js (unit, resources, unitFile, dirty, validatePackage, …). */
+(()=>{
+'use strict';
+const MODES={
+ html:{t:'HTML navegable',d:'Para actualizar los HTML de la unidad en GitHub.',inc:'Carpeta VISTA_PREVIA_HTML (motor, data.js y recursos).',file:n=>`HTML_UNIDAD_0${n}.zip`},
+ scorm:{t:'SCORM individual',d:'Para probar la unidad en SiveducMD.',inc:'Solo el ZIP SCORM, listo para subir (sin otro ZIP alrededor).',file:n=>`SCORM_UNIDAD_0${n}.zip`},
+ mapas:{t:'Mapas',d:'Para revisar o imprimir los mapas de la unidad.',inc:'Mapa en árbol y mapa de progreso de ejemplo.',file:n=>`MAPAS_UNIDAD_0${n}.zip`},
+ banco:{t:'Banco de preguntas',d:'Copia docente con respuestas y comentarios.',inc:'PDF y/o LaTeX. El PDF es la etapa más lenta.',file:n=>`BANCO_UNIDAD_0${n}`},
+ respaldo:{t:'Respaldo editable',d:'Para guardar el trabajo y seguir editando después.',inc:'JSON de la unidad y carpeta recursos/. Se vuelve a abrir con «Abrir paquete».',file:n=>`RESPALDO_UNIDAD_0${n}.zip`},
+ completo:{t:'Paquete completo',d:'Entrega integral a coordinación y respaldo.',inc:'Todo lo anterior: JSON, recursos, HTML, SCORM, mapas y banco PDF + LaTeX.',file:n=>`ENTREGA_UNIDAD_0${n}.zip`}};
+const ORDER=['html','scorm','mapas','banco','respaldo','completo'];
+const ST={validar:'Revisando la unidad',preparar:'Preparando archivos',archivos:'Incorporando JSON y recursos',mapas:'Generando mapas',tex:'Generando banco LaTeX',pdf:'Generando banco PDF',html:'Preparando HTML',scorm:'Construyendo SCORM',revision:'Validando archivos',comprimir:'Comprimiendo paquete',descarga:'Descarga iniciada'};
+let R=null,timer=null;
+const pad=n=>String(n).padStart(2,'0');
+const hms=s=>pad(Math.floor(s/3600))+':'+pad(Math.floor(s/60)%60)+':'+pad(Math.floor(s)%60);
+const mb=b=>(b/1048576).toFixed(b<1048576?2:1).replace('.',',')+' MB';
+const pref=()=>{try{return JSON.parse(localStorage.getItem('pace-export')||'{}');}catch(e){return {};}};
+const savePref=o=>{try{localStorage.setItem('pace-export',JSON.stringify(o));}catch(e){}};
+const css=`#pxDlg{border:0;border-radius:16px;padding:0;width:min(760px,94vw);max-height:92vh;box-shadow:0 20px 60px rgba(10,40,60,.35);color:#173b50}
+#pxDlg::backdrop{background:rgba(12,35,52,.45)}
+.px-in{padding:20px 22px;overflow:auto;max-height:92vh;box-sizing:border-box}
+.px-in h2{margin:0 0 4px;font-size:20px;color:#113756}.px-in>p{margin:0 0 14px;font-size:13px;color:#506a77}
+.px-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.px-opt{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #d3e3e8;border-radius:12px;padding:11px 12px;cursor:pointer;background:#fff}
+.px-opt:hover{border-color:#0a9cb1}.px-opt.on{border-color:#0a7d89;background:#eef9f9;box-shadow:0 0 0 2px #0a7d8933}
+.px-opt input[type=radio]{margin-top:3px;accent-color:#0a7d89}
+.px-opt b{display:block;font-size:14px;color:#113756}.px-opt span{display:block;font-size:12px;color:#425c67;line-height:1.4;margin-top:2px}
+.px-opt em{display:block;font-style:normal;font-size:11.5px;color:#5f7380;margin-top:4px}
+.px-sub{display:flex;gap:12px;margin-top:6px;font-size:12px}.px-sub label{display:flex;gap:4px;align-items:center}
+.px-file{margin:12px 0 0;font-size:12.5px;color:#425c67}.px-file code{background:#eef4f6;padding:2px 6px;border-radius:5px}
+.px-row{display:flex;gap:8px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}
+.px-clock{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin:6px 0 12px}
+.px-clock b{font:700 30px/1 ui-monospace,Menlo,Consolas,monospace;color:#113756;letter-spacing:.02em}
+.px-clock span{font-size:12.5px;color:#506a77}.px-clock span.slow{color:#a05131;font-weight:700}
+.px-steps{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.px-steps li{display:grid;grid-template-columns:22px 1fr auto;gap:8px;align-items:center;font-size:13.5px;padding:7px 10px;border-radius:9px;background:#f6fafb;color:#7a8e98}
+.px-steps li i{font-style:normal;text-align:center;font-weight:900}
+.px-steps li.run{background:#e7f3f6;color:#113756;font-weight:700}.px-steps li.ok{color:#1c6d4f}.px-steps li.bad{background:#fff0e8;color:#8e4d24;font-weight:700}
+.px-steps small{font-size:12px;color:#425c67;font-weight:600}
+.px-bar{height:8px;border-radius:6px;background:#e1ebef;margin:10px 0 2px;overflow:hidden}.px-bar>div{height:100%;width:0;background:#0a7d89;transition:width .25s}
+.px-bar.ind>div{width:30%;animation:pxind 1.2s ease-in-out infinite}@keyframes pxind{0%{transform:translateX(-100%)}100%{transform:translateX(340%)}}
+.px-msg{margin:12px 0 0;padding:10px 12px;border-radius:9px;font-size:13.5px;line-height:1.5}.px-msg.ok{background:#e9f7ef;color:#1c6d4f}.px-msg.bad{background:#fff0e8;color:#8e4d24}
+@media (max-width:640px){.px-grid{grid-template-columns:1fr}}`;
+function ensure(){
+ if($('pxDlg'))return;
+ const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
+ const d=document.createElement('dialog');d.id='pxDlg';d.innerHTML='<div class="px-in" id="pxIn"></div>';document.body.appendChild(d);
+ d.addEventListener('cancel',e=>{if(R&&R.running)e.preventDefault();});
+}
+function choose(){
+ if(!unit)return;ensure();const p=pref(),mode=MODES[p.mode]?p.mode:'completo',n=unit.id[1];
+ const sub=k=>k==='mapas'?`<div class="px-sub"><label><input type="checkbox" id="pxSvg" ${p.svg!==false?'checked':''}> SVG</label><label><input type="checkbox" id="pxPng" ${p.png!==false?'checked':''}> PNG</label></div>`:k==='banco'?`<div class="px-sub"><label><input type="checkbox" id="pxPdf" ${p.pdf!==false?'checked':''}> PDF</label><label><input type="checkbox" id="pxTex" ${p.tex!==false?'checked':''}> LaTeX</label></div>`:'';
+ $('pxIn').innerHTML=`<h2>Exportar Unidad ${esc(unit.roman||n)}</h2><p>Elige qué necesitas: el editor hace solo esas tareas.</p><div class="px-grid" role="radiogroup">${ORDER.map(k=>`<label class="px-opt${k===mode?' on':''}"><input type="radio" name="pxMode" value="${k}" ${k===mode?'checked':''}><div><b>${MODES[k].t}</b><span>${MODES[k].d}</span><em>${MODES[k].inc}</em>${sub(k)}</div></label>`).join('')}</div><p class="px-file" id="pxFile"></p><div class="px-row"><button type="button" class="btn" id="pxCancel">Cancelar</button><button type="button" class="btn primary" id="pxGo">⬇ Exportar</button></div>`;
+ const upd=()=>{const k=document.querySelector('input[name=pxMode]:checked').value;document.querySelectorAll('.px-opt').forEach(o=>o.classList.toggle('on',o.querySelector('input').value===k));$('pxFile').innerHTML='Se descargará: <code>'+esc(fileName(k))+'</code>';$('pxGo').disabled=(k==='mapas'&&!$('pxSvg').checked&&!$('pxPng').checked)||(k==='banco'&&!$('pxPdf').checked&&!$('pxTex').checked);};
+ $('pxIn').addEventListener('change',upd);upd();
+ $('pxCancel').onclick=()=>$('pxDlg').close();
+ $('pxGo').onclick=()=>{const k=document.querySelector('input[name=pxMode]:checked').value,o={mode:k,svg:$('pxSvg').checked,png:$('pxPng').checked,pdf:$('pxPdf').checked,tex:$('pxTex').checked};savePref(o);run(o);};
+ if(!$('pxDlg').open)$('pxDlg').showModal();
+}
+function fileName(k,o){o=o||{pdf:$('pxPdf')?.checked,tex:$('pxTex')?.checked};const n=unit.id[1],f=MODES[k].file(n);if(k!=='banco')return f;return o.pdf&&o.tex?f+'.zip':o.pdf?'BANCO_UNIDAD_'+n+'.pdf':'BANCO_UNIDAD_'+n+'.tex';}
+function stagesFor(o){switch(o.mode){
+ case 'html':return ['validar','preparar','html','comprimir','descarga'];
+ case 'scorm':return ['validar','preparar','scorm','descarga'];
+ case 'mapas':return ['mapas','comprimir','descarga'];
+ case 'banco':return [o.tex&&'tex',o.pdf&&'pdf',o.tex&&o.pdf&&'comprimir','descarga'].filter(Boolean);
+ case 'respaldo':return ['validar','archivos','comprimir','descarga'];
+ default:return ['validar','archivos','mapas','tex','pdf','preparar','html','scorm','revision','comprimir','descarga'];}}
+function paint(){
+ if(!R)return;const now=Date.now(),el=(now-R.t0)/1000,idle=(now-R.last)/1000;
+ const c=$('pxClock');if(!c)return;if(R.running)c.textContent=hms(el);
+ const a=$('pxLast');if(a&&R.running){a.textContent=idle<2?'Última actividad: ahora':'Última actividad: hace '+Math.floor(idle)+' s';a.classList.toggle('slow',idle>=20);}
+ R.stages.forEach((s,i)=>{const li=$('pxS'+i);if(!li)return;const st=R.state[i];li.className=st;li.querySelector('i').textContent=st==='ok'?'✓':st==='run'?'◐':st==='bad'?'✗':'○';li.querySelector('small').textContent=st==='run'?R.detail:st==='ok'&&R.took[i]!=null?R.took[i].toFixed(1).replace('.',',')+' s':'';});
+ const bar=$('pxBar');if(bar){const known=R.pct!=null;bar.classList.toggle('ind',R.running&&!known);bar.firstChild.style.width=known?Math.max(0,Math.min(100,R.pct))+'%':'';bar.style.visibility=R.running?'visible':'hidden';}}
+function report(detail,pct){if(R.cancel)throw Error('Exportación cancelada.');R.detail=detail||'';R.pct=(pct==null||Number.isNaN(pct))?null:pct;R.last=Date.now();}
+async function stage(key,fn){
+ const i=R.stages.indexOf(key);R.cur=i;R.state[i]='run';R.detail='';R.pct=null;R.last=Date.now();const t=Date.now();paint();
+ await new Promise(ok=>setTimeout(ok,0));
+ const v=await fn();R.state[i]='ok';R.took[i]=(Date.now()-t)/1000;R.last=Date.now();paint();return v;}
+async function zipUp(zip){return stage('comprimir',()=>zip.generateAsync({type:'blob',compression:'DEFLATE',compressionOptions:{level:6}},m=>{try{report((m.currentFile?m.currentFile.split('/').pop()+' · ':'')+Math.round(m.percent)+' %',m.percent);}catch(e){}}));}
+function addSource(zip){zip.file(unitFile,JSON.stringify(unit,null,2)+'\n');for(const path of Object.keys(resources))if(/^recursos\//.test(path)&&resources[path])zip.file(path,resources[path]);}
+async function addMaps(zip,o,pre){
+ const list=[];if(o.svg!==false)list.push(['MAPA_UNIDAD_ARBOL.svg',()=>PACEArtifacts.hierarchySVG(unit)],['MAPA_PROGRESO_EJEMPLO.svg',()=>PACEArtifacts.svgMap(unit,'example')]);
+ if(o.png!==false)list.push(['MAPA_UNIDAD_ARBOL.png',()=>PACEArtifacts.pngFromSVG(PACEArtifacts.hierarchySVG(unit))],['MAPA_PROGRESO_EJEMPLO.png',()=>PACEArtifacts.pngFromSVG(PACEArtifacts.svgMap(unit,'example'))]);
+ for(const [k,[name,f]] of list.entries()){report(name+' ('+(k+1)+' de '+list.length+')',k/list.length*100);zip.file(pre+name,await f());}}
+const pdfP=x=>report('Estación '+x.station+' de '+x.nst+' · pregunta '+x.done+' de '+x.total,x.done/x.total*100);
+async function run(o){
+ const n=unit.id[1],name=fileName(o.mode,o),stages=stagesFor(o);
+ R={o,stages,state:stages.map(()=>''),took:stages.map(()=>null),t0:Date.now(),last:Date.now(),detail:'',pct:null,running:true,cancel:false,cur:-1};
+ $('pxIn').innerHTML=`<h2>Exportando: ${MODES[o.mode].t}</h2><p>Unidad ${esc(unit.roman||n)} · archivo <code>${esc(name)}</code></p><div class="px-clock"><b id="pxClock">00:00:00</b><span>tiempo transcurrido</span><span id="pxLast">Última actividad: ahora</span></div><ol class="px-steps">${stages.map((s,i)=>`<li id="pxS${i}"><i>○</i><span>${ST[s]}</span><small></small></li>`).join('')}</ol><div class="px-bar" id="pxBar"><div></div></div><div id="pxEnd"></div><div class="px-row" id="pxBtns"><button type="button" class="btn" id="pxStop">Detener</button></div>`;
+ $('pxStop').onclick=()=>{R.cancel=true;$('pxStop').disabled=true;$('pxStop').textContent='Deteniendo…';};
+ clearInterval(timer);timer=setInterval(paint,250);paint();status('Exportando '+MODES[o.mode].t.toLowerCase()+'…');
+ try{
+  let blob,prep=null;const zip=new JSZip();
+  if(stages.includes('validar'))await stage('validar',()=>{report('Comprobando estaciones, preguntas y recursos');validatePackage();});
+  if(o.mode==='respaldo'||o.mode==='completo')await stage('archivos',()=>{addSource(zip);if(o.mode==='completo')zip.file('LEEME_ENTREGA.txt',`PACE UACh · entrega individual ${unitFile}\nEl JSON y la carpeta recursos/ de la raíz se utilizan para seguir editando y compilar el curso conjunto.\nVISTA_PREVIA_HTML/index.html: abre localmente una vez extraído el ZIP.\nSCORM_INDIVIDUAL/: paquete de tu unidad para probar directamente en SiveducMD.\nMAPAS/ y BANCO_PREGUNTAS/: materiales docentes complementarios (con respuestas).\nEnvía el ZIP completo a coordinación, sin modificar su estructura.\n`);});
+  if(stages.includes('mapas'))await stage('mapas',()=>addMaps(zip,o.mode==='completo'?{}:o,o.mode==='completo'?'MAPAS/':''));
+  const bp=o.mode==='completo'?'BANCO_PREGUNTAS/':'';
+  let tex=null,pdf=null;
+  if(stages.includes('tex'))await stage('tex',()=>{report('Escribiendo el archivo .tex');tex=PACEArtifacts.bankTex(unit);zip.file(bp+'BANCO_UNIDAD_'+n+'.tex',tex);});
+  if(stages.includes('pdf'))await stage('pdf',async()=>{report('Cargando el renderizado matemático');pdf=await PACEArtifacts.bankPDF(unit,pdfP);zip.file(bp+'BANCO_UNIDAD_'+n+'.pdf',pdf);});
+  if(o.mode==='completo')zip.file('BANCO_PREGUNTAS/NOTA.txt','Banco docente: contiene preguntas, respuestas y retroalimentaciones. El PDF presenta las fórmulas mediante renderizado matemático cuando MathJax está disponible. Los adjuntos se listan por nombre; las imágenes y videos originales están en recursos/.\n');
+  if(stages.includes('preparar'))prep=await stage('preparar',()=>{report('Cargando el motor del curso');return PACEPublisher.prepare(unit,resources);});
+  if(stages.includes('html'))await stage('html',()=>PACEPublisher.addHTML(prep,zip,'VISTA_PREVIA_HTML/',x=>report(x.file+' ('+x.done+' de '+x.total+')',x.done/x.total*100)));
+  if(stages.includes('scorm')){const b=await stage('scorm',()=>PACEPublisher.scormBytes(prep,unit,x=>{try{report((x.file?x.file.split('/').pop()+' · ':'')+Math.round(x.pct)+' %',x.pct);}catch(e){}}));
+   if(o.mode==='scorm')blob=new Blob([b],{type:'application/zip'});else zip.file('SCORM_INDIVIDUAL/SCORM_UNIDAD_0'+n+'.zip',b,{compression:'STORE'});}
+  if(stages.includes('revision'))await stage('revision',()=>{report('Tamaño y cantidad de archivos');return PACEValidation.archive(zip);});
+  if(o.mode==='banco'&&!(o.pdf&&o.tex))blob=o.pdf?new Blob([pdf],{type:'application/pdf'}):new Blob([tex],{type:'application/x-tex'});
+  if(stages.includes('comprimir'))blob=await zipUp(zip);
+  if(R.cancel)throw Error('Exportación cancelada.');
+  await stage('descarga',()=>{download(blob,name);});
+  R.running=false;clearInterval(timer);paint();
+  if(o.mode==='respaldo'||o.mode==='completo'){dirty=false;try{localStorage.removeItem(draftKey());}catch(e){}}
+  const el=hms((Date.now()-R.t0)/1000);
+  $('pxEnd').innerHTML=`<p class="px-msg ok">✓ <b>Descarga iniciada:</b> ${esc(name)} (${mb(blob.size)}) · tiempo total ${el}.<br>El navegador indica cuándo termina de guardarse el archivo.${o.mode==='html'||o.mode==='scorm'||o.mode==='mapas'||o.mode==='banco'?'<br>Esta opción no guarda el JSON editable: para conservar tus cambios usa «Respaldo editable» o «Paquete completo».':''}</p>`;
+  $('pxBtns').innerHTML='<button type="button" class="btn" id="pxAgain">Exportar otra cosa</button><button type="button" class="btn primary" id="pxClose">Cerrar</button>';
+  status('Exportado: '+name+(o.mode==='respaldo'||o.mode==='completo'?'':' · el JSON editable no se guardó con esta opción'));
+ }catch(e){
+  R.running=false;clearInterval(timer);if(R.cur>=0&&R.state[R.cur]==='run')R.state[R.cur]='bad';paint();
+  const where=R.cur>=0?ST[R.stages[R.cur]]:'Inicio',cancel=R.cancel;
+  $('pxEnd').innerHTML=`<p class="px-msg bad">${cancel?'Exportación detenida':'✗ Falló la etapa <b>«'+esc(where)+'»</b>'}: ${esc(cancel?'no se descargó nada. Tu trabajo en el editor sigue intacto.':e.message)}</p>`;
+  $('pxBtns').innerHTML='<button type="button" class="btn" id="pxAgain">Elegir otra opción</button><button type="button" class="btn primary" id="pxRetry">Reintentar</button><button type="button" class="btn" id="pxClose">Cerrar</button>';
+  $('pxRetry').onclick=()=>run(o);status(cancel?'Exportación detenida.':'La exportación falló en «'+where+'».');
+  if(!cancel&&R.stages[R.cur]==='validar'){try{const l=collectIssues();if(l.length)showIssues(l);}catch(_){}}
+ }
+ $('pxClose').onclick=()=>$('pxDlg').close();$('pxAgain').onclick=choose;
+}
+$('exportPackage').onclick=choose;
+window.PACEExport={choose,run};
 })();
 })();

@@ -37,20 +37,30 @@ window.PACEPublisher = (()=>{
   }
   return {root,motor,used};
  }
- async function publish(unit,resources,target){
-  const {root,motor,used}=await prepare(unit,resources);
-  // Los archivos incluidos en el HTML local y el SCORM son iguales.
-  const list=Object.keys(root.files).filter(name=>!root.files[name].dir);
-  for(const name of list)target.file('VISTA_PREVIA_HTML/'+name,await root.file(name).async('uint8array'));
-  let manifest=await motor.file('imsmanifest.xml').async('string');
-  const lines=[...used].map(name=>'<file href="recursos/'+unit.id+'/'+name.split('/').pop()+'"/>').join('');
+ const INSTR='Abre index.html después de extraer el ZIP completo. No lo abras dentro del archivo comprimido. En esta versión el progreso se guarda solo localmente, cuando el navegador lo permite. SiveducMD necesita el ZIP del SCORM individual.\n';
+ // HTML navegable: copia los archivos del motor + data.js + recursos dentro de `target` bajo `prefix`.
+ async function addHTML(prep,target,prefix='VISTA_PREVIA_HTML/',onP){
+  const list=Object.keys(prep.root.files).filter(name=>!prep.root.files[name].dir);
+  for(const [k,name] of list.entries()){target.file(prefix+name,await prep.root.file(name).async('uint8array'));if(onP)onP({done:k+1,total:list.length,file:name});}
+  target.file(prefix+'INSTRUCCIONES.txt',INSTR);
+ }
+ // SCORM individual: ZIP listo para SiveducMD (bytes).
+ async function scormBytes(prep,unit,onP){
+  let manifest=await prep.motor.file('imsmanifest.xml').async('string');
+  const lines=[...prep.used].map(name=>'<file href="recursos/'+unit.id+'/'+name.split('/').pop()+'"/>').join('');
   manifest=manifest.replace('</resource></resources>',lines+'</resource></resources>');
   manifest=manifest.replace('PACE_MATEMATICA_MODULAR_V7','PACE_INDIVIDUAL_'+unit.id.toUpperCase()+'_V3');
-  const scorm=root.clone();scorm.file('imsmanifest.xml',manifest);
-  const blob=await scorm.generateAsync({type:'uint8array',compression:'DEFLATE',compressionOptions:{level:6}});
+  const scorm=prep.root.clone();scorm.file('imsmanifest.xml',manifest);
+  const blob=await scorm.generateAsync({type:'uint8array',compression:'DEFLATE',compressionOptions:{level:6}},m=>{if(onP)onP({pct:m.percent,file:m.currentFile});});
   if(blob.byteLength>=PACEContract.maxScormBytes)throw Error('El SCORM supera 100 MB; reduce recursos antes de publicar');
-  target.file('SCORM_INDIVIDUAL/SCORM_UNIDAD_0'+unit.id[1]+'.zip',blob);
-  target.file('VISTA_PREVIA_HTML/INSTRUCCIONES.txt','Abre index.html después de extraer el ZIP completo. No lo abras dentro del archivo comprimido. En esta versión el progreso se guarda solo localmente, cuando el navegador lo permite. SiveducMD necesita el ZIP de SCORM_INDIVIDUAL.\n');
+  return blob;
  }
- return {publish};
+ // Compatibilidad: HTML + SCORM dentro de `target` (el SCORM se guarda sin volver a comprimirlo).
+ async function publish(unit,resources,target,onP){
+  const prep=await prepare(unit,resources);
+  await addHTML(prep,target,'VISTA_PREVIA_HTML/',onP&&(x=>onP('html',x)));
+  const blob=await scormBytes(prep,unit,onP&&(x=>onP('scorm',x)));
+  target.file('SCORM_INDIVIDUAL/SCORM_UNIDAD_0'+unit.id[1]+'.zip',blob,{compression:'STORE'});
+ }
+ return {publish,prepare,addHTML,scormBytes};
 })();

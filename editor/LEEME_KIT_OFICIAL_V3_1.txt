@@ -10,7 +10,7 @@ CÓMO TRABAJAR
 3. Selecciona PAQUETE_UNIDAD_02_INICIAL.zip, ubicado junto a este documento.
 4. Edita bloques y estaciones: APRENDE (explicación), PRACTICA (ejercicios con retroalimentación) y APLICA (uso contextualizado, idealmente en ciencias).
 5. Revisa la «Vista estudiante», mapas y duración estimada. Esta vista es de edición: para comprobar el funcionamiento completo, utiliza el HTML que se exporta.
-6. Pulsa «Exportar unidad + HTML + SCORM» y espera a que se descargue ENTREGA_UNIDAD_02.zip.
+6. Pulsa «Exportar…», elige «Paquete completo» y espera a que se descargue ENTREGA_UNIDAD_02.zip. (Si solo necesitas el HTML, el SCORM, los mapas o el banco, elige esa opción: es más rápido.)
 7. GUARDA ese ZIP completo en un lugar conocido: contiene tu trabajo editable y sirve como respaldo para continuar otro día.
 
 CÓMO REVISAR EL RESULTADO
