@@ -72,5 +72,36 @@ def main():
             encabezado(w2, (34, 34, 12, 28, 10, 70, 70))
         else:
             print('Aviso: el catálogo anterior tiene otra cantidad de preguntas; no se arma la hoja «IDs anteriores».')
-    wb.save(salida); print('Listo:', salida, '·', len(rows), 'preguntas')
-main()
+    # Preguntas de versiones anteriores (historial de git): así los informes viejos siguen teniendo enunciado.
+    hist = historicas({r[0] for r in rows})
+    if hist:
+        w3 = wb.create_sheet('Versiones anteriores')
+        w3.append(['ID de la pregunta', 'ID en META FINAL', 'Unidad', 'Estación', 'Sección', 'Formato', 'Nivel', 'Enunciado', 'Respuesta correcta', 'Versión (commit)'])
+        for r in hist: w3.append(r)
+        encabezado(w3, (26, 26, 12, 28, 10, 18, 7, 90, 30, 14))
+    wb.save(salida); print('Listo:', salida, '·', len(rows), 'preguntas ·', len(hist), 'de versiones anteriores')
+
+
+def historicas(actuales):
+    import subprocess
+    vistas, out = set(actuales), []
+    for n in '123':
+        ruta = f'unidades/u{n}/unidad_0{n}.json'
+        try:
+            revs = subprocess.run(['git', '-C', REPO, 'log', '--format=%h', '--', ruta], capture_output=True, text=True, check=True).stdout.split()
+        except Exception:
+            return out
+        for rv in revs:
+            try:
+                unit = json.loads(subprocess.run(['git', '-C', REPO, 'show', f'{rv}:{ruta}'], capture_output=True, text=True, check=True).stdout)
+                fs = filas(unit)
+            except Exception:
+                continue
+            for r in fs:
+                if r[0] not in vistas:
+                    vistas.add(r[0]); out.append(list(r) + [rv])
+    return out
+
+
+if __name__ == '__main__':
+    main()

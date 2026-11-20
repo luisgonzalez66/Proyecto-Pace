@@ -34,13 +34,15 @@ def leer_informe(ruta, excluir):
     return reg
 
 def leer_catalogo(ruta):
-    ws = openpyxl.load_workbook(ruta, data_only=True)['Catalogo']
+    wb = openpyxl.load_workbook(ruta, data_only=True)
     cat = {}
-    for r in list(ws.iter_rows(values_only=True))[1:]:
-        if not r[0]: continue
-        info = dict(unidad=r[2], estacion=r[3], seccion=r[4], formato=r[5], nivel=r[6], enunciado=r[7], correcta=r[8])
-        cat[r[0]] = info
-        cat[r[1]] = dict(info, seccion='META FINAL')
+    hojas = [('Catalogo', '')] + ([('Versiones anteriores', '(versión anterior) ')] if 'Versiones anteriores' in wb.sheetnames else [])
+    for hoja, marca in hojas:
+        for r in list(wb[hoja].iter_rows(values_only=True))[1:]:
+            if not r[0] or r[0] in cat: continue
+            info = dict(unidad=r[2], estacion=r[3], seccion=r[4], formato=r[5], nivel=r[6], enunciado=marca + str(r[7] or ''), correcta=r[8])
+            cat[r[0]] = info
+            cat[r[1]] = dict(info, seccion='META FINAL')
     return cat
 
 def main():

@@ -1,5 +1,8 @@
 # Versiones del curso (SCORM único)
 
+## 20-11-2026 — Catálogo con versiones anteriores de las preguntas
+- `generar_catalogo.py` agrega la hoja «Versiones anteriores» con las preguntas de versiones antiguas de las unidades (desde el historial de git), y `analizar_errores.py` la usa: las respuestas registradas con un SCORM anterior ya no quedan «sin catálogo» (se marcan como «(versión anterior)»).
+
 ## 19-11-2026 — Unidad II: revisión completa (autorizada por Luis; responsable de la unidad: Bastián)
 Los contenidos (temas y estaciones) no cambian; cambia cómo se enseñan y se ejercitan.
 - **Aprende:** las 12 estaciones tienen un objetivo «Al terminar podrás…», 4 ejemplos guiados nuevos con el desarrollo línea a línea en el cuadro izquierdo (caso básico, coeficiente distinto de 1, dos variables o fracciones, y un error típico o la elección del método), verificación aparte y un aviso de error propio. Antes, 44 de 48 ejemplos tenían el cuadro izquierdo vacío y las 12 estaciones compartían el mismo aviso.
