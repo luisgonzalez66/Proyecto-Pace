@@ -37,6 +37,17 @@ def filas(unit):
             out.append([f"{s['id']}.{k}.{h}", f"{s['id']}.M.{h}", ROM[unit['id']], s['title'], sec,
                         'Alternativas' if alt else 'Respuesta escrita', q.get('level') if sec == 'Practica' else None,
                         re.sub(r'\s+', ' ', q['q']).strip(), corr])
+        # Diagnóstico «Antes de empezar»: station.diag o, si no hay, la primera de nivel 2 de Practica (de preferencia escrita)
+        d = s.get('diag') if isinstance(s.get('diag'), dict) and s['diag'].get('q') else None
+        if d is None:
+            L = [q for q in s['practice'] if q.get('level') == 2]
+            T = [q for q in L if q.get('type') == 'input']
+            d = (T or L or s['practice'] or [None])[0]
+        if d:
+            alt = 'options' in d
+            corr = '%s) %s' % (chr(97 + d['correct']), d['options'][d['correct']]) if alt else str(d['answer'])
+            out.append([f"{s['id']}.D.{b36(hash_str(d['q']))}", '', ROM[unit['id']], s['title'], 'Diagnóstico',
+                        'Alternativas' if alt else 'Respuesta escrita', d.get('level'), re.sub(r'\s+', ' ', d['q']).strip(), corr])
     return out
 
 def encabezado(ws, widths):

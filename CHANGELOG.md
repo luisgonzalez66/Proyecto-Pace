@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 22-11-2026 — Diagnóstico «Antes de empezar» en cada estación
+- La primera vez que se entra a una estación aparece una sola pregunta de esa estación, antes de Aprende. Hay un botón «Todavía no lo sé»; después solo se dice si acertó (sin explicación) y se pasa a la estación. No cuenta para el avance y no se vuelve a preguntar.
+- La pregunta es fija por estación: `station.diag` si la unidad la define; si no, la primera de nivel 2 de Practica (de preferencia de respuesta escrita). Unidad III, «Problemas cuadráticos», define una propia más breve.
+- Se registra en SiveducMD como «estación.D.código» (resultado «neutral» y respuesta «?» cuando elige «Todavía no lo sé») y se guarda en el progreso (línea `D|` del suspend_data).
+- `analizar_errores.py` agrega la hoja «Diagnóstico» (por estación: aciertan, se equivocan, «no lo sé», y el % de acierto en Practica para comparar) y deja el diagnóstico fuera de los totales. El catálogo incluye las 37 preguntas de diagnóstico.
+- Archivos: `herramientas/curso_completo/diag.js` y `diag.css`. También aplica a la exportación individual del editor.
+
 ## 22-11-2026 — Botones de navegación más claros
 - Un solo botón de volver por pantalla, que sube un nivel y dice adónde lleva: en la estación «Mapa de la Unidad X» (en celular, «Mapa»); en el mapa «Todas las unidades» (en celular, «Unidades»). Reemplaza a «← Volver al mapa» y a «← Inicio de la unidad», que llevaba a la pantalla de todas las unidades y se confundía con el comienzo de la unidad.
 - Estilo discreto: cápsula pequeña con ícono y el color de la unidad; en celular, área de toque más alta y texto corto.

@@ -28,6 +28,15 @@ Al final de cada bloque con 2 o más estaciones, el mapa muestra «Cierre del bl
 
 ---
 
+## Diagnóstico «Antes de empezar» (`diag.js`, `diag.css`)
+
+La primera vez que un estudiante entra a una estación (sin avance en ella) ve una pregunta de diagnóstico con el botón «Todavía no lo sé». No cuenta para el avance. Se registra como interacción `estación.D.código` y se guarda en la línea `D|id:1,id:0,id:?` del suspend_data.
+
+- Pregunta: `station.diag` (mismo formato que una pregunta de Practica) o, si no existe, la primera de nivel 2 de Practica, de preferencia escrita. Para cambiarla, agrega `diag` a la estación en el JSON (el editor conserva el campo, aunque todavía no lo edita).
+- Al cambiar la pregunta de diagnóstico cambia su código: regenera el catálogo (`generar_catalogo.py`).
+
+---
+
 ## Flujo cuando se cambian textos de una unidad (paso a paso)
 
 1. **Editar la unidad** con el editor (`editor/EDITOR_PACE.html`) y guardar `unidad_0X.json` en `unidades/uX/` (ver README principal).

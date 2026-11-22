@@ -30,7 +30,8 @@ def leer_informe(ruta, excluir):
             reg.append(dict(nombre=f[ix['Nombre']], correo=correo, intento=f[ix['Intento']], n=n, id=str(qid),
                             resp=f[g.get('Respuesta')] if 'Respuesta' in g else None,
                             corr=f[g['Respuesta correcta']] if 'Respuesta correcta' in g else None,
-                            ok=str(f[g['Resultado']]).strip().lower() == 'correct'))
+                            ok=str(f[g['Resultado']]).strip().lower() == 'correct',
+                            nosabe=str(f[g['Resultado']]).strip().lower() == 'neutral' or str(f[g.get('Respuesta')] if 'Respuesta' in g else '').strip() == '?'))
     return reg
 
 def leer_catalogo(ruta):
@@ -42,7 +43,7 @@ def leer_catalogo(ruta):
             if not r[0] or r[0] in cat: continue
             info = dict(unidad=r[2], estacion=r[3], seccion=r[4], formato=r[5], nivel=r[6], enunciado=marca + str(r[7] or ''), correcta=r[8])
             cat[r[0]] = info
-            cat[r[1]] = dict(info, seccion='META FINAL')
+            if r[1]: cat[r[1]] = dict(info, seccion='META FINAL')
     return cat
 
 def main():
@@ -59,6 +60,9 @@ def main():
         c = cat.get(r['id'], {})
         r.update(unidad=c.get('unidad', '?'), estacion=c.get('estacion', '?'), seccion=c.get('seccion', '?'),
                  formato=c.get('formato', '?'), enun=c.get('enunciado', ''))
+    diag = [r for r in reg if '.D.' in r['id']]
+    for r in diag: r['seccion'] = 'Diagnóstico'
+    reg = [r for r in reg if '.D.' not in r['id']]
     # primer intento de cada estudiante en cada pregunta
     visto = set()
     for r in sorted(reg, key=lambda r: (r['correo'], str(r['intento']), r['n'])):
@@ -108,6 +112,22 @@ def main():
     hoja('Detalle', ['Estudiante', 'Correo', 'Intento', 'N.º', 'ID', 'Unidad', 'Estación', 'Sección', 'Formato', 'Respuesta', 'Correcta', 'Correcto', '1.er intento'],
          [[r['nombre'], r['correo'], r['intento'], r['n'], r['id'], r['unidad'], r['estacion'], r['seccion'], r['formato'], r['resp'], r['corr'], 'sí' if r['ok'] else 'no', 'sí' if r['primero'] else 'no'] for r in reg],
          [30, 30, 8, 6, 22, 11, 30, 12, 15, 18, 18, 10, 11])
+    if diag:
+        g = collections.OrderedDict()
+        for r in diag:
+            d = g.setdefault((r['unidad'], r['estacion']), dict(n=0, ok=0, mal=0, ns=0, enun=r['enun']))
+            d['n'] += 1; d['ok'] += r['ok']; d['ns'] += r['nosabe']; d['mal'] += (not r['ok'] and not r['nosabe'])
+        pe = agrupar(lambda r: (r['unidad'], r['estacion']))
+        pct = lambda a, b: round(100 * a / b, 1) if b else None
+        filas_d = []
+        for k, d in g.items():
+            pr = pe.get(k)
+            filas_d.append([*k, d['n'], d['ok'], d['mal'], d['ns'], pct(d['ok'], d['n']), pct(d['ns'], d['n']),
+                            pct(pr['p'] - pr['perr'], pr['p']) if pr else None, d['enun']])
+        hoja('Diagnóstico', ['Unidad', 'Estación', 'Estudiantes', 'Aciertan', 'Se equivocan', '«Todavía no lo sé»', '% acierto al entrar', '% «no lo sé»',
+                             '% acierto en Practica (1.er intento)', 'Pregunta de diagnóstico'], filas_d, [11, 32, 11, 10, 12, 13, 12, 11, 16, 70])
+        res.append([]); res.append(['Diagnóstico «Antes de empezar»', len(diag)])
+        res.append(['· Ver la hoja «Diagnóstico»: compara cómo llegan a cada estación con cómo les va en su Practica. No se incluye en los totales de arriba.'])
     if sin: hoja('Sin catálogo', ['ID sin coincidencia'], [[s] for s in sin], [40])
     wb.save(salida); print('Listo:', salida, '|', len(reg), 'respuestas |', n_est, 'estudiantes |', len(sin), 'ID sin catálogo')
 main()

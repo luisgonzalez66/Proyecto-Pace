@@ -1,0 +1,21 @@
+/* Diagnóstico «Antes de empezar» (22-11-2026) */
+.dg-wrap{max-width:820px;margin:0 auto;padding:6px 0 40px}
+.dg-wrap .station-nav{display:flex;margin:4px 0 10px}
+.dg-card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--acc,#4b49a3);border-radius:16px;padding:18px 22px 20px;box-shadow:var(--shadow)}
+.dg-card .eyebrow{font-size:12px;color:var(--acc,var(--teal))}
+.dg-card h1{font-family:Fraunces,serif;font-size:clamp(22px,3.2vw,30px);margin:4px 0 6px;color:var(--navy)}
+.dg-lead{margin:0 0 14px;font-size:15px;color:#3f3f66;line-height:1.5}
+.dg-q .quiz{margin:0;box-shadow:none}
+.dg-q .quiz-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dg-q .quiz-head .dg-idk-slot{display:inline-flex!important}
+.dg-q .choices button.picked{border-color:var(--acc,#4b49a3);background:color-mix(in srgb,var(--acc,#4b49a3) 10%,#fff)}
+.dg-q .choices button:disabled{opacity:1;cursor:default}
+.dg-row{display:flex;justify-content:flex-end;margin-top:10px}
+.dg-row.hidden,.dg-after.hidden{display:none}
+.dg-idk{text-transform:none;letter-spacing:0;border:1px dashed color-mix(in srgb,var(--acc,#4b49a3) 45%,#fff);background:#fff;color:var(--acc,#4b49a3);font:inherit;font-weight:800;font-size:13px;padding:7px 14px;border-radius:999px;cursor:pointer}
+.dg-idk:hover{background:color-mix(in srgb,var(--acc,#4b49a3) 7%,#fff)}
+.dg-after{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;padding:12px 14px;border-radius:12px;background:#f4f3fb}
+.dg-after.ok{background:#eaf8f1}
+.dg-after p{margin:0;font-size:15px;line-height:1.45;flex:1 1 280px}
+body[data-view="diag"] #breadcrumbs{display:none}
+@media (max-width:700px){.dg-card{padding:14px 14px 16px}.dg-after .primary-btn{width:100%}}
