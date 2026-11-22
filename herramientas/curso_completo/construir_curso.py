@@ -257,7 +257,7 @@ if 'sitio' in sys.argv[2:]:
         for f in ['styles.css','contract.js','content_text.js']: open(d+'/'+f,'wb').write(motor.read(f))
         open(d+'/mathjax/tex-svg.js','wb').write(motor.read('mathjax/tex-svg.js'))
         dj=datajs([units[i]],'individual_u'+n).replace('curso completo','generado desde u'+n,1)
-        dj=re.sub(r'const PACE_BUILD=\{[^}]*\};',lambda m:'const PACE_BUILD={"scope":"individual_u'+n+'","showWeek4":false};',dj)
+        dj=re.sub(r'const PACE_BUILD=\{[^}]*\};',lambda m:'const PACE_BUILD={"scope":"individual_u'+n+'","showWeek4":false,"portal":"../../../index.html#curso"};',dj)
         open(d+'/data.js','w',encoding='utf8').write(dj)
         print('sitio',d)
 

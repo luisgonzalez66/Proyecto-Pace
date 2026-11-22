@@ -32,7 +32,7 @@ function renderDiag(){
  let body;
  if(q.type==='input')body=renderTyped(q,0,'PREGUNTA',false);
  else body=`<article class="quiz" data-step="0"><div class="quiz-head"><span>PREGUNTA</span><span></span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-dk="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
- root.innerHTML=`<div class="dg-wrap"><div class="station-nav"><button type="button" class="nv-back" id="dgBack" aria-label="Volver al mapa de la Unidad ${esc(u.roman)}"><svg class="nv-ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 3.2 5.5 1.8l5 1.6 4-1.4v10.8l-4 1.4-5-1.6-4 1.4z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5.5 1.8v10.8M10.5 3.4v10.8" stroke="currentColor" stroke-width="1.5"/></svg><span>Mapa<span class="nv-long"> de la Unidad ${esc(u.roman)}</span></span></button></div>
+ root.innerHTML=`<div class="dg-wrap"><div class="station-nav"><button type="button" class="nv-back" id="dgBack" aria-label="Volver a la Unidad ${esc(u.roman)}">${nvUnitBtnHTML(u.roman)}</button></div>
  <section class="dg-card"><span class="eyebrow">ANTES DE EMPEZAR · ESTACIÓN ${num}</span><h1>${esc(s.title)}</h1>
  <p class="dg-lead">Una sola pregunta para saber desde dónde partes. <b>No cuenta para tu avance</b>: respóndela con lo que sepas ahora.</p>
  <div class="dg-q">${body}</div>

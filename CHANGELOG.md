@@ -1,5 +1,15 @@
 # Versiones del curso (SCORM único)
 
+## 22-11-2026 · Botones de volver: cada uno dice adónde lleva
+
+- **Problema:** en las páginas de cada unidad en GitHub, «Todas las unidades» abría la portada de esa misma unidad (con una sola tarjeta), no el listado de las tres unidades.
+- **En una estación** (y en «Antes de empezar»): el botón ahora dice **«Volver a la Unidad X»** (en celular, «Unidad X») y lleva a la pantalla de bloques de la unidad.
+- **En la pantalla de la unidad:** el botón dice **«Todas las unidades»** (en celular, «Unidades»).
+  - En el curso completo (SCORM y HTML) abre la pantalla con las tres unidades, como antes.
+  - En las páginas de unidad de GitHub va a la portada del sitio, en la sección del curso (`index.html#curso`). El destino se define en `PACE_BUILD.portal`, que solo se escribe en la compilación `sitio`.
+  - En la exportación individual del editor, donde no hay otras unidades, dice **«Portada»**.
+- Archivos: `herramientas/curso_completo/nav.js`, `diag.js`, `construir_curso.py`; se recompilaron las páginas de unidad y `editor/motor_bundle.js`.
+
 ## 22-11-2026 — Diagnóstico «Antes de empezar» en cada estación
 - La primera vez que se entra a una estación aparece una sola pregunta de esa estación, antes de Aprende. Hay un botón «Todavía no lo sé»; después solo se dice si acertó (sin explicación) y se pasa a la estación. No cuenta para el avance y no se vuelve a preguntar.
 - La pregunta es fija por estación: `station.diag` si la unidad la define; si no, la primera de nivel 2 de Practica (de preferencia de respuesta escrita). Unidad III, «Problemas cuadráticos», define una propia más breve.
