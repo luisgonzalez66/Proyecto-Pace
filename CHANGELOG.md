@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 22-11-2026 — Botones de navegación más claros
+- Un solo botón de volver por pantalla, que sube un nivel y dice adónde lleva: en la estación «Mapa de la Unidad X» (en celular, «Mapa»); en el mapa «Todas las unidades» (en celular, «Unidades»). Reemplaza a «← Volver al mapa» y a «← Inicio de la unidad», que llevaba a la pantalla de todas las unidades y se confundía con el comienzo de la unidad.
+- Estilo discreto: cápsula pequeña con ícono y el color de la unidad; en celular, área de toque más alta y texto corto.
+- Las migas ya no se muestran en el mapa ni en la estación (repetían el botón); en la META FINAL y el Cierre del bloque dicen «Unidades › Unidad X › …» en lugar de «Inicio».
+- Archivos: `herramientas/curso_completo/nav.js` y `nav.css`. También aplica a la exportación individual del editor.
+
 ## 20-11-2026 — Catálogo con versiones anteriores de las preguntas
 - `generar_catalogo.py` agrega la hoja «Versiones anteriores» con las preguntas de versiones antiguas de las unidades (desde el historial de git), y `analizar_errores.py` la usa: las respuestas registradas con un SCORM anterior ya no quedan «sin catálogo» (se marcan como «(versión anterior)»).
 

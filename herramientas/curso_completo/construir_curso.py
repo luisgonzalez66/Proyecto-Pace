@@ -27,7 +27,8 @@ _k="window.addEventListener('load',function(){setTimeout(function(){try{paintMas
 idx=sub1(idx,_k,_k+'\n'+CHUJS)
 PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
 CICSS=open(HERE+'/cierre.css',encoding='utf8').read()
-idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n</style></head>')
+NAVCSS=open(HERE+'/nav.css',encoding='utf8').read()
+idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n'+NAVCSS+'\n</style></head>')
 # Texto dentro de fórmulas (\\text{...}) con la letra del curso: así la ñ y las tildes no salen de otra fuente (19-11-2026)
 idx=sub1(idx,"svg:{fontCache:'local'}","svg:{fontCache:'local',mtextInheritFont:true}")
 idx=sub1(idx,'<section id="metaView" class="view hidden" aria-label="META FINAL"></section>','<section id="metaView" class="view hidden" aria-label="META FINAL"></section>\n<section id="cierreView" class="view hidden" aria-label="Cierre del bloque"></section>')
@@ -110,6 +111,8 @@ ZSJS=open(HERE+'/zs.js',encoding='utf8').read()
 PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
 # ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
 CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
+NAVJS=open(HERE+'/nav.js',encoding='utf8').read()
+a=sub1(a,"let segments=[{label:'Inicio',action:()=>openHome()}];","let segments=[{label:'Unidades',action:()=>openHome()}];")
 a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView'])")
 a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});")
 a=sub1(a,'<div class="station-list">${cards(items)}</div>','<div class="station-list">${cards(items)}</div>${cierreCard(g,items)}')
@@ -123,7 +126,7 @@ a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/1
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
 a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
-a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\n"+CIJS+"\ninit();(()=>{const keep=mu;")
+a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\n"+CIJS+"\n"+NAVJS+"\ninit();(()=>{const keep=mu;")
 
 # ---------- index.html: portada en dos pantallas (Inicio y Curso) ----------
 # Inicio = encabezado con pizarra + Bienvenida + Cómo se estudia + Tour (todo tomado de index.html del repositorio).

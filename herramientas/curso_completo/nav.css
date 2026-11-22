@@ -1,0 +1,13 @@
+/* Navegación discreta (20-11-2026) */
+.nv-back{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 12px 0 9px;border-radius:999px;border:1px solid color-mix(in srgb,var(--acc,#0a7d89) 28%,#fff);background:color-mix(in srgb,var(--acc,#0a7d89) 5%,#fff);color:var(--acc,#0a7d89);font:inherit;font-size:12.5px;font-weight:800;line-height:1;cursor:pointer;transition:background .15s,border-color .15s}
+.nv-back:hover{background:color-mix(in srgb,var(--acc,#0a7d89) 12%,#fff);border-color:color-mix(in srgb,var(--acc,#0a7d89) 50%,#fff)}
+.nv-back:focus-visible{outline:3px solid color-mix(in srgb,var(--acc,#0a7d89) 40%,#fff);outline-offset:2px}
+.nv-back .nv-ico{width:15px;height:15px;flex:0 0 15px}
+.nv-back .nv-cap{text-transform:none}
+.station-nav,.map-header{align-items:center}
+body[data-view="map"] #breadcrumbs,body[data-view="station"] #breadcrumbs{display:none}
+@media (max-width:700px){
+ .nv-back{height:34px;padding:0 13px 0 10px;font-size:13px}
+ .nv-back .nv-long{display:none}
+ .nv-back .nv-cap{text-transform:uppercase}
+}
