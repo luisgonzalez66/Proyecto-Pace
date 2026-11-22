@@ -1,5 +1,13 @@
 # Versiones del curso (SCORM único)
 
+## 22-11-2026 (b) · Las páginas de unidad abren directo en sus bloques
+
+- En GitHub, cada unidad tenía su propia portada con una sola tarjeta («Unidades de aprendizaje» → Unidad III). Era un paso de más y su botón «Inicio» confundía.
+- Ahora, al entrar a una unidad desde la portada del sitio, se abre directamente la pantalla de bloques y estaciones.
+- Se quitó el botón flotante «Inicio». El único botón para subir es **«Todas las unidades»**, que lleva a la portada del sitio (`#curso`). Cualquier otro «volver al inicio» lleva al mismo lugar, incluido el botón inferior, que antes decía «Volver al inicio de la unidad».
+- En la exportación individual del editor también se abre directo la unidad; allí no hay botón para subir.
+- El curso completo (SCORM y HTML) no cambia: mantiene su portada con las tres unidades.
+
 ## 22-11-2026 · Botones de volver: cada uno dice adónde lleva
 
 - **Problema:** en las páginas de cada unidad en GitHub, «Todas las unidades» abría la portada de esa misma unidad (con una sola tarjeta), no el listado de las tres unidades.
