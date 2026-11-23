@@ -964,7 +964,7 @@ paint();
 
 /* Diagnóstico distribuido (22-11-2026): la primera vez que se entra a una estación, una pregunta «Antes de empezar».
    · Pregunta fija por estación: station.diag si existe; si no, la primera de nivel 2 de Practica (de preferencia escrita).
-   · Botón «Todavía no lo sé». Después solo se dice si acertó, sin explicación. Un intento.
+   · Botón «Omitir» bajo la respuesta (23-11-2026; antes «Todavía no lo sé»). Después solo se dice si acertó, sin explicación. Un intento.
    · No cuenta para el avance. Se registra en SiveducMD como interacción «estación.D.código» (respuesta «?» = no lo sabe).
    · Se guarda en el progreso (línea «D|…» del suspend_data) para no volver a preguntar. */
 function dgQ(s){if(!s)return null;if(s.diag&&s.diag.q)return s.diag;const P=Array.isArray(s.practice)?s.practice:[];const L=P.filter(q=>lvlOf(q)===2);const T=L.filter(q=>q.type==='input');return T[0]||L[0]||P[0]||null;}
@@ -998,11 +998,11 @@ function renderDiag(){
  else body=`<article class="quiz" data-step="0"><div class="quiz-head"><span>PREGUNTA</span><span></span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-dk="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
  root.innerHTML=`<div class="dg-wrap"><div class="station-nav"><button type="button" class="nv-back" id="dgBack" aria-label="Volver a la Unidad ${esc(u.roman)}">${nvUnitBtnHTML(u.roman)}</button></div>
  <section class="dg-card"><span class="eyebrow">ANTES DE EMPEZAR · ESTACIÓN ${num}</span><h1>${esc(s.title)}</h1>
- <p class="dg-lead">Una sola pregunta para saber desde dónde partes. <b>No cuenta para tu avance</b>: respóndela con lo que sepas ahora.</p>
- <div class="dg-q">${body}</div>
+ <p class="dg-lead">Una sola pregunta para saber desde dónde partes. <b>No cuenta para tu avance</b>: respóndela con lo que sepas ahora. Si todavía no sabes cómo hacerla, pulsa <b>«Omitir»</b>, abajo de la respuesta.</p>
+ <div class="dg-q">${body}<div class="dg-skip-row"><button type="button" class="dg-skip" id="dgIdk">Omitir esta pregunta</button></div></div>
  <div class="dg-after hidden" id="dgAfter" role="status" aria-live="polite"><p id="dgMsg"></p><button type="button" class="primary-btn" id="dgGo">Empezar la estación →</button></div></section></div>`;
  $('dgBack').onclick=()=>{DG=null;openMap(s.unit);};
- const head=root.querySelector('.quiz-head');if(head){const sp=head.querySelector('span:last-child')||head.appendChild(document.createElement('span'));sp.className='dg-idk-slot';sp.innerHTML='<button type="button" class="dg-idk" id="dgIdk">Todavía no lo sé</button>';}
+ {const sk=root.querySelector('.dg-skip-row'),tb=root.querySelector('.typed');if(sk&&tb){const pv=tb.querySelector('.typed-preview');if(pv){pv.after(sk);sk.classList.add('in-typed');}}}
  $('dgIdk').onclick=()=>dgFinish('?',null);
  $('dgGo').onclick=dgGo;
  const box=root.querySelector('.quiz');
@@ -1013,7 +1013,7 @@ function renderDiag(){
   inp.addEventListener('input',upd);pad.addEventListener('mousedown',e=>e.preventDefault());
   pad.addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(!b)return;typedInsert(inp,b.dataset.key);inp.focus();upd();});
   const go=()=>{if(DG.done)return;const r=PACETyped.check(q,inp.value);
-   if(r.state==='empty'||r.state==='invalid'||r.state==='reduce'){const fb=box.querySelector('.feedback');fb.textContent=r.state==='empty'?'Escribe tu respuesta, o pulsa «Todavía no lo sé».':r.msg;fb.className='feedback incorrect';inp.focus();return;}
+   if(r.state==='empty'||r.state==='invalid'||r.state==='reduce'){const fb=box.querySelector('.feedback');fb.textContent=r.state==='empty'?'Escribe tu respuesta, o pulsa «Omitir».':r.msg;fb.className='feedback incorrect';inp.focus();return;}
    dgFinish(r.state==='ok'?'1':'0',inp.value);};
   tb.querySelector('.typed-check').addEventListener('click',go);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go();}});
  }
@@ -1026,9 +1026,9 @@ function dgFinish(code,resp){
  const root=$('diagView'),box=root.querySelector('.quiz');
  box.querySelectorAll('button,input').forEach(b=>{b.disabled=true;});box.querySelectorAll('.keypad,.typed-hint,small').forEach(x=>{x.style.display='none';});
  const fb=box.querySelector('.feedback');if(fb){fb.textContent='';fb.className='feedback';}
- const ik=$('dgIdk');if(ik)ik.style.visibility='hidden';
+ const ik=root.querySelector('.dg-skip-row');if(ik)ik.style.display='none';
  if(code==='?'&&mode==='scorm'&&connected&&intN>0){try{set('cmi.interactions.'+(intN-1)+'.result','neutral');if(Array.isArray(q.options))set('cmi.interactions.'+(intN-1)+'.student_response','?');}catch(e){}}
- const msg={'1':'<b>¡Bien! Ya tienes una base</b> para esta estación. Aprende te ayudará a afirmarla.','0':'<b>No te preocupes:</b> esto es justamente lo que vas a aprender en esta estación.','?':'<b>Perfecto, para eso está esta estación.</b> Al terminarla, esta pregunta te resultará conocida.'}[code];
+ const msg={'1':'<b>¡Bien! Ya tienes una base</b> para esta estación. Aprende te ayudará a afirmarla.','0':'<b>No te preocupes:</b> esto es justamente lo que vas a aprender en esta estación.','?':'<b>Sin problema, para eso está esta estación.</b> Al terminarla, esta pregunta te resultará conocida.'}[code];
  $('dgMsg').innerHTML=msg;$('dgAfter').className='dg-after '+(code==='1'?'ok':'neutral');
  if(code==='1'&&window.chuReact)chuReact(true);
  $('dgGo').focus({preventScroll:true});
@@ -1036,6 +1036,7 @@ function dgFinish(code,resp){
 
 /* «Recuerda» (prototipo 22-11-2026, sugerencia #12 de la revisión didáctica).
    Una estación puede declarar en su JSON:  "recuerda":[{"titulo","texto","ejemplo"(TeX, opcional),"origen":"u2-s012"}]
+   · Se cierra con «Entendido», con Esc o haciendo clic fuera del recuadro.
    · Nivel 1: el botón «Recuerda» (en Aprende y en Practica/Aplica) abre un recuadro encima de la pantalla,
      con lo esencial y un ejemplo. No se sale de la estación.
    · Nivel 2: «Ver la idea completa» abre una ventana con la idea de la estación de origen
@@ -1082,6 +1083,7 @@ function rcModal(r,btn){
  m.addEventListener('click',e=>{if(e.target===m)close();});
  m.querySelector('.rc-back').focus();
 }
+document.addEventListener('pointerdown',e=>{const p=document.querySelector('.rc-pop');if(!p)return;if(p.contains(e.target)||e.target.closest('.rc-btn'))return;rcClose();},true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.rc-pop,.rc-modal')){e.stopPropagation();rcClose();}},true);
 function rcMount(){
  rcClose();

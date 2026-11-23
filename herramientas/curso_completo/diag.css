@@ -7,7 +7,6 @@
 .dg-lead{margin:0 0 14px;font-size:15px;color:#3f3f66;line-height:1.5}
 .dg-q .quiz{margin:0;box-shadow:none}
 .dg-q .quiz-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
-.dg-q .quiz-head .dg-idk-slot{display:inline-flex!important}
 .dg-q .choices button.picked{border-color:var(--acc,#4b49a3);background:color-mix(in srgb,var(--acc,#4b49a3) 10%,#fff)}
 .dg-q .choices button:disabled{opacity:1;cursor:default}
 .dg-row{display:flex;justify-content:flex-end;margin-top:10px}
@@ -19,3 +18,11 @@
 .dg-after p{margin:0;font-size:15px;line-height:1.45;flex:1 1 280px}
 body[data-view="diag"] #breadcrumbs{display:none}
 @media (max-width:700px){.dg-card{padding:14px 14px 16px}.dg-after .primary-btn{width:100%}}
+
+/* «Omitir» bajo la respuesta (23-11-2026) */
+.dg-skip-row{display:flex;justify-content:center;margin-top:12px}
+.dg-skip{border:1px dashed color-mix(in srgb,var(--acc,#4b49a3) 45%,#fff);background:#fff;color:var(--acc,#4b49a3);font:inherit;font-weight:800;font-size:14px;border-radius:999px;padding:8px 18px;cursor:pointer}
+.dg-skip:hover{background:color-mix(in srgb,var(--acc,#4b49a3) 7%,#fff)}
+.dg-skip:focus-visible{outline:3px solid #2f6fdd;outline-offset:2px}
+.dg-skip-row.in-typed{justify-content:flex-start;margin:10px 0 12px;grid-area:skip}
+.dg-q .typed{grid-template-areas:"row pad" "prev pad" "skip pad" "hint pad";grid-template-rows:auto auto auto 1fr}

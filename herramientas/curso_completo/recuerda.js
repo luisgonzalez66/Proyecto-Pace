@@ -1,5 +1,6 @@
 /* «Recuerda» (prototipo 22-11-2026, sugerencia #12 de la revisión didáctica).
    Una estación puede declarar en su JSON:  "recuerda":[{"titulo","texto","ejemplo"(TeX, opcional),"origen":"u2-s012"}]
+   · Se cierra con «Entendido», con Esc o haciendo clic fuera del recuadro.
    · Nivel 1: el botón «Recuerda» (en Aprende y en Practica/Aplica) abre un recuadro encima de la pantalla,
      con lo esencial y un ejemplo. No se sale de la estación.
    · Nivel 2: «Ver la idea completa» abre una ventana con la idea de la estación de origen
@@ -46,6 +47,7 @@ function rcModal(r,btn){
  m.addEventListener('click',e=>{if(e.target===m)close();});
  m.querySelector('.rc-back').focus();
 }
+document.addEventListener('pointerdown',e=>{const p=document.querySelector('.rc-pop');if(!p)return;if(p.contains(e.target)||e.target.closest('.rc-btn'))return;rcClose();},true);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.querySelector('.rc-pop,.rc-modal')){e.stopPropagation();rcClose();}},true);
 function rcMount(){
  rcClose();

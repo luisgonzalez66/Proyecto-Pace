@@ -1,5 +1,23 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 · «Omitir» en el diagnóstico, «Recuerda» en las Unidades I y II, raíces
+
+- **Antes de empezar:** se quitó «Todavía no lo sé». Ahora hay un botón **«Omitir esta pregunta»** justo debajo de donde se escribe o elige la respuesta, y el texto de arriba explica que se puede omitir. En SiveducMD se sigue registrando igual (respuesta «?», resultado neutral).
+- **«Recuerda»** se cierra también haciendo clic fuera del recuadro o con Esc.
+- **«Recuerda» en la Unidad I** (solo donde la estación usa algo de una estación anterior que no explica):
+  - MCD y MCM → descomponer en factores primos.
+  - Fracciones equivalentes → simplificar con el MCD.
+  - Suma y resta → calcular el MCM.
+  - Operaciones con radicales → simplificar cada raíz antes de sumar.
+  - Operaciones combinadas → exponente negativo y simplificar raíces.
+- **«Recuerda» en la Unidad II:** Trinomios y elección del método → primero, el factor común.
+- **Raíces:** en tres lugares se usaba el signo √ suelto, cuya barra no cubre el radicando. Ahora tienen barra completa:
+  - el Explora «Constructor de cuadrados» (Unidad I);
+  - el Explora de la fórmula general (Unidad III);
+  - las figuras de «Fórmula general» y «Cuadráticas incompletas» (Unidad III).
+  También el adorno √x de la portada.
+- **Unidad I:** se quitó el coeficiente 1 delante de las raíces (por ejemplo, $1\sqrt{27}$ pasa a $\sqrt{27}$) en 14 enunciados y alternativas.
+
 ## 22-11-2026 (c) · «Recuerda» en la Unidad III (sugerencia #12)
 
 - Algunas estaciones tienen ahora un botón **«Recuerda»**, en Aprende, Practica y Aplica. Al tocarlo se abre un recuadro encima de la pantalla con lo esencial de una estación anterior y un ejemplo.
