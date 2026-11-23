@@ -740,14 +740,15 @@
         }
       ],
       "check": {
-        "q": "Un sensor marca $-3$ unidades y disminuye $4$ unidades. ¿Cuál es su nueva lectura?",
+        "q": "Un sensor registra $-3$ unidades. Luego su lectura disminuye $4$ unidades. ¿Qué valor muestra al final?",
         "options": [
-          "$1$",
           "$-7$",
+          "$1$",
+          "$-12$",
           "$7$"
         ],
-        "correct": 1,
-        "why": "$-3-4=-7$."
+        "correct": 0,
+        "why": "Disminuir 4 significa sumar $-4$: $-3+(-4)=-7$."
       },
       "learn": {
         "goal": "Resolver operaciones con enteros respetando prioridad.",
@@ -913,154 +914,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "La temperatura es $-5\\,^\\circ\\mathrm C$ y sube $12\\,^\\circ\\mathrm C$. ¿Cuál es la temperatura final? Escribe solo el número.",
-          "answer": "7",
-          "why": "$-5+12=7$.",
-          "level": 1
+          "q": "Un depósito registra un saldo de $-25$ unidades. Recibe $40$ unidades y luego entrega $18$. ¿Cuál es el saldo final? Escribe el número.",
+          "answer": "-3",
+          "why": "$-25+40-18=-3$."
+        },
+        {
+          "q": "Una cuenta de laboratorio tiene un saldo de $-18$ unidades. Se abonan $25$ y luego se descuentan $12$. ¿Cuál es el saldo final?",
+          "options": [
+            "$19$",
+            "$-31$",
+            "$5$",
+            "$-5$"
+          ],
+          "correct": 3,
+          "why": "$-18+25-12=-5$. El abono se suma y el descuento se resta."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un sensor parte en $8$ unidades, disminuye $13$ y después aumenta $4$. ¿Qué valor marca? Escribe solo el número.",
-          "answer": "-1",
-          "why": "$8-13+4=-1$.",
-          "level": 2
+          "q": "Calcula $-4(3-7)+2$. Escribe el resultado.",
+          "answer": "18",
+          "why": "$3-7=-4$; entonces $-4(-4)+2=16+2=18$."
+        },
+        {
+          "q": "La temperatura de una cámara se modela por $-6+3(5-8)$. ¿Cuál es el resultado?",
+          "options": [
+            "$9$",
+            "$-3$",
+            "$-15$",
+            "$15$"
+          ],
+          "correct": 2,
+          "why": "Primero $5-8=-3$; luego $3(-3)=-9$ y $-6-9=-15$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un buzo está a $-14$ m respecto del nivel del mar, desciende $8$ m y luego asciende $4$ m. ¿Cota final? Escribe el número.",
-          "answer": "-18",
-          "why": "El cálculo con signos da $-18$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un experimento se registran $-4$ unidades, después se añaden $4$ y se retiran $11$. ¿Saldo final? Escribe el número.",
-          "answer": "-11",
-          "why": "El cálculo con signos da $-11$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un sensor marca $14$; su lectura disminuye $3$ unidades en cada una de 2 etapas y sube $2$ después. ¿Lectura final? Escribe el número.",
-          "answer": "10",
-          "why": "El cálculo con signos da $10$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una batería tiene saldo de $6$ unidades; consume $8$ durante tres ciclos y recupera $10$. ¿Saldo final? Escribe el número.",
-          "answer": "-8",
-          "why": "El cálculo con signos da $-8$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un robot parte de la posición $-5$, avanza $7$, retrocede dos veces $7$ unidades. ¿Posición final? Escribe el número.",
-          "answer": "-12",
-          "why": "El cálculo con signos da $-12$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una cuenta registra $6$ créditos, tres gastos de $10$ y dos abonos de $7$. ¿Cuál es el saldo? Escribe el número.",
-          "answer": "-10",
-          "why": "El cálculo con signos da $-10$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un congelador está a $-16\\,^\\circ\\mathrm C$, se enfría $4$ grados y después se calienta $7$. ¿Temperatura final en grados? Escribe el número.",
-          "answer": "-13",
-          "why": "El cálculo con signos da $-13$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un buzo está a $-6$ m respecto del nivel del mar, desciende $13$ m y luego asciende $4$ m. ¿Cota final? Escribe el número.",
-          "answer": "-15",
-          "why": "El cálculo con signos da $-15$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un experimento se registran $8$ unidades, después se añaden $15$ y se retiran $4$. ¿Saldo final? Escribe el número.",
-          "answer": "19",
-          "why": "El cálculo con signos da $19$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un sensor marca $-10$; su lectura disminuye $11$ unidades en cada una de 2 etapas y sube $9$ después. ¿Lectura final? Escribe el número.",
-          "answer": "-23",
-          "why": "El cálculo con signos da $-23$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una batería tiene saldo de $-9$ unidades; consume $5$ durante tres ciclos y recupera $3$. ¿Saldo final? Escribe el número.",
-          "answer": "-21",
-          "why": "El cálculo con signos da $-21$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un robot parte de la posición $10$, avanza $4$, retrocede dos veces $9$ unidades. ¿Posición final? Escribe el número.",
-          "answer": "-4",
-          "why": "El cálculo con signos da $-4$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una cuenta registra $-13$ créditos, tres gastos de $14$ y dos abonos de $9$. ¿Cuál es el saldo? Escribe el número.",
-          "answer": "-37",
-          "why": "El cálculo con signos da $-37$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un congelador está a $0\\,^\\circ\\mathrm C$, se enfría $10$ grados y después se calienta $8$. ¿Temperatura final en grados? Escribe el número.",
-          "answer": "-2",
-          "why": "El cálculo con signos da $-2$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un buzo está a $-10$ m respecto del nivel del mar, desciende $13$ m y luego asciende $9$ m. ¿Cota final? Escribe el número.",
+          "q": "Una cámara está a $-12\\,^{\\circ}\\mathrm C$. La temperatura sube $7\\,^{\\circ}\\mathrm C$ y luego baja $9\\,^{\\circ}\\mathrm C$. ¿Cuál es la temperatura final?",
           "answer": "-14",
-          "why": "El cálculo con signos da $-14$.",
-          "level": 3
+          "why": "$-12+7-9=-14\\,^{\\circ}\\mathrm C$."
+        },
+        {
+          "q": "Un ascensor está en el piso $2$, baja $5$ pisos y luego sube $3$. ¿En qué piso termina?",
+          "options": [
+            "$10$",
+            "$0$",
+            "$-6$",
+            "$4$"
+          ],
+          "correct": 1,
+          "why": "$2-5+3=0$. Los desplazamientos hacia abajo se representan con números negativos."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un experimento se registran $10$ unidades, después se añaden $8$ y se retiran $8$. ¿Saldo final? Escribe el número.",
-          "answer": "10",
-          "why": "El cálculo con signos da $10$.",
-          "level": 2
+          "q": "Un ascensor parte del piso $-3$, sube $8$ pisos y baja $4$. ¿En qué piso termina?",
+          "answer": "1",
+          "why": "$-3+8-4=1$."
+        },
+        {
+          "q": "Un congelador está a $-4\\,^{\\circ}\\mathrm C$. Su temperatura disminuye otros $6\\,^{\\circ}\\mathrm C$. ¿Cuál es la nueva temperatura?",
+          "options": [
+            "$-10\\,^{\\circ}\\mathrm C$",
+            "$2\\,^{\\circ}\\mathrm C$",
+            "$-2\\,^{\\circ}\\mathrm C$",
+            "$10\\,^{\\circ}\\mathrm C$"
+          ],
+          "correct": 0,
+          "why": "$-4-6=-10$. Disminuir la temperatura la hace más negativa."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un sensor marca $-16$; su lectura disminuye $9$ unidades en cada una de 2 etapas y sube $8$ después. ¿Lectura final? Escribe el número.",
-          "answer": "-26",
-          "why": "El cálculo con signos da $-26$.",
-          "level": 2
+          "q": "Evalúa $45-6(8-11)$. Escribe el resultado.",
+          "answer": "63",
+          "why": "$8-11=-3$; luego $45-6(-3)=45+18=63$."
+        },
+        {
+          "q": "Un cálculo entrega $18\\div(-3)+4\\cdot2$. ¿Qué resultado corresponde al orden de las operaciones?",
+          "options": [
+            "$-14$",
+            "$14$",
+            "$-2$",
+            "$2$"
+          ],
+          "correct": 3,
+          "why": "Primero división y producto: $-6+8=2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un cálculo de control es $24\\div(-6)-3(-2)$. ¿Qué resultado se obtiene?",
+          "answer": "2",
+          "why": "$24\\div(-6)=-4$ y $3(-2)=-6$; entonces $-4-(-6)=2$."
+        },
+        {
+          "q": "Una muestra está a $-7\\,^{\\circ}\\mathrm C$, aumenta $11\\,^{\\circ}\\mathrm C$ y luego disminuye $5\\,^{\\circ}\\mathrm C$. ¿Temperatura final?",
+          "options": [
+            "$9\\,^{\\circ}\\mathrm C$",
+            "$-23\\,^{\\circ}\\mathrm C$",
+            "$-1\\,^{\\circ}\\mathrm C$",
+            "$1\\,^{\\circ}\\mathrm C$"
+          ],
+          "correct": 2,
+          "why": "$-7+11-5=-1$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un sensor submarino está a $-120$ m. Asciende $45$ m y después desciende $30$ m. ¿A qué profundidad queda? Escribe el número con signo.",
+          "answer": "-105",
+          "why": "$-120+45-30=-105$ m."
+        },
+        {
+          "q": "La diferencia entre las lecturas $-8$ y $3$ es la distancia entre ambos valores en la recta numérica. ¿Cuánto vale?",
+          "options": [
+            "$-5$",
+            "$11$",
+            "$5$",
+            "$-11$"
+          ],
+          "correct": 1,
+          "why": "$|3-(-8)|=|11|=11$. Una distancia no puede ser negativa."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $3(-4)-(-5)+7$. Escribe el resultado.",
+          "answer": "0",
+          "why": "$-12+5+7=0$. Restar $-5$ equivale a sumar $5$."
+        },
+        {
+          "q": "Un submarino está a $-35$ m respecto del nivel del mar. Asciende $12$ m y después desciende $8$ m. ¿Cuál es su posición final?",
+          "options": [
+            "$-31$ m",
+            "$-55$ m",
+            "$-15$ m",
+            "$31$ m"
+          ],
+          "correct": 0,
+          "why": "$-35+12-8=-31$ m."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una cuenta comienza con $16$ créditos, registra un cobro de $23$ y luego un abono de $9$. ¿Cuál es el saldo?",
+          "answer": "2",
+          "why": "$16-23+9=2$ créditos."
+        },
+        {
+          "q": "Un proceso se representa por $20-3(4-9)$. ¿Cuál es su valor?",
+          "options": [
+            "$5$",
+            "$-1$",
+            "$65$",
+            "$35$"
+          ],
+          "correct": 3,
+          "why": "$4-9=-5$; por tanto, $20-3(-5)=20+15=35$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $-30+5(2-7)$. Escribe el resultado.",
+          "answer": "-55",
+          "why": "$2-7=-5$; luego $-30+5(-5)=-30-25=-55$."
         }
       ],
       "drawCheck": 2
@@ -1764,14 +1782,15 @@
         }
       ],
       "check": {
-        "q": "Un laboratorio tiene $288$ muestras. ¿Puede distribuirlas en cajas de $9$ muestras sin que sobre ninguna?",
+        "q": "Un laboratorio dispone de $4572$ muestras. ¿Qué lista contiene exactamente los divisores de $4572$ entre $2,3,4,5,6,8,9,10$?",
         "options": [
-          "Sí, porque $2+8+8=18$ es múltiplo de $9$.",
-          "No, porque $288$ termina en $8$.",
-          "No, porque $288$ no termina en $0$."
+          "$2,3,4,6$",
+          "$2,3,4,6,9$",
+          "$2,3,4,6,8,9$",
+          "$3,4,9$"
         ],
-        "correct": 0,
-        "why": "$2+8+8=18$ es múltiplo de $9$, por tanto $288$ es divisible por $9$. Caben exactamente $288/9=32$ cajas."
+        "correct": 1,
+        "why": "Es par; la suma de cifras es 18; termina en 72, múltiplo de 4; y 18 es múltiplo de 9. No cumple 5, 8 ni 10."
       },
       "learn": {
         "goal": "Aplicar y justificar criterios de divisibilidad.",
@@ -1954,154 +1973,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Hay $234$ muestras y cada caja guarda $9$. ¿Cuántas cajas completas pueden llenarse, sin sobrantes? Escribe la cantidad.",
-          "answer": "26",
-          "why": "$2+3+4=9$; $234$ es divisible por $9$, y $234/9=26$.",
-          "level": 2
+          "q": "Se distribuyen $864$ muestras en cajas de $8$, sin sobrantes. ¿Cuántas cajas completas se forman?",
+          "answer": "108",
+          "why": "$864\\div8=108$."
+        },
+        {
+          "q": "Se deben separar $3150$ unidades en lotes iguales. ¿Qué lista reúne todos los divisores de $3150$ entre $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,5,6,9,10$",
+            "$2,3,4,5,6,9,10$",
+            "$3,5,6,9$",
+            "$2,3,5,6,8,9,10$"
+          ],
+          "correct": 0,
+          "why": "Es par, suma 9, termina en 50 y por eso es divisible por 2, 3, 5, 6, 9 y 10; no por 4 ni por 8."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se reciben $134$ muestras y se quieren agrupar de $8$ en $8$. ¿Cuántas sobran? Escribe solo el resto.",
-          "answer": "6",
-          "why": "$134=8\\cdot16+6$.",
-          "level": 2
+          "q": "Un laboratorio organiza $3456$ muestras en grupos de $9$. ¿Cuántos grupos completos obtiene?",
+          "answer": "384",
+          "why": "$3456\\div9=384$; la suma de cifras es 18, por lo que la división es exacta."
+        },
+        {
+          "q": "Un registro contiene $2408$ datos. ¿Por cuáles de estos números es divisible: $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,4,6,8$",
+            "$2,4,5,8,10$",
+            "$4,8,9$",
+            "$2,4,8$"
+          ],
+          "correct": 3,
+          "why": "Es par; sus dos últimas cifras son 08, múltiplo de 4; sus tres últimas cifras 408 son múltiplo de 8. La suma de cifras es 14."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un laboratorio dispone de $115$ unidades y las organiza en grupos de $4$. ¿Cuántas sobran?",
-          "answer": "3",
-          "why": "La división entera de $115$ entre $4$ da cociente $28$ y resto $3$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para formar lotes de $3$ unidades se tienen $57$ muestras. ¿Cuántas deben añadirse como mínimo para completar un múltiplo de $3$?",
+          "q": "¿Cuál es el menor dígito $d$ que se puede colocar en $43d2$ para que el número sea divisible por $3$?",
           "answer": "0",
-          "why": "La división entera de $57$ entre $3$ da cociente $19$ y resto $0$.",
-          "level": 2
+          "why": "La suma de cifras es $4+3+d+2=9+d$. El menor dígito que la hace múltiplo de 3 es $d=0$."
+        },
+        {
+          "q": "Una planta procesa $5625$ unidades. ¿Qué lista contiene todos los divisores de $5625$ entre $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$3,5$",
+            "$2,3,5,6,9$",
+            "$3,5,9$",
+            "$3,4,5,9$"
+          ],
+          "correct": 2,
+          "why": "La suma de cifras es 18, así que es divisible por 3 y 9; termina en 5. No es par ni sus dos últimas cifras son múltiplo de 4."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se envasan $255$ muestras en cajas de $9$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "28",
-          "why": "La división entera de $255$ entre $9$ da cociente $28$ y resto $3$.",
-          "level": 3
+          "q": "Una fábrica embala $6420$ piezas en paquetes de $10$. ¿Cuántos paquetes completos obtiene?",
+          "answer": "642",
+          "why": "$6420\\div10=642$."
+        },
+        {
+          "q": "Un equipo registra $7314$ mediciones. ¿Por cuáles de estos números es divisible: $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,6,9$",
+            "$2,3,6$",
+            "$2,3,4,6$",
+            "$3,6,8,9$"
+          ],
+          "correct": 1,
+          "why": "Es par y la suma de cifras es 15; por tanto, es divisible por 2, 3 y 6, pero no por 9. 14 no es múltiplo de 4."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un laboratorio dispone de $353$ unidades y las organiza en grupos de $9$. ¿Cuántas sobran?",
-          "answer": "2",
-          "why": "La división entera de $353$ entre $9$ da cociente $39$ y resto $2$.",
-          "level": 2
+          "q": "Se agrupan $2352$ muestras en cajas de $6$. ¿Cuántas cajas completas se llenan?",
+          "answer": "392",
+          "why": "$2352\\div6=392$."
+        },
+        {
+          "q": "Un depósito contiene $12096$ piezas. ¿Qué lista reúne todos sus divisores entre $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,4,6,8,9$",
+            "$2,3,4,6,8$",
+            "$2,3,4,5,6,8,9,10$",
+            "$3,4,6,8,9$"
+          ],
+          "correct": 0,
+          "why": "Es par; suma 18; termina en 96 y 096, múltiplos de 4 y 8. No termina en 0 ni en 5."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Para formar lotes de $9$ unidades se tienen $159$ muestras. ¿Cuántas deben añadirse como mínimo para completar un múltiplo de $9$?",
-          "answer": "3",
-          "why": "La división entera de $159$ entre $9$ da cociente $17$ y resto $6$.",
-          "level": 2
+          "q": "Un centro prepara paquetes de $8$ unidades con un total de $5040$. ¿Cuántos paquetes completos forma?",
+          "answer": "630",
+          "why": "$5040\\div8=630$."
+        },
+        {
+          "q": "Un lote contiene $4125$ unidades. ¿Cuáles de los números $2,3,4,5,6,8,9,10$ lo dividen exactamente?",
+          "options": [
+            "$3,5,9$",
+            "$2,3,5,6$",
+            "$4,5$",
+            "$3,5$"
+          ],
+          "correct": 3,
+          "why": "La suma de cifras es 12, múltiplo de 3 pero no de 9; termina en 5. No es par."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se envasan $347$ muestras en cajas de $9$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "38",
-          "why": "La división entera de $347$ entre $9$ da cociente $38$ y resto $5$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se envasan $89$ muestras en cajas de $4$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "22",
-          "why": "La división entera de $89$ entre $4$ da cociente $22$ y resto $1$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un laboratorio dispone de $366$ unidades y las organiza en grupos de $8$. ¿Cuántas sobran?",
+          "q": "¿Qué dígito debe ocupar el espacio en $71d4$ para que el número sea divisible por $9$?",
           "answer": "6",
-          "why": "La división entera de $366$ entre $8$ da cociente $45$ y resto $6$.",
-          "level": 2
+          "why": "La suma de cifras es $7+1+d+4=12+d$. Para obtener un múltiplo de 9, $d=6$."
+        },
+        {
+          "q": "Un inventario registra $6530$ elementos. ¿Qué lista contiene todos sus divisores entre $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,5,6,10$",
+            "$2,4,5,8,10$",
+            "$2,5,10$",
+            "$5,9,10$"
+          ],
+          "correct": 2,
+          "why": "Termina en 0, así que es divisible por 2, 5 y 10. La suma de cifras es 14 y 30 no es múltiplo de 4."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Para formar lotes de $10$ unidades se tienen $284$ muestras. ¿Cuántas deben añadirse como mínimo para completar un múltiplo de $10$?",
-          "answer": "6",
-          "why": "La división entera de $284$ entre $10$ da cociente $28$ y resto $4$.",
-          "level": 3
+          "q": "Un inventario de $1248$ piezas se reparte en cajas de $4$. ¿Cuántas cajas completas se necesitan?",
+          "answer": "312",
+          "why": "$1248\\div4=312$."
+        },
+        {
+          "q": "Una muestra de datos tiene $8232$ registros. ¿Por cuáles de estos números es divisible: $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,4,6,8,9$",
+            "$2,3,4,6,8$",
+            "$2,3,5,6,8$",
+            "$3,4,8,9$"
+          ],
+          "correct": 1,
+          "why": "Es par; suma 15; termina en 32 y 232, múltiplos de 4 y 8. No es divisible por 9."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se envasan $128$ muestras en cajas de $6$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "21",
-          "why": "La división entera de $128$ entre $6$ da cociente $21$ y resto $2$.",
-          "level": 2
+          "q": "Un laboratorio distribuye $2916$ muestras en grupos de $9$. ¿Cuántos grupos completos obtiene?",
+          "answer": "324",
+          "why": "$2916\\div9=324$."
+        },
+        {
+          "q": "Un centro recibe $5184$ muestras. ¿Qué lista reúne exactamente los divisores de $5184$ entre $2,3,4,5,6,8,9,10$?",
+          "options": [
+            "$2,3,4,6,8,9$",
+            "$2,3,4,6,8$",
+            "$2,3,4,5,6,8,9,10$",
+            "$3,4,6,8,9$"
+          ],
+          "correct": 0,
+          "why": "Es par, suma 18, termina en 84 y 184 son múltiplos de 4 y 8. No es divisible por 5 ni por 10."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un laboratorio dispone de $203$ unidades y las organiza en grupos de $9$. ¿Cuántas sobran?",
-          "answer": "5",
-          "why": "La división entera de $203$ entre $9$ da cociente $22$ y resto $5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para formar lotes de $6$ unidades se tienen $116$ muestras. ¿Cuántas deben añadirse como mínimo para completar un múltiplo de $6$?",
-          "answer": "4",
-          "why": "La división entera de $116$ entre $6$ da cociente $19$ y resto $2$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se envasan $266$ muestras en cajas de $12$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "22",
-          "why": "La división entera de $266$ entre $12$ da cociente $22$ y resto $2$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se envasan $254$ muestras en cajas de $8$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "31",
-          "why": "La división entera de $254$ entre $8$ da cociente $31$ y resto $6$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un laboratorio dispone de $270$ unidades y las organiza en grupos de $9$. ¿Cuántas sobran?",
-          "answer": "0",
-          "why": "La división entera de $270$ entre $9$ da cociente $30$ y resto $0$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para formar lotes de $6$ unidades se tienen $219$ muestras. ¿Cuántas deben añadirse como mínimo para completar un múltiplo de $6$?",
-          "answer": "3",
-          "why": "La división entera de $219$ entre $6$ da cociente $36$ y resto $3$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se envasan $338$ muestras en cajas de $10$. ¿Cuántas cajas completas pueden llenarse?",
-          "answer": "33",
-          "why": "La división entera de $338$ entre $10$ da cociente $33$ y resto $8$.",
-          "level": 2
+          "q": "Una bodega envía $1770$ unidades en paquetes de $5$. ¿Cuántos paquetes completos prepara?",
+          "answer": "354",
+          "why": "$1770\\div5=354$."
         }
       ],
       "drawCheck": 2
@@ -2804,14 +2840,15 @@
         }
       ],
       "check": {
-        "q": "Se distribuyen $24$ muestras en grupos iguales de $6$. ¿Cuántos grupos hay?",
+        "q": "Un laboratorio necesita elegir un número primo para identificar una muestra. ¿Cuál de estos números es primo?",
         "options": [
-          "$4$",
-          "$5$",
-          "$6$"
+          "$91$",
+          "$111$",
+          "$97$",
+          "$121$"
         ],
-        "correct": 0,
-        "why": "$24\\div6=4$."
+        "correct": 2,
+        "why": "$97$ no tiene divisores primos menores o iguales que $\\sqrt{97}$. En cambio, $91=7\\cdot13$, $111=3\\cdot37$ y $121=11^2$."
       },
       "learn": {
         "goal": "Reconocer números primos, interpretar cociente y resto y factorizar un entero positivo en primos.",
@@ -2913,154 +2950,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Una colección contiene $54$ muestras. Si se reparten en grupos de $7$, ¿cuántas muestras sobran? Escribe solo el resto.",
-          "answer": "5",
-          "why": "$54=7\\cdot7+5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito guarda $120$ cápsulas. Si cada caja contiene $11$, ¿cuántas cápsulas quedan fuera de las cajas completas? Escribe solo la cantidad.",
-          "answer": "10",
-          "why": "$120=11\\cdot10+10$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un lote de $513$ muestras se agrupa en paquetes completos de $21$. ¿Cuántos paquetes completos se forman?",
-          "answer": "24",
-          "why": "Usamos la división euclídea: $513=21\\cdot24+9$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $169$ unidades en un depósito. ¿Cuántas se deben añadir como mínimo para tener una cantidad múltiplo de $7$?",
-          "answer": "6",
-          "why": "Usamos la división euclídea: $169=7\\cdot24+1$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se reparten $444$ tubos entre $21$ bandejas con igual cantidad máxima en cada una. ¿Cuántos tubos quedan sin repartir?",
+          "q": "Una muestra de $540$ unidades se descompone en factores primos. ¿Cuántos factores primos distintos aparecen?",
           "answer": "3",
-          "why": "Usamos la división euclídea: $444=21\\cdot21+3$.",
-          "level": 3
+          "why": "$540=2^2\\cdot3^3\\cdot5$; aparecen los primos $2,3,5$."
+        },
+        {
+          "q": "¿Cuál es la descomposición en factores primos de $84$?",
+          "options": [
+            "$2\\cdot3\\cdot14$",
+            "$2^2\\cdot3\\cdot7$",
+            "$2^2\\cdot21$",
+            "$2^3\\cdot3\\cdot7$"
+          ],
+          "correct": 1,
+          "why": "$84=2\\cdot42=2^2\\cdot21=2^2\\cdot3\\cdot7$. Los factores finales deben ser primos."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un lote de $603$ muestras se agrupa en paquetes completos de $17$. ¿Cuántos paquetes completos se forman?",
-          "answer": "35",
-          "why": "Usamos la división euclídea: $603=17\\cdot35+8$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $59$ unidades en un depósito. ¿Cuántas se deben añadir como mínimo para tener una cantidad múltiplo de $8$?",
+          "q": "La factorización de $168$ es $2^3\\cdot3\\cdot7$. ¿Cuántos factores primos se cuentan incluyendo repeticiones?",
           "answer": "5",
-          "why": "Usamos la división euclídea: $59=8\\cdot7+3$.",
-          "level": 2
+          "why": "Se cuentan tres factores $2$, un factor $3$ y un factor $7$: en total $3+1+1=5$."
+        },
+        {
+          "q": "Una muestra contiene $180$ unidades. ¿Cuál es su factorización prima?",
+          "options": [
+            "$2^2\\cdot3^2\\cdot5$",
+            "$2\\cdot3^2\\cdot10$",
+            "$2^2\\cdot3\\cdot15$",
+            "$2^3\\cdot3^2\\cdot5$"
+          ],
+          "correct": 0,
+          "why": "$180=4\\cdot45=2^2\\cdot3^2\\cdot5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un lote contiene $325$ piezas. Al factorizar esa cantidad en números primos, ¿cuántos factores aparecen contando repeticiones?",
-          "answer": "3",
-          "why": "$325=5^{2}\\cdot13$, con $2+1=3$ factores primos.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se reparten $597$ tubos entre $20$ bandejas con igual cantidad máxima en cada una. ¿Cuántos tubos quedan sin repartir?",
-          "answer": "17",
-          "why": "Usamos la división euclídea: $597=20\\cdot29+17$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un lote de $165$ muestras se agrupa en paquetes completos de $8$. ¿Cuántos paquetes completos se forman?",
-          "answer": "20",
-          "why": "Usamos la división euclídea: $165=8\\cdot20+5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $491$ unidades en un depósito. ¿Cuántas se deben añadir como mínimo para tener una cantidad múltiplo de $16$?",
-          "answer": "5",
-          "why": "Usamos la división euclídea: $491=16\\cdot30+11$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se reparten $302$ tubos entre $11$ bandejas con igual cantidad máxima en cada una. ¿Cuántos tubos quedan sin repartir?",
-          "answer": "5",
-          "why": "Usamos la división euclídea: $302=11\\cdot27+5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un lote de $244$ muestras se agrupa en paquetes completos de $10$. ¿Cuántos paquetes completos se forman?",
-          "answer": "24",
-          "why": "Usamos la división euclídea: $244=10\\cdot24+4$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $551$ unidades en un depósito. ¿Cuántas se deben añadir como mínimo para tener una cantidad múltiplo de $20$?",
-          "answer": "9",
-          "why": "Usamos la división euclídea: $551=20\\cdot27+11$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un lote contiene $44$ piezas. Al factorizar esa cantidad en números primos, ¿cuántos factores aparecen contando repeticiones?",
-          "answer": "3",
-          "why": "$44=2^{2}\\cdot11$, con $2+1=3$ factores primos.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Se reparten $455$ tubos entre $15$ bandejas con igual cantidad máxima en cada una. ¿Cuántos tubos quedan sin repartir?",
-          "answer": "5",
-          "why": "Usamos la división euclídea: $455=15\\cdot30+5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un lote de $115$ muestras se agrupa en paquetes completos de $19$. ¿Cuántos paquetes completos se forman?",
-          "answer": "6",
-          "why": "Usamos la división euclídea: $115=19\\cdot6+1$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $437$ unidades en un depósito. ¿Cuántas se deben añadir como mínimo para tener una cantidad múltiplo de $15$?",
+          "q": "Al dividir $238$ entre $15$, ¿qué resto se obtiene?",
           "answer": "13",
-          "why": "Usamos la división euclídea: $437=15\\cdot29+2$.",
-          "level": 2
+          "why": "$238=15\\cdot15+13$, y $13<15$."
+        },
+        {
+          "q": "¿Qué pareja de factores primos permite descomponer $221$?",
+          "options": [
+            "$11\\cdot20$",
+            "$13\\cdot19$",
+            "$7\\cdot31$",
+            "$13\\cdot17$"
+          ],
+          "correct": 3,
+          "why": "$13\\cdot17=221$ y ambos factores son primos."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se reparten $417$ tubos entre $20$ bandejas con igual cantidad máxima en cada una. ¿Cuántos tubos quedan sin repartir?",
-          "answer": "17",
-          "why": "Usamos la división euclídea: $417=20\\cdot20+17$.",
-          "level": 2
+          "q": "El número $202$ se descompone como producto de dos primos. ¿Cuál es el mayor factor primo?",
+          "answer": "101",
+          "why": "$202=2\\cdot101$; el mayor factor primo es $101$."
+        },
+        {
+          "q": "Un cultivo se representa por $72$ unidades. ¿Cuál es la factorización prima de $72$?",
+          "options": [
+            "$2^2\\cdot3^3$",
+            "$2\\cdot3^2\\cdot4$",
+            "$2^3\\cdot3^2$",
+            "$2^4\\cdot3$"
+          ],
+          "correct": 2,
+          "why": "$72=8\\cdot9=2^3\\cdot3^2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "La factorización prima de $225$ es $3^2\\cdot5^2$. ¿Cuántos factores primos se cuentan con repetición?",
+          "answer": "4",
+          "why": "Hay dos factores $3$ y dos factores $5$: $2+2=4$."
+        },
+        {
+          "q": "Al repartir $157$ mediciones en grupos de $12$, ¿qué cociente y resto entrega la división entera?",
+          "options": [
+            "Cociente $12$, resto $13$",
+            "Cociente $13$, resto $1$",
+            "Cociente $14$, resto $1$",
+            "Cociente $13$, resto $7$"
+          ],
+          "correct": 1,
+          "why": "$157=12\\cdot13+1$, con $0\\le1<12$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "La factorización de $450$ es $2\\cdot3^2\\cdot5^2$. ¿Cuántos factores primos aparecen contando repeticiones?",
+          "answer": "5",
+          "why": "Se cuentan $1+2+2=5$ factores."
+        },
+        {
+          "q": "¿Cuántos factores primos distintos tiene $210$?",
+          "options": [
+            "$4$",
+            "$3$",
+            "$5$",
+            "$6$"
+          ],
+          "correct": 0,
+          "why": "$210=2\\cdot3\\cdot5\\cdot7$: hay cuatro primos distintos."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "El número $391$ es producto de dos primos. Si $391=17\\cdot23$, ¿cuál es el mayor factor primo?",
+          "answer": "23",
+          "why": "Como $391=17\\cdot23$, el mayor factor primo es $23$."
+        },
+        {
+          "q": "Un estudiante afirma que $1$ es primo porque solo tiene un divisor positivo. ¿Cuál es la corrección adecuada?",
+          "options": [
+            "$1$ es primo",
+            "$1$ es compuesto",
+            "$1$ es divisible por dos primos",
+            "$1$ no es primo ni compuesto"
+          ],
+          "correct": 3,
+          "why": "Un primo tiene exactamente dos divisores positivos distintos. El número $1$ tiene solo uno."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un número tiene factorización $7\\cdot11\\cdot13$. ¿Cuántos factores primos distintos tiene?",
+          "answer": "3",
+          "why": "Los tres factores $7$, $11$ y $13$ son primos y distintos."
+        },
+        {
+          "q": "Un equipo busca factorizar $143$. ¿Qué descomposición es correcta?",
+          "options": [
+            "$7\\cdot19$",
+            "$11\\cdot12$",
+            "$11\\cdot13$",
+            "$13\\cdot12$"
+          ],
+          "correct": 2,
+          "why": "$11\\cdot13=143$ y ambos factores son primos."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "La factorización de $196$ es $2^2\\cdot7^2$. ¿Cuántos factores primos se cuentan incluyendo repeticiones?",
+          "answer": "4",
+          "why": "Se cuentan dos factores $2$ y dos factores $7$: cuatro en total."
+        },
+        {
+          "q": "¿Cuántos factores primos se cuentan, incluyendo repeticiones, en la factorización de $360$?",
+          "options": [
+            "$3$",
+            "$6$",
+            "$5$",
+            "$8$"
+          ],
+          "correct": 1,
+          "why": "$360=2^3\\cdot3^2\\cdot5$; al contar repeticiones se obtiene $3+2+1=6$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Al dividir $299$ mediciones en grupos de $14$, ¿cuál es el resto?",
+          "answer": "5",
+          "why": "$299=14\\cdot21+5$."
         }
       ],
       "drawCheck": 2
@@ -3782,14 +3836,15 @@
         }
       ],
       "check": {
-        "q": "Dos señales se repiten cada $6$ y $8$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
+        "q": "Se tienen $48$ muestras del tipo A y $60$ del tipo B. Para formar el mayor número de paquetes idénticos sin sobrantes, ¿cuántos paquetes se pueden preparar?",
         "options": [
-          "$12$",
+          "$6$",
           "$24$",
-          "$48$"
+          "$108$",
+          "$12$"
         ],
-        "correct": 1,
-        "why": "El MCM de $6$ y $8$ es $24$."
+        "correct": 3,
+        "why": "$\\mathrm{MCD}(48,60)=12$. El MCD da el máximo número de grupos idénticos."
       },
       "learn": {
         "goal": "Obtener MCD y MCM usando la descomposición prima y explicar cuándo conviene cada uno.",
@@ -3890,154 +3945,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos alarmas suenan cada $9$ y $12$ minutos. Si suenan juntas ahora, ¿en cuántos minutos volverán a coincidir? Escribe solo el número.",
-          "answer": "36",
-          "why": "$\\mathrm{MCM}(9,12)=36$.",
-          "level": 2
+          "q": "Calcula $\\mathrm{MCD}(42,56)$. Escribe el valor.",
+          "answer": "14",
+          "why": "$42=2\\cdot3\\cdot7$ y $56=2^3\\cdot7$; el producto de factores comunes con menor exponente es $14$."
+        },
+        {
+          "q": "Dos señales se repiten cada $6$ y $8$ minutos. Si coinciden ahora, ¿cuántos minutos pasarán hasta la próxima coincidencia?",
+          "options": [
+            "$14$",
+            "$48$",
+            "$24$",
+            "$2$"
+          ],
+          "correct": 2,
+          "why": "$\\mathrm{MCM}(6,8)=24$ minutos; se busca el primer múltiplo común positivo."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se dispone de $24$ muestras de agua y $36$ de suelo. Se desea preparar la mayor cantidad de cajas idénticas, cada una con igual número de muestras de cada tipo y sin sobrantes. ¿Cuántas cajas pueden prepararse?",
-          "answer": "12",
-          "why": "$\\mathrm{MCD}(24,36)=12$: cada caja contendrá $2$ de agua y $3$ de suelo.",
-          "level": 3
+          "q": "Calcula $\\mathrm{MCM}(10,15)$. Escribe el valor.",
+          "answer": "30",
+          "why": "$10=2\\cdot5$ y $15=3\\cdot5$; el MCM es $2\\cdot3\\cdot5=30$."
+        },
+        {
+          "q": "Una cinta de $72$ cm y otra de $90$ cm se cortan en trozos iguales, lo más largos posible y sin desperdicio. ¿Cuánto mide cada trozo?",
+          "options": [
+            "$9$ cm",
+            "$18$ cm",
+            "$36$ cm",
+            "$162$ cm"
+          ],
+          "correct": 1,
+          "why": "$\\mathrm{MCD}(72,90)=18$ cm."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Hay $76$ muestras del tipo A y $88$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "4",
-          "why": "Calculamos $MCD(76,88)=4$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $21$ y $29$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "609",
-          "why": "Calculamos $MCM(21,29)=609$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $24$ muestras del tipo A y $39$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "3",
-          "why": "Calculamos $MCD(24,39)=3$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $12$ y $8$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "24",
-          "why": "Calculamos $MCM(12,8)=24$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $24$ muestras del tipo A y $84$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "12",
-          "why": "Calculamos $MCD(24,84)=12$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $7$ y $25$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "175",
-          "why": "Calculamos $MCM(7,25)=175$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $7$ y $23$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "161",
-          "why": "Calculamos $MCM(7,23)=161$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $24$ muestras del tipo A y $75$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "3",
-          "why": "Calculamos $MCD(24,75)=3$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $24$ y $21$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "168",
-          "why": "Calculamos $MCM(24,21)=168$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $45$ muestras del tipo A y $66$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "3",
-          "why": "Calculamos $MCD(45,66)=3$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $8$ y $12$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "24",
-          "why": "Calculamos $MCM(8,12)=24$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Hay $42$ muestras del tipo A y $63$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "21",
-          "why": "Calculamos $MCD(42,63)=21$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $7$ y $26$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "182",
-          "why": "Calculamos $MCM(7,26)=182$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos señales se repiten cada $9$ y $18$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
+          "q": "Hay $54$ muestras A y $72$ muestras B. Se quieren formar el máximo número de paquetes idénticos sin sobrantes. ¿Cuántos paquetes se obtienen?",
           "answer": "18",
-          "why": "Calculamos $MCM(9,18)=18$.",
-          "level": 2
+          "why": "$\\mathrm{MCD}(54,72)=18$."
+        },
+        {
+          "q": "Dos alarmas suenan cada $12$ y $18$ minutos. ¿En cuánto tiempo volverán a sonar juntas?",
+          "options": [
+            "$36$ min",
+            "$30$ min",
+            "$6$ min",
+            "$216$ min"
+          ],
+          "correct": 0,
+          "why": "$\\mathrm{MCM}(12,18)=36$ min."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Hay $48$ muestras del tipo A y $66$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "6",
-          "why": "Calculamos $MCD(48,66)=6$.",
-          "level": 3
+          "q": "Dos señales se activan cada $8$ y $12$ minutos. Si coinciden ahora, ¿cuántos minutos faltan para que coincidan otra vez?",
+          "answer": "24",
+          "why": "$\\mathrm{MCM}(8,12)=24$ minutos."
+        },
+        {
+          "q": "Se agrupan $84$ tubos y $126$ conectores en paquetes idénticos, sin sobrantes. ¿Cuál es el mayor número de paquetes?",
+          "options": [
+            "$21$",
+            "$84$",
+            "$210$",
+            "$42$"
+          ],
+          "correct": 3,
+          "why": "$\\mathrm{MCD}(84,126)=42$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos señales se repiten cada $7$ y $8$ minutos. Si coinciden ahora, ¿en cuántos minutos volverán a coincidir?",
-          "answer": "56",
-          "why": "Calculamos $MCM(7,8)=56$.",
-          "level": 2
+          "q": "Dos listones de $120$ cm y $168$ cm se cortan en trozos iguales de máxima longitud. ¿Cuántos centímetros mide cada trozo?",
+          "answer": "24",
+          "why": "$\\mathrm{MCD}(120,168)=24$ cm."
+        },
+        {
+          "q": "Un sistema activa dos señales cada $9$ y $12$ segundos. ¿Cuándo coincidirán nuevamente?",
+          "options": [
+            "$21$ s",
+            "$108$ s",
+            "$36$ s",
+            "$3$ s"
+          ],
+          "correct": 2,
+          "why": "$\\mathrm{MCM}(9,12)=36$ s."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Hay $16$ muestras del tipo A y $48$ del tipo B. Para repartirlas en el mayor número de cajas idénticas, sin sobrantes, ¿cuántas cajas se obtienen?",
-          "answer": "16",
-          "why": "Calculamos $MCD(16,48)=16$.",
-          "level": 2
+          "q": "Dos equipos toman mediciones cada $6$ y $14$ minutos. ¿Cuántos minutos pasarán hasta que vuelvan a medir simultáneamente?",
+          "answer": "42",
+          "why": "$\\mathrm{MCM}(6,14)=42$ minutos."
+        },
+        {
+          "q": "Una investigadora tiene $96$ muestras y $144$ recipientes. Desea formar el máximo número de lotes idénticos sin sobrantes. ¿Cuántos lotes puede formar?",
+          "options": [
+            "$24$",
+            "$48$",
+            "$96$",
+            "$240$"
+          ],
+          "correct": 1,
+          "why": "$\\mathrm{MCD}(96,144)=48$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $\\mathrm{MCD}(90,150)$. Escribe el valor.",
+          "answer": "30",
+          "why": "$90=2\\cdot3^2\\cdot5$ y $150=2\\cdot3\\cdot5^2$; el MCD es $2\\cdot3\\cdot5=30$."
+        },
+        {
+          "q": "Dos procesos se repiten cada $15$ y $20$ minutos. Si comienzan juntos, ¿cuándo volverán a coincidir?",
+          "options": [
+            "$60$ min",
+            "$35$ min",
+            "$300$ min",
+            "$5$ min"
+          ],
+          "correct": 0,
+          "why": "$\\mathrm{MCM}(15,20)=60$ min."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Dos luces parpadean cada $9$ y $12$ segundos. ¿Cuántos segundos pasan hasta el próximo parpadeo simultáneo?",
+          "answer": "36",
+          "why": "$\\mathrm{MCM}(9,12)=36$ segundos."
+        },
+        {
+          "q": "Para cortar barras de $8$ m y $14$ m en segmentos iguales de máxima longitud, ¿cuánto debe medir cada segmento?",
+          "options": [
+            "$4$ m",
+            "$7$ m",
+            "$112$ m",
+            "$2$ m"
+          ],
+          "correct": 3,
+          "why": "$\\mathrm{MCD}(8,14)=2$ m."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Se reparten $45$ muestras y $60$ etiquetas en el mayor número de kits idénticos, sin sobrantes. ¿Cuántos kits se forman?",
+          "answer": "15",
+          "why": "$\\mathrm{MCD}(45,60)=15$."
+        },
+        {
+          "q": "Dos equipos revisan muestras cada $10$ y $15$ minutos. ¿Cuándo volverán a revisar una muestra simultáneamente?",
+          "options": [
+            "$25$ min",
+            "$150$ min",
+            "$30$ min",
+            "$5$ min"
+          ],
+          "correct": 2,
+          "why": "$\\mathrm{MCM}(10,15)=30$ min."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Dos procesos se repiten cada $4$ y $10$ minutos. ¿Cuántos minutos pasan hasta que vuelvan a coincidir?",
+          "answer": "20",
+          "why": "$\\mathrm{MCM}(4,10)=20$ minutos."
         }
       ],
       "drawCheck": 2,
@@ -4770,15 +4842,15 @@
         }
       ],
       "check": {
-        "q": "Un matraz contiene $\\dfrac38$ L. ¿Qué decimal representa ese volumen en litros?",
+        "q": "Un matraz contiene $\\dfrac38$ L de una solución. ¿Qué número decimal representa exactamente ese volumen?",
         "options": [
           "$0{,}375$",
           "$0{,}38$",
-          "$0{,}83$"
+          "$0{,}35$",
+          "$0{,}625$"
         ],
         "correct": 0,
-        "why": "$3\\div8=0{,}375$ L.",
-        "level": 2
+        "why": "$3\\div8=0{,}375$. Es un decimal finito exacto, no una aproximación."
       },
       "learn": {
         "goal": "Convertir fracciones en decimales y decimales finitos o periódicos en fracciones.",
@@ -4912,172 +4984,178 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Un recipiente contiene $0{,}625$ L. Escribe ese volumen como fracción irreducible de litro (solo el número).",
+          "q": "Convierte $0{,}625$ a fracción irreducible. Escribe solo la fracción.",
           "answer": "5/8",
           "why": "$0{,}625=625/1000=5/8$.",
-          "level": 2,
           "reduced": true
+        },
+        {
+          "q": "Un registro indica $0{,}24$ L. ¿Qué fracción irreducible representa esa cantidad?",
+          "options": [
+            "$\\dfrac{24}{10}$",
+            "$\\dfrac4{25}$",
+            "$\\dfrac{24}{1000}$",
+            "$\\dfrac6{25}$"
+          ],
+          "correct": 3,
+          "why": "$0{,}24=24/100$ y al simplificar por $4$ se obtiene $6/25$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una proporción exacta se escribe $0{,}\\overline6$. Expresa esa proporción como fracción irreducible.",
-          "answer": "2/3",
-          "why": "$0{,}\\overline6=2/3$.",
-          "level": 3,
+          "q": "Convierte $0{,}\\overline{45}$ a fracción irreducible.",
+          "answer": "5/11",
+          "why": "$0{,}\\overline{45}=45/99=5/11$.",
           "reduced": true
+        },
+        {
+          "q": "Una medición decimal se repite como $0{,}\\overline3$. ¿Cuál es su valor exacto como fracción?",
+          "options": [
+            "$\\dfrac3{10}$",
+            "$\\dfrac3{100}$",
+            "$\\dfrac13$",
+            "$\\dfrac23$"
+          ],
+          "correct": 2,
+          "why": "$0{,}\\overline3=0{,}333\\ldots=1/3$. No es el decimal finito $0{,}3$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una muestra corresponde al decimal $2{,}1000$ del total. Expresa esa proporción como fracción irreducible.",
-          "answer": "21/10",
-          "why": "$2{,}1000=\\dfrac{21}{10}$.",
-          "level": 2,
+          "q": "Convierte $0{,}2\\overline7$ a fracción irreducible.",
+          "answer": "5/18",
+          "why": "$0{,}2\\overline7=0{,}2777\\ldots=5/18$.",
           "reduced": true
+        },
+        {
+          "q": "La lectura de un sensor es $0{,}1\\overline6$. ¿Qué fracción irreducible representa?",
+          "options": [
+            "$\\dfrac{16}{100}$",
+            "$\\dfrac16$",
+            "$\\dfrac15$",
+            "$\\dfrac{16}{10}$"
+          ],
+          "correct": 1,
+          "why": "$1/6=0{,}1666\\ldots$, por lo que $0{,}1\\overline6=1/6$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un informe se mide una longitud de $0{,}2500$ metros. Escríbela como fracción irreducible de metro.",
-          "answer": "1/4",
-          "why": "$0{,}2500=\\dfrac{1}{4}$.",
-          "level": 2,
-          "reduced": true
+          "q": "Expresa $\\dfrac{13}{40}$ como decimal exacto. Escribe el número.",
+          "answer": "0,325",
+          "why": "$13\\div40=0{,}325$."
+        },
+        {
+          "q": "Una longitud se registra como $2{,}75$ m. ¿Qué fracción irreducible equivale a esa medida?",
+          "options": [
+            "$\\dfrac{11}{4}$",
+            "$\\dfrac{11}{5}$",
+            "$\\dfrac72$",
+            "$\\dfrac{275}{10}$"
+          ],
+          "correct": 0,
+          "why": "$2{,}75=275/100=11/4$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una solución ocupa $0{,}5000$ litros. ¿Qué fracción irreducible de litro representa ese volumen?",
-          "answer": "1/2",
-          "why": "$0{,}5000=\\dfrac{1}{2}$.",
-          "level": 3,
-          "reduced": true
+          "q": "Expresa $\\dfrac7{16}$ como decimal exacto. Escribe el número.",
+          "answer": "0,4375",
+          "why": "$7\\div16=0{,}4375$."
+        },
+        {
+          "q": "Una muestra representa $0{,}125$ L. ¿Qué fracción irreducible corresponde a ese volumen?",
+          "options": [
+            "$\\dfrac14$",
+            "$\\dfrac15$",
+            "$\\dfrac{125}{100}$",
+            "$\\dfrac18$"
+          ],
+          "correct": 3,
+          "why": "$0{,}125=125/1000=1/8$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una muestra corresponde al decimal $0{,}2500$ del total. Expresa esa proporción como fracción irreducible.",
-          "answer": "1/4",
-          "why": "$0{,}2500=\\dfrac{1}{4}$.",
-          "level": 2,
+          "q": "Convierte $2{,}04$ a fracción irreducible.",
+          "answer": "51/25",
+          "why": "$2{,}04=204/100=51/25$.",
           "reduced": true
+        },
+        {
+          "q": "Una solución contiene $\\dfrac7{20}$ L. ¿Cuál es su expresión decimal exacta?",
+          "options": [
+            "$0{,}14$",
+            "$0{,}27$",
+            "$0{,}35$",
+            "$0{,}7$"
+          ],
+          "correct": 2,
+          "why": "$7/20=35/100=0{,}35$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un informe se mide una longitud de $0{,}2000$ metros. Escríbela como fracción irreducible de metro.",
-          "answer": "1/5",
-          "why": "$0{,}2000=\\dfrac{1}{5}$.",
-          "level": 2,
+          "q": "Convierte $0{,}\\overline{18}$ a fracción irreducible.",
+          "answer": "2/11",
+          "why": "$0{,}\\overline{18}=18/99=2/11$.",
           "reduced": true
+        },
+        {
+          "q": "Una señal tiene el valor periódico $0{,}\\overline{27}$. ¿Qué fracción irreducible la representa?",
+          "options": [
+            "$\\dfrac{27}{100}$",
+            "$\\dfrac3{11}$",
+            "$\\dfrac2{11}$",
+            "$\\dfrac{27}{90}$"
+          ],
+          "correct": 1,
+          "why": "$0{,}\\overline{27}=27/99=3/11$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una proporción se escribe como el decimal periódico $0{,}\\overline{56}$. Expresa ese valor como fracción irreducible.",
-          "answer": "56/99",
-          "why": "El período tiene dos cifras: $56/99=\\dfrac{56}{99}$.",
-          "level": 3,
+          "q": "Una medición es $0{,}08$ L. Escríbela como fracción irreducible de litro.",
+          "answer": "2/25",
+          "why": "$0{,}08=8/100=2/25$.",
           "reduced": true
+        },
+        {
+          "q": "Un instrumento registra $1{,}2$ unidades. ¿Cuál es su representación fraccionaria irreducible?",
+          "options": [
+            "$\\dfrac65$",
+            "$\\dfrac{12}{100}$",
+            "$\\dfrac16$",
+            "$\\dfrac35$"
+          ],
+          "correct": 0,
+          "why": "$1{,}2=12/10=6/5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una solución ocupa $1{,}1250$ litros. ¿Qué fracción irreducible de litro representa ese volumen?",
-          "answer": "9/8",
-          "why": "$1{,}1250=\\dfrac{9}{8}$.",
-          "level": 2,
+          "q": "Convierte $0{,}12\\overline3$ a fracción irreducible.",
+          "answer": "37/300",
+          "why": "$0{,}12\\overline3=0{,}12333\\ldots=37/300$.",
           "reduced": true
+        },
+        {
+          "q": "Una distancia es $\\dfrac54$ m. ¿Qué decimal exacto representa esa medida?",
+          "options": [
+            "$1{,}35$",
+            "$1{,}26$",
+            "$1{,}5$",
+            "$1{,}25$"
+          ],
+          "correct": 3,
+          "why": "$5\\div4=1{,}25$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una muestra corresponde al decimal $0{,}5500$ del total. Expresa esa proporción como fracción irreducible.",
-          "answer": "11/20",
-          "why": "$0{,}5500=\\dfrac{11}{20}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un informe se mide una longitud de $1{,}7250$ metros. Escríbela como fracción irreducible de metro.",
-          "answer": "69/40",
-          "why": "$1{,}7250=\\dfrac{69}{40}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una solución ocupa $1{,}2500$ litros. ¿Qué fracción irreducible de litro representa ese volumen?",
-          "answer": "5/4",
-          "why": "$1{,}2500=\\dfrac{5}{4}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una muestra corresponde al decimal $1{,}1000$ del total. Expresa esa proporción como fracción irreducible.",
-          "answer": "11/10",
-          "why": "$1{,}1000=\\dfrac{11}{10}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un informe se mide una longitud de $2{,}9500$ metros. Escríbela como fracción irreducible de metro.",
-          "answer": "59/20",
-          "why": "$2{,}9500=\\dfrac{59}{20}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una proporción se escribe como el decimal periódico $0{,}\\overline{37}$. Expresa ese valor como fracción irreducible.",
-          "answer": "37/99",
-          "why": "El período tiene dos cifras: $37/99=\\dfrac{37}{99}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una solución ocupa $2{,}9680$ litros. ¿Qué fracción irreducible de litro representa ese volumen?",
-          "answer": "371/125",
-          "why": "$2{,}9680=\\dfrac{371}{125}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una muestra corresponde al decimal $1{,}4000$ del total. Expresa esa proporción como fracción irreducible.",
-          "answer": "7/5",
-          "why": "$1{,}4000=\\dfrac{7}{5}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un informe se mide una longitud de $2{,}6250$ metros. Escríbela como fracción irreducible de metro.",
-          "answer": "21/8",
-          "why": "$2{,}6250=\\dfrac{21}{8}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una solución ocupa $0{,}6000$ litros. ¿Qué fracción irreducible de litro representa ese volumen?",
-          "answer": "3/5",
-          "why": "$0{,}6000=\\dfrac{3}{5}$.",
-          "level": 2,
+          "q": "Una longitud mide $1{,}375$ m. Escríbela como fracción irreducible de metro.",
+          "answer": "11/8",
+          "why": "$1{,}375=1375/1000=11/8$.",
           "reduced": true
         }
       ],
@@ -5803,14 +5881,15 @@
         }
       ],
       "check": {
-        "q": "De $12$ muestras, $8$ reaccionan. ¿Qué fracción simplificada representan?",
+        "q": "Una receta utiliza $\\dfrac35$ L de agua. ¿Qué fracción equivalente tiene denominador $20$?",
         "options": [
-          "$\\dfrac{2}{3}$",
-          "$\\dfrac{3}{2}$",
-          "$\\dfrac{1}{3}$"
+          "$\\dfrac8{20}$",
+          "$\\dfrac{12}{20}$",
+          "$\\dfrac3{20}$",
+          "$\\dfrac{15}{20}$"
         ],
-        "correct": 0,
-        "why": "$8/12=2/3$."
+        "correct": 1,
+        "why": "Multiplicamos numerador y denominador por $4$: $3/5=12/20$."
       },
       "learn": {
         "goal": "Reconocer fracciones equivalentes y simplificarlas hasta una expresión irreducible.",
@@ -5914,173 +5993,178 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "En un cultivo germinan $18$ de $24$ semillas. ¿Qué fracción irreducible germinó? Escribe solo la fracción.",
-          "answer": "3/4",
-          "why": "$18/24=3/4$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "De $45$ muestras, $30$ son positivas. Escribe la fracción de muestras positivas en forma irreducible.",
+          "q": "En un registro, $24$ de $36$ muestras presentan una reacción. Escribe la fracción irreducible.",
           "answer": "2/3",
-          "why": "$30/45=2/3$.",
-          "level": 2,
+          "why": "$24/36$ se simplifica dividiendo por $12$: $2/3$.",
           "reduced": true
+        },
+        {
+          "q": "Un registro de $18$ muestras positivas de un total de $24$ se expresa como fracción. ¿Cuál es su forma irreducible?",
+          "options": [
+            "$\\dfrac34$",
+            "$\\dfrac23$",
+            "$\\dfrac{9}{12}$",
+            "$\\dfrac{18}{12}$"
+          ],
+          "correct": 0,
+          "why": "$18/24$ se simplifica dividiendo numerador y denominador por $6$: $3/4$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un registro representa $48$ elementos favorables de $96$. Simplifica la fracción de elementos favorables.",
-          "answer": "1/2",
-          "why": "$48/96=\\dfrac{1}{2}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
+          "q": "Completa una fracción equivalente a $\\dfrac25$ cuyo denominador sea $45$. Escribe solo el numerador.",
+          "answer": "18",
+          "why": "Como $5\\cdot9=45$, también multiplicamos $2\\cdot9=18$."
+        },
+        {
+          "q": "¿Cuál de las siguientes fracciones es equivalente a $\\dfrac58$?",
+          "options": [
+            "$\\dfrac{10}{24}$",
+            "$\\dfrac{15}{32}$",
+            "$\\dfrac{5}{16}$",
+            "$\\dfrac{15}{24}$"
+          ],
+          "correct": 3,
+          "why": "$5/8$ multiplicada por $3/3$ es $15/24$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Para una mezcla se usa la proporción $6/36$ de agua. Expresa esta proporción como fracción irreducible.",
-          "answer": "1/6",
-          "why": "$6/36=\\dfrac{1}{6}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
+          "q": "La fracción $\\dfrac{21}{49}$ representa una proporción. ¿Cuál es su forma irreducible? Escribe solo la fracción.",
+          "answer": "3/7",
+          "why": "$21/49$ se simplifica dividiendo por $7$: $3/7$.",
           "reduced": true
+        },
+        {
+          "q": "De $18$ muestras, $12$ cumplen una condición. ¿Qué fracción irreducible representa esa proporción?",
+          "options": [
+            "$\\dfrac34$",
+            "$\\dfrac12$",
+            "$\\dfrac23$",
+            "$\\dfrac{12}{18}$"
+          ],
+          "correct": 2,
+          "why": "$12/18$ se simplifica dividiendo por $6$: $2/3$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En $25$ muestras, $15$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
+          "q": "Una proporción se expresa como $\\dfrac8{12}$. ¿Cuál es su forma irreducible?",
+          "answer": "2/3",
+          "why": "$8/12$ se simplifica dividiendo numerador y denominador por $4$.",
+          "reduced": true
+        },
+        {
+          "q": "¿Cuál de estas fracciones es equivalente a $\\dfrac79$?",
+          "options": [
+            "$\\dfrac{14}{27}$",
+            "$\\dfrac{21}{27}$",
+            "$\\dfrac{28}{45}$",
+            "$\\dfrac7{18}$"
+          ],
+          "correct": 1,
+          "why": "$7/9$ multiplicada por $3/3$ es $21/27$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "De $18$ mediciones, $30$ se registran en una escala ampliada de comparación. Simplifica la fracción $\\dfrac{18}{30}$.",
           "answer": "3/5",
-          "why": "$15/25=\\dfrac{3}{5}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 3,
+          "why": "$18/30$ se simplifica dividiendo por $6$: $3/5$.",
           "reduced": true
+        },
+        {
+          "q": "Una muestra contiene $45$ unidades de un componente en $60$ unidades totales. ¿Qué fracción irreducible representa la proporción?",
+          "options": [
+            "$\\dfrac34$",
+            "$\\dfrac23$",
+            "$\\dfrac45$",
+            "$\\dfrac{9}{20}$"
+          ],
+          "correct": 0,
+          "why": "$45/60$ se simplifica dividiendo por $15$: $3/4$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un registro representa $12$ elementos favorables de $72$. Simplifica la fracción de elementos favorables.",
-          "answer": "1/6",
-          "why": "$12/72=\\dfrac{1}{6}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
+          "q": "Completa una fracción equivalente a $\\dfrac37$ cuyo denominador sea $56$. Escribe el numerador.",
+          "answer": "24",
+          "why": "Multiplicamos el denominador por $8$; el numerador también: $3\\cdot8=24$."
+        },
+        {
+          "q": "Dos equipos registran proporciones $\\dfrac46$ y $\\dfrac{10}{15}$. ¿Qué conclusión es correcta?",
+          "options": [
+            "La primera es mayor",
+            "La segunda es mayor",
+            "No se pueden comparar",
+            "Representan la misma proporción"
+          ],
+          "correct": 3,
+          "why": "$4/6=2/3$ y $10/15=2/3$; son fracciones equivalentes."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Para una mezcla se usa la proporción $240/240$ de agua. Expresa esta proporción como fracción irreducible.",
-          "answer": "1",
-          "why": "$240/240=1$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
+          "q": "Simplifica la proporción $\\dfrac{35}{50}$. Escribe la fracción irreducible.",
+          "answer": "7/10",
+          "why": "Dividimos numerador y denominador por $5$: $35/50=7/10$.",
           "reduced": true
+        },
+        {
+          "q": "Una fracción equivalente a $\\dfrac5{12}$ debe tener denominador $60$. ¿Cuál es?",
+          "options": [
+            "$\\dfrac{20}{60}$",
+            "$\\dfrac{30}{60}$",
+            "$\\dfrac{25}{60}$",
+            "$\\dfrac5{60}$"
+          ],
+          "correct": 2,
+          "why": "El denominador se multiplicó por $5$, así que el numerador también: $5\\cdot5=25$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En $24$ muestras, $6$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "1/4",
-          "why": "$6/24=\\dfrac{1}{4}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 3,
+          "q": "Simplifica la proporción $\\dfrac{16}{28}$. Escribe la fracción irreducible.",
+          "answer": "4/7",
+          "why": "Dividimos ambos términos por $4$: $16/28=4/7$.",
           "reduced": true
+        },
+        {
+          "q": "Una medición se registra como $\\dfrac{14}{35}$. ¿Cuál es su forma irreducible?",
+          "options": [
+            "$\\dfrac7{15}$",
+            "$\\dfrac25$",
+            "$\\dfrac{14}{5}$",
+            "$\\dfrac52$"
+          ],
+          "correct": 1,
+          "why": "$14/35$ se simplifica dividiendo ambos términos por $7$: $2/5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En $221$ muestras, $143$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "11/17",
-          "why": "$143/221=\\dfrac{11}{17}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un registro representa $13$ elementos favorables de $156$. Simplifica la fracción de elementos favorables.",
-          "answer": "1/12",
-          "why": "$13/156=\\dfrac{1}{12}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para una mezcla se usa la proporción $99/132$ de agua. Expresa esta proporción como fracción irreducible.",
+          "q": "En una muestra, $27$ de $36$ partículas cumplen una condición. ¿Qué fracción irreducible representa esa proporción?",
           "answer": "3/4",
-          "why": "$99/132=\\dfrac{3}{4}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 3,
+          "why": "$27/36$ se simplifica dividiendo por $9$: $3/4$.",
           "reduced": true
+        },
+        {
+          "q": "¿Cuál de las siguientes fracciones ya está escrita en forma irreducible?",
+          "options": [
+            "$\\dfrac7{20}$",
+            "$\\dfrac{12}{18}$",
+            "$\\dfrac{21}{35}$",
+            "$\\dfrac{12}{16}$"
+          ],
+          "correct": 0,
+          "why": "$7$ y $20$ no tienen divisores comunes mayores que $1$. Las otras se pueden simplificar."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En $60$ muestras, $20$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "1/3",
-          "why": "$20/60=\\dfrac{1}{3}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un registro representa $18$ elementos favorables de $24$. Simplifica la fracción de elementos favorables.",
-          "answer": "3/4",
-          "why": "$18/24=\\dfrac{3}{4}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para una mezcla se usa la proporción $27/39$ de agua. Expresa esta proporción como fracción irreducible.",
-          "answer": "9/13",
-          "why": "$27/39=\\dfrac{9}{13}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En $90$ muestras, $80$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "8/9",
-          "why": "$80/90=\\dfrac{8}{9}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En $170$ muestras, $140$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "14/17",
-          "why": "$140/170=\\dfrac{14}{17}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un registro representa $12$ elementos favorables de $42$. Simplifica la fracción de elementos favorables.",
-          "answer": "2/7",
-          "why": "$12/42=\\dfrac{2}{7}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Para una mezcla se usa la proporción $8/68$ de agua. Expresa esta proporción como fracción irreducible.",
-          "answer": "2/17",
-          "why": "$8/68=\\dfrac{2}{17}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En $28$ muestras, $21$ muestran reacción. ¿Qué fracción irreducible del total reacciona?",
-          "answer": "3/4",
-          "why": "$21/28=\\dfrac{3}{4}$ al dividir numerador y denominador por su máximo divisor común.",
-          "level": 2,
-          "reduced": true
+          "q": "Una escala se amplía multiplicando numerador y denominador de $\\dfrac{4}{9}$ por el mismo entero. Si el nuevo denominador es $63$, ¿cuál es el nuevo numerador?",
+          "answer": "28",
+          "why": "$9\\cdot7=63$, por lo que $4\\cdot7=28$."
         }
       ],
       "drawCheck": 2,
@@ -6814,14 +6898,15 @@
         }
       ],
       "check": {
-        "q": "Una muestra pesa $\\dfrac{3}{4}$ g. ¿Cuánto pesan dos muestras iguales?",
+        "q": "Una solución requiere $\\dfrac34$ L por recipiente. ¿Cuántos litros se necesitan para llenar $20$ recipientes iguales?",
         "options": [
-          "$\\dfrac{3}{2}$ g",
-          "$\\dfrac{3}{8}$ g",
-          "$\\dfrac{5}{4}$ g"
+          "$\\dfrac{15}{4}$ L",
+          "$\\dfrac{20}{3}$ L",
+          "$15$ L",
+          "$\\dfrac{23}{4}$ L"
         ],
-        "correct": 0,
-        "why": "$2\\cdot(3/4)=3/2$ g."
+        "correct": 2,
+        "why": "$20\\cdot3/4=60/4=15$ L."
       },
       "learn": {
         "goal": "Multiplicar y dividir fracciones simplificando factores antes de calcular.",
@@ -6922,170 +7007,178 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Una solución ocupa $\\frac34$ de litro por frasco. ¿Cuántos litros se necesitan para llenar $6$ frascos? Escribe el número de litros.",
-          "answer": "9/2",
-          "why": "$6\\cdot3/4=18/4=9/2$ litros.",
-          "level": 2
+          "q": "Una muestra contiene $\\dfrac35$ de una cantidad de $25$ mg. ¿Cuántos miligramos representa?",
+          "answer": "15",
+          "why": "$3/5\\cdot25=75/5=15$ mg."
+        },
+        {
+          "q": "Una mezcla contiene $\\dfrac23$ L y una porción de referencia tiene un volumen de $\\dfrac45$ L. ¿Qué valor representa la razón entre el volumen disponible y el volumen de referencia?",
+          "options": [
+            "$\\dfrac23\\cdot\\dfrac45=\\dfrac8{15}$",
+            "$\\dfrac23\\div\\dfrac45=\\dfrac56$",
+            "$\\dfrac45\\div\\dfrac23=\\dfrac65$",
+            "$\\dfrac23+\\dfrac45=\\dfrac{22}{15}$"
+          ],
+          "correct": 1,
+          "why": "Para saber cuántas porciones de tamaño $4/5$ caben en $2/3$, dividimos $2/3$ por $4/5$: $5/6$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Se tienen $\\frac32$ litros de reactivo. Cada frasco requiere $\\frac14$ de litro. ¿Cuántos frascos completos se llenan?",
-          "answer": "6",
-          "why": "$(3/2)\\div(1/4)=(3/2)\\cdot4=6$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{3}{5}$ L de solución. Cada porción requiere $\\dfrac{4}{5}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "3/4",
-          "why": "Calculamos $\\dfrac{3}{5}\\div\\dfrac{4}{5}=\\dfrac{3}{4}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{1}{2}$ L. Si se utiliza solo $\\dfrac{6}{11}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "3/11",
-          "why": "Calculamos $\\dfrac{1}{2}\\cdot\\dfrac{6}{11}=\\dfrac{3}{11}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{1}{9}$ L de solución. Cada porción requiere $\\dfrac{1}{9}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "1",
-          "why": "Calculamos $\\dfrac{1}{9}\\div\\dfrac{1}{9}=1$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{7}{4}$ L. Si se utiliza solo $\\dfrac{3}{5}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "21/20",
-          "why": "Calculamos $\\dfrac{7}{4}\\cdot\\dfrac{3}{5}=\\dfrac{21}{20}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{5}{8}$ L de solución. Cada porción requiere $\\dfrac{4}{5}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "25/32",
-          "why": "Calculamos $\\dfrac{5}{8}\\div\\dfrac{4}{5}=\\dfrac{25}{32}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{8}{5}$ L. Si se utiliza solo $\\dfrac{4}{3}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "32/15",
-          "why": "Calculamos $\\dfrac{8}{5}\\cdot\\dfrac{4}{3}=\\dfrac{32}{15}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{3}{7}$ L. Si se utiliza solo $\\dfrac{3}{4}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "9/28",
-          "why": "Calculamos $\\dfrac{3}{7}\\cdot\\dfrac{3}{4}=\\dfrac{9}{28}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito contiene $1$ L de solución. Cada porción requiere $\\dfrac{2}{3}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
+          "q": "Calcula $\\dfrac7{12}\\cdot\\dfrac{18}{7}$. Escribe el resultado como fracción irreducible.",
           "answer": "3/2",
-          "why": "Calculamos $1\\div\\dfrac{2}{3}=\\dfrac{3}{2}$.",
-          "level": 2,
+          "why": "Se simplifica el factor $7$ y $18/12=3/2$.",
           "reduced": true
+        },
+        {
+          "q": "Un reactivo utiliza $\\dfrac56$ de una dosis de $\\dfrac3{10}$ mL. ¿Qué volumen se utiliza?",
+          "options": [
+            "$\\dfrac14$ mL",
+            "$\\dfrac{8}{16}$ mL",
+            "$\\dfrac{5}{16}$ mL",
+            "$\\dfrac{1}{5}$ mL"
+          ],
+          "correct": 0,
+          "why": "$5/6\\cdot3/10=15/60=1/4$ mL."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{5}{11}$ L. Si se utiliza solo $2$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "10/11",
-          "why": "Calculamos $\\dfrac{5}{11}\\cdot2=\\dfrac{10}{11}$.",
-          "level": 3,
+          "q": "Una máquina tiene $\\dfrac58$ L de líquido y lo distribuye en envases de $\\dfrac{15}{16}$ L. ¿Qué valor resulta al dividir el volumen disponible por la capacidad de un envase?",
+          "answer": "2/3",
+          "why": "$5/8\\div15/16=5/8\\cdot16/15=80/120=2/3$.",
           "reduced": true
+        },
+        {
+          "q": "Una cinta de $\\dfrac78$ m se corta en segmentos de $\\dfrac74$ m. ¿Qué fracción de ese segmento representa la cinta disponible?",
+          "options": [
+            "$\\dfrac78$",
+            "$2$",
+            "$\\dfrac14$",
+            "$\\dfrac12$"
+          ],
+          "correct": 3,
+          "why": "$7/8\\div7/4=7/8\\cdot4/7=1/2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{3}{4}$ L de solución. Cada porción requiere $\\dfrac{3}{10}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "5/2",
-          "why": "Calculamos $\\dfrac{3}{4}\\div\\dfrac{3}{10}=\\dfrac{5}{2}$.",
-          "level": 2,
+          "q": "Una muestra contiene $\\dfrac23$ de una solución de $\\dfrac34$ L. ¿Cuántos litros de solución contiene?",
+          "answer": "1/2",
+          "why": "$2/3\\cdot3/4=6/12=1/2$ L.",
           "reduced": true
+        },
+        {
+          "q": "Una receta requiere $\\dfrac34$ taza de solución por lote. ¿Cuánto se necesita para preparar dos lotes?",
+          "options": [
+            "$\\dfrac34$ taza",
+            "$\\dfrac38$ taza",
+            "$\\dfrac32$ tazas",
+            "$\\dfrac64$ tazas"
+          ],
+          "correct": 2,
+          "why": "$2\\cdot3/4=6/4=3/2$ tazas."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{1}{3}$ L. Si se utiliza solo $\\dfrac{1}{9}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "1/27",
-          "why": "Calculamos $\\dfrac{1}{3}\\cdot\\dfrac{1}{9}=\\dfrac{1}{27}$.",
-          "level": 2,
+          "q": "Calcula $\\dfrac49\\div\\dfrac23$. Escribe una fracción irreducible.",
+          "answer": "2/3",
+          "why": "$4/9\\cdot3/2=12/18=2/3$.",
           "reduced": true
+        },
+        {
+          "q": "Una muestra corresponde a $\\dfrac25$ de un volumen de $\\dfrac34$ L. ¿Cuál es el volumen de la muestra?",
+          "options": [
+            "$\\dfrac{6}{9}$ L",
+            "$\\dfrac3{10}$ L",
+            "$\\dfrac{7}{20}$ L",
+            "$\\dfrac{8}{15}$ L"
+          ],
+          "correct": 1,
+          "why": "$2/5\\cdot3/4=6/20=3/10$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{5}{12}$ L de solución. Cada porción requiere $\\dfrac{1}{4}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "5/3",
-          "why": "Calculamos $\\dfrac{5}{12}\\div\\dfrac{1}{4}=\\dfrac{5}{3}$.",
-          "level": 3,
+          "q": "Un protocolo utiliza $\\dfrac56$ de una dosis de $\\dfrac9{10}$ mL. ¿Cuántos mililitros utiliza?",
+          "answer": "3/4",
+          "why": "$5/6\\cdot9/10=45/60=3/4$ mL.",
           "reduced": true
+        },
+        {
+          "q": "Se dispone de $\\dfrac56$ L y cada frasco recibe $\\dfrac16$ L. ¿Cuántos frascos completos se pueden llenar?",
+          "options": [
+            "$5$ frascos",
+            "$\\dfrac15$ frasco",
+            "$\\dfrac5{36}$ frascos",
+            "$4$ frascos"
+          ],
+          "correct": 0,
+          "why": "$5/6\\div1/3=5/6\\cdot3=15/6=5/2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{1}{2}$ L. Si se utiliza solo $\\dfrac{6}{7}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "3/7",
-          "why": "Calculamos $\\dfrac{1}{2}\\cdot\\dfrac{6}{7}=\\dfrac{3}{7}$.",
-          "level": 2,
+          "q": "Una cinta de $\\dfrac34$ m se divide en tramos de $\\dfrac98$ m. ¿Qué fracción de un tramo completo representa la cinta?",
+          "answer": "2/3",
+          "why": "$3/4\\div9/8=3/4\\cdot8/9=24/36=2/3$.",
           "reduced": true
+        },
+        {
+          "q": "Un protocolo utiliza $\\dfrac37$ de una muestra de $\\dfrac{14}{9}$ mL. ¿Qué volumen utiliza?",
+          "options": [
+            "$\\dfrac{8}{15}$ mL",
+            "$\\dfrac56$ mL",
+            "$\\dfrac43$ mL",
+            "$\\dfrac23$ mL"
+          ],
+          "correct": 3,
+          "why": "$3/7\\cdot14/9=42/63=2/3$ mL."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{5}{3}$ L. Si se utiliza solo $1$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "5/3",
-          "why": "Calculamos $\\dfrac{5}{3}\\cdot1=\\dfrac{5}{3}$.",
-          "level": 2,
-          "reduced": true
+          "q": "Una muestra corresponde a $\\dfrac7{15}$ de un lote de $30$ g. ¿Cuántos gramos representa?",
+          "answer": "14",
+          "why": "$7/15\\cdot30=14$ g."
+        },
+        {
+          "q": "Se tienen $\\dfrac45$ L y se llenan recipientes de $\\dfrac23$ L. ¿Qué resultado entrega la división?",
+          "options": [
+            "$\\dfrac{8}{15}$",
+            "$\\dfrac{5}{6}$",
+            "$\\dfrac65$",
+            "$\\dfrac{2}{15}$"
+          ],
+          "correct": 2,
+          "why": "$4/5\\div2/3=4/5\\cdot3/2=12/10=6/5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un depósito contiene $2$ L de solución. Cada porción requiere $\\dfrac{5}{3}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "6/5",
-          "why": "Calculamos $2\\div\\dfrac{5}{3}=\\dfrac{6}{5}$.",
-          "level": 3,
+          "q": "Calcula $\\dfrac5{12}\\div\\dfrac{25}{18}$. Escribe el resultado como fracción irreducible.",
+          "answer": "3/10",
+          "why": "$5/12\\cdot18/25=90/300=3/10$.",
           "reduced": true
+        },
+        {
+          "q": "Una preparación utiliza $\\dfrac9{10}$ de una dosis de $\\dfrac56$ mL. ¿Cuánto reactivo se utiliza?",
+          "options": [
+            "$\\dfrac{14}{16}$ mL",
+            "$\\dfrac34$ mL",
+            "$\\dfrac{9}{12}$ mL",
+            "$\\dfrac{5}{6}$ mL"
+          ],
+          "correct": 1,
+          "why": "$9/10\\cdot5/6=45/60=3/4$ mL."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Cada muestra ocupa $\\dfrac{1}{2}$ L. Si se utiliza solo $\\dfrac{1}{2}$ del volumen de una muestra, ¿cuántos litros se utilizan?",
-          "answer": "1/4",
-          "why": "Calculamos $\\dfrac{1}{2}\\cdot\\dfrac{1}{2}=\\dfrac{1}{4}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un depósito contiene $\\dfrac{4}{3}$ L de solución. Cada porción requiere $\\dfrac{1}{5}$ L. ¿A cuántas porciones equivale el contenido (aunque no sean porciones completas)?",
-          "answer": "20/3",
-          "why": "Calculamos $\\dfrac{4}{3}\\div\\dfrac{1}{5}=\\dfrac{20}{3}$.",
-          "level": 2,
+          "q": "Una preparación utiliza $\\dfrac25$ de una muestra de $\\dfrac38$ L. ¿Cuántos litros utiliza?",
+          "answer": "3/20",
+          "why": "$2/5\\cdot3/8=6/40=3/20$ L.",
           "reduced": true
         }
       ],
@@ -7812,14 +7905,15 @@
         }
       ],
       "check": {
-        "q": "Se mezclan $\\dfrac{1}{4}$ L y $\\dfrac{1}{2}$ L de agua. ¿Cuál es el volumen total?",
+        "q": "Se mezclan $\\dfrac14$ L y $\\dfrac23$ L de dos soluciones. ¿Cuál es el volumen total?",
         "options": [
-          "$\\dfrac{3}{4}$ L",
-          "$\\dfrac{2}{6}$ L",
-          "$\\dfrac{1}{8}$ L"
+          "$\\dfrac3{7}$ L",
+          "$\\dfrac{5}{12}$ L",
+          "$\\dfrac{7}{12}$ L",
+          "$\\dfrac{11}{12}$ L"
         ],
-        "correct": 0,
-        "why": "$1/4+2/4=3/4$ L."
+        "correct": 3,
+        "why": "$1/4+2/3=3/12+8/12=11/12$ L."
       },
       "learn": {
         "goal": "Sumar y restar fracciones con distintos denominadores utilizando el MCM.",
@@ -7931,172 +8025,180 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "En una mezcla se agregan $\\frac23$ L de agua y $\\frac14$ L de reactivo. ¿Cuál es el volumen total, en litros? Escribe la fracción irreducible.",
-          "answer": "11/12",
-          "why": "$2/3+1/4=8/12+3/12=11/12$ L.",
-          "level": 2,
+          "q": "Se mezclan $\\dfrac58$ L y $\\dfrac16$ L. ¿Cuál es el volumen total? Escribe una fracción irreducible.",
+          "answer": "19/24",
+          "why": "$5/8+1/6=15/24+4/24=19/24$.",
           "reduced": true
+        },
+        {
+          "q": "Un recipiente contiene $\\dfrac56$ L y se retiran $\\dfrac14$ L. ¿Cuánto queda?",
+          "options": [
+            "$\\dfrac4{10}$ L",
+            "$\\dfrac{2}{12}$ L",
+            "$\\dfrac7{12}$ L",
+            "$\\dfrac{19}{12}$ L"
+          ],
+          "correct": 2,
+          "why": "$5/6-1/4=10/12-3/12=7/12$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "De un recipiente con $\\frac78$ L se retiran $\\frac13$ L. ¿Cuánto líquido queda, en litros? Escribe la fracción irreducible.",
-          "answer": "13/24",
-          "why": "$7/8-1/3=21/24-8/24=13/24$ L.",
-          "level": 3,
+          "q": "Un recipiente contiene $\\dfrac79$ L y se retira $\\dfrac16$ L. ¿Cuánto queda?",
+          "answer": "11/18",
+          "why": "$7/9-1/6=14/18-3/18=11/18$.",
           "reduced": true
+        },
+        {
+          "q": "Se combinan $\\dfrac3{10}$ L y $\\dfrac7{15}$ L. ¿Qué volumen se obtiene?",
+          "options": [
+            "$\\dfrac{10}{25}$ L",
+            "$\\dfrac{23}{30}$ L",
+            "$\\dfrac{21}{150}$ L",
+            "$\\dfrac{4}{30}$ L"
+          ],
+          "correct": 1,
+          "why": "$3/10+7/15=9/30+14/30=23/30$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un frasco contiene $1$ L y se extraen $\\dfrac{9}{10}$ L. ¿Cuántos litros quedan?",
-          "answer": "1/10",
-          "why": "Usando denominador común obtenemos $\\dfrac{1}{10}$ L.",
-          "level": 2,
+          "q": "Se agregan $\\dfrac34$ L y $\\dfrac5{12}$ L. ¿Cuál es el volumen total?",
+          "answer": "7/6",
+          "why": "$3/4+5/12=9/12+5/12=14/12=7/6$.",
           "reduced": true
+        },
+        {
+          "q": "Una cinta mide $\\dfrac78$ m y se corta un tramo de $\\dfrac13$ m. ¿Cuánto queda?",
+          "options": [
+            "$\\dfrac{13}{24}$ m",
+            "$\\dfrac6{11}$ m",
+            "$\\dfrac{4}{24}$ m",
+            "$\\dfrac{29}{24}$ m"
+          ],
+          "correct": 0,
+          "why": "$7/8-1/3=21/24-8/24=13/24$ m."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un proceso se agregan $\\dfrac{5}{13}$ L, después $\\dfrac{11}{16}$ L, y se retiran $\\dfrac{7}{12}$ L. ¿Qué cambio neto de volumen hay, en litros?",
-          "answer": "305/624",
-          "why": "Usando denominador común obtenemos $\\dfrac{305}{624}$ L.",
-          "level": 2,
+          "q": "Un depósito contiene $\\dfrac{11}{12}$ L y pierde $\\dfrac29$ L. ¿Cuánto queda?",
+          "answer": "25/36",
+          "why": "$11/12-2/9=33/36-8/36=25/36$.",
           "reduced": true
+        },
+        {
+          "q": "Un depósito recibe $\\dfrac25$ L y luego $\\dfrac34$ L. ¿Cuál es el volumen agregado?",
+          "options": [
+            "$\\dfrac{5}{9}$ L",
+            "$\\dfrac{11}{20}$ L",
+            "$\\dfrac{6}{20}$ L",
+            "$\\dfrac{23}{20}$ L"
+          ],
+          "correct": 3,
+          "why": "$2/5+3/4=8/20+15/20=23/20$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{1}{2}$ L y luego $\\dfrac{4}{5}$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "13/10",
-          "why": "Usando denominador común obtenemos $\\dfrac{13}{10}$ L.",
-          "level": 3,
+          "q": "Se mezclan $\\dfrac25$ L y $\\dfrac7{10}$ L. ¿Cuál es el volumen total?",
+          "answer": "11/10",
+          "why": "$2/5+7/10=4/10+7/10=11/10$.",
           "reduced": true
+        },
+        {
+          "q": "Una muestra contiene $1\\dfrac12$ L y se retiran $\\dfrac34$ L. ¿Qué volumen queda?",
+          "options": [
+            "$\\dfrac14$ L",
+            "$\\dfrac94$ L",
+            "$\\dfrac34$ L",
+            "$\\dfrac32$ L"
+          ],
+          "correct": 2,
+          "why": "$3/2-3/4=6/4-3/4=3/4$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un frasco contiene $\\dfrac{3}{4}$ L y se extraen $\\dfrac{5}{16}$ L. ¿Cuántos litros quedan?",
-          "answer": "7/16",
-          "why": "Usando denominador común obtenemos $\\dfrac{7}{16}$ L.",
-          "level": 2,
+          "q": "Una solución tiene $\\dfrac{13}{15}$ L y se retira $\\dfrac13$ L. ¿Cuánto queda?",
+          "answer": "8/15",
+          "why": "$13/15-1/3=13/15-5/15=8/15$.",
           "reduced": true
+        },
+        {
+          "q": "Se agregan $\\dfrac5{12}$ L y $\\dfrac18$ L a una solución. ¿Cuál es el volumen total agregado?",
+          "options": [
+            "$\\dfrac6{20}$ L",
+            "$\\dfrac{13}{24}$ L",
+            "$\\dfrac{6}{24}$ L",
+            "$\\dfrac{15}{24}$ L"
+          ],
+          "correct": 1,
+          "why": "$5/12+1/8=10/24+3/24=13/24$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un proceso se agregan $\\dfrac{11}{5}$ L, después $1$ L, y se retiran $\\dfrac{3}{7}$ L. ¿Qué cambio neto de volumen hay, en litros?",
-          "answer": "97/35",
-          "why": "Usando denominador común obtenemos $\\dfrac{97}{35}$ L.",
-          "level": 2,
+          "q": "Se combinan $\\dfrac5{14}$ L y $\\dfrac37$ L. ¿Cuál es el volumen total?",
+          "answer": "11/14",
+          "why": "$5/14+3/7=5/14+6/14=11/14$.",
           "reduced": true
+        },
+        {
+          "q": "Un frasco contiene $\\dfrac{11}{15}$ L y se extraen $\\dfrac25$ L. ¿Cuánto queda?",
+          "options": [
+            "$\\dfrac13$ L",
+            "$\\dfrac9{20}$ L",
+            "$\\dfrac{13}{15}$ L",
+            "$\\dfrac{7}{15}$ L"
+          ],
+          "correct": 0,
+          "why": "$11/15-2/5=11/15-6/15=5/15=1/3$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{1}{4}$ L y luego $\\dfrac{3}{4}$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "1",
-          "why": "Usando denominador común obtenemos $1$ L.",
-          "level": 3,
+          "q": "Una muestra contiene $\\dfrac7{10}$ L y se extraen $\\dfrac14$ L. ¿Cuánto queda?",
+          "answer": "9/20",
+          "why": "$7/10-1/4=14/20-5/20=9/20$.",
           "reduced": true
+        },
+        {
+          "q": "Dos segmentos miden $\\dfrac37$ m y $\\dfrac5{14}$ m. ¿Cuál es su longitud total?",
+          "options": [
+            "$\\dfrac8{21}$ m",
+            "$\\dfrac{8}{14}$ m",
+            "$\\dfrac{15}{98}$ m",
+            "$\\dfrac{11}{14}$ m"
+          ],
+          "correct": 3,
+          "why": "$3/7+5/14=6/14+5/14=11/14$ m."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{7}{4}$ L y luego $2$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "15/4",
-          "why": "Usando denominador común obtenemos $\\dfrac{15}{4}$ L.",
-          "level": 2,
+          "q": "Se mezclan $\\dfrac23$ L y $\\dfrac58$ L. ¿Cuál es el volumen total?",
+          "answer": "31/24",
+          "why": "$2/3+5/8=16/24+15/24=31/24$.",
           "reduced": true
+        },
+        {
+          "q": "Un depósito tiene $\\dfrac23$ L y pierde $\\dfrac59$ L. ¿Cuánto líquido queda?",
+          "options": [
+            "$\\dfrac{1}{3}$ L",
+            "$\\dfrac{7}{9}$ L",
+            "$\\dfrac19$ L",
+            "$\\dfrac{11}{9}$ L"
+          ],
+          "correct": 2,
+          "why": "$2/3-5/9=6/9-5/9=1/9$ L."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un frasco contiene $\\dfrac{4}{3}$ L y se extraen $\\dfrac{3}{4}$ L. ¿Cuántos litros quedan?",
-          "answer": "7/12",
-          "why": "Usando denominador común obtenemos $\\dfrac{7}{12}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un proceso se agregan $\\dfrac{1}{2}$ L, después $\\dfrac{6}{13}$ L, y se retiran $\\dfrac{1}{2}$ L. ¿Qué cambio neto de volumen hay, en litros?",
-          "answer": "6/13",
-          "why": "Usando denominador común obtenemos $\\dfrac{6}{13}$ L.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{4}{15}$ L y luego $\\dfrac{4}{3}$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "8/5",
-          "why": "Usando denominador común obtenemos $\\dfrac{8}{5}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un frasco contiene $\\dfrac{3}{4}$ L y se extraen $\\dfrac{1}{4}$ L. ¿Cuántos litros quedan?",
-          "answer": "1/2",
-          "why": "Usando denominador común obtenemos $\\dfrac{1}{2}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un proceso se agregan $2$ L, después $\\dfrac{1}{2}$ L, y se retiran $\\dfrac{3}{5}$ L. ¿Qué cambio neto de volumen hay, en litros?",
-          "answer": "19/10",
-          "why": "Usando denominador común obtenemos $\\dfrac{19}{10}$ L.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{1}{5}$ L y luego $\\dfrac{11}{16}$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "71/80",
-          "why": "Usando denominador común obtenemos $\\dfrac{71}{80}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{9}{4}$ L y luego $3$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "21/4",
-          "why": "Usando denominador común obtenemos $\\dfrac{21}{4}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un frasco contiene $1$ L y se extraen $\\dfrac{5}{6}$ L. ¿Cuántos litros quedan?",
-          "answer": "1/6",
-          "why": "Usando denominador común obtenemos $\\dfrac{1}{6}$ L.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un proceso se agregan $\\dfrac{11}{14}$ L, después $\\dfrac{1}{2}$ L, y se retiran $1$ L. ¿Qué cambio neto de volumen hay, en litros?",
-          "answer": "2/7",
-          "why": "Usando denominador común obtenemos $\\dfrac{2}{7}$ L.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un recipiente recibe $\\dfrac{5}{14}$ L y luego $\\dfrac{8}{13}$ L de otra muestra. ¿Cuál es el volumen total, en litros?",
-          "answer": "177/182",
-          "why": "Usando denominador común obtenemos $\\dfrac{177}{182}$ L.",
-          "level": 2,
+          "q": "Un recipiente contiene $\\dfrac9{10}$ L y se retiran $\\dfrac7{15}$ L. ¿Cuánto queda?",
+          "answer": "13/30",
+          "why": "$9/10-7/15=27/30-14/30=13/30$.",
           "reduced": true
         }
       ],
@@ -8828,14 +8930,15 @@
         }
       ],
       "check": {
-        "q": "Una población bacteriana se duplica dos veces desde $5$ unidades. ¿Cuántas unidades hay?",
+        "q": "Un cultivo inicia con $6$ células y duplica su cantidad en cada una de $3$ etapas. ¿Cuántas células habrá al final?",
         "options": [
-          "$20$",
-          "$10$",
-          "$25$"
+          "$48$",
+          "$18$",
+          "$36$",
+          "$64$"
         ],
         "correct": 0,
-        "why": "$5\\cdot2^2=20$."
+        "why": "$6\\cdot2^3=6\\cdot8=48$. Se duplica tres veces, no se suma 3."
       },
       "learn": {
         "goal": "Interpretar y calcular potencias con exponente entero, considerando signos y condiciones.",
@@ -8929,170 +9032,174 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Un cultivo tiene inicialmente $4$ células y duplica su cantidad en cada una de $5$ etapas. ¿Cuántas células habrá después? Escribe solo el número.",
-          "answer": "128",
-          "why": "$4\\cdot2^5=128$.",
-          "level": 2
+          "q": "Un cultivo comienza con $3$ células y se multiplica por $3$ en cada una de $4$ etapas. ¿Cuántas células habrá al final?",
+          "answer": "243",
+          "why": "$3\\cdot3^4=3\\cdot81=243$."
+        },
+        {
+          "q": "Un equipo evalúa $5^0$. ¿Qué valor debe registrar?",
+          "options": [
+            "$0$",
+            "$5$",
+            "$25$",
+            "$1$"
+          ],
+          "correct": 3,
+          "why": "Toda base no nula elevada a cero vale $1$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una señal se reduce a la mitad en cada una de $3$ etapas. Si comienza en $64$ unidades, ¿cuál será su valor final?",
-          "answer": "8",
-          "why": "$64\\cdot(1/2)^3=8$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una sustancia comienza con $4$ gramos y en cada etapa queda $1/2$ de su masa. Tras $5$ etapas, ¿cuántos gramos quedan?",
-          "answer": "1/8",
-          "why": "Calculamos $4\\cdot 2^{-5}=\\dfrac{1}{8}$.",
-          "level": 2,
+          "q": "Calcula $2^{-4}$. Escribe una fracción irreducible.",
+          "answer": "1/16",
+          "why": "$2^{-4}=1/2^4=1/16$.",
           "reduced": true
         },
         {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cultivo inicia con $6$ células y multiplica su población por $2$ en cada una de $4$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "96",
-          "why": "Calculamos $6\\cdot 2^{4}=96$.",
-          "level": 2,
-          "reduced": true
+          "q": "Una señal se reduce a la octava parte de su valor inicial, lo que se representa por $2^{-3}$. ¿Qué valor tiene esa potencia?",
+          "options": [
+            "$-8$",
+            "$\\dfrac1{6}$",
+            "$\\dfrac18$",
+            "$8$"
+          ],
+          "correct": 2,
+          "why": "$2^{-3}=1/2^3=1/8$. El exponente negativo indica recíproco, no resultado negativo."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una sustancia comienza con $6$ gramos y en cada etapa queda $1/2$ de su masa. Tras $2$ etapas, ¿cuántos gramos quedan?",
-          "answer": "3/2",
-          "why": "Calculamos $6\\cdot 2^{-2}=\\dfrac{3}{2}$.",
-          "level": 3,
-          "reduced": true
+          "q": "Calcula $7^0$. Escribe el resultado.",
+          "answer": "1",
+          "why": "Como la base es distinta de cero, $7^0=1$."
+        },
+        {
+          "q": "Al calcular $(-3)^2$, ¿qué resultado se obtiene?",
+          "options": [
+            "$-9$",
+            "$9$",
+            "$-6$",
+            "$6$"
+          ],
+          "correct": 1,
+          "why": "$(-3)^2=(-3)(-3)=9$. Los paréntesis indican que la base completa es negativa."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un cultivo inicia con $2$ células y multiplica su población por $2$ en cada una de $3$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "16",
-          "why": "Calculamos $2\\cdot 2^{3}=16$.",
-          "level": 2,
-          "reduced": true
+          "q": "Calcula $(-2)^5$. Escribe el resultado con su signo.",
+          "answer": "-32",
+          "why": "Hay cinco factores negativos: $(-2)^5=-32$."
+        },
+        {
+          "q": "Un modelo combina potencias de igual base: $4^2\\cdot4^3$. ¿Qué expresión equivalente corresponde?",
+          "options": [
+            "$4^5$",
+            "$4^6$",
+            "$4^1$",
+            "$4^9$"
+          ],
+          "correct": 0,
+          "why": "Al multiplicar potencias de igual base se suman exponentes: $4^{2+3}=4^5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una sustancia comienza con $6$ gramos y en cada etapa queda $1/2$ de su masa. Tras $4$ etapas, ¿cuántos gramos quedan?",
-          "answer": "3/8",
-          "why": "Calculamos $6\\cdot 2^{-4}=\\dfrac{3}{8}$.",
-          "level": 2,
-          "reduced": true
+          "q": "Simplifica $\\dfrac{5^3}{5^1}$. Escribe el valor numérico.",
+          "answer": "25",
+          "why": "$5^{3-1}=5^2=25$."
+        },
+        {
+          "q": "Una población se multiplica por $3^4$ y luego se divide por $3^2$. ¿Cuál es el factor neto?",
+          "options": [
+            "$27$",
+            "$81$",
+            "$3$",
+            "$9$"
+          ],
+          "correct": 3,
+          "why": "$3^4/3^2=3^{4-2}=3^2=9$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un cultivo inicia con $5$ células y multiplica su población por $4$ en cada una de $3$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "320",
-          "why": "Calculamos $5\\cdot 4^{3}=320$.",
-          "level": 3,
-          "reduced": true
+          "q": "Calcula $3^2\\cdot3^3$. Escribe el resultado.",
+          "answer": "243",
+          "why": "$3^{2+3}=3^5=243$."
+        },
+        {
+          "q": "Una concentración se reduce por un factor $2^{-2}$ en una etapa. ¿Qué factor representa esa reducción?",
+          "options": [
+            "$-4$",
+            "$\\dfrac12$",
+            "$\\dfrac14$",
+            "$4$"
+          ],
+          "correct": 2,
+          "why": "$2^{-2}=1/2^2=1/4$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un cultivo inicia con $7$ células y multiplica su población por $2$ en cada una de $2$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "28",
-          "why": "Calculamos $7\\cdot 2^{2}=28$.",
-          "level": 2,
+          "q": "Calcula $4^{-2}$. Escribe una fracción irreducible.",
+          "answer": "1/16",
+          "why": "$4^{-2}=1/4^2=1/16$.",
           "reduced": true
+        },
+        {
+          "q": "Una escala se reduce a una centésima parte. ¿Qué potencia de diez representa ese factor?",
+          "options": [
+            "$10^2$",
+            "$10^{-2}$",
+            "$10^{-1}$",
+            "$10^{-3}$"
+          ],
+          "correct": 1,
+          "why": "$10^{-2}=1/100$. El exponente negativo representa el recíproco."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una sustancia comienza con $3$ gramos y en cada etapa queda $1/4$ de su masa. Tras $3$ etapas, ¿cuántos gramos quedan?",
-          "answer": "3/64",
-          "why": "Calculamos $3\\cdot 4^{-3}=\\dfrac{3}{64}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cultivo inicia con $2$ células y multiplica su población por $2$ en cada una de $5$ etapas. ¿Cuántas células tiene al final?",
+          "q": "Un cultivo parte con $1$ unidad y se multiplica por $2$ en cada una de $6$ etapas. ¿Cuántas unidades tendrá?",
           "answer": "64",
-          "why": "Calculamos $2\\cdot 2^{5}=64$.",
-          "level": 3,
-          "reduced": true
+          "why": "$2^6=64$."
+        },
+        {
+          "q": "Un proceso aplica tres veces un factor $-2$. ¿Cuál es el resultado del factor acumulado $(-2)^3$?",
+          "options": [
+            "$-8$",
+            "$8$",
+            "$-6$",
+            "$6$"
+          ],
+          "correct": 0,
+          "why": "$(-2)(-2)(-2)=-8$; una cantidad impar de factores negativos da resultado negativo."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una sustancia comienza con $4$ gramos y en cada etapa queda $1/3$ de su masa. Tras $4$ etapas, ¿cuántos gramos quedan?",
-          "answer": "4/81",
-          "why": "Calculamos $4\\cdot 3^{-4}=\\dfrac{4}{81}$.",
-          "level": 2,
+          "q": "Calcula $10^{-3}$. Escribe una fracción irreducible.",
+          "answer": "1/1000",
+          "why": "$10^{-3}=1/10^3=1/1000$.",
           "reduced": true
+        },
+        {
+          "q": "Una señal se amplifica por $5^2$. ¿Cuál es el factor de amplificación?",
+          "options": [
+            "$10$",
+            "$5$",
+            "$125$",
+            "$25$"
+          ],
+          "correct": 3,
+          "why": "$5^2=5\\cdot5=25$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un cultivo inicia con $7$ células y multiplica su población por $3$ en cada una de $5$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "1701",
-          "why": "Calculamos $7\\cdot 3^{5}=1701$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una sustancia comienza con $7$ gramos y en cada etapa queda $1/2$ de su masa. Tras $3$ etapas, ¿cuántos gramos quedan?",
-          "answer": "7/8",
-          "why": "Calculamos $7\\cdot 2^{-3}=\\dfrac{7}{8}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cultivo inicia con $4$ células y multiplica su población por $4$ en cada una de $3$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "256",
-          "why": "Calculamos $4\\cdot 4^{3}=256$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cultivo inicia con $2$ células y multiplica su población por $3$ en cada una de $5$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "486",
-          "why": "Calculamos $2\\cdot 3^{5}=486$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una sustancia comienza con $2$ gramos y en cada etapa queda $1/2$ de su masa. Tras $2$ etapas, ¿cuántos gramos quedan?",
-          "answer": "1/2",
-          "why": "Calculamos $2\\cdot 2^{-2}=\\dfrac{1}{2}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una sustancia comienza con $6$ gramos y en cada etapa queda $1/4$ de su masa. Tras $5$ etapas, ¿cuántos gramos quedan?",
-          "answer": "3/512",
-          "why": "Calculamos $6\\cdot 4^{-5}=\\dfrac{3}{512}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cultivo inicia con $6$ células y multiplica su población por $4$ en cada una de $4$ etapas. ¿Cuántas células tiene al final?",
-          "answer": "1536",
-          "why": "Calculamos $6\\cdot 4^{4}=1536$.",
-          "level": 3,
+          "q": "Simplifica $2^3\\cdot2^{-5}$. Escribe una fracción irreducible.",
+          "answer": "1/4",
+          "why": "$2^{3-5}=2^{-2}=1/4$.",
           "reduced": true
         }
       ],
@@ -9815,14 +9922,15 @@
         }
       ],
       "check": {
-        "q": "El área de un cuadrado es $49\\,\\mathrm{cm}^2$. ¿Cuánto mide su lado?",
+        "q": "Una placa cuadrada tiene un área de $225\\,\\mathrm{cm}^2$. ¿Cuánto mide su lado?",
         "options": [
-          "$7\\,\\mathrm{cm}$",
-          "$14\\,\\mathrm{cm}$",
-          "$24,5\\,\\mathrm{cm}$"
+          "$112{,}5$ cm",
+          "$15$ cm",
+          "$25$ cm",
+          "$16$ cm"
         ],
-        "correct": 0,
-        "why": "El lado es $\\sqrt{49}=7$ cm."
+        "correct": 1,
+        "why": "El lado es la raíz cuadrada principal del área: $\\sqrt{225}=15$ cm."
       },
       "learn": {
         "goal": "Calcular raíces cuadradas exactas y acotar raíces no exactas entre enteros consecutivos.",
@@ -9917,154 +10025,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Una placa cuadrada tiene área $196\\,\\mathrm{cm}^2$. ¿Cuánto mide su lado, en centímetros? Escribe solo el número.",
-          "answer": "14",
-          "why": "El lado mide $\\sqrt{196}=14$ cm.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un terreno cuadrado tiene superficie de $85\\,\\mathrm{m}^2$. ¿Cuál es el entero inferior entre los que se encuentra la longitud del lado? Escribe solo ese entero.",
-          "answer": "9",
-          "why": "$81<85<100$, por lo tanto $9<\\sqrt{85}<10$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un terreno cuadrado tiene $130\\,\\mathrm{m}^2$. ¿Cuál es el mayor número entero de metros que no supera el lado?",
-          "answer": "11",
-          "why": "$121\\le 130<144$, de modo que la respuesta es $11$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $489\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero de centímetros mayor que la medida de su lado?",
-          "answer": "23",
-          "why": "$484\\le 489<529$, de modo que la respuesta es $23$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $400\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
-          "answer": "20",
-          "why": "$400\\le 400<441$, de modo que la respuesta es $20$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un terreno cuadrado tiene $54\\,\\mathrm{m}^2$. ¿Cuál es el mayor número entero de metros que no supera el lado?",
-          "answer": "7",
-          "why": "$49\\le 54<64$, de modo que la respuesta es $7$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $351\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero de centímetros mayor que la medida de su lado?",
-          "answer": "19",
-          "why": "$324\\le 351<361$, de modo que la respuesta es $19$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
           "q": "Una placa cuadrada tiene área $324\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
           "answer": "18",
-          "why": "$324\\le 324<361$, de modo que la respuesta es $18$.",
-          "level": 3
+          "why": "$\\sqrt{324}=18$ cm."
+        },
+        {
+          "q": "La longitud de un lado es $\\sqrt{50}$ m. ¿Entre qué enteros consecutivos se encuentra?",
+          "options": [
+            "Entre $7$ y $8$",
+            "Entre $6$ y $7$",
+            "Entre $8$ y $9$",
+            "Entre $5$ y $10$"
+          ],
+          "correct": 0,
+          "why": "$7^2=49<50<64=8^2$, por tanto $7<\\sqrt{50}<8$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una placa cuadrada tiene área $169\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
-          "answer": "13",
-          "why": "$169\\le 169<196$, de modo que la respuesta es $13$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un terreno cuadrado tiene $306\\,\\mathrm{m}^2$. ¿Cuál es el mayor número entero de metros que no supera el lado?",
-          "answer": "17",
-          "why": "$289\\le 306<324$, de modo que la respuesta es $17$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $431\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero de centímetros mayor que la medida de su lado?",
-          "answer": "21",
-          "why": "$400\\le 431<441$, de modo que la respuesta es $21$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $441\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
-          "answer": "21",
-          "why": "$441\\le 441<484$, de modo que la respuesta es $21$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un terreno cuadrado tiene $244\\,\\mathrm{m}^2$. ¿Cuál es el mayor número entero de metros que no supera el lado?",
-          "answer": "15",
-          "why": "$225\\le 244<256$, de modo que la respuesta es $15$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $261\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero de centímetros mayor que la medida de su lado?",
-          "answer": "17",
-          "why": "$256\\le 261<289$, de modo que la respuesta es $17$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $529\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
-          "answer": "23",
-          "why": "$529\\le 529<576$, de modo que la respuesta es $23$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una placa cuadrada tiene área $81\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
+          "q": "Un terreno cuadrado tiene área $90\\,\\mathrm{m}^2$. ¿Cuál es el mayor entero que no supera la longitud de su lado?",
           "answer": "9",
-          "why": "$81\\le 81<100$, de modo que la respuesta es $9$.",
-          "level": 2
+          "why": "$9^2=81<90<100=10^2$, por lo que el entero inferior es $9$."
+        },
+        {
+          "q": "Un terreno cuadrado tiene área $115\\,\\mathrm{m}^2$. ¿Entre qué enteros consecutivos está la longitud de su lado?",
+          "options": [
+            "Entre $11$ y $12$",
+            "Entre $9$ y $10$",
+            "Entre $10$ y $12$",
+            "Entre $10$ y $11$"
+          ],
+          "correct": 3,
+          "why": "$10^2=100<115<121=11^2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un terreno cuadrado tiene $214\\,\\mathrm{m}^2$. ¿Cuál es el mayor número entero de metros que no supera el lado?",
-          "answer": "14",
-          "why": "$196\\le 214<225$, de modo que la respuesta es $14$.",
-          "level": 3
+          "q": "Un terreno cuadrado tiene área $210\\,\\mathrm{m}^2$. ¿Cuál es el menor entero mayor que la longitud de su lado?",
+          "answer": "15",
+          "why": "$14^2=196<210<225=15^2$, por lo que el entero superior es $15$."
+        },
+        {
+          "q": "Una superficie cuadrada tiene área $0{,}49\\,\\mathrm{m}^2$. ¿Cuánto mide su lado?",
+          "options": [
+            "$0{,}49$ m",
+            "$0{,}07$ m",
+            "$0{,}7$ m",
+            "$7$ m"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{0{,}49}=0{,}7$, porque $0{,}7^2=0{,}49$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una placa cuadrada tiene área $112\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero de centímetros mayor que la medida de su lado?",
-          "answer": "11",
-          "why": "$100\\le 112<121$, de modo que la respuesta es $11$.",
-          "level": 2
+          "q": "Una placa cuadrada tiene área $0{,}81\\,\\mathrm{m}^2$. ¿Cuánto mide su lado, en metros?",
+          "answer": "0,9",
+          "why": "$\\sqrt{0{,}81}=0{,}9$ m."
+        },
+        {
+          "q": "Un terreno cuadrado tiene área $150\\,\\mathrm{m}^2$. ¿Cuál es el mayor entero que no supera la longitud de su lado?",
+          "options": [
+            "$13$",
+            "$12$",
+            "$11$",
+            "$14$"
+          ],
+          "correct": 1,
+          "why": "$12^2=144<150<169=13^2$, así que $12<\\sqrt{150}<13$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una placa cuadrada tiene área $361\\,\\mathrm{cm}^2$. ¿Cuánto mide cada lado, en centímetros?",
+          "q": "Un patio cuadrado tiene área $625\\,\\mathrm{m}^2$. ¿Cuánto mide cada lado?",
+          "answer": "25",
+          "why": "$\\sqrt{625}=25$ m."
+        },
+        {
+          "q": "Una placa cuadrada tiene área $200\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero mayor que la longitud de su lado?",
+          "options": [
+            "$15$",
+            "$14$",
+            "$13$",
+            "$16$"
+          ],
+          "correct": 0,
+          "why": "$14^2=196<200<225=15^2$, por tanto el menor entero superior es $15$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un terreno cuadrado tiene área $175\\,\\mathrm{m}^2$. ¿Cuál es el mayor entero que no supera la longitud de su lado?",
+          "answer": "13",
+          "why": "$13^2=169<175<196=14^2$."
+        },
+        {
+          "q": "Un cuadrado tiene área $121\\,\\mathrm{cm}^2$. ¿Cuánto mide su lado?",
+          "options": [
+            "$60{,}5$ cm",
+            "$10$ cm",
+            "$12$ cm",
+            "$11$ cm"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt{121}=11$ cm."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una superficie cuadrada tiene área $130\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero mayor que la longitud de su lado?",
+          "answer": "12",
+          "why": "$11^2=121<130<144=12^2$."
+        },
+        {
+          "q": "Una baldosa cuadrada tiene área $2{,}25\\,\\mathrm{m}^2$. ¿Cuánto mide su lado?",
+          "options": [
+            "$1{,}25$ m",
+            "$2{,}25$ m",
+            "$1{,}5$ m",
+            "$0{,}75$ m"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{2{,}25}=1{,}5$ m, ya que $1{,}5^2=2{,}25$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una baldosa cuadrada tiene área $1{,}44\\,\\mathrm{m}^2$. ¿Cuánto mide su lado, en metros?",
+          "answer": "1,2",
+          "why": "$\\sqrt{1{,}44}=1{,}2$ m."
+        },
+        {
+          "q": "La longitud del lado de una placa es $\\sqrt{80}$ cm. ¿Entre qué enteros consecutivos se encuentra?",
+          "options": [
+            "Entre $7$ y $8$",
+            "Entre $8$ y $9$",
+            "Entre $9$ y $10$",
+            "Entre $6$ y $7$"
+          ],
+          "correct": 1,
+          "why": "$8^2=64<80<81=9^2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un terreno cuadrado tiene área $250\\,\\mathrm{m}^2$. ¿Cuál es el mayor entero que no supera la longitud de su lado?",
+          "answer": "15",
+          "why": "$15^2=225<250<256=16^2$."
+        },
+        {
+          "q": "Un terreno cuadrado tiene área $300\\,\\mathrm{m}^2$. ¿Entre qué enteros consecutivos está la longitud de su lado?",
+          "options": [
+            "Entre $17$ y $18$",
+            "Entre $16$ y $17$",
+            "Entre $18$ y $19$",
+            "Entre $15$ y $16$"
+          ],
+          "correct": 0,
+          "why": "$17^2=289<300<324=18^2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una placa cuadrada tiene área $350\\,\\mathrm{cm}^2$. ¿Cuál es el menor entero mayor que la longitud de su lado?",
           "answer": "19",
-          "why": "$361\\le 361<400$, de modo que la respuesta es $19$.",
-          "level": 2
+          "why": "$18^2=324<350<361=19^2$."
         }
       ],
       "drawCheck": 2
@@ -10786,14 +10911,15 @@
         }
       ],
       "check": {
-        "q": "La longitud de una diagonal es $\\sqrt{32}$ cm. ¿Cuál es su expresión simplificada?",
+        "q": "Una placa tiene una diagonal de $\\sqrt{72}$ cm. ¿Cuál es su expresión simplificada?",
         "options": [
-          "$4\\sqrt2$ cm",
           "$8\\sqrt2$ cm",
-          "$2\\sqrt2$ cm"
+          "$3\\sqrt8$ cm",
+          "$6\\sqrt2$ cm",
+          "$36\\sqrt2$ cm"
         ],
-        "correct": 0,
-        "why": "$32=16\\cdot2$, luego $\\sqrt{32}=4\\sqrt2$."
+        "correct": 2,
+        "why": "$\\sqrt{72}=\\sqrt{36\\cdot2}=6\\sqrt2$."
       },
       "learn": {
         "goal": "Simplificar raíces cuadradas extrayendo factores cuadrados perfectos.",
@@ -10894,154 +11020,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Una diagonal mide $\\sqrt{98}$ cm, equivalente a $a\\sqrt2$ cm. ¿Cuánto vale $a$? Escribe solo el número.",
+          "q": "Una diagonal mide $\\sqrt{288}$ cm, que puede escribirse como $a\\sqrt2$ cm. ¿Cuánto vale $a$?",
+          "answer": "12",
+          "why": "$\\sqrt{288}=\\sqrt{144\\cdot2}=12\\sqrt2$."
+        },
+        {
+          "q": "Una diagonal mide $\\sqrt{108}$ cm. ¿Cuál es su forma simplificada?",
+          "options": [
+            "$9\\sqrt3$ cm",
+            "$6\\sqrt3$ cm",
+            "$3\\sqrt{12}$ cm",
+            "$54\\sqrt3$ cm"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{108}=\\sqrt{36\\cdot3}=6\\sqrt3$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un segmento mide $\\sqrt{500}$ m. Si se escribe como $a\\sqrt5$ m, ¿cuánto vale $a$?",
+          "answer": "10",
+          "why": "$\\sqrt{500}=\\sqrt{100\\cdot5}=10\\sqrt5$."
+        },
+        {
+          "q": "Un segmento mide $\\sqrt{200}$ m. ¿Qué expresión simplificada representa su longitud?",
+          "options": [
+            "$10\\sqrt2$ m",
+            "$20\\sqrt2$ m",
+            "$5\\sqrt8$ m",
+            "$100\\sqrt2$ m"
+          ],
+          "correct": 0,
+          "why": "$\\sqrt{200}=\\sqrt{100\\cdot2}=10\\sqrt2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Dos tramos iguales miden cada uno $\\sqrt{75}$ cm. La longitud total es $a\\sqrt3$ cm. ¿Cuánto vale $a$?",
+          "answer": "10",
+          "why": "$\\sqrt{75}=5\\sqrt3$; dos tramos suman $10\\sqrt3$."
+        },
+        {
+          "q": "Tres tramos iguales miden cada uno $\\sqrt{50}$ cm. ¿Qué expresión representa la longitud total?",
+          "options": [
+            "$5\\sqrt2$ cm",
+            "$30\\sqrt2$ cm",
+            "$150\\sqrt2$ cm",
+            "$15\\sqrt2$ cm"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt{50}=5\\sqrt2$; tres tramos suman $3\\cdot5\\sqrt2=15\\sqrt2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una diagonal mide $\\sqrt{432}$ cm. Si se expresa como $a\\sqrt3$ cm, ¿cuánto vale $a$?",
+          "answer": "12",
+          "why": "$\\sqrt{432}=\\sqrt{144\\cdot3}=12\\sqrt3$."
+        },
+        {
+          "q": "Una superficie tiene diagonal $\\sqrt{75}$ cm. ¿Cuál es la simplificación correcta?",
+          "options": [
+            "$3\\sqrt5$ cm",
+            "$25\\sqrt3$ cm",
+            "$5\\sqrt3$ cm",
+            "$15\\sqrt3$ cm"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{75}=\\sqrt{25\\cdot3}=5\\sqrt3$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Tres segmentos de longitud $\\sqrt{80}$ m se unen. La longitud total es $a\\sqrt5$ m. ¿Cuánto vale $a$?",
+          "answer": "12",
+          "why": "$\\sqrt{80}=4\\sqrt5$; tres segmentos suman $12\\sqrt5$."
+        },
+        {
+          "q": "Un segmento mide $\\sqrt{180}$ m. ¿Cuál es su expresión simplificada?",
+          "options": [
+            "$3\\sqrt{20}$ m",
+            "$6\\sqrt5$ m",
+            "$9\\sqrt5$ m",
+            "$36\\sqrt5$ m"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{180}=\\sqrt{36\\cdot5}=6\\sqrt5$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Una diagonal mide $\\sqrt{147}$ cm. Si se expresa como $a\\sqrt3$ cm, ¿cuánto vale $a$?",
           "answer": "7",
-          "why": "$98=49\\cdot2$; por tanto $\\sqrt{98}=7\\sqrt2$.",
-          "level": 2
+          "why": "$\\sqrt{147}=\\sqrt{49\\cdot3}=7\\sqrt3$."
+        },
+        {
+          "q": "Una diagonal mide $\\sqrt{98}$ cm. ¿Cuál es su expresión simplificada?",
+          "options": [
+            "$7\\sqrt2$ cm",
+            "$14\\sqrt2$ cm",
+            "$2\\sqrt{49}$ cm",
+            "$49\\sqrt2$ cm"
+          ],
+          "correct": 0,
+          "why": "$\\sqrt{98}=\\sqrt{49\\cdot2}=7\\sqrt2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "La longitud de un segmento es $\\sqrt{200}$ m, equivalente a $a\\sqrt2$ m. ¿Cuánto vale $a$? Escribe solo el número.",
-          "answer": "10",
-          "why": "$200=100\\cdot2$, luego $\\sqrt{200}=10\\sqrt2$.",
-          "level": 2
+          "q": "Un segmento mide $\\sqrt{320}$ m. Si se escribe como $a\\sqrt5$ m, ¿cuánto vale $a$?",
+          "answer": "8",
+          "why": "$\\sqrt{320}=\\sqrt{64\\cdot5}=8\\sqrt5$."
+        },
+        {
+          "q": "Una pieza tiene diagonal $\\sqrt{48}$ cm. ¿Cómo se simplifica?",
+          "options": [
+            "$8\\sqrt3$ cm",
+            "$2\\sqrt{12}$ cm",
+            "$16\\sqrt3$ cm",
+            "$4\\sqrt3$ cm"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt{48}=\\sqrt{16\\cdot3}=4\\sqrt3$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un segmento mide $\\sqrt{2250}$ m. ¿Cuál es el coeficiente de $\\sqrt{10}$ en la longitud total de $2$ segmentos iguales?",
-          "answer": "30",
-          "why": "$2250=15^2\\cdot10$, entonces cada segmento mide $15\\sqrt{10}$; el coeficiente pedido es $30$.",
-          "level": 2
+          "q": "Dos segmentos de longitud $\\sqrt{98}$ cm se unen. La longitud total es $a\\sqrt2$ cm. ¿Cuánto vale $a$?",
+          "answer": "14",
+          "why": "$\\sqrt{98}=7\\sqrt2$; dos segmentos suman $14\\sqrt2$."
+        },
+        {
+          "q": "Un segmento mide $\\sqrt{245}$ m. ¿Cuál es su forma simplificada?",
+          "options": [
+            "$5\\sqrt7$ m",
+            "$14\\sqrt5$ m",
+            "$7\\sqrt5$ m",
+            "$49\\sqrt5$ m"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{245}=\\sqrt{49\\cdot5}=7\\sqrt5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{216}$ cm, igual a $a\\sqrt{6}$ cm. ¿Cuánto vale $a$?",
-          "answer": "6",
-          "why": "$216=6^2\\cdot6$, entonces cada segmento mide $6\\sqrt{6}$; el coeficiente pedido es $6$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{294}$ m. ¿Cuál es el coeficiente de $\\sqrt{6}$ en la longitud total de $3$ segmentos iguales?",
-          "answer": "21",
-          "why": "$294=7^2\\cdot6$, entonces cada segmento mide $7\\sqrt{6}$; el coeficiente pedido es $21$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{300}$ cm, igual a $a\\sqrt{3}$ cm. ¿Cuánto vale $a$?",
-          "answer": "10",
-          "why": "$300=10^2\\cdot3$, entonces cada segmento mide $10\\sqrt{3}$; el coeficiente pedido es $10$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{162}$ m. ¿Cuál es el coeficiente de $\\sqrt{2}$ en la longitud total de $2$ segmentos iguales?",
-          "answer": "18",
-          "why": "$162=9^2\\cdot2$, entonces cada segmento mide $9\\sqrt{2}$; el coeficiente pedido es $18$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{450}$ cm, igual a $a\\sqrt{2}$ cm. ¿Cuánto vale $a$?",
+          "q": "Una placa tiene diagonal $\\sqrt{675}$ cm. Si se expresa como $a\\sqrt3$ cm, ¿cuánto vale $a$?",
           "answer": "15",
-          "why": "$450=15^2\\cdot2$, entonces cada segmento mide $15\\sqrt{2}$; el coeficiente pedido es $15$.",
-          "level": 3
+          "why": "$\\sqrt{675}=\\sqrt{225\\cdot3}=15\\sqrt3$."
+        },
+        {
+          "q": "Dos segmentos iguales miden $\\sqrt{27}$ cm cada uno. ¿Cuál es la longitud total simplificada?",
+          "options": [
+            "$3\\sqrt3$ cm",
+            "$6\\sqrt3$ cm",
+            "$9\\sqrt3$ cm",
+            "$54\\sqrt3$ cm"
+          ],
+          "correct": 1,
+          "why": "$2\\sqrt{27}=2\\cdot3\\sqrt3=6\\sqrt3$ cm."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{605}$ cm, igual a $a\\sqrt{5}$ cm. ¿Cuánto vale $a$?",
-          "answer": "11",
-          "why": "$605=11^2\\cdot5$, entonces cada segmento mide $11\\sqrt{5}$; el coeficiente pedido es $11$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{1372}$ m. ¿Cuál es el coeficiente de $\\sqrt{7}$ en la longitud total de $3$ segmentos iguales?",
-          "answer": "42",
-          "why": "$1372=14^2\\cdot7$, entonces cada segmento mide $14\\sqrt{7}$; el coeficiente pedido es $42$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{96}$ cm, igual a $a\\sqrt{6}$ cm. ¿Cuánto vale $a$?",
-          "answer": "4",
-          "why": "$96=4^2\\cdot6$, entonces cada segmento mide $4\\sqrt{6}$; el coeficiente pedido es $4$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{243}$ m. ¿Cuál es el coeficiente de $\\sqrt{3}$ en la longitud total de $3$ segmentos iguales?",
-          "answer": "27",
-          "why": "$243=9^2\\cdot3$, entonces cada segmento mide $9\\sqrt{3}$; el coeficiente pedido es $27$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{847}$ cm, igual a $a\\sqrt{7}$ cm. ¿Cuánto vale $a$?",
-          "answer": "11",
-          "why": "$847=11^2\\cdot7$, entonces cada segmento mide $11\\sqrt{7}$; el coeficiente pedido es $11$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{360}$ m. ¿Cuál es el coeficiente de $\\sqrt{10}$ en la longitud total de $4$ segmentos iguales?",
-          "answer": "24",
-          "why": "$360=6^2\\cdot10$, entonces cada segmento mide $6\\sqrt{10}$; el coeficiente pedido es $24$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{700}$ cm, igual a $a\\sqrt{7}$ cm. ¿Cuánto vale $a$?",
-          "answer": "10",
-          "why": "$700=10^2\\cdot7$, entonces cada segmento mide $10\\sqrt{7}$; el coeficiente pedido es $10$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{180}$ cm, igual a $a\\sqrt{5}$ cm. ¿Cuánto vale $a$?",
-          "answer": "6",
-          "why": "$180=6^2\\cdot5$, entonces cada segmento mide $6\\sqrt{5}$; el coeficiente pedido es $6$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{432}$ m. ¿Cuál es el coeficiente de $\\sqrt{3}$ en la longitud total de $2$ segmentos iguales?",
-          "answer": "24",
-          "why": "$432=12^2\\cdot3$, entonces cada segmento mide $12\\sqrt{3}$; el coeficiente pedido es $24$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "La diagonal de una placa mide $\\sqrt{75}$ cm, igual a $a\\sqrt{3}$ cm. ¿Cuánto vale $a$?",
-          "answer": "5",
-          "why": "$75=5^2\\cdot3$, entonces cada segmento mide $5\\sqrt{3}$; el coeficiente pedido es $5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un segmento mide $\\sqrt{128}$ m. ¿Cuál es el coeficiente de $\\sqrt{2}$ en la longitud total de $4$ segmentos iguales?",
-          "answer": "32",
-          "why": "$128=8^2\\cdot2$, entonces cada segmento mide $8\\sqrt{2}$; el coeficiente pedido es $32$.",
-          "level": 2
+          "q": "Cuatro tramos de longitud $\\sqrt{45}$ m se unen. La longitud total es $a\\sqrt5$ m. ¿Cuánto vale $a$?",
+          "answer": "12",
+          "why": "$\\sqrt{45}=3\\sqrt5$; cuatro tramos suman $12\\sqrt5$."
         }
       ],
       "drawCheck": 2
@@ -11763,14 +11906,15 @@
         }
       ],
       "check": {
-        "q": "Dos segmentos miden $\\sqrt8$ cm y $\\sqrt{18}$ cm. ¿Cuánto suman?",
+        "q": "Dos segmentos miden $\\sqrt8$ cm y $\\sqrt{18}$ cm. ¿Cuál es la longitud total simplificada?",
         "options": [
-          "$5\\sqrt2$ cm",
           "$\\sqrt{26}$ cm",
-          "$13\\sqrt2$ cm"
+          "$\\sqrt{144}$ cm",
+          "$7\\sqrt2$ cm",
+          "$5\\sqrt2$ cm"
         ],
-        "correct": 0,
-        "why": "$\\sqrt8=2\\sqrt2$ y $\\sqrt{18}=3\\sqrt2$."
+        "correct": 3,
+        "why": "$\\sqrt8=2\\sqrt2$ y $\\sqrt{18}=3\\sqrt2$; sumamos coeficientes: $5\\sqrt2$."
       },
       "learn": {
         "goal": "Sumar y restar radicales semejantes después de simplificarlos.",
@@ -11878,154 +12022,171 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{50}$ cm y $\\sqrt8$ cm. La suma se expresa como $a\\sqrt2$ cm. ¿Cuánto vale $a$?",
-          "answer": "7",
-          "why": "$5\\sqrt2+2\\sqrt2=7\\sqrt2$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un desplazamiento es de $3\\sqrt{12}$ m hacia un sentido y $\\sqrt{27}$ m en el sentido contrario, sobre la misma línea. Su desplazamiento neto es $a\\sqrt3$ m en el sentido inicial. ¿Cuánto vale $a$?",
-          "answer": "3",
-          "why": "$3\\sqrt{12}-\\sqrt{27}=6\\sqrt3-3\\sqrt3=3\\sqrt3$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{72}$ y $\\sqrt{50}$ metros. El desplazamiento neto es $c\\sqrt{2}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "1",
-          "why": "$\\sqrt{72}=6\\sqrt{2}$ y $\\sqrt{50}=5\\sqrt{2}$; el coeficiente es $1$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{300}$ y $\\sqrt{147}$ centímetros. Su suma es $c\\sqrt{3}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "17",
-          "why": "$\\sqrt{300}=10\\sqrt{3}$ y $\\sqrt{147}=7\\sqrt{3}$; el coeficiente es $17$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{605}$ y $\\sqrt{405}$ metros. El desplazamiento neto es $c\\sqrt{5}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "2",
-          "why": "$\\sqrt{605}=11\\sqrt{5}$ y $\\sqrt{405}=9\\sqrt{5}$; el coeficiente es $2$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{125}$ y $\\sqrt{80}$ centímetros. Su suma es $c\\sqrt{5}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "9",
-          "why": "$\\sqrt{125}=5\\sqrt{5}$ y $\\sqrt{80}=4\\sqrt{5}$; el coeficiente es $9$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{192}$ y $\\sqrt{27}$ metros. El desplazamiento neto es $c\\sqrt{3}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "5",
-          "why": "$\\sqrt{192}=8\\sqrt{3}$ y $\\sqrt{27}=3\\sqrt{3}$; el coeficiente es $5$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{1008}$ y $\\sqrt{252}$ centímetros. Su suma es $c\\sqrt{7}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "18",
-          "why": "$\\sqrt{1008}=12\\sqrt{7}$ y $\\sqrt{252}=6\\sqrt{7}$; el coeficiente es $18$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{18}$ y $\\sqrt{32}$ centímetros. Su suma es $c\\sqrt{2}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "7",
-          "why": "$\\sqrt{18}=3\\sqrt{2}$ y $\\sqrt{32}=4\\sqrt{2}$; el coeficiente es $7$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{720}$ y $\\sqrt{80}$ metros. El desplazamiento neto es $c\\sqrt{5}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
+          "q": "Dos segmentos miden $\\sqrt{72}$ cm y $\\sqrt8$ cm. Su suma es $a\\sqrt2$ cm. ¿Cuánto vale $a$?",
           "answer": "8",
-          "why": "$\\sqrt{720}=12\\sqrt{5}$ y $\\sqrt{80}=4\\sqrt{5}$; el coeficiente es $8$.",
-          "level": 2
+          "why": "$\\sqrt{72}=6\\sqrt2$ y $\\sqrt8=2\\sqrt2$; $a=6+2=8$."
+        },
+        {
+          "q": "Un desplazamiento es $3\\sqrt{12}$ m en un sentido y $\\sqrt{27}$ m en el sentido contrario. ¿Cuál es el desplazamiento neto?",
+          "options": [
+            "$9\\sqrt3$ m en el sentido inicial",
+            "$3\\sqrt{39}$ m",
+            "$3\\sqrt3$ m en el sentido inicial",
+            "$9\\sqrt3$ m en sentido contrario"
+          ],
+          "correct": 2,
+          "why": "$3\\sqrt{12}=6\\sqrt3$ y $\\sqrt{27}=3\\sqrt3$; la diferencia es $3\\sqrt3$ en el sentido inicial."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{847}$ y $\\sqrt{343}$ centímetros. Su suma es $c\\sqrt{7}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "18",
-          "why": "$\\sqrt{847}=11\\sqrt{7}$ y $\\sqrt{343}=7\\sqrt{7}$; el coeficiente es $18$.",
-          "level": 3
+          "q": "Se suman $2\\sqrt{27}$ m y $\\sqrt{12}$ m. El resultado es $a\\sqrt3$ m. ¿Cuánto vale $a$?",
+          "answer": "8",
+          "why": "$2\\sqrt{27}=6\\sqrt3$ y $\\sqrt{12}=2\\sqrt3$; $a=8$."
+        },
+        {
+          "q": "Dos segmentos miden $2\\sqrt{50}$ cm y $\\sqrt8$ cm. ¿Cuál es la suma simplificada?",
+          "options": [
+            "$7\\sqrt2$ cm",
+            "$12\\sqrt2$ cm",
+            "$10\\sqrt{58}$ cm",
+            "$11\\sqrt2$ cm"
+          ],
+          "correct": 1,
+          "why": "$2\\sqrt{50}=10\\sqrt2$ y $\\sqrt8=2\\sqrt2$; la suma es $12\\sqrt2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{252}$ y $\\sqrt{28}$ metros. El desplazamiento neto es $c\\sqrt{7}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "4",
-          "why": "$\\sqrt{252}=6\\sqrt{7}$ y $\\sqrt{28}=2\\sqrt{7}$; el coeficiente es $4$.",
-          "level": 2
+          "q": "Dos desplazamientos opuestos miden $\\sqrt{125}$ m y $\\sqrt{20}$ m. La diferencia es $a\\sqrt5$ m. ¿Cuánto vale $a$?",
+          "answer": "3",
+          "why": "$\\sqrt{125}=5\\sqrt5$ y $\\sqrt{20}=2\\sqrt5$; la diferencia es $3\\sqrt5$."
+        },
+        {
+          "q": "Una trayectoria tiene dos tramos de longitud $\\sqrt{75}$ m y $\\sqrt{12}$ m, en sentidos opuestos. ¿Cuál es la diferencia de longitudes simplificada?",
+          "options": [
+            "$3\\sqrt3$ m",
+            "$7\\sqrt3$ m",
+            "$3\\sqrt{63}$ m",
+            "$\\sqrt{63}$ m"
+          ],
+          "correct": 0,
+          "why": "$\\sqrt{75}=5\\sqrt3$ y $\\sqrt{12}=2\\sqrt3$; la diferencia es $3\\sqrt3$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{98}$ y $\\sqrt{128}$ centímetros. Su suma es $c\\sqrt{2}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "15",
-          "why": "$\\sqrt{98}=7\\sqrt{2}$ y $\\sqrt{128}=8\\sqrt{2}$; el coeficiente es $15$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{320}$ y $\\sqrt{245}$ metros. El desplazamiento neto es $c\\sqrt{5}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "1",
-          "why": "$\\sqrt{320}=8\\sqrt{5}$ y $\\sqrt{245}=7\\sqrt{5}$; el coeficiente es $1$.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{343}$ y $\\sqrt{63}$ centímetros. Su suma es $c\\sqrt{7}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "10",
-          "why": "$\\sqrt{343}=7\\sqrt{7}$ y $\\sqrt{63}=3\\sqrt{7}$; el coeficiente es $10$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{45}$ y $\\sqrt{45}$ centímetros. Su suma es $c\\sqrt{5}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "6",
-          "why": "$\\sqrt{45}=3\\sqrt{5}$ y $\\sqrt{45}=3\\sqrt{5}$; el coeficiente es $6$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{320}$ y $\\sqrt{45}$ metros. El desplazamiento neto es $c\\sqrt{5}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
+          "q": "Se suman segmentos de $\\sqrt{63}$ m y $\\sqrt{28}$ m. El resultado es $a\\sqrt7$ m. ¿Cuánto vale $a$?",
           "answer": "5",
-          "why": "$\\sqrt{320}=8\\sqrt{5}$ y $\\sqrt{45}=3\\sqrt{5}$; el coeficiente es $5$.",
-          "level": 3
+          "why": "$\\sqrt{63}=3\\sqrt7$ y $\\sqrt{28}=2\\sqrt7$; $a=5$."
+        },
+        {
+          "q": "Dos segmentos miden $\\sqrt{48}$ cm y $\\sqrt{27}$ cm. ¿Cuánto suman?",
+          "options": [
+            "$5\\sqrt3$ cm",
+            "$\\sqrt{75}$ cm",
+            "$12\\sqrt3$ cm",
+            "$7\\sqrt3$ cm"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt{48}=4\\sqrt3$ y $\\sqrt{27}=3\\sqrt3$; suman $7\\sqrt3$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Dos segmentos miden $\\sqrt{245}$ y $\\sqrt{405}$ centímetros. Su suma es $c\\sqrt{5}$ centímetros. ¿Cuánto vale $c$?",
-          "answer": "16",
-          "why": "$\\sqrt{245}=7\\sqrt{5}$ y $\\sqrt{405}=9\\sqrt{5}$; el coeficiente es $16$.",
-          "level": 2
+          "q": "Un recorrido avanza $4\\sqrt{18}$ m y retrocede $\\sqrt8$ m. El desplazamiento neto es $a\\sqrt2$ m. ¿Cuánto vale $a$?",
+          "answer": "10",
+          "why": "$4\\sqrt{18}=12\\sqrt2$ y $\\sqrt8=2\\sqrt2$; $a=12-2=10$."
+        },
+        {
+          "q": "Un recorrido incluye $2\\sqrt{18}$ m hacia el este y $\\sqrt8$ m hacia el oeste. ¿Cuál es el desplazamiento neto?",
+          "options": [
+            "$8\\sqrt2$ m hacia el este",
+            "$4\\sqrt2$ m hacia el oeste",
+            "$4\\sqrt2$ m hacia el este",
+            "$2\\sqrt{26}$ m"
+          ],
+          "correct": 2,
+          "why": "$2\\sqrt{18}=6\\sqrt2$; al restar $2\\sqrt2$ queda $4\\sqrt2$ hacia el este."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una trayectoria tiene desplazamientos opuestos de $\\sqrt{192}$ y $\\sqrt{147}$ metros. El desplazamiento neto es $c\\sqrt{3}$ metros en el sentido inicial. ¿Cuánto vale $c$?",
-          "answer": "1",
-          "why": "$\\sqrt{192}=8\\sqrt{3}$ y $\\sqrt{147}=7\\sqrt{3}$; el coeficiente es $1$.",
-          "level": 2
+          "q": "Se resta $2\\sqrt{12}$ de $\\sqrt{192}$. El resultado es $a\\sqrt3$. ¿Cuánto vale $a$?",
+          "answer": "4",
+          "why": "$\\sqrt{192}=8\\sqrt3$ y $2\\sqrt{12}=4\\sqrt3$; la diferencia es $4\\sqrt3$."
+        },
+        {
+          "q": "Dos diagonales miden $\\sqrt{20}$ cm y $\\sqrt{45}$ cm. ¿Cuál es su longitud total simplificada?",
+          "options": [
+            "$7\\sqrt5$ cm",
+            "$5\\sqrt5$ cm",
+            "$\\sqrt{65}$ cm",
+            "$3\\sqrt5$ cm"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{20}=2\\sqrt5$ y $\\sqrt{45}=3\\sqrt5$; suman $5\\sqrt5$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Se suman $3\\sqrt{45}$ m y $\\sqrt{20}$ m. El resultado es $a\\sqrt5$ m. ¿Cuánto vale $a$?",
+          "answer": "11",
+          "why": "$3\\sqrt{45}=9\\sqrt5$ y $\\sqrt{20}=2\\sqrt5$; $a=11$."
+        },
+        {
+          "q": "Un tramo mide $\\sqrt{98}$ m y otro, en sentido contrario, $\\sqrt{32}$ m. ¿Cuál es la diferencia simplificada?",
+          "options": [
+            "$3\\sqrt2$ m",
+            "$11\\sqrt2$ m",
+            "$3\\sqrt{66}$ m",
+            "$5\\sqrt2$ m"
+          ],
+          "correct": 0,
+          "why": "$\\sqrt{98}=7\\sqrt2$ y $\\sqrt{32}=4\\sqrt2$; la diferencia es $3\\sqrt2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Se calcula $2\\sqrt{112}-\\sqrt{28}$. El resultado es $a\\sqrt7$. ¿Cuánto vale $a$?",
+          "answer": "6",
+          "why": "$2\\sqrt{112}=8\\sqrt7$ y $\\sqrt{28}=2\\sqrt7$; $a=6$."
+        },
+        {
+          "q": "Una trayectoria suma $3\\sqrt8$ m y $\\sqrt{18}$ m en el mismo sentido. ¿Cuál es el desplazamiento total?",
+          "options": [
+            "$5\\sqrt2$ m",
+            "$\\sqrt{26}$ m",
+            "$12\\sqrt2$ m",
+            "$9\\sqrt2$ m"
+          ],
+          "correct": 3,
+          "why": "$3\\sqrt8=6\\sqrt2$ y $\\sqrt{18}=3\\sqrt2$; suman $9\\sqrt2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Se resta $\\sqrt{32}$ de $\\sqrt{288}$. El resultado es $a\\sqrt2$. ¿Cuánto vale $a$?",
+          "answer": "8",
+          "why": "$\\sqrt{288}=12\\sqrt2$ y $\\sqrt{32}=4\\sqrt2$; $a=8$."
+        },
+        {
+          "q": "Un segmento mide $\\sqrt{200}$ cm y se retiran dos tramos de $\\sqrt8$ cm. ¿Qué longitud queda?",
+          "options": [
+            "$8\\sqrt2$ cm",
+            "$10\\sqrt2$ cm",
+            "$6\\sqrt2$ cm",
+            "$4\\sqrt2$ cm"
+          ],
+          "correct": 2,
+          "why": "$\\sqrt{200}=10\\sqrt2$ y $2\\sqrt8=4\\sqrt2$; queda $6\\sqrt2$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Se suman $2\\sqrt{75}$ y $\\sqrt{27}$. El resultado es $a\\sqrt3$. ¿Cuánto vale $a$?",
+          "answer": "13",
+          "why": "$2\\sqrt{75}=10\\sqrt3$ y $\\sqrt{27}=3\\sqrt3$; $a=13$."
         }
       ],
       "drawCheck": 2,
@@ -12758,14 +12919,15 @@
         }
       ],
       "check": {
-        "q": "Una medición de temperatura es $-2\\,^\\circ\\mathrm{C}$. ¿En qué conjunto más pequeño de la lista pertenece?",
+        "q": "Una medición de temperatura es $-2\\,^{\\circ}\\mathrm C$. ¿En cuál de estos conjuntos más pequeños se encuentra?",
         "options": [
-          "$\\mathbb{Z}$",
-          "$\\mathbb{N}$",
-          "$\\mathbb{R}\\setminus\\mathbb{Q}$"
+          "$\\mathbb Z$",
+          "$\\mathbb N$",
+          "$\\mathbb R\\setminus\\mathbb Q$",
+          "No pertenece a $\\mathbb R$"
         ],
         "correct": 0,
-        "why": "$-2$ es un número entero."
+        "why": "$-2$ es un entero; no es natural según la convención $\\mathbb N=\\{1,2,3,\\ldots\\}$."
       },
       "learn": {
         "goal": "Identificar naturales, enteros, racionales e irracionales y reconocer sus inclusiones.",
@@ -12883,176 +13045,174 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Un recipiente contiene $0,6\\,\\mathrm L$ de muestra. Escribe ese volumen como fracción irreducible de litro (solo el número).",
-          "answer": "3/5",
-          "why": "$0,6=6/10=3/5$.",
-          "level": 2,
-          "reduced": true
+          "q": "En la lista $-3,\\ 0,\\ 2,\\ \\sqrt5,\\ \\dfrac12$, ¿cuántos valores son enteros?",
+          "answer": "3",
+          "why": "Los enteros son $-3$, $0$ y $2$; $\\sqrt5$ y $1/2$ no son enteros."
         },
         {
-          "type": "input",
-          "kind": "number",
-          "q": "Una baldosa cuadrada tiene área $81\\,\\mathrm{cm}^2$. Su lado mide $\\sqrt{81}$ cm. Escribe solo el valor del lado, en centímetros.",
-          "answer": "9",
-          "why": "$\\sqrt{81}=9$.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un tablero cuadrado tiene $400$ casillas. Su lado es $\\sqrt{400}$, que es natural. ¿Cuántas casillas mide el lado?",
-          "answer": "20",
-          "why": "La raíz principal es $\\sqrt{400}=20$, número natural.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}5200$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "13/25",
-          "why": "$0{,}5200=\\dfrac{13}{25}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "q": "El lado de una superficie cuadrada de área $3$ cm$^2$ se expresa como $\\sqrt{3}$ cm. ¿Cuál es el conjunto más específico al que pertenece esa medida?",
+          "q": "El lado de una superficie cuadrada de área $3\\,\\mathrm{cm}^2$ mide $\\sqrt3$ cm. ¿A qué conjunto pertenece de forma más específica?",
           "options": [
-            "$\\mathbb R\\setminus\\mathbb Q$",
             "$\\mathbb Q$",
             "$\\mathbb Z$",
-            "$\\mathbb N$"
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt3$ es irracional: su decimal es infinito y no periódico."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "En la lista $\\sqrt2,\\ \\pi,\\ 0{,}25,\\ -7,\\ \\sqrt9$, ¿cuántos valores son irracionales?",
+          "answer": "2",
+          "why": "$\\sqrt2$ y $\\pi$ son irracionales; los otros valores son racionales."
+        },
+        {
+          "q": "Una medición se registra como $0{,}125$ L. ¿Cuál es el conjunto más pequeño al que pertenece?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 2,
+          "why": "$0{,}125=1/8$, por lo que es racional, pero no entero."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte la medición decimal $0{,}45$ a fracción irreducible.",
+          "answer": "9/20",
+          "why": "$0{,}45=45/100=9/20$.",
+          "reduced": true
+        },
+        {
+          "q": "El lado de una baldosa cuadrada de área $49\\,\\mathrm{cm}^2$ mide $\\sqrt{49}$ cm. ¿Cuál es el conjunto más pequeño al que pertenece?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{49}=7$, y $7$ es natural."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte el decimal periódico $0{,}\\overline{27}$ a fracción irreducible.",
+          "answer": "3/11",
+          "why": "$0{,}\\overline{27}=27/99=3/11$.",
+          "reduced": true
+        },
+        {
+          "q": "Una medición es $-\\dfrac52$ unidades. ¿Cuál es el conjunto más pequeño al que pertenece?",
+          "options": [
+            "$\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
           ],
           "correct": 0,
-          "why": "$3$ no es un cuadrado perfecto; la raíz es irracional.",
-          "level": 3
+          "why": "$-5/2$ es racional, pero no es entero."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una medición de $1{,}7000$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "17/10",
-          "why": "$1{,}7000=\\dfrac{17}{10}$.",
-          "level": 2,
-          "reduced": true
+          "q": "En la lista $0,\\ 1,\\ 2{,}5,\\ \\sqrt{16},\\ -2,\\ 7$, ¿cuántos valores son naturales según la convención de esta unidad?",
+          "answer": "3",
+          "why": "$1$, $\\sqrt{16}=4$ y $7$ son naturales; $0$ no se incluye en $\\mathbb N$."
         },
         {
-          "type": "input",
-          "kind": "number",
-          "q": "Un tablero cuadrado tiene $49$ casillas. Su lado es $\\sqrt{49}$, que es natural. ¿Cuántas casillas mide el lado?",
-          "answer": "7",
-          "why": "La raíz principal es $\\sqrt{49}=7$, número natural.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}5000$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "1/2",
-          "why": "$0{,}5000=\\dfrac{1}{2}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}4500$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "9/20",
-          "why": "$0{,}4500=\\dfrac{9}{20}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un tablero cuadrado tiene $36$ casillas. Su lado es $\\sqrt{36}$, que es natural. ¿Cuántas casillas mide el lado?",
-          "answer": "6",
-          "why": "La raíz principal es $\\sqrt{36}=6$, número natural.",
-          "level": 2
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $1{,}0500$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "21/20",
-          "why": "$1{,}0500=\\dfrac{21}{20}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "q": "El lado de una superficie cuadrada de área $11$ cm$^2$ se expresa como $\\sqrt{11}$ cm. ¿Cuál es el conjunto más específico al que pertenece esa medida?",
+          "q": "La longitud de un lado se expresa como $\\pi$ cm. ¿Cuál es el conjunto más específico al que pertenece?",
           "options": [
             "$\\mathbb Q$",
             "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 3,
+          "why": "$\\pi$ es irracional: no puede expresarse como cociente de dos enteros."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "En la lista $-4,\\ \\dfrac32,\\ 0,\\ \\sqrt{25},\\ 0{,}2$, ¿cuántos valores son enteros?",
+          "answer": "3",
+          "why": "$-4$, $0$ y $\\sqrt{25}=5$ son enteros."
+        },
+        {
+          "q": "Un registro contiene el decimal periódico $0{,}\\overline6$. ¿A qué conjunto pertenece?",
+          "options": [
             "$\\mathbb R\\setminus\\mathbb Q$",
+            "$\\mathbb Z$",
+            "$\\mathbb Q$",
             "$\\mathbb N$"
           ],
           "correct": 2,
-          "why": "$11$ no es un cuadrado perfecto; la raíz es irracional.",
-          "level": 2
+          "why": "$0{,}\\overline6=2/3$, por lo que es racional."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Una medición de $0{,}5600$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "14/25",
-          "why": "$0{,}5600=\\dfrac{14}{25}$.",
-          "level": 2,
-          "reduced": true
+          "q": "En la lista $\\dfrac12,\\ 0{,}75,\\ \\sqrt7,\\ -3,\\ \\pi$, ¿cuántos valores son racionales?",
+          "answer": "3",
+          "why": "$1/2$, $0{,}75$ y $-3$ son racionales; $\\sqrt7$ y $\\pi$ son irracionales."
         },
         {
-          "type": "input",
-          "kind": "number",
-          "q": "Un tablero cuadrado tiene $25$ casillas. Su lado es $\\sqrt{25}$, que es natural. ¿Cuántas casillas mide el lado?",
-          "answer": "5",
-          "why": "La raíz principal es $\\sqrt{25}=5$, número natural.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}6000$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "3/5",
-          "why": "$0{,}6000=\\dfrac{3}{5}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}6750$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "27/40",
-          "why": "$0{,}6750=\\dfrac{27}{40}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un tablero cuadrado tiene $81$ casillas. Su lado es $\\sqrt{81}$, que es natural. ¿Cuántas casillas mide el lado?",
-          "answer": "9",
-          "why": "La raíz principal es $\\sqrt{81}=9$, número natural.",
-          "level": 3
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Una medición de $0{,}2250$ L es racional. Escríbela como fracción irreducible de litro.",
-          "answer": "9/40",
-          "why": "$0{,}2250=\\dfrac{9}{40}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "q": "El lado de una superficie cuadrada de área $7$ cm$^2$ se expresa como $\\sqrt{7}$ cm. ¿Cuál es el conjunto más específico al que pertenece esa medida?",
+          "q": "El lado de un cuadrado de área $64\\,\\mathrm{cm}^2$ es $\\sqrt{64}$ cm. ¿Cuál es el conjunto más pequeño al que pertenece?",
           "options": [
-            "$\\mathbb N$",
             "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb Q$",
+            "$\\mathbb R\\setminus\\mathbb Q$"
+          ],
+          "correct": 1,
+          "why": "$\\sqrt{64}=8$, que es natural."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Convierte el decimal periódico $0{,}1\\overline6$ a fracción irreducible.",
+          "answer": "1/6",
+          "why": "$0{,}1\\overline6=0{,}1666\\ldots=1/6$.",
+          "reduced": true
+        },
+        {
+          "q": "Una lectura es exactamente $0$. ¿Cuál es el conjunto más pequeño de la lista $\\mathbb N,\\mathbb Z,\\mathbb Q,\\mathbb R\\setminus\\mathbb Q$ al que pertenece?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
+            "$\\mathbb R\\setminus\\mathbb Q$",
+            "No es real"
+          ],
+          "correct": 0,
+          "why": "En esta unidad $\\mathbb N$ comienza en $1$; el cero pertenece a $\\mathbb Z$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "En la lista $\\sqrt3,\\ \\sqrt{25},\\ 0{,}\\overline4,\\ \\pi,\\ -1$, ¿cuántos valores son irracionales?",
+          "answer": "2",
+          "why": "$\\sqrt3$ y $\\pi$ son irracionales; $\\sqrt{25}=5$, $0{,}\\overline4=4/9$ y $-1$ son racionales."
+        },
+        {
+          "q": "Una medición de longitud se expresa como $\\dfrac{7}{4}$ m. ¿Cuál es el conjunto más pequeño al que pertenece?",
+          "options": [
+            "$\\mathbb Z$",
+            "$\\mathbb N$",
             "$\\mathbb R\\setminus\\mathbb Q$",
             "$\\mathbb Q$"
           ],
-          "correct": 2,
-          "why": "$7$ no es un cuadrado perfecto; la raíz es irracional.",
-          "level": 2
+          "correct": 3,
+          "why": "$7/4$ es cociente de enteros con denominador no nulo; es racional y no entero."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un cuadrado tiene área $2\\,\\mathrm{cm}^2$ y su lado mide $\\sqrt2$ cm. Si se consideran las medidas $\\sqrt2$, $\\sqrt9$, $0{,}4$ y $-3$, ¿cuántas son irracionales?",
+          "answer": "1",
+          "why": "Solo $\\sqrt2$ es irracional; $\\sqrt9=3$, $0{,}4=2/5$ y $-3$ son racionales."
         }
       ],
       "drawCheck": 2
@@ -13778,15 +13938,15 @@
         }
       ],
       "check": {
-        "q": "Un laboratorio calcula $\\left(\\frac12+\\frac14\\right)\\cdot4+\\sqrt{16}$ (en unidades de medida). ¿Qué valor obtiene?",
+        "q": "Un modelo calcula $\\left(\\dfrac34-\\dfrac12\\right)^2+\\sqrt{36}-2^3$. ¿Cuál es el resultado?",
         "options": [
-          "$7$",
-          "$5$",
-          "$6$"
+          "$-\\dfrac{15}{16}$",
+          "$-\\dfrac{31}{16}$",
+          "$\\dfrac{31}{16}$",
+          "$-\\dfrac{1}{16}$"
         ],
-        "correct": 0,
-        "why": "$(3/4)\\cdot4+4=3+4=7$.",
-        "level": 2
+        "correct": 1,
+        "why": "$3/4-1/2=1/4$; luego $1/16+6-8=1/16-2=-31/16$."
       },
       "learn": {
         "goal": "Resolver operaciones combinadas con enteros, fracciones, potencias y raíces cuadradas, justificando el orden de los cálculos.",
@@ -13935,171 +14095,173 @@
         {
           "type": "input",
           "kind": "number",
-          "q": "Un modelo combina $\\left(\\frac34-\\frac12\\right)^2$ y $\\sqrt{36}$. ¿Cuánto suman? Escribe una fracción irreducible.",
-          "answer": "97/16",
-          "why": "$1/16+6=97/16$.",
-          "level": 2,
+          "q": "Calcula $\\left(\\dfrac23+\\dfrac16\\right)^2$. Escribe el resultado como fracción irreducible.",
+          "answer": "25/36",
+          "why": "$2/3+1/6=5/6$; al elevar al cuadrado se obtiene $25/36$.",
           "reduced": true
         },
         {
-          "type": "input",
-          "kind": "number",
-          "q": "Un cálculo requiere $2^3-\\sqrt{49}-\\frac12\\div\\frac14$. Escribe el resultado numérico.",
-          "answer": "-1",
-          "why": "$8-7-2=-1$.",
-          "level": 3
+          "q": "Un laboratorio evalúa $\\left(\\dfrac12+\\dfrac14\\right)\\cdot4+\\sqrt{16}$. ¿Qué valor obtiene?",
+          "options": [
+            "$7$",
+            "$3$",
+            "$10$",
+            "$5$"
+          ],
+          "correct": 0,
+          "why": "$1/2+1/4=3/4$; $3/4\\cdot4=3$ y $\\sqrt{16}=4$. Total: $7$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un modelo considera $7$ mediciones de $\\dfrac{3}{4}$ unidades, más una corrección de $\\dfrac{8}{11}$ unidades. ¿Cuál es el valor total?",
-          "answer": "263/44",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{263}{44}$.",
-          "level": 2,
-          "reduced": true
+          "q": "Calcula $3^2-\\sqrt{49}+\\dfrac12\\div\\dfrac14$. Escribe el resultado.",
+          "answer": "4",
+          "why": "$9-7+2=4$."
+        },
+        {
+          "q": "Un cálculo requiere $2^3-\\sqrt{49}-\\dfrac12\\div\\dfrac14$. ¿Cuál es el resultado?",
+          "options": [
+            "$3$",
+            "$1$",
+            "$-3$",
+            "$-1$"
+          ],
+          "correct": 3,
+          "why": "$2^3=8$, $\\sqrt{49}=7$ y $1/2\\div1/4=2$; entonces $8-7-2=-1$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{2}{3}$ L y $\\dfrac{1}{2}$ L de dos soluciones. Se preparan $6$ mezclas iguales. ¿Cuántos litros se requieren en total?",
+          "q": "Un ensayo combina $\\left(\\dfrac56-\\dfrac13\\right)\\cdot12+\\sqrt{16}$. ¿Qué valor obtiene?",
+          "answer": "10",
+          "why": "$5/6-1/3=1/2$; $1/2\\cdot12=6$ y $\\sqrt{16}=4$; total $10$."
+        },
+        {
+          "q": "Una medición se procesa mediante $(-2)^2+\\dfrac34\\cdot4$. ¿Qué resultado se obtiene?",
+          "options": [
+            "$-1$",
+            "$16$",
+            "$7$",
+            "$5$"
+          ],
+          "correct": 2,
+          "why": "$(-2)^2=4$ y $3/4\\cdot4=3$; la suma es $7$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $2^{-2}+\\dfrac34$. Escribe el resultado.",
+          "answer": "1",
+          "why": "$2^{-2}=1/4$; $1/4+3/4=1$."
+        },
+        {
+          "q": "Un protocolo calcula $\\dfrac56-\\left(\\dfrac13\\right)^2+\\sqrt9$. ¿Cuál es el resultado?",
+          "options": [
+            "$\\dfrac{13}{18}$",
+            "$\\dfrac{67}{18}$",
+            "$\\dfrac{71}{18}$",
+            "$\\dfrac{5}{6}$"
+          ],
+          "correct": 1,
+          "why": "$(1/3)^2=1/9$; $5/6-1/9=15/18-2/18=13/18$; al sumar $3$ se obtiene $67/18$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Un modelo evalúa $\\left(\\dfrac12+\\dfrac13\\right)\\cdot6-\\sqrt9$. ¿Qué valor resulta?",
+          "answer": "2",
+          "why": "$1/2+1/3=5/6$; $5/6\\cdot6=5$ y $\\sqrt9=3$; queda $2$."
+        },
+        {
+          "q": "Un modelo evalúa $\\left(\\dfrac23+\\dfrac16\\right)\\cdot6-2^2$. ¿Qué valor obtiene?",
+          "options": [
+            "$1$",
+            "$5$",
+            "$-1$",
+            "$\\dfrac56$"
+          ],
+          "correct": 0,
+          "why": "$2/3+1/6=5/6$; $5/6\\cdot6=5$ y $2^2=4$; $5-4=1$."
+        },
+        {
+          "type": "input",
+          "kind": "number",
+          "q": "Calcula $\\dfrac{4^2}{8}+\\sqrt{25}$. Escribe el resultado.",
           "answer": "7",
-          "why": "Primero resolvemos productos y paréntesis: el total es $7$.",
-          "level": 2,
-          "reduced": true
+          "why": "$4^2/8=16/8=2$ y $\\sqrt{25}=5$; total $7$."
+        },
+        {
+          "q": "Un equipo calcula $\\dfrac{\\sqrt{64}}2+\\dfrac{3^2}{9}$. ¿Cuál es el resultado?",
+          "options": [
+            "$7$",
+            "$\\dfrac{11}{3}$",
+            "$4$",
+            "$5$"
+          ],
+          "correct": 3,
+          "why": "$\\sqrt{64}/2=8/2=4$ y $3^2/9=9/9=1$; total $5$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un modelo considera $5$ mediciones de $\\dfrac{2}{11}$ unidades, más una corrección de $\\dfrac{1}{5}$ unidades. ¿Cuál es el valor total?",
-          "answer": "61/55",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{61}{55}$.",
-          "level": 3,
-          "reduced": true
+          "q": "Un ensayo combina $\\dfrac35\\cdot10+2^3-\\sqrt{36}$. ¿Qué valor obtiene?",
+          "answer": "8",
+          "why": "$3/5\\cdot10=6$, $2^3=8$ y $\\sqrt{36}=6$; $6+8-6=8$."
+        },
+        {
+          "q": "Una operación de calibración es $\\dfrac34\\div\\dfrac12+2^0$. ¿Cuál es su valor?",
+          "options": [
+            "$\\dfrac74$",
+            "$2$",
+            "$\\dfrac52$",
+            "$\\dfrac32$"
+          ],
+          "correct": 2,
+          "why": "$3/4\\div1/2=3/2$ y $2^0=1$; la suma es $5/2$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{1}{5}$ L y $2$ L de dos soluciones. Se preparan $5$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "11",
-          "why": "Primero resolvemos productos y paréntesis: el total es $11$.",
-          "level": 2,
+          "q": "Calcula $\\left(\\dfrac78-\\dfrac14\\right)\\cdot4$. Escribe el resultado como fracción irreducible.",
+          "answer": "5/2",
+          "why": "$7/8-1/4=5/8$; $5/8\\cdot4=20/8=5/2$.",
           "reduced": true
+        },
+        {
+          "q": "Un registro combina $2^3+(-3)^2-\\sqrt{25}$. ¿Qué valor resulta?",
+          "options": [
+            "$-6$",
+            "$12$",
+            "$22$",
+            "$6$"
+          ],
+          "correct": 1,
+          "why": "$8+9-5=12$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "Un modelo considera $6$ mediciones de $\\dfrac{1}{2}$ unidades, más una corrección de $\\dfrac{4}{5}$ unidades. ¿Cuál es el valor total?",
-          "answer": "19/5",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{19}{5}$.",
-          "level": 2,
-          "reduced": true
+          "q": "Un sensor calcula $\\sqrt{121}-2^3+\\dfrac34\\cdot4$. ¿Qué valor obtiene?",
+          "answer": "6",
+          "why": "$11-8+3=6$."
+        },
+        {
+          "q": "Un proceso calcula $\\left(\\dfrac54-\\dfrac12\\right)\\cdot8+\\sqrt{81}$. ¿Cuál es el resultado?",
+          "options": [
+            "$15$",
+            "$12$",
+            "$21$",
+            "$\\dfrac{15}{8}$"
+          ],
+          "correct": 0,
+          "why": "$5/4-1/2=3/4$; $3/4\\cdot8=6$ y $\\sqrt{81}=9$; total $15$."
         },
         {
           "type": "input",
           "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{3}{8}$ L y $4$ L de dos soluciones. Se preparan $7$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "245/8",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{245}{8}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{3}{5}$ L y $\\dfrac{3}{5}$ L de dos soluciones. Se preparan $4$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "24/5",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{24}{5}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un modelo considera $8$ mediciones de $\\dfrac{3}{2}$ unidades, más una corrección de $\\dfrac{2}{3}$ unidades. ¿Cuál es el valor total?",
-          "answer": "38/3",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{38}{3}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{5}{12}$ L y $\\dfrac{2}{11}$ L de dos soluciones. Se preparan $7$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "553/132",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{553}{132}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un modelo considera $8$ mediciones de $\\dfrac{2}{3}$ unidades, más una corrección de $\\dfrac{4}{3}$ unidades. ¿Cuál es el valor total?",
-          "answer": "20/3",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{20}{3}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{1}{6}$ L y $\\dfrac{4}{3}$ L de dos soluciones. Se preparan $3$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "9/2",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{9}{2}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un modelo considera $3$ mediciones de $\\dfrac{1}{12}$ unidades, más una corrección de $2$ unidades. ¿Cuál es el valor total?",
-          "answer": "9/4",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{9}{4}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{1}{5}$ L y $\\dfrac{7}{2}$ L de dos soluciones. Se preparan $3$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "111/10",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{111}{10}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{3}{5}$ L y $\\dfrac{1}{6}$ L de dos soluciones. Se preparan $9$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "69/10",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{69}{10}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un modelo considera $4$ mediciones de $1$ unidades, más una corrección de $\\dfrac{4}{3}$ unidades. ¿Cuál es el valor total?",
-          "answer": "16/3",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{16}{3}$.",
-          "level": 3,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "En un ensayo se combinan $\\dfrac{1}{2}$ L y $\\dfrac{5}{9}$ L de dos soluciones. Se preparan $7$ mezclas iguales. ¿Cuántos litros se requieren en total?",
-          "answer": "133/18",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{133}{18}$.",
-          "level": 2,
-          "reduced": true
-        },
-        {
-          "type": "input",
-          "kind": "number",
-          "q": "Un modelo considera $5$ mediciones de $\\dfrac{7}{8}$ unidades, más una corrección de $3$ unidades. ¿Cuál es el valor total?",
-          "answer": "59/8",
-          "why": "Primero resolvemos productos y paréntesis: el total es $\\dfrac{59}{8}$.",
-          "level": 2,
+          "q": "Calcula $\\left(\\dfrac13+\\dfrac16\\right)\\cdot12+2^{-1}$. Escribe el resultado como fracción irreducible.",
+          "answer": "13/2",
+          "why": "$1/3+1/6=1/2$; $1/2\\cdot12=6$ y $2^{-1}=1/2$; total $13/2$.",
           "reduced": true
         }
       ],
