@@ -5477,19 +5477,27 @@
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La suma de dos números es 30 y uno de ellos es el doble del otro. ¿Cuál es el mayor?",
-     "answer": "20",
-     "why": "Se plantea $x + 2x = 30$; al resolver se obtiene $x = 10$ y el mayor es $20$.",
+     "q": "Un padre tiene 28 años más que su hijo y entre ambos suman 60 años. ¿Qué edad tiene cada uno?",
+     "options": [
+      "El hijo tiene $30$ años y el padre, $58$.",
+      "El hijo tiene $16$ años y el padre, $44$.",
+      "El hijo tiene $32$ años y el padre, $60$.",
+      "El hijo tiene $44$ años y el padre, $16$."
+     ],
+     "correct": 1,
+     "why": "Con $x$ la edad del hijo: $x+(x+28)=60$, luego $2x=32$ y $x=16$. El padre tiene $16+28=44$ años. Errores comunes: intercambiar las edades, olvidar dividir por 2 ($32$) o repartir 60 en partes iguales ($30$).",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La suma de dos números es 70 y uno de ellos es el cuádruple del otro. ¿Cuál es el mayor?",
-     "answer": "56",
-     "why": "Se plantea $x + 4x = 70$; al resolver se obtiene $x = 14$ y el mayor es $56$.",
+     "q": "Un padre tiene 24 años más que su hijo y entre ambos suman 50 años. ¿Qué edad tiene cada uno?",
+     "options": [
+      "El hijo tiene $37$ años y el padre, $13$.",
+      "El hijo tiene $26$ años y el padre, $50$.",
+      "El hijo tiene $25$ años y el padre, $49$.",
+      "El hijo tiene $13$ años y el padre, $37$."
+     ],
+     "correct": 3,
+     "why": "Con $x$ la edad del hijo: $x+(x+24)=50$, luego $2x=26$ y $x=13$. El padre tiene $13+24=37$ años. Errores comunes: intercambiar las edades, olvidar dividir por 2 ($26$) o repartir 50 en partes iguales ($25$).",
      "level": 2
     },
     {
@@ -5511,65 +5519,73 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Un taxi cobra CLP 1500 fijos más CLP 500 por kilómetro. Si un viaje costó CLP 8000, ¿cuántos kilómetros se recorrieron?",
-     "answer": "13",
-     "why": "Se plantea $1500 + 500x = 8000$; al resolver se obtiene $x = 13$.",
+     "q": "Un padre tiene 30 años más que su hijo y entre ambos suman 52 años. Con $x$ la edad del hijo, la ecuación $x+(x+30)=52$ da $x=11$. ¿Cuántos años tiene el padre?",
+     "answer": "41",
+     "why": "$x=11$ es la edad del hijo; la pregunta es por el padre: $11+30=41$ años. Si escribiste $11$, respondiste la edad del hijo.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un plan de celular cobra CLP 8000 fijos más CLP 20 por minuto de llamada. Si la cuenta del mes fue CLP 13540, ¿cuántos minutos se hablaron?",
-     "answer": "277",
-     "why": "Se plantea $8000 + 20x = 13540$; al resolver se obtiene $x = 277$.",
+     "q": "Un padre tiene 24 años más que su hijo y entre ambos suman 58 años. Con $x$ la edad del hijo, la ecuación $x+(x+24)=58$ da $x=17$. ¿Cuántos años tiene el padre?",
+     "answer": "41",
+     "why": "$x=17$ es la edad del hijo; la pregunta es por el padre: $17+24=41$ años. Si escribiste $17$, respondiste la edad del hijo.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "La suma de dos números es 45 y uno de ellos es el doble del otro. ¿Cuál es el mayor?",
-     "answer": "30",
-     "why": "Se plantea $x + 2x = 45$; al resolver se obtiene $x = 15$ y el mayor es $30$.",
+     "q": "Ana tiene el triple de láminas que Bruno más 4, y entre ambos tienen 40. Con $x$ las láminas de Bruno, se obtiene $x=9$. ¿Cuántas láminas tiene Ana?",
+     "answer": "31",
+     "why": "$x=9$ es lo que tiene Bruno. Ana tiene $3\\cdot9+4=31$ láminas.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Sofía ya tiene CLP 2000 ahorrados y ahorra CLP 2000 cada semana. ¿En cuántas semanas tendrá CLP 20000?",
-     "answer": "9",
-     "why": "Se plantea $2000 + 2000x = 20000$; al resolver se obtiene $x = 9$.",
+     "q": "Ana tiene el doble de figuritas que Bruno más 7, y entre ambos tienen 43. Con $x$ las figuritas de Bruno, se obtiene $x=12$. ¿Cuántas figuritas tiene Ana?",
+     "answer": "31",
+     "why": "$x=12$ es lo que tiene Bruno. Ana tiene $2\\cdot12+7=31$ figuritas.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "En una función de teatro se vendieron 73 entradas: las de adulto cuestan CLP 4500 y las de niño CLP 1500. Se recaudaron CLP 139500. ¿Cuántas entradas de adulto se vendieron?",
-     "answer": "10",
-     "why": "Se plantea $4500x + 1500(73 - x) = 139500$; al resolver se obtiene $x = 10$.",
+     "q": "La suma de tres números enteros consecutivos es 72. Con $x$ el menor, se obtiene $x=23$. ¿Cuál es el mayor de los tres?",
+     "answer": "25",
+     "why": "Los números son $23$, $24$ y $25$; el mayor es $25$.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "En una función de teatro se vendieron 65 entradas: las de adulto cuestan CLP 3500 y las de niño CLP 1500. Se recaudaron CLP 127500. ¿Cuántas entradas de adulto se vendieron?",
-     "answer": "15",
-     "why": "Se plantea $3500x + 1500(65 - x) = 127500$; al resolver se obtiene $x = 15$.",
+     "q": "Un rectángulo tiene perímetro 38 cm y su largo mide 5 cm más que su ancho. Con $x$ el ancho, se obtiene $x=7$. ¿Cuánto mide el largo, en cm?",
+     "answer": "12",
+     "why": "$x=7$ es el ancho; el largo mide $7+5=12$ cm. Comprobación: $2(7+12)=38$.",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Javier ya tiene CLP 8000 ahorrados y ahorra CLP 2500 cada semana. ¿En cuántas semanas tendrá CLP 30500?",
-     "answer": "9",
-     "why": "Se plantea $8000 + 2500x = 30500$; al resolver se obtiene $x = 9$.",
+     "q": "La suma de tres números enteros consecutivos es 45. ¿Cuáles son los números?",
+     "options": [
+      "$14$, $16$ y $18$.",
+      "$14$, $15$ y $16$.",
+      "$13$, $14$ y $15$.",
+      "$15$, $16$ y $17$."
+     ],
+     "correct": 1,
+     "why": "Con $x$ el menor: $x+(x+1)+(x+2)=45$, luego $3x=42$ y $x=14$. Los números son 14, 15 y 16. Tomar $45\\div3=15$ como el menor es un error común: ese es el del medio.",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un plan de celular cobra CLP 15000 fijos más CLP 45 por minuto de llamada. Si la cuenta del mes fue CLP 24630, ¿cuántos minutos se hablaron?",
-     "answer": "214",
-     "why": "Se plantea $15000 + 45x = 24630$; al resolver se obtiene $x = 214$.",
+     "q": "La suma de tres números enteros consecutivos es 99. ¿Cuáles son los números?",
+     "options": [
+      "$31$, $32$ y $33$.",
+      "$32$, $33$ y $34$.",
+      "$32$, $34$ y $36$.",
+      "$33$, $34$ y $35$."
+     ],
+     "correct": 1,
+     "why": "Con $x$ el menor: $x+(x+1)+(x+2)=99$, luego $3x=96$ y $x=32$. Los números son 32, 33 y 34. Tomar $99\\div3=33$ como el menor es un error común: ese es el del medio.",
      "level": 2
     },
     {
@@ -5589,11 +5605,15 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un plan de celular cobra CLP 12500 fijos más CLP 35 por minuto de llamada. Si la cuenta del mes fue CLP 25100, ¿cuántos minutos se hablaron?",
-     "answer": "360",
-     "why": "La ecuación es $12500 + 35x = 25100$, de donde $35x = 12600$ y $x = 360$.",
+     "q": "Ana tiene el triple de láminas que Bruno más 6, y entre ambos tienen 50. ¿Cuántas láminas tiene Ana?",
+     "options": [
+      "Ana tiene $39$ láminas.",
+      "Ana tiene $11$ láminas.",
+      "Ana tiene $45$ láminas.",
+      "Ana tiene $33$ láminas."
+     ],
+     "correct": 0,
+     "why": "Con $x$ las láminas de Bruno: $x+(3x+6)=50$, luego $4x=44$ y $x=11$. La pregunta es por Ana: $3\\cdot11+6=39$. $11$ es lo que tiene Bruno, y $33$ olvida sumar 6.",
      "level": 3
     },
     {
@@ -5621,27 +5641,39 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El perímetro de un terreno rectangular es 228 m y su largo mide 2 m menos que el triple de su ancho. ¿Cuántos metros mide el ancho?",
-     "answer": "29",
-     "why": "Se plantea $2(x + 3x - 2) = 228$; al resolver se obtiene $x = 29$.",
+     "q": "Ana tiene el cuádruple de figuritas que Bruno más 5, y entre ambos tienen 80. ¿Cuántas figuritas tiene Ana?",
+     "options": [
+      "Ana tiene $70$ figuritas.",
+      "Ana tiene $60$ figuritas.",
+      "Ana tiene $15$ figuritas.",
+      "Ana tiene $65$ figuritas."
+     ],
+     "correct": 3,
+     "why": "Con $x$ las figuritas de Bruno: $x+(4x+5)=80$, luego $5x=75$ y $x=15$. La pregunta es por Ana: $4\\cdot15+5=65$. $15$ es lo que tiene Bruno, y $60$ olvida sumar 5.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un cine vende entradas de adulto a CLP 5000 y de niño a CLP 2800. Se vendieron 284 entradas y se recaudaron CLP 1279200. ¿Cuántas entradas de adulto se vendieron?",
-     "answer": "220",
-     "why": "Se plantea $5000x + 2800(284 - x) = 1279200$; al resolver se obtiene $x = 220$.",
+     "q": "Un rectángulo tiene perímetro 44 cm y su largo mide 4 cm más que su ancho. ¿Cuáles son sus dimensiones?",
+     "options": [
+      "Ancho $20$ cm y largo $24$ cm.",
+      "Ancho $13$ cm y largo $9$ cm.",
+      "Ancho $9$ cm y largo $13$ cm.",
+      "Ancho $9$ cm y largo $4$ cm."
+     ],
+     "correct": 2,
+     "why": "Con $x$ el ancho: $2\\bigl(x+(x+4)\\bigr)=44$, luego $2x+4=22$ y $x=9$. El largo es $9+4=13$ cm. Si sale un ancho de 20 cm, se usó 44 como si fuera la suma de un ancho y un largo, olvidando que el perímetro cuenta cada lado dos veces.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Una chaqueta tiene un 10% de descuento y luego se pagan CLP 3000 de envío. En total se pagaron CLP 18300. ¿Cuál era el precio original de la chaqueta, en pesos?",
-     "answer": "17000",
-     "why": "Se plantea $0{,}9 x + 3000 = 18300$; al resolver se obtiene $x = 17000$.",
+     "q": "Un rectángulo tiene perímetro 68 cm y su largo mide 6 cm más que su ancho. ¿Cuáles son sus dimensiones?",
+     "options": [
+      "Ancho $14$ cm y largo $20$ cm.",
+      "Ancho $14$ cm y largo $6$ cm.",
+      "Ancho $31$ cm y largo $37$ cm.",
+      "Ancho $20$ cm y largo $14$ cm."
+     ],
+     "correct": 0,
+     "why": "Con $x$ el ancho: $2\\bigl(x+(x+6)\\bigr)=68$, luego $2x+6=34$ y $x=14$. El largo es $14+6=20$ cm. Si sale un ancho de 31 cm, se usó 68 como si fuera la suma de un ancho y un largo, olvidando que el perímetro cuenta cada lado dos veces.",
      "level": 3
     },
     {
@@ -5653,11 +5685,15 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Tres hermanos ahorraron en total CLP 105500. Ana ahorró $x$ pesos, Beto ahorró el doble que Ana más CLP 1500 y Carla ahorró CLP 2000 menos que Ana. ¿Cuántos pesos ahorró Ana?",
-     "answer": "26500",
-     "why": "Se plantea $x + (2x + 1500) + (x - 2000) = 105500$; al resolver se obtiene $x = 26500$.",
+     "q": "Un cine vende entradas de adulto a CLP 4000 y de niño a CLP 2500. Se informa que se vendieron 80 entradas y se recaudaron CLP 263750. Con $x$ el número de entradas de adulto, la ecuación da $x=42{,}5$. ¿Qué se concluye?",
+     "options": [
+      "Los datos no son consistentes: el número de entradas tiene que ser un número entero.",
+      "Se vendieron $42$ entradas de adulto (se redondea hacia abajo).",
+      "Se vendieron $43$ entradas de adulto (se redondea hacia arriba).",
+      "Se vendieron $42{,}5$ entradas de adulto."
+     ],
+     "correct": 0,
+     "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $42{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 42 o con 43 entradas de adulto la recaudación no es CLP 263750.",
      "level": 3
     },
     {
@@ -5669,11 +5705,15 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Tres hermanos ahorraron en total CLP 52500. Ana ahorró $x$ pesos, Beto ahorró el doble que Ana más CLP 1000 y Carla ahorró CLP 2500 menos que Ana. ¿Cuántos pesos ahorró Ana?",
-     "answer": "13500",
-     "why": "Se plantea $x + (2x + 1000) + (x - 2500) = 52500$; al resolver se obtiene $x = 13500$.",
+     "q": "Un cine vende entradas de adulto a CLP 5000 y de niño a CLP 3000. Se informa que se vendieron 120 entradas y se recaudaron CLP 481000. Con $x$ el número de entradas de adulto, la ecuación da $x=60{,}5$. ¿Qué se concluye?",
+     "options": [
+      "Se vendieron $60{,}5$ entradas de adulto.",
+      "Se vendieron $61$ entradas de adulto (se redondea hacia arriba).",
+      "Se vendieron $60$ entradas de adulto (se redondea hacia abajo).",
+      "Los datos no son consistentes: el número de entradas tiene que ser un número entero."
+     ],
+     "correct": 3,
+     "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $60{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 60 o con 61 entradas de adulto la recaudación no es CLP 481000.",
      "level": 3
     },
     {
@@ -5685,27 +5725,39 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un cine vende entradas de adulto a CLP 4000 y de niño a CLP 2800. Se vendieron 260 entradas y se recaudaron CLP 861200. ¿Cuántas entradas de adulto se vendieron?",
-     "answer": "111",
-     "why": "Se plantea $4000x + 2800(260 - x) = 861200$; al resolver se obtiene $x = 111$.",
+     "q": "Un cine vende entradas de adulto a CLP 4500 y de niño a CLP 2000. Se informa que se vendieron 96 entradas y se recaudaron CLP 288250. Con $x$ el número de entradas de adulto, la ecuación da $x=38{,}5$. ¿Qué se concluye?",
+     "options": [
+      "Los datos no son consistentes: el número de entradas tiene que ser un número entero.",
+      "Se vendieron $38$ entradas de adulto (se redondea hacia abajo).",
+      "Se vendieron $39$ entradas de adulto (se redondea hacia arriba).",
+      "Se vendieron $38{,}5$ entradas de adulto."
+     ],
+     "correct": 0,
+     "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $38{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 38 o con 39 entradas de adulto la recaudación no es CLP 288250.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El perímetro de un terreno rectangular es 62 m y su largo mide 5 m menos que el triple de su ancho. ¿Cuántos metros mide el ancho?",
-     "answer": "9",
-     "why": "Se plantea $2(x + 3x - 5) = 62$; al resolver se obtiene $x = 9$.",
+     "q": "Hoy un padre tiene 44 años y su hijo 26. Con $t$ los años que deben pasar para que la edad del padre sea el doble de la del hijo, la ecuación $44+t=2(26+t)$ da $t=-8$. ¿Qué responde el problema?",
+     "options": [
+      "Eso ocurrió hace $8$ años: el padre tenía $36$ y el hijo $18$.",
+      "El problema no tiene solución, porque el tiempo no puede ser negativo.",
+      "Ocurrirá dentro de $8$ años.",
+      "El hijo tendrá $-8$ años."
+     ],
+     "correct": 0,
+     "why": "Un $t$ negativo indica que el momento ya pasó: hace $8$ años el padre tenía $44-8=36$ y el hijo $26-8=18$, y efectivamente $36=2\\cdot18$. Dentro de 8 años el padre tendría 52 y el hijo 34, que no cumple.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un cine vende entradas de adulto a CLP 5500 y de niño a CLP 2500. Se vendieron 242 entradas y se recaudaron CLP 911000. ¿Cuántas entradas de adulto se vendieron?",
-     "answer": "102",
-     "why": "Se plantea $5500x + 2500(242 - x) = 911000$; al resolver se obtiene $x = 102$.",
+     "q": "Hoy un padre tiene 50 años y su hijo 29. Con $t$ los años que deben pasar para que la edad del padre sea el doble de la del hijo, la ecuación $50+t=2(29+t)$ da $t=-8$. ¿Qué responde el problema?",
+     "options": [
+      "El hijo tendrá $-8$ años.",
+      "Eso ocurrió hace $8$ años: el padre tenía $42$ y el hijo $21$.",
+      "Ocurrirá dentro de $8$ años.",
+      "El problema no tiene solución, porque el tiempo no puede ser negativo."
+     ],
+     "correct": 1,
+     "why": "Un $t$ negativo indica que el momento ya pasó: hace $8$ años el padre tenía $50-8=42$ y el hijo $29-8=21$, y efectivamente $42=2\\cdot21$. Dentro de 8 años el padre tendría 58 y el hijo 37, que no cumple.",
      "level": 3
     },
     {
@@ -5717,11 +5769,15 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un técnico cobra CLP 2693 por visita más CLP 41 por hora de trabajo. Otro técnico cobra CLP 2168 por visita más CLP 62 por hora. ¿Cuántas horas de trabajo hacen que ambos cobren lo mismo?",
-     "answer": "25",
-     "why": "Se plantea $2693 + 41x = 2168 + 62x$; al resolver se obtiene $x = 25$.",
+     "q": "Hoy un padre tiene 38 años y su hijo 21. Con $t$ los años que deben pasar para que la edad del padre sea el doble de la del hijo, la ecuación $38+t=2(21+t)$ da $t=-4$. ¿Qué responde el problema?",
+     "options": [
+      "Ocurrirá dentro de $4$ años.",
+      "El hijo tendrá $-4$ años.",
+      "El problema no tiene solución, porque el tiempo no puede ser negativo.",
+      "Eso ocurrió hace $4$ años: el padre tenía $34$ y el hijo $17$."
+     ],
+     "correct": 3,
+     "why": "Un $t$ negativo indica que el momento ya pasó: hace $4$ años el padre tenía $38-4=34$ y el hijo $21-4=17$, y efectivamente $34=2\\cdot17$. Dentro de 4 años el padre tendría 42 y el hijo 25, que no cumple.",
      "level": 3
     },
     {
@@ -10129,11 +10185,15 @@
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La altura de un triángulo mide $x$ cm y su base mide 7 cm más que la altura. Si el área es 49 cm², ¿cuánto mide la base, en cm?",
-     "answer": "14",
-     "why": "La altura es 7 y la base 14.",
+     "q": "Un rectángulo tiene un área de $144\\,\\mathrm{cm}^2$ y su largo mide 7 cm más que su ancho. ¿Cuáles son sus dimensiones?",
+     "options": [
+      "Ancho $9$ cm y largo $16$ cm.",
+      "Ancho $9$ cm y largo $7$ cm.",
+      "Ancho $9$ cm y largo $-16$ cm.",
+      "Ancho $16$ cm y largo $9$ cm."
+     ],
+     "correct": 0,
+     "why": "Con $x$ el ancho: $x(x+7)=144$, luego $x^2+7x-144=0$, con soluciones $x=9$ y $x=-16$. Una longitud no puede ser negativa, así que el ancho es 9 cm y el largo 16 cm.",
      "level": 2
     },
     {
@@ -10145,75 +10205,95 @@
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El cuadrado de un número positivo, más 7 veces ese número, es igual a 120. ¿Cuál es el número?",
-     "answer": "8",
-     "why": "Se obtiene $x = 8$.",
+     "q": "Un rectángulo tiene un área de $204\\,\\mathrm{cm}^2$ y su largo mide 5 cm más que su ancho. ¿Cuáles son sus dimensiones?",
+     "options": [
+      "Ancho $12$ cm y largo $-17$ cm.",
+      "Ancho $12$ cm y largo $5$ cm.",
+      "Ancho $12$ cm y largo $17$ cm.",
+      "Ancho $17$ cm y largo $12$ cm."
+     ],
+     "correct": 2,
+     "why": "Con $x$ el ancho: $x(x+5)=204$, luego $x^2+5x-204=0$, con soluciones $x=12$ y $x=-17$. Una longitud no puede ser negativa, así que el ancho es 12 cm y el largo 17 cm.",
+     "level": 2
+    },
+    {
+     "q": "Un rectángulo tiene un área de $136\\,\\mathrm{cm}^2$ y su largo mide 9 cm más que su ancho. ¿Cuáles son sus dimensiones?",
+     "options": [
+      "Ancho $17$ cm y largo $8$ cm.",
+      "Ancho $8$ cm y largo $-17$ cm.",
+      "Ancho $8$ cm y largo $17$ cm.",
+      "Ancho $8$ cm y largo $9$ cm."
+     ],
+     "correct": 2,
+     "why": "Con $x$ el ancho: $x(x+9)=136$, luego $x^2+9x-136=0$, con soluciones $x=8$ y $x=-17$. Una longitud no puede ser negativa, así que el ancho es 8 cm y el largo 17 cm.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Dos números positivos suman 21 y su producto es 104. ¿Cuál es el menor?",
-     "answer": "8",
-     "why": "Los números son 8 y 13; el menor es 8.",
+     "q": "Un rectángulo tiene un área de $221\\,\\mathrm{cm}^2$ y su largo mide 4 cm más que su ancho. Con $x$ el ancho, la ecuación $x(x+4)=221$ da $x=13$ y $x=-17$. ¿Cuánto mide el largo, en cm?",
+     "answer": "17",
+     "why": "Se descarta $x=-17$ (una longitud no es negativa), así que el ancho es 13 cm. La pregunta es por el largo: $13+4=17$ cm.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "El producto de dos números positivos consecutivos es 1122. ¿Cuál es el mayor de ellos?",
-     "answer": "34",
-     "why": "El menor es 33 y el mayor es 34.",
+     "q": "Un rectángulo tiene un área de $220\\,\\mathrm{cm}^2$ y su largo mide 9 cm más que su ancho. Con $x$ el ancho, la ecuación $x(x+9)=220$ da $x=11$ y $x=-20$. ¿Cuánto mide el largo, en cm?",
+     "answer": "20",
+     "why": "Se descarta $x=-20$ (una longitud no es negativa), así que el ancho es 11 cm. La pregunta es por el largo: $11+9=20$ cm.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Un rectángulo tiene un área de 682 cm² y su largo mide 9 cm más que su ancho. ¿Cuánto mide el largo, en cm?",
+     "q": "El producto de dos números positivos consecutivos es 240. Con $x$ el menor, se obtiene $x=15$. ¿Cuánto suman los dos números?",
      "answer": "31",
-     "why": "El ancho es 22 y el largo 31.",
+     "why": "Los números son $15$ y $16$; su suma es $31$.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "La suma de los cuadrados de dos números enteros positivos consecutivos es 265. ¿Cuál es el menor?",
-     "answer": "11",
-     "why": "$2x^2 + 2x + 1 = 265$ da $x = 11$.",
+     "q": "El producto de dos números pares positivos consecutivos es 168. Con $x$ el menor, la ecuación $x(x+2)=168$ da $x=12$ y $x=-14$. ¿Cuál es el mayor de los dos números?",
+     "answer": "14",
+     "why": "Se descarta $x=-14$ (los números son positivos), así que el menor es 12 y el mayor $12+2=14$.",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La altura de un triángulo mide $x$ cm y su base mide 10 cm más que la altura. Si el área es 168 cm², ¿cuánto mide la base, en cm?",
-     "answer": "24",
-     "why": "La altura es 14 y la base 24.",
+     "q": "El producto de dos números positivos consecutivos es 380. ¿Cuáles son los números?",
+     "options": [
+      "$18$ y $19$.",
+      "$19$ y $20$.",
+      "$-20$ y $-19$.",
+      "$19$ y $21$."
+     ],
+     "correct": 1,
+     "why": "Con $x$ el menor: $x(x+1)=380$, luego $x^2+x-380=0$, con soluciones $x=19$ y $x=-20$. Como los números deben ser positivos, son 19 y 20.",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La altura de una pelota (en metros) es $h(t) = -5t^2 + 30t$, con $t$ en segundos. ¿Cuántos segundos tarda en volver al suelo?",
-     "answer": "6",
-     "why": "$-5t(t - 6) = 0$ da $t = 6$ s.",
+     "q": "En un triángulo rectángulo, un cateto mide 7 cm más que el otro y la hipotenusa mide 13 cm. ¿Cuánto miden los catetos?",
+     "options": [
+      "$5$ cm y $7$ cm.",
+      "$12$ cm y $19$ cm.",
+      "$5$ cm y $12$ cm.",
+      "$5$ cm y $-12$ cm."
+     ],
+     "correct": 2,
+     "why": "Con $x$ el cateto menor: $x^2+(x+7)^2=13^2$, luego $2x^2+14x-120=0$, con soluciones $x=5$ y $x=-12$. Se descarta la negativa: los catetos miden 5 y 12 cm. Comprobación: $25+144=169$.",
      "level": 2
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El cuadrado de un número positivo, más 7 veces ese número, es igual a 638. ¿Cuál es el número?",
-     "answer": "22",
-     "why": "Se obtiene $x = 22$.",
-     "level": 2
-    },
-    {
-     "type": "input",
-     "kind": "number",
-     "q": "Dos números positivos suman 23 y su producto es 102. ¿Cuál es el menor?",
-     "answer": "6",
-     "why": "Los números son 6 y 17; el menor es 6.",
+     "q": "En un triángulo rectángulo, un cateto mide 7 cm más que el otro y la hipotenusa mide 17 cm. ¿Cuánto miden los catetos?",
+     "options": [
+      "$8$ cm y $-15$ cm.",
+      "$8$ cm y $15$ cm.",
+      "$15$ cm y $22$ cm.",
+      "$8$ cm y $7$ cm."
+     ],
+     "correct": 1,
+     "why": "Con $x$ el cateto menor: $x^2+(x+7)^2=17^2$, luego $2x^2+14x-240=0$, con soluciones $x=8$ y $x=-15$. Se descarta la negativa: los catetos miden 8 y 15 cm. Comprobación: $64+225=289$.",
      "level": 2
     },
     {
@@ -10233,11 +10313,15 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un rectángulo tiene un área de $294\\,\\mathrm{cm}^2$ y su largo mide 7 cm más que su ancho. ¿Cuánto mide el largo? Escribe solo el número, en $\\mathrm{cm}$.",
-     "answer": "21",
-     "why": "El ancho es $x=14$ (de $x(x+7)=294$); el largo es $x+7=21$.",
+     "q": "Un terreno rectangular mide 6 m más de largo que de ancho y su área es $280\\,\\mathrm{m}^2$. Con $x$ el ancho, la ecuación $x(x+6)=280$ tiene soluciones $x=14$ y $x=-20$. ¿Qué responde el problema?",
+     "options": [
+      "El ancho mide $20$ m.",
+      "El ancho mide $14$ m o $20$ m.",
+      "Hay dos respuestas: $14$ m y $-20$ m.",
+      "El ancho mide $14$ m; $-20$ se descarta porque una longitud no puede ser negativa."
+     ],
+     "correct": 3,
+     "why": "Las dos soluciones cumplen la ecuación, pero $x$ es una longitud, así que $x=-20$ no tiene sentido en el problema. El ancho es 14 m (y el largo, 20 m). Tomar 20 confunde la solución descartada con una medida.",
      "level": 3
     },
     {
@@ -10317,35 +10401,51 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Dos números positivos suman 65 y su producto es 750. ¿Cuál es el mayor?",
-     "answer": "50",
-     "why": "Los números son 15 y 50.",
+     "q": "Un patio rectangular mide 8 m más de largo que de ancho y su área es $153\\,\\mathrm{m}^2$. Con $x$ el ancho, la ecuación $x(x+8)=153$ tiene soluciones $x=9$ y $x=-17$. ¿Qué responde el problema?",
+     "options": [
+      "Hay dos respuestas: $9$ m y $-17$ m.",
+      "El ancho mide $17$ m.",
+      "El ancho mide $9$ m o $17$ m.",
+      "El ancho mide $9$ m; $-17$ se descarta porque una longitud no puede ser negativa."
+     ],
+     "correct": 3,
+     "why": "Las dos soluciones cumplen la ecuación, pero $x$ es una longitud, así que $x=-17$ no tiene sentido en el problema. El ancho es 9 m (y el largo, 17 m). Tomar 17 confunde la solución descartada con una medida.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El largo de un rectángulo mide 7 cm más que el doble de su ancho y su área es 1122 cm². ¿Cuánto mide el ancho, en cm?",
-     "answer": "22",
-     "why": "Se obtiene $2x^2 + 7x - 1122 = 0$ y $x = 22$.",
+     "q": "El producto de dos números enteros consecutivos es 156. Con $n$ el menor, la ecuación $n(n+1)=156$ tiene soluciones $n=12$ y $n=-13$. ¿Qué pares de números cumplen?",
+     "options": [
+      "Ningún par, porque una de las soluciones es negativa.",
+      "Dos pares: $12$ y $13$, y también $-13$ y $-12$.",
+      "Solo $-13$ y $-12$.",
+      "Solo $12$ y $13$, porque $-13$ es negativo."
+     ],
+     "correct": 1,
+     "why": "El enunciado no exige que los números sean positivos, y $(-13)(-12)=156$. Las dos soluciones sirven. Una solución negativa se descarta solo cuando el contexto lo exige (una longitud, una cantidad de objetos, un tiempo).",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un rectángulo tiene un área de 280 cm² y su largo mide 6 cm más que su ancho. ¿Cuánto mide el ancho, en cm?",
-     "answer": "14",
-     "why": "El ancho $x$ cumple $x^2 + 6x - 280 = 0$, de donde $x = 14$.",
+     "q": "El producto de dos números enteros consecutivos es 462. Con $n$ el menor, la ecuación $n(n+1)=462$ tiene soluciones $n=21$ y $n=-22$. ¿Qué pares de números cumplen?",
+     "options": [
+      "Solo $21$ y $22$, porque $-22$ es negativo.",
+      "Dos pares: $21$ y $22$, y también $-22$ y $-21$.",
+      "Ningún par, porque una de las soluciones es negativa.",
+      "Solo $-22$ y $-21$."
+     ],
+     "correct": 1,
+     "why": "El enunciado no exige que los números sean positivos, y $(-22)(-21)=462$. Las dos soluciones sirven. Una solución negativa se descarta solo cuando el contexto lo exige (una longitud, una cantidad de objetos, un tiempo).",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El producto de dos números impares positivos consecutivos es 195. ¿Cuál es el mayor?",
-     "answer": "15",
-     "why": "Los números son 13 y 15.",
+     "q": "Se lanza una piedra hacia arriba desde lo alto de un edificio. Su altura (en metros) es $h(t)=-5t^2+15t+20$, con $t$ en segundos desde el lanzamiento. La ecuación $h(t)=0$ tiene soluciones $t=4$ y $t=-1$. ¿Qué responde el problema?",
+     "options": [
+      "Llega al suelo a los $5$ s.",
+      "Llega al suelo a los $1$ s.",
+      "La piedra llega al suelo a los $4$ s; $t=-1$ se descarta porque es anterior al lanzamiento.",
+      "Llega al suelo dos veces: a los $4$ s y a los $-1$ s."
+     ],
+     "correct": 2,
+     "why": "El tiempo se cuenta desde el lanzamiento, así que solo sirven valores $t\\ge 0$. La piedra llega al suelo en $t=4$ s. Comprobación: $-5\\cdot16+15\\cdot4+20=0$.",
      "level": 3
     },
     {
@@ -10357,43 +10457,63 @@
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "La altura de un proyectil (en metros) es $h(t) = -5t^2 + 35t$, con $t$ en segundos. ¿En qué instante, a partir del lanzamiento, el proyectil alcanza por primera vez 50 m de altura?",
-     "answer": "2",
-     "why": "$-5t^2 + 35t - 50 = 0$ tiene soluciones $t = 2$ y $t = 5$; la primera es $t = 2$ s.",
+     "q": "Se lanza una piedra hacia arriba desde lo alto de un edificio. Su altura (en metros) es $h(t)=-5t^2+15t+50$, con $t$ en segundos desde el lanzamiento. La ecuación $h(t)=0$ tiene soluciones $t=5$ y $t=-2$. ¿Qué responde el problema?",
+     "options": [
+      "Llega al suelo a los $2$ s.",
+      "Llega al suelo a los $7$ s.",
+      "La piedra llega al suelo a los $5$ s; $t=-2$ se descarta porque es anterior al lanzamiento.",
+      "Llega al suelo dos veces: a los $5$ s y a los $-2$ s."
+     ],
+     "correct": 2,
+     "why": "El tiempo se cuenta desde el lanzamiento, así que solo sirven valores $t\\ge 0$. La piedra llega al suelo en $t=5$ s. Comprobación: $-5\\cdot25+15\\cdot5+50=0$.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Dos números positivos suman 99 y su producto es 1800. ¿Cuál es el mayor?",
-     "answer": "75",
-     "why": "Los números son 24 y 75.",
+     "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t)=-5t^2+20t$, con $t$ en segundos. La ecuación $h(t)=15$ tiene soluciones $t=1$ y $t=3$. ¿Qué significan?",
+     "options": [
+      "Solo sirve $t=1$: una ecuación tiene una única respuesta.",
+      "La pelota alcanza su altura máxima, $15$ m, a los $4$ s.",
+      "La pelota está a $15$ m durante todo el intervalo entre $1$ y $3$ s.",
+      "La pelota pasa por los $15$ m dos veces: subiendo, a los $1$ s, y bajando, a los $3$ s."
+     ],
+     "correct": 3,
+     "why": "Las dos soluciones son positivas y tienen sentido: la pelota sube, pasa por 15 m en $t=1$, llega más alto y vuelve a pasar por 15 m al bajar, en $t=3$. Entre esos instantes está sobre los 15 m.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El largo de un rectángulo mide 6 cm más que el doble de su ancho y su área es 1296 cm². ¿Cuánto mide el ancho, en cm?",
-     "answer": "24",
-     "why": "Se obtiene $2x^2 + 6x - 1296 = 0$ y $x = 24$.",
+     "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t)=-5t^2+35t$, con $t$ en segundos. La ecuación $h(t)=50$ tiene soluciones $t=2$ y $t=5$. ¿Qué significan?",
+     "options": [
+      "La pelota está a $50$ m durante todo el intervalo entre $2$ y $5$ s.",
+      "La pelota pasa por los $50$ m dos veces: subiendo, a los $2$ s, y bajando, a los $5$ s.",
+      "Solo sirve $t=2$: una ecuación tiene una única respuesta.",
+      "La pelota alcanza su altura máxima, $50$ m, a los $7$ s."
+     ],
+     "correct": 1,
+     "why": "Las dos soluciones son positivas y tienen sentido: la pelota sube, pasa por 50 m en $t=2$, llega más alto y vuelve a pasar por 50 m al bajar, en $t=5$. Entre esos instantes está sobre los 50 m.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "Un rectángulo tiene un área de 620 cm² y su largo mide 11 cm más que su ancho. ¿Cuánto mide el ancho, en cm?",
-     "answer": "20",
-     "why": "El ancho $x$ cumple $x^2 + 11x - 620 = 0$, de donde $x = 20$.",
+     "q": "Si al cuadrado de un número se le resta 3 veces el número, se obtiene 28. La ecuación $x^2-3x=28$ tiene soluciones $x=7$ y $x=-4$. ¿Qué números cumplen?",
+     "options": [
+      "Los dos: $7$ y $-4$.",
+      "Solo $-4$.",
+      "$7$ y $4$.",
+      "Solo $7$, porque las soluciones negativas se descartan."
+     ],
+     "correct": 0,
+     "why": "El enunciado habla de «un número», sin exigir que sea positivo, y las dos soluciones cumplen: $7^2-3\\cdot7=28$ y $(-4)^2-3\\cdot(-4)=28$.",
      "level": 3
     },
     {
-     "type": "input",
-     "kind": "number",
-     "q": "El producto de dos números impares positivos consecutivos es 399. ¿Cuál es el mayor?",
-     "answer": "21",
-     "why": "Los números son 19 y 21.",
+     "q": "Si al cuadrado de un número se le resta 5 veces el número, se obtiene 24. La ecuación $x^2-5x=24$ tiene soluciones $x=8$ y $x=-3$. ¿Qué números cumplen?",
+     "options": [
+      "Solo $8$, porque las soluciones negativas se descartan.",
+      "Los dos: $8$ y $-3$.",
+      "Solo $-3$.",
+      "$8$ y $3$."
+     ],
+     "correct": 1,
+     "why": "El enunciado habla de «un número», sin exigir que sea positivo, y las dos soluciones cumplen: $8^2-5\\cdot8=24$ y $(-3)^2-5\\cdot(-3)=24$.",
      "level": 3
     }
    ],

@@ -1,5 +1,20 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (c) · Problemas con respuesta completa e interpretación (sugerencia #22)
+
+- **Unidad III, «Resolver problemas lineales» y «Problemas cuadráticos»:** en cada estación, 20 de las 60 preguntas de Practica (10 de nivel 2 y 10 de nivel 3) cambiaron de formato. Los contenidos no cambian.
+  - **Respuesta completa** (alternativas): se elige entre respuestas como «El hijo tiene 16 años y el padre, 44». Los distractores son errores típicos: intercambiar las cantidades, responder $x$ en lugar de lo pedido u olvidar un paso.
+  - **Interpretar soluciones** (alternativas):
+    - una solución no entera en un conteo indica que los datos no son consistentes;
+    - un tiempo negativo indica que el momento ya ocurrió;
+    - se descarta la longitud negativa;
+    - en enteros consecutivos sirven los dos pares;
+    - una pelota pasa dos veces por la misma altura.
+  - **Pasar de $x$ a lo pedido** (respuesta escrita): se da el valor de $x$ y se pregunta por la cantidad que pide el problema.
+- **Verificación:** las ecuaciones se comprobaron con sympy. Se generan con `herramientas/punto22_problemas_u3.py`.
+- **Sin cambios:** se mantienen las preguntas usadas en «Antes de empezar».
+- **Unidad I (entrega v9.9 de Henry):** se volvió a armar la página de la unidad, porque la que se subió no tenía el enlace a la portada ni el número de versión que obliga al navegador a cargar los archivos nuevos.
+
 ## 23-11-2026 (b) · Sección «Recuerda» en el editor
 
 - **Editor, pestaña Aprende:** la nueva sección **«Recuerda (opcional)»**, hasta 2 por estación, tiene:
