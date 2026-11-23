@@ -49,3 +49,13 @@ La primera vez que un estudiante entra a una estación (sin avance en ella) ve u
 6. **Subir los cambios:** rama → commit → Pull Request → esperar la marca verde de *Verificar permisos* → Merge (README principal).
 
 Requisitos: Python 3 con `openpyxl` (`pip install openpyxl`) y Node.js para validar.
+
+## «Recuerda» (recuerda.js / recuerda.css)
+
+Recuadro con un prerrequisito de una estación anterior. Va en el JSON de la estación:
+
+```json
+"recuerda": [{"titulo": "...", "texto": "... (admite $TeX$ y **negrita**)", "ejemplo": "TeX en modo display (opcional)", "origen": "u2-s012"}]
+```
+
+`construir_curso.py` copia en `ver` el objetivo, la idea y la figura de la estación `origen`. Úsalo solo cuando la estación necesita algo que no enseña ella misma.

@@ -1,5 +1,17 @@
 # Versiones del curso (SCORM único)
 
+## 22-11-2026 (c) · «Recuerda» en la Unidad III (sugerencia #12)
+
+- Algunas estaciones tienen ahora un botón **«Recuerda»**, en Aprende, Practica y Aplica. Al tocarlo se abre un recuadro encima de la pantalla con lo esencial de una estación anterior y un ejemplo.
+- **«Ver la idea completa»** abre una ventana con la idea de la estación de origen. Se cierra con «Seguir con…» y el estudiante vuelve al mismo lugar de la estación. Mirar un «Recuerda» no cambia el avance ni activa «Antes de empezar».
+- Solo se puso donde la estación usa algo que no enseña ella misma:
+  - «Paréntesis y fracciones» → calcular el mcm (Unidad I · MCD y MCM).
+  - «Cuadráticas por factorización» → los signos al buscar los dos números (Unidad II · Trinomios y elección del método).
+  - «Fórmula general» → simplificar una raíz cuadrada, que el nivel 3 usa en respuestas como $3\pm\sqrt7$ (Unidad I · Simplificación de raíces).
+- **Cómo se escribe** (JSON de la estación): `"recuerda":[{"titulo","texto","ejemplo"(TeX),"origen":"<id de la estación>"}]`. Al armar el curso se copia la idea de la estación de origen, así que funciona también en la página de una sola unidad.
+- En la exportación individual del editor, donde no está la otra unidad, se muestra solo el recuadro, sin «Ver la idea completa».
+- Archivos: `herramientas/curso_completo/recuerda.js`, `recuerda.css` y `construir_curso.py`.
+
 ## 22-11-2026 (b) · Las páginas de unidad abren directo en sus bloques
 
 - En GitHub, cada unidad tenía su propia portada con una sola tarjeta («Unidades de aprendizaje» → Unidad III). Era un paso de más y su botón «Inicio» confundía.
