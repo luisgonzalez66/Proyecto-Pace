@@ -4,7 +4,7 @@ Tres unidades, una por persona, hechas con el editor PACE:
 
 | Unidad | Tema | Carpeta |
 |---|---|---|
-| I | Números reales | `unidades/u1/` |
+| I | Números y operaciones | `unidades/u1/` |
 | II | Factorizaciones | `unidades/u2/` |
 | III | Ecuaciones (lineales y cuadráticas) | `unidades/u3/` |
 

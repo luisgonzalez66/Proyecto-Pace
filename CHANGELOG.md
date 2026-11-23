@@ -1,5 +1,10 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (e) · Nombre de la Unidad I y mcd
+
+- **#20:** la portada del sitio, el README y la especificación dicen ahora «Números y operaciones», igual que el JSON de la Unidad I.
+- **#24:** en el último ejemplo de la Unidad II que lo escribía en mayúsculas, «MCD» pasó a «mcd», como en las Unidades I (v9.9) y III.
+
 ## 23-11-2026 (d) · Numeración por unidad, aviso por alternativa y trinomios con a ≠ 1 (sugerencias #15, #13 y #7)
 
 - **#15 · Numeración dentro de cada unidad:** la cabecera de la estación y «Antes de empezar» muestran «II·4» en lugar del número global (34). En el mapa de la unidad, cada estación lleva su número dentro de la unidad.

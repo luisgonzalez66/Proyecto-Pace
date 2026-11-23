@@ -7156,7 +7156,7 @@
                 "why": "El factor común es $3x^2$: el divisor común $3$ y la $x$ con su **menor exponente**.",
                 "side": {
                   "title": "Máximo factor común",
-                  "math": "\\text{MCD}(6,9)=3,\\quad x^{\\min(3,2)}=x^2"
+                  "math": "\\text{mcd}(6,9)=3,\\quad x^{\\min(3,2)}=x^2"
                 }
               },
               {
