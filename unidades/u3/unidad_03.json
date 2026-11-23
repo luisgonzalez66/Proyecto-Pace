@@ -5486,7 +5486,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ la edad del hijo: $x+(x+28)=60$, luego $2x=32$ y $x=16$. El padre tiene $16+28=44$ años. Errores comunes: intercambiar las edades, olvidar dividir por 2 ($32$) o repartir 60 en partes iguales ($30$).",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Repartiste 60 en partes iguales, pero el padre tiene 28 años más que el hijo.",
+      "",
+      "Revisa el último paso: después de restar, falta dividir por 2.",
+      "Intercambiaste las edades: el padre es el mayor."
+     ]
     },
     {
      "q": "Un padre tiene 24 años más que su hijo y entre ambos suman 50 años. ¿Qué edad tiene cada uno?",
@@ -5498,7 +5504,13 @@
      ],
      "correct": 3,
      "why": "Con $x$ la edad del hijo: $x+(x+24)=50$, luego $2x=26$ y $x=13$. El padre tiene $13+24=37$ años. Errores comunes: intercambiar las edades, olvidar dividir por 2 ($26$) o repartir 50 en partes iguales ($25$).",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Intercambiaste las edades: el padre es el mayor.",
+      "Revisa el último paso: después de restar, falta dividir por 2.",
+      "Repartiste 50 en partes iguales, pero el padre tiene 24 años más que el hijo.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -5574,7 +5586,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ el menor: $x+(x+1)+(x+2)=45$, luego $3x=42$ y $x=14$. Los números son 14, 15 y 16. Tomar $45\\div3=15$ como el menor es un error común: ese es el del medio.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Los números son consecutivos, no pares consecutivos.",
+      "",
+      "Comprueba: esos tres números no suman lo que dice el enunciado.",
+      "Al dividir 45 por 3 se obtiene el número del medio, no el menor."
+     ]
     },
     {
      "q": "La suma de tres números enteros consecutivos es 99. ¿Cuáles son los números?",
@@ -5586,7 +5604,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ el menor: $x+(x+1)+(x+2)=99$, luego $3x=96$ y $x=32$. Los números son 32, 33 y 34. Tomar $99\\div3=33$ como el menor es un error común: ese es el del medio.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Comprueba: esos tres números no suman lo que dice el enunciado.",
+      "",
+      "Los números son consecutivos, no pares consecutivos.",
+      "Al dividir 99 por 3 se obtiene el número del medio, no el menor."
+     ]
     },
     {
      "type": "input",
@@ -5614,7 +5638,13 @@
      ],
      "correct": 0,
      "why": "Con $x$ las láminas de Bruno: $x+(3x+6)=50$, luego $4x=44$ y $x=11$. La pregunta es por Ana: $3\\cdot11+6=39$. $11$ es lo que tiene Bruno, y $33$ olvida sumar 6.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Esa es la cantidad de Bruno, es decir, $x$. La pregunta es por Ana.",
+      "Revisa cómo se calcula lo de Ana a partir del valor de $x$.",
+      "Te faltó sumar 6 a lo de Ana."
+     ]
     },
     {
      "type": "input",
@@ -5650,7 +5680,13 @@
      ],
      "correct": 3,
      "why": "Con $x$ las figuritas de Bruno: $x+(4x+5)=80$, luego $5x=75$ y $x=15$. La pregunta es por Ana: $4\\cdot15+5=65$. $15$ es lo que tiene Bruno, y $60$ olvida sumar 5.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa cómo se calcula lo de Ana a partir del valor de $x$.",
+      "Te faltó sumar 5 a lo de Ana.",
+      "Esa es la cantidad de Bruno, es decir, $x$. La pregunta es por Ana.",
+      ""
+     ]
     },
     {
      "q": "Un rectángulo tiene perímetro 44 cm y su largo mide 4 cm más que su ancho. ¿Cuáles son sus dimensiones?",
@@ -5662,7 +5698,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ el ancho: $2\\bigl(x+(x+4)\\bigr)=44$, luego $2x+4=22$ y $x=9$. El largo es $9+4=13$ cm. Si sale un ancho de 20 cm, se usó 44 como si fuera la suma de un ancho y un largo, olvidando que el perímetro cuenta cada lado dos veces.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El perímetro suma dos anchos y dos largos: revisa la ecuación.",
+      "Intercambiaste ancho y largo: el largo es la medida mayor.",
+      "",
+      "El largo mide 4 cm más que el ancho, no 4 cm."
+     ]
     },
     {
      "q": "Un rectángulo tiene perímetro 68 cm y su largo mide 6 cm más que su ancho. ¿Cuáles son sus dimensiones?",
@@ -5674,7 +5716,13 @@
      ],
      "correct": 0,
      "why": "Con $x$ el ancho: $2\\bigl(x+(x+6)\\bigr)=68$, luego $2x+6=34$ y $x=14$. El largo es $14+6=20$ cm. Si sale un ancho de 31 cm, se usó 68 como si fuera la suma de un ancho y un largo, olvidando que el perímetro cuenta cada lado dos veces.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "El largo mide 6 cm más que el ancho, no 6 cm.",
+      "El perímetro suma dos anchos y dos largos: revisa la ecuación.",
+      "Intercambiaste ancho y largo: el largo es la medida mayor."
+     ]
     },
     {
      "type": "input",
@@ -5694,7 +5742,13 @@
      ],
      "correct": 0,
      "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $42{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 42 o con 43 entradas de adulto la recaudación no es CLP 263750.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      "Una cantidad de entradas tiene que ser un número entero."
+     ]
     },
     {
      "type": "input",
@@ -5714,7 +5768,13 @@
      ],
      "correct": 3,
      "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $60{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 60 o con 61 entradas de adulto la recaudación no es CLP 481000.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una cantidad de entradas tiene que ser un número entero.",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -5734,7 +5794,13 @@
      ],
      "correct": 0,
      "why": "$x$ cuenta entradas, así que solo puede ser un número natural. Como la ecuación da $38{,}5$, no existe una venta que cumpla los dos datos a la vez: alguno de los datos está mal. Redondear no sirve: con 38 o con 39 entradas de adulto la recaudación no es CLP 288250.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      "Redondear no sirve: comprueba la recaudación con ese número de entradas.",
+      "Una cantidad de entradas tiene que ser un número entero."
+     ]
     },
     {
      "q": "Hoy un padre tiene 44 años y su hijo 26. Con $t$ los años que deben pasar para que la edad del padre sea el doble de la del hijo, la ecuación $44+t=2(26+t)$ da $t=-8$. ¿Qué responde el problema?",
@@ -5746,7 +5812,13 @@
      ],
      "correct": 0,
      "why": "Un $t$ negativo indica que el momento ya pasó: hace $8$ años el padre tenía $44-8=36$ y el hijo $26-8=18$, y efectivamente $36=2\\cdot18$. Dentro de 8 años el padre tendría 52 y el hijo 34, que no cumple.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Un $t$ negativo sí tiene sentido: indica un momento del pasado.",
+      "Comprueba: dentro de 8 años, ¿el padre tendrá el doble de la edad del hijo?",
+      "$t$ es una cantidad de años que pasan, no la edad del hijo."
+     ]
     },
     {
      "q": "Hoy un padre tiene 50 años y su hijo 29. Con $t$ los años que deben pasar para que la edad del padre sea el doble de la del hijo, la ecuación $50+t=2(29+t)$ da $t=-8$. ¿Qué responde el problema?",
@@ -5758,7 +5830,13 @@
      ],
      "correct": 1,
      "why": "Un $t$ negativo indica que el momento ya pasó: hace $8$ años el padre tenía $50-8=42$ y el hijo $29-8=21$, y efectivamente $42=2\\cdot21$. Dentro de 8 años el padre tendría 58 y el hijo 37, que no cumple.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$t$ es una cantidad de años que pasan, no la edad del hijo.",
+      "",
+      "Comprueba: dentro de 8 años, ¿el padre tendrá el doble de la edad del hijo?",
+      "Un $t$ negativo sí tiene sentido: indica un momento del pasado."
+     ]
     },
     {
      "type": "input",
@@ -5778,7 +5856,13 @@
      ],
      "correct": 3,
      "why": "Un $t$ negativo indica que el momento ya pasó: hace $4$ años el padre tenía $38-4=34$ y el hijo $21-4=17$, y efectivamente $34=2\\cdot17$. Dentro de 4 años el padre tendría 42 y el hijo 25, que no cumple.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Comprueba: dentro de 4 años, ¿el padre tendrá el doble de la edad del hijo?",
+      "$t$ es una cantidad de años que pasan, no la edad del hijo.",
+      "Un $t$ negativo sí tiene sentido: indica un momento del pasado.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -9914,6 +9998,12 @@
      "texto": "Los dos números **multiplican** $c$ y **suman** $b$. Si $c>0$, tienen el **mismo signo**, el de $b$. Si $c<0$, tienen **signos distintos**, y el de mayor valor absoluto lleva el signo de $b$.",
      "ejemplo": "\\begin{gathered}x^2-7x+12=(x-3)(x-4)\\\\ \\text{(ambos negativos)}\\\\[6pt] x^2+2x-15=(x+5)(x-3)\\\\ \\text{(signos distintos)}\\end{gathered}",
      "origen": "u2-s012"
+    },
+    {
+     "titulo": "Factorizar $ax^2+bx+c$ con $a\\neq1$",
+     "texto": "**Método $ac$**: busca dos números con producto $a\\cdot c$ y suma $b$, separa el término central con ellos y factoriza por **agrupación**.",
+     "ejemplo": "\\begin{gathered}2x^2+7x+3=2x^2+x+6x+3\\\\ =x(2x+1)+3(2x+1)\\\\ =(2x+1)(x+3)\\end{gathered}",
+     "origen": "u2-s012"
     }
    ]
   },
@@ -10194,7 +10284,13 @@
      ],
      "correct": 0,
      "why": "Con $x$ el ancho: $x(x+7)=144$, luego $x^2+7x-144=0$, con soluciones $x=9$ y $x=-16$. Una longitud no puede ser negativa, así que el ancho es 9 cm y el largo 16 cm.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "El largo mide 7 cm más que el ancho, no 7 cm.",
+      "Una longitud no puede ser negativa.",
+      "Intercambiaste ancho y largo: el largo es la medida mayor."
+     ]
     },
     {
      "type": "input",
@@ -10214,7 +10310,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ el ancho: $x(x+5)=204$, luego $x^2+5x-204=0$, con soluciones $x=12$ y $x=-17$. Una longitud no puede ser negativa, así que el ancho es 12 cm y el largo 17 cm.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Una longitud no puede ser negativa.",
+      "El largo mide 5 cm más que el ancho, no 5 cm.",
+      "",
+      "Intercambiaste ancho y largo: el largo es la medida mayor."
+     ]
     },
     {
      "q": "Un rectángulo tiene un área de $136\\,\\mathrm{cm}^2$ y su largo mide 9 cm más que su ancho. ¿Cuáles son sus dimensiones?",
@@ -10226,7 +10328,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ el ancho: $x(x+9)=136$, luego $x^2+9x-136=0$, con soluciones $x=8$ y $x=-17$. Una longitud no puede ser negativa, así que el ancho es 8 cm y el largo 17 cm.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Intercambiaste ancho y largo: el largo es la medida mayor.",
+      "Una longitud no puede ser negativa.",
+      "",
+      "El largo mide 9 cm más que el ancho, no 9 cm."
+     ]
     },
     {
      "type": "input",
@@ -10270,7 +10378,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ el menor: $x(x+1)=380$, luego $x^2+x-380=0$, con soluciones $x=19$ y $x=-20$. Como los números deben ser positivos, son 19 y 20.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Comprueba el producto: no da 380.",
+      "",
+      "Los números deben ser positivos.",
+      "Los números deben ser consecutivos."
+     ]
     },
     {
      "q": "En un triángulo rectángulo, un cateto mide 7 cm más que el otro y la hipotenusa mide 13 cm. ¿Cuánto miden los catetos?",
@@ -10282,7 +10396,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ el cateto menor: $x^2+(x+7)^2=13^2$, luego $2x^2+14x-120=0$, con soluciones $x=5$ y $x=-12$. Se descarta la negativa: los catetos miden 5 y 12 cm. Comprobación: $25+144=169$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El otro cateto mide 7 cm más, no 7 cm.",
+      "Comprueba con Pitágoras: la suma de los cuadrados no da 13².",
+      "",
+      "Una longitud no puede ser negativa."
+     ]
     },
     {
      "q": "En un triángulo rectángulo, un cateto mide 7 cm más que el otro y la hipotenusa mide 17 cm. ¿Cuánto miden los catetos?",
@@ -10294,7 +10414,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ el cateto menor: $x^2+(x+7)^2=17^2$, luego $2x^2+14x-240=0$, con soluciones $x=8$ y $x=-15$. Se descarta la negativa: los catetos miden 8 y 15 cm. Comprobación: $64+225=289$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Una longitud no puede ser negativa.",
+      "",
+      "Comprueba con Pitágoras: la suma de los cuadrados no da 17².",
+      "El otro cateto mide 7 cm más, no 7 cm."
+     ]
     },
     {
      "type": "input",
@@ -10322,7 +10448,13 @@
      ],
      "correct": 3,
      "why": "Las dos soluciones cumplen la ecuación, pero $x$ es una longitud, así que $x=-20$ no tiene sentido en el problema. El ancho es 14 m (y el largo, 20 m). Tomar 20 confunde la solución descartada con una medida.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Esa medida corresponde al largo, no al ancho.",
+      "Solo una de las dos soluciones tiene sentido como longitud.",
+      "Una longitud no puede ser negativa: ¿sirven las dos soluciones?",
+      ""
+     ]
     },
     {
      "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t) = -5t^2 + 20t$, con $t$ en segundos. ¿En qué instante vuelve al suelo ($h = 0$)?",
@@ -10410,7 +10542,13 @@
      ],
      "correct": 3,
      "why": "Las dos soluciones cumplen la ecuación, pero $x$ es una longitud, así que $x=-17$ no tiene sentido en el problema. El ancho es 9 m (y el largo, 17 m). Tomar 17 confunde la solución descartada con una medida.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una longitud no puede ser negativa: ¿sirven las dos soluciones?",
+      "Esa medida corresponde al largo, no al ancho.",
+      "Solo una de las dos soluciones tiene sentido como longitud.",
+      ""
+     ]
     },
     {
      "q": "El producto de dos números enteros consecutivos es 156. Con $n$ el menor, la ecuación $n(n+1)=156$ tiene soluciones $n=12$ y $n=-13$. ¿Qué pares de números cumplen?",
@@ -10422,7 +10560,13 @@
      ],
      "correct": 1,
      "why": "El enunciado no exige que los números sean positivos, y $(-13)(-12)=156$. Las dos soluciones sirven. Una solución negativa se descarta solo cuando el contexto lo exige (una longitud, una cantidad de objetos, un tiempo).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una solución negativa no siempre se descarta: depende de lo que pida el problema.",
+      "",
+      "La solución positiva también cumple: compruébala.",
+      "El enunciado no pide números positivos: comprueba el producto con los negativos."
+     ]
     },
     {
      "q": "El producto de dos números enteros consecutivos es 462. Con $n$ el menor, la ecuación $n(n+1)=462$ tiene soluciones $n=21$ y $n=-22$. ¿Qué pares de números cumplen?",
@@ -10434,7 +10578,13 @@
      ],
      "correct": 1,
      "why": "El enunciado no exige que los números sean positivos, y $(-22)(-21)=462$. Las dos soluciones sirven. Una solución negativa se descarta solo cuando el contexto lo exige (una longitud, una cantidad de objetos, un tiempo).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El enunciado no pide números positivos: comprueba el producto con los negativos.",
+      "",
+      "Una solución negativa no siempre se descarta: depende de lo que pida el problema.",
+      "La solución positiva también cumple: compruébala."
+     ]
     },
     {
      "q": "Se lanza una piedra hacia arriba desde lo alto de un edificio. Su altura (en metros) es $h(t)=-5t^2+15t+20$, con $t$ en segundos desde el lanzamiento. La ecuación $h(t)=0$ tiene soluciones $t=4$ y $t=-1$. ¿Qué responde el problema?",
@@ -10446,7 +10596,13 @@
      ],
      "correct": 2,
      "why": "El tiempo se cuenta desde el lanzamiento, así que solo sirven valores $t\\ge 0$. La piedra llega al suelo en $t=4$ s. Comprobación: $-5\\cdot16+15\\cdot4+20=0$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El instante buscado es una de las soluciones de la ecuación.",
+      "1 viene de la solución negativa, que no tiene sentido como tiempo.",
+      "",
+      "Un tiempo negativo es anterior al lanzamiento."
+     ]
     },
     {
      "type": "input",
@@ -10466,7 +10622,13 @@
      ],
      "correct": 2,
      "why": "El tiempo se cuenta desde el lanzamiento, así que solo sirven valores $t\\ge 0$. La piedra llega al suelo en $t=5$ s. Comprobación: $-5\\cdot25+15\\cdot5+50=0$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "2 viene de la solución negativa, que no tiene sentido como tiempo.",
+      "El instante buscado es una de las soluciones de la ecuación.",
+      "",
+      "Un tiempo negativo es anterior al lanzamiento."
+     ]
     },
     {
      "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t)=-5t^2+20t$, con $t$ en segundos. La ecuación $h(t)=15$ tiene soluciones $t=1$ y $t=3$. ¿Qué significan?",
@@ -10478,7 +10640,13 @@
      ],
      "correct": 3,
      "why": "Las dos soluciones son positivas y tienen sentido: la pelota sube, pasa por 15 m en $t=1$, llega más alto y vuelve a pasar por 15 m al bajar, en $t=3$. Entre esos instantes está sobre los 15 m.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una ecuación cuadrática puede tener dos soluciones válidas: piensa en la subida y en la bajada.",
+      "La altura máxima no es 15 m: después de $t=1$ la pelota sigue subiendo.",
+      "La ecuación da instantes, no intervalos: la pelota está a esa altura solo en esos instantes.",
+      ""
+     ]
     },
     {
      "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t)=-5t^2+35t$, con $t$ en segundos. La ecuación $h(t)=50$ tiene soluciones $t=2$ y $t=5$. ¿Qué significan?",
@@ -10490,7 +10658,13 @@
      ],
      "correct": 1,
      "why": "Las dos soluciones son positivas y tienen sentido: la pelota sube, pasa por 50 m en $t=2$, llega más alto y vuelve a pasar por 50 m al bajar, en $t=5$. Entre esos instantes está sobre los 50 m.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "La ecuación da instantes, no intervalos: la pelota está a esa altura solo en esos instantes.",
+      "",
+      "Una ecuación cuadrática puede tener dos soluciones válidas: piensa en la subida y en la bajada.",
+      "La altura máxima no es 50 m: después de $t=2$ la pelota sigue subiendo."
+     ]
     },
     {
      "q": "Si al cuadrado de un número se le resta 3 veces el número, se obtiene 28. La ecuación $x^2-3x=28$ tiene soluciones $x=7$ y $x=-4$. ¿Qué números cumplen?",
@@ -10502,7 +10676,13 @@
      ],
      "correct": 0,
      "why": "El enunciado habla de «un número», sin exigir que sea positivo, y las dos soluciones cumplen: $7^2-3\\cdot7=28$ y $(-4)^2-3\\cdot(-4)=28$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "La solución positiva también cumple: compruébala.",
+      "Comprueba 4 en la ecuación: no cumple.",
+      "El enunciado no pide un número positivo: comprueba con el negativo."
+     ]
     },
     {
      "q": "Si al cuadrado de un número se le resta 5 veces el número, se obtiene 24. La ecuación $x^2-5x=24$ tiene soluciones $x=8$ y $x=-3$. ¿Qué números cumplen?",
@@ -10514,7 +10694,13 @@
      ],
      "correct": 1,
      "why": "El enunciado habla de «un número», sin exigir que sea positivo, y las dos soluciones cumplen: $8^2-5\\cdot8=24$ y $(-3)^2-5\\cdot(-3)=24$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El enunciado no pide un número positivo: comprueba con el negativo.",
+      "",
+      "La solución positiva también cumple: compruébala.",
+      "Comprueba 3 en la ecuación: no cumple."
+     ]
     }
    ],
    "check": {

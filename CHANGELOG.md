@@ -1,5 +1,24 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (d) · Numeración por unidad, aviso por alternativa y trinomios con a ≠ 1 (sugerencias #15, #13 y #7)
+
+- **#15 · Numeración dentro de cada unidad:** la cabecera de la estación y «Antes de empezar» muestran «II·4» en lugar del número global (34). En el mapa de la unidad, cada estación lleva su número dentro de la unidad.
+- **#13 · Aviso según la alternativa elegida:** campo opcional `fb` en las preguntas de alternativas: una lista con un texto por alternativa, que va vacío en la correcta.
+  - **En Practica y Aplica:** al elegir una alternativa incorrecta se muestra «Todavía no.» y su aviso, sin revelar la respuesta. La alternativa probada queda atenuada.
+  - **En la práctica de cierre de bloque:** el aviso aparece antes de la respuesta correcta.
+  - **Editor:** bajo cada alternativa incorrecta hay un campo «Aviso si eligen esta (opcional)».
+  - **`validation.js`:** exige un aviso por alternativa, vacío en la correcta y de máximo 260 caracteres.
+  - **Contenido:** ya tienen avisos 30 preguntas de la Unidad III (problemas del punto 22) y las 7 preguntas nuevas de trinomios de la Unidad II (6 de Practica y 1 de Aplica).
+- **#7 · Trinomios $ax^2+bx+c$ con $a\neq1$ (Unidad II, «Trinomios y elección del método»):**
+  - **Aprende:**
+    - el objetivo y la idea incluyen el **método $ac$**: dos números con producto $a\cdot c$ y suma $b$, para separar el término central y agrupar;
+    - el ejemplo guiado 3 es ahora $3x^2-11x+10=(3x-5)(x-2)$, en lugar de $2x^2-2x-24$, porque el factor común ya lo cubren el aviso y el «Recuerda»;
+    - el cuadro «¿Qué método uso?» menciona el método $ac$.
+  - **Practica:** 10 preguntas nuevas en los niveles 2 y 3, que reemplazan preguntas repetidas o demasiado fáciles para su nivel. Son 6 de alternativas con avisos y 4 escritas.
+  - **Aplica:** 2 preguntas nuevas, el tablero de $2x^2+7x+3$ y el invernadero de $3x^2+10x+8$.
+  - **Verificación:** todo se comprobó con sympy (`herramientas/punto7_trinomios_u2.py`).
+- **Unidad III, «Cuadráticas por factorización»:** segundo «Recuerda», sobre el método $ac$, que viene de la Unidad II.
+
 ## 23-11-2026 (c) · Problemas con respuesta completa e interpretación (sugerencia #22)
 
 - **Unidad III, «Resolver problemas lineales» y «Problemas cuadráticos»:** en cada estación, 20 de las 60 preguntas de Practica (10 de nivel 2 y 10 de nivel 3) cambiaron de formato. Los contenidos no cambian.

@@ -126,6 +126,12 @@ a=sub1(a,"const note=avail?(pct===100?'Completada':pct>0?pct+'% de avance':'List
 a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10+' h previstas'",
  "String(Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10).replace('.',',')+' h previstas'")
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
+# Aviso según la alternativa elegida (23-11-2026, sugerencia #13): campo opcional q.fb, paralelo a q.options.
+a=sub1(a,"else{let el=box.querySelector('.feedback');el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';}","else{let el=box.querySelector('.feedback'),k=Number(b.dataset.answer),f=Array.isArray(q.fb)?q.fb[k]:'';if(f){el.innerHTML='Todavía no. '+rich(f);typesetMath(el);}else el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';b.classList.add('tried');}")
+# Numeración dentro de cada unidad (23-11-2026, sugerencia #15): «II·4» en lugar del número global.
+a=sub1(a,"<span class=\"route-marker\" aria-hidden=\"true\"><b>${String(i+1).padStart(2,'0')}</b></span>","<span class=\"route-marker\" aria-hidden=\"true\"><b>${String(stLocal(i)).padStart(2,'0')}</b></span>")
+a=sub1(a,"$('stationNo').textContent=String(stationIndex+1).padStart(2,'0');","$('stationNo').textContent=stLabel(stationIndex);")
+a=sub1(a,"init();(()=>{const keep=mu;","function stLocal(i){const u=STATIONS[i].unit;let n=0;for(let j=0;j<=i;j++)if(STATIONS[j].unit===u)n++;return n;}\nfunction stLabel(i){const u=UNITS[STATIONS[i].unit];return (u?u.roman+'·':'')+stLocal(i);}\ninit();(()=>{const keep=mu;")
 a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
 a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\n"+CIJS+"\n"+NAVJS+"\n"+DGJS+"\ninit();(()=>{const keep=mu;")

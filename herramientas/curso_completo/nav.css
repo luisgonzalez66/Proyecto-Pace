@@ -11,3 +11,9 @@ body[data-view="map"] #breadcrumbs,body[data-view="station"] #breadcrumbs{displa
  .nv-back .nv-long{display:none}
  .nv-back .nv-cap{text-transform:uppercase}
 }
+
+/* Número de estación dentro de la unidad: «II·4» (23-11-2026) */
+.station-no{width:auto!important;min-width:34px;padding:0 9px;white-space:nowrap;font-size:14px!important;letter-spacing:.01em}
+
+/* Alternativa ya probada (23-11-2026) */
+.choices button.tried{opacity:.6;border-style:dashed}

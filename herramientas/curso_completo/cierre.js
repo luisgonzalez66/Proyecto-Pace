@@ -50,11 +50,11 @@ function ciQHTML(){
  let h;if(q.type==='input')h=renderTyped(q,0,lab,false);
  else h=`<article class="quiz" data-step="0"><div class="quiz-head"><span>${lab}</span><span>Por resolver</span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-ck="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
  return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${CI.idx===CI.qs.length-1?'Ver resultado':'Siguiente ejercicio →'}</button></div></div>`;}
-function ciSolved(ok,box){
+function ciSolved(ok,box,pick){
  const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';window.chuReact&&chuReact(ok);
  let corr='';if(q.type==='input'){let t='';try{t=PACETyped.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
  const fb=box.querySelector('.feedback');fb.className='feedback '+(ok?'correct':'incorrect');
- fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
+ fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ '+((pick!=null&&Array.isArray(q.fb)&&q.fb[pick])?'<b>'+rich(q.fb[pick])+'</b> ':'')+'La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
  box.querySelectorAll('button,input').forEach(b=>{b.disabled=true;});box.classList.add(ok?'ci-ok':'ci-bad');box.querySelectorAll('.keypad,.typed-hint,small').forEach(x=>{x.style.display='none';});
  const hd=box.querySelector('.quiz-head span:last-child');if(hd)hd.textContent=ok?'✓ Correcto':'✗ Incorrecto';
  $('ciFrom').innerHTML=it.i>=0?'Este ejercicio es de la estación <b>«'+esc(it.st)+'»</b>.':'Pregunta de <b>'+esc(it.st)+'</b>.';
@@ -63,7 +63,7 @@ function ciSolved(ok,box){
 function ciBindQ(){
  const root=$('cierreView'),box=root.querySelector('.quiz'),q=CI.qs[CI.idx].q;
  $('ciNext').addEventListener('click',()=>{if(CI.idx<CI.qs.length-1){CI.idx++;renderCierre();}else{CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};renderCierre();}window.scrollTo({top:0,behavior:'instant'});});
- if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box);}));return;}
+ if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k);}));return;}
  const tb=box.querySelector('.typed'),inp=tb.querySelector('.typed-input'),prev=tb.querySelector('.typed-preview'),pad=tb.querySelector('.keypad'),kind=tb.dataset.kind;let tm=null;
  const upd=()=>{clearTimeout(tm);tm=setTimeout(()=>{const t=PACETyped.previewTex(kind,inp.value);if(window.MathJax&&MathJax.typesetClear)MathJax.typesetClear([prev]);if(t===''||t===null){prev.textContent=t===null?inp.value:'';prev.classList.toggle('bad',t===null);}else{prev.classList.remove('bad');prev.innerHTML='\\('+t+'\\)';typesetMath(prev);}},120);};
  inp.addEventListener('input',upd);pad.addEventListener('mousedown',e=>e.preventDefault());

@@ -28,7 +28,7 @@ let DG=null;
 function dgGo(){const d=DG;if(!d)return;d.pass=true;openStation(d.i,d.tab);}
 function renderDiag(){
  const root=$('diagView');if(!DG){root.innerHTML='';return;}
- const s=STATIONS[DG.i],q=dgQ(s),u=UNITS[s.unit],num=String(DG.i+1).padStart(2,'0');
+ const s=STATIONS[DG.i],q=dgQ(s),u=UNITS[s.unit],num=stLabel(DG.i);
  let body;
  if(q.type==='input')body=renderTyped(q,0,'PREGUNTA',false);
  else body=`<article class="quiz" data-step="0"><div class="quiz-head"><span>PREGUNTA</span><span></span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-dk="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;

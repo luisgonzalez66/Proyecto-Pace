@@ -231,7 +231,7 @@ function renderMap(){if(FIN0===null&&$('mapFinish'))FIN0=$('mapFinish').innerHTM
  const cards=items=>items.map(({s,i})=>{
   const pct=stationPercent(i),cls=progressClass(pct),circ=2*Math.PI*20;
   return `<button type="button" class="route-card ${cls}" data-index="${i}" aria-label="${esc(s.title)}. ${pct} por ciento. Entrar a la estación">
-    <span class="route-marker" aria-hidden="true"><b>${String(i+1).padStart(2,'0')}</b></span>
+    <span class="route-marker" aria-hidden="true"><b>${String(stLocal(i)).padStart(2,'0')}</b></span>
     <span class="route-copy"><strong>${esc(s.title)}</strong><small>${esc(s.subtitle)}</small></span>
     <span class="route-status"><span class="mini-ring"><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="20" fill="none" stroke="#dce5ea" stroke-width="5"/><circle class="arc" cx="26" cy="26" r="20" fill="none" stroke-width="5" stroke-linecap="round" stroke-dasharray="${circ}" stroke-dashoffset="${circ*(1-pct/100)}"/></svg><b>${pct===100?'✓':pct+'%'}</b></span></span>
     <span class="route-arrow" aria-hidden="true">↗</span>
@@ -311,7 +311,7 @@ function bindLearn(){for(let e=0;e<4;e++)bindLearnOne(e);
  document.addEventListener('keydown',window.__lsKey);}
 function renderStation0(){paintMascot();$('stationContent').classList.remove('lfocus');document.body.classList.remove('ex-big-on');{const x=document.getElementById('exClose');if(x)x.remove();}
  let s=STATIONS[stationIndex],p=stationPercent(stationIndex);
- $('stationNo').textContent=String(stationIndex+1).padStart(2,'0');$('stationTitle').textContent=s.title;$('stationSub').textContent=s.subtitle;
+ $('stationNo').textContent=stLabel(stationIndex);$('stationTitle').textContent=s.title;$('stationSub').textContent=s.subtitle;
  $('stationView').dataset.pose=String(s.group%4);$('stationBlock').textContent='BLOQUE '+String(s.group+1).padStart(2,'0')+' · '+(UNITS[s.unit].groups[s.group]?.title||'');
  $('stationPct').textContent=p+'%';$('stationPct').className='station-pct '+progressClass(p);
  $('stationCount').textContent=Object.hasOwn(state.dn,s.id)?'Repaso · ronda '+(roundOf(s)+1)+': '+rawDone(stationIndex)+' de '+milestoneCount(s)+' actividades (tu avance ya está completo)':stationDone(stationIndex)+' de '+milestoneCount(s)+' actividades completadas';$('stationFill').style.width=p+'%';
@@ -377,7 +377,7 @@ function answer(b){const box=b.closest('.quiz');let step=Number(box.dataset.step
  const q=questionAt(step);
  {const st=STATIONS[stationIndex];reportInt(step>drawCount(st)?'A':'P',st,q,b.dataset.answer,Number(b.dataset.answer)===q.correct);window.chuReact&&chuReact(Number(b.dataset.answer)===q.correct);}
  if(Number(b.dataset.answer)===q.correct)mark(step);
- else{let el=box.querySelector('.feedback');el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';}
+ else{let el=box.querySelector('.feedback'),k=Number(b.dataset.answer),f=Array.isArray(q.fb)?q.fb[k]:'';if(f){el.innerHTML='Todavía no. '+rich(f);typesetMath(el);}else el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';b.classList.add('tried');}
 }
 const canRedo=i=>hasDraw(STATIONS[i])&&rawDone(i)===milestoneCount(STATIONS[i]);
 function redo(){const s=STATIONS[stationIndex];if(!canRedo(stationIndex))return;
@@ -583,6 +583,8 @@ function paceSub(k){var I=document.getElementById('ptInicio'),C=document.getElem
 var b=document.getElementById('ptBack');if(b)b.addEventListener('click',function(){paceSub('inicio');});
 [].slice.call(document.querySelectorAll('[data-open-unit]')).forEach(function(l){l.addEventListener('click',function(e){e.preventDefault();openMap(Number(l.dataset.openUnit));});});
 if(window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches){[].forEach.call(document.querySelectorAll('.board animate'),function(x){var r=x.parentNode;r.setAttribute('width',x.getAttribute('to'));r.removeChild(x);});}})();
+function stLocal(i){const u=STATIONS[i].unit;let n=0;for(let j=0;j<=i;j++)if(STATIONS[j].unit===u)n++;return n;}
+function stLabel(i){const u=UNITS[STATIONS[i].unit];return (u?u.roman+'·':'')+stLocal(i);}
 /* ===== Navegación por pantallas · «cero scroll» (propuesta de Henry, V4) =====
  * Capa de presentación sobre el motor: no cambia el estado, el progreso, las interacciones SCORM ni la META FINAL.
  *  - Aprende: Idea → Ejemplos (pasos progresivos) → Cierre, con accesos directos y un solo par Anterior/Siguiente.
@@ -882,11 +884,11 @@ function ciQHTML(){
  let h;if(q.type==='input')h=renderTyped(q,0,lab,false);
  else h=`<article class="quiz" data-step="0"><div class="quiz-head"><span>${lab}</span><span>Por resolver</span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-ck="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
  return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${CI.idx===CI.qs.length-1?'Ver resultado':'Siguiente ejercicio →'}</button></div></div>`;}
-function ciSolved(ok,box){
+function ciSolved(ok,box,pick){
  const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';window.chuReact&&chuReact(ok);
  let corr='';if(q.type==='input'){let t='';try{t=PACETyped.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
  const fb=box.querySelector('.feedback');fb.className='feedback '+(ok?'correct':'incorrect');
- fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
+ fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ '+((pick!=null&&Array.isArray(q.fb)&&q.fb[pick])?'<b>'+rich(q.fb[pick])+'</b> ':'')+'La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
  box.querySelectorAll('button,input').forEach(b=>{b.disabled=true;});box.classList.add(ok?'ci-ok':'ci-bad');box.querySelectorAll('.keypad,.typed-hint,small').forEach(x=>{x.style.display='none';});
  const hd=box.querySelector('.quiz-head span:last-child');if(hd)hd.textContent=ok?'✓ Correcto':'✗ Incorrecto';
  $('ciFrom').innerHTML=it.i>=0?'Este ejercicio es de la estación <b>«'+esc(it.st)+'»</b>.':'Pregunta de <b>'+esc(it.st)+'</b>.';
@@ -895,7 +897,7 @@ function ciSolved(ok,box){
 function ciBindQ(){
  const root=$('cierreView'),box=root.querySelector('.quiz'),q=CI.qs[CI.idx].q;
  $('ciNext').addEventListener('click',()=>{if(CI.idx<CI.qs.length-1){CI.idx++;renderCierre();}else{CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};renderCierre();}window.scrollTo({top:0,behavior:'instant'});});
- if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box);}));return;}
+ if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k);}));return;}
  const tb=box.querySelector('.typed'),inp=tb.querySelector('.typed-input'),prev=tb.querySelector('.typed-preview'),pad=tb.querySelector('.keypad'),kind=tb.dataset.kind;let tm=null;
  const upd=()=>{clearTimeout(tm);tm=setTimeout(()=>{const t=PACETyped.previewTex(kind,inp.value);if(window.MathJax&&MathJax.typesetClear)MathJax.typesetClear([prev]);if(t===''||t===null){prev.textContent=t===null?inp.value:'';prev.classList.toggle('bad',t===null);}else{prev.classList.remove('bad');prev.innerHTML='\\('+t+'\\)';typesetMath(prev);}},120);};
  inp.addEventListener('input',upd);pad.addEventListener('mousedown',e=>e.preventDefault());
@@ -992,7 +994,7 @@ let DG=null;
 function dgGo(){const d=DG;if(!d)return;d.pass=true;openStation(d.i,d.tab);}
 function renderDiag(){
  const root=$('diagView');if(!DG){root.innerHTML='';return;}
- const s=STATIONS[DG.i],q=dgQ(s),u=UNITS[s.unit],num=String(DG.i+1).padStart(2,'0');
+ const s=STATIONS[DG.i],q=dgQ(s),u=UNITS[s.unit],num=stLabel(DG.i);
  let body;
  if(q.type==='input')body=renderTyped(q,0,'PREGUNTA',false);
  else body=`<article class="quiz" data-step="0"><div class="quiz-head"><span>PREGUNTA</span><span></span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-dk="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;

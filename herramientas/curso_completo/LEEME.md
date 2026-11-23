@@ -61,3 +61,7 @@ Recuadro con un prerrequisito de una estación anterior. Va en el JSON de la est
 `construir_curso.py` copia en `ver` el objetivo, la idea y la figura de la estación `origen`. Úsalo solo cuando la estación necesita algo que no enseña ella misma.
 
 En el editor se edita en la pestaña Aprende, sección «Recuerda (opcional)». La lista de estaciones de origen sale de `editor/catalogo_estaciones.js`, que se regenera con cada `construir_curso.py`.
+
+## Aviso por alternativa (`fb`)
+
+En una pregunta de alternativas, `"fb": ["", "aviso de la alternativa 2", "", "…"]` es paralelo a `options`. La alternativa correcta va vacía. En Practica y Aplica, al elegir una alternativa incorrecta se muestra «Todavía no.» y su aviso, sin revelar la respuesta. En el cierre de bloque, el aviso se muestra antes de la respuesta correcta. Se edita en el editor, bajo cada alternativa.
