@@ -1,5 +1,16 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (b) · Sección «Recuerda» en el editor
+
+- **Editor, pestaña Aprende:** la nueva sección **«Recuerda (opcional)»**, hasta 2 por estación, tiene:
+  - una lista para elegir la estación de origen, que solo muestra estaciones anteriores (de unidades anteriores y de la misma unidad);
+  - título, texto y ejemplo, con contador de caracteres;
+  - revisiones automáticas: que la estación de origen sea anterior, que no falten el título ni el texto, que la fórmula del ejemplo no tenga errores y que el ejemplo quepa en un celular de 360 px.
+- **Vista del estudiante del editor:** muestra el recuadro abierto, tal como lo verá el estudiante.
+- **`validation.js`:** valida el campo `recuerda`. Exige una estación de origen anterior, título y texto (máximo 90 y 320 caracteres) y admite como máximo 2 recuadros.
+- **`editor/catalogo_estaciones.js`:** lo genera `construir_curso.py` con las estaciones de las tres unidades, para la lista de origen.
+- **Ejemplos más angostos:** se acortaron los de cinco recuadros que no cabían en un celular de 360 px (U1 MCD y MCM, U1 Operaciones combinadas, U2 Trinomios, U3 Paréntesis y fracciones, U3 Cuadráticas por factorización).
+
 ## 23-11-2026 · «Omitir» en el diagnóstico, «Recuerda» en las Unidades I y II, raíces
 
 - **Antes de empezar:** se quitó «Todavía no lo sé». Ahora hay un botón **«Omitir esta pregunta»** justo debajo de donde se escribe o elige la respuesta, y el texto de arriba explica que se puede omitir. En SiveducMD se sigue registrando igual (respuesta «?», resultado neutral).

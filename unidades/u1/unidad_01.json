@@ -4045,7 +4045,7 @@
         {
           "titulo": "Descomponer un número en factores primos",
           "texto": "Divide por el **primo más pequeño** que lo divida (2, 3, 5, 7, …) y repite con el cociente hasta llegar a 1. Los primos que usaste son los factores.",
-          "ejemplo": "\\begin{gathered}60\\to30\\to15\\to5\\to1\\quad(\\div2,\\ \\div2,\\ \\div3,\\ \\div5)\\\\ 60=2^2\\cdot3\\cdot5\\end{gathered}",
+          "ejemplo": "\\begin{gathered}60\\div2=30,\\quad 30\\div2=15\\\\ 15\\div3=5,\\quad 5\\div5=1\\\\ 60=2^2\\cdot3\\cdot5\\end{gathered}",
           "origen": "u1-s003"
         }
       ]
@@ -14114,7 +14114,7 @@
         {
           "titulo": "Simplificar una raíz cuadrada",
           "texto": "Busca el **mayor cuadrado perfecto** que divide al radicando y sácalo de la raíz.",
-          "ejemplo": "\\sqrt{20}=\\sqrt{4\\cdot5}=2\\sqrt{5}\\qquad \\sqrt{27}=\\sqrt{9\\cdot3}=3\\sqrt{3}",
+          "ejemplo": "\\begin{gathered}\\sqrt{20}=\\sqrt{4\\cdot5}=2\\sqrt{5}\\\\ \\sqrt{27}=\\sqrt{9\\cdot3}=3\\sqrt{3}\\end{gathered}",
           "origen": "u1-s011"
         }
       ]

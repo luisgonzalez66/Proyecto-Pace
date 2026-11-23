@@ -59,3 +59,5 @@ Recuadro con un prerrequisito de una estación anterior. Va en el JSON de la est
 ```
 
 `construir_curso.py` copia en `ver` el objetivo, la idea y la figura de la estación `origen`. Úsalo solo cuando la estación necesita algo que no enseña ella misma.
+
+En el editor se edita en la pestaña Aprende, sección «Recuerda (opcional)». La lista de estaciones de origen sale de `editor/catalogo_estaciones.js`, que se regenera con cada `construir_curso.py`.

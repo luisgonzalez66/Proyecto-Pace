@@ -132,6 +132,7 @@ function renderPreview(){let s=station();if(!s){$('studentPreview').innerHTML='<
  if(window.MathJax?.typesetClear)try{MathJax.typesetClear([$('studentPreview')]);}catch(e){}
  let piece=`<span class="badge">UNIDAD ${esc(unit.roman)} · ESTACIÓN ${selected+1}</span><h2>${esc(s.title)}</h2><p style="margin:0;color:#647785">${esc(s.subtitle)}</p>`;
  if(activeTab==='learn'){
+  piece+=rcPreview(s);
   if(s.learn){const L=s.learn;piece+=(L.goal?`<div class="learn-prev"><span class="lp-t">QUÉ APRENDERÁS</span><p class="math-fragment">${bold(L.goal)}</p></div>`:'')+`<div class="learn-prev"><span class="lp-t">COMPRENDE LA IDEA</span><p class="math-fragment">${bold(L.idea||s.concept)}</p>${L.figure&&L.figure.svg?`<figure style="max-width:300px;margin:8px auto 0;text-align:center">${L.figure.svg}${L.figure.caption?`<figcaption style="font-size:13px;font-weight:700">${esc(L.figure.caption)}</figcaption>`:''}</figure>`:''}</div>`+exList(L).map((St,n)=>lpEx(St,n?'EJEMPLO '+(n+1)+' · PASO A PASO':'EJEMPLO 1 · PASO A PASO',n)).join('')+(L.warn?`<div class="learn-prev"><span class="lp-t">PRESTA ATENCIÓN</span><p class="math-fragment">${bold(L.warn)}</p></div>`:'');}
   else piece+=`<h3>La idea esencial</h3><p class="math-fragment">${multiline(s.concept)}</p><div class="example"><strong>Ejemplo</strong><p class="math-fragment">${multiline(s.example)}</p></div>`;
   piece+=['example2','example3','example4'].filter(k=>!(s.learn&&s.learn.more&&s.learn.more.length)&&s[k]&&s[k].trim()).map((k,i)=>`<div class="example"><strong>Ejemplo ${i+2}</strong><p class="math-fragment">${multiline(s[k])}</p></div>`).join('');
@@ -392,4 +393,63 @@ async function run(o){
 $('exportPackage').onclick=choose;
 window.PACEExport={choose,run};
 })();
+
+/* ---------- «Recuerda» (23-11-2026): recuadro con un prerrequisito de una estación anterior ---------- */
+const RC_MAX=2,RC_TIT=90,RC_TXT=320,RC_EJ_PX=260;
+const rcCat=()=>Array.isArray(window.PACE_CATALOGO)?window.PACE_CATALOGO:[];
+function rcPrev(){const s=station();if(!s)return [];const cu=Number(unit.id[1]),out=[];
+ for(const c of rcCat()){const cn=Number(c.u[1]);if(cn<cu)out.push({id:c.id,u:c.u,r:c.r,n:c.n,t:c.t});}
+ unit.stations.slice(0,selected).forEach((x,k)=>out.push({id:x.id,u:unit.id,r:unit.roman,n:k+1,t:x.title||'(sin título)'}));
+ return out;}
+function rcOrigin(id){if(!id)return null;const k=unit.stations.findIndex(x=>x.id===id);if(k>=0)return {id,u:unit.id,r:unit.roman,n:k+1,t:unit.stations[k].title,k};const c=rcCat().find(x=>x.id===id);return c?{...c,k:-1}:null;}
+function rcOriginOk(id){const s=station();if(!id)return [false,'Elige la estación de la que viene'];const cu=Number(unit.id[1]),ou=Number(id[1]);
+ if(ou>cu)return [false,'La estación de origen está en una unidad posterior'];
+ if(ou===cu){const k=unit.stations.findIndex(x=>x.id===id);if(k<0)return [false,'La estación de origen no existe en esta unidad'];if(k>=selected)return [false,'La estación de origen debe estar antes que esta'];}
+ else if(rcCat().length&&!rcCat().some(c=>c.id===id))return [false,'No se encontró la estación de origen'];
+ return [true,'Estación anterior'];}
+function rcRender(){const box=$('rcEd');if(!box)return;const s=station();if(!s||!unit){box.innerHTML='';return;}
+ const R=Array.isArray(s.recuerda)?s.recuerda:[],prev=rcPrev(),units=[...new Set(prev.map(p=>p.u))];
+ const opts=r=>{let h=`<option value="">Elige la estación…</option>`;for(const u of units){const L=prev.filter(p=>p.u===u);h+=`<optgroup label="Unidad ${esc(L[0].r)}">${L.map(p=>`<option value="${esc(p.id)}"${p.id===r.origen?' selected':''}>Unidad ${esc(p.r)} · ${p.n} · ${esc(p.t)}</option>`).join('')}</optgroup>`;}
+  if(r.origen&&!prev.some(p=>p.id===r.origen)){const o=rcOrigin(r.origen);h+=`<option value="${esc(r.origen)}" selected>⚠ ${o?'Unidad '+esc(o.r)+' · '+o.n+' · '+esc(o.t):esc(r.origen)} (no es anterior)</option>`;}return h;};
+ box.innerHTML=`<div class="inline-head"><h3>Recuerda (opcional)</h3><span class="pill">${R.length} de ${RC_MAX}</span></div>
+ <p class="hint">Úsalo solo si esta estación necesita algo de una estación anterior que <b>no explica ella misma</b> (por ejemplo, calcular el mcm en una ecuación con fracciones). El estudiante lo abre con el botón «Recuerda», sin salir de la estación.</p>
+ ${R.map((r,k)=>`<div class="rc-card" data-rc="${k}">
+  <label class="field full">Viene de la estación<select data-rcf="origen">${opts(r)}</select></label>
+  <label class="field full">Título <small class="rc-count" data-cnt="titulo"></small><input data-rcf="titulo" maxlength="${RC_TIT}" placeholder="Calcular el mcm de los denominadores" value="${esc(r.titulo||'')}"></label>
+  <label class="field full">Texto · 2 o 3 líneas; admite $fórmulas$ y **negrita** <small class="rc-count" data-cnt="texto"></small><textarea data-rcf="texto" rows="3" maxlength="${RC_TXT}" placeholder="El mcm es el menor número que todos los denominadores dividen…">${esc(r.texto||'')}</textarea></label>
+  <label class="field full">Ejemplo (opcional) · una fórmula en TeX, sin $; para dos líneas usa \\begin{gathered} … \\\\ … \\end{gathered}<textarea data-rcf="ejemplo" class="mono" rows="2" placeholder="\\mathrm{mcm}(4,6)=12">${esc(r.ejemplo||'')}</textarea></label>
+  <div class="rc-checks" data-checks></div>
+  <div class="rc-actions"><button type="button" class="btn small-btn" data-rcdel>Quitar este recuerda</button></div></div>`).join('')}
+ ${R.length<RC_MAX?`<button type="button" class="btn small-btn" id="rcAdd">+ Agregar recuerda</button>`:''}
+ ${rcCat().length?'':'<p class="hint">Falta el archivo catalogo_estaciones.js: por ahora solo se pueden elegir estaciones de esta unidad.</p>'}`;
+ box.querySelectorAll('.rc-card').forEach(card=>rcChecks(card));
+}
+function rcItem(card){const s=station();return s&&s.recuerda?s.recuerda[Number(card.dataset.rc)]:null;}
+function rcChecks(card){const r=rcItem(card);if(!r)return;const el=card.querySelector('[data-checks]');
+ for(const [k,max] of [['titulo',RC_TIT],['texto',RC_TXT]]){const c=card.querySelector(`[data-cnt="${k}"]`);if(c){const n=Array.from(r[k]||'').length;c.textContent=n+' / '+max;c.classList.toggle('near',n>max*0.85);}}
+ const chips=[];const [ok,msg]=rcOriginOk(r.origen);chips.push([ok,msg]);
+ if(!String(r.titulo||'').trim())chips.push([false,'Falta el título']);if(!String(r.texto||'').trim())chips.push([false,'Falta el texto']);
+ el.innerHTML=chips.map(([g,m])=>`<span class="rc-chip ${g?'ok':'bad'}">${g?'✓':'!'} ${esc(m)}</span>`).join('')+'<span class="rc-chip wait" data-ej></span>';
+ rcMeasure(card,r);}
+let rcTimer=null;
+function rcMeasure(card,r){const slot=card.querySelector('[data-ej]');if(!slot)return;const tex=String(r.ejemplo||'').trim();
+ if(!tex){slot.remove();return;}
+ if(!window.MathJax||!MathJax.tex2svgPromise){slot.textContent='Revisa el ejemplo en la vista previa';return;}
+ slot.textContent='Revisando el ejemplo…';
+ MathJax.tex2svgPromise(tex,{display:true}).then(node=>{
+  if(node.querySelector('[data-mjx-error],merror,mjx-merror')){slot.className='rc-chip bad';slot.textContent='! La fórmula del ejemplo tiene un error';return;}
+  const m=document.createElement('div');m.style.cssText='position:absolute;left:-9999px;top:0;font-size:12.3px;font-family:Nunito,system-ui,sans-serif;white-space:nowrap';m.appendChild(node);document.body.appendChild(m);
+  const svg=m.querySelector('svg');const w=svg?svg.getBoundingClientRect().width:0;m.remove();
+  const fits=w<=RC_EJ_PX;slot.className='rc-chip '+(fits?'ok':'bad');slot.textContent=fits?'✓ El ejemplo cabe en celular':'! El ejemplo es muy ancho para celular: divídelo en dos líneas';
+ }).catch(()=>{slot.className='rc-chip bad';slot.textContent='! La fórmula del ejemplo tiene un error';});}
+$('rcEd')&&$('rcEd').addEventListener('input',e=>{const f=e.target.dataset.rcf;if(!f)return;const card=e.target.closest('.rc-card'),r=rcItem(card);if(!r)return;
+ let v=e.target.value;if(f==='ejemplo'){v=v.trim()?v:'';if(!v){delete r.ejemplo;}else r.ejemplo=v;}else r[f]=v;
+ touch();schedulePreview();clearTimeout(rcTimer);rcTimer=setTimeout(()=>rcChecks(card),f==='ejemplo'?350:0);});
+$('rcEd')&&$('rcEd').addEventListener('change',e=>{if(e.target.dataset.rcf==='origen'){const card=e.target.closest('.rc-card'),r=rcItem(card);if(r){r.origen=e.target.value;touch();schedulePreview();rcChecks(card);}}});
+$('rcEd')&&$('rcEd').addEventListener('click',e=>{const s=station();if(!s)return;
+ if(e.target.closest('#rcAdd')){if(!Array.isArray(s.recuerda))s.recuerda=[];if(s.recuerda.length>=RC_MAX)return;s.recuerda.push({titulo:'',texto:'',origen:''});touch();rcRender();schedulePreview();const c=$('rcEd').querySelector('.rc-card:last-of-type select');if(c)c.focus();return;}
+ const d=e.target.closest('[data-rcdel]');if(d){const k=Number(d.closest('.rc-card').dataset.rc);if(!confirm('¿Quitar este recuerda?'))return;s.recuerda.splice(k,1);if(!s.recuerda.length)delete s.recuerda;touch();rcRender();schedulePreview();}});
+function rcPreview(s){const R=(Array.isArray(s.recuerda)?s.recuerda:[]).filter(r=>r&&(String(r.titulo||'').trim()||String(r.texto||'').trim()));if(!R.length)return '';
+ return `<div class="rc-pv"><div class="rc-pv-top"><span class="rc-pv-btn">Recuerda</span><span class="rc-pv-note">El estudiante lo abre con este botón; aquí se muestra abierto.</span></div>${R.map(r=>{const o=rcOrigin(r.origen);return `<div class="rc-pv-box"><div class="rc-pv-from"><span class="rc-pv-tag">RECUERDA</span>${o?`Lo viste en <b>Unidad ${esc(o.r)} · ${esc(o.t)}</b>`:''}</div><h4 class="math-fragment">${bold(r.titulo||'')}</h4><p class="math-fragment">${bold(r.texto||'')}</p>${r.ejemplo?`<div class="rc-pv-ej math-fragment">$$${esc(r.ejemplo)}$$</div>`:''}</div>`;}).join('')}</div>`;}
+{const _rse=renderStationEditor;renderStationEditor=function(){_rse.apply(this,arguments);try{rcRender();}catch(e){}};}
 })();

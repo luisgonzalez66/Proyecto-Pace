@@ -269,6 +269,10 @@ if 'sitio' in sys.argv[2:]:
         open(d+'/data.js','w',encoding='utf8').write(dj)
         print('sitio',d)
 
+# ---------- catálogo de estaciones para el editor («Recuerda»: elegir la estación de origen en otras unidades) ----------
+_cat=[{'id':st['id'],'u':uu['id'],'r':uu['roman'],'n':k+1,'t':st['title']} for uu in units for k,st in enumerate(uu['stations'])]
+open(REPO+'/editor/catalogo_estaciones.js','w',encoding='utf8').write('/* Generado por construir_curso.py: estaciones de las tres unidades, en el orden del curso. */\nwindow.PACE_CATALOGO='+json.dumps(_cat,ensure_ascii=False)+';\n')
+
 # ---------- motor del editor: el HTML y el SCORM que genera el editor salen con la misma presentación ----------
 # Uso: python3 herramientas/curso_completo/construir_curso.py <salida> motor   (reescribe editor/motor_bundle.js)
 if 'motor' in sys.argv[2:]:

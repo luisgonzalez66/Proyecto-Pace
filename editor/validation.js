@@ -32,6 +32,15 @@ window.PACEValidation=(()=>{
      require(St&&Array.isArray(St.items)&&St.items.length>=1&&St.items.length<=20,loc+': Aprende visual'+tg+' necesita entre 1 y 20 pasos');
      if(St.title!==undefined)text(St.title,loc+': Aprende visual · enunciado'+tg,false);
      St.items.forEach((x,n)=>{const at=loc+': paso '+(n+1)+tg;require(x&&typeof x==='object',at+' inválido');const has=k=>typeof k==='string'&&!blank.test(k);if(x.why!==undefined)text(x.why,at+' · comentario breve',false);if(x.math!==undefined)text(x.math,at+' · matemática',false);if(x.side!==undefined){require(x.side&&typeof x.side==='object'&&!Array.isArray(x.side),at+' · cálculo auxiliar inválido');for(const k of ['title','math','text'])if(x.side[k]!==undefined)text(x.side[k],at+' · auxiliar '+k,false);require(has(x.side.title)||has(x.side.math)||has(x.side.text),at+' · el cálculo auxiliar necesita título, matemática o texto');}require(has(x.why)||(x.side&&(has(x.side.title)||has(x.side.text))),at+' · falta una explicación: escribe el comentario breve o el título o el texto del cálculo auxiliar');});});}
+   if(s.recuerda!==undefined){require(Array.isArray(s.recuerda)&&s.recuerda.length<=2,loc+': «Recuerda» admite hasta 2 recuadros por estación');
+    s.recuerda.forEach((r,k)=>{const at=loc+': Recuerda '+(k+1);require(r&&typeof r==='object'&&!Array.isArray(r),at+': estructura inválida');
+     require(typeof r.origen==='string'&&/^u[1-3]-s\d{3}$/.test(r.origen),at+': elige la estación de la que viene');
+     require(typeof r.titulo==='string'&&!blank.test(r.titulo),at+': falta el título');text(r.titulo,at+' · título');require(Array.from(r.titulo).length<=90,at+': el título admite máximo 90 caracteres');
+     require(typeof r.texto==='string'&&!blank.test(r.texto),at+': falta el texto');text(r.texto,at+' · texto');require(Array.from(r.texto).length<=320,at+': el texto admite máximo 320 caracteres');
+     if(r.ejemplo!==undefined){text(r.ejemplo,at+' · ejemplo',false);require(Array.from(r.ejemplo).length<=300,at+': el ejemplo admite máximo 300 caracteres');}
+     const ou=Number(r.origen[1]),cu=Number(u.id[1]);require(ou<=cu,at+': la estación de origen debe ser anterior (está en una unidad posterior)');
+     if(ou===cu&&u.stations.length>1){const j=u.stations.findIndex(x=>x&&x.id===r.origen);require(j>=0,at+': la estación de origen no existe en esta unidad');require(j<i,at+': la estación de origen debe estar antes que esta');}
+    });}
    if(s.explore!==undefined){const E=s.explore;require(E&&typeof E==='object'&&!Array.isArray(E),loc+': Explora inválido');
     text(E.title,loc+': Explora · título');for(const k of ['desc','instr','alt'])if(E[k]!==undefined)text(E[k],loc+': Explora · '+k,false);
     const hasHtml=typeof E.html==='string'&&!blank.test(E.html),hasUrl=typeof E.url==='string'&&E.url!=='';

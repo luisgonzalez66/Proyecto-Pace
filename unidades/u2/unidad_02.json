@@ -10930,7 +10930,7 @@
         {
           "titulo": "Primero, el factor común",
           "texto": "Antes de buscar los dos números, revisa si todos los términos tienen un **factor común** y sácalo. El trinomio que queda es más simple.",
-          "ejemplo": "3x^2+15x+18=3\\left(x^2+5x+6\\right)=3(x+2)(x+3)",
+          "ejemplo": "\\begin{gathered}3x^2+15x+18=3\\left(x^2+5x+6\\right)\\\\ =3(x+2)(x+3)\\end{gathered}",
           "origen": "u2-s008"
         }
       ]

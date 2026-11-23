@@ -3131,7 +3131,7 @@
     {
      "titulo": "Calcular el mcm de los denominadores",
      "texto": "El mcm es el **menor número que todos los denominadores dividen**. Con números pequeños, revisa los múltiplos del mayor. Si no, descompón en primos y toma cada factor con su **mayor exponente**.",
-     "ejemplo": "\\begin{gathered}\\mathrm{mcm}(4,6)=12\\\\ 6=2\\cdot3,\\ \\ 10=2\\cdot5\\ \\Rightarrow\\ \\mathrm{mcm}(6,10)=2\\cdot3\\cdot5=30\\end{gathered}",
+     "ejemplo": "\\begin{gathered}\\mathrm{mcm}(4,6)=12\\\\ 6=2\\cdot3,\\ \\ 10=2\\cdot5\\ \\Rightarrow\\ \\mathrm{mcm}(6,10)=30\\end{gathered}",
      "origen": "u1-s004"
     }
    ]
@@ -9856,7 +9856,7 @@
     {
      "titulo": "Los signos al factorizar $x^2+bx+c$",
      "texto": "Los dos números **multiplican** $c$ y **suman** $b$. Si $c>0$, tienen el **mismo signo**, el de $b$. Si $c<0$, tienen **signos distintos**, y el de mayor valor absoluto lleva el signo de $b$.",
-     "ejemplo": "\\begin{gathered}x^2-7x+12=(x-3)(x-4)\\quad\\text{(ambos negativos)}\\\\ x^2+2x-15=(x+5)(x-3)\\quad\\text{(signos distintos)}\\end{gathered}",
+     "ejemplo": "\\begin{gathered}x^2-7x+12=(x-3)(x-4)\\\\ \\text{(ambos negativos)}\\\\[6pt] x^2+2x-15=(x+5)(x-3)\\\\ \\text{(signos distintos)}\\end{gathered}",
      "origen": "u2-s012"
     }
    ]
