@@ -28,7 +28,7 @@ idx=sub1(idx,_k,_k+'\n'+CHUJS)
 PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
 CICSS=open(HERE+'/cierre.css',encoding='utf8').read()
 NAVCSS=open(HERE+'/nav.css',encoding='utf8').read()
-DGCSS=open(HERE+'/diag.css',encoding='utf8').read()
+DGCSS=open(HERE+'/diag.css',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.css',encoding='utf8').read()
 idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n'+NAVCSS+'\n'+DGCSS+'\n</style></head>')
 # Texto dentro de fórmulas (\\text{...}) con la letra del curso: así la ñ y las tildes no salen de otra fuente (19-11-2026)
 idx=sub1(idx,"svg:{fontCache:'local'}","svg:{fontCache:'local',mtextInheritFont:true}")
@@ -113,7 +113,7 @@ PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
 # ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
 CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
 NAVJS=open(HERE+'/nav.js',encoding='utf8').read()
-DGJS=open(HERE+'/diag.js',encoding='utf8').read()
+DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()
 a=sub1(a,"let segments=[{label:'Inicio',action:()=>openHome()}];","let segments=[{label:'Unidades',action:()=>openHome()}];")
 a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView','diagView'])")
 a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});\n if(view==='diag')segments.push({label:'Antes de empezar'});")
@@ -216,6 +216,14 @@ i2=sub1(i2,'<style>\n'+css+'\n</style></head>','<style>\n'+css+'\n</style>'+FIT+
 
 # ---------- datos ----------
 units=[json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json')) for n in '123']
+# «Recuerda»: copia en cada recuadro la idea de la estación de origen (así funciona aunque la página tenga una sola unidad)
+_ALL={s['id']:(u,s) for u in units for s in u['stations']}
+for u in units:
+    for s in u['stations']:
+        for r in s.get('recuerda') or []:
+            if r.get('origen') in _ALL:
+                ou,os_=_ALL[r['origen']];L=os_.get('learn') or {}
+                r['ver']={'roman':ou['roman'],'title':os_['title'],'goal':L.get('goal',''),'idea':L.get('idea') or os_.get('concept',''),'figure':L.get('figure')}
 META=['id','roman','title','subtitle','icon','groups','hints','meta']
 def datajs(us,scope):
     sts=[];metas=[]
