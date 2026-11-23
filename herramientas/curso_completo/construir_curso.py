@@ -126,6 +126,13 @@ a=sub1(a,"const note=avail?(pct===100?'Completada':pct>0?pct+'% de avance':'List
 a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10+' h previstas'",
  "String(Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10).replace('.',',')+' h previstas'")
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
+# Sorteo estratificado por modalidad (23-11-2026, propuesta de Henry): ver sorteo.js
+SORTEOJS=open(HERE+'/sorteo.js',encoding='utf8').read()
+a=rsub1(a,r"function drawnIndices\(s\)\{\n const n=s\.practice\.length.*?return out;\}",SORTEOJS)
+a=sub1(a,"const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));","const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundOf(s)).sort((x,y)=>x-y);};")
+a=sub1(a,"const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];","const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];let mslot=0;")
+a=sub1(a,"mix.forEach(m=>{let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x);q=ap[Math.floor(r()*ap.length)]||null;}else q=take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});",
+ "mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});")
 # Aviso según la alternativa elegida (23-11-2026, sugerencia #13): campo opcional q.fb, paralelo a q.options.
 a=sub1(a,"else{let el=box.querySelector('.feedback');el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';}","else{let el=box.querySelector('.feedback'),k=Number(b.dataset.answer),f=Array.isArray(q.fb)?q.fb[k]:'';if(f){el.innerHTML='Todavía no. '+rich(f);typesetMath(el);}else el.textContent='Todavía no. Revisa el procedimiento e inténtalo nuevamente.';el.className='feedback incorrect';b.classList.add('tried');}")
 # Numeración dentro de cada unidad (23-11-2026, sugerencia #15): «II·4» en lugar del número global.

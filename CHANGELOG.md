@@ -1,5 +1,18 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (f) · Sorteo por nivel y modalidad (propuesta de Henry)
+
+- **Practica:** se mantienen las cuotas por nivel (2·2·1) y, dentro de cada nivel, se reparten alternativas (A) y escritas (E). Ronda 1: 3A+2E. Ronda 2: 2A+3E. Y así alternando: el nivel 1 y el nivel 2 llevan una de cada tipo, y la del nivel 3 alterna entre rondas.
+- **Aplica:** cuando se sortean 2 preguntas, sale 1 de alternativas y 1 escrita.
+- **META FINAL:** se mantiene una pregunta de Practica de nivel 2, una de nivel 3 y una de Aplica por estación, con las modalidades alternadas. Resultado: 21A+21E en la Unidad I, 17A+19E en la Unidad II y 18A+15E en la Unidad III.
+- **Sorteo:**
+  - cada grupo de nivel y modalidad se baraja con la semilla del estudiante y se recorre sin repetir;
+  - si un tipo ya se usó completo y el otro no, se usa el otro antes de repetir, así que no se repite ninguna pregunta hasta usar todo el banco del nivel;
+  - si una estación no tiene preguntas de un tipo, usa las que tiene, sin bloquear (Unidad II «Lenguaje y valor numérico», solo escritas; Unidad III «Del enunciado a la ecuación», solo alternativas).
+- **Pruebas:** 444 rondas en las 37 estaciones, con 3 semillas distintas. No hubo preguntas repetidas antes de agotar el banco, y todas las rondas respetan la cuota por nivel. En las rondas 1 y 2, todas las estaciones que tienen ambos tipos dan 3A+2E o 2A+3E.
+- **Avance:** el formato del avance guardado no cambia. Como aún no hay estudiantes, no afecta rondas en curso.
+- **Archivos:** `herramientas/curso_completo/sorteo.js` y su conexión en `construir_curso.py`.
+
 ## 23-11-2026 (e) · Nombre de la Unidad I y mcd
 
 - **#20:** la portada del sitio, el README y la especificación dicen ahora «Números y operaciones», igual que el JSON de la Unidad I.

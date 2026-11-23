@@ -65,3 +65,7 @@ En el editor se edita en la pestaña Aprende, sección «Recuerda (opcional)». 
 ## Aviso por alternativa (`fb`)
 
 En una pregunta de alternativas, `"fb": ["", "aviso de la alternativa 2", "", "…"]` es paralelo a `options`. La alternativa correcta va vacía. En Practica y Aplica, al elegir una alternativa incorrecta se muestra «Todavía no.» y su aviso, sin revelar la respuesta. En el cierre de bloque, el aviso se muestra antes de la respuesta correcta. Se edita en el editor, bajo cada alternativa.
+
+## Sorteo por nivel y modalidad (sorteo.js)
+
+Reemplaza `drawnIndices` (Practica) y `drawnChecks` (Aplica), y ajusta `metaQs` (META FINAL). Cuotas por nivel, mitad alternativas y mitad escritas, con la pregunta impar alternando de tipo entre rondas. Sin repeticiones hasta agotar el banco del nivel. Si falta un tipo, se usa el otro.
