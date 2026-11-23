@@ -113,7 +113,7 @@ PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
 # ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
 CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
 NAVJS=open(HERE+'/nav.js',encoding='utf8').read()
-DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()
+DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()+'\n'+open(HERE+'/extras.js',encoding='utf8').read()
 a=sub1(a,"let segments=[{label:'Inicio',action:()=>openHome()}];","let segments=[{label:'Unidades',action:()=>openHome()}];")
 a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView','diagView'])")
 a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});\n if(view==='diag')segments.push({label:'Antes de empezar'});")

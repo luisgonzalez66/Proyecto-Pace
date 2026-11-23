@@ -17,3 +17,8 @@ body[data-view="map"] #breadcrumbs,body[data-view="station"] #breadcrumbs{displa
 
 /* Alternativa ya probada (23-11-2026) */
 .choices button.tried{opacity:.6;border-style:dashed}
+
+/* «Reiniciar avance» (solo GitHub, 23-11-2026) */
+.rl-btn{display:inline-flex;align-items:center;gap:5px;height:30px;padding:0 11px;margin-left:6px;border-radius:999px;border:1px solid #d9d5ea;background:#fff;color:#5b5a7a;font:inherit;font-size:12px;font-weight:700;cursor:pointer}
+.rl-btn svg{width:13px;height:13px}.rl-btn:hover{border-color:#b9b4d6;color:#2b2a6b}
+@media (max-width:700px){.rl-btn span{display:none}.rl-btn{padding:0 8px}}

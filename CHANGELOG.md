@@ -1,5 +1,16 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (g) · «Reiniciar avance» en GitHub y «Escribe solo el resultado»
+
+- **«Reiniciar avance» (solo en GitHub):** cada página de unidad tiene un botón junto a «Vista local · sin SiveducMD». Pide confirmación, borra el avance de esa unidad en el navegador y recarga.
+  - La portada del sitio tiene «Reiniciar mi avance» en el pie, que borra el de las tres unidades.
+  - El botón no aparece en el SCORM ni en el HTML del curso completo.
+- **«Escribe solo el resultado»:** en las preguntas de respuesta numérica, si se escribe una operación que la respuesta no tiene (por ejemplo $3+4$, $\sqrt{49}$ o $2^3-1$), el curso pide escribir solo el resultado.
+  - No corrige la respuesta ni la cuenta como intento.
+  - Se aceptan igual un número con signo, un decimal, una fracción simple (que se sigue revisando si está simplificada) y un número entre paréntesis.
+  - Funciona en Practica, Aplica, «Antes de empezar», el cierre de bloque y la META FINAL.
+- **Archivos:** `herramientas/curso_completo/extras.js` e `index.html` (portada).
+
 ## 23-11-2026 (f) · Sorteo por nivel y modalidad (propuesta de Henry)
 
 - **Practica:** se mantienen las cuotas por nivel (2·2·1) y, dentro de cada nivel, se reparten alternativas (A) y escritas (E). Ronda 1: 3A+2E. Ronda 2: 2A+3E. Y así alternando: el nivel 1 y el nivel 2 llevan una de cada tipo, y la del nivel 3 alterna entre rondas.
