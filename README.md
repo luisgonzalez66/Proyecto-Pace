@@ -4,7 +4,7 @@ Tres unidades, una por persona, hechas con el editor PACE:
 
 | Unidad | Tema | Carpeta |
 |---|---|---|
-| I | Números y operaciones | `unidades/u1/` |
+| I | Números | `unidades/u1/` |
 | II | Factorizaciones | `unidades/u2/` |
 | III | Ecuaciones (lineales y cuadráticas) | `unidades/u3/` |
 
@@ -34,13 +34,21 @@ El control es automático: todo cambio entra por un *Pull Request* y una verific
    * Sin Python: en la carpeta de tu unidad selecciona `unidad_0X.json` y la carpeta `recursos`, clic derecho → *Comprimir* (Mac) o *Enviar a → Carpeta comprimida* (Windows).
    * Abre `editor/EDITOR_PACE.html` en **Chrome o Edge**, desde su carpeta (no lo muevas de ahí) y elige *Abrir paquete ZIP*.
 5. Edita y, al terminar, pulsa **Exportar…** y elige qué necesitas: *HTML navegable* (para GitHub), *SCORM individual* (para SiveducMD), *Mapas*, *Banco de preguntas*, *Respaldo editable* (JSON + recursos) o *Paquete completo* (`ENTREGA_UNIDAD_0X.zip`, todo junto: es el respaldo y lo que se entrega a coordinación). Solo *Respaldo editable* y *Paquete completo* guardan tu trabajo editable. Mientras exporta, el editor muestra el tiempo transcurrido, la etapa y su avance.
-6. **Devuelve el trabajo al repositorio:**
-   * Con Python: `python3 herramientas/desempaquetar.py ~/Descargas/ENTREGA_UNIDAD_0X.zip`. Copia el contenido, los recursos y la página `html/`.
-   * Sin Python: abre el ZIP y copia `unidad_0X.json` (y la carpeta `recursos`, si existe) a `unidades/uX/`, y el contenido de la carpeta `VISTA_PREVIA_HTML` a `unidades/uX/html/`, reemplazando lo anterior.
+6. **Devuelve el trabajo al repositorio:** copia solo `unidad_0X.json` (y la carpeta `recursos`, si existe) a `unidades/uX/`, reemplazando lo anterior. Con Python: `python3 herramientas/desempaquetar.py ~/Descargas/ENTREGA_UNIDAD_0X.zip`. Sin Python: abre el ZIP y copia esos archivos a mano.
+   * **No copies la carpeta `html/`**: la página de cada unidad se regenera sola en GitHub (ver más abajo).
 7. En GitHub Desktop verás los cambios. Escribe un mensaje breve (ej. «Estación 3: ejercicios de factorización»), pulsa **Commit** y luego **Push origin**.
 8. Pulsa **Create Pull Request**. En la página que se abre, espera la marca verde de *Verificar permisos* (1–2 minutos) y pulsa **Merge pull request**.
 
 Si la verificación sale roja, abre el detalle (*Details*): dice qué archivo no te corresponde o qué parte de tu unidad no pasa la validación.
+
+## Publicación automática
+Cuando llega a `main` un cambio en el JSON o en los recursos de una unidad, GitHub ejecuta el flujo **«Regenerar y publicar las unidades»** (`.github/workflows/publicar_unidades.yml`). Ese flujo:
+1. valida las tres unidades (si alguna falla, no publica nada y la ejecución queda en rojo, con el motivo);
+2. regenera las páginas `unidades/uN/html/`, el catálogo de estaciones del editor y el catálogo de preguntas;
+3. las sube a `main`, y GitHub Pages las publica en 1 o 2 minutos;
+4. deja el **SCORM del curso completo** para descargar: pestaña *Actions* → la última ejecución → *Artifacts* → `SCORM_CURSO_COMPLETO` (se guarda 30 días).
+
+También se puede ejecutar a mano: pestaña *Actions* → «Regenerar y publicar las unidades» → *Run workflow*.
 
 ## Reglas simples
 * Una persona por unidad. Si necesitas algo de otra unidad, pídeselo a su responsable.

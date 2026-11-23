@@ -1,0 +1,87 @@
+name: Regenerar y publicar las unidades
+
+# Cada vez que llega a main un cambio en el JSON o en los recursos de una unidad
+# (o en el motor del curso), este flujo:
+#   1. valida los tres JSON (si alguno falla, no publica nada);
+#   2. regenera las páginas de las unidades (unidades/uN/html/) y el catálogo de estaciones del editor;
+#   3. regenera el catálogo de preguntas (herramientas/CATALOGO_PREGUNTAS_PACE.xlsx);
+#   4. deja el SCORM del curso completo como archivo descargable de la ejecución;
+#   5. sube los archivos regenerados a main, y GitHub Pages los publica.
+# Así cada docente solo sube su JSON (y sus recursos); nadie necesita ejecutar construir_curso.py.
+# Si alguien sube a mano archivos de unidades/uN/html/, también se regeneran y quedan bien.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'unidades/*/unidad_*.json'
+      - 'unidades/*/recursos/**'
+      - 'unidades/*/html/**'
+      - 'herramientas/curso_completo/**'
+      - 'editor/motor_bundle.js'
+      - '.github/workflows/publicar_unidades.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-unidades
+  cancel-in-progress: false
+
+jobs:
+  construir:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalar dependencias
+        run: pip install openpyxl
+
+      - name: Validar las unidades
+        run: |
+          for f in unidades/u*/unidad_*.json; do
+            echo "::group::$f"
+            node herramientas/validar.js "$f"
+            echo "::endgroup::"
+          done
+
+      - name: Regenerar las páginas de las unidades
+        run: python3 herramientas/curso_completo/construir_curso.py "$RUNNER_TEMP/scorm" sitio
+
+      - name: Regenerar el catálogo de preguntas
+        run: python3 herramientas/generar_catalogo.py
+
+      - name: Guardar el SCORM del curso completo
+        uses: actions/upload-artifact@v4
+        with:
+          name: SCORM_CURSO_COMPLETO
+          path: ${{ runner.temp }}/scorm/SCORM_CURSO_COMPLETO.zip
+          retention-days: 30
+
+      - name: Publicar los archivos regenerados
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898899+github-actions[bot]@users.noreply.github.com"
+          git add unidades/*/html editor/catalogo_estaciones.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
+          if git diff --cached --quiet; then
+            echo "No hay cambios que publicar."
+            exit 0
+          fi
+          git commit -m "Regenerar las páginas de las unidades (automático, tras ${GITHUB_SHA::7})"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            sleep 5
+          done
+          echo "No se pudo publicar: hubo cambios simultáneos. Vuelve a ejecutar el flujo." && exit 1

@@ -8,7 +8,7 @@ Eres un asistente que ayuda a un docente a construir **una unidad** de un curso 
 Trabajas **solo** sobre el archivo de la unidad asignada (`unidades/u1/unidad_01.json`, `u2/unidad_02.json` o `u3/unidad_03.json`). Nunca modificas otras unidades ni la carpeta `editor/`.
 
 ## 1. Estructura del curso
-Tres unidades: I Números y operaciones · II Factorizaciones · III Ecuaciones (lineales y cuadráticas).
+Tres unidades: I Números · II Factorizaciones · III Ecuaciones (lineales y cuadráticas).
 Cada unidad se divide en **bloques** (temas) y cada bloque en **estaciones** (conceptos). Cada estación tiene tres partes:
 
 | Parte | Qué es |
@@ -24,7 +24,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 
 ```json
 {
-  "id": "u1", "roman": "I", "title": "Números y operaciones", "subtitle": "…", "icon": "01",
+  "id": "u1", "roman": "I", "title": "Números", "subtitle": "…", "icon": "01",
   "groups": [ { "title": "Bloque 1", "subtitle": "Texto corto" } ],
   "stations": [ /* ver más abajo */ ],
   "bridges": [],

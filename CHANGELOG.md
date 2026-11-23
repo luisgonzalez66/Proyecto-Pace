@@ -1,5 +1,17 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (h) · Publicación automática en GitHub y nombre «Números» (pedidos de Henry)
+
+- **Publicación automática:** el nuevo flujo de GitHub Actions `.github/workflows/publicar_unidades.yml` se ejecuta cada vez que llega a `main` un cambio en `unidades/*/unidad_*.json`, en `unidades/*/recursos/`, en `unidades/*/html/` o en el motor (`herramientas/curso_completo/`). Hace lo siguiente:
+  - valida las tres unidades;
+  - regenera `unidades/uN/html/`, `editor/catalogo_estaciones.js` y el catálogo de preguntas;
+  - sube los archivos regenerados a `main`;
+  - deja el SCORM del curso completo como archivo descargable de la ejecución.
+
+  Cada docente sube solo su JSON y sus recursos. Si alguien sube a mano archivos de `html/`, el flujo los vuelve a generar bien. Si una unidad no pasa la validación, no se publica nada.
+- **README:** el paso 6 ya no pide copiar `html/`, y hay una sección nueva, «Publicación automática».
+- **Unidad I:** la portada del sitio, el README y la especificación dicen ahora «Números». El título dentro de la unidad lo cambiará Henry en su JSON.
+
 ## 23-11-2026 (g) · «Reiniciar avance» en GitHub y «Escribe solo el resultado»
 
 - **«Reiniciar avance» (solo en GitHub):** cada página de unidad tiene un botón junto a «Vista local · sin SiveducMD». Pide confirmación, borra el avance de esa unidad en el navegador y recarga.
