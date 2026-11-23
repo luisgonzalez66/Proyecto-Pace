@@ -47,21 +47,33 @@ jobs:
           python-version: '3.12'
 
       - name: Instalar dependencias
-        run: pip install openpyxl
+        run: pip install -q openpyxl
 
       - name: Validar las unidades
         run: |
           for f in unidades/u*/unidad_*.json; do
-            echo "::group::$f"
-            node herramientas/validar.js "$f"
-            echo "::endgroup::"
+            if ! out=$(node herramientas/validar.js "$f" 2>&1); then
+              echo "::error title=La unidad no pasa la validación ($f)::$(echo "$out" | tail -3 | tr '\n' ' ')"
+              exit 1
+            fi
+            echo "$out"
           done
 
       - name: Regenerar las páginas de las unidades
-        run: python3 herramientas/curso_completo/construir_curso.py "$RUNNER_TEMP/scorm" sitio
+        run: |
+          if ! out=$(python3 herramientas/curso_completo/construir_curso.py "$RUNNER_TEMP/scorm" sitio 2>&1); then
+            echo "::error title=Falló la regeneración de las páginas::$(echo "$out" | tail -4 | tr '\n' ' ')"
+            exit 1
+          fi
+          echo "$out"
 
       - name: Regenerar el catálogo de preguntas
-        run: python3 herramientas/generar_catalogo.py
+        run: |
+          if ! out=$(python3 herramientas/generar_catalogo.py 2>&1); then
+            echo "::error title=Falló el catálogo de preguntas::$(echo "$out" | tail -4 | tr '\n' ' ')"
+            exit 1
+          fi
+          echo "$out"
 
       - name: Guardar el SCORM del curso completo
         uses: actions/upload-artifact@v4
@@ -75,13 +87,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898899+github-actions[bot]@users.noreply.github.com"
           git add unidades/*/html editor/catalogo_estaciones.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
+          echo "::notice title=Archivos modificados::$(git status --short | head -20 | tr '\n' ' ')"
           if git diff --cached --quiet; then
             echo "No hay cambios que publicar."
             exit 0
           fi
           git commit -m "Regenerar las páginas de las unidades (automático, tras ${GITHUB_SHA::7})"
+          git stash -u -q || true
           for i in 1 2 3; do
-            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            if out=$(git pull -q --rebase origin main 2>&1 && git push -q origin HEAD:main 2>&1); then exit 0; fi
+            echo "::warning title=Intento $i de publicar::$(echo "$out" | tail -3 | tr '\n' ' ')"
             sleep 5
           done
           echo "No se pudo publicar: hubo cambios simultáneos. Vuelve a ejecutar el flujo." && exit 1
