@@ -424,12 +424,12 @@ function reportInt(kind,s,q,resp,ok){try{
  const n=intN++,p='cmi.interactions.'+n+'.',choice=Array.isArray(q.options),L=k=>String.fromCharCode(97+k);
  const id=s.id+'.'+kind+'.'+hashStr(String(q.q)).toString(36);
  let sr='';
- if(choice){const k=(resp===undefined||resp===null||resp==='')?NaN:Number(resp);sr=Number.isInteger(k)&&k>=0&&k<26?L(k):(ok&&Number.isInteger(q.correct)?L(q.correct):'');}
+ if(kind==='D'&&resp==='?'){sr='?';}else if(choice){const k=(resp===undefined||resp===null||resp==='')?NaN:Number(resp);sr=Number.isInteger(k)&&k>=0&&k<26?L(k):(ok&&Number.isInteger(q.correct)?L(q.correct):'');}
  else sr=String(resp==null?'':resp).replace(/[\r\n]+/g,' ').trim().slice(0,250);
  const cr=choice?(Number.isInteger(q.correct)?L(q.correct):''):String(q.answer==null?'':q.answer).replace(/[\r\n]+/g,' ').slice(0,250);
  set(p+'id',id);set(p+'time',new Date().toTimeString().slice(0,8));set(p+'type',choice?'choice':'fill-in');
  if(cr!=='')set(p+'correct_responses.0.pattern',cr);
- set(p+'weighting','1');if(sr!=='')set(p+'student_response',sr);set(p+'result',ok?'correct':'wrong');
+ set(p+'weighting','1');if(sr!=='')set(p+'student_response',sr);set(p+'result',(kind==='D'&&resp==='?')?'neutral':(ok?'correct':'wrong'));
  clearTimeout(intTimer);intTimer=setTimeout(commit,1500);
 }catch(e){}}
 function mark(step){
