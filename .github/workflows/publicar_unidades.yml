@@ -86,7 +86,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898899+github-actions[bot]@users.noreply.github.com"
-          git add unidades/*/html editor/catalogo_estaciones.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
+          git add index.html unidades/*/html editor/catalogo_estaciones.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
           echo "::notice title=Archivos modificados::$(git status --short | head -20 | tr '\n' ' ')"
           if git diff --cached --quiet; then
             echo "No hay cambios que publicar."
