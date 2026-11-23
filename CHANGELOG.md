@@ -1,5 +1,9 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (k) · «Omitir» queda registrado como neutral en SiveducMD
+
+- Al omitir la pregunta de «Antes de empezar», la interacción se registraba como `wrong`, y en las preguntas de alternativas quedaba sin respuesta. Ahora se registra con respuesta `?` y resultado `neutral`, en los dos tipos de pregunta. `herramientas/analizar_errores.py` ya lo cuenta como «no sabe».
+
 ## 23-11-2026 (j) · El editor en la página «Última versión»
 
 - **«Última versión»:** la página de descargas incluye ahora `EDITOR_PACE.zip`, con la carpeta `editor/` completa.
