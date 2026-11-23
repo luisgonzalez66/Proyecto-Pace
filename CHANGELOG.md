@@ -1,5 +1,16 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (i) · Página de descargas «Última versión»
+
+- **Nueva página de descargas:** después de cada publicación automática, el flujo actualiza la página «Última versión» de GitHub (Releases, etiqueta `ultima-version`). Sus enlaces fijos siempre descargan lo vigente:
+  - `SCORM_CURSO_COMPLETO.zip`;
+  - `PACE_CURSO_COMPLETO.html`;
+  - `PAQUETE_UNIDAD_01/02/03.zip`;
+  - `CATALOGO_PREGUNTAS_PACE.xlsx`.
+
+  La página indica la fecha y el cambio a partir del cual se generaron los archivos.
+- **Nuevo script:** `herramientas/curso_completo/html_unico.py` arma el curso en un solo HTML a partir del SCORM.
+
 ## 23-11-2026 (h) · Publicación automática en GitHub y nombre «Números» (pedidos de Henry)
 
 - **Publicación automática:** el nuevo flujo de GitHub Actions `.github/workflows/publicar_unidades.yml` se ejecuta cada vez que llega a `main` un cambio en `unidades/*/unidad_*.json`, en `unidades/*/recursos/`, en `unidades/*/html/` o en el motor (`herramientas/curso_completo/`). Hace lo siguiente:

@@ -5,8 +5,9 @@ name: Regenerar y publicar las unidades
 #   1. valida los tres JSON (si alguno falla, no publica nada);
 #   2. regenera las páginas de las unidades (unidades/uN/html/) y el catálogo de estaciones del editor;
 #   3. regenera el catálogo de preguntas (herramientas/CATALOGO_PREGUNTAS_PACE.xlsx);
-#   4. deja el SCORM del curso completo como archivo descargable de la ejecución;
-#   5. sube los archivos regenerados a main, y GitHub Pages los publica.
+#   4. sube los archivos regenerados a main, y GitHub Pages los publica;
+#   5. actualiza la página de descargas «Última versión» (Releases, etiqueta ultima-version), con enlaces fijos a:
+#      SCORM_CURSO_COMPLETO.zip, PACE_CURSO_COMPLETO.html, PAQUETE_UNIDAD_0N.zip y CATALOGO_PREGUNTAS_PACE.xlsx.
 # Así cada docente solo sube su JSON (y sus recursos); nadie necesita ejecutar construir_curso.py.
 # Si alguien sube a mano archivos de unidades/uN/html/, también se regeneran y quedan bien.
 
@@ -100,3 +101,41 @@ jobs:
             sleep 5
           done
           echo "No se pudo publicar: hubo cambios simultáneos. Vuelve a ejecutar el flujo." && exit 1
+
+      - name: Preparar las descargas
+        run: |
+          D="$RUNNER_TEMP/descargas"; mkdir -p "$D"
+          cp "$RUNNER_TEMP/scorm/SCORM_CURSO_COMPLETO.zip" "$D/"
+          python3 herramientas/curso_completo/html_unico.py "$D/SCORM_CURSO_COMPLETO.zip" "$D/PACE_CURSO_COMPLETO.html"
+          for u in unidades/u*/; do
+            n=$(basename "$u" | tr -dc '0-9'); j=$(ls "$u"unidad_*.json | head -1)
+            (cd "$u" && zip -q -r "$D/PAQUETE_UNIDAD_0$n.zip" "$(basename "$j")" $( [ -d recursos ] && echo recursos ))
+          done
+          cp herramientas/CATALOGO_PREGUNTAS_PACE.xlsx "$D/"
+          ls -la "$D"
+
+      - name: Actualizar la página «Última versión»
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          D="$RUNNER_TEMP/descargas"; R="https://github.com/${{ github.repository }}/releases/download/ultima-version"
+          FECHA=$(TZ=America/Santiago date '+%d-%m-%Y %H:%M')
+          MSG=$(git log -1 --format=%s ${{ github.sha }})
+          cat > "$RUNNER_TEMP/notas.md" <<NOTAS
+          Versión vigente del curso, generada automáticamente el **$FECHA** (hora de Chile), a partir del cambio \`${GITHUB_SHA::7}\`: «$MSG».
+
+          | Archivo | Para qué sirve |
+          |---|---|
+          | [SCORM_CURSO_COMPLETO.zip]($R/SCORM_CURSO_COMPLETO.zip) | Subir a SiveducMD |
+          | [PACE_CURSO_COMPLETO.html]($R/PACE_CURSO_COMPLETO.html) | El curso completo en un solo archivo, para abrir en el navegador |
+          | [PAQUETE_UNIDAD_01.zip]($R/PAQUETE_UNIDAD_01.zip) · [02]($R/PAQUETE_UNIDAD_02.zip) · [03]($R/PAQUETE_UNIDAD_03.zip) | Abrir cada unidad en el editor |
+          | [CATALOGO_PREGUNTAS_PACE.xlsx]($R/CATALOGO_PREGUNTAS_PACE.xlsx) | Catálogo de preguntas (incluye respuestas: uso interno) |
+
+          Los enlaces no cambian: siempre descargan la última versión.
+          NOTAS
+          sed -i 's/^          //' "$RUNNER_TEMP/notas.md"
+          if ! gh release view ultima-version >/dev/null 2>&1; then
+            gh release create ultima-version --title "Última versión" --notes-file "$RUNNER_TEMP/notas.md" --latest
+          fi
+          gh release upload ultima-version "$D"/* --clobber
+          gh release edit ultima-version --title "Última versión" --notes-file "$RUNNER_TEMP/notas.md"
