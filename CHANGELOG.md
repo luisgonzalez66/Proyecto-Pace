@@ -1,5 +1,10 @@
 # Versiones del curso (SCORM único)
 
+## 23-11-2026 (j) · El editor en la página «Última versión»
+
+- **«Última versión»:** la página de descargas incluye ahora `EDITOR_PACE.zip`, con la carpeta `editor/` completa.
+- **Motor del editor:** si una publicación trae cambios en el motor del curso (`herramientas/curso_completo/`), el flujo también regenera `editor/motor_bundle.js`. Así el editor descargado exporta con el motor vigente.
+
 ## 23-11-2026 (i) · Página de descargas «Última versión»
 
 - **Nueva página de descargas:** después de cada publicación automática, el flujo actualiza la página «Última versión» de GitHub (Releases, etiqueta `ultima-version`). Sus enlaces fijos siempre descargan lo vigente:

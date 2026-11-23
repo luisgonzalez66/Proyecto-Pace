@@ -46,7 +46,7 @@ Cuando llega a `main` un cambio en el JSON o en los recursos de una unidad, GitH
 1. valida las tres unidades (si alguna falla, no publica nada y la ejecución queda en rojo, con el motivo);
 2. regenera las páginas `unidades/uN/html/`, el catálogo de estaciones del editor y el catálogo de preguntas;
 3. las sube a `main`, y GitHub Pages las publica en 1 o 2 minutos;
-4. actualiza la página de descargas **[Última versión](https://github.com/luisgonzalez66/Proyecto-Pace/releases/tag/ultima-version)**, con enlaces fijos al SCORM del curso completo (para SiveducMD), al curso en un solo HTML, a los paquetes de las tres unidades (para el editor) y al catálogo de preguntas.
+4. actualiza la página de descargas **[Última versión](https://github.com/luisgonzalez66/Proyecto-Pace/releases/tag/ultima-version)**, con enlaces fijos al SCORM del curso completo (para SiveducMD), al curso en un solo HTML, a los paquetes de las tres unidades, al **editor completo** (`EDITOR_PACE.zip`) y al catálogo de preguntas.
 
 También se puede ejecutar a mano: pestaña *Actions* → «Regenerar y publicar las unidades» → *Run workflow*.
 
