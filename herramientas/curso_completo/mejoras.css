@@ -1,0 +1,57 @@
+/* Mejoras del 24-11-2026 (ver mejoras.js) */
+
+/* H1: botón compacto «← Unidad» en la barra superior cuando la barra de la estación se oculta por altura */
+#mjBack{display:none;margin-right:auto;height:30px}
+@media(max-height:660px){body.zs #mjBack{display:inline-flex}}
+
+/* 37: el encabezado del mapa ya no se sale de la pantalla en celular */
+@media(max-width:600px){
+ .map-topline{flex-wrap:wrap}
+ .map-topline>div{min-width:0;flex:1 1 100%}
+ .map-topline h1{overflow-wrap:anywhere}
+ .map-topline .map-summary{width:auto;flex:1 1 100%}
+}
+
+/* 39: el detalle técnico de la conexión no se muestra a los estudiantes (sigue en la página para el equipo) */
+#trackingDetails{display:none}
+
+/* H13: «Todas las unidades» abajo del mapa, con el mismo estilo que el botón de arriba */
+.bottom-back{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 13px 0 10px;border-radius:999px;border:1px solid color-mix(in srgb,var(--acc,#0a7d89) 28%,#fff);background:color-mix(in srgb,var(--acc,#0a7d89) 5%,#fff);color:var(--acc,#0a7d89);font:inherit;font-size:13px;font-weight:800;line-height:1;cursor:pointer;margin:6px 0 12px}
+.bottom-back:hover{background:color-mix(in srgb,var(--acc,#0a7d89) 12%,#fff)}
+
+/* H15: cuatro alternativas en 2 × 2; una columna en pantallas angostas o con alternativas largas */
+.choices:has(> button:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}
+.choices.mj-long{grid-template-columns:1fr!important}
+@media(max-width:700px){.choices:has(> button:nth-child(4):last-child){grid-template-columns:1fr}}
+
+/* H2: Explora ocupa todo el ancho, la ayuda no se corta y el botón de cerrar la vista ampliada queda encima */
+body.zs .app{width:100%}
+.zs-exinfo[open] .zs-exinfo-b{width:min(560px,calc(100vw - 48px));max-width:calc(100vw - 48px)}
+.ex-close{z-index:2147483600!important}
+.zs-toapl{min-height:36px;padding:4px 12px;font-size:13px;box-shadow:none}
+
+/* H6: META y simulacro; «respondida» en color neutro (no anticipa si está bien) */
+.mt-dot.ans{background:var(--navy);border-color:var(--navy);color:#fff}
+.mj-auto{margin:6px 0 0;font-size:12.5px;color:var(--muted,#5b6070)}
+.mj-miss{display:block;margin-top:6px}
+.mj-miss .linklike{min-width:30px;margin:2px;padding:2px 8px;border:2px solid var(--navy);border-radius:8px;background:#fff;color:var(--navy);font-weight:800;cursor:pointer}
+
+/* H7: otra ronda por sección */
+.mj-redo{margin-top:10px;text-align:center}
+.mj-redo small{display:block;margin-top:6px;font-size:12px;color:var(--muted,#5b6070)}
+
+/* H8: repaso sugerido en el mapa */
+.mj-rep{display:inline-flex;align-items:center;gap:5px;margin-top:4px;padding:1px 9px 1px 3px;border-radius:999px;background:#fff4d6;border:1px solid #e4b34a;color:#6d4a00;font-size:11.5px;font-weight:800;width:max-content}
+.mj-rep b{display:inline-grid;place-items:center;width:16px;height:16px;border-radius:50%;background:#b97800;color:#fff;font-size:11px}
+
+/* H9: estación completada */
+.mj-ov{position:fixed;inset:0;z-index:9500;background:rgba(20,20,40,.45);display:grid;place-items:center;padding:16px}
+.mj-dlg{position:relative;width:min(460px,100%);background:#fff;border:2px solid var(--navy);border-radius:18px;box-shadow:6px 6px 0 var(--navy);padding:20px 20px 16px;text-align:center;animation:mjIn .25s ease-out}
+.mj-dlg h2{margin:4px 0 6px;font-size:24px;color:var(--navy)}
+.mj-dlg p{margin:0 0 14px}
+.mj-chu{width:96px;height:auto;display:block;margin:-4px auto 4px}
+.mj-x{position:absolute;top:8px;right:8px;width:36px;height:36px;border-radius:50%;border:2px solid var(--navy);background:#fff;color:var(--navy);font-weight:900;cursor:pointer}
+.mj-acts{display:flex;flex-direction:column;gap:8px}
+.mj-acts .primary-btn,.mj-acts .ls-btn{width:100%;justify-content:center}
+@keyframes mjIn{from{transform:scale(.94);opacity:0}to{transform:none;opacity:1}}
+@media(prefers-reduced-motion:reduce){.mj-dlg{animation:none}}

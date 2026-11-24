@@ -25,7 +25,7 @@ function stratDraw(s,items,gOf,quota,salt,round){
  return out;}
 function drawnIndices(s){
  const n=s.practice.length,d=drawCount(s);
- if(!hasLevels(s)){if(d>=n)return [...Array(n).keys()];return stratDraw(s,s.practice,()=>0,[d],'N',roundOf(s));}
+ if(!hasLevels(s)){if(d>=n)return [...Array(n).keys()];return stratDraw(s,s.practice,()=>0,[d],'N',roundP(s));}
  const by=[[],[],[]];s.practice.forEach((q,i)=>by[lvlOf(q)-1].push(i));
  if(d>=n)return by[0].concat(by[1],by[2]);
- return stratDraw(s,s.practice,q=>lvlOf(q)-1,levelQuota(d,by.map(x=>x.length)),'L',roundOf(s));}
+ return stratDraw(s,s.practice,q=>lvlOf(q)-1,levelQuota(d,by.map(x=>x.length)),'L',roundP(s));}

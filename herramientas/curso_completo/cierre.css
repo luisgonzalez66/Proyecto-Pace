@@ -24,10 +24,13 @@
 .ci-how p{margin:6px 0}
 .ci-list{margin:6px 0 8px;padding-left:20px;columns:2;column-gap:28px}
 .ci-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
-.ci-dots{display:flex;gap:6px;margin:0 0 12px}
-.ci-dots i{width:14px;height:14px;border-radius:50%;background:#d5d3e6}
-.ci-dots i.ok{background:var(--green)}.ci-dots i.bad{background:var(--coral)}
-.ci-dots i.cur{box-shadow:0 0 0 3px color-mix(in srgb,var(--acc,#4b49a3) 35%,#fff)}
+.ci-dots{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 12px}
+.ci-dots button{min-width:34px;height:34px;border-radius:999px;border:2px solid #c9c6e2;background:#fff;color:var(--navy);font:inherit;font-size:13px;font-weight:800;cursor:pointer;padding:0 8px}
+.ci-dots button.ok{background:#e5f4e4;border-color:var(--green);color:#1d6b3a}.ci-dots button.ok::after{content:' ✓'}
+.ci-dots button.bad{background:#fbebeb;border-color:var(--coral);color:#8e2445}.ci-dots button.bad::after{content:' ✗'}
+.ci-dots button.cur{box-shadow:0 0 0 3px color-mix(in srgb,var(--acc,#4b49a3) 40%,#fff)}
+.ci-nav{display:flex;justify-content:space-between;gap:10px;margin-top:12px}
+.ci-warn{margin:10px 0 0;padding:8px 12px;border-radius:10px;background:#fff7e0;border:1px solid #efd08a;font-size:14px}
 .ci-q .quiz{margin:0}
 .ci-q .choices button.wrong{background:#fdecef;border-color:#e7a3b6;color:#a3284f}
 .ci-q .quiz.ci-ok,.ci-q .quiz.ci-bad{background:#fff}

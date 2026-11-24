@@ -35,7 +35,13 @@ function cierreCard(g,items){
  const st=last?'Último: '+last.c+'/'+last.n:done===items.length?'Recomendado ahora':'Al terminar el bloque';
  return `<button type="button" class="ci-card${done===items.length?' ready':''}" data-cierre="${g}" aria-label="Cierre del bloque: práctica mixta. ${esc(st)}"><span class="ci-ico" aria-hidden="true">⇄</span><span class="ci-copy"><strong>Cierre del bloque${cfg&&cfg.title?' · '+esc(cfg.title):''}</strong><small>Práctica mixta: ${n} ejercicios de las ${items.length} estaciones, sin decirte de cuál viene cada uno.</small></span><span class="ci-st">${esc(st)}</span></button>`;}
 function openCierre(g){const u=selectedUnit;CI={u,g,phase:ciCfg(u,g)?'guia':'intro',qs:[],idx:0,a:[]};showOnly('cierre');renderCierre();breadcrumbs();}
-function ciStart(){CI.qs=ciPick(CI.u,CI.g);CI.a=CI.qs.map(()=>'-');CI.idx=0;CI.phase='run';renderCierre();}
+function ciStart(){CI.qs=ciPick(CI.u,CI.g);CI.a=CI.qs.map(()=>'-');CI.pk=CI.qs.map(()=>null);CI.tv=CI.qs.map(()=>'');CI.idx=0;CI.conf=false;CI.phase='run';renderCierre();}
+/* Navegación libre (24-11-2026): Anterior, Siguiente y los puntos; lo respondido se muestra con su retroalimentación. */
+function ciGo(i){CI.idx=Math.max(0,Math.min(CI.qs.length-1,i));CI.conf=false;renderCierre();window.scrollTo({top:0,behavior:'instant'});}
+function ciFinish(){const left=CI.a.filter(x=>x==='-').length;if(left&&!CI.conf){CI.conf=true;const w=$('ciWarn');if(w){w.textContent='Te '+(left===1?'queda 1 ejercicio':'quedan '+left+' ejercicios')+' sin responder. Puedes volver a ellos con los números de arriba, o pulsar otra vez «Ver resultado» para terminar igual.';w.classList.remove('hidden');}return;}
+ CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};
+ try{if(typeof mjRepMark==='function'){const bad=[...new Set(CI.qs.map((x,k)=>CI.a[k]==='0'&&x.i>=0?x.i:-1).filter(i=>i>=0))];if(bad.length)mjRepMark(bad);}}catch(e){}
+ renderCierre();window.scrollTo({top:0,behavior:'instant'});}
 function ciHead(){const G=UNITS[CI.u].groups[CI.g],num=String(CI.g+1).padStart(2,'0');return `<span class="eyebrow">UNIDAD ${UNITS[CI.u].roman} · BLOQUE ${num} · CIERRE</span><h1>${esc(G.title)}</h1>`;}
 function ciIntroHTML(){
  const items=ciItems(CI.u,CI.g),cfg=ciCfg(CI.u,CI.g),n=(cfg&&cfg.n)||CI_N;
@@ -44,31 +50,38 @@ function ciIntroHTML(){
  if(CI.phase==='guia'){const f=cfg.figure&&cfg.figure.svg?`<figure class="ci-fig">${cfg.figure.svg}${cfg.figure.caption?`<figcaption>${esc(cfg.figure.caption)}</figcaption>`:''}</figure>`:'';
   return `<div class="ci-guide"><span class="eyebrow">ANTES DE PRACTICAR</span><h2>${esc(cfg.title||'¿Qué método conviene?')}</h2><div class="ci-guide-body"><div class="math-content">${cfg.idea?`<p>${ciRich(cfg.idea)}</p>`:''}${Array.isArray(cfg.pasos)&&cfg.pasos.length?`<ol class="ci-pasos">${cfg.pasos.map(x=>`<li>${ciRich(x)}</li>`).join('')}</ol>`:''}</div>${f}</div></div>${como}<div class="ci-row"><button type="button" class="primary-btn" id="ciGo">Empezar la práctica mixta</button><button type="button" class="ls-btn ghost" id="ciBack">Volver al mapa</button></div>`;}
  return `${como}<div class="ci-row"><button type="button" class="primary-btn" id="ciGo">Empezar</button><button type="button" class="ls-btn ghost" id="ciBack">Volver al mapa</button></div>`;}
-function ciDots(){return `<div class="ci-dots" aria-hidden="true">${CI.a.map((x,i)=>`<i class="${x==='1'?'ok':x==='0'?'bad':''}${i===CI.idx?' cur':''}"></i>`).join('')}</div>`;}
+function ciDots(){return `<div class="ci-dots" role="group" aria-label="Ejercicios">${CI.a.map((x,i)=>`<button type="button" data-cgo="${i}" class="${x==='1'?'ok':x==='0'?'bad':''}${i===CI.idx?' cur':''}" aria-label="Ejercicio ${i+1}${x==='1'?', correcto':x==='0'?', incorrecto':', sin responder'}"${i===CI.idx?' aria-current="step"':''}>${i+1}</button>`).join('')}</div>`;}
 function ciQHTML(){
  const it=CI.qs[CI.idx],q=it.q,lab='EJERCICIO '+(CI.idx+1)+' DE '+CI.qs.length;
  let h;if(q.type==='input')h=renderTyped(q,0,lab,false);
  else h=`<article class="quiz" data-step="0"><div class="quiz-head"><span>${lab}</span><span>Por resolver</span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-ck="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
- return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${CI.idx===CI.qs.length-1?'Ver resultado':'Siguiente ejercicio →'}</button></div></div>`;}
-function ciSolved(ok,box,pick){
- const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';window.chuReact&&chuReact(ok);
+ const last=CI.idx===CI.qs.length-1;
+ return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${last?'Ver resultado':'Siguiente ejercicio →'}</button></div><p class="ci-warn hidden" id="ciWarn" role="status" aria-live="polite"></p><div class="ci-nav"><button type="button" class="ls-btn ghost" id="ciPrev" ${CI.idx===0?'disabled':''}>← Anterior</button><button type="button" class="ls-btn ghost" id="ciSkip">${last?'Ver resultado':'Siguiente →'}</button></div></div>`;}
+function ciSolved(ok,box,pick,replay){
+ const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';if(!replay){CI.pk[CI.idx]=pick==null?null:pick;window.chuReact&&chuReact(ok);}
  let corr='';if(q.type==='input'){let t='';try{t=PACETyped.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
  const fb=box.querySelector('.feedback');fb.className='feedback '+(ok?'correct':'incorrect');
  fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ '+((pick!=null&&Array.isArray(q.fb)&&q.fb[pick])?'<b>'+rich(q.fb[pick])+'</b> ':'')+'La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
  box.querySelectorAll('button,input').forEach(b=>{b.disabled=true;});box.classList.add(ok?'ci-ok':'ci-bad');box.querySelectorAll('.keypad,.typed-hint,small').forEach(x=>{x.style.display='none';});
  const hd=box.querySelector('.quiz-head span:last-child');if(hd)hd.textContent=ok?'✓ Correcto':'✗ Incorrecto';
  $('ciFrom').innerHTML=it.i>=0?'Este ejercicio es de la estación <b>«'+esc(it.st)+'»</b>.':'Pregunta de <b>'+esc(it.st)+'</b>.';
- $('ciAfter').classList.remove('hidden');const dots=$('cierreView').querySelector('.ci-dots');if(dots)dots.outerHTML=ciDots();
- typesetMath(box);$('ciNext').focus({preventScroll:true});}
+ $('ciAfter').classList.remove('hidden');const dots=$('cierreView').querySelector('.ci-dots');if(dots){dots.outerHTML=ciDots();$('cierreView').querySelectorAll('[data-cgo]').forEach(b=>b.addEventListener('click',()=>ciGo(+b.dataset.cgo)));}
+ typesetMath(box);if(!replay)$('ciNext').focus({preventScroll:true});}
 function ciBindQ(){
  const root=$('cierreView'),box=root.querySelector('.quiz'),q=CI.qs[CI.idx].q;
- $('ciNext').addEventListener('click',()=>{if(CI.idx<CI.qs.length-1){CI.idx++;renderCierre();}else{CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};renderCierre();}window.scrollTo({top:0,behavior:'instant'});});
- if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k);}));return;}
+ const fwd=()=>{if(CI.idx<CI.qs.length-1)ciGo(CI.idx+1);else ciFinish();};
+ $('ciNext').addEventListener('click',fwd);$('ciSkip').addEventListener('click',fwd);$('ciPrev').addEventListener('click',()=>ciGo(CI.idx-1));
+ root.querySelectorAll('[data-cgo]').forEach(b=>b.addEventListener('click',()=>ciGo(+b.dataset.cgo)));
+ const done=CI.a[CI.idx]!=='-';
+ if(q.type!=='input'){const pickB=(k,rep)=>{const b=box.querySelector('button[data-ck="'+k+'"]'),ok=k===q.correct;if(b)b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k,rep);};
+  if(done&&CI.pk[CI.idx]!=null){pickB(CI.pk[CI.idx],true);return;}
+  box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;pickB(+b.dataset.ck,false);}));return;}
  const tb=box.querySelector('.typed'),inp=tb.querySelector('.typed-input'),prev=tb.querySelector('.typed-preview'),pad=tb.querySelector('.keypad'),kind=tb.dataset.kind;let tm=null;
  const upd=()=>{clearTimeout(tm);tm=setTimeout(()=>{const t=PACETyped.previewTex(kind,inp.value);if(window.MathJax&&MathJax.typesetClear)MathJax.typesetClear([prev]);if(t===''||t===null){prev.textContent=t===null?inp.value:'';prev.classList.toggle('bad',t===null);}else{prev.classList.remove('bad');prev.innerHTML='\\('+t+'\\)';typesetMath(prev);}},120);};
  inp.addEventListener('input',upd);pad.addEventListener('mousedown',e=>e.preventDefault());
  pad.addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(!b)return;typedInsert(inp,b.dataset.key);inp.focus();upd();});
- const go=()=>{if(CI.a[CI.idx]!=='-')return;const r=PACETyped.check(q,inp.value);
+ if(done){inp.value=CI.tv[CI.idx]||'';upd();ciSolved(CI.a[CI.idx]==='1',box,null,true);return;}
+ const go=()=>{if(CI.a[CI.idx]!=='-')return;const r=PACETyped.check(q,inp.value);CI.tv[CI.idx]=inp.value;
   if(r.state==='empty'||r.state==='invalid'||r.state==='reduce'){const fb=box.querySelector('.feedback');fb.textContent=r.state==='empty'?'Escribe tu respuesta antes de comprobar.':r.msg;fb.className='feedback incorrect';inp.focus();return;}
   ciSolved(r.state==='ok',box);};
  tb.querySelector('.typed-check').addEventListener('click',go);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go();}});}

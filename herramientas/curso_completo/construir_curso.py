@@ -28,7 +28,7 @@ idx=sub1(idx,_k,_k+'\n'+CHUJS)
 PRESCSS=open(HERE+'/presentacion.css',encoding='utf8').read()
 CICSS=open(HERE+'/cierre.css',encoding='utf8').read()
 NAVCSS=open(HERE+'/nav.css',encoding='utf8').read()
-DGCSS=open(HERE+'/diag.css',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.css',encoding='utf8').read()
+DGCSS=open(HERE+'/diag.css',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.css',encoding='utf8').read()+'\n'+open(HERE+'/mejoras.css',encoding='utf8').read()
 idx=sub1(idx,'</head>','<style>\n'+CHUCSS+'\n'+PRESCSS+'\n'+CICSS+'\n'+NAVCSS+'\n'+DGCSS+'\n</style></head>')
 # Texto dentro de fórmulas (\\text{...}) con la letra del curso: así la ñ y las tildes no salen de otra fuente (19-11-2026)
 idx=sub1(idx,"svg:{fontCache:'local'}","svg:{fontCache:'local',mtextInheritFont:true}")
@@ -113,7 +113,7 @@ PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
 # ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
 CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
 NAVJS=open(HERE+'/nav.js',encoding='utf8').read()
-DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()+'\n'+open(HERE+'/extras.js',encoding='utf8').read()
+DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()+'\n'+open(HERE+'/extras.js',encoding='utf8').read()+'\n'+open(HERE+'/mejoras.js',encoding='utf8').read()
 a=sub1(a,"let segments=[{label:'Inicio',action:()=>openHome()}];","let segments=[{label:'Unidades',action:()=>openHome()}];")
 a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView','diagView'])")
 a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});\n if(view==='diag')segments.push({label:'Antes de empezar'});")
@@ -130,7 +130,12 @@ a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
 # META FINAL: si el estudiante falló u omitió «Antes de empezar» en una estación, su pregunta de nivel 2 es la misma del diagnóstico (comparación antes/después).
 SORTEOJS=open(HERE+'/sorteo.js',encoding='utf8').read()
 a=rsub1(a,r"function drawnIndices\(s\)\{\n const n=s\.practice\.length.*?return out;\}",SORTEOJS)
-a=sub1(a,"const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));","const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundOf(s)).sort((x,y)=>x-y);};")
+a=sub1(a,"const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));","const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundC(s)).sort((x,y)=>x-y);};")
+# 24-11-2026 (H7): rondas de Practica y de Aplica por separado. state.rx[id] = {p, c (rondas extra), P, C (sección ya acreditada)}.
+a=sub1(a,"const roundOf=s=>Object.hasOwn(state.rd,s.id)?state.rd[s.id]:0;","const roundOf=s=>Object.hasOwn(state.rd,s.id)?state.rd[s.id]:0;\nconst rxOf=s=>(state&&state.rx&&state.rx[s.id])||{};const roundP=s=>roundOf(s)+(rxOf(s).p|0);const roundC=s=>roundOf(s)+(rxOf(s).c|0);")
+a=sub1(a,"const stationDone=i=>Object.hasOwn(state.dn,STATIONS[i].id)?milestoneCount(STATIONS[i]):rawDone(i);","const stationDone=i=>{const s=STATIONS[i];if(Object.hasOwn(state.dn,s.id))return milestoneCount(s);const x=(state.rx&&state.rx[s.id])||{};if(!x.P&&!x.C)return rawDone(i);const b=stationBits(i),dp=drawCount(s),cnt=t=>[...t].filter(c=>c==='1').length;return (b[0]==='1'?1:0)+(x.P?dp:cnt(b.slice(1,1+dp)))+(x.C?checkCount(s):cnt(b.slice(1+dp)));};")
+# H10: texto de la META oficial
+a=sub1(a,"No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial.","Esta evaluación no determina tu aprobación o reprobación. Al entregar tu primer intento oficial, habrás completado la META FINAL de esta unidad. El curso se completa al terminar las estaciones y la META FINAL de las tres unidades.")
 a=sub1(a,"const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];","const M=metaCfg(),mix=(M&&M.mix)||[2,'x'],out=[];")
 # META de 60 min (24-11-2026): 2 preguntas por estación. mix [2,'x']: nivel 2 (o la misma de «Antes de empezar») + 'x', que alterna
 # entre estaciones nivel 3 / problema tipo Aplica. Alternativas/escrita también alternan según estación y casillero.

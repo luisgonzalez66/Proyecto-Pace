@@ -1,5 +1,19 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (c) · Sugerencias de Henry y Diego (navegación, evaluaciones, rondas, repaso)
+
+- Pantallas bajas (notebook con zoom 100 %): botón «← Unidad» siempre visible en la barra superior de la estación.
+- META y simulacro: la respuesta escrita se guarda sola (sin «Guardar respuesta»); el panel marca «respondida» en azul marino, sin anticipar si es correcta; al entregar con preguntas pendientes se listan para volver a ellas.
+- Cierre de bloque: navegación libre (Anterior, Siguiente y números); lo respondido se ve con su retroalimentación; aviso si quedan ejercicios sin responder.
+- Navegación entre secciones: «← Aprende» en el primer ejercicio de Practica, «← Practica» en el primero de Aplica, «← Aplica» en Explora; también con las flechas del teclado.
+- Otra ronda de Practica o de Aplica por separado, sin perder avance (línea «R|» del progreso).
+- Repaso sugerido: lo que recomienda el Cierre de bloque queda marcado en el mapa hasta completar una ronda nueva de Practica.
+- Al completar una estación: ventana breve con el chucao y el paso siguiente (siguiente estación o Cierre del bloque); se cierra con ✕, Esc o clic fuera.
+- Chucao: «Te faltan N estaciones para que tu chucao evolucione», contando sobre todo el curso.
+- META: nuevo texto sobre aprobación y finalización (unidad vs. curso).
+- Explora: ancho completo en escritorio, la ayuda «¿Qué puedes hacer aquí?» ya no se corta y se cierra con Esc o clic fuera; el botón para salir de la vista ampliada queda visible.
+- Cuatro alternativas en 2 × 2 (una columna en celular o si son largas); «Todas las unidades» con el mismo estilo arriba y abajo; el mapa ya no se sale de la pantalla en celular; se ocultó el texto técnico «Moodle: …» del pie.
+
 ## 24-11-2026 (b) · Unidad II: Practica renovada
 
 - Las 720 preguntas de Practica de la Unidad II se regeneraron con `herramientas/punto_u2_variedad.py` (Aprende y Aplica no cambian).

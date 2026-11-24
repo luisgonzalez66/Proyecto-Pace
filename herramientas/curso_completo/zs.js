@@ -138,7 +138,8 @@ function zsBindKeys(nxt,prv){
 function zsRenderQuiz(){
  const host=$('stationContent'),s=STATIONS[stationIndex],qs=[...host.querySelectorAll(':scope > .quiz')];
  if(!qs.length)return;
- const key=s.id+'|'+activeTab+'|'+(typeof roundOf==='function'?roundOf(s):0),n=qs.length;   /* la ronda va en la clave: una ronda nueva parte en su primer ejercicio */
+ const zsRd=t=>t==='check'?(typeof roundC==='function'?roundC(s):roundOf(s)):(typeof roundP==='function'?roundP(s):roundOf(s));
+ const key=s.id+'|'+activeTab+'|'+zsRd(activeTab),n=qs.length;   /* la ronda va en la clave: una ronda nueva parte en su primer ejercicio */
  let cur=zsQ[key];
  if(cur==null||cur<0||cur>=n){cur=qs.findIndex(q=>!q.classList.contains('done'));if(cur<0)cur=0;}
  zsQ[key]=cur;
@@ -156,12 +157,15 @@ function zsRenderQuiz(){
  const toTab=cur===n-1?(activeTab==='practice'?'check':(activeTab==='check'&&typeof hasExplore==='function'&&hasExplore(s)?'explore':null)):null;
  const nextBtn=toTab?`<button type="button" class="zs-btn next" id="zsQNext">Ir a ${toTab==='check'?'Aplica':'Explora'} →</button>`
   :`<button type="button" class="zs-btn next" id="zsQNext" ${cur===n-1?'disabled':''}>Siguiente →</button>`;
+ /* En el primer ejercicio, «Anterior» vuelve a la sección previa: Aplica → Practica, Practica → Aprende (24-11-2026). */
+ const fromTab=cur===0?(activeTab==='check'?'practice':(activeTab==='practice'?'learn':null)):null;
+ const prevSec=()=>{if(fromTab==='learn'){const sc=zsScreens(s).scr;zsPos[s.id]={page:Math.max(0,sc.length-1),step:0};}else{zsQ[s.id+'|practice|'+zsRd('practice')]=Math.max(0,drawCount(s)-1);}save();selectTab(fromTab);};
  const bar=document.createElement('div');bar.className='zs-bottom';
- bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0?'disabled':''}>← Anterior</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div>${nextBtn}`;
+ bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0&&!fromTab?'disabled':''}>${fromTab?'← '+(fromTab==='learn'?'Aprende':'Practica'):'← Anterior'}</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div>${nextBtn}`;
  host.innerHTML='';wrap.append(top,body,bar);host.appendChild(wrap);
- if(redo){redo.classList.add('zs-redo');if(cur===n-1&&nDone===n)body.appendChild(redo);}
+ if(redo)redo.remove();   /* la otra ronda va por sección (mejoras.js) */
  const go=i=>{zsQ[key]=Math.max(0,Math.min(n-1,i));renderStation();};
- bar.querySelector('#zsQPrev').onclick=()=>go(cur-1);
+ bar.querySelector('#zsQPrev').onclick=()=>{if(fromTab)prevSec();else go(cur-1);};
  bar.querySelector('#zsQNext').onclick=()=>{if(toTab){save();selectTab(toTab);}else go(cur+1);};
  bar.querySelectorAll('.zs-qpip').forEach(b=>b.onclick=()=>go(Number(b.dataset.q)));
  new MutationObserver(zsRefit).observe(body,{childList:true,subtree:true,characterData:true});
@@ -177,7 +181,9 @@ function zsRenderQuiz(){
   const t=ev.target,cq=document.querySelector('.zs-qbody>.zs-cur');
   if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.disabled&&String(t.value||'').trim()!==''&&!(cq&&cq.classList.contains('done')))return;   /* con texto escrito, las flechas mueven el cursor */
   if(t&&t.isContentEditable)return;
-  const to=ev.key==='ArrowRight'?cur+1:cur-1;if(to<0||to>=n)return;
+  const to=ev.key==='ArrowRight'?cur+1:cur-1;
+  if(to<0){if(fromTab){ev.preventDefault();prevSec();}return;}
+  if(to>=n){if(toTab){ev.preventDefault();save();selectTab(toTab);}return;}
   ev.preventDefault();go(to);
  };
  document.addEventListener('keydown',window.__zsQKey);
@@ -187,7 +193,7 @@ function zsRenderQuiz(){
 
 /* ---------- EXPLORA ---------- */
 function zsRenderExplore(){
- const host=$('stationContent');if(!host.querySelector('.ex-frame')&&!host.querySelector('.ex-link'))return;
+ const host=$('stationContent'),s0=STATIONS[stationIndex];if(!host.querySelector('.ex-frame')&&!host.querySelector('.ex-link'))return;
  host.classList.add('zs-explore');
  const h2=host.querySelector(':scope > h2'),desc=host.querySelector(':scope > p.math-content'),note=host.querySelector(':scope > .ex-note'),instr=host.querySelector(':scope > .lc'),
   fr=host.querySelector('.ex-frame'),ctl=host.querySelector(':scope > .ls-ctl'),alt=host.querySelector(':scope > .ex-alt'),link=host.querySelector(':scope > p .ex-link');
@@ -203,7 +209,8 @@ function zsRenderExplore(){
  const area=document.createElement('div');area.className='zs-exarea';
  if(fr)area.appendChild(fr);else{const p=host.querySelector(':scope > p');if(p)area.appendChild(p);}
  const bar=document.createElement('div');bar.className='zs-exbar';
- bar.appendChild(info);if(ctl)bar.appendChild(ctl);
+ const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
+ bar.appendChild(toA);bar.appendChild(info);if(ctl)bar.appendChild(ctl);
  const keep=[...host.children].filter(e=>e.id==='exClose');
  host.innerHTML='';stage.append(top,area,bar);host.appendChild(stage);
  /* Los botones «Reiniciar» y «Vista ampliada» conservan sus manejadores porque se mueven los mismos nodos. */
