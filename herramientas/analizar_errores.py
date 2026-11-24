@@ -124,7 +124,7 @@ def main():
             pr = pe.get(k)
             filas_d.append([*k, d['n'], d['ok'], d['mal'], d['ns'], pct(d['ok'], d['n']), pct(d['ns'], d['n']),
                             pct(pr['p'] - pr['perr'], pr['p']) if pr else None, d['enun']])
-        hoja('Diagnóstico', ['Unidad', 'Estación', 'Estudiantes', 'Aciertan', 'Se equivocan', '«Todavía no lo sé»', '% acierto al entrar', '% «no lo sé»',
+        hoja('Diagnóstico', ['Unidad', 'Estación', 'Estudiantes', 'Aciertan', 'Se equivocan', 'Omitieron', '% acierto al entrar', '% omitieron',
                              '% acierto en Practica (1.er intento)', 'Pregunta de diagnóstico'], filas_d, [11, 32, 11, 10, 12, 13, 12, 11, 16, 70])
         res.append([]); res.append(['Diagnóstico «Antes de empezar»', len(diag)])
         res.append(['· Ver la hoja «Diagnóstico»: compara cómo llegan a cada estación con cómo les va en su Practica. No se incluye en los totales de arriba.'])
