@@ -3,3 +3,4 @@ Thumbs.db
 paquetes_locales/
 entregas_locales/
 *.zip
+__pycache__/
