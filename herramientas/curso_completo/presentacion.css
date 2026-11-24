@@ -1,7 +1,7 @@
 /* Presentación (18-11-2026): un acento por unidad, sin manchas decorativas en las estaciones, mejor contraste, figuras en Aprende */
-body[data-u="u1"]{--acc:#c2406f;--acc-soft:#fbe6ee}
-body[data-u="u2"]{--acc:#2f9a78;--acc-soft:#e2f4ee}
-body[data-u="u3"]{--acc:#4b49a3;--acc-soft:#e9e8fa}
+body[data-u="u1"]{--acc:#2F6DB0;--acc-soft:#e6eff8;--acc-dk:#1f4f84}
+body[data-u="u2"]{--acc:#9C3D7A;--acc-soft:#f6e8f1;--acc-dk:#742b5a}
+body[data-u="u3"]{--acc:#A8741F;--acc-soft:#f8efdf;--acc-dk:#7c5414}
 body.zs{background-image:none!important}
 body[data-u] #stationView .learning-panel{border-top-color:var(--acc)!important}
 body[data-u] #stationView .station-head{border-left-color:var(--acc)!important}

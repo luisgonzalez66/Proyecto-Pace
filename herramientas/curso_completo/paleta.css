@@ -1,0 +1,55 @@
+/* Sistema de colores (24-11-2026): un color, un significado.
+   Estructura: azul marino y grises (texto, marcos, pestaña activa, «respondida», «pendiente»).
+   Acción: amarillo, solo en botones principales.
+   Estado: verde = correcto/completado (✓) · rojo = incorrecto (✗) · ámbar = aviso (!) · «en curso» = marino con anillo a medio llenar.
+   Unidad: I azul #2F6DB0 · II ciruela #9C3D7A · III ocre #A8741F, siempre con su número romano. */
+:root{--ok:#2e7d4f;--ok-soft:#e6f2ea;--bad:#b91c1c;--bad-soft:#fbeaea;--warn:#b97800;--warn-ink:#6d4a00;--warn-soft:#fff4d6;--coral:#2b2a6b;--teal:#2b2a6b;--cyan:#55548f;--green:var(--ok)}
+body[data-u]{--coral:var(--acc)}
+/* unidades: tarjetas y mapa */
+.unit-card.theme-0{--accent:#2F6DB0!important;--soft:#e6eff8!important}
+.unit-card.theme-1{--accent:#9C3D7A!important;--soft:#f6e8f1!important}
+.unit-card.theme-2{--accent:#A8741F!important;--soft:#f8efdf!important}
+.group-theme-0,.group-theme-1,.group-theme-2,.group-theme-3{--block-accent:var(--acc,#2b2a6b)!important;--block-soft:var(--acc-soft,#eceaf5)!important}
+/* estados de las estaciones en el mapa (fondo y borde, además del número y el ✓) */
+.route-card.pending .route-marker{background:#f1f0f5!important;border-color:#c9c8d6!important}
+.route-card.pending .route-marker b{color:#55606b!important}
+.route-card.progress .route-marker{background:#eceaf5!important;border-color:#2b2a6b!important;border-style:dashed!important}
+.route-card.progress .route-marker b{color:#2b2a6b!important}
+.route-card.progress .mini-ring .arc{stroke:#2b2a6b!important}
+.route-card.completed .route-marker{background:var(--ok)!important;border-color:var(--ok)!important}
+.route-card.completed .route-marker b{color:#fff!important}
+.route-card.completed .mini-ring .arc{stroke:var(--ok)!important}
+.route-card.completed .mini-ring b{color:var(--ok)!important}
+/* respuestas */
+.choices button.correct{background:var(--ok-soft)!important;border-color:var(--ok)!important;color:#1d5a37!important}
+.choices button.wrong{background:var(--bad-soft)!important;border-color:var(--bad)!important;color:#8a1414!important}
+.feedback.correct{color:#1d5a37!important}
+.feedback.incorrect{color:var(--bad)!important}
+.zs-qpip.ok{background:var(--ok-soft)!important;border-color:var(--ok)!important;color:#1d5a37!important}
+.zs-qpip.on.ok{background:var(--ok)!important;border-color:var(--ok)!important;color:#fff!important}
+i.d1,.mt-dots i.d1{background:var(--ok)!important}
+i.d0,.mt-dots i.d0{background:var(--bad)!important}
+.mt-rev.ok summary .mt-mark{color:var(--ok)!important}
+.mt-rev.bad summary .mt-mark{color:var(--bad)!important}
+.ci-dots button.ok{background:var(--ok-soft);border-color:var(--ok);color:#1d5a37}
+.ci-dots button.bad{background:var(--bad-soft);border-color:var(--bad);color:#8a1414}
+.ci-q .choices button.wrong{background:var(--bad-soft)!important;border-color:var(--bad)!important;color:#8a1414!important}
+/* «respondida» en evaluaciones: neutro, no verde */
+.mt-saved.on{color:#2b2a6b!important}
+.mt-dot.ans{background:#2b2a6b!important;border-color:#2b2a6b!important;color:#fff!important}
+/* avisos en ámbar */
+.lc-warn,.zs-warn{border-color:var(--warn)!important}
+.lc-warn .lc-tag,.zs-warn .zs-tag{background:var(--warn-soft)!important;color:var(--warn-ink)!important;border-color:var(--warn)!important}
+.mt-bar.over,.mt-timeup{border-color:var(--warn)!important;color:var(--warn-ink)!important}
+.mt-bar.over .mt-clock{color:var(--warn-ink)!important}
+/* franjas decorativas con la paleta nueva: marino + colores de unidad */
+.top-accent{background:linear-gradient(90deg,#2b2a6b 0 25%,#2F6DB0 25% 50%,#9C3D7A 50% 75%,#A8741F 75%)!important}
+.footer{border-image:linear-gradient(90deg,#2b2a6b,#2F6DB0,#9C3D7A,#A8741F) 1!important}
+.track>span{background:linear-gradient(90deg,#55548f,var(--ok))!important}
+.map-unit-tag{background:var(--acc-soft,#eceaf5)!important;color:var(--acc-dk,#2b2a6b)!important}
+/* «Qué aprenderás» no es un estado: fondo neutro con el acento de la unidad (antes verde) */
+.zs-goal{background:var(--acc-soft,#f3f1fb)!important;box-shadow:4px 4px 0 var(--acc,#2b2a6b)!important}
+.zs-goal .zs-tag{background:var(--acc-dk,#2b2a6b)!important}
+.lc-goal{background:var(--acc-soft,#f3f1fb)!important;border-color:var(--acc,#2b2a6b)!important}
+.lc-goal .lc-tag{background:var(--acc-dk,#2b2a6b)!important}
+.zs-warn{background:#fff8e6!important;box-shadow:4px 4px 0 var(--warn)!important}

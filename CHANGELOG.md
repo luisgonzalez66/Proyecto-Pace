@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (d) · Sistema de colores
+
+- Un color, un significado (`herramientas/curso_completo/paleta.css`): azul marino y grises = estructura; amarillo = botón principal; verde = correcto/completado (✓); rojo = incorrecto (✗); ámbar = aviso (!); «en curso» = marino con borde punteado y anillo a medio llenar.
+- Colores de unidad iguales en la portada y en el curso: I azul #2F6DB0, II ciruela #9C3D7A, III ocre #A8741F (validados para daltonismo y contraste). Antes las unidades I y III cambiaban de color, y la II compartía el verde de «correcto».
+- Estados de las estaciones en el mapa con fondo y borde: gris pendiente, marino punteado en curso, verde lleno completada.
+- «Qué aprenderás» pasa de verde al tono de la unidad; «Presta atención» pasa de rosado a ámbar.
+
 ## 24-11-2026 (c) · Sugerencias de Henry y Diego (navegación, evaluaciones, rondas, repaso)
 
 - Pantallas bajas (notebook con zoom 100 %): botón «← Unidad» siempre visible en la barra superior de la estación.
