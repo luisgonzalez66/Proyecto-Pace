@@ -127,12 +127,13 @@ a=sub1(a,"Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/1
  "String(Math.round(ownStations(i).reduce((n,x)=>n+(x.s.minutes||0),0)/60*10)/10).replace('.',',')+' h previstas'")
 a=sub1(a,'T.keys(q.kind).map(','zsKeys(T.keys(q.kind)).map(')
 # Sorteo estratificado por modalidad (23-11-2026, propuesta de Henry): ver sorteo.js
+# META FINAL: si el estudiante falló u omitió «Antes de empezar» en una estación, su pregunta de nivel 2 es la misma del diagnóstico (comparación antes/después).
 SORTEOJS=open(HERE+'/sorteo.js',encoding='utf8').read()
 a=rsub1(a,r"function drawnIndices\(s\)\{\n const n=s\.practice\.length.*?return out;\}",SORTEOJS)
 a=sub1(a,"const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));","const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundOf(s)).sort((x,y)=>x-y);};")
 a=sub1(a,"const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];","const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];let mslot=0;")
 a=sub1(a,"mix.forEach(m=>{let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x);q=ap[Math.floor(r()*ap.length)]||null;}else q=take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});",
- "mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});")
+ "mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else if(m===2&&typeof dgQ==='function'&&['0','?'].includes((state.dg||{})[s.id])&&dgQ(s))q=dgQ(s);else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});")
 # «Omitir» en Antes de empezar (23-11-2026): respuesta «?» y resultado «neutral» (no «wrong»), también en preguntas de alternativas.
 a=sub1(a,"if(choice){const k=(resp===undefined||resp===null||resp==='')?NaN:Number(resp);","if(kind==='D'&&resp==='?'){sr='?';}else if(choice){const k=(resp===undefined||resp===null||resp==='')?NaN:Number(resp);")
 a=sub1(a,"set(p+'result',ok?'correct':'wrong');","set(p+'result',(kind==='D'&&resp==='?')?'neutral':(ok?'correct':'wrong'));")

@@ -46,8 +46,20 @@ def filas(unit):
         if d:
             alt = 'options' in d
             corr = '%s) %s' % (chr(97 + d['correct']), d['options'][d['correct']]) if alt else str(d['answer'])
-            out.append([f"{s['id']}.D.{b36(hash_str(d['q']))}", '', ROM[unit['id']], s['title'], 'Diagnóstico',
+            out.append([f"{s['id']}.D.{b36(hash_str(d['q']))}", f"{s['id']}.M.{b36(hash_str(d['q']))}", ROM[unit['id']], s['title'], 'Diagnóstico',
                         'Alternativas' if alt else 'Respuesta escrita', d.get('level'), re.sub(r'\s+', ' ', d['q']).strip(), corr])
+    return out
+
+def alternativas(unit):
+    """ID -> texto de las alternativas (para ver qué alternativa incorrecta eligen más)."""
+    out = {}
+    for s in unit['stations']:
+        items = [('P', q) for q in s['practice']] + [('A', q) for q in ([s['check']] if s.get('check') else []) + s['checks']]
+        if isinstance(s.get('diag'), dict) and s['diag'].get('q'): items.append(('D', s['diag']))
+        for k, q in items:
+            if 'options' in q:
+                h = b36(hash_str(q['q'])); t = ' | '.join('%s) %s' % (chr(97 + i), o) for i, o in enumerate(q['options']))
+                out[f"{s['id']}.{k}.{h}"] = t; out[f"{s['id']}.M.{h}"] = t; out.setdefault(f"{s['id']}.D.{h}", t)
     return out
 
 def encabezado(ws, widths):
@@ -58,13 +70,15 @@ def encabezado(ws, widths):
 def main():
     anterior = sys.argv[1] if len(sys.argv) > 1 else None
     salida = sys.argv[2] if len(sys.argv) > 2 else os.path.join(REPO, 'herramientas', 'CATALOGO_PREGUNTAS_PACE.xlsx')
-    rows = []
+    rows = []; alts = {}
     for n in '123':
-        rows += filas(json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json', encoding='utf8')))
+        u = json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json', encoding='utf8'))
+        rows += filas(u); alts.update(alternativas(u))
     wb = Workbook(); ws = wb.active; ws.title = 'Catalogo'
-    ws.append(['ID de la pregunta', 'ID en META FINAL', 'Unidad', 'Estación', 'Sección', 'Formato', 'Nivel', 'Enunciado', 'Respuesta correcta'])
-    for r in rows: ws.append(r)
+    ws.append(['ID de la pregunta', 'ID en META FINAL', 'Unidad', 'Estación', 'Sección', 'Formato', 'Nivel', 'Enunciado', 'Respuesta correcta', 'Alternativas'])
+    for r in rows: ws.append(r + [alts.get(r[0], '')])
     encabezado(ws, (26, 26, 12, 28, 10, 18, 7, 90, 30))
+    ws.column_dimensions['J'].width = 90
     lm = wb.create_sheet('Léeme')
     for t in ['Catálogo de preguntas del curso PACE (Unidades I, II y III).',
               'Cada fila relaciona el ID que el curso envía a SiveducMD con la pregunta.',
