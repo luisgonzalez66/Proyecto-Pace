@@ -1,5 +1,16 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (g) · Árbol de progreso (propuesta de Henry)
+
+- **Árbol por unidad** (`herramientas/curso_completo/arbol/`): el componente de Henry (`arbol-progreso.js`, misma API y reglas) se conecta al avance real del motor (`arbol.js`). No lleva un registro propio.
+  - Estación completada = Aprende, Practica y Aplica; en progreso = alguna de ellas; pendiente = ninguna.
+  - **Flor** de un bloque (decisión de Luis): sus estaciones completas **y** su Cierre de bloque terminado. Los bloques de una sola estación no tienen Cierre y florecen con la estación.
+  - **Frutos** en las cuatro ramas: unidad finalizada, es decir, estaciones completas y META FINAL entregada.
+- **Dónde aparece:** en el mapa de cada unidad, junto al chucao (debajo de él en el celular), con lo que falta («2 en progreso · 3 pendientes»). En «Todas las unidades», una miniatura en cada tarjeta.
+- **Ilustración v2:** el árbol crece hacia arriba (bloques 1 y 2 abajo, 3 y 4 arriba), con ramas que se afinan, una ramita por estación, copa del color de la unidad y suelo con pasto. Usa los colores de unidad de la paleta del curso y mantiene las tres siluetas.
+- **Avisos:** al florecer una rama o al dar frutos, un mensaje en la ventana de «Estación completada» o en un aviso breve. No se repiten al recargar.
+- **Guardado:** el Cierre de bloque ahora deja registro de que se terminó (línea `B|` del avance, unos pocos bytes). Sus respuestas siguen sin registrarse.
+
 ## 24-11-2026 (f) · Unidad II: «Ahora tú» y retroalimentación por alternativa
 
 - **«Ahora tú» (fila 14 de la revisión):** nueva pantalla de Aprende, antes del Cierre, con un ejemplo cuyos primeros pasos están resueltos y el último queda en blanco. El estudiante escribe un número y recibe un mensaje según su error. Tras dos intentos puede ver la respuesta. No cuenta para el avance.

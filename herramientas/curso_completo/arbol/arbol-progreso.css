@@ -1,0 +1,9 @@
+/* Estilos aislados para no interferir con el curso */
+.pace-arbol { width:100%; max-width: 440px; margin:0 auto; text-align:center; color:inherit; }
+.pace-arbol__svg { display:block; width:100%; height:auto; overflow:visible; font-family:system-ui,sans-serif; }
+.pace-arbol__resumen { margin:.15rem 0 0; font-size:clamp(.85rem,2.5vw,1rem); font-weight:650; line-height:1.35; }
+.pace-arbol__estado { margin:.25rem 0 0; font-size:.82rem; line-height:1.4; opacity:.82; }
+.pace-arbol__crecimiento { transform-origin:0 0; }
+.pace-arbol__crecimiento--animar { animation:pace-arbol-crecer .55s cubic-bezier(.2,.8,.25,1) both; }
+@keyframes pace-arbol-crecer { 0% {transform:scale(.25);opacity:.55} 72% {transform:scale(1.09);opacity:1} 100% {transform:scale(1);opacity:1} }
+@media(prefers-reduced-motion:reduce) { .pace-arbol__crecimiento--animar {animation:none} }

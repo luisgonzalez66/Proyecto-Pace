@@ -2,7 +2,8 @@
    Al final de cada bloque con 2 o más estaciones, el mapa ofrece un «Cierre del bloque»: ejercicios de las estaciones
    del bloque, mezclados y sin decir de qué estación vienen. Un intento por ejercicio; al final, un resumen por estación.
    Si el bloque trae groups[g].cierre = {title, idea, figure:{svg,caption}, practice:[...], take}, se muestra primero
-   esa pantalla-guía y se suman `take` preguntas de su `practice`. No se registra en el SCORM: es un repaso. */
+   esa pantalla-guía y se suman `take` preguntas de su `practice`. Las respuestas no se registran en el SCORM: es un repaso.
+   Solo se guarda que el Cierre se terminó (línea B| de arbol/arbol.js), porque hace florecer la rama del bloque en el árbol. */
 const CI_N=8;
 const CI_NEUTRO=[
  [/Resuelve (?:la ecuación )?(?:aplicando|con|usando) la fórmula general/g,'Resuelve la ecuación'],
