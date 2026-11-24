@@ -1,5 +1,14 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (b) · Unidad II: Practica renovada
+
+- Las 720 preguntas de Practica de la Unidad II se regeneraron con `herramientas/punto_u2_variedad.py` (Aprende y Aplica no cambian).
+  · Niveles por estructura: 1 = caso básico; 2 = coeficientes distintos de 1 o signos mezclados; 3 = dos letras, factor común previo, identidades al revés, detectar errores. Ninguna pregunta se repite entre niveles.
+  · En cada nivel, 10 de alternativas y 10 escritas. Nuevos tipos: detectar el error, operación inversa, evaluar sin desarrollar, cálculo mental, contexto. Las factorizaciones escritas se responden con un conjunto de números (p. ej. «4; 5»).
+  · Estación 1: lenguaje algebraico (traducir enunciados a expresiones), también en el Aprende.
+  · Respuestas verificadas con cálculo simbólico y con el corrector del curso.
+- Unidad III, «Igualdad e incógnita»: las 9 preguntas «Reemplaza $x=…$, ¿qué número se obtiene?» (repetían el valor numérico de la Unidad II) pasan a «prueba estos valores: ¿cuál es solución?».
+
 ## 24-11-2026 · META FINAL más corta y botones «Ir a Aplica» / «Ir a Explora»
 
 - META FINAL oficial: 60 minutos (70 en la Unidad I) y 2 preguntas por estación (28, 24 y 22 preguntas). En cada estación: una de dificultad media (la misma de «Antes de empezar» si se falló u omitió) y otra que alterna entre estaciones: nivel 3 / problema tipo Aplica. Alternativas y respuesta escrita también se alternan. En el JSON: `"meta": {"minutes": 60, "mix": [2, "x"]}`.

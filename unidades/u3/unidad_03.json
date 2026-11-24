@@ -198,25 +198,25 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 4$ en el lado izquierdo de la ecuación $$x + 9 = 15$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "13",
-     "why": "$4 + 9 = 13$, que no es $15$: ese valor no es solución.",
+     "q": "Prueba los valores $3,\\ 4,\\ 5,\\ 6,\\ 7$ en la ecuación $$x + 9 = 15$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "6",
+     "why": "Con $x=6$: el lado izquierdo da $15$ y el lado derecho también da $15$. Con los otros valores los dos lados no coinciden.",
      "level": 1
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 7$ en el lado izquierdo de la ecuación $$5x = 30$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "35",
-     "why": "$5\\cdot 7 = 35$, que no es $30$: ese valor no es solución.",
+     "q": "Prueba los valores $4,\\ 5,\\ 6,\\ 7,\\ 8$ en la ecuación $$5x = 30$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "6",
+     "why": "Con $x=6$: el lado izquierdo da $30$ y el lado derecho también da $30$. Con los otros valores los dos lados no coinciden.",
      "level": 1
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 8$ en el lado izquierdo de la ecuación $$x - 6 = 2$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "2",
-     "why": "$8 - 6 = 2$, que coincide con el lado derecho: es solución.",
+     "q": "Prueba los valores $6,\\ 7,\\ 8,\\ 9,\\ 10$ en la ecuación $$x - 6 = 2$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "8",
+     "why": "Con $x=8$: el lado izquierdo da $2$ y el lado derecho también da $2$. Con los otros valores los dos lados no coinciden.",
      "level": 1
     },
     {
@@ -426,33 +426,33 @@
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 3$ en el lado derecho de la ecuación $$5x - 2 = 3x + 8$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "17",
-     "why": "Lado derecho: $3\\cdot 3 + 8 = 17$. El lado izquierdo da $5\\cdot 3 - 2 = 13$, así que $x = 3$ no es solución.",
+     "q": "Prueba los valores $2,\\ 3,\\ 4,\\ 5,\\ 6$ en la ecuación $$5x - 2 = 3x + 8$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "5",
+     "why": "Con $x=5$: el lado izquierdo da $23$ y el lado derecho también da $23$. Con los otros valores los dos lados no coinciden.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 2$ en el lado derecho de la ecuación $$4x + 1 = 7x - 5$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "9",
-     "why": "Lado derecho: $7\\cdot 2 - 5 = 9$. El lado izquierdo da $4\\cdot 2 + 1 = 9$, así que $x = 2$ es solución.",
+     "q": "Prueba los valores $1,\\ 2,\\ 3,\\ 4,\\ 5$ en la ecuación $$4x + 1 = 7x - 5$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "2",
+     "why": "Con $x=2$: el lado izquierdo da $9$ y el lado derecho también da $9$. Con los otros valores los dos lados no coinciden.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 6$ en el lado izquierdo de la ecuación $$3x - 4 = 14$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "14",
-     "why": "Lado izquierdo: $3\\cdot 6 - 4 = 14$. El lado derecho es $14$, así que $x = 6$ es solución.",
+     "q": "Prueba los valores $2,\\ 3,\\ 4,\\ 5,\\ 6$ en la ecuación $$3x - 4 = x + 6$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "5",
+     "why": "Con $x=5$: el lado izquierdo da $11$ y el lado derecho también da $11$. Con los otros valores los dos lados no coinciden.",
      "level": 2
     },
     {
      "type": "input",
      "kind": "number",
-     "q": "Reemplaza $x = 5$ en el lado izquierdo de la ecuación $$2x + 7 = 20$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "17",
-     "why": "Lado izquierdo: $2\\cdot 5 + 7 = 17$. El lado derecho es $20$, así que $x = 5$ no es solución.",
+     "q": "Prueba los valores $1,\\ 2,\\ 3,\\ 4,\\ 5$ en la ecuación $$2x + 7 = 5x - 2$$ ¿Cuál de ellos es solución? Escribe solo ese valor.",
+     "answer": "3",
+     "why": "Con $x=3$: el lado izquierdo da $13$ y el lado derecho también da $13$. Con los otros valores los dos lados no coinciden.",
      "level": 2
     },
     {
@@ -773,18 +773,18 @@
     },
     {
      "type": "input",
-     "kind": "number",
-     "q": "Reemplaza $x = -3$ en la expresión $5 - 2x$. ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "11",
-     "why": "$5 - 2\\cdot(-3) = 5 + 6 = 11$. Cuidado con el signo al reemplazar un valor negativo.",
+     "kind": "set",
+     "q": "Prueba los valores enteros desde $-3$ hasta $3$ en la ecuación $$x^2 = x + 6$$ Escribe **todos** los que son solución, separados por punto y coma.",
+     "answer": "-2; 3",
+     "why": "Solo con $x=-2$ y con $x=3$ los dos lados dan lo mismo. Una ecuación puede tener más de una solución.",
      "level": 3
     },
     {
      "type": "input",
-     "kind": "number",
-     "q": "Reemplaza $x = 6$ en el lado izquierdo de la ecuación $$\\dfrac{x}{3} + 4(x - 5) = 6$$ ¿Qué número se obtiene? Escribe solo el número.",
-     "answer": "6",
-     "why": "$\\frac{6}{3} + 4(6 - 5) = 2 + 4 = 6$, igual al lado derecho: $x = 6$ es solución.",
+     "kind": "set",
+     "q": "Prueba los valores enteros desde $-3$ hasta $3$ en la ecuación $$x^2 + 2x = 3$$ Escribe **todos** los que son solución, separados por punto y coma.",
+     "answer": "-3; 1",
+     "why": "Solo con $x=-3$ y con $x=1$ los dos lados dan lo mismo. Una ecuación puede tener más de una solución.",
      "level": 3
     },
     {
@@ -11084,5 +11084,11 @@
   "Cierre de la unidad: plantea y resuelve problemas que llevan a ecuaciones cuadráticas."
  ],
  "schema": "pace-unit-v2",
- "meta": {"minutes": 60, "mix": [2, "x"]}
+ "meta": {
+  "minutes": 60,
+  "mix": [
+   2,
+   "x"
+  ]
+ }
 }
