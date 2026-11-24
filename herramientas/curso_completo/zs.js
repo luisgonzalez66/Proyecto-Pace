@@ -152,13 +152,17 @@ function zsRenderQuiz(){
  const stats=`<div class="zs-qstats" aria-label="Resumen de avance"><span>Resueltas <b>${nDone}/${n}</b></span><span>Pendientes <b>${n-nDone}</b></span></div>`;
  const top=document.createElement('div');top.className='zs-top';
  top.innerHTML=`<div class="zs-kick">${title} <i>·</i> <b>Ejercicio ${cur+1} de ${n}</b></div>${stats}`;
+ /* En el último ejercicio, «Siguiente» lleva a la sección que sigue: Practica → Aplica, Aplica → Explora (si la estación la tiene). */
+ const toTab=cur===n-1?(activeTab==='practice'?'check':(activeTab==='check'&&typeof hasExplore==='function'&&hasExplore(s)?'explore':null)):null;
+ const nextBtn=toTab?`<button type="button" class="zs-btn next" id="zsQNext">Ir a ${toTab==='check'?'Aplica':'Explora'} →</button>`
+  :`<button type="button" class="zs-btn next" id="zsQNext" ${cur===n-1?'disabled':''}>Siguiente →</button>`;
  const bar=document.createElement('div');bar.className='zs-bottom';
- bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0?'disabled':''}>← Anterior</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div><button type="button" class="zs-btn next" id="zsQNext" ${cur===n-1?'disabled':''}>Siguiente →</button>`;
+ bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0?'disabled':''}>← Anterior</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div>${nextBtn}`;
  host.innerHTML='';wrap.append(top,body,bar);host.appendChild(wrap);
  if(redo){redo.classList.add('zs-redo');if(cur===n-1&&nDone===n)body.appendChild(redo);}
  const go=i=>{zsQ[key]=Math.max(0,Math.min(n-1,i));renderStation();};
  bar.querySelector('#zsQPrev').onclick=()=>go(cur-1);
- bar.querySelector('#zsQNext').onclick=()=>go(cur+1);
+ bar.querySelector('#zsQNext').onclick=()=>{if(toTab){save();selectTab(toTab);}else go(cur+1);};
  bar.querySelectorAll('.zs-qpip').forEach(b=>b.onclick=()=>go(Number(b.dataset.q)));
  new MutationObserver(zsRefit).observe(body,{childList:true,subtree:true,characterData:true});
  /* Teclado matemático: 5 columnas ordenadas (dígitos y paréntesis · operaciones · potencias y raíz). */
