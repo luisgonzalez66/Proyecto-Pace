@@ -19,6 +19,7 @@ const hasDraw=s=>drawCount(s)<(s.practice||[]).length||checkCount(s)<checkBank(s
 function hashStr(t){let h=2166136261;for(const c of String(t)){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
 function rng(a){return()=>{a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
 const roundOf=s=>Object.hasOwn(state.rd,s.id)?state.rd[s.id]:0;
+const rxOf=s=>(state&&state.rx&&state.rx[s.id])||{};const roundP=s=>roundOf(s)+(rxOf(s).p|0);const roundC=s=>roundOf(s)+(rxOf(s).c|0);
 function windowIdx(s,n,d,salt,round){
  const idx=[...Array(n).keys()];
  if(d>=n)return idx;
@@ -60,12 +61,12 @@ function stratDraw(s,items,gOf,quota,salt,round){
  return out;}
 function drawnIndices(s){
  const n=s.practice.length,d=drawCount(s);
- if(!hasLevels(s)){if(d>=n)return [...Array(n).keys()];return stratDraw(s,s.practice,()=>0,[d],'N',roundOf(s));}
+ if(!hasLevels(s)){if(d>=n)return [...Array(n).keys()];return stratDraw(s,s.practice,()=>0,[d],'N',roundP(s));}
  const by=[[],[],[]];s.practice.forEach((q,i)=>by[lvlOf(q)-1].push(i));
  if(d>=n)return by[0].concat(by[1],by[2]);
- return stratDraw(s,s.practice,q=>lvlOf(q)-1,levelQuota(d,by.map(x=>x.length)),'L',roundOf(s));}
+ return stratDraw(s,s.practice,q=>lvlOf(q)-1,levelQuota(d,by.map(x=>x.length)),'L',roundP(s));}
 
-const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundOf(s)).sort((x,y)=>x-y);};
+const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundC(s)).sort((x,y)=>x-y);};
 function ensureSeed(){if(!Number.isInteger(state.seed)&&STATIONS.some(hasDraw))state.seed=Math.floor(Math.random()*1073741824);}
 const COUNT=STATIONS.reduce((v,s)=>v+milestoneCount(s),0);
 const $=id=>document.getElementById(id);
@@ -80,7 +81,7 @@ let view='home',selectedUnit=0,stationIndex=0,activeTab='learn',activeGroup=-1;
 const ownStations=u=>STATIONS.map((s,i)=>({s,i})).filter(({s})=>s.unit===u);
 const stationBits=i=>{const size=milestoneCount(STATIONS[i]),id=STATIONS[i]?.id;return (Object.hasOwn(state.p,id)?state.p[id]:'').padEnd(size,'0').slice(0,size);};
 const rawDone=i=>[...stationBits(i)].filter(c=>c==='1').length;
-const stationDone=i=>Object.hasOwn(state.dn,STATIONS[i].id)?milestoneCount(STATIONS[i]):rawDone(i);
+const stationDone=i=>{const s=STATIONS[i];if(Object.hasOwn(state.dn,s.id))return milestoneCount(s);const x=(state.rx&&state.rx[s.id])||{};if(!x.P&&!x.C)return rawDone(i);const b=stationBits(i),dp=drawCount(s),cnt=t=>[...t].filter(c=>c==='1').length;return (b[0]==='1'?1:0)+(x.P?dp:cnt(b.slice(1,1+dp)))+(x.C?checkCount(s):cnt(b.slice(1+dp)));};
 const percent=(done,total)=>!total?0:done===total?100:Math.min(99,Math.round(100*done/total));
 const stationPercent=i=>percent(stationDone(i),milestoneCount(STATIONS[i]));
 const stepDone=(i,j)=>stationBits(i)[j]==='1';
@@ -552,7 +553,7 @@ function metaHubHTML(){
  const ready=all?'':`<p class="mt-soft">Te recomendamos completar primero las ${STATIONS.filter(s=>s.unit===mu).length} estaciones. Aún no estás obligado a hacerlo para entrar.</p>`;
  return `<div class="mt-hero"><span class="eyebrow">META FINAL</span><h1>Evaluación de la Unidad ${UNITS[mu].roman}</h1><p>Mide lo que aprendiste en las ${STATIONS.filter(s=>s.unit===mu).length} estaciones: <b>${N} preguntas</b> pensadas para <b>${min} minutos</b>. Puedes intentarlo cuantas veces quieras.</p>${ready}</div>
  <div class="mt-cards"><section class="mt-card mt-prac"><span class="lc-tag">SIMULACRO</span><h2>Practica con reloj</h2><p class="mt-optlbl" id="mtOptLbl">Elige cuánto tiempo quieres practicar:</p><div class="mt-opts" role="radiogroup" aria-labelledby="mtOptLbl">${META_OPTS.map(m=>`<button type="button" role="radio" aria-checked="${m===metaPracMin}" class="mt-opt${m===metaPracMin?' on':''}" data-min="${m}"><b>${m} min</b><small>${metaOptN(m)} preguntas</small></button>`).join('')}</div><ul><li>Se arma una evaluación acorde al tiempo elegido, con preguntas de todas las estaciones.</li><li>El reloj corre, pero <b>no se cierra</b>: si pasas de los ${metaPracMin} minutos sigues y ves tu tiempo extra.</li><li>Las preguntas se sortean distintas cada vez.</li><li><b>El resultado no se guarda</b> ni se envía a SiveducMD.</li></ul><button type="button" class="ls-btn ls-next" id="mtPrac">Comenzar simulacro de ${metaPracMin} min</button></section>
- <section class="mt-card mt-off"><span class="lc-tag">OFICIAL</span><h2>META FINAL oficial</h2>${run?`<p class="mt-run">Tienes una evaluación <b>en curso</b>. Tiempo restante: <b id="mtHubLeft">${mmss(left)}</b>.</p><button type="button" class="primary-btn" id="mtResume">Continuar evaluación</button>`:`<ul><li><b>${min} minutos</b>. El reloj comienza <b>cuando tú aprietas «Comenzar»</b> y <b>no se detiene</b> aunque salgas o cierres la ventana.</li><li>Al terminar el tiempo la evaluación <b>se cierra sola</b> y se entrega con las respuestas que alcanzaste a guardar.</li><li>Puedes cambiar tus respuestas hasta entregar. No verás si son correctas hasta el final.</li><li>Cada intento trae preguntas distintas. Se registra en SiveducMD <b>tu mejor resultado</b>.</li><li>No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial.</li></ul><label class="mt-check"><input type="checkbox" id="mtOk"> Entendí cómo funciona y quiero comenzar ahora.</label><button type="button" class="primary-btn" id="mtGo" disabled>Comenzar evaluación oficial</button>`}
+ <section class="mt-card mt-off"><span class="lc-tag">OFICIAL</span><h2>META FINAL oficial</h2>${run?`<p class="mt-run">Tienes una evaluación <b>en curso</b>. Tiempo restante: <b id="mtHubLeft">${mmss(left)}</b>.</p><button type="button" class="primary-btn" id="mtResume">Continuar evaluación</button>`:`<ul><li><b>${min} minutos</b>. El reloj comienza <b>cuando tú aprietas «Comenzar»</b> y <b>no se detiene</b> aunque salgas o cierres la ventana.</li><li>Al terminar el tiempo la evaluación <b>se cierra sola</b> y se entrega con las respuestas que alcanzaste a guardar.</li><li>Puedes cambiar tus respuestas hasta entregar. No verás si son correctas hasta el final.</li><li>Cada intento trae preguntas distintas. Se registra en SiveducMD <b>tu mejor resultado</b>.</li><li>Esta evaluación no determina tu aprobación o reprobación. Al entregar tu primer intento oficial, habrás completado la META FINAL de esta unidad. El curso se completa al terminar las estaciones y la META FINAL de las tres unidades.</li></ul><label class="mt-check"><input type="checkbox" id="mtOk"> Entendí cómo funciona y quiero comenzar ahora.</label><button type="button" class="primary-btn" id="mtGo" disabled>Comenzar evaluación oficial</button>`}
  ${mt&&mt.b>=0?`<p class="mt-hist">Intentos entregados: <b>${att}</b> · Mejor resultado: <b>${mt.b} %</b>${mt.e?` · <button type="button" class="linklike" id="mtLast">Ver último intento</button>`:''}</p>`:''}<p id="mtMsg" class="mt-msg" role="status"></p></section></div>`;}
 function metaResHTML(S){
  const c=metaCount(S.a),N=S.a.length,pct=metaPct(S.a),used=Math.min(S.e-S.s,(S.secs||metaSecs())+(S.mode==='prac'?99999:0));
@@ -747,7 +748,8 @@ function zsBindKeys(nxt,prv){
 function zsRenderQuiz(){
  const host=$('stationContent'),s=STATIONS[stationIndex],qs=[...host.querySelectorAll(':scope > .quiz')];
  if(!qs.length)return;
- const key=s.id+'|'+activeTab+'|'+(typeof roundOf==='function'?roundOf(s):0),n=qs.length;   /* la ronda va en la clave: una ronda nueva parte en su primer ejercicio */
+ const zsRd=t=>t==='check'?(typeof roundC==='function'?roundC(s):roundOf(s)):(typeof roundP==='function'?roundP(s):roundOf(s));
+ const key=s.id+'|'+activeTab+'|'+zsRd(activeTab),n=qs.length;   /* la ronda va en la clave: una ronda nueva parte en su primer ejercicio */
  let cur=zsQ[key];
  if(cur==null||cur<0||cur>=n){cur=qs.findIndex(q=>!q.classList.contains('done'));if(cur<0)cur=0;}
  zsQ[key]=cur;
@@ -765,12 +767,15 @@ function zsRenderQuiz(){
  const toTab=cur===n-1?(activeTab==='practice'?'check':(activeTab==='check'&&typeof hasExplore==='function'&&hasExplore(s)?'explore':null)):null;
  const nextBtn=toTab?`<button type="button" class="zs-btn next" id="zsQNext">Ir a ${toTab==='check'?'Aplica':'Explora'} →</button>`
   :`<button type="button" class="zs-btn next" id="zsQNext" ${cur===n-1?'disabled':''}>Siguiente →</button>`;
+ /* En el primer ejercicio, «Anterior» vuelve a la sección previa: Aplica → Practica, Practica → Aprende (24-11-2026). */
+ const fromTab=cur===0?(activeTab==='check'?'practice':(activeTab==='practice'?'learn':null)):null;
+ const prevSec=()=>{if(fromTab==='learn'){const sc=zsScreens(s).scr;zsPos[s.id]={page:Math.max(0,sc.length-1),step:0};}else{zsQ[s.id+'|practice|'+zsRd('practice')]=Math.max(0,drawCount(s)-1);}save();selectTab(fromTab);};
  const bar=document.createElement('div');bar.className='zs-bottom';
- bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0?'disabled':''}>← Anterior</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div>${nextBtn}`;
+ bar.innerHTML=`<button type="button" class="zs-btn" id="zsQPrev" ${cur===0&&!fromTab?'disabled':''}>${fromTab?'← '+(fromTab==='learn'?'Aprende':'Practica'):'← Anterior'}</button><div class="zs-mid"><div class="zs-qpips" title="Con las flechas ← → del teclado cambias de ejercicio">${pips}</div></div>${nextBtn}`;
  host.innerHTML='';wrap.append(top,body,bar);host.appendChild(wrap);
- if(redo){redo.classList.add('zs-redo');if(cur===n-1&&nDone===n)body.appendChild(redo);}
+ if(redo)redo.remove();   /* la otra ronda va por sección (mejoras.js) */
  const go=i=>{zsQ[key]=Math.max(0,Math.min(n-1,i));renderStation();};
- bar.querySelector('#zsQPrev').onclick=()=>go(cur-1);
+ bar.querySelector('#zsQPrev').onclick=()=>{if(fromTab)prevSec();else go(cur-1);};
  bar.querySelector('#zsQNext').onclick=()=>{if(toTab){save();selectTab(toTab);}else go(cur+1);};
  bar.querySelectorAll('.zs-qpip').forEach(b=>b.onclick=()=>go(Number(b.dataset.q)));
  new MutationObserver(zsRefit).observe(body,{childList:true,subtree:true,characterData:true});
@@ -786,7 +791,9 @@ function zsRenderQuiz(){
   const t=ev.target,cq=document.querySelector('.zs-qbody>.zs-cur');
   if(t&&/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)&&!t.disabled&&String(t.value||'').trim()!==''&&!(cq&&cq.classList.contains('done')))return;   /* con texto escrito, las flechas mueven el cursor */
   if(t&&t.isContentEditable)return;
-  const to=ev.key==='ArrowRight'?cur+1:cur-1;if(to<0||to>=n)return;
+  const to=ev.key==='ArrowRight'?cur+1:cur-1;
+  if(to<0){if(fromTab){ev.preventDefault();prevSec();}return;}
+  if(to>=n){if(toTab){ev.preventDefault();save();selectTab(toTab);}return;}
   ev.preventDefault();go(to);
  };
  document.addEventListener('keydown',window.__zsQKey);
@@ -796,7 +803,7 @@ function zsRenderQuiz(){
 
 /* ---------- EXPLORA ---------- */
 function zsRenderExplore(){
- const host=$('stationContent');if(!host.querySelector('.ex-frame')&&!host.querySelector('.ex-link'))return;
+ const host=$('stationContent'),s0=STATIONS[stationIndex];if(!host.querySelector('.ex-frame')&&!host.querySelector('.ex-link'))return;
  host.classList.add('zs-explore');
  const h2=host.querySelector(':scope > h2'),desc=host.querySelector(':scope > p.math-content'),note=host.querySelector(':scope > .ex-note'),instr=host.querySelector(':scope > .lc'),
   fr=host.querySelector('.ex-frame'),ctl=host.querySelector(':scope > .ls-ctl'),alt=host.querySelector(':scope > .ex-alt'),link=host.querySelector(':scope > p .ex-link');
@@ -812,7 +819,8 @@ function zsRenderExplore(){
  const area=document.createElement('div');area.className='zs-exarea';
  if(fr)area.appendChild(fr);else{const p=host.querySelector(':scope > p');if(p)area.appendChild(p);}
  const bar=document.createElement('div');bar.className='zs-exbar';
- bar.appendChild(info);if(ctl)bar.appendChild(ctl);
+ const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
+ bar.appendChild(toA);bar.appendChild(info);if(ctl)bar.appendChild(ctl);
  const keep=[...host.children].filter(e=>e.id==='exClose');
  host.innerHTML='';stage.append(top,area,bar);host.appendChild(stage);
  /* Los botones «Reiniciar» y «Vista ampliada» conservan sus manejadores porque se mueven los mismos nodos. */
@@ -895,7 +903,13 @@ function cierreCard(g,items){
  const st=last?'Último: '+last.c+'/'+last.n:done===items.length?'Recomendado ahora':'Al terminar el bloque';
  return `<button type="button" class="ci-card${done===items.length?' ready':''}" data-cierre="${g}" aria-label="Cierre del bloque: práctica mixta. ${esc(st)}"><span class="ci-ico" aria-hidden="true">⇄</span><span class="ci-copy"><strong>Cierre del bloque${cfg&&cfg.title?' · '+esc(cfg.title):''}</strong><small>Práctica mixta: ${n} ejercicios de las ${items.length} estaciones, sin decirte de cuál viene cada uno.</small></span><span class="ci-st">${esc(st)}</span></button>`;}
 function openCierre(g){const u=selectedUnit;CI={u,g,phase:ciCfg(u,g)?'guia':'intro',qs:[],idx:0,a:[]};showOnly('cierre');renderCierre();breadcrumbs();}
-function ciStart(){CI.qs=ciPick(CI.u,CI.g);CI.a=CI.qs.map(()=>'-');CI.idx=0;CI.phase='run';renderCierre();}
+function ciStart(){CI.qs=ciPick(CI.u,CI.g);CI.a=CI.qs.map(()=>'-');CI.pk=CI.qs.map(()=>null);CI.tv=CI.qs.map(()=>'');CI.idx=0;CI.conf=false;CI.phase='run';renderCierre();}
+/* Navegación libre (24-11-2026): Anterior, Siguiente y los puntos; lo respondido se muestra con su retroalimentación. */
+function ciGo(i){CI.idx=Math.max(0,Math.min(CI.qs.length-1,i));CI.conf=false;renderCierre();window.scrollTo({top:0,behavior:'instant'});}
+function ciFinish(){const left=CI.a.filter(x=>x==='-').length;if(left&&!CI.conf){CI.conf=true;const w=$('ciWarn');if(w){w.textContent='Te '+(left===1?'queda 1 ejercicio':'quedan '+left+' ejercicios')+' sin responder. Puedes volver a ellos con los números de arriba, o pulsar otra vez «Ver resultado» para terminar igual.';w.classList.remove('hidden');}return;}
+ CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};
+ try{if(typeof mjRepMark==='function'){const bad=[...new Set(CI.qs.map((x,k)=>CI.a[k]==='0'&&x.i>=0?x.i:-1).filter(i=>i>=0))];if(bad.length)mjRepMark(bad);}}catch(e){}
+ renderCierre();window.scrollTo({top:0,behavior:'instant'});}
 function ciHead(){const G=UNITS[CI.u].groups[CI.g],num=String(CI.g+1).padStart(2,'0');return `<span class="eyebrow">UNIDAD ${UNITS[CI.u].roman} · BLOQUE ${num} · CIERRE</span><h1>${esc(G.title)}</h1>`;}
 function ciIntroHTML(){
  const items=ciItems(CI.u,CI.g),cfg=ciCfg(CI.u,CI.g),n=(cfg&&cfg.n)||CI_N;
@@ -904,31 +918,38 @@ function ciIntroHTML(){
  if(CI.phase==='guia'){const f=cfg.figure&&cfg.figure.svg?`<figure class="ci-fig">${cfg.figure.svg}${cfg.figure.caption?`<figcaption>${esc(cfg.figure.caption)}</figcaption>`:''}</figure>`:'';
   return `<div class="ci-guide"><span class="eyebrow">ANTES DE PRACTICAR</span><h2>${esc(cfg.title||'¿Qué método conviene?')}</h2><div class="ci-guide-body"><div class="math-content">${cfg.idea?`<p>${ciRich(cfg.idea)}</p>`:''}${Array.isArray(cfg.pasos)&&cfg.pasos.length?`<ol class="ci-pasos">${cfg.pasos.map(x=>`<li>${ciRich(x)}</li>`).join('')}</ol>`:''}</div>${f}</div></div>${como}<div class="ci-row"><button type="button" class="primary-btn" id="ciGo">Empezar la práctica mixta</button><button type="button" class="ls-btn ghost" id="ciBack">Volver al mapa</button></div>`;}
  return `${como}<div class="ci-row"><button type="button" class="primary-btn" id="ciGo">Empezar</button><button type="button" class="ls-btn ghost" id="ciBack">Volver al mapa</button></div>`;}
-function ciDots(){return `<div class="ci-dots" aria-hidden="true">${CI.a.map((x,i)=>`<i class="${x==='1'?'ok':x==='0'?'bad':''}${i===CI.idx?' cur':''}"></i>`).join('')}</div>`;}
+function ciDots(){return `<div class="ci-dots" role="group" aria-label="Ejercicios">${CI.a.map((x,i)=>`<button type="button" data-cgo="${i}" class="${x==='1'?'ok':x==='0'?'bad':''}${i===CI.idx?' cur':''}" aria-label="Ejercicio ${i+1}${x==='1'?', correcto':x==='0'?', incorrecto':', sin responder'}"${i===CI.idx?' aria-current="step"':''}>${i+1}</button>`).join('')}</div>`;}
 function ciQHTML(){
  const it=CI.qs[CI.idx],q=it.q,lab='EJERCICIO '+(CI.idx+1)+' DE '+CI.qs.length;
  let h;if(q.type==='input')h=renderTyped(q,0,lab,false);
  else h=`<article class="quiz" data-step="0"><div class="quiz-head"><span>${lab}</span><span>Por resolver</span></div><h3 class="math-content">${rich(q.q)}</h3><div class="choices">${q.options.map((o,k)=>`<button type="button" data-ck="${k}">${rich(o)}</button>`).join('')}</div><p class="feedback" role="status" aria-live="polite"></p></article>`;
- return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${CI.idx===CI.qs.length-1?'Ver resultado':'Siguiente ejercicio →'}</button></div></div>`;}
-function ciSolved(ok,box,pick){
- const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';window.chuReact&&chuReact(ok);
+ const last=CI.idx===CI.qs.length-1;
+ return `${ciDots()}<div class="ci-q">${h}<div class="ci-after hidden" id="ciAfter"><p class="ci-from" id="ciFrom"></p><button type="button" class="primary-btn" id="ciNext">${last?'Ver resultado':'Siguiente ejercicio →'}</button></div><p class="ci-warn hidden" id="ciWarn" role="status" aria-live="polite"></p><div class="ci-nav"><button type="button" class="ls-btn ghost" id="ciPrev" ${CI.idx===0?'disabled':''}>← Anterior</button><button type="button" class="ls-btn ghost" id="ciSkip">${last?'Ver resultado':'Siguiente →'}</button></div></div>`;}
+function ciSolved(ok,box,pick,replay){
+ const it=CI.qs[CI.idx],q=it.q;CI.a[CI.idx]=ok?'1':'0';if(!replay){CI.pk[CI.idx]=pick==null?null:pick;window.chuReact&&chuReact(ok);}
  let corr='';if(q.type==='input'){let t='';try{t=PACETyped.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
  const fb=box.querySelector('.feedback');fb.className='feedback '+(ok?'correct':'incorrect');
  fb.innerHTML=ok?'✓ '+rich(q.why||'Correcto.'):'✗ '+((pick!=null&&Array.isArray(q.fb)&&q.fb[pick])?'<b>'+rich(q.fb[pick])+'</b> ':'')+'La respuesta correcta es <span class="math-content">'+rich(corr)+'</span>. '+rich(q.why||'');
  box.querySelectorAll('button,input').forEach(b=>{b.disabled=true;});box.classList.add(ok?'ci-ok':'ci-bad');box.querySelectorAll('.keypad,.typed-hint,small').forEach(x=>{x.style.display='none';});
  const hd=box.querySelector('.quiz-head span:last-child');if(hd)hd.textContent=ok?'✓ Correcto':'✗ Incorrecto';
  $('ciFrom').innerHTML=it.i>=0?'Este ejercicio es de la estación <b>«'+esc(it.st)+'»</b>.':'Pregunta de <b>'+esc(it.st)+'</b>.';
- $('ciAfter').classList.remove('hidden');const dots=$('cierreView').querySelector('.ci-dots');if(dots)dots.outerHTML=ciDots();
- typesetMath(box);$('ciNext').focus({preventScroll:true});}
+ $('ciAfter').classList.remove('hidden');const dots=$('cierreView').querySelector('.ci-dots');if(dots){dots.outerHTML=ciDots();$('cierreView').querySelectorAll('[data-cgo]').forEach(b=>b.addEventListener('click',()=>ciGo(+b.dataset.cgo)));}
+ typesetMath(box);if(!replay)$('ciNext').focus({preventScroll:true});}
 function ciBindQ(){
  const root=$('cierreView'),box=root.querySelector('.quiz'),q=CI.qs[CI.idx].q;
- $('ciNext').addEventListener('click',()=>{if(CI.idx<CI.qs.length-1){CI.idx++;renderCierre();}else{CI.phase='res';const c=CI.a.filter(x=>x==='1').length;CI_LAST[CI.u+':'+CI.g]={c,n:CI.a.length};renderCierre();}window.scrollTo({top:0,behavior:'instant'});});
- if(q.type!=='input'){box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;const k=+b.dataset.ck,ok=k===q.correct;b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k);}));return;}
+ const fwd=()=>{if(CI.idx<CI.qs.length-1)ciGo(CI.idx+1);else ciFinish();};
+ $('ciNext').addEventListener('click',fwd);$('ciSkip').addEventListener('click',fwd);$('ciPrev').addEventListener('click',()=>ciGo(CI.idx-1));
+ root.querySelectorAll('[data-cgo]').forEach(b=>b.addEventListener('click',()=>ciGo(+b.dataset.cgo)));
+ const done=CI.a[CI.idx]!=='-';
+ if(q.type!=='input'){const pickB=(k,rep)=>{const b=box.querySelector('button[data-ck="'+k+'"]'),ok=k===q.correct;if(b)b.classList.add(ok?'correct':'wrong');if(!ok){const c=box.querySelector('button[data-ck="'+q.correct+'"]');if(c)c.classList.add('correct');}ciSolved(ok,box,k,rep);};
+  if(done&&CI.pk[CI.idx]!=null){pickB(CI.pk[CI.idx],true);return;}
+  box.querySelectorAll('button[data-ck]').forEach(b=>b.addEventListener('click',()=>{if(CI.a[CI.idx]!=='-')return;pickB(+b.dataset.ck,false);}));return;}
  const tb=box.querySelector('.typed'),inp=tb.querySelector('.typed-input'),prev=tb.querySelector('.typed-preview'),pad=tb.querySelector('.keypad'),kind=tb.dataset.kind;let tm=null;
  const upd=()=>{clearTimeout(tm);tm=setTimeout(()=>{const t=PACETyped.previewTex(kind,inp.value);if(window.MathJax&&MathJax.typesetClear)MathJax.typesetClear([prev]);if(t===''||t===null){prev.textContent=t===null?inp.value:'';prev.classList.toggle('bad',t===null);}else{prev.classList.remove('bad');prev.innerHTML='\\('+t+'\\)';typesetMath(prev);}},120);};
  inp.addEventListener('input',upd);pad.addEventListener('mousedown',e=>e.preventDefault());
  pad.addEventListener('click',e=>{const b=e.target.closest('button[data-key]');if(!b)return;typedInsert(inp,b.dataset.key);inp.focus();upd();});
- const go=()=>{if(CI.a[CI.idx]!=='-')return;const r=PACETyped.check(q,inp.value);
+ if(done){inp.value=CI.tv[CI.idx]||'';upd();ciSolved(CI.a[CI.idx]==='1',box,null,true);return;}
+ const go=()=>{if(CI.a[CI.idx]!=='-')return;const r=PACETyped.check(q,inp.value);CI.tv[CI.idx]=inp.value;
   if(r.state==='empty'||r.state==='invalid'||r.state==='reduce'){const fb=box.querySelector('.feedback');fb.textContent=r.state==='empty'?'Escribe tu respuesta antes de comprobar.':r.msg;fb.className='feedback incorrect';inp.focus();return;}
   ciSolved(r.state==='ok',box);};
  tb.querySelector('.typed-check').addEventListener('click',go);inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();go();}});}
@@ -1161,5 +1182,199 @@ const _sh2=showOnly;showOnly=function(v){if(v!=='station')rcClose();return _sh2.
    return r;};
   T.__soloRes=true;}
 })();
+
+/* Mejoras del 24-11-2026 (sugerencias de Henry y Diego, y revisión del 24-11).
+   · H1  En pantallas bajas (zoom 100 % en notebooks) la barra de la estación se oculta: se agrega un botón compacto
+         «← Unidad» en la barra superior, que siempre está visible.
+   · H6  META y simulacro: la respuesta escrita se guarda sola mientras se escribe (sin botón «Guardar respuesta»);
+         al entregar con preguntas sin responder se listan para volver a ellas.
+   · H7  Otra ronda de Practica o de Aplica por separado, sin perder el avance (líneas «R|» del suspend_data).
+   · H8  Repaso sugerido: lo que recomienda el Cierre de bloque queda marcado en el mapa hasta hacer una ronda nueva de Practica.
+   · H9  Al completar una estación por primera vez: ventana breve con el chucao y el paso siguiente.
+   · H16 Mensaje del chucao: «Te faltan N estaciones para que tu chucao evolucione», con el avance de todo el curso. */
+
+/* ---------- utilidades ---------- */
+function mjRx(s){if(!state.rx||typeof state.rx!=='object')state.rx={};return state.rx[s.id]||{};}
+function mjRxSet(s,o){if(!state.rx||typeof state.rx!=='object')state.rx={};state.rx[s.id]=Object.assign({},state.rx[s.id]||{},o);}
+function mjSecDone(i,tab){const s=STATIONS[i],b=stationBits(i),dp=drawCount(s);const part=tab==='practice'?b.slice(1,1+dp):b.slice(1+dp);return part.length>0&&!part.includes('0');}
+function mjFull(i){return stationDone(i)===milestoneCount(STATIONS[i]);}
+
+/* ---------- persistencia: línea R| (rondas por sección, créditos y repaso sugerido) ---------- */
+(function(){
+ const _ser=serializeState;
+ serializeState=function(){
+  const base=_ser.apply(this,arguments),R=state.rx||{};
+  const parts=Object.keys(R).filter(id=>STATIONS.some(s=>s.id===id)).map(id=>{const x=R[id]||{};
+   return id+':'+(x.p|0).toString(36)+'.'+(x.c|0).toString(36)+'.'+(x.P?'P':'')+(x.C?'C':'')+(x.v!=null?'V'+(x.v|0).toString(36)+(x.w?'w':''):'')+(x.k?'K':'');})
+   .filter(p=>!/:0\.0\.$/.test(p));
+  return parts.length?base+'\nR|'+parts.join(','):base;
+ };
+ const _rc=restoreCompact;
+ restoreCompact=function(raw){
+  let rx={};const lines=String(raw).split('\n');const j=lines.findIndex(l=>l.startsWith('R|'));
+  if(j>0){const L=lines.splice(j,1)[0].slice(2);
+   for(const p of L.split(',')){const m=/^([A-Za-z0-9_-]{2,44}):([0-9a-z]{1,3})\.([0-9a-z]{1,3})\.(P?)(C?)(?:V([0-9a-z]{1,3})(w?))?(K?)$/.exec(p);
+    if(m)rx[m[1]]={p:parseInt(m[2],36),c:parseInt(m[3],36),P:m[4]?1:0,C:m[5]?1:0,v:m[6]!=null?parseInt(m[6],36):null,w:m[7]?1:0,k:m[8]?1:0};}}
+  const r=_rc(lines.join('\n'));if(r&&r.val)r.val.rx=rx;return r;
+ };
+})();
+
+/* ---------- H1: botón compacto para volver a la unidad ---------- */
+function mjBackSync(){
+ const top=document.querySelector('.app-top');if(!top)return;
+ let b=document.getElementById('mjBack');
+ if(!b){b=document.createElement('button');b.type='button';b.id='mjBack';b.className='nv-back';
+  b.addEventListener('click',()=>{const o=document.getElementById('backMap');if(o)o.click();});
+  const brand=top.querySelector('.brand');if(brand&&brand.nextSibling)top.insertBefore(b,brand.nextSibling);else top.appendChild(b);}
+ const s=STATIONS[stationIndex],u=s&&UNITS[s.unit];
+ if(u){b.innerHTML='<span aria-hidden="true">←</span> Unidad '+esc(u.roman);b.setAttribute('aria-label','Volver a la Unidad '+u.roman);}
+}
+
+/* ---------- H7: otra ronda por sección ---------- */
+function mjRedo(tab){
+ const i=stationIndex,s=STATIONS[i];if(!s)return;
+ if(!canChange()){$('stationFeedback').textContent='La conexión SCORM no está disponible. No se puede iniciar otra ronda.';return;}
+ const dp=drawCount(s),b=stationBits(i).split(''),x=mjRx(s);
+ if(tab==='practice'){for(let k=1;k<=dp;k++)b[k]='0';mjRxSet(s,{P:1,p:(x.p|0)+1});}
+ else{for(let k=dp+1;k<b.length;k++)b[k]='0';mjRxSet(s,{C:1,c:(x.c|0)+1});}
+ state.p[s.id]=b.join('');activeTab=tab;state.tab=tab;
+ const ok=save();renderStation();
+ $('stationFeedback').textContent=ok?'↻ Nueva ronda de '+(tab==='practice'?'Practica':'Aplica')+'. Tu avance se mantiene.':'⚠ No se confirmó el guardado del progreso.';
+}
+function mjCanRedo(i,tab){const s=STATIONS[i];if(!s||!mjSecDone(i,tab))return false;return tab==='practice'?drawCount(s)<(s.practice||[]).length:checkCount(s)<checkBank(s).length;}
+function mjRedoBox(){
+ const host=document.querySelector('.zs-quiz .zs-qbody');if(!host||(activeTab!=='practice'&&activeTab!=='check'))return;
+ const cur=host.querySelector('.zs-cur');const all=[...host.querySelectorAll(':scope > .quiz')];
+ if(!cur||all.indexOf(cur)!==all.length-1||!mjCanRedo(stationIndex,activeTab))return;
+ const nm=activeTab==='practice'?'Practica':'Aplica';
+ const d=document.createElement('div');d.className='learn-finish mj-redo';
+ d.innerHTML=`<button class="primary-btn" type="button">↻ Otra ronda de ${nm}</button><small>Son ejercicios nuevos del banco. Tu avance se mantiene: esta ronda no lo reduce.</small>`;
+ d.querySelector('button').onclick=()=>mjRedo(activeTab);host.appendChild(d);
+}
+
+/* ---------- H8: repaso sugerido ---------- */
+function mjRepNeeded(i){const s=STATIONS[i],x=mjRx(s);return x.v!=null&&!x.k;}
+function mjRepCheck(i){   /* se quita sola al completar Practica en una ronda posterior a la recomendación */
+ const s=STATIONS[i],x=mjRx(s);if(x.v==null||x.k)return false;
+ const rp=(typeof roundP==='function')?roundP(s):roundOf(s);
+ if(mjSecDone(i,'practice')&&(rp>x.v||!x.w)){mjRxSet(s,{k:1});return true;}return false;}
+function mjRepMark(list){   /* list: índices de estaciones con errores en el Cierre */
+ list.forEach(i=>{const s=STATIONS[i];if(!s)return;const rp=(typeof roundP==='function')?roundP(s):roundOf(s);mjRxSet(s,{v:rp,w:mjSecDone(i,'practice')?1:0,k:0});});
+ try{save();}catch(e){}
+}
+function mjMapBadges(){
+ const r=$('route');if(!r)return;
+ r.querySelectorAll('.route-card[data-index]').forEach(c=>{const i=+c.dataset.index;if(!mjRepNeeded(i)||c.querySelector('.mj-rep'))return;
+  const cp=c.querySelector('.route-copy');if(cp)cp.insertAdjacentHTML('beforeend','<span class="mj-rep" title="El Cierre del bloque recomienda repasar esta estación. La marca se quita al completar una ronda nueva de Practica."><b aria-hidden="true">!</b> Repaso sugerido</span>');
+  c.setAttribute('aria-label',(c.getAttribute('aria-label')||'')+' Repaso sugerido.');});
+}
+
+/* ---------- H9: estación completada ---------- */
+let mjWas=null;
+function mjNextStation(i){const s=STATIONS[i],u=s.unit;const own=ownStations(u);const k=own.findIndex(x=>x.i===i);return k>=0&&k+1<own.length?own[k+1]:null;}
+function mjCelebrate(i){
+ const s=STATIONS[i],u=UNITS[s.unit],own=ownStations(s.unit),grp=own.filter(x=>x.s.group===s.group),lastOfGrp=grp.length&&grp[grp.length-1].i===i;
+ const grpDone=grp.every(x=>mjFull(x.i));const nx=mjNextStation(i);
+ let primary;
+ if(lastOfGrp&&grp.length>=2&&grpDone&&typeof openCierre==='function')primary={t:'Ir al Cierre del bloque →',f:()=>{openMap(s.unit,s.group);openCierre(s.group);}};
+ else if(nx)primary={t:'Siguiente estación: '+nx.s.title+' →',f:()=>openStation(nx.i)};
+ else primary={t:'Volver a la Unidad '+u.roman,f:()=>openMap(s.unit)};
+ const sec=[];
+ if(!(primary.t.startsWith('Volver')))sec.push({t:'Volver a la Unidad '+u.roman,f:()=>openMap(s.unit)});
+ if(mjCanRedo(i,'practice'))sec.push({t:'Otra ronda de Practica',f:()=>{openStation(i);mjRedo('practice');}});
+ if(mjCanRedo(i,'check'))sec.push({t:'Otra ronda de Aplica',f:()=>{openStation(i);mjRedo('check');}});
+ if(typeof hasExplore==='function'&&hasExplore(s))sec.push({t:'✦ Explora (opcional)',f:()=>{openStation(i);selectTab('explore');}});
+ const img=(window.CHUCAO&&CHUCAO.img)?CHUCAO.img[Math.max(0,chucaoStage(completed()?100:Math.min(99.9,100*doneCount()/COUNT))-1)]:'';
+ const ov=document.createElement('div');ov.className='mj-ov';ov.setAttribute('role','dialog');ov.setAttribute('aria-modal','true');ov.setAttribute('aria-labelledby','mjCelT');
+ ov.innerHTML=`<div class="mj-dlg"><button type="button" class="mj-x" aria-label="Cerrar">✕</button>${img?`<img class="mj-chu" alt="" src="${img}">`:''}<span class="eyebrow">ESTACIÓN ${esc(stLabel(i))} COMPLETADA</span><h2 id="mjCelT">¡Bien hecho!</h2><p>Terminaste <b>${esc(s.title)}</b>. Tu avance quedó guardado.</p><div class="mj-acts"><button type="button" class="primary-btn" data-a="0">${esc(primary.t)}</button>${sec.map((x,k)=>`<button type="button" class="ls-btn ghost" data-a="${k+1}">${esc(x.t)}</button>`).join('')}</div></div>`;
+ const acts=[primary,...sec];
+ const close=()=>{ov.remove();document.removeEventListener('keydown',esck);if(prevFocus&&prevFocus.focus)try{prevFocus.focus({preventScroll:true});}catch(e){}};
+ const esck=e=>{if(e.key==='Escape'){e.preventDefault();close();}};
+ const prevFocus=document.activeElement;
+ ov.addEventListener('click',e=>{if(e.target===ov)close();});
+ ov.querySelector('.mj-x').onclick=close;
+ ov.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{close();acts[+b.dataset.a].f();});
+ document.addEventListener('keydown',esck);document.body.appendChild(ov);
+ ov.querySelector('[data-a="0"]').focus({preventScroll:true});
+}
+(function(){
+ const _mark=mark;
+ mark=function(step){
+  const i=stationIndex,before=(i>=0&&STATIONS[i])?mjFull(i):true;
+  const r=_mark.apply(this,arguments);
+  try{const rep=mjRepCheck(i);if(rep)save();
+   if(!before&&mjFull(i))setTimeout(()=>mjCelebrate(i),450);}catch(e){}
+  return r;};
+})();
+
+/* ---------- H6: META y simulacro, respuestas escritas guardadas solas ---------- */
+(function(){
+ if(typeof metaBindQ!=='function')return;
+ const _b=metaBindQ;
+ metaBindQ=function(S){
+  _b.apply(this,arguments);
+  try{
+   const idx=metaIdx,it=S.qs[idx],q=it.q;if(q.type!=='input')return;
+   const root=$('metaBody'),box=root.querySelector('.typed'),inp=box.querySelector('.typed-input'),pad=box.querySelector('.keypad'),key=S.mode+S.n+':'+idx;
+   const chk=box.querySelector('.typed-check');if(chk)chk.remove();
+   const hint=document.createElement('p');hint.className='mj-auto';hint.textContent='Tu respuesta se guarda sola mientras escribes. Puedes cambiarla hasta entregar.';
+   box.appendChild(hint);
+   let pt=null;
+   const auto=()=>{
+    const v=inp.value;metaVals[key]=v;const r=PACETyped.check(q,v);const ch=r.state==='empty'?'-':(r.state==='ok'?'1':'0');
+    S.a[idx]=ch;const sv=$('mtSaved');if(sv){sv.textContent=ch==='-'?'Sin responder':'✓ Respuesta guardada';sv.classList.toggle('on',ch!=='-');}
+    const fb=$('mtFb');if(fb){
+     if(r.state==='invalid'){fb.textContent='Revisa cómo está escrita: '+(r.msg||'no se entiende la respuesta.')+' Si la entregas así, se contará incorrecta.';fb.className='feedback incorrect';}
+     else if(r.state==='reduce'){fb.textContent='Aún no está simplificada: así se contará incorrecta. Puedes corregirla antes de entregar.';fb.className='feedback incorrect';}
+     else{fb.textContent='';fb.className='feedback';}}
+    metaPalette(S);clearTimeout(pt);pt=setTimeout(()=>{try{metaPersist();}catch(e){}},700);
+   };
+   inp.addEventListener('input',auto);
+   pad.addEventListener('click',e=>{if(e.target.closest('button[data-key]'))setTimeout(auto,0);});
+   inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();e.stopImmediatePropagation();auto();}},true);
+  }catch(e){}
+ };
+ const _r=renderMeta;
+ renderMeta=function(){
+  const r=_r.apply(this,arguments);
+  try{mjChoices($('metaView'));}catch(e){}
+  try{const S=metaSess&&metaSess();if(S&&metaConfirm&&metaPhase!=='hub'&&!S.e){const w=document.querySelector('.mt-warn');const miss=S.a.map((c,i)=>c==='-'?i:-1).filter(i=>i>=0);
+   if(w&&miss.length&&!w.querySelector('.mj-miss')){w.insertAdjacentHTML('beforeend',`<span class="mj-miss">Sin responder: ${miss.map(i=>`<button type="button" class="linklike" data-mjgo="${i}">${i+1}</button>`).join(' ')}</span>`);
+    w.querySelectorAll('[data-mjgo]').forEach(b=>b.onclick=()=>{metaIdx=+b.dataset.mjgo;metaConfirm=false;renderMeta();});}}}catch(e){}
+  return r;};
+})();
+
+/* ---------- H16: mensaje del chucao ---------- */
+function mjStationsToStage(){   /* estaciones completas mínimas para alcanzar la siguiente etapa (0, 25, 50, 75 %) */
+ const TH=[0,25,50,75,100],p=completed()?100:Math.min(99.9,COUNT>0?100*doneCount()/COUNT:0),st=chucaoStage(p);
+ if(st>=4)return null;
+ const need=Math.ceil(TH[st]*COUNT/100)-doneCount();if(need<=0)return 1;
+ const rest=STATIONS.map((s,i)=>milestoneCount(s)-stationDone(i)).filter(x=>x>0).sort((a,b)=>a-b);
+ let acc=0,k=0;for(const r of rest){acc+=r;k++;if(acc>=need)break;}return Math.max(1,k);}
+(function(){
+ const _pm=paintMascot;
+ paintMascot=function(){const r=_pm.apply(this,arguments);
+  try{const n=document.getElementById('chuMapNext');if(n){const k=mjStationsToStage();
+    if(k!=null)n.textContent=(k===1?'Te falta 1 estación':'Te faltan '+k+' estaciones')+' para que tu chucao evolucione.';
+    else if(!completed())n.textContent='Completa las estaciones y la META FINAL de las tres unidades para que tu chucao llegue a su última etapa.';}}catch(e){}
+  return r;};
+})();
+
+/* ---------- H15: alternativas largas en una columna ---------- */
+function mjChoices(root){(root||document).querySelectorAll('.choices').forEach(c=>{const bs=[...c.children];const long=bs.some(b=>(b.textContent||'').replace(/\s+/g,' ').length>56);c.classList.toggle('mj-long',long);});}
+
+/* ---------- ganchos en el dibujo de estación y mapa ---------- */
+(function(){
+ const _rs=renderStation;
+ renderStation=function(){const r=_rs.apply(this,arguments);try{mjBackSync();mjRedoBox();mjChoices($('stationContent'));}catch(e){}return r;};
+ if(typeof renderCierre==='function'){const _rc=renderCierre;renderCierre=function(){const r=_rc.apply(this,arguments);try{mjChoices($('cierreView'));}catch(e){}return r;};}
+ if(typeof renderDiag==='function'){const _rd=renderDiag;renderDiag=function(){const r=_rd.apply(this,arguments);try{mjChoices($('diagView'));}catch(e){}return r;};}
+ const _rm=renderMap;
+ renderMap=function(){const r=_rm.apply(this,arguments);try{mjMapBadges();}catch(e){}return r;};
+})();
+
+/* H9 (ventanas informativas): «¿Qué puedes hacer aquí?» de Explora se cierra con Esc o con un clic fuera */
+document.addEventListener('click',e=>{document.querySelectorAll('details.zs-exinfo[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open');});});
+document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const d=document.querySelector('details.zs-exinfo[open]');if(d){d.removeAttribute('open');const s=d.querySelector('summary');if(s)s.focus();}});
 
 init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();paceSub('inicio');
