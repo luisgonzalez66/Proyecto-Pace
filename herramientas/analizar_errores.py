@@ -28,7 +28,10 @@ def leer_informe(ruta, excluir):
             g = grupos[n]
             qid = f[g['Pregunta']]
             if not qid: continue
-            reg.append(dict(nombre=f[ix['Nombre']], correo=correo, intento=f[ix['Intento']], n=n, id=str(qid),
+            qid = str(qid); mm = re.fullmatch(r'(.+)\.M(\d+)\.(\w+)', qid)  # META con número de intento oficial: «est.M2.hash»
+            meta_n = int(mm.group(2)) if mm else None
+            if mm: qid = f'{mm.group(1)}.M.{mm.group(3)}'
+            reg.append(dict(nombre=f[ix['Nombre']], correo=correo, intento=f[ix['Intento']], n=n, id=qid, meta_n=meta_n,
                             resp=f[g.get('Respuesta')] if 'Respuesta' in g else None,
                             corr=f[g['Respuesta correcta']] if 'Respuesta correcta' in g else None,
                             ok=str(f[g['Resultado']]).strip().lower() == 'correct',
@@ -137,6 +140,11 @@ def main():
     for k in cat:
         orden.setdefault(k.split('.')[0], len(orden))
     meta = [r for r in reg if r['seccion'] == 'META FINAL']
+    # Para comparar con el diagnóstico se usa solo el 1.er intento oficial de la META de cada estudiante en cada unidad
+    _cl = lambda r: (r['meta_n'] if r.get('meta_n') is not None else 0, str(r['intento']))
+    _pri = {}
+    for r in meta: _pri[(r['correo'], r['unidad'])] = min(_pri.get((r['correo'], r['unidad']), _cl(r)), _cl(r))
+    meta = [r for r in meta if _cl(r) == _pri[(r['correo'], r['unidad'])]]
     dvm = []
     if diag and meta:
         ent = {}
@@ -184,7 +192,8 @@ def main():
         for r in meta: dM[(r['correo'], r['unidad'])].append(r)
         for k in sorted(dM, key=lambda k: (k[1], k[0])):
             if k not in dE: continue
-            i0 = min(str(r['intento']) for r in dM[k]); ms = [r for r in dM[k] if str(r['intento']) == i0]
+            cl = lambda r: (r['meta_n'] if r.get('meta_n') is not None else 0, str(r['intento']))  # 1.er intento oficial de la META (o 1.er intento SCORM en datos antiguos)
+            i0 = min(cl(r) for r in dM[k]); ms = [r for r in dM[k] if cl(r) == i0]
             e = dE[k]
             es.append(dict(nombre=e[0]['nombre'], correo=k[0], unidad=k[1], ne=len(e), ae=sum(r['ok'] for r in e),
                            ns=len(ms), as_=sum(r['ok'] for r in ms)))

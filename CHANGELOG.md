@@ -1,5 +1,16 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (e) · Accesibilidad, celular y datos (revisión del 24-11)
+
+- **Fórmulas accesibles (fila 38):** cada fórmula tiene un nombre en texto para el lector de pantalla (por ejemplo «8x + 32») y ya no es una parada del tabulador. Las alternativas que son solo una fórmula ahora se leen.
+- **Contraste (fila 47):** el texto en color de unidad usa el tono oscuro (el ocre puro no alcanzaba 4,5:1), y «Empieza tu racha» se oscurece. El revisor axe no encuentra fallas WCAG AA en la estación probada.
+- **Celular (fila 46):** en pantallas táctiles, las teclas del teclado en pantalla miden 44 px y los números de ejercicio 40 × 40 px, en su propia fila sobre Anterior / Siguiente.
+- **Inicio del curso (fila 49):** si el estudiante aún no empieza, dice «Empieza aquí · Comenzar» en lugar de «Retoma tu ruta · Continuar».
+- **Nombre de la Unidad I (fila 40):** el título del JSON pasa a «Números», igual que la portada (pedido de Henry, 23-11). No se tocó ningún ejercicio de la Unidad I.
+- **META con número de intento (fila 43):** las respuestas de la META FINAL se registran como `estación.M1.código`, `estación.M2.código`… `analizar_errores.py` reconoce el formato y usa el 1.er intento oficial para comparar con el diagnóstico (también lee el formato antiguo `.M.`).
+- **Límite de 2000 respuestas (fila 50):** si se alcanza, el curso avisa una vez que el avance se sigue guardando.
+- **Nota en SiveducMD (fila 45):** nueva guía para docentes, `docs/NOTA_EN_SIVEDUCMD.md`.
+
 ## 24-11-2026 (d) · Sistema de colores
 
 - Un color, un significado (`herramientas/curso_completo/paleta.css`): azul marino y grises = estructura; amarillo = botón principal; verde = correcto/completado (✓); rojo = incorrecto (✗); ámbar = aviso (!); «en curso» = marino con borde punteado y anillo a medio llenar.

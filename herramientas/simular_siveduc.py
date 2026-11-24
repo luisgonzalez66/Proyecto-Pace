@@ -88,7 +88,7 @@ for i in range(N):
                 X = (rnd.choice([q for q in s['practice'] if q.get('level') == 3]), -0.6) if si % 2 == 0 else (rnd.choice(e['checks']), -0.2)
                 for q, extra in ((L2, 0), X):
                     r, ok = responder(q, sig(th + e['gan'] + extra - e['dif']), typical)
-                    inter.append((f"{s['id']}.M.{b36(hash_str(q['q']))}", r, 'correct' if ok else 'wrong'))
+                    inter.append((f"{s['id']}.M1.{b36(hash_str(q['q']))}", r, 'correct' if ok else 'wrong'))
     avance = round(100 * sum(1 for x in inter if '.D.' in x[0]) / len(EST))
     filas.append((nombre, f'estudiante{i + 1:03d}@ejemplo.cl', avance, inter))
 

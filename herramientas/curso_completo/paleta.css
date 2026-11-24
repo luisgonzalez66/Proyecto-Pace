@@ -53,3 +53,7 @@ i.d0,.mt-dots i.d0{background:var(--bad)!important}
 .lc-goal{background:var(--acc-soft,#f3f1fb)!important;border-color:var(--acc,#2b2a6b)!important}
 .lc-goal .lc-tag{background:var(--acc-dk,#2b2a6b)!important}
 .zs-warn{background:#fff8e6!important;box-shadow:4px 4px 0 var(--warn)!important}
+/* texto en color de unidad: tono oscuro para contraste AA (el ocre puro no alcanza 4,5:1 sobre fondo claro) */
+body[data-u] .nv-back{color:var(--acc-dk)!important}
+body[data-u] #stationView .map-unit-tag,body[data-u] .map-unit-tag{color:var(--acc-dk)!important}
+body[data-u] #stationView .station-no{background:var(--acc-dk)!important}

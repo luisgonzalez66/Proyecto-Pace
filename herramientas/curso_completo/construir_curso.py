@@ -133,6 +133,10 @@ a=rsub1(a,r"function drawnIndices\(s\)\{\n const n=s\.practice\.length.*?return 
 a=sub1(a,"const drawnChecks=s=>windowIdx(s,checkBank(s).length,checkCount(s),'#c',roundOf(s));","const drawnChecks=s=>{const B=checkBank(s),n=B.length,d=checkCount(s);if(d>=n)return [...Array(n).keys()];return stratDraw(s,B,()=>0,[d],'#c',roundC(s)).sort((x,y)=>x-y);};")
 # 24-11-2026 (H7): rondas de Practica y de Aplica por separado. state.rx[id] = {p, c (rondas extra), P, C (sección ya acreditada)}.
 a=sub1(a,"const roundOf=s=>Object.hasOwn(state.rd,s.id)?state.rd[s.id]:0;","const roundOf=s=>Object.hasOwn(state.rd,s.id)?state.rd[s.id]:0;\nconst rxOf=s=>(state&&state.rx&&state.rx[s.id])||{};const roundP=s=>roundOf(s)+(rxOf(s).p|0);const roundC=s=>roundOf(s)+(rxOf(s).c|0);")
+# 43 · las respuestas de la META llevan el número de intento oficial: id «estación.M<n>.hash»
+a=sub1(a,"reportInt('M',st,x.q,","reportInt('M'+(S.n+1),st,x.q,")
+# 50 · aviso al llegar al máximo de 2000 interacciones por intento SCORM
+a=sub1(a,"if(intN>=2000)return;","if(intN>=2000){if(typeof mjIntFull==='function')mjIntFull();return;}")
 a=sub1(a,"const stationDone=i=>Object.hasOwn(state.dn,STATIONS[i].id)?milestoneCount(STATIONS[i]):rawDone(i);","const stationDone=i=>{const s=STATIONS[i];if(Object.hasOwn(state.dn,s.id))return milestoneCount(s);const x=(state.rx&&state.rx[s.id])||{};if(!x.P&&!x.C)return rawDone(i);const b=stationBits(i),dp=drawCount(s),cnt=t=>[...t].filter(c=>c==='1').length;return (b[0]==='1'?1:0)+(x.P?dp:cnt(b.slice(1,1+dp)))+(x.C?checkCount(s):cnt(b.slice(1+dp)));};")
 # H10: texto de la META oficial
 a=sub1(a,"No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial.","Esta evaluación no determina tu aprobación o reprobación. Al entregar tu primer intento oficial, habrás completado la META FINAL de esta unidad. El curso se completa al terminar las estaciones y la META FINAL de las tres unidades.")
