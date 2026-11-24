@@ -1,5 +1,15 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 (f) · Unidad II: «Ahora tú» y retroalimentación por alternativa
+
+- **«Ahora tú» (fila 14 de la revisión):** nueva pantalla de Aprende, antes del Cierre, con un ejemplo cuyos primeros pasos están resueltos y el último queda en blanco. El estudiante escribe un número y recibe un mensaje según su error. Tras dos intentos puede ver la respuesta. No cuenta para el avance.
+  - El motor la muestra en cualquier estación que tenga `learn.fade` (`zs.js`, `zs.css`; formato en `docs/ESPECIFICACION_PARA_LA_IA.md`). Es el prototipo del 19-11 (rama `prototipo-ahora-tu`), adaptado a la paleta nueva y al celular.
+  - Las 12 estaciones de la Unidad II tienen su ejercicio.
+- **Retroalimentación por alternativa (fila 13):** las 466 preguntas de alternativas de la Unidad II (360 de Practica y 106 de Aplica) tienen ahora un mensaje para cada alternativa incorrecta (`fb`). Antes lo tenían 129.
+  - En Practica, los mensajes vienen de las plantillas de `herramientas/punto_u2_variedad.py`. Las preguntas generadas son idénticas a las anteriores, porque los mensajes no usan el sorteo.
+  - En Aplica se escribieron por familia de problema, según el error que produce cada distractor.
+- No se modificó ningún enunciado, alternativa ni respuesta.
+
 ## 24-11-2026 (e) · Accesibilidad, celular y datos (revisión del 24-11)
 
 - **Fórmulas accesibles (fila 38):** cada fórmula tiene un nombre en texto para el lector de pantalla (por ejemplo «8x + 32») y ya no es una parada del tabulador. Las alternativas que son solo una fórmula ahora se leen.

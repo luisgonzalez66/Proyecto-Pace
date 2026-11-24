@@ -63,6 +63,7 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 ```
 * `options`: de 2 a 8; recomendado **3 o 4**. `correct` es el **índice** (empieza en 0) de la correcta.
 * `why`: siempre una explicación breve que muestre el procedimiento.
+* `fb` (recomendado): una lista del mismo largo que `options`, con un mensaje breve para cada alternativa **incorrecta** y `""` en la correcta. Explica el error típico que lleva a esa alternativa («Falta el doble producto», «Revisa el signo…»), sin dar la respuesta. Se muestra cuando el estudiante elige esa alternativa.
 
 ### Pregunta de respuesta escrita (solo números y conjuntos)
 ```json
@@ -102,6 +103,21 @@ JSON en UTF-8. Los comentarios `//` de los ejemplos de abajo son solo explicaci�
 ### Aprende (`concept` + `example`)
 * 2 a 4 párrafos cortos (≈ 300–600 caracteres): definición, idea intuitiva, qué hay que recordar. Un ejemplo resuelto paso a paso y su verificación. Opcionalmente, hasta 3 ejemplos extra (`example2`, `example3`, `example4`): el estudiante ve el primero y despliega los demás con «Ver otro ejemplo»; conviene que cada uno muestre un caso distinto (otra forma de la ecuación, otro contexto).
 * Antes de escribir, pide o confirma el temario con el docente y usa **su** material (apuntes, programa) como fuente. No inventes definiciones.
+
+### «Ahora tú» en Aprende (`learn.fade`, opcional)
+Un ejemplo con los primeros pasos resueltos y **el último en blanco**, que el estudiante completa con un número antes de pasar a Practica. Aparece como pantalla «Ahora tú» antes del Cierre y no cuenta para el avance.
+```json
+"fade": {
+  "title": "Factoricemos $x^2-14x+49$. Los primeros pasos ya están hechos.",
+  "items": [ { "math": "x^2=(x)^2,\\quad 49=7^2", "why": "Los extremos son cuadrados." } ],
+  "blank": { "ask": "Completa el binomio. Escribe el número con su signo.",
+             "prompt": "x^2-14x+49=(x", "after": ")^2", "kind": "number", "answer": "-7",
+             "math": "x^2-14x+49=(x-7)^2", "why": "…", "okmsg": "…", "hint": "…",
+             "errors": [ { "value": "7", "msg": "El término central es negativo: el binomio lleva el signo menos." } ] }
+}
+```
+* `prompt` y `after`: lo que va antes y después del recuadro. `kind`: `number` o `set`, igual que en las respuestas escritas.
+* `errors`: respuestas equivocadas frecuentes con su mensaje; `hint` se muestra para cualquier otra respuesta incorrecta. Tras dos intentos aparece «Mostrar la respuesta».
 
 ### Practica (banco de 20 a 60, sorteo de 5)
 * Ejercicios del concepto de esa estación. **Cada pregunta lleva `"level"` (1, 2 o 3)**. El sorteo toma 2 de nivel 1, 2 de nivel 2 y 1 de nivel 3 y se los muestra al estudiante en ese orden (de fácil a difícil). Recomendado: el mismo número de ejercicios por nivel (p. ej. 20 + 20 + 20).

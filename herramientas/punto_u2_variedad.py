@@ -83,11 +83,16 @@ def rep(f, lv, n):
 # s001 · Lenguaje y valor numérico
 # =====================================================================
 TRAD1 = [  # (frase, correcta(n), malas(n))
-    ('el doble de un número, aumentado en {n}', lambda n: f'2x + {n}', lambda n: [f'2(x + {n})', f'x^{{2}} + {n}', f'2 + {n}x']),
-    ('un número disminuido en {n}', lambda n: f'x - {n}', lambda n: [f'{n} - x', f'{n}x', f'x + {n}']),
-    ('el triple de un número', lambda n: '3x', lambda n: ['x^{3}', 'x + 3', '3 + x']),
-    ('el cuadrado de un número, aumentado en {n}', lambda n: f'x^{{2}} + {n}', lambda n: [f'(x + {n})^{{2}}', f'2x + {n}', f'x^{{{n}}}']),
-    ('la mitad de un número, disminuida en {n}', lambda n: r'\frac{x}{2} - ' + str(n), lambda n: [r'\frac{x - ' + str(n) + '}{2}', f'2x - {n}', r'\frac{2}{x} - ' + str(n)]),
+    ('el doble de un número, aumentado en {n}', lambda n: f'2x + {n}', lambda n: [f'2(x + {n})', f'x^{{2}} + {n}', f'2 + {n}x'],
+     ['Así se suma antes de duplicar: primero se duplica el número y después se suma.', '«El doble» es multiplicar por $2$, no elevar al cuadrado.', 'El $2$ debe multiplicar al número.']),
+    ('un número disminuido en {n}', lambda n: f'x - {n}', lambda n: [f'{n} - x', f'{n}x', f'x + {n}'],
+     ['El orden importa: se parte del número y se le resta.', '«Disminuido» indica una resta, no una multiplicación.', '«Disminuido» indica restar, no sumar.']),
+    ('el triple de un número', lambda n: '3x', lambda n: ['x^{3}', 'x + 3', '3 + x'],
+     ['«El triple» es multiplicar por $3$, no elevar al cubo.', '«El triple» es multiplicar por $3$, no sumar $3$.', '«El triple» es multiplicar por $3$, no sumar $3$.']),
+    ('el cuadrado de un número, aumentado en {n}', lambda n: f'x^{{2}} + {n}', lambda n: [f'(x + {n})^{{2}}', f'2x + {n}', f'x^{{{n}}}'],
+     ['Así se eleva la suma completa; la frase eleva solo el número y después suma.', '«El cuadrado» es elevar a $2$, no multiplicar por $2$.', 'El número que se suma no es un exponente.']),
+    ('la mitad de un número, disminuida en {n}', lambda n: r'\frac{x}{2} - ' + str(n), lambda n: [r'\frac{x - ' + str(n) + '}{2}', f'2x - {n}', r'\frac{2}{x} - ' + str(n)],
+     ['Así se resta antes de dividir; la frase toma primero la mitad.', '«La mitad» es dividir por $2$, no multiplicar.', 'La mitad de $x$ es $x$ dividido por $2$, no $2$ dividido por $x$.']),
     ('{n} veces un número, menos {m}', lambda n, m=None: None, None),
 ]
 def s001(r):
@@ -106,14 +111,15 @@ def s001(r):
         return inp(f'¿Cuál es el término independiente de ${P([(a, "x^{2}"), (b, "x"), (c, "")])}$? Escribe solo el número, con su signo.', c,
                    f'El término independiente es el que no tiene letra: ${c}$.', lv)
     def trad1(lv):
-        f, ok, malas = r.choice(TRAD1[:5]); n = r.randint(2, 9)
+        f, ok, malas, fbs = r.choice(TRAD1[:5]); n = r.randint(2, 9)
         return mc(f'¿Qué expresión representa «{f.format(n=n)}»? Usa $x$ para el número.', D(ok(n)), [D(m) for m in malas(n)],
-                  f'Se escribe en el orden en que se dice: «{f.format(n=n)}» es ${ok(n)}$.', lv, r)
+                  f'Se escribe en el orden en que se dice: «{f.format(n=n)}» es ${ok(n)}$.', lv, r, fb=fbs)
     def term1(lv):
         n = r.randint(2, 4); mons = r.sample(['x^{3}', 'x^{2}', 'x', 'y', ''], n)
         e = P([(nz(r, -9, 9), m) for m in mons])
         return mc(f'¿Cuántos términos tiene la expresión ${e}$?', f'${n}$', [f'${k}$' for k in (1, 2, 3, 4, 5) if k != n],
-                  f'Los términos se separan por los signos $+$ y $-$ (que no estén dentro de un paréntesis): hay ${n}$.', lv, r)
+                  f'Los términos se separan por los signos $+$ y $-$ (que no estén dentro de un paréntesis): hay ${n}$.', lv, r,
+                  fb=[('Te faltó contar algún término: cada $+$ o $-$ que no está dentro de un paréntesis separa dos términos.' if k < n else 'Contaste de más: un número con su parte literal, como $-7x^{2}$, es un solo término.') for k in (1, 2, 3, 4, 5) if k != n])
     T[1] += rep(coef1, 1, 4)
     T[1] += rep(val1, 1, 4)
     T[1] += rep(ind1, 1, 2)
@@ -137,16 +143,21 @@ def s001(r):
         return inp(f'La temperatura en grados Fahrenheit es $F=\\dfrac{{9C}}{{5}}+32$. Calcula $F$ para $C={5 * h}$. Escribe solo el número.', 9 * h + 32,
                    f'$F=\\dfrac{{9\\cdot {5 * h}}}{{5}}+32={9 * h}+32={9 * h + 32}$.', lv)
     TRAD2 = [
-        ('el doble de la suma de un número y {n}', lambda n: f'2(x + {n})', lambda n: [f'2x + {n}', f'(x + {n})^{{2}}', f'2 + x + {n}']),
-        ('la suma del cuadrado de un número y {n}', lambda n: f'x^{{2}} + {n}', lambda n: [f'(x + {n})^{{2}}', f'2x + {n}', f'x^{{2}} + {n}^{{2}}']),
-        ('el cuadrado de la suma de un número y {n}', lambda n: f'(x + {n})^{{2}}', lambda n: [f'x^{{2}} + {n}', f'x^{{2}} + {n}^{{2}}', f'2(x + {n})']),
-        ('el triple de la diferencia entre un número y {n}', lambda n: f'3(x - {n})', lambda n: [f'3x - {n}', f'3({n} - x)', f'(x - {n})^{{3}}']),
-        ('la diferencia entre el triple de un número y {n}', lambda n: f'3x - {n}', lambda n: [f'3(x - {n})', f'{n} - 3x', f'x^{{3}} - {n}']),
+        ('el doble de la suma de un número y {n}', lambda n: f'2(x + {n})', lambda n: [f'2x + {n}', f'(x + {n})^{{2}}', f'2 + x + {n}'],
+         ['Así solo se duplica el número: «el doble de la suma» multiplica la suma completa, con paréntesis.', '«El doble» es multiplicar por $2$, no elevar al cuadrado.', '«El doble» es multiplicar por $2$, no sumar $2$.']),
+        ('la suma del cuadrado de un número y {n}', lambda n: f'x^{{2}} + {n}', lambda n: [f'(x + {n})^{{2}}', f'2x + {n}', f'x^{{2}} + {n}^{{2}}'],
+         ['Así se eleva la suma completa; la frase eleva solo el número.', '«El cuadrado» es elevar a $2$, no multiplicar por $2$.', 'Solo el número va al cuadrado; el otro sumando no.']),
+        ('el cuadrado de la suma de un número y {n}', lambda n: f'(x + {n})^{{2}}', lambda n: [f'x^{{2}} + {n}', f'x^{{2}} + {n}^{{2}}', f'2(x + {n})'],
+         ['«El cuadrado de la suma» eleva la suma completa: hace falta el paréntesis.', 'El cuadrado de una suma no es la suma de los cuadrados.', '«El cuadrado» es elevar a $2$, no multiplicar por $2$.']),
+        ('el triple de la diferencia entre un número y {n}', lambda n: f'3(x - {n})', lambda n: [f'3x - {n}', f'3({n} - x)', f'(x - {n})^{{3}}'],
+         ['Así solo se triplica el número: el triple de la diferencia lleva paréntesis.', 'El orden de la resta importa: es el número menos el otro.', '«El triple» es multiplicar por $3$, no elevar al cubo.']),
+        ('la diferencia entre el triple de un número y {n}', lambda n: f'3x - {n}', lambda n: [f'3(x - {n})', f'{n} - 3x', f'x^{{3}} - {n}'],
+         ['Así se triplica la diferencia completa; la frase triplica solo el número y después resta.', 'El orden de la resta importa: primero va el triple del número.', '«El triple» es multiplicar por $3$, no elevar al cubo.']),
     ]
     def trad2(lv):
-        f, ok, malas = r.choice(TRAD2); n = r.randint(2, 9)
+        f, ok, malas, fbs = r.choice(TRAD2); n = r.randint(2, 9)
         return mc(f'¿Qué expresión representa «{f.format(n=n)}»? Usa $x$ para el número.', D(ok(n)), [D(m) for m in malas(n)],
-                  'Fíjate en qué operación se hace **al final**: «el doble de la suma» multiplica la suma completa; «la suma del cuadrado» eleva solo el número.', lv, r)
+                  'Fíjate en qué operación se hace **al final**: «el doble de la suma» multiplica la suma completa; «la suma del cuadrado» eleva solo el número.', lv, r, fb=fbs)
     def signo2(lv):
         x = r.randint(2, 6)
         return mc(f'¿Cuál es el valor de $-x^{{2}}$ para $x=-{x}$?', f'${-x * x}$', [f'${x * x}$', f'${-2 * x}$', f'${2 * x}$'],
@@ -175,26 +186,34 @@ def s001(r):
         return inp(f'En la expresión ${P([(b, m2), (a, m1), (c, "")])}$, ¿cuál es el coeficiente del término ${m1}$? Escribe solo el número.', a,
                    f'Hay que fijarse en la parte literal completa: el término con ${m1}$ es ${P([(a, m1)])}$, y su coeficiente es ${a}$.', lv)
     TRAD3 = [
-        ('el producto de dos números consecutivos (el menor es $x$)', 'x(x + 1)', ['x + (x + 1)', 'x^{2} + 1', '2x + 1']),
-        ('la diferencia de los cuadrados de $a$ y $b$', 'a^{2} - b^{2}', ['(a - b)^{2}', '2a - 2b', 'a^{2} - b']),
-        ('el cuadrado de la diferencia entre $a$ y $b$', '(a - b)^{2}', ['a^{2} - b^{2}', '2(a - b)', 'a - b^{2}']),
-        ('la suma de tres números pares consecutivos (el menor es $2n$)', '2n + (2n + 2) + (2n + 4)', ['2n + (2n + 1) + (2n + 2)', '3 \\cdot 2n', '2n + 2 + 4']),
-        ('el promedio de $a$ y $b$, aumentado en {n}', '\\frac{a + b}{2} + {n}', ['\\frac{a + b + {n}}{2}', 'a + \\frac{b}{2} + {n}', '2(a + b) + {n}']),
+        ('el producto de dos números consecutivos (el menor es $x$)', 'x(x + 1)', ['x + (x + 1)', 'x^{2} + 1', '2x + 1'],
+         ['Eso es la suma de los consecutivos; se pide el producto.', 'El consecutivo de $x$ es $x+1$, y se multiplica por $x$ completo.', 'Eso es la suma de los dos consecutivos, no su producto.']),
+        ('la diferencia de los cuadrados de $a$ y $b$', 'a^{2} - b^{2}', ['(a - b)^{2}', '2a - 2b', 'a^{2} - b'],
+         ['Ese es el cuadrado de la diferencia; aquí se restan los cuadrados.', 'Elevar al cuadrado no es multiplicar por $2$.', 'También $b$ va al cuadrado.']),
+        ('el cuadrado de la diferencia entre $a$ y $b$', '(a - b)^{2}', ['a^{2} - b^{2}', '2(a - b)', 'a - b^{2}'],
+         ['Esa es la diferencia de los cuadrados; aquí se eleva la diferencia completa.', 'Elevar al cuadrado no es multiplicar por $2$.', 'Se eleva la diferencia completa, no solo $b$.']),
+        ('la suma de tres números pares consecutivos (el menor es $2n$)', '2n + (2n + 2) + (2n + 4)', ['2n + (2n + 1) + (2n + 2)', '3 \\cdot 2n', '2n + 2 + 4'],
+         ['Entre dos pares consecutivos hay una diferencia de $2$, no de $1$.', 'Los tres números no son iguales: cada uno es $2$ más que el anterior.', 'Faltan los $2n$ de los otros dos números.']),
+        ('el promedio de $a$ y $b$, aumentado en {n}', '\\frac{a + b}{2} + {n}', ['\\frac{a + b + {n}}{2}', 'a + \\frac{b}{2} + {n}', '2(a + b) + {n}'],
+         ['Así el número también se divide por $2$; se suma después de promediar.', 'El promedio divide la suma completa $a+b$ por $2$.', 'El promedio se divide por $2$, no se multiplica.']),
     ]
     def trad3(lv):
-        f, ok, malas = r.choice(TRAD3); n = r.randint(2, 9)
+        f, ok, malas, fbs = r.choice(TRAD3); n = r.randint(2, 9)
         f2 = f.replace('{n}', str(n)); ok2 = ok.replace('{n}', str(n))
         return mc(f'¿Qué expresión representa «{f2}»?', D(ok2), [D(m.replace('{n}', str(n))) for m in malas],
-                  f'Se traduce cada parte en orden: «{f2}» es ${ok2}$.', lv, r)
+                  f'Se traduce cada parte en orden: «{f2}» es ${ok2}$.', lv, r, fb=fbs)
     CTX3 = [
-        ('Una entrada al cine cuesta $p$ pesos y una bebida $b$ pesos. ¿Cuánto pagan {n} personas que compran entrada y bebida cada una?', '{n}(p + b)', ['{n}p + b', 'p + {n}b', '{n} + p + b']),
-        ('Un rectángulo mide $x$ cm de ancho y su largo es {n} cm más que el doble del ancho. ¿Qué expresión da su perímetro?', '2x + 2(2x + {n})', ['x + (2x + {n})', 'x(2x + {n})', '2x + 2(x + {n})']),
-        ('Un plan de celular cobra {n} mil pesos fijos más $c$ mil pesos por cada GB extra. ¿Cuánto se paga con $g$ GB extra?', '{n} + cg', ['({n} + c)g', '{n}g + c', '{n}c + g']),
+        ('Una entrada al cine cuesta $p$ pesos y una bebida $b$ pesos. ¿Cuánto pagan {n} personas que compran entrada y bebida cada una?', '{n}(p + b)', ['{n}p + b', 'p + {n}b', '{n} + p + b'],
+         ['Cada persona compra también una bebida: las bebidas se multiplican por la cantidad de personas.', 'Cada persona compra también una entrada: las entradas se multiplican por la cantidad de personas.', 'La cantidad de personas multiplica el gasto de cada una; no se suma.']),
+        ('Un rectángulo mide $x$ cm de ancho y su largo es {n} cm más que el doble del ancho. ¿Qué expresión da su perímetro?', '2x + 2(2x + {n})', ['x + (2x + {n})', 'x(2x + {n})', '2x + 2(x + {n})'],
+         ['Eso es la mitad del perímetro: cada lado aparece dos veces.', 'Eso es el área, no el perímetro.', 'El largo es el **doble** del ancho más el número.']),
+        ('Un plan de celular cobra {n} mil pesos fijos más $c$ mil pesos por cada GB extra. ¿Cuánto se paga con $g$ GB extra?', '{n} + cg', ['({n} + c)g', '{n}g + c', '{n}c + g'],
+         ['El cargo fijo se paga una vez: no se multiplica por los GB.', 'Lo que se multiplica por los GB es el cobro por GB, no el cargo fijo.', 'Se multiplica el precio por GB por la cantidad de GB.']),
     ]
     def ctx3(lv):
-        f, ok, malas = r.choice(CTX3); n = r.randint(2, 9)
+        f, ok, malas, fbs = r.choice(CTX3); n = r.randint(2, 9)
         return mc(f.replace('{n}', str(n)), D(ok.replace('{n}', str(n))), [D(m.replace('{n}', str(n))) for m in malas],
-                  f'La expresión correcta es ${ok.replace("{n}", str(n))}$: cada parte del enunciado corresponde a una operación.', lv, r)
+                  f'La expresión correcta es ${ok.replace("{n}", str(n))}$: cada parte del enunciado corresponde a una operación.', lv, r, fb=fbs)
     T[3] += rep(val3, 3, 4)
     T[3] += rep(frac3, 3, 3)
     T[3] += rep(coef3, 3, 3)
@@ -211,12 +230,14 @@ def s002(r):
         v = r.choice(VAR); a, b = r.randint(2, 9), r.randint(2, 9); c = r.randint(1, 9)
         ok = a + b - c
         return mc(f'Reduce ${P([(a, v), (b, v), (-c, v)])}$.', D(P([(ok, v)])), [D(P([(a + b + c, v)])), D(P([(ok, pw(v, 3))])), D(P([(a - b - c, v)]))],
-                  f'Son términos semejantes: se operan los coeficientes $({a}+{b}-{c})$ y se conserva ${v}$. Resultado ${P([(ok, v)])}$.', lv, r)
+                  f'Son términos semejantes: se operan los coeficientes $({a}+{b}-{c})$ y se conserva ${v}$. Resultado ${P([(ok, v)])}$.', lv, r,
+                  fb=['Revisa el signo: el último término se resta.', 'Al reducir, la parte literal no cambia: solo se operan los coeficientes.', 'Revisa los signos: solo el último término se resta.'])
     def sem1(lv):
         v = r.choice(['x', 'y', 'a']); a = r.randint(2, 9); b = nz(r, -9, 9, (a,))
         return mc(f'¿Cuál de estos términos es semejante a ${a}{pw(v, 2)}$?', D(P([(b, pw(v, 2))])),
                   [D(f'{a}{v}'), D(f'{a}{pw(v, 3)}'), D(f'{a}{pw(v, 2)}' + ('y' if v != 'y' else 'x'))],
-                  'Dos términos son semejantes si tienen **la misma parte literal** (mismas letras con los mismos exponentes); el coeficiente puede ser distinto.', lv, r)
+                  'Dos términos son semejantes si tienen **la misma parte literal** (mismas letras con los mismos exponentes); el coeficiente puede ser distinto.', lv, r,
+                  fb=['La letra debe tener el mismo exponente.', 'La letra debe tener el mismo exponente.', 'Tiene una letra más: la parte literal debe ser idéntica.'])
     def cof1(lv):
         v = r.choice(VAR); a, b, c = r.randint(2, 9), r.randint(2, 9), r.randint(1, 9)
         k = r.randint(1, 9)
@@ -268,7 +289,8 @@ def s002(r):
         ex = P([(a, 'xy'), (b, 'x'), (c, 'y'), (d, 'xy'), (e, 'x')])
         ok = P([(a + d, 'xy'), (b + e, 'x'), (c, 'y')])
         return mc(f'Reduce ${ex}$.', D(ok), [D(P([(a + d + b + e + c, 'xy')])), D(P([(a + d, 'xy'), (b + e + c, 'x')])), D(P([(a + d, 'x^{2}y^{2}'), (b + e, 'x'), (c, 'y')]))],
-                  f'Se agrupan las partes literales iguales: $xy$ con $xy$ y $x$ con $x$. El término con $y$ queda solo. Resultado: ${ok}$.', lv, r)
+                  f'Se agrupan las partes literales iguales: $xy$ con $xy$ y $x$ con $x$. El término con $y$ queda solo. Resultado: ${ok}$.', lv, r,
+                  fb=['Solo se suman términos con la misma parte literal: $xy$, $x$ e $y$ son distintas.', 'El término con $y$ no es semejante a los términos con $x$.', 'Al sumar $xy$ con $xy$ la parte literal no cambia: sigue siendo $xy$.'])
     def fr3(lv):
         p, q = r.choice([(2, 4), (3, 6), (2, 3), (4, 2), (3, 2)]); a = r.randint(1, 3); b = r.randint(1, 3); c = r.randint(1, 2)
         val = F(a, p) + F(b, q) - c
@@ -280,7 +302,8 @@ def s002(r):
         a, b = r.randint(2, 6), r.randint(2, 6)
         return mc(f'Una estudiante reduce ${a}x^{{2}}y + {b}xy^{{2}}$ y escribe ${a + b}x^{{2}}y^{{2}}$. ¿Qué es correcto?',
                   'No se puede reducir: $x^{2}y$ y $xy^{2}$ no son semejantes', [f'Está bien: el resultado es ${a + b}x^{{2}}y^{{2}}$', f'El resultado es ${a + b}x^{{3}}y^{{3}}$', f'El resultado es ${a + b}xy$'],
-                  'En $x^2y$ el $x$ va al cuadrado; en $xy^2$, la $y$. Las partes literales son distintas, así que la expresión ya está reducida.', lv, r)
+                  'En $x^2y$ el $x$ va al cuadrado; en $xy^2$, la $y$. Las partes literales son distintas, así que la expresión ya está reducida.', lv, r,
+                  fb=['$x^{2}y$ y $xy^{2}$ tienen distinta parte literal: no son semejantes.', 'Al reducir no se suman exponentes; además, estos términos no son semejantes.', 'Los exponentes no desaparecen; además, estos términos no son semejantes.'])
     def per3(lv):
         a, b, c = r.randint(1, 5), r.randint(1, 5), r.randint(1, 5); k1, k2, k3 = nz(r, -4, 6), nz(r, -4, 6), nz(r, -4, 6)
         L = [P([(a, 'x'), (k1, '')]), P([(b, 'x'), (k2, '')]), P([(c, 'x'), (k3, '')])]
@@ -324,7 +347,8 @@ def s003(r):
         a = r.randint(2, 9); b = r.randint(1, 9); c = nz(r, -9, 9)
         ok = P([(a - b, 'x'), (-c, '')])
         return mc(f'Elimina el paréntesis y reduce: ${a}x - {par(lin(b, c))}$.', D(ok), [D(P([(a - b, 'x'), (c, '')])), D(P([(a + b, 'x'), (-c, '')])), D(P([(a - b, 'x'), (-c, ''), (0, '')]) + ' + 0' if False else P([(a + b, 'x'), (c, '')]))],
-                  f'El signo menos delante del paréntesis cambia **todos** los signos de adentro: ${P([(a, "x"), (-b, "x"), (-c, "")])} = {ok}$.', lv, r)
+                  f'El signo menos delante del paréntesis cambia **todos** los signos de adentro: ${P([(a, "x"), (-b, "x"), (-c, "")])} = {ok}$.', lv, r,
+                  fb=['El signo menos también cambia el signo del término independiente.', 'El signo menos también cambia el signo del término con $x$.', 'El signo menos cambia **todos** los signos del paréntesis.'])
     def e2(lv):
         k = r.randint(2, 5); b = r.randint(2, 6); c = r.randint(1, 9)
         return mc(f'¿Cuál es el desarrollo correcto de ${c} - {k}{par(lin(1, -b))}$?', D(P([(-k, 'x'), (c + k * b, '')])),
@@ -342,19 +366,22 @@ def s003(r):
         a = nz(r, -5, 5); b = r.randint(1, 5); c = nz(r, -9, 9)
         ok = P([(a * b, 'x^{2}'), (a * c, 'x')])
         return mc(f'Desarrolla ${P([(a, "x")])}{par(lin(b, c))}$.', D(ok), [D(P([(a * b, 'x'), (a * c, 'x')])), D(P([(a * b, 'x^{2}'), (c, '')])), D(P([(a * b, 'x^{2}'), (-a * c, 'x')]))],
-                  f'${P([(a, "x")])}\\cdot {b}x={P([(a * b, "x^{2}")])}$ (se suman los exponentes) y ${P([(a, "x")])}\\cdot({c})={P([(a * c, "x")])}$.', lv, r)
+                  f'${P([(a, "x")])}\\cdot {b}x={P([(a * b, "x^{2}")])}$ (se suman los exponentes) y ${P([(a, "x")])}\\cdot({c})={P([(a * c, "x")])}$.', lv, r,
+                  fb=['$x\\cdot x=x^{2}$: al multiplicar potencias de igual base se suman los exponentes.', 'El factor de afuera también multiplica al segundo término.', 'Revisa el signo del segundo producto.'])
     def two3(lv):
         a, c = r.randint(2, 5), r.randint(2, 5); b, d = nz(r, -6, 6), nz(r, -6, 6)
         if a == c: raise ValueError
         ok = P([(a - c, 'x'), (a * b + c * d, '')])
         return mc(f'Desarrolla y reduce ${a}{par(lin(1, b))} - {c}{par(lin(1, -d))}$.', D(ok),
                   [D(P([(a - c, 'x'), (a * b - c * d, '')])), D(P([(a + c, 'x'), (a * b + c * d, '')])), D(P([(a - c, 'x'), (b + d, '')]))],
-                  f'${P([(a, "x"), (a * b, ""), (-c, "x"), (c * d, "")])}$; se reducen: ${ok}$.', lv, r)
+                  f'${P([(a, "x"), (a * b, ""), (-c, "x"), (c * d, "")])}$; se reducen: ${ok}$.', lv, r,
+                  fb=[f'Revisa el signo de $-{c}$ multiplicado por el número del segundo paréntesis.', f'El $-{c}$ también cambia el signo del término con $x$.', 'Los números de los paréntesis también se multiplican por el factor de afuera.'])
     def err3(lv):
         k = r.randint(2, 6); b = r.randint(2, 6)
         return mc(f'Un estudiante escribe $x - {k}{par(lin(1, -b))} = x - {k}x - {k * b}$. ¿Dónde está el error?',
                   f'$-{k}\\cdot(-{b})$ es $+{k * b}$, no $-{k * b}$', [f'$x-{k}x$ debería ser ${P([(1 - k, "x^{2}")])}$', 'No hay error', f'Debió multiplicar solo la $x$ por $-{k}$'],
-                  f'Menos por menos es más: $-{k}\\cdot(-{b})=+{k * b}$. Lo correcto es ${P([(1 - k, "x"), (k * b, "")])}$.', lv, r)
+                  f'Menos por menos es más: $-{k}\\cdot(-{b})=+{k * b}$. Lo correcto es ${P([(1 - k, "x"), (k * b, "")])}$.', lv, r,
+                  fb=[f'$x$ y $-{k}x$ se reducen sumando coeficientes: el exponente no cambia.', f'Revisa el signo de $-{k}\\cdot(-{b})$.', f'El $-{k}$ multiplica a **todos** los términos del paréntesis.'])
     def cx3(lv):
         a = r.randint(2, 5); b = nz(r, -6, 6); c = r.randint(1, 5); d = nz(r, -6, 6)
         return inp(f'Desarrolla y reduce $x{par(lin(a, b))} - {c}{par(poly([1, d]))}$. ¿Cuál es el coeficiente de $x^{{2}}$? Escribe solo el número.', a - c,
@@ -385,7 +412,8 @@ def cuadrado(r, s):
         n = r.randint(2, 9)
         return mc(f'Un estudiante escribe ${par(f"x {o} {n}")}^{{2}} = x^{{2}} + {n * n}$. ¿Qué le falta?', f'El doble producto: ${o}{2 * n}x$',
                   [f'El término ${o}{n}x$', 'Nada: está correcto', f'Elevar también el signo: $x^{{2}} - {n * n}$'],
-                  f'$(a{o}b)^2$ no es $a^2+b^2$: falta el doble producto $2\\cdot x\\cdot {n}={2 * n}x$. Lo correcto es ${sq(1, n)}$.', lv, r)
+                  f'$(a{o}b)^2$ no es $a^2+b^2$: falta el doble producto $2\\cdot x\\cdot {n}={2 * n}x$. Lo correcto es ${sq(1, n)}$.', lv, r,
+                  fb=[f'El término del medio es el **doble** producto: $2\\cdot x\\cdot {n}$.', 'Prueba con $x=1$: los dos lados no dan lo mismo.', 'El último término es un cuadrado y siempre es positivo; lo que falta es el término del medio.'])
 
     def m1(lv):
         n = r.randint(2, 9)
@@ -411,7 +439,8 @@ def cuadrado(r, s):
         k = r.randint(2, 5); n = r.randint(1, 6)
         return mc(f'Una estudiante desarrolla ${par(f"{k}x {o} {n}")}^{{2}}$ y obtiene ${P([(k, "x^{2}"), (2 * s * k * n, "x"), (n * n, "")])}$. ¿Cuál es el error?',
                   f'El cuadrado de ${k}x$ es ${k * k}x^{{2}}$, no ${k}x^{{2}}$', ['Falta el doble producto', 'El último término debería ser negativo', 'No hay error'],
-                  f'$({k}x)^2={k}^2x^2={k * k}x^2$. Lo correcto es ${sq(k, n)}$.', lv, r)
+                  f'$({k}x)^2={k}^2x^2={k * k}x^2$. Lo correcto es ${sq(k, n)}$.', lv, r,
+                  fb=[f'El doble producto sí está: $2\\cdot {k}x\\cdot {n}$.', 'El último término es un cuadrado: siempre es positivo.', f'Revisa el primer término: el cuadrado de ${k}x$.'])
     def mn2(lv):
         b = r.choice([10, 20, 30, 40, 50, 60]); d = r.randint(1, 3); n = b + s * d
         return inp(f'Usa el cuadrado de una {nom} para calcular mentalmente ${n}^{{2}}=({b} {o} {d})^{{2}}$. Escribe solo el número.', n * n,
@@ -426,17 +455,20 @@ def cuadrado(r, s):
         ok = P([(k * k, pw(v1, 2)), (2 * s * k * m, v1 + v2), (m * m, pw(v2, 2))])
         return mc(f'Desarrolla ${par(P([(k, v1), (s * m, v2)]))}^{{2}}$.', D(ok),
                   [D(P([(k * k, pw(v1, 2)), (s * k * m, v1 + v2), (m * m, pw(v2, 2))])), D(P([(k * k, pw(v1, 2)), (2 * s * k * m, v1), (m * m, pw(v2, 2))])), D(P([(k * k, pw(v1, 2)), (m * m, pw(v2, 2))]))],
-                  f'Con dos letras el doble producto lleva ambas: $2\\cdot {P([(k, v1)])}\\cdot {P([(m, v2)])}={2 * k * m}{v1}{v2}$. Resultado ${ok}$.', lv, r)
+                  f'Con dos letras el doble producto lleva ambas: $2\\cdot {P([(k, v1)])}\\cdot {P([(m, v2)])}={2 * k * m}{v1}{v2}$. Resultado ${ok}$.', lv, r,
+                  fb=['El término del medio es el **doble** producto.', 'El doble producto lleva las dos letras.', 'Falta el doble producto: el cuadrado de un binomio no es la suma de los cuadrados.'])
     def f3(lv):
         d = r.choice([2, 3]); n = r.randint(1, 4)
         ok = P([(F(1, d * d), 'x^{2}'), (F(2 * s * n, d), 'x'), (n * n, '')])
         return mc(f'Desarrolla ${par(f"\\frac{{x}}{{{d}}} {o} {n}")}^{{2}}$.', D(ok),
                   [D(P([(F(1, d), 'x^{2}'), (F(2 * s * n, d), 'x'), (n * n, '')])), D(P([(F(1, d * d), 'x^{2}'), (n * n, '')])), D(P([(F(1, d * d), 'x^{2}'), (F(s * n, d), 'x'), (n * n, '')]))],
-                  f'$\\left(\\frac{{x}}{{{d}}}\\right)^2=\\frac{{x^2}}{{{d * d}}}$ y el doble producto es $2\\cdot\\frac{{x}}{{{d}}}\\cdot {n}$. Resultado ${ok}$.', lv, r)
+                  f'$\\left(\\frac{{x}}{{{d}}}\\right)^2=\\frac{{x^2}}{{{d * d}}}$ y el doble producto es $2\\cdot\\frac{{x}}{{{d}}}\\cdot {n}$. Resultado ${ok}$.', lv, r,
+                  fb=[f'También se eleva el denominador: el cuadrado de $\\frac{{x}}{{{d}}}$ es $\\frac{{x^{{2}}}}{{{d * d}}}$.', 'Falta el doble producto.', 'El término del medio es el **doble** producto.'])
     def x2_3(lv):
         n = r.randint(1, 6); ok = P([(1, 'x^{4}'), (2 * s * n, 'x^{2}'), (n * n, '')])
         return mc(f'Desarrolla ${par(f"x^{{2}} {o} {n}")}^{{2}}$.', D(ok), [D(P([(1, 'x^{4}'), (n * n, '')])), D(P([(1, 'x^{4}'), (2 * s * n, 'x'), (n * n, '')])), D(P([(1, 'x^{2}'), (2 * s * n, 'x'), (n * n, '')]))],
-                  f'El primer término es $x^2$: $(x^2)^2=x^4$ y el doble producto $2\\cdot x^2\\cdot {n}={2 * n}x^2$.', lv, r)
+                  f'El primer término es $x^2$: $(x^2)^2=x^4$ y el doble producto $2\\cdot x^2\\cdot {n}={2 * n}x^2$.', lv, r,
+                  fb=['Falta el doble producto.', f'El doble producto es $2\\cdot x^{{2}}\\cdot {n}$: lleva $x^{{2}}$.', '$(x^{2})^{2}=x^{4}$: al elevar una potencia se multiplican los exponentes.'])
     def mv3(lv):
         k, m = r.randint(2, 5), r.randint(2, 5)
         return inp(f'Completa el número que falta. Escribe solo el número. ${par(P([(k, "a"), (s * m, "b")]))}^{{2}}={k * k}a^{{2}} {o} \\square\\,ab + {m * m}b^{{2}}$', 2 * k * m,
@@ -470,7 +502,8 @@ def s006(r):
         n = r.randint(2, 9)
         return mc(f'Un estudiante escribe $(x + {n})(x - {n}) = x^{{2}} - {2 * n}x - {n * n}$. ¿Qué es correcto?', f'Los términos $-{n}x$ y $+{n}x$ se cancelan: queda $x^{{2}} - {n * n}$',
                   ['Está correcto', f'Debe ser $x^{{2}} + {n * n}$', f'Debe ser $x^{{2}} - {2 * n}x + {n * n}$'],
-                  f'$(x+{n})(x-{n})=x^2-{n}x+{n}x-{n * n}=x^2-{n * n}$.', lv, r)
+                  f'$(x+{n})(x-{n})=x^2-{n}x+{n}x-{n * n}=x^2-{n * n}$.', lv, r,
+                  fb=[f'Los productos cruzados $-{n}x$ y $+{n}x$ se cancelan: no queda término con $x$.', f'El producto $(+{n})\\cdot(-{n})$ es negativo.', 'Ese es el cuadrado de una diferencia; aquí los binomios tienen signos distintos.'])
 
     def m1(lv):
         n = r.randint(2, 12)
@@ -492,7 +525,8 @@ def s006(r):
     def e2(lv):
         k = r.randint(2, 5); n = r.randint(2, 7)
         return mc(f'¿Qué producto da ${k * k}x^{{2}} - {n * n}$?', D(f'({k}x + {n})({k}x - {n})'), [D(f'({k}x - {n})^{{2}}'), D(f'({k * k}x + {n})({k * k}x - {n})'), D(f'({k}x + {n * n})({k}x - {n * n})')],
-                  f'${k * k}x^2=({k}x)^2$ y ${n * n}={n}^2$: es una suma por diferencia $({k}x+{n})({k}x-{n})$.', lv, r)
+                  f'${k * k}x^2=({k}x)^2$ y ${n * n}={n}^2$: es una suma por diferencia $({k}x+{n})({k}x-{n})$.', lv, r,
+                  fb=['El cuadrado de un binomio tiene término central; aquí no hay.', f'Se usa la raíz de ${k * k}x^{{2}}$, que es ${k}x$.', f'Se usa la raíz de ${n * n}$, que es ${n}$.'])
     def mn2(lv):
         b = r.choice([20, 30, 40, 50, 60, 70]); d = r.randint(1, 4)
         return inp(f'Usa la suma por diferencia para calcular mentalmente ${b + d}\\cdot {b - d}$. Escribe solo el número.', (b + d) * (b - d),
@@ -506,15 +540,18 @@ def s006(r):
         A, B = P([(k, v1)]), P([(m, v2)])
         return mc(f'Desarrolla $({A} + {B})({A} - {B})$.', D(P([(k * k, pw(v1, 2)), (-m * m, pw(v2, 2))])),
                   [D(P([(k * k, pw(v1, 2)), (m * m, pw(v2, 2))])), D(P([(k, pw(v1, 2)), (-m, pw(v2, 2))])), D(P([(k * k, pw(v1, 2)), (-2 * k * m, v1 + v2), (-m * m, pw(v2, 2))]))],
-                  f'$({A})^2-({B})^2={P([(k * k, pw(v1, 2)), (-m * m, pw(v2, 2))])}$.', lv, r)
+                  f'$({A})^2-({B})^2={P([(k * k, pw(v1, 2)), (-m * m, pw(v2, 2))])}$.', lv, r,
+                  fb=['El producto de los segundos términos es negativo.', 'También se elevan al cuadrado los coeficientes.', 'Los productos cruzados se cancelan: no queda término central.'])
     def x3(lv):
         n = r.randint(1, 9)
         return mc(f'Desarrolla $(x^{{2}} + {n})(x^{{2}} - {n})$.', D(f'x^{{4}} - {n * n}'), [D(f'x^{{2}} - {n * n}'), D(f'x^{{4}} + {n * n}'), D(f'x^{{4}} - {2 * n}')],
-                  f'$(x^2)^2-{n}^2=x^4-{n * n}$.', lv, r)
+                  f'$(x^2)^2-{n}^2=x^4-{n * n}$.', lv, r,
+                  fb=['$(x^{2})^{2}=x^{4}$: al elevar una potencia se multiplican los exponentes.', 'El segundo cuadrado queda restando.', f'${n}^{{2}}$ es ${n * n}$.'])
     def o3(lv):
         n = r.randint(2, 9)
         return mc(f'Desarrolla $({n} + x)({n} - x)$.', D(f'{n * n} - x^{{2}}'), [D(f'x^{{2}} - {n * n}'), D(f'{n * n} + x^{{2}}'), D(f'{n * n} - 2x - x^{{2}}')],
-                  f'Primero al cuadrado menos segundo al cuadrado: ${n}^2-x^2={n * n}-x^2$. El orden importa.', lv, r)
+                  f'Primero al cuadrado menos segundo al cuadrado: ${n}^2-x^2={n * n}-x^2$. El orden importa.', lv, r,
+                  fb=[f'El orden importa: el primer término es ${n}$, así que primero va ${n}^{{2}}$.', 'El cuadrado del segundo término queda restando.', 'Los productos cruzados se cancelan: no queda término con $x$.'])
     def mv3(lv):
         k, m = r.randint(2, 6), r.randint(2, 6)
         return inp(f'Completa el número que falta. Escribe solo el número. $({k}a + {m}b)({k}a - {m}b)={k * k}a^{{2}} - \\square\\,b^{{2}}$', m * m, f'$({m}b)^2={m * m}b^2$.', lv)
@@ -555,7 +592,8 @@ def s007(r):
         a, b = r.randint(2, 9), r.randint(2, 9)
         return mc(f'Un estudiante escribe $(x + {a})(x + {b}) = x^{{2}} + {a * b}$. ¿Qué le falta?', f'El término ${a + b}x$',
                   [f'El término ${a * b}x$', 'Nada: está correcto', f'El término ${2 * a}x$' if 2 * a not in (a + b, a * b) else f'El término ${2 * b + 1}x$'],
-                  f'$(x+{a})(x+{b})=x^2+{b}x+{a}x+{a * b}={bt(a, b)}$: falta el término con $x$, cuyo coeficiente es la suma ${a}+{b}$.', lv, r)
+                  f'$(x+{a})(x+{b})=x^2+{b}x+{a}x+{a * b}={bt(a, b)}$: falta el término con $x$, cuyo coeficiente es la suma ${a}+{b}$.', lv, r,
+                  fb=['El coeficiente de $x$ es la **suma** de los números, no su producto.', 'Prueba con $x=1$: los dos lados no dan lo mismo.', 'El coeficiente de $x$ es la suma de los dos números.'])
 
     for f, n in ((lambda lv: A(lv, True), 6), (lambda lv: E(lv, True), 4), (lambda lv: S(lv, True), 5), (lambda lv: Pr(lv, True), 5)):
         T[1] += rep(f, 1, n)
@@ -573,14 +611,16 @@ def s007(r):
         ok = P([(1, 'x^{4}'), (a + b, 'x^{2}'), (a * b, '')])
         return mc(f'Desarrolla $(x^{{2}} {"+" if a > 0 else "-"} {abs(a)})(x^{{2}} {"+" if b > 0 else "-"} {abs(b)})$.', D(ok),
                   [D(P([(1, 'x^{4}'), (a + b, 'x'), (a * b, '')])), D(P([(1, 'x^{2}'), (a + b, 'x'), (a * b, '')])), D(P([(1, 'x^{4}'), (a * b, '')]))],
-                  f'El término común es $x^2$: $(x^2)^2=x^4$, suma $({a})+({b})={a + b}$ y producto ${a * b}$.', lv, r)
+                  f'El término común es $x^2$: $(x^2)^2=x^4$, suma $({a})+({b})={a + b}$ y producto ${a * b}$.', lv, r,
+                  fb=['El término del medio lleva $x^{2}$: cada número se multiplica por $x^{2}$.', '$(x^{2})^{2}=x^{4}$: al elevar una potencia se multiplican los exponentes.', 'Falta el término del medio: la suma de los números por $x^{2}$.'])
     def ar3(lv):
         a, b = r.randint(1, 8), nz(r, -6, 6)
         if a + b == 0: raise ValueError
         ok = bt(a, b)
         return mc(f'Un rectángulo mide ${lin(1, a)}$ cm por ${lin(1, b)}$ cm. ¿Qué expresión da su área?', D(ok),
                   [D(P([(2, 'x'), (a + b, '')])), D(P([(1, 'x^{2}'), (a * b, '')])), D(P([(4, 'x'), (2 * (a + b), '')]))],
-                  f'Área = largo · ancho $=(x+{a})(x{b:+d})={ok}$. ($4x+{2 * (a + b)}$ sería el perímetro.)', lv, r)
+                  f'Área = largo · ancho $=(x+{a})(x{b:+d})={ok}$. ($4x+{2 * (a + b)}$ sería el perímetro.)', lv, r,
+                  fb=['Eso es la suma de los lados, no su producto.', 'Falta el término con $x$: al multiplicar aparecen los productos cruzados.', 'Eso es el perímetro, no el área.'])
     def ev3(lv):
         a, b = r.randint(1, 9), r.randint(1, 9); x = r.choice([10, 20, 100])
         return inp(f'Calcula $(x + {a})(x + {b})$ para $x={x}$ sin usar calculadora, desarrollando primero. Escribe solo el número.', (x + a) * (x + b),
@@ -635,7 +675,8 @@ def s008(r):
             if gcd(gcd(a, abs(b)), abs(c)) == 1: break
         e = poly([g * a, g * b, g * c]); ok = f'{g}{par(poly([a, b, c]))}'
         return mc(f'Factoriza ${e}$.', D(ok), [D(f'{g}{par(poly([a, b, g * c]))}'), D(f'{g}x{par(poly([a, b, c]))}'), D(f'{g}{par(poly([a, -b, c]))}')],
-                  f'Los tres coeficientes son múltiplos de ${g}$; el término ${g * c}$ no tiene $x$, así que no se extrae $x$. Resultado ${ok}$.', lv, r)
+                  f'Los tres coeficientes son múltiplos de ${g}$; el término ${g * c}$ no tiene $x$, así que no se extrae $x$. Resultado ${ok}$.', lv, r,
+                  fb=[f'El término independiente también se divide por ${g}$.', 'El término independiente no tiene $x$: no se puede extraer $x$.', 'Revisa el signo del término con $x$.'])
     T[2] += rep(k2, 2, 5)
     for f, n in ((f2, 6), (t2, 4)):
         T[2] += rep(f, 2, n)
@@ -651,17 +692,20 @@ def s008(r):
             if gcd(a, b) == 1: break
         e = P([(g * a, 'x^{2}y'), (-g * b, 'xy^{2}')]); ok = f'{g}xy{par(P([(a, "x"), (-b, "y")]))}'
         return mc(f'Factoriza completamente ${e}$.', D(ok), [D(f'{g}x{par(P([(a, "xy"), (-b, "y^{2}")]))}'), D(f'xy{par(P([(g * a, "x"), (-g * b, "y")]))}'), D(f'{g}xy{par(P([(a, "x"), (b, "y")]))}')],
-                  f'Factor común: ${g}$, una $x$ y una $y$. Resultado ${ok}$.', lv, r)
+                  f'Factor común: ${g}$, una $x$ y una $y$. Resultado ${ok}$.', lv, r,
+                  fb=['Todavía queda $y$ como factor común.', f'También se puede extraer ${g}$.', 'Revisa el signo dentro del paréntesis.'])
     def b3(lv):
         k = r.randint(2, 9); v1, v2 = r.choice([('a', 'b'), ('m', 'n')])
         e = f'x{par(f"{v1} + {v2}")} + {k}{par(f"{v1} + {v2}")}'
         return mc(f'Factoriza ${e}$.', D(f'{par(f"{v1} + {v2}")}{par(f"x + {k}")}'), [D(f'{k}x{par(f"{v1} + {v2}")}'), D(f'{par(f"{v1} + {v2}")}^{{2}}{par(f"x + {k}")}'), D(f'x{par(f"{v1} + {v2} + {k}")}')],
-                  f'El factor común es el binomio $({v1}+{v2})$: $({v1}+{v2})(x+{k})$.', lv, r)
+                  f'El factor común es el binomio $({v1}+{v2})$: $({v1}+{v2})(x+{k})$.', lv, r,
+                  fb=['Los dos términos se suman: el binomio común se extrae y queda $x$ más el número.', 'El binomio común se extrae una sola vez: no se eleva al cuadrado.', 'El factor común es el binomio completo, no $x$.'])
     def n3(lv):
         g = r.randint(2, 6); a, b = r.randint(1, 5), r.randint(1, 5)
         e = P([(-g * a, 'x^{2}'), (-g * b, 'x')])
         return mc(f'Factoriza ${e}$ extrayendo un factor negativo.', D(f'-{g}x{par(lin(a, b))}'), [D(f'-{g}x{par(lin(a, -b))}'), D(f'{g}x{par(lin(-a, b))}'), D(f'-{g}{par(P([(a, "x^{2}"), (b, "x")]))}')],
-                  f'Al extraer $-{g}x$, cada término cambia de signo dentro del paréntesis: $-{g}x({lin(a, b)})$.', lv, r)
+                  f'Al extraer $-{g}x$, cada término cambia de signo dentro del paréntesis: $-{g}x({lin(a, b)})$.', lv, r,
+                  fb=['Al extraer un factor negativo, **todos** los signos cambian.', 'Así no se extrae un factor negativo: revisa el signo de cada término.', 'También se puede extraer $x$.'])
     def mn3(lv):
         k = r.randint(11, 39); a = r.randint(11, 89); b = 100 - a
         return inp(f'Usa el factor común para calcular mentalmente ${k}\\cdot {a}+{k}\\cdot {b}$. Escribe solo el número.', k * 100,
@@ -686,7 +730,8 @@ def s009(r):
     def A(lv, pos):
         a, b, e = base(pos); ok = f'{par(lin(1, a))}{par(lin(1, b))}'
         return mc(f'Factoriza por agrupación ${e}$.', D(ok), [D(f'{par(lin(1, a))}{par(lin(1, -b))}'), D(f'{par(lin(1, a + b))}{par(lin(1, a * b))}' if a * b not in (a, b) else f'x{par(lin(1, a))}'), D(f'{par(lin(1, -a))}{par(lin(1, -b))}')],
-                  f'${P([(1, "x^{2}"), (a, "x")])}=x{par(lin(1, a))}$ y ${P([(b, "x"), (a * b, "")])}={b}{par(lin(1, a))}$. El binomio común es $({lin(1, a)})$: ${ok}$.', lv, r)
+                  f'${P([(1, "x^{2}"), (a, "x")])}=x{par(lin(1, a))}$ y ${P([(b, "x"), (a * b, "")])}={b}{par(lin(1, a))}$. El binomio común es $({lin(1, a)})$: ${ok}$.', lv, r,
+                  fb=['Revisa el signo del número que se extrae del segundo grupo.', 'Agrupa los dos primeros y los dos últimos términos, y extrae el factor común de cada grupo.', 'Revisa los signos: multiplica para comprobar.'])
     def Sset(lv, pos):
         a, b, e = base(pos)
         return inp(f'${e}=(x+p)(x+q)$. Escribe los números $p$ y $q$, separados por punto y coma.', f'{a}; {b}',
@@ -695,7 +740,8 @@ def s009(r):
         a, b, e = base(pos)
         return mc(f'Para factorizar ${e}$ por agrupación, ¿cuál es un buen primer paso?', D(f'x{par(lin(1, a))} {"+" if b > 0 else "-"} {abs(b)}{par(lin(1, a))}'),
                   [D(f'x^{{2}}{par(lin(1, a))} + {par(lin(b, a * b))}'), D(f'{par(lin(1, a + b))}{par(lin(1, a * b))}'), D(f'x{par(lin(1, a + b))}' + P([(1, ''), (a * b, '')])[1:])],
-                  'Se agrupan los dos primeros y los dos últimos, y en cada grupo se extrae el factor común. Debe quedar el mismo binomio en ambos.', lv, r)
+                  'Se agrupan los dos primeros y los dos últimos, y en cada grupo se extrae el factor común. Debe quedar el mismo binomio en ambos.', lv, r,
+                  fb=['$x^{2}(x+\\ldots)$ daría $x^{3}$: en el primer grupo se extrae solo $x$.', 'Eso no sale de agrupar: multiplica para comprobar que no da la expresión.', 'Se agrupan los dos primeros y los dos últimos términos, en ese orden.'])
     def miss(lv, pos):
         a, b, e = base(pos)
         return inp(f'Completa el número que falta. Escribe solo el número, con su signo. ${e}=(x {"+" if a > 0 else "-"} {abs(a)})(x + \\square)$', b,
@@ -710,13 +756,15 @@ def s009(r):
         # (a x + d)(y + b) = a xy + ab x + d y + bd ... usamos (y + b)(a x + d)
         e = P([(a, 'xy'), (a * b, 'x'), (d, 'y'), (b * d, '')]); ok = f'{par(lin(1, b, "y"))}{par(lin(a, d))}'
         return mc(f'Factoriza por agrupación ${e}$.', D(ok), [D(f'{par(lin(1, b, "y"))}{par(lin(a, -d))}'), D(f'{par(lin(1, -b, "y"))}{par(lin(a, d))}'), D(f'{par(lin(1, d, "y"))}{par(lin(a, b))}')],
-                  f'${P([(a, "xy"), (a * b, "x")])}={P([(a, "x")])}{par(lin(1, b, "y"))}$ y ${P([(d, "y"), (b * d, "")])}={d}{par(lin(1, b, "y"))}$. Resultado ${ok}$.', lv, r)
+                  f'${P([(a, "xy"), (a * b, "x")])}={P([(a, "x")])}{par(lin(1, b, "y"))}$ y ${P([(d, "y"), (b * d, "")])}={d}{par(lin(1, b, "y"))}$. Resultado ${ok}$.', lv, r,
+                  fb=['Revisa el signo del segundo factor.', 'Revisa el signo del primer factor.', 'Se intercambiaron los números: multiplica para comprobar.'])
     def neg3(lv):
         a = r.randint(2, 5); b = r.randint(2, 7)
         e = f'{a}x - {a * b} - xy + {b}y'
         return mc(f'Al factorizar ${e}$ por agrupación, ¿qué resultado es correcto?', D(f'{par(f"x - {b}")}{par(f"{a} - y")}'),
                   [D(f'{par(f"x - {b}")}{par(f"{a} + y")}'), D(f'{par(f"x + {b}")}{par(f"{a} - y")}'), D(f'{par(f"x - {b}")}{par(f"y - {a}")}')],
-                  f'${a}x-{a * b}={a}(x-{b})$ y $-xy+{b}y=-y(x-{b})$: al sacar $-y$ cambia el signo de adentro. Resultado $(x-{b})({a}-y)$.', lv, r)
+                  f'${a}x-{a * b}={a}(x-{b})$ y $-xy+{b}y=-y(x-{b})$: al sacar $-y$ cambia el signo de adentro. Resultado $(x-{b})({a}-y)$.', lv, r,
+                  fb=[f'Al extraer $-y$ del segundo grupo, el signo cambia: queda $({a}-y)$.', f'Revisa el binomio común: ${a}x-{a * b}={a}(x-{b})$.', 'Multiplica para comprobar: ese producto tiene el signo contrario.'])
     def mv3(lv):
         a, c = r.randint(2, 5), r.randint(2, 5); b = nz(r, -7, 7)
         e = P([(a, 'xy'), (a * b, 'x'), (c, 'y'), (b * c, '')])
@@ -744,7 +792,8 @@ def s010(r):
     def q1(lv):
         n = r.randint(2, 9)
         return mc(f'¿Cuál de estas expresiones es igual a $(x - {n})(x + {n})$?', D(f'x^{{2}} - {n * n}'), [D(f'x^{{2}} + {n * n}'), D(f'x^{{2}} - {2 * n}x + {n * n}'), D(f'x^{{2}} - {2 * n}')],
-                  f'Es una diferencia de cuadrados: $x^2-{n}^2=x^2-{n * n}$.', lv, r)
+                  f'Es una diferencia de cuadrados: $x^2-{n}^2=x^2-{n * n}$.', lv, r,
+                  fb=[f'El producto de $-{n}$ por $+{n}$ es negativo.', 'Ese es el cuadrado de una diferencia; aquí los productos cruzados se cancelan.', f'${n}^{{2}}$ es ${n * n}$, no ${2 * n}$.'])
 
     def m1(lv):
         v = r.choice(VAR); n = r.randint(2, 12)
@@ -762,12 +811,14 @@ def s010(r):
         if gcd(k, n) > 1: raise ValueError
         ok = f'{par(f"{k}{v} - {n}")}{par(f"{k}{v} + {n}")}'
         return mc(f'Factoriza ${k * k}{pw(v, 2)} - {n * n}$.', D(ok), [D(f'{par(f"{k * k}{v} - {n}")}{par(f"{k * k}{v} + {n}")}'), D(f'{par(f"{k}{v} - {n}")}^{{2}}'), D(f'{par(f"{k}{v} - {n * n}")}{par(f"{k}{v} + {n * n}")}')],
-                  f'${k * k}{pw(v, 2)}=({k}{v})^2$ y ${n * n}={n}^2$: ${ok}$.', lv, r)
+                  f'${k * k}{pw(v, 2)}=({k}{v})^2$ y ${n * n}={n}^2$: ${ok}$.', lv, r,
+                  fb=[f'Se usa la raíz de ${k * k}{pw(v, 2)}$, que es ${k}{v}$.', 'El cuadrado de un binomio tiene término central; aquí no hay.', f'Se usa la raíz de ${n * n}$, que es ${n}$.'])
     def nf2(lv):
         k = r.randint(1, 4); n = r.randint(2, 9)
         ex = f'{k * k if k > 1 else ""}x^{{2}} + {n * n}'
         return mc(f'¿Cómo se factoriza ${ex}$?', 'No se puede factorizar como diferencia de cuadrados: es una suma', [D(f'{par(f"{k if k > 1 else ""}x + {n}")}{par(f"{k if k > 1 else ""}x - {n}")}'), D(f'{par(f"{k if k > 1 else ""}x + {n}")}^{{2}}'), D(f'{par(f"{k if k > 1 else ""}x - {n}")}^{{2}}')],
-                  f'Al multiplicar $({k if k > 1 else ""}x+{n})({k if k > 1 else ""}x-{n})$ se obtiene una **resta**. Una suma de cuadrados no se factoriza en los reales.', lv, r)
+                  f'Al multiplicar $({k if k > 1 else ""}x+{n})({k if k > 1 else ""}x-{n})$ se obtiene una **resta**. Una suma de cuadrados no se factoriza en los reales.', lv, r,
+                  fb=['Ese producto da una **resta** de cuadrados; aquí hay una suma.', 'Ese cuadrado tiene término central; aquí no hay.', 'Ese cuadrado tiene término central; aquí no hay.'])
     def mn2(lv):
         b = r.randint(20, 80); d = r.randint(1, 5)
         return inp(f'Calcula mentalmente ${b + d}^{{2}} - {b - d}^{{2}}$ usando la diferencia de cuadrados. Escribe solo el número.', (b + d) ** 2 - (b - d) ** 2,
@@ -785,13 +836,15 @@ def s010(r):
         n = r.randint(1, 4)
         ok = f'{par(f"x^{{2}} + {n * n}")}{par(f"x - {n}")}{par(f"x + {n}")}'
         return mc(f'Factoriza completamente $x^{{4}} - {n ** 4}$.', D(ok), [D(f'{par(f"x^{{2}} - {n * n}")}{par(f"x^{{2}} + {n * n}")}'), D(f'{par(f"x - {n}")}^{{2}}{par(f"x + {n}")}^{{2}}'), D(f'{par(f"x^{{2}} - {n * n}")}^{{2}}')],
-                  f'$x^4-{n ** 4}=(x^2-{n * n})(x^2+{n * n})$ y $x^2-{n * n}$ se vuelve a factorizar. $x^2+{n * n}$ no se factoriza.', lv, r)
+                  f'$x^4-{n ** 4}=(x^2-{n * n})(x^2+{n * n})$ y $x^2-{n * n}$ se vuelve a factorizar. $x^2+{n * n}$ no se factoriza.', lv, r,
+                  fb=[f'Falta factorizar $x^{{2}}-{n * n}$: también es una diferencia de cuadrados.', 'Ese producto tiene término central; multiplica para comprobar.', 'Eso es el cuadrado de un binomio, no una diferencia de cuadrados.'])
     def two3(lv):
         k, m = r.randint(1, 6), r.randint(2, 6)
         if gcd(k, m) > 1: raise ValueError
         A, B = P([(k, 'a')]), P([(m, 'b')])
         return mc(f'Factoriza ${P([(k * k, "a^{2}"), (-m * m, "b^{2}")])}$.', D(f'{par(f"{A} - {B}")}{par(f"{A} + {B}")}'), [D(f'{par(f"{A} - {B}")}^{{2}}'), D(f'{par(P([(k * k, "a"), (-m * m, "b")]))}{par("a + b")}'), D(f'{par(f"{A} - {B}")}{par(f"{A} - {B}")}')],
-                  f'$({A})^2-({B})^2=({A}-{B})({A}+{B})$.', lv, r)
+                  f'$({A})^2-({B})^2=({A}-{B})({A}+{B})$.', lv, r,
+                  fb=['El cuadrado de un binomio tiene término central; aquí no hay.', 'Se usan las raíces de cada término.', 'Los dos factores deben tener signos distintos.'])
     def m3(lv):
         g = r.randint(2, 7); n = r.randint(2, 9)
         return inp(f'Completa el número que falta. Escribe solo el número. ${g}x^{{2}} - {g * n * n}={g}(x - \\square)(x + \\square)$ (el mismo número en ambos recuadros).', n,
@@ -820,7 +873,8 @@ def s011(r):
         ok = 'Sí' if good else 'No'
         return mc(f'¿Es $x^{{2}} + {mid}x + {n * n}$ un trinomio cuadrado perfecto?', f'{ok}: el doble producto de $x$ y ${n}$ es ${2 * n}x$' + ('' if good else f', no ${mid}x$'),
                   [f'{"No" if good else "Sí"}: los extremos son cuadrados perfectos', f'{"No" if good else "Sí"}: el término central es ${mid}x$', 'No se puede saber sin factorizar'],
-                  f'Los extremos son $x^2$ y ${n}^2$; para ser cuadrado perfecto el término central debe ser $2\\cdot x\\cdot {n}={2 * n}x$.', lv, r)
+                  f'Los extremos son $x^2$ y ${n}^2$; para ser cuadrado perfecto el término central debe ser $2\\cdot x\\cdot {n}={2 * n}x$.', lv, r,
+                  fb=['Que los extremos sean cuadrados no basta: el término central debe ser el doble producto.', f'Compara ${mid}x$ con el doble producto $2\\cdot x\\cdot {n}$.', 'Sí se puede: basta comparar el término central con el doble producto.'])
     def m1(lv):
         n = r.randint(2, 12)
         return inp(f'Completa el número que falta. Escribe solo el número. $x^{{2}} + {2 * n}x + {n * n}=(x + \\square)^{{2}}$', n, f'$\\sqrt{{{n * n}}}={n}$ y $2\\cdot x\\cdot {n}={2 * n}x$.', lv)
@@ -840,12 +894,14 @@ def s011(r):
         if gcd(k, abs(n)) > 1: raise ValueError
         ok = f'{par(lin(k, n, v))}^{{2}}'
         return mc(f'Factoriza ${tcp(k, n, v)}$.', D(ok), [D(f'{par(lin(k * k, n, v))}^{{2}}'), D(f'{par(lin(k, -n, v))}^{{2}}'), D(f'{par(lin(k, n, v))}{par(lin(k, -n, v))}')],
-                  f'${k * k}{pw(v, 2)}=({k}{v})^2$, ${n * n}={abs(n)}^2$ y el término central es $2\\cdot {k}{v}\\cdot {abs(n)}={2 * k * abs(n)}{v}$. Resultado ${ok}$.', lv, r)
+                  f'${k * k}{pw(v, 2)}=({k}{v})^2$, ${n * n}={abs(n)}^2$ y el término central es $2\\cdot {k}{v}\\cdot {abs(n)}={2 * k * abs(n)}{v}$. Resultado ${ok}$.', lv, r,
+                  fb=[f'Se usa la raíz de ${k * k}{pw(v, 2)}$, que es ${k}{v}$.', 'El signo del binomio es el signo del término central.', 'Eso da una diferencia de cuadrados, sin término central.'])
     def yn2(lv):
         k = r.randint(2, 5); n = r.randint(1, 7); good = r.random() < .5; mid = 2 * k * n if good else k * n
         return mc(f'¿Es ${k * k}x^{{2}} + {mid}x + {n * n}$ un trinomio cuadrado perfecto?', ('Sí' if good else 'No') + f': el doble producto de ${k}x$ y ${n}$ es ${2 * k * n}x$',
                   [('No' if good else 'Sí') + ': los extremos son cuadrados perfectos', ('No' if good else 'Sí') + f': ${mid}$ es par', 'Solo si $x$ es positivo'],
-                  f'Hay que comprobar el término central: $2\\cdot {k}x\\cdot {n}={2 * k * n}x$.', lv, r)
+                  f'Hay que comprobar el término central: $2\\cdot {k}x\\cdot {n}={2 * k * n}x$.', lv, r,
+                  fb=['Que los extremos sean cuadrados no basta: hay que comprobar el término central.', 'Que el coeficiente sea par no basta: debe ser el doble producto.', 'La forma del trinomio no depende del valor de $x$.'])
     def c2(lv):
         k = r.randint(2, 5); n = r.randint(1, 7)
         return inp(f'¿Qué número debe ir en el recuadro para que ${k * k}x^{{2}} + \\square\\,x + {n * n}$ sea un trinomio cuadrado perfecto (con término central positivo)? Escribe solo el número.', 2 * k * n,
@@ -856,18 +912,21 @@ def s011(r):
     def fc3(lv):
         g = r.randint(2, 5); n = nz(r, -6, 6); ok = f'{g}{par(lin(1, n))}^{{2}}'
         return mc(f'Factoriza completamente ${P([(g, "x^{2}"), (2 * g * n, "x"), (g * n * n, "")])}$.', D(ok), [D(f'{g}{par(P([(1, "x^{2}"), (2 * n, "x"), (n * n, "")]))}'), D(f'{par(lin(g, n))}^{{2}}'), D(f'{g}{par(lin(1, n))}{par(lin(1, -n))}')],
-                  f'Primero el factor común ${g}$; lo que queda es un trinomio cuadrado perfecto: ${ok}$.', lv, r)
+                  f'Primero el factor común ${g}$; lo que queda es un trinomio cuadrado perfecto: ${ok}$.', lv, r,
+                  fb=['Falta factorizar el trinomio del paréntesis: es un cuadrado perfecto.', 'Primero hay que extraer el factor común; multiplica para comprobar.', 'Eso da una diferencia de cuadrados, sin término central.'])
     def two3(lv):
         k, m = r.randint(1, 5), r.randint(1, 5); s = sg(r)
         if gcd(k, m) > 1 or k == m == 1: raise ValueError
         ok = f'{par(P([(k, "a"), (s * m, "b")]))}^{{2}}'
         return mc(f'Factoriza ${P([(k * k, "a^{2}"), (2 * s * k * m, "ab"), (m * m, "b^{2}")])}$.', D(ok), [D(f'{par(P([(k, "a"), (-s * m, "b")]))}^{{2}}'), D(f'{par(P([(k * k, "a"), (s * m * m, "b")]))}^{{2}}'), D(f'{par(P([(k, "a"), (m, "b")]))}{par(P([(k, "a"), (-m, "b")]))}')],
-                  f'Raíces: ${P([(k, "a")])}$ y ${P([(m, "b")])}$; el término central confirma el doble producto. Resultado ${ok}$.', lv, r)
+                  f'Raíces: ${P([(k, "a")])}$ y ${P([(m, "b")])}$; el término central confirma el doble producto. Resultado ${ok}$.', lv, r,
+                  fb=['El signo del binomio es el signo del término central.', 'Se usan las raíces de los extremos, no los coeficientes completos.', 'Eso da una diferencia de cuadrados, sin término central.'])
     def yn3(lv):
         n = r.randint(3, 9)
         return mc(f'Un estudiante factoriza $x^{{2}} + {n}x + {n * n}$ como $(x + {n})^{{2}}$. ¿Qué es correcto?', f'Está mal: $(x + {n})^{{2}}$ tiene término central ${2 * n}x$',
                   ['Está bien', f'Está mal: debería ser $(x - {n})^{{2}}$', f'Está mal: debería ser $(x + {n})(x - {n})$'],
-                  f'$(x+{n})^2=x^2+{2 * n}x+{n * n}$. Como el término central es ${n}x$, no es un trinomio cuadrado perfecto.', lv, r)
+                  f'$(x+{n})^2=x^2+{2 * n}x+{n * n}$. Como el término central es ${n}x$, no es un trinomio cuadrado perfecto.', lv, r,
+                  fb=[f'Multiplica para comprobar: $(x+{n})^{{2}}$ tiene término central ${2 * n}x$.', 'El término central es positivo; además, no es el doble producto.', f'Ese producto da $x^{{2}}-{n * n}$, sin término central.'])
     def m3(lv):
         g = r.randint(2, 5); n = r.randint(1, 7)
         return inp(f'Completa el número que falta. Escribe solo el número. ${P([(g, "x^{2}"), (2 * g * n, "x"), (g * n * n, "")])}=\\square\\,(x + {n})^{{2}}$', g,
@@ -898,7 +957,8 @@ def s012(r):
     def SP(lv, pos):
         p, q = pq(pos)
         return mc(f'Para factorizar ${tri(p, q)}$ se buscan dos números. ¿Cuáles?', f'${p}$ y ${q}$', [f'${-p}$ y ${-q}$', f'${p + q}$ y ${p * q}$' if p * q != p + q else f'$1$ y ${p * q}$', f'${p}$ y ${-q}$'],
-                  f'Deben sumar ${p + q}$ (coeficiente de $x$) y multiplicar ${p * q}$ (término independiente): ${p}$ y ${q}$.', lv, r)
+                  f'Deben sumar ${p + q}$ (coeficiente de $x$) y multiplicar ${p * q}$ (término independiente): ${p}$ y ${q}$.', lv, r,
+                  fb=['Con esos signos la suma cambia de signo.', 'Los números buscados deben **sumar** el coeficiente de $x$ y **multiplicar** el término independiente.', f'Revisa los signos: el producto debe ser ${p * q}$.'])
     def Sset(lv, pos):
         p, q = pq(pos)
         return inp(f'${tri(p, q)}=(x+p)(x+q)$. Escribe los números $p$ y $q$, separados por punto y coma.', f'{p}; {q}',
@@ -919,14 +979,16 @@ def s012(r):
     def acA(lv):
         a, p, q = ac(lv); b = a * q + p; c = p * q; ok = f'{par(lin(a, p))}{par(lin(1, q))}'
         return mc(f'Factoriza ${P([(a, "x^{2}"), (b, "x"), (c, "")])}$.', D(ok), [D(f'{par(lin(a, q))}{par(lin(1, p))}'), D(f'{par(lin(a, -p))}{par(lin(1, -q))}'), D(f'{par(lin(1, p))}{par(lin(1, a * q))}')],
-                  f'Método $ac$: producto ${a * c}$, suma ${b}$ → ${a * q}$ y ${p}$. ${P([(a, "x^{2}"), (a * q, "x"), (p, "x"), (c, "")])}={a}x(x{q:+d}){p:+d}(x{q:+d})$, es decir ${ok}$.', lv, r)
+                  f'Método $ac$: producto ${a * c}$, suma ${b}$ → ${a * q}$ y ${p}$. ${P([(a, "x^{2}"), (a * q, "x"), (p, "x"), (c, "")])}={a}x(x{q:+d}){p:+d}(x{q:+d})$, es decir ${ok}$.', lv, r,
+                  fb=['Se intercambiaron los números: multiplica para comprobar.', 'Revisa los signos: multiplica para comprobar.', f'Falta el coeficiente ${a}$ del primer término: multiplica para comprobar.'])
     def met(lv):
         cs = r.choice([('dc', 'Diferencia de cuadrados'), ('tcp', 'Trinomio cuadrado perfecto'), ('fc', 'Factor común'), ('sp', 'Suma y producto')])
         n = r.randint(2, 9); p, q = pq(True)
         ex = {'dc': f'x^{{2}} - {n * n}', 'tcp': f'x^{{2}} + {2 * n}x + {n * n}', 'fc': f'{n}x^{{2}} + {n * (n + 1)}x', 'sp': tri(p, q)}[cs[0]]
         others = [o for o in ['Diferencia de cuadrados', 'Trinomio cuadrado perfecto', 'Factor común', 'Suma y producto'] if o != cs[1]]
         return mc(f'¿Qué método conviene usar **primero** para factorizar ${ex}$?', cs[1], others,
-                  {'dc': 'Son dos términos, ambos cuadrados, restados.', 'tcp': 'Los extremos son cuadrados y el término central es el doble producto.', 'fc': f'Ambos términos tienen el factor ${n}x$.', 'sp': 'Es un trinomio $x^2+bx+c$ que no es cuadrado perfecto.'}[cs[0]], lv, r)
+                  {'dc': 'Son dos términos, ambos cuadrados, restados.', 'tcp': 'Los extremos son cuadrados y el término central es el doble producto.', 'fc': f'Ambos términos tienen el factor ${n}x$.', 'sp': 'Es un trinomio $x^2+bx+c$ que no es cuadrado perfecto.'}[cs[0]], lv, r,
+                  fb=[MET_FB[cs[0]][o] for o in others])
     for f, n in ((acset, 5), (lambda lv: A(lv, False), 4), (acA, 3), (met, 3)):
         T[2] += rep(f, 2, n)
     def kset(lv):
@@ -945,10 +1007,18 @@ def s012(r):
     def comp(lv):
         n = r.randint(1, 4)
         return mc(f'¿Cuál es la factorización **completa** de $x^{{3}} - {n * n}x$?', D(f'x{par(f"x - {n}")}{par(f"x + {n}")}'), [D(f'x{par(f"x^{{2}} - {n * n}")}'), D(f'{par(f"x - {n}")}{par(f"x + {n}")}'), D(f'x^{{2}}{par(f"x - {n * n}")}')],
-                  f'Factor común $x$: $x(x^2-{n * n})$; luego diferencia de cuadrados: $x(x-{n})(x+{n})$.', lv, r)
+                  f'Factor común $x$: $x(x^2-{n * n})$; luego diferencia de cuadrados: $x(x-{n})(x+{n})$.', lv, r,
+                  fb=[f'Falta factorizar $x^{{2}}-{n * n}$: es una diferencia de cuadrados.', 'Falta el factor común $x$.', 'Multiplica para comprobar: no da la expresión original.'])
     for f, n in ((kset, 5), (acm, 5), (kA, 4), (comp, 3), (acA, 3)):
         T[3] += rep(f, 3, n)
     return T
+
+MET_FB = {  # por qué no conviene cada método (retroalimentación de «¿Qué método conviene?»)
+    'dc': {'Trinomio cuadrado perfecto': 'Tiene solo dos términos: no es un trinomio.', 'Factor común': 'Los dos términos no tienen un factor común.', 'Suma y producto': 'Suma y producto se usa con trinomios; aquí hay dos términos.'},
+    'tcp': {'Diferencia de cuadrados': 'Tiene tres términos: no es una diferencia de dos cuadrados.', 'Factor común': 'Los términos no tienen un factor común.', 'Suma y producto': 'Funciona, pero el trinomio es cuadrado perfecto: hay un camino más directo.'},
+    'fc': {'Diferencia de cuadrados': 'Los términos se suman y no son cuadrados.', 'Trinomio cuadrado perfecto': 'Tiene solo dos términos: no es un trinomio.', 'Suma y producto': 'Tiene solo dos términos: no es un trinomio.'},
+    'sp': {'Diferencia de cuadrados': 'Tiene tres términos: no es una diferencia de dos cuadrados.', 'Trinomio cuadrado perfecto': 'El término central no es el doble producto de las raíces de los extremos.', 'Factor común': 'Los términos no tienen un factor común.'},
+}
 
 GEN = {'u2-s001': s001, 'u2-s002': s002, 'u2-s003': s003, 'u2-s004': lambda r: cuadrado(r, 1), 'u2-s005': lambda r: cuadrado(r, -1),
        'u2-s006': s006, 'u2-s007': s007, 'u2-s008': s008, 'u2-s009': s009, 'u2-s010': s010, 'u2-s011': s011, 'u2-s012': s012}

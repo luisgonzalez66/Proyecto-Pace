@@ -46,12 +46,14 @@ function zsScreens(s){
  const scr=[{k:'idea',lab:'Idea'}];
  ex.forEach((e,i)=>scr.push({k:'ex',e:e,n:i+1,lab:'Ej. '+(i+1)}));
  if(!ex.length&&(s.example||'').trim())scr.push({k:'txt',lab:'Ejemplo',t:s.example});
+ if(L.fade&&(L.fade.items||[]).length&&L.fade.blank)scr.push({k:'fade',lab:'Ahora tú'});
  if(L.warn||(s.media&&s.media.length))scr.push({k:'end',lab:'Cierre'});
  return {scr:scr,total:ex.length};
 }
 function zsHead(sc,pg,tot){
  if(sc.k==='idea')return 'Conceptos esenciales';
  if(sc.k==='end')return 'Presta atención';
+ if(sc.k==='fade')return 'Ahora tú';
  return 'Ejemplo guiado'+(tot>1?' '+sc.n+' de '+tot:'');
 }
 function zsCap(sc,k){
@@ -67,6 +69,7 @@ function zsSceneHTML(s,sc,pos,tot){
  if(sc.k==='txt'){
   return `<div class="zs-idea"><section class="zs-card zs-ideac"><span class="zs-tag">EJEMPLO</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${rich(sc.t)}</div></div></section></div>`;
  }
+ if(sc.k==='fade')return zsFadeHTML(s);
  if(sc.k==='end'){
   return `<div class="zs-idea"><section class="zs-card zs-warn"><span class="zs-tag">PRESTA ATENCIÓN</span><div class="zs-fit zs-body" data-min=".72"><div class="math-content">${L.warn?rb(L.warn):''}${renderMedia(s.media||[])}</div></div></section></div>`;
  }
@@ -95,8 +98,8 @@ function zsRenderLearn(){
  let nextTxt;
  if(sc.k==='ex'&&pos.step<nSteps-1)nextTxt='Siguiente paso →';
  else if(last)nextTxt='Ir a Practica →';
- else{const nx=scr[pos.page+1];nextTxt=nx.k==='ex'?'Ejemplo '+nx.n+' →':nx.k==='end'?'Cierre →':'Siguiente →';}
- const cap=sc.k==='ex'?zsCap(sc,pos.step):(sc.k==='idea'?'Idea clave de la estación':sc.k==='end'?'Antes de practicar':'Ejemplo');
+ else{const nx=scr[pos.page+1];nextTxt=nx.k==='ex'?'Ejemplo '+nx.n+' →':nx.k==='fade'?'Ahora tú →':nx.k==='end'?'Cierre →':'Siguiente →';}
+ const cap=sc.k==='ex'?zsCap(sc,pos.step):(sc.k==='idea'?'Idea clave de la estación':sc.k==='end'?'Antes de practicar':sc.k==='fade'?'Completa el último paso':'Ejemplo');
  host.innerHTML=`<div class="zs-stage zs-learn"><div class="zs-top"><div class="zs-kick">APRENDE <i>·</i> <b>${zsHead(sc,pos.page,total)}</b></div><span class="zs-pg">Pantalla ${pos.page+1} de ${scr.length}</span></div>
   <nav class="zs-jump" aria-label="Ir directamente a una pantalla de Aprende">${scr.map((c,i)=>`<button type="button" class="zs-chip${i===pos.page?' on':''}" data-pg="${i}" ${i===pos.page?'aria-current="step"':''}>${c.lab}</button>`).join('')}</nav>
   <div class="zs-scene" id="zsScene" aria-live="polite">${zsSceneHTML(s,sc,pos,total)}</div>
@@ -116,6 +119,7 @@ function zsRenderLearn(){
  $('zsNext').onclick=nxt;$('zsPrev').onclick=prv;
  host.querySelectorAll('.zs-chip').forEach(b=>b.onclick=()=>go(Number(b.dataset.pg),0));
  zsBindKeys(nxt,prv);
+ if(sc.k==='fade')zsFadeBind(s,()=>go(pos.page,0));
  const scene=$('zsScene');
  let tx=null;
  scene.addEventListener('touchstart',e=>{if(e.touches.length===1)tx={x:e.touches[0].clientX,y:e.touches[0].clientY};},{passive:true});
@@ -243,4 +247,38 @@ function zsKeys(list){
  const ORD=['7','8','9','(',')','4','5','6','+','-','1','2','3','/','^','0',',','²','√','π','; ',' y ','x','=','∅','@del'];
  const pos=k=>{const i=ORD.indexOf(k[1]||k[0]);return i<0?99:i;};
  return list.slice().sort((a,b)=>pos(a)-pos(b));
+}
+
+/* ---------- AHORA TÚ (14 · ejemplo con el último paso en blanco; prototipo del 19-11, incorporado el 24-11) ----------
+   learn.fade = {title, items:[{math, why}], blank:{ask, prompt, after, kind, answer, math, why, okmsg, hint, errors:[{value, msg}]}}
+   prompt = lo escrito antes del recuadro; after = lo escrito después (opcional).
+   No cuenta para el avance: es una práctica guiada dentro de Aprende. */
+const zsFadeSt={};
+function zsFadeHTML(s){
+ const F=s.learn.fade,B=F.blank,st=zsFadeSt[s.id]||{},ok=!!st.ok,shown=!!st.shown;
+ const line=(it,cls)=>`<div class="zs-line ${cls}">${it.math?`<div class="math-content">$$${it.math}$$</div>`:''}${it.why?`<p class="zs-fwhy math-content">${rb(it.why)}</p>`:''}</div>`;
+ const given=F.items.map(it=>line(it,'past')).join('');
+ const last=(ok||shown)?line({math:B.math,why:''},'cur zs-fdone'+(ok?'':' shown')):`<div class="zs-line cur zs-blank"><div class="math-content">$$${B.prompt||''}\\boxed{\\;?\\;}${B.after||''}$$</div><p class="zs-fwhy">Este paso lo completas tú.</p></div>`;
+ const side=ok?`<span class="zs-tag zs-tok">✓ ¡BIEN HECHO!</span><p class="zs-fok math-content">${rb(B.okmsg||B.why||'Correcto.')}</p><p class="zs-st">Ya puedes pasar a Practica.</p>`
+  :shown?`<span class="zs-tag">LA RESPUESTA</span><p class="math-content">${rb(B.why||'')}</p><p class="zs-st">Revisa por qué antes de pasar a Practica.</p>`
+  :`<span class="zs-tag">TU TURNO</span><p class="math-content zs-fask">${rb(B.ask||'Completa el último paso.')}</p><div class="zs-fin"><span class="math-content">\\(${B.prompt||''}\\)</span><input type="text" id="zsFadeIn" inputmode="${B.kind==='set'?'text':'decimal'}" autocomplete="off" spellcheck="false" aria-label="Tu respuesta" value="${esc(st.last||'')}">${B.after?`<span class="math-content">\\(${B.after}\\)</span>`:''}<button type="button" class="zs-btn next" id="zsFadeGo">Comprobar</button></div><p class="zs-ffb math-content${st.msg?' bad':''}" id="zsFadeFb" role="status" aria-live="polite">${st.msg?'✗ '+rb(st.msg):''}</p>${(st.tries||0)>=2?'<button type="button" class="zs-flink" id="zsFadeShow">Mostrar la respuesta</button>':''}`;
+ return `<div class="zs-ex zs-fade"><div class="zs-ex-title"><div class="zs-ex-t"><span class="zs-tag coral">AHORA TÚ</span>${F.title?`<h2 class="math-content">${rb(F.title)}</h2>`:''}</div><span class="zs-pill">Completa el último paso</span></div>
+  <div class="zs-worked"><div class="zs-lines zs-fit" data-min=".5"><div class="zs-lines-in">${given}${last}</div></div><aside class="zs-side" aria-label="Tu turno">${side}</aside></div></div>`;
+}
+function zsFadeBind(s,redraw){
+ const B=s.learn.fade.blank,st=zsFadeSt[s.id]||(zsFadeSt[s.id]={tries:0});
+ const show=$('zsFadeShow');if(show)show.onclick=()=>{st.shown=true;redraw();};
+ const inp=$('zsFadeIn'),go=$('zsFadeGo');if(!inp||!go)return;
+ const kind=B.kind||'number',q={type:'input',kind,answer:String(B.answer)};
+ const same=(ans,v)=>{try{return PACETyped.check({type:'input',kind,answer:String(ans)},v).state==='ok';}catch(e){return false;}};
+ const fb=m=>{const f=$('zsFadeFb');f.className='zs-ffb math-content bad';f.innerHTML='✗ '+rb(m);zsTypeset(f,zsFitAll);};
+ const check=()=>{
+  const v=inp.value;st.last=v;let r;try{r=PACETyped.check(q,v);}catch(e){r={state:'invalid',msg:'No pude leer tu respuesta.'};}
+  if(r.state==='empty'){fb('Escribe tu respuesta antes de comprobar.');inp.focus();return;}
+  if(r.state==='ok'){st.ok=true;st.msg='';window.chuReact&&chuReact(true);redraw();return;}
+  if(r.state==='invalid'||r.state==='reduce'){fb(r.msg||'Revisa cómo escribiste tu respuesta.');inp.focus();return;}
+  st.tries=(st.tries||0)+1;window.chuReact&&chuReact(false);
+  const e=(B.errors||[]).find(x=>same(x.value,v));st.msg=(e&&e.msg)||B.hint||'Todavía no. Revisa el último paso.';
+  if(st.tries===2){redraw();return;}fb(st.msg);inp.select();};
+ go.onclick=check;inp.addEventListener('keydown',ev=>{if(ev.key==='Enter'){ev.preventDefault();check();}});
 }
