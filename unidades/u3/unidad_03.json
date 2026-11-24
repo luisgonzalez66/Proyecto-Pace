@@ -11084,12 +11084,5 @@
   "Cierre de la unidad: plantea y resuelve problemas que llevan a ecuaciones cuadráticas."
  ],
  "schema": "pace-unit-v2",
- "meta": {
-  "minutes": 120,
-  "mix": [
-   2,
-   3,
-   "a"
-  ]
- }
+ "meta": {"minutes": 60, "mix": [2, "x"]}
 }

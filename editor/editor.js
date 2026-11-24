@@ -14,7 +14,7 @@ function fileURL(path){if(!resources[path])return '';if(!objectURLs[path]){
  objectURLs[path]=URL.createObjectURL(new Blob([resources[path]],{type:mime}));
  }return objectURLs[path];}
 function updateTime(){if(!unit)return;const mins=unit.stations.reduce((sum,s)=>sum+(Number(s.minutes)||0),0);const h=Math.floor(mins/60),m=mins%60;$('totalTime').textContent=`Tiempo planificado: ${h} h ${String(m).padStart(2,'0')} min / 8 h`;}
-function changeUnitFields(){if(!unit)return;for(const [id,key] of [['uTitle','title'],['uSubtitle','subtitle'],['uIcon','icon']])$(id).value=unit[key]||'';$('uWeek').value=unit.week||'';$('uMetaOn').checked=!!unit.meta;$('uMetaMin').value=unit.meta?.minutes||120;$('uMetaMin').disabled=!unit.meta;$('unitName').textContent='Unidad '+unit.roman;}
+function changeUnitFields(){if(!unit)return;for(const [id,key] of [['uTitle','title'],['uSubtitle','subtitle'],['uIcon','icon']])$(id).value=unit[key]||'';$('uWeek').value=unit.week||'';$('uMetaOn').checked=!!unit.meta;$('uMetaMin').value=unit.meta?.minutes||60;$('uMetaMin').disabled=!unit.meta;$('unitName').textContent='Unidad '+unit.roman;}
 function renderGroups(){if(!unit)return;
  $('groupList').innerHTML=unit.groups.map((g,i)=>`<div class="fieldset"><label class="field">Bloque ${i+1}<input data-groupindex="${i}" data-groupfield="title" value="${esc(g.title)}"></label><label class="field">Breve descripción<input data-groupindex="${i}" data-groupfield="subtitle" value="${esc(g.subtitle||'')}"></label><button class="btn small-btn danger" data-removegroup="${i}" ${unit.groups.length===1?'disabled':''} type="button">Quitar bloque</button></div>`).join('')||'<p class="hint">Agrega el primer bloque temático.</p>';
 }
@@ -107,7 +107,7 @@ $('learnEd').addEventListener('click',e=>{const s=station();if(!s||!s.learn)retu
  touch();renderLearnEditor();});
 $('addLearnEx').onclick=()=>{const s=station();if(!s||!s.learn)return;const L=s.learn;if(exList(L).length>=4)return;L.more=L.more||[];L.more.push({title:'',items:[{why:'',math:''}]});touch();renderLearnEditor();};
 /* ---- META FINAL de la unidad (campo opcional "meta") ---- */
-$('uMetaOn').addEventListener('change',e=>{if(!unit)return;if(e.target.checked)unit.meta={minutes:Number($('uMetaMin').value)||120,mix:[2,3,'a']};else delete unit.meta;$('uMetaMin').disabled=!e.target.checked;touch();});
+$('uMetaOn').addEventListener('change',e=>{if(!unit)return;if(e.target.checked)unit.meta={minutes:Number($('uMetaMin').value)||60,mix:[2,'x']};else delete unit.meta;$('uMetaMin').disabled=!e.target.checked;touch();});
 $('uMetaMin').addEventListener('input',e=>{if(!unit||!unit.meta)return;const n=Math.round(Number(e.target.value));if(n>=15&&n<=300){unit.meta.minutes=n;touch();}});
 
 /* ---- Explora (campo opcional "explore"; no suma avance) ---- */

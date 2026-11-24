@@ -164,15 +164,15 @@ def main():
             fila_d['avance'] = round(fila_d['meta2'] - fila_d['entrada'], 1) if fila_d['meta2'] is not None and fila_d['entrada'] is not None else None
             dvm.append(fila_d)
         T = ['acierta', 'falla', 'omite']
-        hoja('Diagnóstico vs META', ['Unidad', 'Estación', 'Estudiantes con diagnóstico y META', '% acierto al entrar', '% acierto META (nivel 2)',
-                                     'Avance (puntos)', '% acierto META (3 preguntas)', 'Fallaron u omitieron al entrar',
+        hoja('Diagnóstico vs META', ['Unidad', 'Estación', 'Estudiantes con diagnóstico y META', '% acierto al entrar', '% acierto META (pregunta de igual dificultad)',
+                                     'Avance (puntos)', '% acierto META (todas las preguntas de la estación)', 'Fallaron u omitieron al entrar',
                                      'De ellos, con la misma pregunta en la META', '% que ahora la acierta'] +
              [f'{a.capitalize()} al entrar → {b} en META' for a in T for b in ('acierta', 'falla')],
              [[d['unidad'], d['estacion'], d['n'], d['entrada'], d['meta2'], d['avance'], d['meta'], d['nfo'], d['nmisma'], d['misma']] +
               [d['tr'][(a, b)] for a in T for b in ('acierta', 'falla')] for d in dvm],
              [11, 32, 13, 11, 12, 10, 12, 12, 14, 12] + [12] * 6)
         res.append([]); res.append(['Diagnóstico vs META FINAL: ver la hoja «Diagnóstico vs META».'])
-        res.append(['· Compara, por estación, el acierto al entrar con el acierto en la pregunta de nivel 2 de la META (misma dificultad).'])
+        res.append(['· Compara, por estación, el acierto al entrar con el acierto en la pregunta de la META de igual dificultad.'])
         res.append(['· Quien falló u omitió al entrar recibe en la META la MISMA pregunta: «% que ahora la acierta» es la comparación exacta.'])
     # ---------- Prueba de entrada vs prueba de salida ----------
     # Por estudiante y unidad (solo unidades con META): todas las preguntas «Antes de empezar» como una prueba de entrada

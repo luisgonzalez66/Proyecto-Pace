@@ -11,7 +11,7 @@ Modelo (ficticio, solo para probar la herramienta):
   · Practica y Aplica siguen las cuotas del curso (2·2·1 por nivel; Aplica 2 en la Unidad I y 5 en las otras),
     con reintentos hasta acertar; en alternativas, los errores se concentran en una alternativa incorrecta «típica»;
   · META FINAL oficial para quien termina la unidad: por estación, una de nivel 2 (la del diagnóstico si la falló u omitió),
-    una de nivel 3 y una de Aplica; la probabilidad de acierto incluye lo aprendido en la estación.
+    y otra que alterna entre estaciones (nivel 3 / Aplica); la probabilidad de acierto incluye lo aprendido en la estación.
 Los ID se calculan igual que el curso (estación.SECCIÓN.código del enunciado), así que el catálogo real los reconoce.
 """
 import json, math, os, random, sys
@@ -81,11 +81,12 @@ for i in range(N):
                     if ok: break
         # META FINAL oficial (solo si terminó la unidad)
         if k == len(est):
-            for e in est:
+            for si, e in enumerate(est):
                 s = e['s']
                 L2 = e['diag'] if dg.get(s['id']) in ('0', '?') else rnd.choice([q for q in s['practice'] if q.get('level') == 2])
-                L3 = rnd.choice([q for q in s['practice'] if q.get('level') == 3]); Ap = rnd.choice(e['checks'])
-                for q, extra in ((L2, 0), (L3, -0.6), (Ap, -0.2)):
+                # 2.ª pregunta: alterna entre estaciones nivel 3 / problema tipo Aplica (META de 60 min, 24-11-2026)
+                X = (rnd.choice([q for q in s['practice'] if q.get('level') == 3]), -0.6) if si % 2 == 0 else (rnd.choice(e['checks']), -0.2)
+                for q, extra in ((L2, 0), X):
                     r, ok = responder(q, sig(th + e['gan'] + extra - e['dif']), typical)
                     inter.append((f"{s['id']}.M.{b36(hash_str(q['q']))}", r, 'correct' if ok else 'wrong'))
     avance = round(100 * sum(1 for x in inter if '.D.' in x[0]) / len(EST))

@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 24-11-2026 · META FINAL más corta y botones «Ir a Aplica» / «Ir a Explora»
+
+- META FINAL oficial: 60 minutos (70 en la Unidad I) y 2 preguntas por estación (28, 24 y 22 preguntas). En cada estación: una de dificultad media (la misma de «Antes de empezar» si se falló u omitió) y otra que alterna entre estaciones: nivel 3 / problema tipo Aplica. Alternativas y respuesta escrita también se alternan. En el JSON: `"meta": {"minutes": 60, "mix": [2, "x"]}`.
+- Simulacro: opciones de 20, 30, 40 o 60 minutos (se quitó 120).
+- Practica y Aplica: en el último ejercicio, el botón «Siguiente» pasa a «Ir a Aplica →» / «Ir a Explora →» (si la estación tiene Explora).
+- Informe de análisis: comparación «prueba de entrada vs prueba de salida» y presentación más clara.
+
 ## 23-11-2026 (k) · «Omitir» queda registrado como neutral en SiveducMD
 
 - Al omitir la pregunta de «Antes de empezar», la interacción se registraba como `wrong`, y en las preguntas de alternativas quedaba sin respuesta. Ahora se registra con respuesta `?` y resultado `neutral`, en los dos tipos de pregunta. `herramientas/analizar_errores.py` ya lo cuenta como «no sabe».
