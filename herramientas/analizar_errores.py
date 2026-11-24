@@ -174,6 +174,34 @@ def main():
         res.append([]); res.append(['Diagnóstico vs META FINAL: ver la hoja «Diagnóstico vs META».'])
         res.append(['· Compara, por estación, el acierto al entrar con el acierto en la pregunta de nivel 2 de la META (misma dificultad).'])
         res.append(['· Quien falló u omitió al entrar recibe en la META la MISMA pregunta: «% que ahora la acierta» es la comparación exacta.'])
+    # ---------- Prueba de entrada vs prueba de salida ----------
+    # Por estudiante y unidad (solo unidades con META): todas las preguntas «Antes de empezar» como una prueba de entrada
+    # (omitir = no acierta) y todas las preguntas de la META FINAL (primer intento SCORM) como una prueba de salida.
+    es = []
+    if diag and meta:
+        dE = collections.defaultdict(list); dM = collections.defaultdict(list)
+        for r in diag: dE[(r['correo'], r['unidad'])].append(r)
+        for r in meta: dM[(r['correo'], r['unidad'])].append(r)
+        for k in sorted(dM, key=lambda k: (k[1], k[0])):
+            if k not in dE: continue
+            i0 = min(str(r['intento']) for r in dM[k]); ms = [r for r in dM[k] if str(r['intento']) == i0]
+            e = dE[k]
+            es.append(dict(nombre=e[0]['nombre'], correo=k[0], unidad=k[1], ne=len(e), ae=sum(r['ok'] for r in e),
+                           ns=len(ms), as_=sum(r['ok'] for r in ms)))
+        for d in es:
+            d['pe'] = round(100 * d['ae'] / d['ne'], 1); d['ps'] = round(100 * d['as_'] / d['ns'], 1); d['cambio'] = round(d['ps'] - d['pe'], 1)
+        hoja('Entrada vs salida', ['Estudiante', 'Correo', 'Unidad', 'Preguntas de entrada', 'Aciertos entrada', '% entrada',
+                                   'Preguntas META', 'Aciertos META', '% salida (META)', 'Cambio (puntos)'],
+             [[d['nombre'], d['correo'], d['unidad'], d['ne'], d['ae'], d['pe'], d['ns'], d['as_'], d['ps'], d['cambio']] for d in es],
+             [30, 30, 11, 11, 11, 10, 11, 11, 11, 11])
+        res.append([]); res.append(['Prueba de entrada vs prueba de salida (ver hoja «Entrada vs salida»)'])
+        res.append(['Unidad', 'Estudiantes', '% acierto entrada', '% acierto salida (META)', 'Cambio (puntos)'])
+        for u in sorted({d['unidad'] for d in es}) + ['Todo el curso']:
+            g = [d for d in es if u == 'Todo el curso' or d['unidad'] == u]
+            pe = round(100 * sum(d['ae'] for d in g) / sum(d['ne'] for d in g), 1); ps = round(100 * sum(d['as_'] for d in g) / sum(d['ns'] for d in g), 1)
+            res.append([u, len({d['correo'] for d in g}), pe, ps, round(ps - pe, 1)])
+        res.append(['· Entrada = todas las preguntas «Antes de empezar» de la unidad (omitir cuenta como no acierto). Salida = todas las preguntas de la META FINAL de la unidad.'])
+        res.append(['· Solo estudiantes que terminaron la unidad (tienen ambas pruebas).'])
     # ---------- Alternativas incorrectas más elegidas ----------
     malas = collections.defaultdict(collections.Counter); info_q = {}
     for r in reg + diag:
@@ -195,7 +223,7 @@ def main():
     try:
         import informe_visual
         html = re.sub(r'\.xlsx$', '', salida) + '.html'
-        informe_visual.generar(html, a[0], reg, diag, dvm, alt_rows, pq_filas=filas, orden=orden)
+        informe_visual.generar(html, a[0], reg, diag, dvm, alt_rows, pq_filas=filas, orden=orden, es=es)
         print('Informe visual:', html)
     except Exception as e:
         print('Aviso: no se pudo generar el informe visual:', e)
