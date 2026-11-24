@@ -1,0 +1,230 @@
+# SUGERENCIAS DE MEJORA – PROYECTO PACE
+24 de noviembre de 2026
+
+Hola Luis:
+
+Durante la revisión del curso identificamos con Diego algunas posibles mejoras. Las agrupé por ámbito para facilitar su seguimiento. Algunas son correcciones funcionales y otras son propuestas que podemos evaluar en conjunto.
+
+Además, adjunto un ZIP con una propuesta funcional para implementar los árboles de progreso de las tres unidades, cuyo funcionamiento pude probar mediante una demostración HTML.
+
+## A. FUNCIONAMIENTO Y NAVEGACIÓN
+
+**1. Adaptación de la interfaz a diferentes pantallas.**
+
+En el PC de Diego, con el zoom del navegador al 100 %, no se visualiza el botón para volver a la unidad desde una estación, pero sí al reducirlo al 80 %. Revisar el diseño adaptativo de la interfaz para que los controles principales estén siempre accesibles, sin depender de reducir manualmente el zoom.
+
+**2. Vista ampliada e instrucciones de Explora.**
+
+Incorporar un botón visible para salir de la vista ampliada y regresar a la estación, conservando el estado de la actividad cuando sea posible. Considerar también la posibilidad de salir con Esc, cuando no interfiera con la actividad.
+
+Además, revisar el botón «¿Qué puedes hacer aquí?» en la versión de escritorio, ya que el contenedor es más pequeño que el texto y no permite visualizar correctamente todo el mensaje.
+
+**3. Eliminar la opción «Reiniciar avance» de la versión estudiantil.**
+
+Esta funcionalidad debe estar disponible exclusivamente en el entorno de desarrollo y pruebas docentes, tanto para una unidad particular como para el curso completo.
+
+En ningún caso debe estar disponible para los estudiantes, ni siquiera mediante una ventana de confirmación, debido al riesgo de perder accidentalmente su progreso.
+
+El estudiante debe poder repasar contenidos, realizar nuevas rondas de ejercicios y repetir actividades sin perder el avance previamente conseguido.
+
+**4. Navegación dentro de las estaciones.**
+
+Permitir recorrer las secciones Aprende, Practica, Aplica y Explora (cuando exista) mediante los botones Anterior y Siguiente, en ambos sentidos, incluyendo las transiciones entre secciones.
+
+Considerar también las flechas del teclado, siempre que no interfieran con la escritura de respuestas ni con la interacción propia de una actividad. Explora debe seguir siendo opcional.
+
+**5. Navegación en evaluaciones.**
+
+Permitir avanzar y retroceder libremente entre las preguntas del Cierre de bloque, Simulacro y Meta final antes de entregar el intento, mediante botones, el panel de preguntas y, cuando corresponda, las flechas del teclado. Conservar las respuestas al cambiar de pregunta.
+
+**6. Guardado automático de respuestas en evaluaciones (prioritario).**
+
+Eliminar el botón «Guardar respuesta» y guardar automáticamente las respuestas, tanto de selección como escritas, al navegar entre preguntas o al presionar «Entregar evaluación».
+
+El estudiante debe poder modificar sus respuestas hasta entregar la evaluación.
+
+En el panel «Tus preguntas», distinguir entre preguntas respondidas y pendientes, sin anticipar si son correctas o incorrectas. Si al entregar quedan preguntas sin responder, informar de ello y permitir regresar a completarlas o confirmar la entrega.
+
+## B. EXPERIENCIA DE APRENDIZAJE
+
+**7. Nuevas rondas de Practica y Aplica.**
+
+Mostrar la opción de realizar otra ronda al terminar cada sección de forma independiente, sin exigir completar ambas y sin perder el progreso ya conseguido.
+
+**8. Estaciones recomendadas para repasar.**
+
+Al finalizar el Cierre de bloque, actualmente aparece una lista de estaciones recomendadas para repasar, pero esta desaparece al salir.
+
+Mantener estas recomendaciones visibles en el mapa de la unidad mediante un indicador discreto (por ejemplo, un signo de exclamación con el texto «Repaso sugerido»).
+
+Permitir al estudiante marcar cada estación como repasada, en lugar de eliminar el indicador simplemente al abrirla. Estas recomendaciones no deberían modificar el progreso ya conseguido.
+
+**9. Finalización de una estación.**
+
+Al completar por primera vez las secciones obligatorias APA de una estación, mostrar una ventana breve de refuerzo positivo con el Chucao.
+
+Ofrecer una acción principal acorde al recorrido: pasar a la siguiente estación o al Cierre de bloque, cuando corresponda. Como opciones secundarias, permitir volver a la unidad, realizar nuevas rondas de Practica o Aplica, o acceder a Explora si la estación lo incluye.
+
+No exigir Explora para completar la estación.
+
+Las ventanas informativas deberían disponer de un botón de cierre claro y permitir cerrarse con Esc o haciendo clic fuera, cuando corresponda. Las ventanas de confirmación de acciones importantes, como entregar una evaluación, deben tratarse de forma distinta para evitar acciones involuntarias.
+
+**10. Finalización de las unidades y del curso.**
+
+Revisar el mensaje de la Meta final: «No aprueba ni reprueba: el curso se completa al entregar tu primer intento oficial», pues parece referirse a todo el curso cuando se trata de una evaluación de la unidad.
+
+Propuesta de texto:
+
+«Esta evaluación no determina tu aprobación o reprobación. Al entregar tu primer intento oficial, habrás completado la Meta final de esta unidad. El curso se completa al finalizar las tres unidades».
+
+Confirmar los requisitos obligatorios de finalización de cada unidad (estaciones, cierres, simulacro y Meta final, según lo acordado), y distinguir entre completar una Meta final, finalizar una unidad y finalizar el curso.
+
+El 100 % de avance global y la última etapa evolutiva del Chucao deberían coincidir con la finalización efectiva del curso.
+
+## C. CONSISTENCIA VISUAL
+
+**11. Uso de colores con significado.**
+
+Reservar preferentemente el rojo y el verde para comunicar estados negativos y positivos, como respuestas incorrectas y correctas.
+
+En el Cierre de bloque, Simulacro y Meta final, antes de la entrega, utilizar un color neutro o azul para señalar preguntas respondidas, ya que el verde podría interpretarse como confirmación de que la respuesta es correcta.
+
+Complementar los colores con símbolos, textos o formas para distinguir los estados.
+
+**12. Estados de las estaciones.**
+
+Diferenciar más claramente los círculos numerados correspondientes a estaciones pendientes, en progreso y completadas.
+
+Sugiero variar también el fondo, no solo el contorno: gris para pendiente, azul claro para en progreso y verde para completada. Mantener un contraste adecuado y alguna señal adicional al color.
+
+**13. Botón «Todas las unidades».**
+
+Unificar el diseño de los botones que aparecen en la parte superior e inferior de la ventana de una unidad. Tomaría como referencia el diseño actual del botón superior.
+
+**14. Identidad visual de las unidades.**
+
+Mantener el mismo color identificador de cada unidad tanto en «Todas las unidades» como en su ventana particular y en los elementos asociados. Actualmente se observa una inversión entre los colores de las unidades I y III.
+
+Para evitar que los colores de identidad se confundan con estados de éxito o error, propongo la siguiente paleta, que también se ha utilizado en el prototipo de los árboles de progreso:
+
+- Unidad I – Azul (#3978B9).
+- Unidad II – Violeta (#8962B5).
+- Unidad III – Ocre dorado (#C59137).
+
+Se pueden utilizar variantes claras y oscuras de estos colores para los distintos elementos de la interfaz, procurando mantener un contraste adecuado.
+
+El botón «Todas las unidades» podría mantener un color neutro, dado que representa el acceso al conjunto de las unidades.
+
+**15. Distribución de alternativas.**
+
+Evitar distribuciones asimétricas de cuatro alternativas, como tres en una fila y una en otra.
+
+En pantallas suficientemente anchas, utilizar dos filas de dos alternativas cuando su extensión lo permita. En pantallas estrechas o con respuestas extensas, utilizar una sola columna.
+
+Conservar el orden de lectura y una separación uniforme.
+
+## D. VISUALIZACIÓN DEL PROGRESO: CHUCAO Y ÁRBOLES
+
+**16. Mensaje de evolución del Chucao.**
+
+Simplificar la frase «Te faltan X estaciones para…», utilizando, cuando corresponda, «Te faltan X estaciones para que tu Chucao evolucione».
+
+La cantidad debe calcularse a partir del avance global del curso y no reiniciarse al cambiar de unidad.
+
+Si la siguiente evolución depende también de otros requisitos, mostrar un mensaje acorde a ellos y no anticipar una evolución basada únicamente en las estaciones completadas.
+
+**17. Árbol de progreso por unidad.**
+
+Proponemos incorporar un árbol que represente visualmente el avance de cada unidad:
+
+- Tronco: unidad.
+- Ramas principales: bloques, numerados discretamente.
+- Hojas: estaciones de cada bloque.
+
+Cada unidad contará con un árbol de silueta propia, manteniendo un estilo gráfico común.
+
+La distribución actual de estaciones por bloque es:
+
+- Unidad I: 4, 4, 4 y 2 estaciones (14 en total).
+- Unidad II: 3, 4, 2 y 3 estaciones (12 en total).
+- Unidad III: 4, 2, 4 y 1 estaciones (11 en total).
+
+El árbol comienza con sus cuatro ramas sin follaje desarrollado. Cada rama debe tener tantas posiciones para hojas como estaciones contiene su bloque.
+
+Se proponen los siguientes estados e hitos:
+
+- Estación pendiente: brote pequeño de color neutro.
+- Estación en progreso: hoja parcialmente desarrollada, de color verde claro.
+- Estación completada: hoja verde completamente desarrollada.
+- Todas las estaciones de un bloque completadas: aparece una flor del color identificador de la unidad en la rama correspondiente.
+- Unidad oficialmente finalizada: las cuatro flores se transforman en frutos del color identificador de la unidad.
+
+De esta manera, un árbol con todas sus hojas y cuatro flores representa una unidad con todas sus estaciones completadas, mientras que un árbol con cuatro frutos representa una unidad oficialmente finalizada.
+
+Al completar una estación, podría mostrarse una animación breve de crecimiento de la hoja y una reacción del Chucao. También podría reaccionar al completar un bloque o finalizar una unidad.
+
+No añadir hojas, flores ni frutos meramente decorativos, ya que cada uno de estos elementos debe representar un avance o logro concreto.
+
+**18. Ubicación del Chucao, árboles y racha diaria.**
+
+Distinguir tres contextos:
+
+- Ventana «Todas las unidades»: mostrar un único Chucao, su etapa de evolución, el porcentaje global del curso, la información sobre su próxima evolución y la racha diaria. Bajo cada unidad, incorporar una vista reducida de su árbol, acompañada de un dato como «6 de 14 estaciones completadas».
+
+- Ventana de una unidad: mostrar el Chucao y el árbol de la unidad como dos módulos separados, de peso visual similar, uno junto al otro, con una separación vertical discreta. En pantallas estrechas, disponerlos de manera adaptativa. El Chucao refleja el avance global y el árbol, el avance local. Incluir el número de estaciones completadas de la unidad. No repetir aquí la racha diaria.
+
+- Dentro de una estación: mantener el Chucao como acompañante, sin mostrar el árbol completo para no competir con el contenido académico.
+
+El Chucao es un único personaje que conserva su etapa evolutiva global al cambiar de unidad. Puede reaccionar a los logros locales (estación, bloque o unidad) sin necesariamente cambiar de etapa evolutiva. Su forma final se reserva para la finalización del curso.
+
+La racha diaria debe acompañarse de mensajes positivos, sin penalizar el avance ni desmotivar al estudiante cuando se interrumpe.
+
+**19. Diseño e implementación de los árboles de progreso.**
+
+Para facilitar el desarrollo de esta funcionalidad, adjunto el siguiente archivo:
+
+**PACE_UACh_Arboles_de_progreso_v1.zip**
+
+El archivo contiene una propuesta funcional de los tres árboles, desarrollados mediante SVG dinámico, HTML, CSS y JavaScript, sin dependencias de bibliotecas externas.
+
+Incluye:
+
+- README.md: documentación, especificaciones e instrucciones de integración.
+- arbol-progreso.js: componente reutilizable para construir y actualizar los árboles.
+- arbol-progreso.css: estilos, escalado y animaciones.
+- demo-autonoma.html: demostración interactiva que puede abrirse directamente en el navegador.
+- index.html y demo.js: demostración mediante archivos independientes.
+- tests/: pruebas automatizadas del componente.
+
+Sugiero comenzar revisando el README y abriendo demo-autonoma.html, donde se pueden simular los distintos estados de avance de las tres unidades, incluyendo la floración y fructificación.
+
+He probado personalmente la demostración y he comprobado visualmente los estados de las estaciones, la aparición de las flores y su transformación en frutos.
+
+La idea es aprovechar este componente como base para la integración, evitando tener que desarrollar los árboles desde cero o generar imágenes para todas las combinaciones posibles de avance.
+
+Algunos aspectos importantes:
+
+- Los árboles utilizan la paleta propuesta en el punto 14.
+- Las hojas pendientes, en progreso y completadas se diferencian mediante su forma, tamaño y color.
+- Las posiciones de las hojas se mantienen durante todo el avance.
+- Los elementos gráficos son vectoriales y se adaptan a diferentes tamaños de pantalla.
+- El componente debe recibir los estados reales de las estaciones y de finalización de cada unidad desde el motor del curso.
+- No debe existir un registro de progreso independiente para los árboles.
+- Los controles de simulación incluidos en la demostración son exclusivamente para pruebas y no deben aparecer en la versión estudiantil.
+- La finalización oficial de la unidad debe activar automáticamente la fructificación, sin requerir ninguna acción adicional del estudiante.
+- Las miniaturas de los árboles en «Todas las unidades» deben reflejar exactamente el mismo estado que los árboles en las ventanas particulares de cada unidad.
+
+El diseño gráfico y las animaciones pueden seguir refinándose, pero el prototipo ya permite evaluar su funcionamiento y servir como base para la integración.
+
+Queda pendiente conectar el componente con el sistema actual de progreso, incorporar las reacciones correspondientes del Chucao y validar su funcionamiento en las versiones HTML y SCORM.
+
+## ORDEN DE PRIORIDAD PROPUESTO
+
+1. Guardado automático de respuestas, navegación, eliminación del reinicio de avance en la versión estudiantil y accesibilidad de los controles.
+2. Finalización de unidades y curso, nuevas rondas y recomendaciones de repaso.
+3. Consistencia visual, distribución de alternativas y celebraciones.
+4. Integración del Chucao, racha diaria y árboles de progreso, una vez acordada la lógica de avance.
+
+Conviene comprobar que las mejoras se conservan tanto en la versión HTML como en la versión SCORM destinada a SIVEDUCMD, según corresponda.
+
+Muchas gracias, Luis.
