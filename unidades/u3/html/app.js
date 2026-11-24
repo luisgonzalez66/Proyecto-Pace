@@ -457,13 +457,13 @@ const metaQCache={};
 function metaQs(salt,min){
  const M0=metaCfg();if(min&&M0&&min<M0.minutes){const key=salt+'|'+state.seed+'|U'+mu+'|'+min;if(metaQCache[key])return metaQCache[key];return metaQCache[key]=metaSub(metaQs(salt),min,M0.minutes,salt);}
  const key=salt+'|'+state.seed+'|U'+mu;if(metaQCache[key])return metaQCache[key];
- const M=metaCfg(),mix=(M&&M.mix)||[2,3,'a'],out=[];let mslot=0;
- STATIONS.filter(s=>s.unit===mu).forEach(s=>{
+ const M=metaCfg(),mix=(M&&M.mix)||[2,'x'],out=[];
+ STATIONS.filter(s=>s.unit===mu).forEach((s,si)=>{
   const r=rng(((state.seed||0)^hashStr(s.id+'M'+salt))>>>0);
   const by=[[],[],[]];s.practice.forEach(q=>by[lvlOf(q)-1].push(q));
   const used=new Set(),all=s.practice.slice();
   const take=L=>{const c=L.filter(q=>!used.has(q));if(!c.length)return null;const q=c[Math.floor(r()*c.length)];used.add(q);return q;};
-  mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else if(m===2&&typeof dgQ==='function'&&['0','?'].includes((state.dg||{})[s.id])&&dgQ(s))q=dgQ(s);else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});
+  mix.forEach((m0,k)=>{const m=m0==='x'?(si%2===0?3:'a'):m0,want=((k===0?si:(si>>1)+1)%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else if(m===2&&typeof dgQ==='function'&&['0','?'].includes((state.dg||{})[s.id])&&dgQ(s))q=dgQ(s);else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});
  });
  return metaQCache[key]=out;}
 /* Simulacro más corto: n = preguntas proporcionales al tiempo; se reparten entre todas las estaciones (una por estación en cada vuelta) */
@@ -476,7 +476,7 @@ function metaSub(full,min,total,salt){
  for(const round of [0,2,1]){for(const id of ids){if(pick.size>=n)break;const q=by[id][round];if(q)pick.add(q);}}
  for(const id of ids){for(const q of by[id]){if(pick.size<n)pick.add(q);}}
  return full.filter(x=>pick.has(x));}
-const META_OPTS=[20,30,40,60,120];let metaPracMin=60;
+const META_OPTS=[20,30,40,60];let metaPracMin=60;
 const metaOptN=m=>metaQs('PV',m).length;
 let metaMode='off',metaPhase='hub',metaIdx=0,metaTimer=null,metaPrac=null,metaConfirm=false;const metaVals={};
 function metaSess(){
