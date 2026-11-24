@@ -421,7 +421,7 @@ let intN=-1,intTimer=null;
 function reportInt(kind,s,q,resp,ok){try{
  if(mode!=='scorm'||!connected||writeBlocked||!q||!s)return;
  if(intN<0){const c=parseInt(get('cmi.interactions._count'),10);intN=Number.isFinite(c)&&c>=0?c:0;}
- if(intN>=2000)return;
+ if(intN>=2000){if(typeof mjIntFull==='function')mjIntFull();return;}
  const n=intN++,p='cmi.interactions.'+n+'.',choice=Array.isArray(q.options),L=k=>String.fromCharCode(97+k);
  const id=s.id+'.'+kind+'.'+hashStr(String(q.q)).toString(36);
  let sr='';
@@ -488,7 +488,7 @@ function metaPersist(){if(metaMode==='off'){const ok=save();if(!ok)$('mtMsg')&&(
 function metaRemaining(S){return (S.secs||metaSecs())-(nowSec()-S.s);}
 function metaFinish(auto){
  const S=metaSess();if(!S||S.e)return;
- if(S.mode==='off'){const total=metaSecs(),end=Math.min(nowSec(),S.s+total);MT().e=end;const sc=metaPct(MT().a);if(sc>MT().b)MT().b=sc;S.qs.forEach((x,i)=>{const r=S.a[i];if(r==='-')return;const st=STATIONS.find(z=>z.id===x.sid);reportInt('M',st,x.q,metaVals[S.mode+S.n+':'+i],r==='1');});save();}
+ if(S.mode==='off'){const total=metaSecs(),end=Math.min(nowSec(),S.s+total);MT().e=end;const sc=metaPct(MT().a);if(sc>MT().b)MT().b=sc;S.qs.forEach((x,i)=>{const r=S.a[i];if(r==='-')return;const st=STATIONS.find(z=>z.id===x.sid);reportInt('M'+(S.n+1),st,x.q,metaVals[S.mode+S.n+':'+i],r==='1');});save();}
  else{metaPrac.e=nowSec();}
  metaPhase='res';metaConfirm=false;metaNote=auto?'El tiempo terminó: la evaluación se cerró y se entregó con tus respuestas guardadas.':'';
  if(view==='meta')renderMeta();}
@@ -1376,5 +1376,39 @@ function mjChoices(root){(root||document).querySelectorAll('.choices').forEach(c
 /* H9 (ventanas informativas): «¿Qué puedes hacer aquí?» de Explora se cierra con Esc o con un clic fuera */
 document.addEventListener('click',e=>{document.querySelectorAll('details.zs-exinfo[open]').forEach(d=>{if(!d.contains(e.target))d.removeAttribute('open');});});
 document.addEventListener('keydown',e=>{if(e.key!=='Escape')return;const d=document.querySelector('details.zs-exinfo[open]');if(d){d.removeAttribute('open');const s=d.querySelector('summary');if(s)s.focus();}});
+
+/* 38 · Accesibilidad de las fórmulas: cada fórmula se lee con un nombre en texto (rol img + aria-label a partir del TeX)
+   y deja de ser una parada del tabulador. Así una alternativa que es solo una fórmula tiene nombre para el lector de pantalla. */
+function mjTexPlain(t){let s=String(t||'');
+ for(let k=0;k<4;k++)s=s.replace(/\\[dt]?frac\{([^{}]*)\}\{([^{}]*)\}/g,'($1)/($2)').replace(/\\sqrt\[([^\]]*)\]\{([^{}]*)\}/g,'raíz $1-ésima de ($2)').replace(/\\sqrt\{([^{}]*)\}/g,'raíz de ($1)');
+ s=s.replace(/\\left|\\right|\\displaystyle|\\[,;:! ]|~/g,' ').replace(/\\cdot|\\times/g,' · ').replace(/\\div/g,' ÷ ').replace(/\\leq?\b/g,' ≤ ').replace(/\\geq?\b/g,' ≥ ')
+  .replace(/\\neq?\b/g,' ≠ ').replace(/\\pm/g,' ± ').replace(/\\pi/g,'π').replace(/\\infty/g,'infinito').replace(/\\in\b/g,' pertenece a ').replace(/\\mathbb\{(\w)\}/g,'$1')
+  .replace(/\\(text|mathrm|operatorname)\{([^{}]*)\}/g,'$2').replace(/\^\{([^{}]*)\}/g,'^($1)').replace(/_\{([^{}]*)\}/g,'_$1').replace(/\\[a-zA-Z]+/g,' ').replace(/[{}]/g,'').replace(/\s+/g,' ').trim();
+ return s.replace(/\^\((\w)\)/g,'^$1');}
+function mjA11y(root){try{
+ if(!(window.MathJax&&MathJax.startup&&MathJax.startup.document))return;
+ for(const m of MathJax.startup.document.getMathItemsWithin(root||document.body)){const c=m.typesetRoot;if(!c||c.dataset.mjA11y)continue;
+  c.dataset.mjA11y='1';c.removeAttribute('tabindex');c.setAttribute('role','img');c.setAttribute('aria-label',mjTexPlain(m.math));
+  c.querySelectorAll('mjx-assistive-mml').forEach(x=>x.setAttribute('aria-hidden','true'));}
+}catch(e){}}
+typesetMath=function(el){if(window.MathJax&&MathJax.typesetPromise)MathJax.typesetPromise([el]).then(()=>mjA11y(el)).catch(()=>{});};
+(function mjA11yBoot(n){if(window.MathJax&&MathJax.startup&&MathJax.startup.promise){MathJax.startup.promise.then(()=>mjA11y(document.body));}else if(n<60)setTimeout(()=>mjA11yBoot(n+1),250);})(0);
+
+/* 49 · «Tu ruta de aprendizaje»: si aún no se ha empezado, no decir «Retoma tu ruta», sino «Empieza aquí» */
+(function(){if(typeof renderHome!=='function')return;const _rh=renderHome;
+ renderHome=function(){_rh.apply(this,arguments);try{
+  const nuevo=!state.last&&overall()===0,sm=document.querySelector('.resume-inline .resume-small'),p=document.querySelector('#ptCurso .welcome-copy > p'),b=$('resumeBtn');
+  if(sm)sm.textContent=nuevo?'EMPIEZA AQUÍ':'RETOMA TU RUTA';
+  if(p)p.textContent=nuevo?'Comienza por la primera estación o elige una unidad.':'Retoma donde quedaste o elige una unidad.';
+  if(b)b.innerHTML=(nuevo?'Comenzar':'Continuar')+' <span aria-hidden="true">'+(nuevo?'→':'↗')+'</span>';
+  if(nuevo&&STATIONS[0])$('resumeDescription').textContent='Unidad '+UNITS[STATIONS[0].unit].roman+' · primera estación';
+ }catch(e){}};})();
+
+/* 50 · Límite de 2000 respuestas registradas por intento SCORM: avisar una vez (el avance se sigue guardando) */
+let mjIntWarned=false;
+function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
+ const el=document.createElement('div');el.className='mj-toast';el.setAttribute('role','status');
+ el.textContent='Llegaste al máximo de respuestas que SiveducMD registra en detalle en este intento. Tu avance y tus evaluaciones se siguen guardando.';
+ document.body.appendChild(el);setTimeout(()=>el.remove(),9000);}catch(e){}}
 
 init();(()=>{const keep=mu;metaUnits().forEach(u=>{mu=u;metaExpiryCheck();});mu=keep;})();renderStreak();openHome();paceSub('inicio');
