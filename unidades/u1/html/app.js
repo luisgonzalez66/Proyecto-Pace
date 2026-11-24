@@ -463,7 +463,7 @@ function metaQs(salt,min){
   const by=[[],[],[]];s.practice.forEach(q=>by[lvlOf(q)-1].push(q));
   const used=new Set(),all=s.practice.slice();
   const take=L=>{const c=L.filter(q=>!used.has(q));if(!c.length)return null;const q=c[Math.floor(r()*c.length)];used.add(q);return q;};
-  mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});
+  mix.forEach(m=>{const want=(mslot++%2===0)?'A':'E',isW=x=>x&&(x.type==='input'?'E':'A')===want;let q=null;if(m==='a'){const ap=checkBank(s).filter(x=>x),pr=ap.filter(isW),src=pr.length?pr:ap;q=src[Math.floor(r()*src.length)]||null;}else if(m===2&&typeof dgQ==='function'&&['0','?'].includes((state.dg||{})[s.id])&&dgQ(s))q=dgQ(s);else q=take(by[m-1].filter(isW))||take(by[m-1])||take(all);if(q)out.push({sid:s.id,st:s.title,q});});
  });
  return metaQCache[key]=out;}
 /* Simulacro más corto: n = preguntas proporcionales al tiempo; se reparten entre todas las estaciones (una por estación en cada vuelta) */
