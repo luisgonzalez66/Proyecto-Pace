@@ -1,5 +1,10 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 · Pie de página
+
+- Se quitó «PACE» del pie de página del curso (SCORM y páginas de cada unidad), que ahora dice: «Instituto de Ciencias Físicas y Matemáticas · Facultad de Ciencias · Universidad Austral de Chile».
+- Créditos en el Inicio: «Desarrollado por: Henry Hughes, Luis González V., Bastián Viscarra». Aparecen al pie de la pestaña Inicio de la portada y de la pantalla de inicio del curso; no en los mapas ni en las estaciones.
+
 ## 24-11-2026 (g) · Árbol de progreso (propuesta de Henry)
 
 - **Árbol por unidad** (`herramientas/curso_completo/arbol/`): el componente de Henry (`arbol-progreso.js`, misma API y reglas) se conecta al avance real del motor (`arbol.js`). No lleva un registro propio.

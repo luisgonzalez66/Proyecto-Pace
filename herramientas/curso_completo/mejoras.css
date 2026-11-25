@@ -71,3 +71,8 @@ body.zs .app{width:100%}
 .streak-chip{color:#56636e!important;border-color:#b9c6ce!important}
 /* 50 · aviso breve */
 .mj-toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);max-width:min(92vw,520px);background:#2b2a6b;color:#fff;font-size:13px;line-height:1.4;padding:10px 14px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.25);z-index:2147483646}
+
+/* créditos del equipo: solo en el Inicio (25-11) */
+.footer{flex-wrap:wrap}
+.foot-credits{display:none;flex:1 0 100%;font-size:12px;color:#56636e}
+body:has(#homeView:not(.hidden)) .foot-credits{display:block}

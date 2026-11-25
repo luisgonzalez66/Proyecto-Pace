@@ -21,6 +21,9 @@ idx=sub1(idx,'<title>PACE UACh · Mi ruta de matemática</title>','<title>UACh �
 idx=sub1(idx,'<strong>PACE <span>· UACh</span></strong><small>NIVELACIÓN MATEMÁTICA</small>','<strong><span>UACh</span></strong><small>PREPARACIÓN MATEMÁTICA</small>')
 idx=sub1(idx,'<small>Nivelación matemática PACE · Valdivia, Región de Los Ríos</small>','<small>Preparación matemática · Valdivia, Región de Los Ríos</small>')
 idx=sub1(idx,'Curso de nivelación · aprende a tu ritmo.','Preparación matemática · aprende a tu ritmo.')
+# pie de página: sin «PACE» (25-11) y, en el Inicio, los créditos del equipo
+idx=sub1(idx,'alt="" class="foot-shield">PACE · Instituto de Ciencias','alt="" class="foot-shield">Instituto de Ciencias')
+idx=sub1(idx,'<span id="trackingDetails"','<span class="foot-credits">Desarrollado por: Henry Hughes, Luis González V., Bastián Viscarra</span><span id="trackingDetails"')
 # Chucao en todo el curso (chucao.js / chucao.css)
 CHUJS=open(HERE+'/chucao.js',encoding='utf8').read(); CHUCSS=open(HERE+'/chucao.css',encoding='utf8').read()
 _k="window.addEventListener('load',function(){setTimeout(function(){try{paintMascot();}catch(e){}},400);});"
