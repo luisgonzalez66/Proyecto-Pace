@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (f) · Mapa de la unidad más compacto
+
+- El título de la unidad, el chucao y el árbol quedan en una sola tarjeta. En escritorio el chucao va bajo el título y el árbol en un panel a la derecha; en el teléfono, chucao y árbol van lado a lado.
+- Se quitó el recuadro con el porcentaje de avance de la unidad (el árbol ya muestra el avance). Se mantienen los porcentajes de cada estación y el «x/4 completas» de cada bloque.
+- En el teléfono, los bloques se muestran con su nombre en una cuadrícula de 2 × 2 (antes, un riel con solo el número). Las estaciones del bloque elegido ocupan todo el ancho, así que la página no queda más larga.
+- Archivos: `herramientas/curso_completo/mapa-compacto.css` y `mapa-compacto.js`.
+
 ## 25-11-2026 (e) · Unidad III: mensajes por alternativa (estaciones 6 a 11)
 
 - Mensajes en Resolver problemas lineales, Cuadráticas incompletas, Cuadráticas por factorización, Fórmula general, Discriminante y Problemas cuadráticos. Con esto, las **481 preguntas de alternativas** de la Unidad III tienen mensaje para cada alternativa incorrecta.
