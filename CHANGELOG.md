@@ -1,5 +1,17 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (b) · Unidad III: ediciones a mano incorporadas (UNIDAD_03_2511.zip)
+
+- Se incorporaron las ediciones de la entrega `UNIDAD_03_2511.zip`, hechas sobre la versión del 19-11 (commit 812c3e4). La fusión fue en tres direcciones: entraron todas las ediciones de la entrega y se conservó todo lo agregado en GitHub después del 19-11.
+  - **Lo conservado de GitHub:** «Recuerda», «Antes de empezar», META de 60 min, los 40 problemas con respuesta completa y los mensajes por alternativa.
+  - **Lo que trae la entrega:**
+    - Aprende reescrito en varias estaciones: la verificación es opcional («Podemos verificar…») y la resolución termina en «las soluciones».
+    - Igualdad e incógnita: Aplica en contexto con alternativas interpretadas y Practica renovada (52 ítems).
+    - Cambios en Practica y Aplica de Ecuaciones lineales, Paréntesis y fracciones, y Del enunciado a la ecuación.
+- **Conflictos:** 9 ítems de Practica de Igualdad e incógnita (0–2, 20–23, 53 y 54) se habían cambiado en los dos lados. Quedó la versión de la entrega, más nueva y hecha a mano. Reemplaza el formato «Prueba los valores…» del 24-11.
+- Corrección menor en el ítem 23: «¿Es $x = 5$ es solución…» pasó a «¿Es $x = 5$ solución…».
+- El recurso `explora_balanza.html` de la entrega es idéntico al del repositorio.
+
 ## 25-11-2026 · Pie de página
 
 - Se quitó «PACE» del pie de página del curso (SCORM y páginas de cada unidad), que ahora dice: «Instituto de Ciencias Físicas y Matemáticas · Facultad de Ciencias · Universidad Austral de Chile».
