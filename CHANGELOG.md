@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (e) · Unidad III: mensajes por alternativa (estaciones 6 a 11)
+
+- Mensajes en Resolver problemas lineales, Cuadráticas incompletas, Cuadráticas por factorización, Fórmula general, Discriminante y Problemas cuadráticos. Con esto, las **481 preguntas de alternativas** de la Unidad III tienen mensaje para cada alternativa incorrecta.
+- Unidades corregidas en dos preguntas de Aplica: Cuadráticas por factorización, A2 (cm, decía m) y Problemas cuadráticos, A10 (km, decía m).
+- Se revisó a mano que la respuesta marcada como correcta en cada pregunta lo sea; en estas estaciones no hubo otros errores.
+
 ## 25-11-2026 (d) · Unidad III: mensajes por alternativa (estaciones 1 a 5) y correcciones
 
 - Mensaje para cada alternativa incorrecta (`fb`) en Igualdad e incógnita, Ecuaciones lineales, Paréntesis y fracciones, Despeje de fórmulas y Del enunciado a la ecuación. Son 258 preguntas de Practica, Aplica y la pregunta de cierre.

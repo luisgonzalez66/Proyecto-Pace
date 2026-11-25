@@ -7157,7 +7157,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ la edad del hijo: $x + (x + 24) = 60$, luego $2x = 36$ y $x = 18$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa: si el hijo tiene $x$, el padre tiene $x+24$; entonces $2x+24=60$.",
+      "",
+      "Así, el padre tendría $60$; revisa: $2x+24=60$.",
+      "$42$ es la edad del padre; se pregunta por el hijo."
+     ]
     },
     {
      "q": "Si a 2 veces un número se le resta 7, se obtiene 17. ¿Cuál es el número?",
@@ -7169,7 +7175,13 @@
      ],
      "correct": 3,
      "why": "Con $x$ el número: $2x - 7 = 17$, luego $2x = 24$ y $x = 12$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $10$: $2\\cdot10-7=13$, no $17$.",
+      "$31$ sale de $24+7$: primero se suma $7$ y después se divide por $2$.",
+      "$24$ es $2x$; falta dividir por $2$.",
+      ""
+     ]
     },
     {
      "q": "Sofía ya tiene CLP 5000 ahorrados y ahorra CLP 2000 cada semana. ¿En cuántas semanas tendrá CLP 25000?",
@@ -7181,7 +7193,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ semanas: $5000 + 2000x = 25000$, luego $2000x = 20000$ y $x = 10$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $12$ semanas tendría $5000+24000=29000$.",
+      "Con $9$ semanas tendría $5000+18000=23000$.",
+      "",
+      "Con $11$ semanas tendría $5000+22000=27000$."
+     ]
     },
     {
      "q": "En un curso hay 30 estudiantes y hay 8 mujeres más que hombres. ¿Cuántos hombres hay?",
@@ -7193,7 +7211,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ hombres: $x + (x + 8) = 30$, luego $2x = 22$ y $x = 11$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$22=30-8$: eso no reparte entre hombres y mujeres. Plantea $x+(x+8)=30$.",
+      "",
+      "$19$ es la cantidad de mujeres; se pregunta por los hombres.",
+      "Revisa: $x+(x+8)=30$ da $2x=22$."
+     ]
     },
     {
      "q": "En un curso hay 27 estudiantes y hay 3 mujeres más que hombres. ¿Cuántos hombres hay?",
@@ -7205,7 +7229,13 @@
      ],
      "correct": 3,
      "why": "Con $x$ hombres: $x + (x + 3) = 27$, luego $2x = 24$ y $x = 12$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$15$ es la cantidad de mujeres; se pregunta por los hombres.",
+      "$24=27-3$: plantea $x+(x+3)=27$.",
+      "Revisa: $x+(x+3)=27$ da $2x=24$.",
+      ""
+     ]
     },
     {
      "q": "Un ciclista parte a 7 km del inicio de una ruta y avanza a 8 km/h. ¿En cuántas horas estará a 55 km del inicio?",
@@ -7217,7 +7247,13 @@
      ],
      "correct": 0,
      "why": "Con $x$ horas: $7 + 8x = 55$, luego $8x = 48$ y $x = 6$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "$48$ son los kilómetros que avanza; falta dividir por $8$.",
+      "Con $5$ h llega a $7+40=47\\,\\mathrm{km}$.",
+      "Con $7$ h llega a $7+56=63\\,\\mathrm{km}$."
+     ]
     },
     {
      "type": "input",
@@ -7349,7 +7385,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ la edad del hijo: $x + (x + 28) = 56$, luego $2x = 28$ y $x = 14$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$28$ es la diferencia de edades. Plantea $x+(x+28)=56$.",
+      "$42$ es la edad del padre; se pregunta por el hijo.",
+      "",
+      "Revisa: $x+(x+28)=56$ da $2x=28$."
+     ]
     },
     {
      "q": "Un taxi cobra CLP 2000 fijos más CLP 500 por kilómetro. Si un viaje costó CLP 10500, ¿cuántos kilómetros se recorrieron?",
@@ -7361,7 +7403,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ km: $2000 + 500x = 10500$, luego $500x = 8500$ y $x = 17$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $18$ km: $2000+9000=11000$.",
+      "",
+      "Con $21$ km: $2000+10500$; el cobro fijo se resta primero.",
+      "$8500$ son los pesos por kilómetros; falta dividir por $500$."
+     ]
     },
     {
      "q": "Un taxi cobra CLP 2500 fijos más CLP 600 por kilómetro. Si un viaje costó CLP 7900, ¿cuántos kilómetros se recorrieron?",
@@ -7373,7 +7421,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ km: $2500 + 600x = 7900$, luego $600x = 5400$ y $x = 9$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $13$ km: $2500+7800=10300$.",
+      "Con $10$ km: $2500+6000=8500$.",
+      "",
+      "$5400$ son los pesos por kilómetros; falta dividir por $600$."
+     ]
     },
     {
      "q": "Si a 6 veces un número se le resta 5, se obtiene 67. ¿Cuál es el número?",
@@ -7385,7 +7439,13 @@
      ],
      "correct": 3,
      "why": "Con $x$ el número: $6x - 5 = 67$, luego $6x = 72$ y $x = 12$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$72$ es $6x$; falta dividir por $6$.",
+      "$62$ sale de restar $5$: se **suma** $5$.",
+      "$77$ es $72+5$; revisa: $6x=67+5=72$.",
+      ""
+     ]
     },
     {
      "q": "Sofía ya tiene CLP 8000 ahorrados y ahorra CLP 4000 cada semana. ¿En cuántas semanas tendrá CLP 24000?",
@@ -7397,7 +7457,13 @@
      ],
      "correct": 2,
      "why": "Con $x$ semanas: $8000 + 4000x = 24000$, luego $4000x = 16000$ y $x = 4$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $5$ semanas tendría $8000+20000=28000$.",
+      "Con $3$ semanas tendría $8000+12000=20000$.",
+      "",
+      "Con $6$ semanas tendría $8000+24000=32000$."
+     ]
     },
     {
      "type": "input",
@@ -7812,7 +7878,12 @@
      "$4\\,\\mathrm{h}$"
     ],
     "correct": 1,
-    "why": "La distancia entre ellos aumenta a razón de $12 + 8$ km por hora: $12t + 8t = 40$, luego $20t = 40$ y $t = 2$."
+    "why": "La distancia entre ellos aumenta a razón de $12 + 8$ km por hora: $12t + 8t = 40$, luego $20t = 40$ y $t = 2$.",
+    "fb": [
+     "En $1$ h se separan $12+8=20\\,\\mathrm{km}$.",
+     "",
+     "En $4$ h se separan $80\\,\\mathrm{km}$."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -7832,7 +7903,13 @@
       "$57\\,\\mathrm{g}$"
      ],
      "correct": 1,
-     "why": "Con $x$ la cantidad menor: $x + 3x = 60$, luego $4x = 60$ y $x = 15$."
+     "why": "Con $x$ la cantidad menor: $x + 3x = 60$, luego $4x = 60$ y $x = 15$.",
+     "fb": [
+      "Si el estaño es $x$, el cobre es $3x$: $x+3x=60$, no $3x=60$.",
+      "",
+      "$45\\,\\mathrm{g}$ es el cobre; se pregunta por el estaño.",
+      "$57=60-3$: el triple es $3x$, no $x+3$."
+     ]
     },
     {
      "type": "input",
@@ -7850,7 +7927,13 @@
       "$4\\,\\mathrm{h}$"
      ],
      "correct": 3,
-     "why": "Igualamos: $7t = 3t + 16$, luego $4t = 16$ y $t = 4$."
+     "why": "Igualamos: $7t = 3t + 16$, luego $4t = 16$ y $t = 4$.",
+     "fb": [
+      "$16$ es la ventaja en km; falta dividir por lo que se acerca cada hora, $7-3=4$.",
+      "Se acerca a $7-3=4\\,\\mathrm{km/h}$, no a $7$.",
+      "Se acerca a $7-3=4\\,\\mathrm{km/h}$: se restan las rapideces.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -7868,7 +7951,13 @@
       "$\\dfrac{76}{7}\\,\\mathrm{min}$"
      ],
      "correct": 0,
-     "why": "Planteamos $20 + 7t = 76$; entonces $7t = 56$ y $t = 8$."
+     "why": "Planteamos $20 + 7t = 76$; entonces $7t = 56$ y $t = 8$.",
+     "fb": [
+      "",
+      "$56$ son los grados que sube; falta dividir por $7$.",
+      "$63=56+7$: plantea $20+7t=76$.",
+      "Falta restar los $20\\,^\\circ\\mathrm{C}$ iniciales: $7t=56$."
+     ]
     },
     {
      "type": "input",
@@ -7886,7 +7975,13 @@
       "$\\dfrac{43}{2}$"
      ],
      "correct": 1,
-     "why": "Con $x$ la edad menor: $x + (x + 11) = 43$, luego $2x = 32$ y $x = 16$."
+     "why": "Con $x$ la edad menor: $x + (x + 11) = 43$, luego $2x = 32$ y $x = 16$.",
+     "fb": [
+      "$32=43-11$: plantea $x+(x+11)=43$.",
+      "",
+      "Con $27$, A tendría $38$ y sumarían $65$.",
+      "Los dos no tienen la misma edad: A tiene $11$ millones más."
+     ]
     },
     {
      "type": "input",
@@ -7904,7 +7999,13 @@
       "$11\\,\\mathrm{min}$"
      ],
      "correct": 1,
-     "why": "Planteamos $29 + 8t = 109$; luego $8t = 80$ y $t = 10$."
+     "why": "Planteamos $29 + 8t = 109$; luego $8t = 80$ y $t = 10$.",
+     "fb": [
+      "$80$ son los litros que faltan; falta dividir por $8$.",
+      "",
+      "Falta restar los $29\\,\\mathrm{L}$ iniciales: $8t=80$.",
+      "Con $11$ minutos tendría $29+88=117\\,\\mathrm{L}$."
+     ]
     },
     {
      "type": "input",
@@ -7922,7 +8023,13 @@
       "$400\\,\\mathrm{cm^3}$"
      ],
      "correct": 0,
-     "why": "Planteamos $4V = 100$ y dividimos por 4: $V = 25$."
+     "why": "Planteamos $4V = 100$ y dividimos por 4: $V = 25$.",
+     "fb": [
+      "",
+      "La densidad es masa **dividida** por volumen: $V=\\frac{100}{4}$.",
+      "La densidad es masa **dividida** por volumen: $V=\\frac{100}{4}$.",
+      "$400=100\\cdot4$: se divide, no se multiplica."
+     ]
     },
     {
      "type": "input",
@@ -7940,7 +8047,13 @@
       "$9\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Planteamos $340t = 2720$; dividimos por 340 y obtenemos $t = 8$."
+     "why": "Planteamos $340t = 2720$; dividimos por 340 y obtenemos $t = 8$.",
+     "fb": [
+      "",
+      "Tiempo = distancia dividida por rapidez: $\\frac{2720}{340}$.",
+      "Con $10$ s recorre $3400\\,\\mathrm{m}$.",
+      "Con $9$ s recorre $3060\\,\\mathrm{m}$."
+     ]
     },
     {
      "type": "input",
@@ -7958,7 +8071,13 @@
       "$88\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 2,
-     "why": "Si la media es 22, la suma debe ser 88. Falta 88 - 72 = 16."
+     "why": "Si la media es 22, la suma debe ser 88. Falta 88 - 72 = 16.",
+     "fb": [
+      "Revisa: $24+25+23=72$ y $88-72=16$.",
+      "La media no es la última medición: plantea $\\frac{72+x}{4}=22$.",
+      "",
+      "$88$ es la suma total; falta restar las otras tres."
+     ]
     },
     {
      "q": "En $5$ días la temperatura media de un invernadero fue $18\\,^\\circ\\mathrm{C}$. Los primeros días registraron $19, 15, 18, 19$ (en $^\\circ\\mathrm{C}$). ¿Qué temperatura registró el último día?",
@@ -7969,7 +8088,13 @@
       "$18\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 0,
-     "why": "Si la media es 18, la suma debe ser 90. Falta 90 - 71 = 19."
+     "why": "Si la media es 18, la suma debe ser 90. Falta 90 - 71 = 19.",
+     "fb": [
+      "",
+      "Revisa: $19+15+18+19=71$ y $90-71=19$.",
+      "$90$ es la suma total; falta restar los otros cuatro días.",
+      "La media no es la última medición: plantea $\\frac{71+x}{5}=18$."
+     ]
     },
     {
      "q": "La relación entre grados Celsius y Fahrenheit es $F = \\dfrac{9}{5}C + 32$. Un termómetro marca $95\\,^\\circ\\mathrm{F}$. ¿Cuántos grados Celsius son?",
@@ -7980,7 +8105,13 @@
       "$\\dfrac{567}{5}\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 0,
-     "why": "De $F = \\frac{9}{5}C + 32$: $95 - 32 = \\frac{9}{5}C$, luego $C = 35$."
+     "why": "De $F = \\frac{9}{5}C + 32$: $95 - 32 = \\frac{9}{5}C$, luego $C = 35$.",
+     "fb": [
+      "",
+      "$63$ es $95-32$; falta multiplicar por $\\frac{5}{9}$.",
+      "Revisa: $\\frac{5}{9}\\cdot63=35$.",
+      "Primero se resta $32$ y luego se multiplica por $\\frac{5}{9}$."
+     ]
     },
     {
      "q": "Un horno marca $59\\,^\\circ\\mathrm{F}$. Sabiendo que $F = \\dfrac{9}{5}C + 32$, ¿cuántos grados Celsius son?",
@@ -7991,7 +8122,13 @@
       "$27\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 2,
-     "why": "De $F = \\frac{9}{5}C + 32$: $59 - 32 = \\frac{9}{5}C$, luego $C = 15$."
+     "why": "De $F = \\frac{9}{5}C + 32$: $59 - 32 = \\frac{9}{5}C$, luego $C = 15$.",
+     "fb": [
+      "Revisa: $\\frac{5}{9}\\cdot27=15$.",
+      "Primero se resta $32$ y luego se multiplica por $\\frac{5}{9}$.",
+      "",
+      "$27$ es $59-32$; falta multiplicar por $\\frac{5}{9}$."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -8269,7 +8406,12 @@
      ],
      "correct": 0,
      "why": "El discriminante es negativo, por lo que no hay soluciones reales: $\\Delta = 2^2 - 4\\cdot 1\\cdot 5 = -16 < 0$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Calcula $\\Delta=(2)^2-4\\cdot1\\cdot(5)=-16$: es negativo, así que no hay soluciones reales.",
+      "Calcula $\\Delta=(2)^2-4\\cdot1\\cdot(5)=-16$: es negativo, así que no hay soluciones reales."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación?\n$$2x^2 + 8x + 8 = 0$$",
@@ -8281,7 +8423,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (8)^2 - 4\\cdot 2\\cdot(8) = 0$, que es cero.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Calcula $\\Delta=(8)^2-4\\cdot2\\cdot(8)=0$: es cero, así que hay una sola solución.",
+      "Calcula $\\Delta=(8)^2-4\\cdot2\\cdot(8)=0$: es cero, así que hay una sola solución.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación?\n$$3x^2 - 6x + 3 = 0$$",
@@ -8293,7 +8441,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta = (-6)^2 - 4\\cdot 3\\cdot(3) = 0$, que es cero.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "",
+      "Calcula $\\Delta=(-6)^2-4\\cdot3\\cdot(3)=0$: es cero, así que hay una sola solución.",
+      "Calcula $\\Delta=(-6)^2-4\\cdot3\\cdot(3)=0$: es cero, así que hay una sola solución."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = -11$, ¿qué se puede afirmar?",
@@ -8305,7 +8459,13 @@
      ],
      "correct": 1,
      "why": "Si $\\Delta < 0$, la ecuación no tiene soluciones reales.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $\\Delta=-11<0$ no hay soluciones reales.",
+      "",
+      "Con $\\Delta=-11<0$ no hay soluciones reales.",
+      "Si $\\Delta<0$ no hay soluciones reales, ni positivas ni negativas."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 81$, ¿qué se puede afirmar?",
@@ -8317,7 +8477,13 @@
      ],
      "correct": 3,
      "why": "Si $\\Delta > 0$ hay dos soluciones reales distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $\\Delta=81>0$ hay dos soluciones reales distintas.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Con $\\Delta=81>0$ hay dos soluciones reales distintas.",
+      ""
+     ]
     },
     {
      "q": "Si $\\Delta = 0$ en una ecuación cuadrática, ¿cuántas soluciones reales tiene?",
@@ -8329,7 +8495,13 @@
      ],
      "correct": 1,
      "why": "Si $\\Delta=0$, la ecuación tiene una única solución real (doble).",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "",
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "type": "input",
@@ -8373,7 +8545,13 @@
      ],
      "correct": 2,
      "why": "$\\Delta = (8)^2 - 4\\cdot(1)\\cdot(-4) = 80$ → mayor que cero: dos soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Calcula $\\Delta=(8)^2-4\\cdot1\\cdot(-4)=80$: es positivo, así que hay dos soluciones.",
+      "No siempre: depende del signo del discriminante.",
+      "",
+      "Calcula $\\Delta=(8)^2-4\\cdot1\\cdot(-4)=80$: es positivo, así que hay dos soluciones."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$4x^2 - 32x + 64 = 0$$",
@@ -8385,7 +8563,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (-32)^2 - 4\\cdot(4)\\cdot(64) = 0$ → cero: una solución doble.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Calcula $\\Delta=(-32)^2-4\\cdot4\\cdot(64)=0$: es cero, así que hay una sola solución.",
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(-32)^2-4\\cdot4\\cdot(64)=0$: es cero, así que hay una sola solución.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$x^2 - 2x - 8 = 0$$",
@@ -8397,7 +8581,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (-2)^2 - 4\\cdot(1)\\cdot(-8) = 36$ → mayor que cero: dos soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(-2)^2-4\\cdot1\\cdot(-8)=36$: es positivo, así que hay dos soluciones.",
+      "Calcula $\\Delta=(-2)^2-4\\cdot1\\cdot(-8)=36$: es positivo, así que hay dos soluciones.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$x^2 - 6x - 3 = 0$$",
@@ -8409,7 +8599,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta = (-6)^2 - 4\\cdot(1)\\cdot(-3) = 48$ → mayor que cero: dos soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Calcula $\\Delta=(-6)^2-4\\cdot1\\cdot(-3)=48$: es positivo, así que hay dos soluciones.",
+      "",
+      "Calcula $\\Delta=(-6)^2-4\\cdot1\\cdot(-3)=48$: es positivo, así que hay dos soluciones.",
+      "No siempre: depende del signo del discriminante."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 0$, ¿qué se puede afirmar?",
@@ -8421,7 +8617,13 @@
      ],
      "correct": 2,
      "why": "$\\Delta = 0$: hay una única solución real (doble).",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 121$, ¿qué se puede afirmar?",
@@ -8433,7 +8635,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "",
+      "Con $\\Delta=121>0$ hay dos soluciones reales distintas.",
+      "Con $\\Delta=121>0$ hay dos soluciones reales distintas."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 9$, ¿qué se puede afirmar?",
@@ -8445,7 +8653,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Con $\\Delta=9>0$ hay dos soluciones reales distintas.",
+      "Con $\\Delta=9>0$ hay dos soluciones reales distintas.",
+      ""
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 5$, ¿qué se puede afirmar?",
@@ -8457,7 +8671,13 @@
      ],
      "correct": 0,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Con $\\Delta=5>0$ hay dos soluciones reales distintas.",
+      "Con $\\Delta=5>0$ hay dos soluciones reales distintas."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 52$, ¿qué se puede afirmar?",
@@ -8469,7 +8689,13 @@
      ],
      "correct": 0,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Con $\\Delta=52>0$ hay dos soluciones reales distintas.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Con $\\Delta=52>0$ hay dos soluciones reales distintas."
+     ]
     },
     {
      "type": "input",
@@ -8529,7 +8755,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (-3)^2 - 4\\cdot 1\\cdot(1) = 5$, que es positivo.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Calcula $\\Delta=(-3)^2-4\\cdot1\\cdot(1)=5$: es positivo, así que hay dos soluciones.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Calcula $\\Delta=(-3)^2-4\\cdot1\\cdot(1)=5$: es positivo, así que hay dos soluciones.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -8589,7 +8821,13 @@
      ],
      "correct": 0,
      "why": "$\\Delta = (10)^2 - 4\\cdot(4)\\cdot(6) = 4$ → mayor que cero: dos soluciones.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(10)^2-4\\cdot4\\cdot(6)=4$: es positivo, así que hay dos soluciones.",
+      "Calcula $\\Delta=(10)^2-4\\cdot4\\cdot(6)=4$: es positivo, así que hay dos soluciones."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$4x^2 + 16x + 16 = 0$$",
@@ -8601,7 +8839,13 @@
      ],
      "correct": 2,
      "why": "$\\Delta = (16)^2 - 4\\cdot(4)\\cdot(16) = 0$ → cero: una solución doble.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Calcula $\\Delta=(16)^2-4\\cdot4\\cdot(16)=0$: es cero, así que hay una sola solución.",
+      "No siempre: depende del signo del discriminante.",
+      "",
+      "Calcula $\\Delta=(16)^2-4\\cdot4\\cdot(16)=0$: es cero, así que hay una sola solución."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$x^2 - 8x + 16 = 0$$",
@@ -8613,7 +8857,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (-8)^2 - 4\\cdot(1)\\cdot(16) = 0$ → cero: una solución doble.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(-8)^2-4\\cdot1\\cdot(16)=0$: es cero, así que hay una sola solución.",
+      "Calcula $\\Delta=(-8)^2-4\\cdot1\\cdot(16)=0$: es cero, así que hay una sola solución.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -8641,7 +8891,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $\\Delta=144>0$ hay dos soluciones reales distintas.",
+      "",
+      "Con $\\Delta=144>0$ hay dos soluciones reales distintas.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "q": "Si el discriminante de una ecuación cuadrática es $\\Delta = 16$, ¿qué se puede afirmar?",
@@ -8653,7 +8909,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta > 0$: hay dos soluciones reales distintas.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "",
+      "Con $\\Delta=16>0$ hay dos soluciones reales distintas.",
+      "Con $\\Delta=16>0$ hay dos soluciones reales distintas."
+     ]
     },
     {
      "q": "¿Para qué valores de $k$ la ecuación $x^2 + kx + 4 = 0$ tiene exactamente una solución real?",
@@ -8664,7 +8926,12 @@
      ],
      "correct": 2,
      "why": "Se necesita $\\Delta = k^2 - 4\\cdot 4 = 0$, luego $k^2 = 16$ y $k = \\pm 4$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot4=0$, es decir $k^2=16$.",
+      "Falta un valor: con $k=-4$ también $\\Delta=0$, porque $k^2=16$.",
+      ""
+     ]
     },
     {
      "q": "¿Para qué valores de $k$ la ecuación $x^2 + kx + 25 = 0$ tiene exactamente una solución real?",
@@ -8676,7 +8943,13 @@
      ],
      "correct": 0,
      "why": "Se necesita $\\Delta = k^2 - 4\\cdot 25 = 0$, luego $k^2 = 100$ y $k = \\pm 10$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Falta un valor: con $k=-10$ también $\\Delta=0$, porque $k^2=100$.",
+      "Una sola solución ocurre si $\\Delta=k^2-100=0$: $k$ es la raíz de $100$, con los dos signos.",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot25=0$, es decir $k^2=100$."
+     ]
     },
     {
      "q": "¿Para qué valores de $k$ la ecuación $x^2 + kx + 9 = 0$ tiene exactamente una solución real?",
@@ -8688,7 +8961,13 @@
      ],
      "correct": 0,
      "why": "Se necesita $\\Delta = k^2 - 4\\cdot 9 = 0$, luego $k^2 = 36$ y $k = \\pm 6$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Falta un valor: con $k=-6$ también $\\Delta=0$, porque $k^2=36$.",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot9=0$, es decir $k^2=36$.",
+      "Una sola solución ocurre si $\\Delta=k^2-36=0$: $k$ es la raíz de $36$, con los dos signos."
+     ]
     },
     {
      "type": "input",
@@ -8796,7 +9075,13 @@
      ],
      "correct": 1,
      "why": "Se pide $\\Delta = k^2 - 4\\cdot81 = 0$, entonces $k^2 = 324$ y $k = \\pm 18$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una sola solución ocurre si $\\Delta=k^2-324=0$: $k$ es la raíz de $324$, con los dos signos.",
+      "",
+      "Falta un valor: con $k=-18$ también $\\Delta=0$, porque $k^2=324$.",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot81=0$, es decir $k^2=324$."
+     ]
     },
     {
      "q": "¿Para qué valores de $k$ la ecuación $x^2 + kx + 100 = 0$ tiene exactamente una solución real?",
@@ -8808,7 +9093,13 @@
      ],
      "correct": 1,
      "why": "Se pide $\\Delta = k^2 - 4\\cdot100 = 0$, entonces $k^2 = 400$ y $k = \\pm 20$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Falta un valor: con $k=-20$ también $\\Delta=0$, porque $k^2=400$.",
+      "",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot100=0$, es decir $k^2=400$.",
+      "Una sola solución ocurre si $\\Delta=k^2-400=0$: $k$ es la raíz de $400$, con los dos signos."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$9x^2 + 108x + 324 = 0$$",
@@ -8820,7 +9111,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (108)^2 - 4\\cdot(9)\\cdot(324) = 0$ → cero: una solución doble.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Calcula $\\Delta=(108)^2-4\\cdot9\\cdot(324)=0$: es cero, así que hay una sola solución.",
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(108)^2-4\\cdot9\\cdot(324)=0$: es cero, así que hay una sola solución.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$14x^2 + 19x - 11 = 0$$",
@@ -8832,7 +9129,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = (19)^2 - 4\\cdot(14)\\cdot(-11) = 977$ → mayor que cero: dos soluciones.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Calcula $\\Delta=(19)^2-4\\cdot14\\cdot(-11)=977$: es positivo, así que hay dos soluciones.",
+      "Calcula $\\Delta=(19)^2-4\\cdot14\\cdot(-11)=977$: es positivo, así que hay dos soluciones.",
+      "No siempre: depende del signo del discriminante.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación? $$6x^2 + 48x + 96 = 0$$",
@@ -8844,7 +9147,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta = (48)^2 - 4\\cdot(6)\\cdot(96) = 0$ → cero: una solución doble.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Calcula $\\Delta=(48)^2-4\\cdot6\\cdot(96)=0$: es cero, así que hay una sola solución.",
+      "",
+      "No siempre: depende del signo del discriminante.",
+      "Calcula $\\Delta=(48)^2-4\\cdot6\\cdot(96)=0$: es cero, así que hay una sola solución."
+     ]
     }
    ],
    "check": {
@@ -8855,7 +9164,12 @@
      "$k = 16$"
     ],
     "correct": 1,
-    "why": "Escribimos la ecuación en forma general, $-t^2 + 4t - k = 0$, e igualamos el discriminante a cero: $\\Delta = 4^2 - 4(-1)(-k) = 16 - 4k = 0$, de donde $k = 4$."
+    "why": "Escribimos la ecuación en forma general, $-t^2 + 4t - k = 0$, e igualamos el discriminante a cero: $\\Delta = 4^2 - 4(-1)(-k) = 16 - 4k = 0$, de donde $k = 4$.",
+    "fb": [
+     "Con $k=2$ queda $t^2-4t+2=0$, con $\\Delta=16-8>0$: hay dos instantes.",
+     "",
+     "Con $k=16$ queda $t^2-4t+16=0$, con $\\Delta=16-64<0$: nunca la alcanza."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -8868,7 +9182,13 @@
       "No, nunca la alcanza"
      ],
      "correct": 1,
-     "why": "Igualamos $-5t^2 + 21t = 12$, o $5t^2 - 21t + 12 = 0$. Su discriminante es $\\Delta = (21)^2 - 4\\cdot5\\cdot12 = 201$, que es positivo."
+     "why": "Igualamos $-5t^2 + 21t = 12$, o $5t^2 - 21t + 12 = 0$. Su discriminante es $\\Delta = (21)^2 - 4\\cdot5\\cdot12 = 201$, que es positivo.",
+     "fb": [
+      "Plantea $5t^2-21t+12=0$: $\\Delta=441-240=201$, positivo: la pasa dos veces (al subir y al bajar).",
+      "",
+      "Sí se puede saber: plantea $-5t^2+bt=h$ y mira el discriminante.",
+      "Plantea $5t^2-21t+12=0$: $\\Delta=441-240=201$, positivo: la pasa dos veces (al subir y al bajar)."
+     ]
     },
     {
      "q": "La altura de una pelota lanzada hacia arriba es $h = -5t^2 + 10t$ (en metros, con $t$ en segundos). ¿Alcanza la pelota una altura de $5\\,\\mathrm{m}$?",
@@ -8879,7 +9199,13 @@
       "No, nunca la alcanza"
      ],
      "correct": 0,
-     "why": "Igualamos $-5t^2 + 10t = 5$, o $5t^2 - 10t + 5 = 0$. Su discriminante es $\\Delta = (10)^2 - 4\\cdot5\\cdot5 = 0$, que es cero."
+     "why": "Igualamos $-5t^2 + 10t = 5$, o $5t^2 - 10t + 5 = 0$. Su discriminante es $\\Delta = (10)^2 - 4\\cdot5\\cdot5 = 0$, que es cero.",
+     "fb": [
+      "",
+      "Sí se puede saber: plantea $-5t^2+bt=h$ y mira el discriminante.",
+      "Plantea $5t^2-10t+5=0$: $\\Delta=100-100=0$, cero: la toca una sola vez.",
+      "Plantea $5t^2-10t+5=0$: $\\Delta=100-100=0$, cero: la toca una sola vez."
+     ]
     },
     {
      "q": "La altura de una pelota lanzada hacia arriba es $h = -5t^2 + 4t$ (en metros, con $t$ en segundos). ¿Alcanza la pelota una altura de $23\\,\\mathrm{m}$?",
@@ -8890,7 +9216,13 @@
       "Sí, pero solo la toca una vez (en su punto más alto)"
      ],
      "correct": 0,
-     "why": "Igualamos $-5t^2 + 4t = 23$, o $5t^2 - 4t + 23 = 0$. Su discriminante es $\\Delta = (4)^2 - 4\\cdot5\\cdot23 = -444$, que es negativo."
+     "why": "Igualamos $-5t^2 + 4t = 23$, o $5t^2 - 4t + 23 = 0$. Su discriminante es $\\Delta = (4)^2 - 4\\cdot5\\cdot23 = -444$, que es negativo.",
+     "fb": [
+      "",
+      "Sí se puede saber: plantea $-5t^2+bt=h$ y mira el discriminante.",
+      "Plantea $5t^2-4t+23=0$: $\\Delta=16-460=-444$, negativo: nunca la alcanza.",
+      "Plantea $5t^2-4t+23=0$: $\\Delta=16-460=-444$, negativo: nunca la alcanza."
+     ]
     },
     {
      "q": "La altura de una pelota lanzada hacia arriba es $h = -5t^2 + 24t$ (en metros, con $t$ en segundos). ¿Alcanza la pelota una altura de $25\\,\\mathrm{m}$?",
@@ -8901,7 +9233,13 @@
       "No, nunca la alcanza"
      ],
      "correct": 1,
-     "why": "Igualamos $-5t^2 + 24t = 25$, o $5t^2 - 24t + 25 = 0$. Su discriminante es $\\Delta = (24)^2 - 4\\cdot5\\cdot25 = 76$, que es positivo."
+     "why": "Igualamos $-5t^2 + 24t = 25$, o $5t^2 - 24t + 25 = 0$. Su discriminante es $\\Delta = (24)^2 - 4\\cdot5\\cdot25 = 76$, que es positivo.",
+     "fb": [
+      "Sí se puede saber: plantea $-5t^2+bt=h$ y mira el discriminante.",
+      "",
+      "Plantea $5t^2-24t+25=0$: $\\Delta=576-500=76$, positivo: la pasa dos veces (al subir y al bajar).",
+      "Plantea $5t^2-24t+25=0$: $\\Delta=576-500=76$, positivo: la pasa dos veces (al subir y al bajar)."
+     ]
     },
     {
      "q": "La altura de una pelota lanzada hacia arriba es $h = -5t^2 + 17t$ (en metros, con $t$ en segundos). ¿Alcanza la pelota una altura de $23\\,\\mathrm{m}$?",
@@ -8912,7 +9250,13 @@
       "No se puede saber"
      ],
      "correct": 0,
-     "why": "Igualamos $-5t^2 + 17t = 23$, o $5t^2 - 17t + 23 = 0$. Su discriminante es $\\Delta = (17)^2 - 4\\cdot5\\cdot23 = -171$, que es negativo."
+     "why": "Igualamos $-5t^2 + 17t = 23$, o $5t^2 - 17t + 23 = 0$. Su discriminante es $\\Delta = (17)^2 - 4\\cdot5\\cdot23 = -171$, que es negativo.",
+     "fb": [
+      "",
+      "Plantea $5t^2-17t+23=0$: $\\Delta=289-460=-171$, negativo: nunca la alcanza.",
+      "Plantea $5t^2-17t+23=0$: $\\Delta=289-460=-171$, negativo: nunca la alcanza.",
+      "Sí se puede saber: plantea $-5t^2+bt=h$ y mira el discriminante."
+     ]
     },
     {
      "q": "Un dron sigue la altura $h = -5t^2 + 12t$ (en metros, con $t$ en segundos). ¿Cuántas veces pasa por los $2\\,\\mathrm{m}$ de altura?",
@@ -8923,7 +9267,13 @@
       "Dos veces"
      ],
      "correct": 3,
-     "why": "$\\Delta = (12)^2 - 4\\cdot5\\cdot2 = 104$, que es positivo: dos soluciones reales."
+     "why": "$\\Delta = (12)^2 - 4\\cdot5\\cdot2 = 104$, que es positivo: dos soluciones reales.",
+     "fb": [
+      "Plantea $5t^2-12t+2=0$: $\\Delta=144-40=104$, positivo: la pasa dos veces (al subir y al bajar).",
+      "Plantea $5t^2-12t+2=0$: $\\Delta=144-40=104$, positivo: la pasa dos veces (al subir y al bajar).",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      ""
+     ]
     },
     {
      "q": "Un dron sigue la altura $h = -5t^2 + 11t$ (en metros, con $t$ en segundos). ¿Cuántas veces pasa por los $23\\,\\mathrm{m}$ de altura?",
@@ -8934,7 +9284,13 @@
       "Infinitas veces"
      ],
      "correct": 2,
-     "why": "$\\Delta = (11)^2 - 4\\cdot5\\cdot23 = -339$, que es negativo: ninguna solución real."
+     "why": "$\\Delta = (11)^2 - 4\\cdot5\\cdot23 = -339$, que es negativo: ninguna solución real.",
+     "fb": [
+      "Plantea $5t^2-11t+23=0$: $\\Delta=121-460=-339$, negativo: nunca la alcanza.",
+      "Plantea $5t^2-11t+23=0$: $\\Delta=121-460=-339$, negativo: nunca la alcanza.",
+      "",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "q": "Un dron sigue la altura $h = -5t^2 + 10t$ (en metros, con $t$ en segundos). ¿Cuántas veces pasa por los $5\\,\\mathrm{m}$ de altura?",
@@ -8945,7 +9301,13 @@
       "Dos veces"
      ],
      "correct": 0,
-     "why": "$\\Delta = (10)^2 - 4\\cdot5\\cdot5 = 0$, que es cero: una solución real."
+     "why": "$\\Delta = (10)^2 - 4\\cdot5\\cdot5 = 0$, que es cero: una solución real.",
+     "fb": [
+      "",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "Plantea $5t^2-10t+5=0$: $\\Delta=100-100=0$, cero: la toca una sola vez.",
+      "Plantea $5t^2-10t+5=0$: $\\Delta=100-100=0$, cero: la toca una sola vez."
+     ]
     },
     {
      "q": "Un dron sigue la altura $h = -5t^2 + 29t$ (en metros, con $t$ en segundos). ¿Cuántas veces pasa por los $11\\,\\mathrm{m}$ de altura?",
@@ -8956,7 +9318,13 @@
       "Infinitas veces"
      ],
      "correct": 1,
-     "why": "$\\Delta = (29)^2 - 4\\cdot5\\cdot11 = 621$, que es positivo: dos soluciones reales."
+     "why": "$\\Delta = (29)^2 - 4\\cdot5\\cdot11 = 621$, que es positivo: dos soluciones reales.",
+     "fb": [
+      "Plantea $5t^2-29t+11=0$: $\\Delta=841-220=621$, positivo: la pasa dos veces (al subir y al bajar).",
+      "",
+      "Plantea $5t^2-29t+11=0$: $\\Delta=841-220=621$, positivo: la pasa dos veces (al subir y al bajar).",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "type": "input",
@@ -8994,7 +9362,12 @@
       "$k = 4$ o $k = -4$"
      ],
      "correct": 2,
-     "why": "Se necesita $\\Delta = k^2 - 4\\cdot4 = 0$, luego $k^2 = 16$ y $k = \\pm 4$."
+     "why": "Se necesita $\\Delta = k^2 - 4\\cdot4 = 0$, luego $k^2 = 16$ y $k = \\pm 4$.",
+     "fb": [
+      "Falta un valor: con $k=-4$ también $\\Delta=0$, porque $k^2=16$.",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot4=0$, es decir $k^2=16$.",
+      ""
+     ]
     },
     {
      "q": "Para que la ecuación $x^2 + kx + 4 = 0$ de un sistema químico tenga una única solución real, ¿cuánto debe valer $k$?",
@@ -9004,7 +9377,12 @@
       "$k = 4$ o $k = -4$"
      ],
      "correct": 2,
-     "why": "Se necesita $\\Delta = k^2 - 4\\cdot4 = 0$, luego $k^2 = 16$ y $k = \\pm 4$."
+     "why": "Se necesita $\\Delta = k^2 - 4\\cdot4 = 0$, luego $k^2 = 16$ y $k = \\pm 4$.",
+     "fb": [
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot4=0$, es decir $k^2=16$.",
+      "Falta un valor: con $k=-4$ también $\\Delta=0$, porque $k^2=16$.",
+      ""
+     ]
     },
     {
      "q": "Un sensor modela su error con $x^2 + kx + 25 = 0$. Si debe haber exactamente una solución real, ¿qué valores puede tener $k$?",
@@ -9015,7 +9393,13 @@
       "$k = 10$ o $k = -10$"
      ],
      "correct": 3,
-     "why": "Se necesita $\\Delta = k^2 - 4\\cdot25 = 0$, luego $k^2 = 100$ y $k = \\pm 10$."
+     "why": "Se necesita $\\Delta = k^2 - 4\\cdot25 = 0$, luego $k^2 = 100$ y $k = \\pm 10$.",
+     "fb": [
+      "Una sola solución ocurre si $\\Delta=k^2-100=0$: $k$ es la raíz de $100$, con los dos signos.",
+      "Una sola solución ocurre si $\\Delta=k^2-4\\cdot25=0$, es decir $k^2=100$.",
+      "Falta un valor: con $k=-10$ también $\\Delta=0$, porque $k^2=100$.",
+      ""
+     ]
     },
     {
      "q": "Un modelo predice cuándo una pelota llega a cierta altura. Su ecuación tiene discriminante $\\Delta = -18$. ¿Qué se concluye?",
@@ -9026,7 +9410,13 @@
       "Ocurre exactamente una vez"
      ],
      "correct": 1,
-     "why": "Si $\\Delta < 0$, no hay soluciones reales."
+     "why": "Si $\\Delta < 0$, no hay soluciones reales.",
+     "fb": [
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "",
+      "Con $\\Delta=-18<0$ no hay soluciones reales.",
+      "Con $\\Delta=-18<0$ no hay soluciones reales."
+     ]
     },
     {
      "q": "Un modelo predice cuándo un sensor registra cierto valor. Su ecuación tiene discriminante $\\Delta = 0$. ¿Qué se concluye?",
@@ -9037,7 +9427,13 @@
       "Ocurre infinitas veces"
      ],
      "correct": 2,
-     "why": "Si $\\Delta = 0$, hay una única solución real."
+     "why": "Si $\\Delta = 0$, hay una única solución real.",
+     "fb": [
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "Con $\\Delta=0$ hay una sola solución (doble).",
+      "",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "q": "Un modelo predice cuándo una población alcanza cierto tamaño. Su ecuación tiene discriminante $\\Delta = 4$. ¿Qué se concluye?",
@@ -9048,7 +9444,13 @@
       "Ocurre infinitas veces"
      ],
      "correct": 1,
-     "why": "Si $\\Delta > 0$, hay dos soluciones reales distintas."
+     "why": "Si $\\Delta > 0$, hay dos soluciones reales distintas.",
+     "fb": [
+      "Con $\\Delta=4>0$ hay dos soluciones reales distintas.",
+      "",
+      "Con $\\Delta=4>0$ hay dos soluciones reales distintas.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -9229,7 +9631,12 @@
      ],
      "correct": 2,
      "why": "Se comparan los coeficientes con la forma general $ax^2 + bx + c = 0$, respetando los signos.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$.",
+      ""
+     ]
     },
     {
      "q": "Resuelve con la fórmula general:\n$$2x^2 + 3x - 2 = 0$$",
@@ -9240,7 +9647,12 @@
      ],
      "correct": 1,
      "why": "Con $a = 2$, $b = 3$ y $c = -2$: $x = \\frac{-3 \\pm \\sqrt{9 + 16}}{4} = \\frac{-3 \\pm 5}{4}$, de donde $x = \\frac{1}{2}$ o $x = -2$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa los signos: con $x=2$, $8+6-2\\neq0$.",
+      "",
+      "Con $x=1$: $2+3-2=3$, no $0$."
+     ]
     },
     {
      "q": "En la ecuación $5x^2 + 6x - 2 = 0$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9252,7 +9664,13 @@
      ],
      "correct": 1,
      "why": "El coeficiente de $x^2$ es $a$, el de $x$ es $b$ y el término sin $x$ es $c$, con sus signos.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$.",
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación."
+     ]
     },
     {
      "q": "En la ecuación $6x^2 - 6x - 9 = 0$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9263,7 +9681,12 @@
      ],
      "correct": 1,
      "why": "El coeficiente de $x^2$ es $a$, el de $x$ es $b$ y el término sin $x$ es $c$, con sus signos.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "",
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$."
+     ]
     },
     {
      "q": "En la ecuación $2x^2 + 3x - 4 = 0$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9275,7 +9698,13 @@
      ],
      "correct": 0,
      "why": "El coeficiente de $x^2$ es $a$, el de $x$ es $b$ y el término sin $x$ es $c$, con sus signos.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$."
+     ]
     },
     {
      "q": "En la ecuación $2x^2 + 6x - 2 = 0$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9287,7 +9716,13 @@
      ],
      "correct": 1,
      "why": "El coeficiente de $x^2$ es $a$, el de $x$ es $b$ y el término sin $x$ es $c$, con sus signos.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$."
+     ]
     },
     {
      "type": "input",
@@ -9339,7 +9774,13 @@
      ],
      "correct": 0,
      "why": "Se lleva la ecuación a la forma $ax^2 + bx + c = 0$ conservando los signos: $a = -2$, $b = 6$, $c = 5$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación."
+     ]
     },
     {
      "q": "En la ecuación $x^2 = 9x + 8$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9351,7 +9792,13 @@
      ],
      "correct": 3,
      "why": "Se lleva la ecuación a la forma $ax^2 + bx + c = 0$ conservando los signos: $a = 1$, $b = -9$, $c = -8$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2-9x-8=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2-9x-8=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2-9x-8=0$.",
+      ""
+     ]
     },
     {
      "q": "En la ecuación $x^2 + x - 2 = 0$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9363,7 +9810,13 @@
      ],
      "correct": 0,
      "why": "Se lleva la ecuación a la forma $ax^2 + bx + c = 0$ conservando los signos: $a = 1$, $b = 1$, $c = -2$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación."
+     ]
     },
     {
      "q": "En la ecuación $x^2 = -x - 3$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9375,7 +9828,13 @@
      ],
      "correct": 3,
      "why": "Se lleva la ecuación a la forma $ax^2 + bx + c = 0$ conservando los signos: $a = 1$, $b = 1$, $c = 3$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2+x+3=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2+x+3=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $x^2+x+3=0$.",
+      ""
+     ]
     },
     {
      "q": "En la ecuación $4x^2 = -3x - 1$, ¿cuáles son los valores de $a$, $b$ y $c$ en la forma general $ax^2 + bx + c = 0$?",
@@ -9387,7 +9846,13 @@
      ],
      "correct": 0,
      "why": "Se lleva la ecuación a la forma $ax^2 + bx + c = 0$ conservando los signos: $a = 4$, $b = 3$, $c = 1$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $4x^2+3x+1=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $4x^2+3x+1=0$.",
+      "Primero hay que dejar todo a un lado, igualado a $0$: al pasar términos, cambian de signo. Queda $4x^2+3x+1=0$."
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $x^2 - 6x + 5 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9399,7 +9864,13 @@
      ],
      "correct": 3,
      "why": "Con $a = 1$, $b = -6$ y $c = 5$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      "El denominador es $2a$, no $a$.",
+      ""
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $x^2 + 12x + 36 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9411,7 +9882,13 @@
      ],
      "correct": 2,
      "why": "Con $a = 1$, $b = 12$ y $c = 36$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El denominador es $2a$, no $a$.",
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      "",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $x^2 + x - 20 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9423,7 +9900,13 @@
      ],
      "correct": 0,
      "why": "Con $a = 1$, $b = 1$ y $c = -20$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "El denominador es $2a$, no $a$."
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $2x^2 + 2x - 4 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9435,7 +9918,13 @@
      ],
      "correct": 2,
      "why": "Con $a = 2$, $b = 2$ y $c = -4$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "",
+      "El denominador es $2a$, no $a$."
+     ]
     },
     {
      "type": "input",
@@ -9487,7 +9976,13 @@
      ],
      "correct": 2,
      "why": "Pasamos todo a la izquierda: $3x^2 + 4x - 4 = 0$. Con $a=3$, $b=4$, $c=-4$ se obtiene $x=-2$ y $x=\\dfrac{2}{3}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa: ordena $3x^2+4x-4=0$ y calcula $\\Delta=16+48=64$.",
+      "Falta la otra solución: $\\Delta=64>0$ da dos soluciones.",
+      "",
+      "Revisa los signos: $-b=-4$, así que $x=\\frac{-4\\pm8}{6}$."
+     ]
     },
     {
      "q": "Resuelve la ecuación aplicando la fórmula general (primero ordena la ecuación):\n$$3x^2 = 7x + 6$$",
@@ -9499,7 +9994,13 @@
      ],
      "correct": 3,
      "why": "Pasamos todo a la izquierda: $3x^2 - 7x - 6 = 0$. Con $a=3$, $b=-7$, $c=-6$ se obtiene $x=-\\dfrac{2}{3}$ y $x=3$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta la otra solución: $\\Delta=121>0$ da dos soluciones.",
+      "Revisa los signos: $-b=7$, así que $x=\\frac{7\\pm11}{6}$.",
+      "Revisa: ordena $3x^2-7x-6=0$ y calcula $\\Delta=49+72=121$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -9567,7 +10068,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = -6^2 - 4\\cdot3\\cdot(-2) = 60$ y $x = \\dfrac{-(-6) \\pm \\sqrt{60}}{6}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "Revisa $\\Delta$: $36-4\\cdot3\\cdot(-2)=36+24=60$.",
+      "El denominador es $2a$, no $a$.",
+      ""
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$x^2 + 5x - 5 = 0$$",
@@ -9579,7 +10086,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = 5^2 - 4\\cdot1\\cdot(-5) = 45$ y $x = \\dfrac{-(5) \\pm \\sqrt{45}}{2}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa $\\Delta$: $25-4\\cdot1\\cdot(-5)=25+20=45$.",
+      "El denominador es $2a$, no $a$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      ""
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$3x^2 - 4x - 5 = 0$$",
@@ -9591,7 +10104,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta = -4^2 - 4\\cdot3\\cdot(-5) = 76$ y $x = \\dfrac{-(-4) \\pm \\sqrt{76}}{6}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "",
+      "Revisa $\\Delta$: $16-4\\cdot3\\cdot(-5)=16+60=76$.",
+      "El denominador es $2a$, no $a$."
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$x^2 + 3x - 6 = 0$$",
@@ -9603,7 +10122,13 @@
      ],
      "correct": 1,
      "why": "$\\Delta = 3^2 - 4\\cdot1\\cdot(-6) = 33$ y $x = \\dfrac{-(3) \\pm \\sqrt{33}}{2}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El denominador es $2a$, no $a$.",
+      "",
+      "Revisa $\\Delta$: $9-4\\cdot1\\cdot(-6)=9+24=33$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $x^2 + 9x + 18 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9615,7 +10140,13 @@
      ],
      "correct": 1,
      "why": "Con $a = 1$, $b = 9$ y $c = 18$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "",
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      "El denominador es $2a$, no $a$."
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $4x^2 - 12x + 8 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9627,7 +10158,13 @@
      ],
      "correct": 3,
      "why": "Con $a = 4$, $b = -12$ y $c = 8$: $x = \\dfrac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "El denominador es $2a$, no $a$.",
+      "Dentro de la raíz es $b^2-4ac$: se **resta** $4ac$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -9663,7 +10200,13 @@
      ],
      "correct": 2,
      "why": "Aquí $\\Delta=b^2-4ac=28$ y $x=\\frac{6\\pm\\sqrt{28}}{2}=3\\pm\\sqrt{7}$ (pues $\\sqrt{28}=2\\sqrt{7}$).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa $\\Delta$: $36-8=28$, y al simplificar $\\frac{\\sqrt{28}}{2}=\\sqrt{7}$.",
+      "Al dividir por $2$, también se simplifica la raíz: $\\frac{\\sqrt{28}}{2}=\\sqrt{7}$.",
+      "",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Resuelve con la fórmula general:\n$$x^2 - 8x + 10 = 0$$",
@@ -9675,7 +10218,13 @@
      ],
      "correct": 3,
      "why": "Aquí $\\Delta=b^2-4ac=24$ y $x=\\frac{8\\pm\\sqrt{24}}{2}=4\\pm\\sqrt{6}$ (pues $\\sqrt{24}=2\\sqrt{6}$).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "Revisa $\\Delta$: $64-40=24$, y $\\frac{\\sqrt{24}}{2}=\\sqrt{6}$.",
+      "Al dividir por $2$, también se simplifica la raíz: $\\frac{\\sqrt{24}}{2}=\\sqrt{6}$.",
+      ""
+     ]
     },
     {
      "q": "Al aplicar la fórmula general a la ecuación $x^2 - 5x - 3 = 0$, ¿qué expresión se obtiene para $x$?",
@@ -9687,7 +10236,13 @@
      ],
      "correct": 2,
      "why": "Con $a=1$, $b=-5$ y $c=-3$: $x=\\frac{-b\\pm\\sqrt{b^2-4ac}}{2a}=\\frac{5\\pm\\sqrt{37}}{2}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa $\\Delta$: $25-4\\cdot1\\cdot(-3)=25+12=37$.",
+      "El denominador es $2a$, no $a$.",
+      "",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "type": "input",
@@ -9747,7 +10302,13 @@
      ],
      "correct": 3,
      "why": "$\\Delta = 6^2 - 4\\cdot3\\cdot(2) = 12$ y $x = \\dfrac{-(6) \\pm \\sqrt{12}}{6}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa $\\Delta$: $36-4\\cdot3\\cdot2=36-24=12$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "El denominador es $2a$, no $a$.",
+      ""
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$x^2 - 2x - 6 = 0$$",
@@ -9759,7 +10320,13 @@
      ],
      "correct": 2,
      "why": "$\\Delta = -2^2 - 4\\cdot1\\cdot(-6) = 28$ y $x = \\dfrac{-(-2) \\pm \\sqrt{28}}{2}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa $\\Delta$: $4-4\\cdot1\\cdot(-6)=4+24=28$.",
+      "El denominador es $2a$, no $a$.",
+      "",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$8x^2 - 4x - 6 = 0$$",
@@ -9771,7 +10338,13 @@
      ],
      "correct": 0,
      "why": "$\\Delta = -4^2 - 4\\cdot8\\cdot(-6) = 208$ y $x = \\dfrac{-(-4) \\pm \\sqrt{208}}{16}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Revisa $\\Delta$: $16-4\\cdot8\\cdot(-6)=16+192=208$.",
+      "El denominador es $2a$, no $a$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$7x^2 + 7x - 9 = 0$$",
@@ -9783,7 +10356,13 @@
      ],
      "correct": 0,
      "why": "$\\Delta = 7^2 - 4\\cdot7\\cdot(-9) = 301$ y $x = \\dfrac{-(7) \\pm \\sqrt{301}}{14}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "El denominador es $2a$, no $a$.",
+      "Revisa $\\Delta$: $49-4\\cdot7\\cdot(-9)=49+252=301$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$."
+     ]
     },
     {
      "q": "Resuelve con la fórmula general (sin simplificar el radical): $$10x^2 + 9x - 10 = 0$$",
@@ -9795,7 +10374,13 @@
      ],
      "correct": 2,
      "why": "$\\Delta = 9^2 - 4\\cdot10\\cdot(-10) = 481$ y $x = \\dfrac{-(9) \\pm \\sqrt{481}}{20}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El denominador es $2a$, no $a$.",
+      "En el numerador va $-b$: el opuesto del coeficiente de $x$.",
+      "",
+      "Revisa $\\Delta$: $81-4\\cdot10\\cdot(-10)=81+400=481$."
+     ]
     },
     {
      "type": "input",
@@ -9830,7 +10415,12 @@
      "$t = 5\\,\\mathrm{s}$"
     ],
     "correct": 0,
-    "why": "Planteamos $h(t) = 0$ y dividimos por $-5$: $t^2 - 2t - 3 = 0$. Con la fórmula general, $t = \\frac{2 \\pm \\sqrt{16}}{2}$, es decir, $t = 3$ o $t = -1$. Se descarta la solución negativa porque el tiempo no puede ser negativo."
+    "why": "Planteamos $h(t) = 0$ y dividimos por $-5$: $t^2 - 2t - 3 = 0$. Con la fórmula general, $t = \\frac{2 \\pm \\sqrt{16}}{2}$, es decir, $t = 3$ o $t = -1$. Se descarta la solución negativa porque el tiempo no puede ser negativo.",
+    "fb": [
+     "",
+     "Con $t=1$: $-5+10+15=20$; todavía está en el aire.",
+     "Con $t=5$: $-125+50+15<0$."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -9850,7 +10440,13 @@
       "$-4\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "$a=-5$, $b=-5$, $c=60$. La fórmula da $t = 3$ o $t = -4$; el tiempo es positivo, así que $t = 3$."
+     "why": "$a=-5$, $b=-5$, $c=60$. La fórmula da $t = 3$ o $t = -4$; el tiempo es positivo, así que $t = 3$.",
+     "fb": [
+      "",
+      "Revisa los signos: con $t=4$, $-80-20+60<0$.",
+      "Con $t=7$ la altura es muy negativa: revisa $\\Delta$.",
+      "El tiempo debe ser positivo: se descarta $t=-4$."
+     ]
     },
     {
      "type": "input",
@@ -9868,7 +10464,13 @@
       "$7\\,\\mathrm{s}$"
      ],
      "correct": 1,
-     "why": "$a=-5$, $b=15$, $c=50$. La fórmula da $t = 5$ o $t = -2$; el tiempo es positivo, así que $t = 5$."
+     "why": "$a=-5$, $b=15$, $c=50$. La fórmula da $t = 5$ o $t = -2$; el tiempo es positivo, así que $t = 5$.",
+     "fb": [
+      "$t=2$ no cumple: $-20+30+50=60$. Revisa los signos.",
+      "",
+      "El tiempo debe ser positivo: se descarta $t=-2$.",
+      "Con $t=7$: $-245+105+50<0$."
+     ]
     },
     {
      "type": "input",
@@ -9886,7 +10488,13 @@
       "$1{,}4\\,\\mathrm{s}$"
      ],
      "correct": 3,
-     "why": "Con $a=5$, $b=-3$, $c=-6$: $\\Delta=129$ y $t=\\frac{3+\\sqrt{129}}{10}\\approx 1{,}4$ (la otra solución es negativa)."
+     "why": "Con $a=5$, $b=-3$, $c=-6$: $\\Delta=129$ y $t=\\frac{3+\\sqrt{129}}{10}\\approx 1{,}4$ (la otra solución es negativa).",
+     "fb": [
+      "Revisa $\\Delta$: $9+120=129$, y $\\sqrt{129}\\approx11{,}4$.",
+      "Revisa el denominador: $2a=10$.",
+      "Se pide el valor **positivo**.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -9904,7 +10512,13 @@
       "$1{,}1\\,\\mathrm{min}$"
      ],
      "correct": 0,
-     "why": "Con $a=5$, $b=-2$, $c=-8$: $\\Delta=164$ y $t=\\frac{2+\\sqrt{164}}{10}\\approx 1{,}5$ (la otra solución es negativa)."
+     "why": "Con $a=5$, $b=-2$, $c=-8$: $\\Delta=164$ y $t=\\frac{2+\\sqrt{164}}{10}\\approx 1{,}5$ (la otra solución es negativa).",
+     "fb": [
+      "",
+      "Se pide el valor **positivo**.",
+      "Revisa el denominador: $2a=10$.",
+      "Revisa $\\Delta$: $4+160=164$, y $\\sqrt{164}\\approx12{,}8$."
+     ]
     },
     {
      "type": "input",
@@ -9922,7 +10536,13 @@
       "$4\\,\\mathrm{m}$"
      ],
      "correct": 0,
-     "why": "$x(2x+1) = 21$ da $2x^2 + x - 21 = 0$. La fórmula general entrega $x = 3$ (la otra solución es negativa)."
+     "why": "$x(2x+1) = 21$ da $2x^2 + x - 21 = 0$. La fórmula general entrega $x = 3$ (la otra solución es negativa).",
+     "fb": [
+      "",
+      "$7$ es el largo con $x=3$; se pregunta por el ancho.",
+      "Con $x=2$: $2\\cdot5=10$, no $21$.",
+      "Con $x=4$: $4\\cdot9=36$, no $21$."
+     ]
     },
     {
      "type": "input",
@@ -9940,7 +10560,13 @@
       "$2$"
      ],
      "correct": 2,
-     "why": "$a=-1$, $b=2$, $c=3$. La fórmula da $t = 3$ o $t = -1$; solo sirve $t = 3$."
+     "why": "$a=-1$, $b=2$, $c=3$. La fórmula da $t = 3$ o $t = -1$; solo sirve $t = 3$.",
+     "fb": [
+      "El tiempo debe ser positivo: se descarta $t=-1$.",
+      "Con $t=4$: $-16+8+3=-5$, no $0$.",
+      "",
+      "Con $t=2$: $-4+4+3=3$, no $0$."
+     ]
     },
     {
      "type": "input",
@@ -9958,7 +10584,13 @@
       "$4$"
      ],
      "correct": 1,
-     "why": "$a=-1$, $b=4$, $c=5$. La fórmula da $t = 5$ o $t = -1$; solo sirve $t = 5$."
+     "why": "$a=-1$, $b=4$, $c=5$. La fórmula da $t = 5$ o $t = -1$; solo sirve $t = 5$.",
+     "fb": [
+      "Con $t=6$: $-36+24+5=-7$, no $0$.",
+      "",
+      "El tiempo debe ser positivo: se descarta $t=-1$.",
+      "Con $t=4$: $-16+16+5=5$, no $0$."
+     ]
     },
     {
      "type": "input",
@@ -9976,7 +10608,13 @@
       "$a = 4,\\ b = 1,\\ c = 3$"
      ],
      "correct": 1,
-     "why": "El coeficiente de $t^2$ es $a$, el de $t$ es $b$ y el término sin $t$ es $c$, con sus signos."
+     "why": "El coeficiente de $t^2$ es $a$, el de $t$ es $b$ y el término sin $t$ es $c$, con sus signos.",
+     "fb": [
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$.",
+      "",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación."
+     ]
     },
     {
      "q": "Un modelo de reacción se expresa como $4t^2 + 5t + 7 = 0$. ¿Cuáles son los valores de $a$, $b$ y $c$ en la forma general?",
@@ -9986,7 +10624,12 @@
       "$a = 4,\\ b = 5,\\ c = 7$"
      ],
      "correct": 2,
-     "why": "El coeficiente de $t^2$ es $a$, el de $t$ es $b$ y el término sin $t$ es $c$, con sus signos."
+     "why": "El coeficiente de $t^2$ es $a$, el de $t$ es $b$ y el término sin $t$ es $c$, con sus signos.",
+     "fb": [
+      "$a$ acompaña a $x^2$, $b$ acompaña a $x$ y $c$ es el término sin $x$.",
+      "Cada coeficiente lleva su signo: el número que acompaña a $x$ (o el término independiente) se escribe con el signo que tiene en la ecuación.",
+      ""
+     ]
     },
     {
      "q": "Una piedra lanzada desde un puente sigue $h = -5t^2 - 5t + 150$ (en metros, con $t$ en segundos). Con la fórmula general, ¿en qué instante $t>0$ toca el agua?",
@@ -9997,7 +10640,13 @@
       "$6\\,\\mathrm{s}$"
      ],
      "correct": 2,
-     "why": "$a=-5$, $b=-5$, $c=150$. La fórmula da $t = 5$ o $t = -6$; el tiempo es positivo, así que $t = 5$."
+     "why": "$a=-5$, $b=-5$, $c=150$. La fórmula da $t = 5$ o $t = -6$; el tiempo es positivo, así que $t = 5$.",
+     "fb": [
+      "El tiempo debe ser positivo: se descarta $t=-6$.",
+      "Revisa: divide por $-5$, $t^2+t-30=0$.",
+      "",
+      "Revisa los signos: con $t=6$, $-180-30+150<0$."
+     ]
     },
     {
      "q": "El nivel de una sustancia cumple $5t^2 - 2t - 9 = 0$ ($t$ en minutos). Usa la fórmula general y da la solución positiva con un decimal.",
@@ -10008,7 +10657,13 @@
       "$-1{,}2\\,\\mathrm{min}$"
      ],
      "correct": 2,
-     "why": "Con $a=5$, $b=-2$, $c=-9$: $\\Delta=184$ y $t=\\frac{2+\\sqrt{184}}{10}\\approx 1{,}6$ (la otra solución es negativa)."
+     "why": "Con $a=5$, $b=-2$, $c=-9$: $\\Delta=184$ y $t=\\frac{2+\\sqrt{184}}{10}\\approx 1{,}6$ (la otra solución es negativa).",
+     "fb": [
+      "Revisa el denominador: $2a=10$.",
+      "Revisa $\\Delta$: $4+180=184$, y $\\sqrt{184}\\approx13{,}6$.",
+      "",
+      "Se pide el valor **positivo**."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -10260,7 +10915,13 @@
      ],
      "correct": 1,
      "why": "De $x^2 = -16$: un cuadrado nunca es negativo, por eso no hay soluciones reales.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Una sola solución ocurre cuando el cuadrado vale $0$, como en $x^2=0$.",
+      "",
+      "$x^2=-16$: Ningún número real elevado al cuadrado da un resultado negativo.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones."
+     ]
     },
     {
      "type": "input",
@@ -10281,7 +10942,13 @@
      ],
      "correct": 0,
      "why": "Factorizamos: $x(x - 3) = 0$. Entonces $x = 0$ o $x = 3$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Falta la solución $x=0$: al factorizar $x(x-3)=0$, un factor es $x$.",
+      "Factoriza: $x(x-3)=0$; las soluciones son $0$ y $3$.",
+      "Revisa el signo: de $x-3=0$ sale $x=3$."
+     ]
     },
     {
      "q": "¿Qué se puede afirmar de la ecuación $x^2 = -8$ en los números reales?",
@@ -10293,7 +10960,13 @@
      ],
      "correct": 3,
      "why": "Todo número real al cuadrado es mayor o igual que cero, así que no puede ser igual a un número negativo.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$(-8)^2=64$, no $-8$. Ningún número real elevado al cuadrado da un resultado negativo.",
+      "$8^2=64$ y $(-8)^2=64$: ninguno da $-8$.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $3x^2 = 0$?",
@@ -10305,7 +10978,13 @@
      ],
      "correct": 3,
      "why": "Dividimos por 3: $x^2 = 0$, y el único número cuyo cuadrado es 0 es el 0.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Al dividir por $3$ queda $x^2=0$: Si $x^2=0$, el único número posible es $x=0$.",
+      "Sí hay solución: $x=0$ cumple $3\\cdot0^2=0$.",
+      "Con $x=3$: $3\\cdot9=27$, no $0$. Si $x^2=0$, el único número posible es $x=0$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -10407,7 +11086,13 @@
      ],
      "correct": 0,
      "why": "$x^2$ nunca es negativo, así que no puede valer $-13$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "$x=0$ da $0+13=13$, no $0$.",
+      "$x^2=-13$: Ningún número real elevado al cuadrado da un resultado negativo.",
+      "$x^2=-13$: Ningún número real elevado al cuadrado da un resultado negativo."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $(x - 14)^2 = 0$?",
@@ -10419,7 +11104,13 @@
      ],
      "correct": 0,
      "why": "Un cuadrado solo es cero si la base es cero: $x - 14 = 0$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Sí hay solución: $x=14$ cumple $(14-14)^2=0$.",
+      "Con $x=-14$: $(-28)^2\\neq0$. Si el binomio al cuadrado vale $0$, el binomio vale $0$: hay una sola solución.",
+      "Si el binomio al cuadrado vale $0$, el binomio vale $0$: hay una sola solución."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $(x - 13)^2 = 0$?",
@@ -10431,7 +11122,13 @@
      ],
      "correct": 2,
      "why": "Un cuadrado solo es cero si la base es cero: $x - 13 = 0$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Sí hay solución: $x=13$ cumple $(13-13)^2=0$.",
+      "Si el binomio al cuadrado vale $0$, el binomio vale $0$: hay una sola solución.",
+      "",
+      "Con $x=-13$: $(-26)^2\\neq0$. Si el binomio al cuadrado vale $0$, el binomio vale $0$: hay una sola solución."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$4x^2 = 16$$",
@@ -10443,7 +11140,13 @@
      ],
      "correct": 2,
      "why": "Dividimos por 4: $x^2 = 4$, luego $x = \\pm 2$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Primero se divide por $4$: $x^2=4$, y luego se saca la raíz.",
+      "Falta la solución negativa: $(-2)^2=4$.",
+      "",
+      "Se divide por $4$, no se resta: $x^2=4$."
+     ]
     },
     {
      "type": "input",
@@ -10464,7 +11167,13 @@
      ],
      "correct": 2,
      "why": "Factorizamos: $x(3x + 18) = 0$. Entonces $x = 0$ o $x = -6$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa el signo: de $x+6=0$ sale $x=-6$.",
+      "Al extraer $3x$, el $18x$ queda $6$: $3x(x+6)=0$.",
+      "",
+      "Falta la solución $x=0$, que viene del factor $3x$."
+     ]
     },
     {
      "type": "input",
@@ -10485,7 +11194,13 @@
      ],
      "correct": 3,
      "why": "Factorizamos: $x(5x + 10) = 0$. Entonces $x = 0$ o $x = -2$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta la solución $x=0$, que viene del factor $5x$.",
+      "Al extraer $5x$, el $10x$ queda $2$: $5x(x+2)=0$.",
+      "Revisa el signo: de $x+2=0$ sale $x=-2$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -10506,7 +11221,13 @@
      ],
      "correct": 3,
      "why": "Aplicamos raíz a ambos lados: $x + 6 = \\pm 4$, así que $x = -10$ o $x = -2$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta una solución: $x+6=-4$ también sirve.",
+      "Esas son las soluciones de $x^2=16$; aquí es $(x+6)^2=16$.",
+      "Revisa los signos: $x+6=4$ da $x=-2$ y $x+6=-4$ da $x=-10$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -10608,7 +11329,13 @@
      ],
      "correct": 1,
      "why": "$x^2$ nunca es negativo, así que no puede valer $-15$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Hay soluciones opuestas cuando el cuadrado es **positivo**, como en $x^2=9$.",
+      "",
+      "$x=0$ da $15$, no $0$.",
+      "$x^2=-15$: Ningún número real elevado al cuadrado da un resultado negativo."
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $9x^2 = 0$?",
@@ -10620,7 +11347,13 @@
      ],
      "correct": 3,
      "why": "Solo $x = 0$ cumple $9x^2 = 0$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Sí hay solución: $x=0$.",
+      "Hay soluciones opuestas cuando el cuadrado es **positivo**, como en $x^2=9$.",
+      "Si $x^2=0$, el único número posible es $x=0$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones reales tiene la ecuación $7x^2 = 0$?",
@@ -10632,7 +11365,13 @@
      ],
      "correct": 2,
      "why": "Solo $x = 0$ cumple $7x^2 = 0$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Si $x^2=0$, el único número posible es $x=0$.",
+      "Hay soluciones opuestas cuando el cuadrado es **positivo**, como en $x^2=9$.",
+      "",
+      "Sí hay solución: $x=0$."
+     ]
     },
     {
      "type": "input",
@@ -10833,7 +11572,13 @@
       "$16\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Resolvemos $5t^2 = 80$: $t^2 = 16$, luego $t = \\pm 4$. El tiempo no puede ser negativo, así que $t = 4$."
+     "why": "Resolvemos $5t^2 = 80$: $t^2 = 16$, luego $t = \\pm 4$. El tiempo no puede ser negativo, así que $t = 4$.",
+     "fb": [
+      "",
+      "$20$ sale de $80\\div4$; primero se divide por $5$: $t^2=16$.",
+      "$80$ son los metros, no los segundos.",
+      "$16$ es $t^2$; falta sacar la raíz."
+     ]
     },
     {
      "type": "input",
@@ -10851,7 +11596,13 @@
       "$10\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Resolvemos $5t^2 = 20$: $t^2 = 4$, luego $t = \\pm 2$. El tiempo no puede ser negativo, así que $t = 2$."
+     "why": "Resolvemos $5t^2 = 20$: $t^2 = 4$, luego $t = \\pm 2$. El tiempo no puede ser negativo, así que $t = 2$.",
+     "fb": [
+      "",
+      "Con $4\\,\\mathrm{s}$ cae $5\\cdot16=80\\,\\mathrm{m}$.",
+      "$20$ son los metros, no los segundos.",
+      "Con $10\\,\\mathrm{s}$ cae $500\\,\\mathrm{m}$."
+     ]
     },
     {
      "type": "input",
@@ -10869,7 +11620,13 @@
       "$125\\,\\mathrm{s}$"
      ],
      "correct": 1,
-     "why": "Resolvemos $5t^2 = 125$: $t^2 = 25$, luego $t = \\pm 5$. El tiempo no puede ser negativo, así que $t = 5$."
+     "why": "Resolvemos $5t^2 = 125$: $t^2 = 25$, luego $t = \\pm 5$. El tiempo no puede ser negativo, así que $t = 5$.",
+     "fb": [
+      "Con $6\\,\\mathrm{s}$ cae $5\\cdot36=180\\,\\mathrm{m}$.",
+      "",
+      "$25$ es $t^2$; falta sacar la raíz.",
+      "$125$ son los metros, no los segundos."
+     ]
     },
     {
      "type": "input",
@@ -10887,7 +11644,13 @@
       "$289\\,\\mathrm{cm}$"
      ],
      "correct": 1,
-     "why": "El área de un cuadrado es $x^2 = 289$, luego $x = 17$ (se descarta $-17$)."
+     "why": "El área de un cuadrado es $x^2 = 289$, luego $x = 17$ (se descarta $-17$).",
+     "fb": [
+      "$34=2\\cdot17$: el lado es la **raíz** del área, no el doble.",
+      "",
+      "El lado es la raíz del área, no su mitad.",
+      "$289$ es el área; el lado es su raíz."
+     ]
     },
     {
      "type": "input",
@@ -10905,7 +11668,13 @@
       "$32\\,\\mathrm{m/s}$"
      ],
      "correct": 1,
-     "why": "Con $m = 2\\,\\mathrm{kg}$: $\\frac{1}{2}\\cdot 2 \\cdot v^2 = v^2 = 64$, luego $v = 8$ (la velocidad se toma positiva)."
+     "why": "Con $m = 2\\,\\mathrm{kg}$: $\\frac{1}{2}\\cdot 2 \\cdot v^2 = v^2 = 64$, luego $v = 8$ (la velocidad se toma positiva).",
+     "fb": [
+      "Con $10\\,\\mathrm{m/s}$: $\\frac{1}{2}\\cdot2\\cdot100=100\\,\\mathrm{J}$.",
+      "",
+      "$64$ es $v^2$; falta sacar la raíz.",
+      "Revisa: $\\frac{1}{2}\\cdot2=1$, así que $v^2=64$."
+     ]
     },
     {
      "type": "input",
@@ -10923,7 +11692,13 @@
       "$3\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Resolvemos $-5t^2 + 30t = 0$: $-5t(t - 6) = 0$, así que $t = 0$ (lanzamiento) o $t = 6$ s."
+     "why": "Resolvemos $-5t^2 + 30t = 0$: $-5t(t - 6) = 0$, así que $t = 0$ (lanzamiento) o $t = 6$ s.",
+     "fb": [
+      "",
+      "$30$ es el coeficiente; factoriza: $t(30-5t)=0$.",
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**.",
+      "En $3\\,\\mathrm{s}$ está en su punto más alto, no en el suelo."
+     ]
     },
     {
      "type": "input",
@@ -10941,7 +11716,13 @@
       "$0\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Resolvemos $-5t^2 + 25t = 0$: $-5t(t - 5) = 0$, así que $t = 0$ (lanzamiento) o $t = 5$ s."
+     "why": "Resolvemos $-5t^2 + 25t = 0$: $-5t(t - 5) = 0$, así que $t = 0$ (lanzamiento) o $t = 5$ s.",
+     "fb": [
+      "",
+      "En $\\frac{5}{2}\\,\\mathrm{s}$ está en su punto más alto.",
+      "$25$ es el coeficiente; factoriza: $t(25-5t)=0$.",
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**."
+     ]
     },
     {
      "type": "input",
@@ -10959,7 +11740,13 @@
       "$81\\,\\mathrm{m}$"
      ],
      "correct": 2,
-     "why": "Dividimos por 4: $x^2 = 81$, luego $x = 9$ (longitud positiva)."
+     "why": "Dividimos por 4: $x^2 = 81$, luego $x = 9$ (longitud positiva).",
+     "fb": [
+      "$324$ es la energía; primero se divide por $4$.",
+      "Revisa: $\\frac{324}{4}=81$, no $36$.",
+      "",
+      "$81$ es $x^2$; falta sacar la raíz."
+     ]
     },
     {
      "q": "Una escalera de $25\\,\\mathrm{m}$ se apoya en una pared con su base a $7\\,\\mathrm{m}$ del muro. La altura $x$ que alcanza cumple $x^2 + 7^2 = 25^2$. ¿Cuánto vale $x$?",
@@ -10970,7 +11757,13 @@
       "$25\\,\\mathrm{m}$"
      ],
      "correct": 2,
-     "why": "Por Pitágoras: $x^2 + 7^2 = 25^2$, luego $x^2 = 576$ y $x = 24$."
+     "why": "Por Pitágoras: $x^2 + 7^2 = 25^2$, luego $x^2 = 576$ y $x = 24$.",
+     "fb": [
+      "$18=25-7$: los cuadrados no se restan así. Calcula $625-49$.",
+      "$32=25+7$: plantea $x^2=625-49$.",
+      "",
+      "$25$ es el largo de la escalera, no la altura."
+     ]
     },
     {
      "q": "Un cable de $25\\,\\mathrm{m}$ sujeta un mástil y se ancla a $7\\,\\mathrm{m}$ de su base. La altura $x$ de amarre cumple $x^2 + 7^2 = 25^2$. ¿Cuánto vale $x$?",
@@ -10981,7 +11774,13 @@
       "$25\\,\\mathrm{m}$"
      ],
      "correct": 1,
-     "why": "Por Pitágoras: $x^2 + 7^2 = 25^2$, luego $x^2 = 576$ y $x = 24$."
+     "why": "Por Pitágoras: $x^2 + 7^2 = 25^2$, luego $x^2 = 576$ y $x = 24$.",
+     "fb": [
+      "$18=25-7$: los cuadrados no se restan así. Calcula $625-49$.",
+      "",
+      "$32=25+7$: plantea $x^2=625-49$.",
+      "$25$ es el largo del cable, no la altura."
+     ]
     },
     {
      "q": "Un modelo para una longitud $x$ (en metros) llevó a la ecuación $x^2 = -14$. ¿Qué se concluye?",
@@ -10992,7 +11791,13 @@
       "No existe solución real: un cuadrado no puede ser negativo"
      ],
      "correct": 3,
-     "why": "$x^2 = -14$ no tiene solución en los números reales."
+     "why": "$x^2 = -14$ no tiene solución en los números reales.",
+     "fb": [
+      "$14^2=196$ y $(-14)^2=196$: ninguno da $-14$.",
+      "$(-14)^2=196$, no $-14$.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      ""
+     ]
     },
     {
      "q": "Al modelar el lado $x$ de una celda se obtuvo $x^2 = -28$. ¿Qué se concluye en los números reales?",
@@ -11003,7 +11808,13 @@
       "Hay dos soluciones: $x = 28$ y $x = -28$"
      ],
      "correct": 0,
-     "why": "$x^2 = -28$ no tiene solución en los números reales."
+     "why": "$x^2 = -28$ no tiene solución en los números reales.",
+     "fb": [
+      "",
+      "$(-28)^2=784$, no $-28$.",
+      "Una ecuación cuadrática tiene a lo más dos soluciones.",
+      "$28^2$ y $(-28)^2$ dan $784$, no $-28$."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -11224,7 +12035,12 @@
      ],
      "correct": 0,
      "why": "Buscamos dos números que multiplicados den $-15$ y sumados den $2$, que son $5$ y $-3$: $(x + 5)(x - 3) = 0$, luego $x = -5$ o $x = 3$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Revisa los signos: de $x+a=0$ sale $x=-a$.",
+      "Con $-5$ y $-3$ el producto sería $+15$: Comprueba: los números deben sumar $2$ y multiplicar $-15$."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 - 5x - 14 = 0$$",
@@ -11236,7 +12052,13 @@
      ],
      "correct": 1,
      "why": "Buscamos dos números que multipliquen -14 y sumen -5: son 2 y -7. Entonces $(x + 2)(x - 7) = 0$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $-7$ y $-2$ el producto sería $+14$. Revisa los signos.",
+      "",
+      "Con $2$ y $7$ el producto sería $+14$. Revisa los signos.",
+      "Revisa los signos: de $x+a=0$ sale $x=-a$."
+     ]
     },
     {
      "type": "input",
@@ -11257,7 +12079,13 @@
      ],
      "correct": 1,
      "why": "Un producto es cero si algún factor es cero: $x + 2 = 0$ o $x + 15 = 0$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "De $x+15=0$ sale $x=-15$.",
+      "",
+      "Se iguala cada factor a $0$: de $x+2=0$ sale $x=-2$.",
+      "De $x+2=0$ sale $x=-2$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 9x + 20$?",
@@ -11269,7 +12097,13 @@
      ],
      "correct": 1,
      "why": "Buscamos dos números que sumen 9 y multipliquen 20: son 4 y 5.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Comprueba: los números deben sumar $9$ y multiplicar $20$.",
+      "",
+      "Comprueba: los números deben sumar $9$ y multiplicar $20$.",
+      "Comprueba: los números deben sumar $9$ y multiplicar $20$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 - 11x + 30$?",
@@ -11281,7 +12115,13 @@
      ],
      "correct": 3,
      "why": "Buscamos dos números que sumen -11 y multipliquen 30: son -5 y -6.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Comprueba: los números deben sumar $-11$ y multiplicar $30$.",
+      "Comprueba: los números deben sumar $-11$ y multiplicar $30$.",
+      "Comprueba: los números deben sumar $-11$ y multiplicar $30$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -11365,7 +12205,13 @@
      ],
      "correct": 1,
      "why": "Se buscan dos números que sumen $5$ y multipliquen $4$: $1$ y $4$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $-1$ y $-4$ la suma sería $-5$, no $5$.",
+      "",
+      "Con $1$ y $-4$ el producto sería $-4$.",
+      "Multiplica para comprobar: $(x-2)^2=x^2-4x+4$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 9x + 8$?",
@@ -11377,7 +12223,13 @@
      ],
      "correct": 0,
      "why": "Se buscan dos números que sumen $9$ y multipliquen $8$: $1$ y $8$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Con $1$ y $-8$ el producto sería $-8$.",
+      "Con $-1$ y $-8$ la suma sería $-9$, no $9$.",
+      "Multiplica para comprobar: $(x-4)(x-2)=x^2-6x+8$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 7x + 12$?",
@@ -11389,7 +12241,13 @@
      ],
      "correct": 3,
      "why": "Se buscan dos números que sumen $7$ y multipliquen $12$: $4$ y $3$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $-4$ y $-3$ la suma sería $-7$, no $7$.",
+      "Con $-12$ y $-1$ la suma sería $-13$.",
+      "Con $4$ y $-3$ el producto sería $-12$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 9x + 14$?",
@@ -11401,7 +12259,13 @@
      ],
      "correct": 1,
      "why": "Se buscan dos números que sumen $9$ y multipliquen $14$: $7$ y $2$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $7$ y $-2$ el producto sería $-14$.",
+      "",
+      "Con $-14$ y $-1$ la suma sería $-15$.",
+      "Con $-7$ y $-2$ la suma sería $-9$, no $9$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 13x + 42$?",
@@ -11413,7 +12277,13 @@
      ],
      "correct": 2,
      "why": "Se buscan dos números que sumen $13$ y multipliquen $42$: $7$ y $6$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $-42$ y $-1$ la suma sería $-43$.",
+      "Con $7$ y $-6$ el producto sería $-42$.",
+      "",
+      "Con $-7$ y $-6$ la suma sería $-13$, no $13$."
+     ]
     },
     {
      "type": "input",
@@ -11443,7 +12313,13 @@
      ],
      "correct": 0,
      "why": "Buscamos dos números que multipliquen -32 y sumen 4: son 8 y -4. Entonces $(x + 8)(x - 4) = 0$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Con $4$ y $8$ el producto sería $32$. Revisa los signos.",
+      "Revisa los signos: de $x+a=0$ sale $x=-a$.",
+      "Con $-8$ y $-4$ el producto sería $32$, no $-32$."
+     ]
     },
     {
      "type": "input",
@@ -11464,7 +12340,13 @@
      ],
      "correct": 2,
      "why": "Buscamos dos números que multipliquen 18 y sumen 11: son 2 y 9. Entonces $(x + 2)(x + 9) = 0$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Las soluciones son los **opuestos** de los números: $(x+2)(x+9)=0$.",
+      "Revisa: $(x+2)(x+9)=0$ da $x=-2$ y $x=-9$.",
+      "",
+      "Revisa los signos: de $x+a=0$ sale $x=-a$."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$x^2 = -x + 30$$",
@@ -11476,7 +12358,13 @@
      ],
      "correct": 3,
      "why": "Pasamos todo al lado izquierdo para igualar a cero y factorizamos; las soluciones son $-6$ y $5$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Primero ordena: $x^2+x-30=0$. Revisa los signos: de $x+a=0$ sale $x=-a$.",
+      "Con $5$ y $6$, el producto de los factores sería $+30$. Ordena: $x^2+x-30=0$.",
+      "Con $-6$ y $-5$ el producto sería $+30$, no $-30$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 - x - 30$?",
@@ -11488,7 +12376,13 @@
      ],
      "correct": 1,
      "why": "Buscamos dos números que sumen -1 y multipliquen -30: son -6 y 5.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $-6$ y $-5$ el producto sería $+30$, no $-30$.",
+      "",
+      "Con $6$ y $5$ el producto sería $+30$.",
+      "Con $6$ y $-5$ la suma sería $+1$, no $-1$."
+     ]
     },
     {
      "type": "input",
@@ -11590,7 +12484,13 @@
      ],
      "correct": 3,
      "why": "Se buscan dos números que sumen $-13$ y multipliquen $36$: $-4$ y $-9$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $4$ y $9$ la suma sería $+13$, no $-13$.",
+      "Con $-36$ y $-1$ la suma sería $-37$.",
+      "Con $-4$ y $9$ el producto sería $-36$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 - 7x + 12$?",
@@ -11602,7 +12502,13 @@
      ],
      "correct": 2,
      "why": "Se buscan dos números que sumen $-7$ y multipliquen $12$: $-3$ y $-4$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $-3$ y $4$ el producto sería $-12$.",
+      "Con $-12$ y $-1$ la suma sería $-13$.",
+      "",
+      "Con $3$ y $4$ la suma sería $+7$, no $-7$."
+     ]
     },
     {
      "q": "¿Cuál es la factorización de $x^2 + 5x - 36$?",
@@ -11614,7 +12520,13 @@
      ],
      "correct": 0,
      "why": "Se buscan dos números que sumen $5$ y multipliquen $-36$: $-4$ y $9$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Con $4$ y $9$ el producto sería $+36$, no $-36$.",
+      "Con $-4$ y $-9$ el producto sería $+36$.",
+      "Con $4$ y $-9$ la suma sería $-5$, no $5$."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$3x^2 + 14x - 5 = 0$$",
@@ -11626,7 +12538,13 @@
      ],
      "correct": 2,
      "why": "Factorizamos: $(3x - 1)(x + 5) = 0$. Cada factor igual a cero da $x = \\dfrac{1}{3}$ y $x = -5$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Factoriza: $(3x-1)(x+5)=0$. Revisa los signos.",
+      "Revisa los signos: de $3x-1=0$ sale $x=\\frac{1}{3}$ y de $x+5=0$, $x=-5$.",
+      "",
+      "De $3x-1=0$ sale $x=+\\frac{1}{3}$."
+     ]
     },
     {
      "type": "input",
@@ -11647,7 +12565,13 @@
      ],
      "correct": 1,
      "why": "Factorizamos: $(3x - 2)(x - 2) = 0$. Cada factor igual a cero da $x = \\dfrac{2}{3}$ y $x = 2$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "De $3x-2=0$ sale $x=+\\frac{2}{3}$.",
+      "",
+      "Factoriza: $(3x-2)(x-2)=0$. Revisa los signos.",
+      "De $x-2=0$ sale $x=+2$."
+     ]
     },
     {
      "type": "input",
@@ -11803,7 +12727,13 @@
      ],
      "correct": 0,
      "why": "Se buscan dos números que sumen $8$ y multipliquen $-84$: $14$ y $-6$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Con $-14$ y $-6$ el producto sería $+84$.",
+      "Con $14$ y $6$ el producto sería $+84$, no $-84$.",
+      "Con $-14$ y $6$ la suma sería $-8$, no $8$."
+     ]
     }
    ],
    "check": {
@@ -11824,7 +12754,13 @@
       "$4\\,\\mathrm{m}$"
      ],
      "correct": 0,
-     "why": "$x(x+4) = 45$ da $x^2 + 4x - 45 = 0$, que factoriza como $(x + 9)(x - 5) = 0$. Sirve $x = 5$."
+     "why": "$x(x+4) = 45$ da $x^2 + 4x - 45 = 0$, que factoriza como $(x + 9)(x - 5) = 0$. Sirve $x = 5$.",
+     "fb": [
+      "",
+      "$9\\,\\mathrm{m}$ es el largo; se pregunta por el ancho.",
+      "El área no se divide por $2$: plantea $x(x+4)=45$.",
+      "$4\\,\\mathrm{m}$ es lo que el largo supera al ancho."
+     ]
     },
     {
      "type": "input",
@@ -11836,13 +12772,19 @@
     {
      "q": "Una lámina rectangular de vidrio tiene un largo $8\\,\\mathrm{cm}$ mayor que su ancho $x$ y un área de $308\\,\\mathrm{cm^2}$. ¿Cuánto mide el ancho en cm?",
      "options": [
-      "$13\\,\\mathrm{m}$",
-      "$22\\,\\mathrm{m}$",
-      "$14\\,\\mathrm{m}$",
-      "$154\\,\\mathrm{m}$"
+      "$13\\,\\mathrm{cm}$",
+      "$22\\,\\mathrm{cm}$",
+      "$14\\,\\mathrm{cm}$",
+      "$154\\,\\mathrm{cm}$"
      ],
      "correct": 2,
-     "why": "$x(x+8) = 308$ da $x^2 + 8x - 308 = 0$, que factoriza como $(x + 22)(x - 14) = 0$. Sirve $x = 14$."
+     "why": "$x(x+8) = 308$ da $x^2 + 8x - 308 = 0$, que factoriza como $(x + 22)(x - 14) = 0$. Sirve $x = 14$.",
+     "fb": [
+      "Con $13$: $13\\cdot21=273$, no $308$.",
+      "$22\\,\\mathrm{cm}$ es el largo; se pregunta por el ancho.",
+      "",
+      "El área no se divide por $2$: plantea $x(x+8)=308$."
+     ]
     },
     {
      "type": "input",
@@ -11860,7 +12802,13 @@
       "$9\\,\\mathrm{s}$"
      ],
      "correct": 1,
-     "why": "Dividimos por $-5$: $t^2 - 5t - 14 = 0$. Factorizamos: $(t - 7)(t + 2) = 0$. Solo sirve $t = 7$."
+     "why": "Dividimos por $-5$: $t^2 - 5t - 14 = 0$. Factorizamos: $(t - 7)(t + 2) = 0$. Solo sirve $t = 7$.",
+     "fb": [
+      "Factoriza: $-5(t^2-5t-14)=-5(t-7)(t+2)$.",
+      "",
+      "El tiempo no puede ser negativo: se descarta $t=-2$.",
+      "Con $9\\,\\mathrm{s}$: $-405+225+70<0$."
+     ]
     },
     {
      "type": "input",
@@ -11877,7 +12825,12 @@
       "$8$"
      ],
      "correct": 0,
-     "why": "Con uno de ellos $x$: $x(9 - x) = 14$, o $x^2 - 9x + 14 = 0$, que factoriza como $(x - 2)(x - 7) = 0$. El mayor es 7."
+     "why": "Con uno de ellos $x$: $x(9 - x) = 14$, o $x^2 - 9x + 14 = 0$, que factoriza como $(x - 2)(x - 7) = 0$. El mayor es 7.",
+     "fb": [
+      "",
+      "$2$ es la menor; se pregunta por la mayor.",
+      "$8+1=9$, pero $8\\cdot1=8$, no $14$."
+     ]
     },
     {
      "type": "input",
@@ -11895,7 +12848,13 @@
       "$-9$"
      ],
      "correct": 2,
-     "why": "$x(x+3) = 54$ da $x^2 + 3x - 54 = 0$, es decir $(x + 9)(x - 6) = 0$. Como $x>0$, $x = 6$."
+     "why": "$x(x+3) = 54$ da $x^2 + 3x - 54 = 0$, es decir $(x + 9)(x - 6) = 0$. Como $x>0$, $x = 6$.",
+     "fb": [
+      "$27$ sale de $54\\div2$: ordena y factoriza $x^2+3x-54=0$.",
+      "Con $9$: $9\\cdot12=108$. Factoriza $(x+9)(x-6)=0$.",
+      "",
+      "La concentración es positiva: se descarta $x=-9$."
+     ]
     },
     {
      "type": "input",
@@ -11913,7 +12872,13 @@
       "$-9$"
      ],
      "correct": 2,
-     "why": "$x(x+5) = 36$ da $x^2 + 5x - 36 = 0$, es decir $(x + 9)(x - 4) = 0$. Como $x>0$, $x = 4$."
+     "why": "$x(x+5) = 36$ da $x^2 + 5x - 36 = 0$, es decir $(x + 9)(x - 4) = 0$. Como $x>0$, $x = 4$.",
+     "fb": [
+      "$9$ es el opuesto de la solución negativa: factoriza $(x+9)(x-4)=0$.",
+      "$18$ sale de $36\\div2$: ordena y factoriza $x^2+5x-36=0$.",
+      "",
+      "La concentración es positiva: se descarta $x=-9$."
+     ]
     },
     {
      "type": "input",
@@ -11931,7 +12896,13 @@
       "$4\\,\\mathrm{m}$"
      ],
      "correct": 3,
-     "why": "$(x + 1)(x + 6) = 50$ da $x^2 + 7x + 6 = 50$. Reduciendo, $(x - 4)(x + 11) = 0$, y $x = 4$."
+     "why": "$(x + 1)(x + 6) = 50$ da $x^2 + 7x + 6 = 50$. Reduciendo, $(x - 4)(x + 11) = 0$, y $x = 4$.",
+     "fb": [
+      "Con $3$: $4\\cdot9=36$, no $50$.",
+      "Con $10$: $11\\cdot16=176$.",
+      "Con $5$: $6\\cdot11=66$.",
+      ""
+     ]
     },
     {
      "q": "Un modelo de crecimiento de una población se describe con $x^2 - 3x - 28 = 0$. ¿Cuál es la factorización del lado izquierdo?",
@@ -11942,7 +12913,13 @@
       "$(x + 7)(x + 4)$"
      ],
      "correct": 2,
-     "why": "Buscamos dos números que sumen -3 y multipliquen -28: son -7 y 4."
+     "why": "Buscamos dos números que sumen -3 y multipliquen -28: son -7 y 4.",
+     "fb": [
+      "Con $-7$ y $-4$ el producto sería $+28$.",
+      "Con $7$ y $-4$ la suma sería $+3$, no $-3$.",
+      "",
+      "Con $7$ y $4$ el producto sería $+28$, no $-28$."
+     ]
     },
     {
      "q": "Un modelo físico lleva a la expresión $x^2 + 8x + 15$. ¿Cuál es su factorización?",
@@ -11953,7 +12930,13 @@
       "$(x + 3)(x - 5)$"
      ],
      "correct": 1,
-     "why": "Buscamos dos números que sumen 8 y multipliquen 15: son 3 y 5."
+     "why": "Buscamos dos números que sumen 8 y multipliquen 15: son 3 y 5.",
+     "fb": [
+      "Con $-3$ y $-5$ la suma sería $-8$, no $8$.",
+      "",
+      "Con $-3$ y $5$ el producto sería $-15$.",
+      "Con $3$ y $-5$ el producto sería $-15$."
+     ]
     },
     {
      "q": "Un sistema físico tiene como soluciones $x = 8$ y $x = 3$. ¿Cuál de estas ecuaciones las tiene como soluciones?",
@@ -11964,7 +12947,13 @@
       "$x^2 + 11x + 24 = 0$"
      ],
      "correct": 1,
-     "why": "Si las soluciones son 8 y 3, la ecuación es $(x - (8))(x - (3)) = 0$, es decir $x^2 - (11)x + 24 = 0$."
+     "why": "Si las soluciones son 8 y 3, la ecuación es $(x - (8))(x - (3)) = 0$, es decir $x^2 - (11)x + 24 = 0$.",
+     "fb": [
+      "Con soluciones $8$ y $3$: $(x-8)(x-3)=x^2-11x+24$.",
+      "",
+      "Revisa el término independiente: $8\\cdot3=+24$.",
+      "Con soluciones positivas, el coeficiente de $x$ es $-(8+3)=-11$."
+     ]
     },
     {
      "q": "Las posiciones (en metros) en que se activa un sensor son $x = -6$ y $x = -7$. ¿Cuál de estas ecuaciones las tiene como soluciones?",
@@ -11975,7 +12964,13 @@
       "$x^2 - 13x + 42 = 0$"
      ],
      "correct": 0,
-     "why": "Si las soluciones son -6 y -7, la ecuación es $(x - (-6))(x - (-7)) = 0$, es decir $x^2 - (-13)x + 42 = 0$."
+     "why": "Si las soluciones son -6 y -7, la ecuación es $(x - (-6))(x - (-7)) = 0$, es decir $x^2 - (-13)x + 42 = 0$.",
+     "fb": [
+      "",
+      "Con soluciones $-6$ y $-7$: $(x+6)(x+7)=x^2+13x+42$.",
+      "Revisa el término independiente: $(-6)(-7)=+42$.",
+      "Con soluciones negativas, el coeficiente de $x$ es $+13$."
+     ]
     },
     {
      "type": "input",
@@ -11993,7 +12988,13 @@
       "$5\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Dividimos por $-5$: $t^2 - t - 6 = 0$. Factorizamos: $(t - 3)(t + 2) = 0$. Solo sirve $t = 3$."
+     "why": "Dividimos por $-5$: $t^2 - t - 6 = 0$. Factorizamos: $(t - 3)(t + 2) = 0$. Solo sirve $t = 3$.",
+     "fb": [
+      "",
+      "El tiempo no puede ser negativo: se descarta $t=-2$.",
+      "Con $2\\,\\mathrm{s}$: $-20+10+30=20$; todavía está en el aire.",
+      "Con $5\\,\\mathrm{s}$: $-125+25+30<0$."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -12244,7 +13245,13 @@
      ],
      "correct": 1,
      "why": "$x^2+x=42$ equivale a $x^2+x-42=0$, cuyas soluciones son $x=6$ y $x=-7$. El número positivo es 6.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El número es positivo: se descarta $-7$.",
+      "",
+      "$21$ sale de $42\\div2$: plantea $x^2+x=42$.",
+      "Con $7$: $49+7=56$, no $42$."
+     ]
     },
     {
      "type": "input",
@@ -12263,7 +13270,12 @@
      ],
      "correct": 2,
      "why": "Con $x$ uno de ellos: $x(7-x)=12$, o sea $x^2-7x+12=0$, cuyas soluciones son 3 y 4.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $6$, el otro sería $1$, y $6\\cdot1=6$, no $12$.",
+      "$3$ es el menor; se pregunta por el mayor.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -12378,7 +13390,12 @@
      ],
      "correct": 2,
      "why": "Si el ancho es $x$, el largo es $x + 4$: $x(x + 4) = 45$, luego $x^2 + 4x - 45 = 0$ y $(x + 9)(x - 5) = 0$. La solución válida es $x = 5$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$9\\,\\mathrm{cm}$ es el largo; se pregunta por el ancho.",
+      "$45$ es el área, no un lado.",
+      ""
+     ]
     },
     {
      "q": "El producto de dos números positivos consecutivos es 272. ¿Cuál es el mayor de ellos?",
@@ -12390,7 +13407,13 @@
      ],
      "correct": 1,
      "why": "Con $x$ el menor: $x(x+1)=272$, luego $x^2+x-272=0$ y $(x+17)(x-16)=0$. Como es positivo, $x=16$ y el mayor es 17.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$136$ sale de $272\\div2$: plantea $x(x+1)=272$.",
+      "",
+      "$16$ es el menor; se pregunta por el mayor.",
+      "Con $18$: $17\\cdot18=306$."
+     ]
     },
     {
      "q": "Un rectángulo tiene un área de $91\\,\\mathrm{cm}^2$ y su largo mide 6 cm más que su ancho. ¿Cuánto mide el ancho?",
@@ -12402,7 +13425,13 @@
      ],
      "correct": 2,
      "why": "Con ancho $x$: $x(x+6)=91$; luego $x^2+6x-91=0$ y $x=7$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$13\\,\\mathrm{cm}$ es el largo; se pregunta por el ancho.",
+      "$6\\,\\mathrm{cm}$ es lo que el largo supera al ancho.",
+      "",
+      "Con $8$: $8\\cdot14=112$, no $91$."
+     ]
     },
     {
      "q": "Un rectángulo tiene un área de $27\\,\\mathrm{cm}^2$ y su largo mide 6 cm más que su ancho. ¿Cuánto mide el largo?",
@@ -12413,7 +13442,12 @@
      ],
      "correct": 2,
      "why": "El ancho es $x=3$ (de $x(x+6)=27$); el largo es $x+6=9$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$3\\,\\mathrm{cm}$ es el ancho; se pregunta por el largo.",
+      "Con largo $15$, el ancho sería $9$ y el área $135$.",
+      ""
+     ]
     },
     {
      "q": "Un cuadrado se amplía agregando 5 cm a cada lado y su área pasa a ser $81\\,\\mathrm{cm}^2$. ¿Cuánto medía el lado original?",
@@ -12425,7 +13459,13 @@
      ],
      "correct": 2,
      "why": "$(x+5)^2=81$ da $x+5=9$, luego $x=4$ (se descarta el valor negativo).",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$20$ no cumple: $(20+5)^2=625$. Plantea $(x+5)^2=81$.",
+      "$14$ sale de $9+5$: se **resta** $5$, $x+5=9$.",
+      "",
+      "$9\\,\\mathrm{cm}$ es el lado **ampliado**; falta restar $5$."
+     ]
     },
     {
      "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t) = -5t^2 + 15t$, con $t$ en segundos. ¿En qué instante vuelve al suelo ($h = 0$)?",
@@ -12437,7 +13477,13 @@
      ],
      "correct": 2,
      "why": "Factorizamos $-5t^2+15t=-5t(t-3)=0$. Sirve $t=3$ s (el $t=0$ es el lanzamiento).",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**.",
+      "$15$ es el coeficiente; factoriza: $t(15-5t)=0$.",
+      "",
+      "En $\\frac{3}{2}\\,\\mathrm{s}$ está en su punto más alto, no en el suelo."
+     ]
     },
     {
      "q": "La altura de un triángulo mide $x$ cm y su base mide 1 cm más que la altura. Si el área es $21\\,\\mathrm{cm}^2$, ¿cuánto mide la altura?",
@@ -12448,7 +13494,12 @@
      ],
      "correct": 0,
      "why": "El área es $\\frac{x(x+1)}{2}=21$; luego $x^2+x-42=0$ y $x=6$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "$21$ es el área, no la altura.",
+      "$7\\,\\mathrm{cm}$ es la base; se pregunta por la altura."
+     ]
     },
     {
      "type": "input",
@@ -12650,7 +13701,13 @@
      ],
      "correct": 0,
      "why": "Factorizamos $-5t^2+20t=-5t(t-4)=0$. Sirve $t=4$ s (el $t=0$ es el lanzamiento).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "$20$ es el coeficiente; factoriza: $t(20-5t)=0$.",
+      "En $2\\,\\mathrm{s}$ está en su punto más alto, no en el suelo.",
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**."
+     ]
     },
     {
      "q": "La altura (en metros) de una pelota lanzada hacia arriba es $h(t) = -5t^2 + 25t$, con $t$ en segundos. ¿En qué instante vuelve al suelo ($h = 0$)?",
@@ -12662,7 +13719,13 @@
      ],
      "correct": 3,
      "why": "Factorizamos $-5t^2+25t=-5t(t-5)=0$. Sirve $t=5$ s (el $t=0$ es el lanzamiento).",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "En $\\frac{5}{2}\\,\\mathrm{s}$ está en su punto más alto, no en el suelo.",
+      "$25$ es el coeficiente; factoriza: $t(25-5t)=0$.",
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -12682,7 +13745,13 @@
      ],
      "correct": 1,
      "why": "El área es $\\frac{x(x+5)}{2}=63$; luego $x^2+5x-126=0$ y $x=9$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$63$ es el área, no la altura.",
+      "",
+      "Con $10$: $\\frac{10\\cdot15}{2}=75$, no $63$.",
+      "$14\\,\\mathrm{cm}$ es la base; se pregunta por la altura."
+     ]
     },
     {
      "type": "input",
@@ -12905,7 +13974,13 @@
       "$0\\,\\mathrm{s}$"
      ],
      "correct": 1,
-     "why": "Resolvemos $-5t^2 + 20t = 0$: $-5t(t - 4) = 0$. Sirve $t = 4$ s."
+     "why": "Resolvemos $-5t^2 + 20t = 0$: $-5t(t - 4) = 0$. Sirve $t = 4$ s.",
+     "fb": [
+      "En $2\\,\\mathrm{s}$ está en su punto más alto, no en el suelo.",
+      "",
+      "$20$ es el coeficiente; factoriza: $t(20-5t)=0$.",
+      "$t=0$ es el lanzamiento; se pide cuándo **vuelve**."
+     ]
     },
     {
      "type": "input",
@@ -12923,7 +13998,13 @@
       "$0\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Resolvemos $-5t^2 + 25t = 0$: $-5t(t - 5) = 0$. Sirve $t = 5$ s."
+     "why": "Resolvemos $-5t^2 + 25t = 0$: $-5t(t - 5) = 0$. Sirve $t = 5$ s.",
+     "fb": [
+      "",
+      "$25$ es el coeficiente; factoriza: $t(25-5t)=0$.",
+      "En $\\frac{5}{2}\\,\\mathrm{s}$ está en su punto más alto.",
+      "$t=0$ es el lanzamiento; se pide cuándo **regresa**."
+     ]
     },
     {
      "type": "input",
@@ -12941,7 +14022,13 @@
       "$6\\,\\mathrm{m}$"
      ],
      "correct": 3,
-     "why": "Con ancho $x$: $x(x+4) = 60$; luego $x^2 + 4x - 60 = 0$ y $x = 6$."
+     "why": "Con ancho $x$: $x(x+4) = 60$; luego $x^2 + 4x - 60 = 0$ y $x = 6$.",
+     "fb": [
+      "Con $5$: $5\\cdot9=45$, no $60$.",
+      "$10\\,\\mathrm{m}$ es el largo; se pregunta por el ancho.",
+      "$30$ sale de $60\\div2$: plantea $x(x+4)=60$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -12959,7 +14046,13 @@
       "$18\\,\\mathrm{m}$"
      ],
      "correct": 0,
-     "why": "Con ancho $x$: $x(x+5) = 36$; luego $x^2 + 5x - 36 = 0$ y $x = 4$."
+     "why": "Con ancho $x$: $x(x+5) = 36$; luego $x^2 + 5x - 36 = 0$ y $x = 4$.",
+     "fb": [
+      "",
+      "$9\\,\\mathrm{m}$ es el largo; se pregunta por el ancho.",
+      "Con $3$: $3\\cdot8=24$, no $36$.",
+      "$18$ sale de $36\\div2$: plantea $x(x+5)=36$."
+     ]
     },
     {
      "type": "input",
@@ -12977,7 +14070,13 @@
       "$10\\,\\mathrm{m}$"
      ],
      "correct": 0,
-     "why": "Por Pitágoras: $x^2 + (x+3)^2 = 15^2$. Esto da $2x^2 + 6x - 216 = 0$, cuya solución positiva es $x = 9$."
+     "why": "Por Pitágoras: $x^2 + (x+3)^2 = 15^2$. Esto da $2x^2 + 6x - 216 = 0$, cuya solución positiva es $x = 9$.",
+     "fb": [
+      "",
+      "$12\\,\\mathrm{m}$ es la altura del poste ($x+3$); se pregunta por $x$.",
+      "$\\frac{15}{2}$ no cumple: desarrolla $x^2+(x+3)^2=225$.",
+      "Con $10$: $100+169=269$, no $225$."
+     ]
     },
     {
      "type": "input",
@@ -12989,12 +14088,17 @@
     {
      "q": "Dos sondas parten de un mismo punto: una recorre $x$ km al este y otra $(x + 1)$ km al norte, quedando a $5$ km entre sí. Se cumple $x^2 + (x+1)^2 = 5^2$. ¿Cuánto vale $x$?",
      "options": [
-      "$3\\,\\mathrm{m}$",
-      "$4\\,\\mathrm{m}$",
-      "$\\dfrac{5}{2}\\,\\mathrm{m}$"
+      "$3\\,\\mathrm{km}$",
+      "$4\\,\\mathrm{km}$",
+      "$\\dfrac{5}{2}\\,\\mathrm{km}$"
      ],
      "correct": 0,
-     "why": "Por Pitágoras: $x^2 + (x+1)^2 = 5^2$. Esto da $2x^2 + 2x - 24 = 0$, cuya solución positiva es $x = 3$."
+     "why": "Por Pitágoras: $x^2 + (x+1)^2 = 5^2$. Esto da $2x^2 + 2x - 24 = 0$, cuya solución positiva es $x = 3$.",
+     "fb": [
+      "",
+      "$4\\,\\mathrm{km}$ es $x+1$, lo que recorre la otra sonda.",
+      "$\\frac{5}{2}$ no cumple: desarrolla $x^2+(x+1)^2=25$."
+     ]
     },
     {
      "type": "input",
@@ -13012,7 +14116,13 @@
       "$36$"
      ],
      "correct": 2,
-     "why": "$x(x+1) = 72$ da $x^2 + x - 72 = 0$, es decir $(x + 9)(x - 8) = 0$. Como $x>0$, $x = 8$."
+     "why": "$x(x+1) = 72$ da $x^2 + x - 72 = 0$, es decir $(x + 9)(x - 8) = 0$. Como $x>0$, $x = 8$.",
+     "fb": [
+      "La concentración es positiva: se descarta $-9$.",
+      "Con $9$: $9\\cdot10=90$, no $72$.",
+      "",
+      "$36$ sale de $72\\div2$: plantea $x(x+1)=72$."
+     ]
     },
     {
      "type": "input",
@@ -13030,7 +14140,13 @@
       "$-13$"
      ],
      "correct": 0,
-     "why": "$x(x+5) = 104$ da $x^2 + 5x - 104 = 0$, es decir $(x + 13)(x - 8) = 0$. Como $x>0$, $x = 8$."
+     "why": "$x(x+5) = 104$ da $x^2 + 5x - 104 = 0$, es decir $(x + 13)(x - 8) = 0$. Como $x>0$, $x = 8$.",
+     "fb": [
+      "",
+      "Con $13$: $13\\cdot18=234$. Factoriza $(x+13)(x-8)=0$.",
+      "$52$ sale de $104\\div2$: plantea $x(x+5)=104$.",
+      "La concentración es positiva: se descarta $-13$."
+     ]
     },
     {
      "q": "El crecimiento de una colonia cumple $t^2 + 2t = 48$, donde $t$ son los días transcurridos. ¿Cuántos días pasan?",
@@ -13041,7 +14157,13 @@
       "$16\\ \\text{días}$"
      ],
      "correct": 0,
-     "why": "$t^2 + 2t = 48$ equivale a $t^2 + 2t - 48 = 0$, es decir $(t - 6)(t + 8) = 0$. Sirve $t = 6$."
+     "why": "$t^2 + 2t = 48$ equivale a $t^2 + 2t - 48 = 0$, es decir $(t - 6)(t + 8) = 0$. Sirve $t = 6$.",
+     "fb": [
+      "",
+      "Con $8$: $64+16=80$, no $48$. Factoriza $(t+8)(t-6)=0$.",
+      "La medida (o el tiempo) no puede ser negativa: se descarta esa solución.",
+      "$16$ no cumple: $256+32\\neq48$."
+     ]
     },
     {
      "q": "En un cultivo, el área ocupada (en $\\mathrm{cm^2}$) cumple $t^2 + t = 20$, con $t$ en días. ¿Cuántos días han pasado?",
@@ -13052,7 +14174,13 @@
       "$4\\ \\text{días}$"
      ],
      "correct": 3,
-     "why": "$t^2 + t = 20$ equivale a $t^2 + t - 20 = 0$, es decir $(t - 4)(t + 5) = 0$. Sirve $t = 4$."
+     "why": "$t^2 + t = 20$ equivale a $t^2 + t - 20 = 0$, es decir $(t - 4)(t + 5) = 0$. Sirve $t = 4$.",
+     "fb": [
+      "Con $5$: $25+5=30$, no $20$. Factoriza $(t+5)(t-4)=0$.",
+      "Con $10$: $100+10=110$, no $20$.",
+      "La medida (o el tiempo) no puede ser negativa: se descarta esa solución.",
+      ""
+     ]
     },
     {
      "q": "Una lámina cuadrada de metal se calienta y cada lado se alarga $5\\,\\mathrm{cm}$, quedando con un área de $81\\,\\mathrm{cm^2}$. ¿Cuánto medía el lado original?",
@@ -13063,7 +14191,13 @@
       "$20\\,\\mathrm{cm}$"
      ],
      "correct": 1,
-     "why": "$(x+5)^2 = 81$ da $x + 5 = 9$, luego $x = 4$."
+     "why": "$(x+5)^2 = 81$ da $x + 5 = 9$, luego $x = 4$.",
+     "fb": [
+      "$9\\,\\mathrm{cm}$ es el lado después de calentarse; falta restar $5$.",
+      "",
+      "$14$ sale de $9+5$: se **resta** $5$, $x+5=9$.",
+      "$20$ no cumple: $(20+5)^2=625$."
+     ]
     },
     {
      "q": "Un cultivo cuadrado se amplía agregando $1\\,\\mathrm{cm}$ a cada lado y su área pasa a ser $64\\,\\mathrm{cm^2}$. ¿Cuánto medía el lado original?",
@@ -13074,7 +14208,13 @@
       "$7\\,\\mathrm{cm}$"
      ],
      "correct": 3,
-     "why": "$(x+1)^2 = 64$ da $x + 1 = 8$, luego $x = 7$."
+     "why": "$(x+1)^2 = 64$ da $x + 1 = 8$, luego $x = 7$.",
+     "fb": [
+      "$8\\,\\mathrm{cm}$ es el lado ampliado; falta restar $1$.",
+      "$9$ sale de $8+1$: se **resta** $1$, $x+1=8$.",
+      "$16$ no cumple: $(16+1)^2=289$.",
+      ""
+     ]
     }
    ],
    "drawCheck": 5,
