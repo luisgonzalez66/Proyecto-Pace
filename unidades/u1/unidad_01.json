@@ -279,7 +279,7 @@
           "kind": "number",
           "q": "Calcula $-9+14$. Escribe solo el resultado.",
           "answer": "5",
-          "why": "$-9+14=5$.",
+          "why": "Primero identifica los signos: sumar 14 a −9 equivale a avanzar 14 unidades desde −9; se llega a 5. Así, $-9+14=5$.",
           "level": 1
         },
         {
@@ -644,11 +644,11 @@
           "$7$"
         ],
         "correct": 0,
-        "why": "Disminuir 4 significa sumar $-4$: $-3+(-4)=-7$."
+        "why": "Disminuir 4 desde −3 es sumar −4: $-3+(-4)=-7$. La lectura final es negativa."
       },
       "learn": {
         "goal": "Resolver operaciones con enteros respetando prioridad.",
-        "idea": "**Los números enteros**\n\n$\\mathbb{Z}=\\{\\ldots,-3,-2,-1,0,1,2,3,\\ldots\\}$. Son el **cero**, los naturales **1, 2, 3, …** y sus opuestos **−1, −2, −3, …**.\n\n**Prioridad de las operaciones**\n1. Paréntesis.\n2. Potencias, si aparecen.\n3. Multiplicaciones y divisiones.\n4. Sumas y restas.\n\nCon operaciones consecutivas de **igual prioridad**, avanzamos de **izquierda a derecha**.",
+        "idea": "**Enteros:** $\\mathbb Z=\\{\\ldots,-2,-1,0,1,2,\\ldots\\}$. Incluyen números negativos, el cero y positivos.\n\n**Orden para calcular**\n1. Paréntesis.\n2. Potencias.\n3. Multiplicaciones y divisiones.\n4. Sumas y restas.\n\nEn un mismo nivel, calcula **de izquierda a derecha**.",
         "steps": {
           "title": "Resuelve",
           "items": [
@@ -685,7 +685,7 @@
             }
           ]
         },
-        "warn": "**Presta atención: dos ideas importantes.**\n\n**1. Operaciones de igual prioridad.** Multiplicaciones y divisiones consecutivas se resuelven **de izquierda a derecha**.\n\nSin paréntesis: $24\\div4\\cdot2=12$.\n\nCon paréntesis: $24\\div(4\\cdot2)=3$.\n\n**2. Reconocer los términos.** Fuera de paréntesis, los signos **+** y **−** separan términos. Podemos calcular cada término por separado, conservando su signo. En cambio, la multiplicación y la división vinculan los factores de un término.",
+        "warn": "**Misma prioridad:** $24\\div4\\cdot2=12$, pero $24\\div(4\\cdot2)=3$. Los paréntesis cambian el orden. En una resta, **restar un negativo** equivale a sumar su opuesto.",
         "more": [
           {
             "title": "Resuelve",
@@ -720,47 +720,46 @@
               {
                 "math": "5-3+4\\cdot(3-5\\cdot2+4-8)",
                 "side": {
-                  "title": "OPERACIONES INDEPENDIENTES",
-                  "math": "\\begin{aligned}5-3&=2\\\\5\\cdot2&=10\\\\4-8&=-4\\end{aligned}",
-                  "text": "Estos cálculos pueden realizarse sin esperar los resultados de los demás."
+                  "title": "PARÉNTESIS",
+                  "math": "5\\cdot2=10",
+                  "text": "Dentro del paréntesis, primero resolvemos el producto."
                 }
               },
               {
-                "math": "=2+4\\cdot(3-10-4)",
+                "math": "=5-3+4\\cdot(3-10+4-8)",
                 "side": {
-                  "title": "RESTA",
-                  "math": "3-10=-7",
-                  "text": "Resolvemos 3 − 10 dentro del paréntesis."
+                  "title": "SUMAS Y RESTAS",
+                  "text": "Ahora calculamos el interior de izquierda a derecha."
                 }
               },
               {
-                "math": "=2+4\\cdot(-7-4)",
+                "math": "=5-3+4\\cdot(-11)",
                 "side": {
-                  "title": "RESTA",
-                  "math": "-7-4=-11",
-                  "text": "Calculamos −7 − 4 dentro del paréntesis."
+                  "title": "PARÉNTESIS LISTO",
+                  "math": "3-10+4-8=-11",
+                  "text": "Terminamos el paréntesis."
                 }
               },
               {
-                "math": "=2+4\\cdot(-11)",
+                "math": "=5-3-44",
                 "side": {
                   "title": "MULTIPLICACIÓN",
                   "math": "4\\cdot(-11)=-44",
-                  "text": "El producto de enteros de distinto signo es negativo."
+                  "text": "Resolvemos el producto antes de sumar o restar fuera."
                 }
               },
               {
-                "math": "=2+(-44)",
+                "math": "=2-44",
                 "side": {
-                  "title": "SUMA",
-                  "text": "Sumamos los términos restantes."
+                  "title": "RESTA",
+                  "text": "Calculamos de izquierda a derecha."
                 }
               },
               {
                 "math": "=-42",
                 "side": {
                   "title": "RESULTADO",
-                  "text": "Sumamos 2 y −44."
+                  "text": "El resultado conserva el signo negativo."
                 }
               }
             ]
@@ -799,8 +798,8 @@
       "example3": "Ejemplo 3 · Prioridad de igual nivel\n1. $$24\\div4\\cdot2$$\n   Multiplicación y división tienen igual prioridad.\n2. $$6\\cdot2$$\n   Avanzamos de izquierda a derecha.\n3. $$12$$\n   Terminamos el producto.",
       "explore": {
         "title": "Viaje por los enteros",
-        "desc": "Experimenta con desplazamientos positivos y negativos sobre la recta numérica.",
-        "instr": "Ajusta el número inicial, la operación y el segundo número; pulsa «Ver recorrido» para animar la recta.",
+        "desc": "Mueve un punto por la recta numérica usando sumas y restas de enteros.",
+        "instr": "Elige el inicio y la operación. Luego pulsa «Ver recorrido».",
         "alt": "Viaje por los enteros · actividad interactiva opcional, sin porcentaje de avance.",
         "height": 550,
         "html": "<!DOCTYPE html><html lang=\"es\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Explora · Viaje por los enteros</title><style>*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;margin:0;padding:16px;color:#25314b;background:#f7f9fc;line-height:1.5}h2{color:#20275f;margin:0 0 4px}p{margin:4px 0 14px}.explore-grid{display:grid;grid-template-columns:245px minmax(0,1fr);gap:14px}.explore-controls,.explore-view{background:#fff;border:1px solid #e0e5ee;border-radius:16px;padding:18px}.explore-controls{display:grid;gap:12px;align-content:start}.field{display:grid;gap:4px}.field label{font-size:13px;font-weight:750}.field input,.field select{width:100%;padding:10px;border:1px solid #cfd5e2;border-radius:10px;font:inherit}.btn{background:#c94772;color:#fff;border:0;border-radius:10px;padding:12px;font:inherit;font-weight:750;cursor:pointer}.btn:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f6bd48;outline-offset:2px}.small,.explore-note{font-size:13px;color:#607085}.big-equation{text-align:center;font-size:clamp(22px,3vw,34px);font-weight:800;color:#253073;margin-bottom:12px}.numberline{width:100%;height:auto;max-height:330px;background:#f8fbff;border-radius:12px}.explore-key{display:flex;gap:12px;justify-content:space-around;flex-wrap:wrap;font-size:12px;color:#68768b;margin:10px 0}.legend-dot{width:9px;height:9px;display:inline-block;border-radius:50%;margin-right:5px}@media(max-width:680px){.explore-grid{grid-template-columns:1fr}.explore-controls{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.explore-controls .btn,.explore-controls .small{grid-column:1/-1}.field input,.field select{font-size:14px;padding:8px}}</style></head><body><h2>Viaje por los enteros</h2><p>Observa cómo sumar o restar cambia tu posición en la recta numérica.</p><div class=\"explore-grid\">\n<div class=\"explore-controls\">\n<div class=\"field\"><label for=\"start\">Comienzo</label><input id=\"start\" max=\"30\" min=\"-30\" step=\"1\" type=\"number\" value=\"-7\"/></div>\n<div class=\"field\"><label for=\"operation\">Operación</label><select id=\"operation\"><option value=\"+\">Sumar</option><option value=\"-\">Restar</option></select></div>\n<div class=\"field\"><label for=\"change\">Número</label><input id=\"change\" max=\"30\" min=\"-30\" step=\"1\" type=\"number\" value=\"12\"/></div>\n<button class=\"btn pink\" id=\"animate\">▶ Ver recorrido</button>\n<p class=\"small\" style=\"grid-column:1/-1;margin:7px 0 0\">Prueba también <b>3 − (−5)</b>: al restar un negativo, avanzarás a la derecha.</p>\n</div>\n<div class=\"explore-view\">\n<div class=\"big-equation\" id=\"explore-equation\">−7 + 12 = 5</div>\n<svg aria-label=\"Recta numérica interactiva con desplazamiento\" class=\"numberline\" id=\"numberline\" role=\"img\" viewbox=\"0 0 660 230\"></svg>\n<div class=\"explore-key\"><span><i class=\"legend-dot\" style=\"background:#2e59a5\"></i>Inicio</span><span><i class=\"legend-dot\" style=\"background:#c94772\"></i>Posición actual</span><span><i class=\"legend-dot\" style=\"background:#208e77\"></i>Destino</span></div>\n<p class=\"explore-note\" id=\"explore-note\">Presiona «Ver recorrido» para observar el movimiento.</p>\n</div>\n</div><script>const $=id=>document.getElementById(id), ns='http://www.w3.org/2000/svg';let anim=0;\nfunction svgEl(tag,attrs,parent){const e=document.createElementNS(ns,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));parent.appendChild(e);return e}\nfunction num(n){return n<0?'−'+Math.abs(n):String(n)}\nfunction coords(){let a=Number($('start').value),b=Number($('change').value),op=$('operation').value;if(!Number.isInteger(a)||!Number.isInteger(b)||Math.abs(a)>30||Math.abs(b)>30){$('explore-note').textContent='Escribe números enteros entre −30 y 30.';return null}let v=(op==='+'?b:-b);return {a,b,op,v,end:a+v}}\nfunction drawNumberline(animate=true){cancelAnimationFrame(anim);const c=coords();if(!c)return;const {a,b,op,v,end}=c,svg=$('numberline');svg.replaceChildren();const lo=Math.min(a,end)-2,hi=Math.max(a,end)+2,span=hi-lo,left=36,right=624,y=134;const px=n=>left+(n-lo)/span*(right-left);const ticks=span>42?5:span>26?3:span>17?2:1;svgEl('line',{x1:left,y1:y,x2:right,y2:y,stroke:'#344a75','stroke-width':3},svg);svgEl('path',{d:`M${right-10} ${y-6} L${right} ${y} L${right-10} ${y+6}`,fill:'none',stroke:'#344a75','stroke-width':3},svg);\nfor(let k=Math.ceil(lo/ticks)*ticks;k<=hi;k+=ticks){const x=px(k);svgEl('line',{x1:x,y1:y-6,x2:x,y2:y+6,stroke:'#8395b6','stroke-width':1.3},svg);const t=svgEl('text',{x,y:y+29,'text-anchor':'middle','font-size':13,fill:'#596681'},svg);t.textContent=num(k)}\nconst xa=px(a),xb=px(end);svgEl('path',{d:`M ${xa} ${y-34} Q ${(xa+xb)/2} ${y-95} ${xb} ${y-34}`,stroke:'#d65d82','stroke-width':3,fill:'none','stroke-dasharray':'6 5'},svg);svgEl('circle',{cx:xa,cy:y,r:8,fill:'#2e59a5',stroke:'#fff','stroke-width':2},svg);svgEl('circle',{cx:xb,cy:y,r:8,fill:'#208e77',stroke:'#fff','stroke-width':2},svg);const dot=svgEl('circle',{cx:xa,cy:y,r:11,fill:'#cf4674',stroke:'#fff','stroke-width':3},svg);\n$('explore-equation').textContent=`${num(a)} ${op} (${num(b)}) = ${num(end)}`;$('explore-note').textContent='El punto rosado muestra tu posición durante el recorrido.';\nif(!animate)return;const start=performance.now(),duration=900;function frame(t){const p=Math.min(1,(t-start)/duration);dot.setAttribute('cx',String(xa+(xb-xa)*(1-Math.pow(1-p,3))));if(p<1)anim=requestAnimationFrame(frame);else $('explore-note').textContent=`Llegaste a ${num(end)}. ${v>=0?'Avanzaste a la derecha.':'Avanzaste a la izquierda.'}`}anim=requestAnimationFrame(frame)}\n$('animate').addEventListener('click',()=>drawNumberline(true));['start','change','operation'].forEach(id=>$(id).addEventListener('change',()=>drawNumberline(false)));drawNumberline(false);</script></body></html>"
@@ -866,7 +865,7 @@
           "kind": "number",
           "q": "Un ascensor parte del piso $-3$, sube $8$ pisos y baja $4$. ¿En qué piso termina?",
           "answer": "1",
-          "why": "$-3+8-4=1$."
+          "why": "Desde el piso −3, subir 8 lleva al piso 5; bajar 4 deja en el piso 1: $-3+8-4=1$."
         },
         {
           "q": "Un congelador está a $-4\\,^{\\circ}\\mathrm C$. Su temperatura disminuye otros $6\\,^{\\circ}\\mathrm C$. ¿Cuál es la nueva temperatura?",
@@ -913,7 +912,7 @@
             "$1\\,^{\\circ}\\mathrm C$"
           ],
           "correct": 2,
-          "why": "$-7+11-5=-1$."
+          "why": "La muestra pasa de −7 °C a 4 °C al aumentar 11 °C; después baja 5 °C. La temperatura final es $-1\\,^{\\circ}\\mathrm C$."
         },
         {
           "type": "input",
@@ -977,7 +976,7 @@
           "why": "$2-7=-5$; luego $-30+5(-5)=-30-25=-55$."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s013",
@@ -1601,98 +1600,52 @@
           "$3,4,9$"
         ],
         "correct": 1,
-        "why": "Es par; la suma de cifras es 18; termina en 72, múltiplo de 4; y 18 es múltiplo de 9. No cumple 5, 8 ni 10."
+        "why": "La última cifra indica divisibilidad por 2, pero no por 5 ni 10. La suma de cifras es $4+5+7+2=18$: divisible por 3 y 9. Las dos últimas cifras son 72, divisible por 4; las últimas tres son 572, no divisible por 8. Por eso se cumplen $2,3,4,6,9$."
       },
       "learn": {
         "goal": "Aplicar y justificar criterios de divisibilidad.",
-        "idea": "**DIVISIBLE = AL DIVIDIR DA RESTO CERO**\nPor ejemplo, \n$24=6\\cdot4$ (resto 0) $\\Longrightarrow\\ 24$ es divisible por $6$.\n$32=6\\cdot5+2$ (resto 2) $\\Longrightarrow\\ 32$ no es divisible por $6$.\n\n**Criterios de divisibilidad:**\n$\\bullet$ Por 2: Termina en 0, 2, 4, 6 u 8.\n$\\bullet$ Por 3: La suma de sus cifras es múltiplo de 3.\n$\\bullet$ Por 4: Sus dos últimas cifras forman un múltiplo de 4.\n$\\bullet$ Por 5: Termina en 0 o 5.\n$\\bullet$ Por 6: Cumple a la vez los criterios de 2 y de 3.\n$\\bullet$ Por 8: Sus tres últimas cifras forman un múltiplo de 8.\n$\\bullet$ Por 9: La suma de sus cifras es múltiplo de 9.\n$\\bullet$ Por 10: Termina en 0.",
+        "idea": "**Un número es divisible por otro** cuando el resto de la división es **cero**. Por ejemplo, $24=6\\cdot4$, pero $32=6\\cdot5+2$.\n\n**Mira las cifras, sin hacer toda la división:**\n• **2:** última cifra par. **5:** termina en 0 o 5. **10:** termina en 0.\n• **3:** suma de cifras múltiplo de 3. **9:** suma de cifras múltiplo de 9.\n• **4:** últimas dos cifras múltiplo de 4. **8:** últimas tres cifras múltiplo de 8.\n• **6:** cumple a la vez los criterios del 2 y del 3.",
         "steps": {
-          "title": "¿Cuáles de los ocho números dividen a $\\underline{1236}$?",
+          "title": "¿Qué números de $\\{2,3,4,5,6,8,9,10\\}$ dividen a $1236$?",
           "items": [
             {
-              "math": "\\text{Última cifra es }6.",
+              "math": "1236\\text{ termina en }6",
               "side": {
-                "math": "1236=2\\cdot618\\ (\\text{División - resto 0})",
-                "title": "2 sí lo divide",
-                "text": "Criterio del 2: última cifra es 0, 2, 4, 6 u 8."
-              },
-              "why": "2 sí lo divide."
+                "title": "CRITERIOS 2, 5 Y 10",
+                "text": "El 2 sí divide a 1236; el 5 y el 10, no."
+              }
             },
             {
-              "math": "1+2+3+6=12\\text{ (da múltiplo de 3).}",
+              "math": "1+2+3+6=12",
               "side": {
-                "title": "3 sí lo divide",
-                "math": "1236=3\\cdot412\\ (\\text{División - resto 0})",
-                "text": "Criterio del 3: la suma de sus cifras es múltiplo de 3."
-              },
-              "why": "3 sí lo divide."
+                "title": "CRITERIOS 3 Y 9",
+                "text": "12 es múltiplo de 3, pero no de 9."
+              }
             },
             {
-              "math": "\\text{Últimas dos cifras forman el }36\\text{ (que es múltiplo de 4).}",
+              "math": "36=4\\cdot9,\\qquad236=8\\cdot29+4",
               "side": {
-                "title": "4 sí lo divide",
-                "math": "1236=4\\cdot309\\ (\\text{División - resto 0})",
-                "text": "Criterio del 4: Sus dos últimas cifras forman un múltiplo de 4."
-              },
-              "why": "4 sí lo divide."
+                "title": "CRITERIOS 4 Y 8",
+                "text": "36 es múltiplo de 4; 236 deja resto 4 al dividir por 8."
+              }
             },
             {
-              "math": "\\text{Última cifra es 6.}",
+              "math": "2\\mid1236\\quad\\text{y}\\quad3\\mid1236",
               "side": {
-                "title": "5 no lo divide",
-                "math": "1236=5\\cdot247+1\\ (\\text{División - resto }1\\neq0)",
-                "text": "Criterio del 5: última cifra es 0 o 5."
-              },
-              "why": "5 no lo divide."
+                "title": "CRITERIO 6",
+                "text": "Cumple simultáneamente los criterios del 2 y del 3."
+              }
             },
             {
-              "math": "2\\text{ y }3\\text{ sí lo dividen.} ",
+              "math": "\\{2,3,4,6\\}",
               "side": {
-                "title": "6 sí lo divide",
-                "math": "1236=6\\cdot206\\ (\\text{División - resto 0})",
-                "text": "Criterio del 6: cumple los criterios del 2 y del 3."
-              },
-              "why": "6 sí lo divide."
-            },
-            {
-              "math": "\\text{Últimas tres cifras forman el }236\\text{ (que no es múltiplo de 8).}",
-              "side": {
-                "title": "8 no lo divide",
-                "math": "1236=8\\cdot154+4\\ (\\text{División - resto }4\\neq0)",
-                "text": "Criterio del 8: Sus tres últimas cifras forman un múltiplo de 8. Notar: $236=8\\cdot29+4$, o sea, 8 no divide a 236."
-              },
-              "why": "8 no lo divide."
-            },
-            {
-              "math": "1+2+3+6=12\\text{ (no da múltiplo de 9).}",
-              "side": {
-                "title": "9 no lo divide",
-                "math": "1236=9\\cdot137+3\\ (\\text{División - resto }3\\neq0)",
-                "text": "Criterio del 9: la suma de sus cifras es múltiplo de 9."
-              },
-              "why": "9 no lo divide."
-            },
-            {
-              "math": "\\text{Última cifra es 6.}",
-              "side": {
-                "title": "10 no lo divide",
-                "math": "1236=10\\cdot123+6\\ (\\text{División - resto }6\\neq0)",
-                "text": "Criterio del 10: última cifra es 0."
-              },
-              "why": "10 no lo divide."
-            },
-            {
-              "math": "\\text{Conclusión:}",
-              "side": {
-                "title": "No lo dividen:",
-                "math": "\\text{5, 8, 9 y 10.}",
-                "text": "De nuestra lista, exclusivamente el 2, 3, 4 y 6 dividen al 1236"
-              },
-              "why": "No lo dividen:."
+                "title": "CONCLUSIÓN",
+                "text": "De la lista dada, esos y solo esos números dividen exactamente a 1236."
+              }
             }
           ]
         },
-        "warn": "Estos criterios permiten decidir si un número es divisible o no por 2, 3, 4, 5, 6, 8, 9 o 10, sin necesidad de realizar la división.\nLuego, uno puede realizar la división para factorizar o verificar cuánto da el resto.",
+        "warn": "**Los criterios indican si el resto es cero.** Por ejemplo, terminar en 6 asegura divisibilidad por 2, **no** por 6: también se necesita el criterio del 3.",
         "more": [
           {
             "title": "$3240$ (revisa todos los criterios)",
@@ -1951,7 +1904,7 @@
           "why": "$1770\\div5=354$."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s003",
@@ -2166,7 +2119,7 @@
           ],
           "correct": 3,
           "why": "$47=5\\cdot9+2$ y $0\\le 2<5$.",
-          "level": 3
+          "level": 1
         },
         {
           "q": "Al dividir $89$ por $8$, ¿cuál es el resto?",
@@ -2318,7 +2271,7 @@
           ],
           "correct": 1,
           "why": "$89$ es primo porque solo tiene como divisores positivos a 1 y a sí mismo. Los otros números son compuestos (ser impar no basta para ser primo).",
-          "level": 1
+          "level": 3
         },
         {
           "q": "Considera los números cercanos a $40$. ¿Cuál de las cuatro opciones es primo?",
@@ -2574,11 +2527,11 @@
           "$121$"
         ],
         "correct": 2,
-        "why": "$97$ no tiene divisores primos menores o iguales que $\\sqrt{97}$. En cambio, $91=7\\cdot13$, $111=3\\cdot37$ y $121=11^2$."
+        "why": "$97$ no es divisible por $2,3,5$ ni $7$; como $10\\cdot10>97$, basta comprobar esos primos. En cambio, $91=7\\cdot13$, $111=3\\cdot37$ y $121=11^2$ son compuestos."
       },
       "learn": {
-        "goal": "Reconocer números primos, interpretar cociente y resto y factorizar un entero positivo en primos.",
-        "idea": "**División:** si $a=bq+r$ y $b>0$, entonces $0\\le r<b$.\n• **Primo:** entero mayor que $1$ con solo dos divisores positivos: $1$ y él mismo.\n• Todo entero mayor que $1$ se descompone en primos de forma única, salvo el orden.",
+        "goal": "Identificar primos, distinguir cociente y resto, y descomponer enteros positivos en factores primos.",
+        "idea": "**Primo:** número entero mayor que $1$ cuyos únicos divisores positivos son $1$ y él mismo. **El 1 no es primo.**\n\n**Factorizar** es escribir un entero mayor que $1$ como producto de primos. La descomposición es única, salvo el orden.\n\n**División con resto:** $a=bq+r$, donde $b>0$ y $0\\le r<b$.",
         "steps": {
           "title": "Descompón $60$ en factores primos.",
           "items": [
@@ -2612,7 +2565,7 @@
             }
           ]
         },
-        "warn": "**Cuidado:** el número $1$ no es primo ni compuesto. El resto de una división por un divisor positivo debe satisfacer $0\\le r<b$.",
+        "warn": "**El 1 no es primo ni compuesto.** En $a=bq+r$, con $b>0$, el resto siempre satisface $0\\le r<b$.",
         "more": [
           {
             "title": "Cociente y resto",
@@ -2664,8 +2617,8 @@
       "example2": "Ejemplo 2 · Cociente y resto\n1. $$47=5\\cdot9+2$$\n   El cociente es 9 y el resto 2.\n2. $$0\\le2<5$$\n   El resto debe ser menor que el divisor positivo.",
       "explore": {
         "title": "Árbol de factores",
-        "desc": "Descompón un número en factores primos por diferentes caminos.",
-        "instr": "Elige un número y descompón sus factores hasta llegar a primos.",
+        "desc": "Construye distintas factorizaciones del mismo número.",
+        "instr": "Elige un número y divide sus factores hasta obtener solo primos.",
         "alt": "Árbol de factores · actividad interactiva opcional, sin porcentaje de avance.",
         "height": 850,
         "html": "<!DOCTYPE html>\n<html lang=\"es\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"color-scheme\" content=\"light\"/><title>Explora · Árbol de factores</title><style>:root{--bg:#f3f7fb;--paper:#fff;--ink:#1a3044;--muted:#607588;--stroke:#dce6ed;--main:#2575ac;--main2:#0b9a83;--mist:#e9f4f9;--warm:#fff6e5;--gold:#aa731d;--ok:#137d64;--bad:#a04a3c;--shadow:0 16px 36px rgba(30,62,86,.07)}\n*{box-sizing:border-box}html{font-size:16px}body{margin:0;background:radial-gradient(circle at 90% 0%,#e1f3f7 0%,transparent 32%),var(--bg);font-family:system-ui,-apple-system,\"Segoe UI\",Arial,sans-serif;color:var(--ink);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f3bd59;outline-offset:2px}button:disabled{cursor:not-allowed;opacity:.45}\n.shell{width:min(1060px,calc(100% - 32px));margin:26px auto 42px}.hero{padding:25px 27px 24px;color:white;border-radius:22px;background:linear-gradient(119deg,#12476f 0%,#1b7d9f 57%,#138d83 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:before,.hero:after{content:\"\";position:absolute;border:2px solid #ffffff20;border-radius:50%;width:270px;height:270px;right:-95px;top:-175px}.hero:after{width:180px;height:180px;right:35px;top:-120px}.kicker{text-transform:uppercase;font-size:.77rem;letter-spacing:.14em;font-weight:750;opacity:.88}.hero h1{font-size:clamp(1.48rem,3.6vw,2.15rem);margin:7px 0 5px;line-height:1.17;letter-spacing:-.03em}.hero p{margin:0;max-width:700px;color:#ebf9ff;line-height:1.5}.topline{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chip{display:inline-flex;border-radius:999px;padding:6px 11px;background:#ffffff2b;font-weight:650;font-size:.79rem;white-space:nowrap;z-index:1}.layout{display:grid;grid-template-columns:335px minmax(0,1fr);align-items:start;gap:16px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--stroke);border-radius:18px;padding:20px;box-shadow:var(--shadow);min-width:0}.card h2,.card h3{margin:0 0 12px;letter-spacing:-.02em}.card h2{font-size:1.14rem}.card h3{font-size:1.02rem}.lede{font-size:.96rem;color:var(--muted);margin:0 0 13px}.muted{color:var(--muted)}.small{font-size:.85rem}.tiny{font-size:.75rem}.controls{display:grid;gap:12px}.field{display:grid;gap:5px}.field label{font-size:.87rem;font-weight:700;color:#344f65}.field select,.field input[type=number]{width:100%;min-height:43px;border:1px solid #cddce7;background:#fff;border-radius:10px;padding:8px 11px;color:var(--ink)}.field input[type=range]{width:100%;accent-color:var(--main2);cursor:pointer}.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pills{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--main);background:var(--main);color:white;font-weight:720;min-height:42px;border-radius:11px;padding:8px 14px;transition:transform .15s,filter .15s}.btn:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn.alt{background:#f1f7fb;color:#235e82;border-color:#bcd5e4}.btn.minor{border-color:#d4e1e9;background:white;color:#3b5d75}.btn.green{background:#0e8f78;border-color:#0e8f78}.btn.active{background:#155d89;color:white;border-color:#155d89}.btn.sm{font-size:.85rem;min-height:36px;padding:6px 10px}.btnrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.panel{border-radius:14px;background:#f5fafc;border:1px solid #dfecf2;padding:15px}.panel.warm{background:var(--warm);border-color:#f1e2c4}.panel.green{background:#eaf8f3;border-color:#c9e9dd}.panel p:last-child{margin-bottom:0}.panel p:first-child{margin-top:0}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#f1f8fb;border:1px solid #ddebf1;border-radius:13px;padding:12px}.stat .value{font-size:1.45rem;font-weight:800;color:#1a6289;line-height:1.25}.stat .label{font-size:.78rem;color:var(--muted)}.formula{font-family:Georgia,\"Times New Roman\",serif;font-size:clamp(1.25rem,3.5vw,1.8rem);font-weight:650;line-height:1.5;text-align:center;word-break:normal}.formula.big{font-size:clamp(1.6rem,4.5vw,2.4rem)}.formula-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.07;padding:0 2px;font-variant-numeric:tabular-nums}.frac>.n{display:block;border-bottom:1.7px solid currentColor;padding:0 5px 3px}.frac>.d{display:block;padding:3px 5px 0}.stepper{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:14px}.stepbadge{font-size:.8rem;font-weight:700;color:#587186}.bar{display:flex;overflow:hidden;border:1px solid #96b0c3;height:32px;border-radius:7px;background:#eef3f5}.segment{flex:1;border-right:1px solid #ffffff90;min-width:0;background:#edf3f7}.segment:last-child{border-right:0}.segment.on{background:#248ac4}.segment.on.teal{background:#28a88b}.segment.on.amber{background:#e4a145}.section-gap{height:16px}.note{border-left:4px solid #d9a03f;background:#fff8e9;padding:11px 13px;border-radius:8px;font-size:.9rem;color:#6b5127}.footer{margin-top:16px;color:#657b8d;font-size:.8rem;text-align:center}.frame{border:1px solid #d8e6ec;background:#f9fcfd;border-radius:13px;overflow:hidden;padding:6px}.frame svg{width:100%;height:auto;display:block}.highlight{color:#0d887b;font-weight:800}.warn{color:#a45327;font-weight:780}.subhead{font-weight:800;font-size:.89rem;color:#42617a;text-transform:uppercase;letter-spacing:.055em;margin-bottom:8px}.reveal{animation:appear .3s ease-out}@keyframes appear{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}\n@media(max-width:760px){.shell{width:min(100% - 18px,610px);margin:9px auto 28px}.hero{padding:19px;border-radius:16px}.layout{grid-template-columns:1fr;gap:11px;margin-top:11px}.card{padding:16px;border-radius:14px}.topline{flex-direction:column}.chip{align-self:flex-start}.inline-fields{grid-template-columns:1fr 1fr}.footer{padding:0 8px}.stat .value{font-size:1.25rem}}\n@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}\n</style></head><body><div class=\"shell\"><header class=\"hero\"><div class=\"topline\"><div><div class=\"kicker\">EXPLORA · UNIDAD I · ESTACIONES 3–4</div><h1>Árbol de factores</h1><p>Divide números compuestos hasta llegar a factores primos. Puedes tomar caminos distintos y descubrir qué se conserva.</p></div><span class=\"chip\">Exploración libre</span></div></header>\n<div class=\"layout\"><aside class=\"card\"><h2>1. Escoge un número</h2><div class=\"field\"><label for=\"num\">Número natural (2 a 360)</label><input type=\"number\" min=\"2\" max=\"360\" step=\"1\" id=\"num\" value=\"84\"/></div><div class=\"section-gap\"></div><div class=\"pills\"><button class=\"btn minor sm\" data-value=\"60\">60</button><button class=\"btn minor sm\" data-value=\"84\">84</button><button class=\"btn minor sm\" data-value=\"180\">180</button><button class=\"btn minor sm\" data-value=\"360\">360</button></div><div class=\"section-gap\"></div><button class=\"btn alt\" id=\"start\">Construir árbol</button><div class=\"section-gap\"></div>\n<div class=\"panel\"><h3>2. Elige un número para dividir</h3><p id=\"chosenInfo\" class=\"lede\">Selecciona un nodo compuesto del árbol.</p><div class=\"field\"><label for=\"pair\">Par de factores</label><select id=\"pair\"></select></div><div class=\"section-gap\"></div><div class=\"btnrow\"><button class=\"btn green\" id=\"split\">Separar factores</button><button class=\"btn minor\" id=\"undo\">Deshacer último</button></div></div>\n<div class=\"section-gap\"></div><div class=\"note\">Un número <strong>primo</strong> tiene exactamente dos divisores positivos: 1 y él mismo. El <strong>1 no es primo</strong>.</div></aside>\n<main class=\"card\"><h2>3. Construye y observa</h2><p class=\"lede\">Pulsa un recuadro azul para elegir qué descomponer. Los verdes ya son primos. En celular, <strong>desliza el árbol hacia los lados</strong> para ver todas sus ramas.</p><div class=\"frame\" style=\"overflow-x:auto\"><svg id=\"tree\" viewBox=\"0 0 650 245\" role=\"img\" aria-label=\"Árbol de descomposición en factores primos\"></svg></div><div class=\"section-gap\"></div><div class=\"panel green\" aria-live=\"polite\"><div class=\"subhead\" id=\"statusTitle\">Comienza la descomposición</div><div class=\"formula\" id=\"primeResult\">84</div><p class=\"small\" id=\"statusDesc\" style=\"text-align:center\"></p></div>\n<div class=\"section-gap\"></div><div class=\"btnrow\"><button id=\"restart\" class=\"btn alt\">↺ Otro camino con el mismo número</button><button id=\"auto\" class=\"btn minor\">Ver una descomposición</button></div></main></div>\n<div class=\"footer\">Puedes repetir con otros pares de factores. No hay una puntuación ni se registra progreso.</div></div>\n<script>function $(id){return document.getElementById(id)}\nfunction clamp(v,a,b){return Math.min(b,Math.max(a,Number(v)||0))}\nfunction gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a}\nfunction lcm(a,b){return Math.abs(a*b)/gcd(a,b)}\nfunction fmt(n){return String(n).replace('-', '−')}\nfunction fraction(n,d){let s=n<0?'−':'';n=Math.abs(n);return `<span class=\"frac\"><span class=\"n\">${s}${n}</span><span class=\"d\">${d}</span></span>`}\nfunction fractionStr(n,d){return `${fmt(n)}/${d}`}\nfunction simplify(n,d){if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return [n/g,d/g]}\nfunction barMarkup(n,d,cls=''){let out='';for(let i=0;i<d;i++){out+=`<span class=\"segment ${i<n?'on '+cls:''}\" aria-hidden=\"true\"></span>`}return `<div class=\"bar\" role=\"img\" aria-label=\"${n} de ${d} partes sombreadas\">${out}</div>`}\nfunction options(el,values,selected){el.innerHTML=values.map(v=>`<option value=\"${v}\" ${String(v)===String(selected)?'selected':''}>${v}</option>`).join('')}\nfunction setText(id,val){$(id).textContent=val}\n</script><script>let nextId=0, root=null, selected=null, history=[];\nfunction isPrime(n){if(n<2)return false;for(let d=2;d*d<=n;d++)if(n%d===0)return false;return true}\nfunction pairs(n){let out=[];for(let a=2;a*a<=n;a++)if(n%a===0)out.push([a,n/a]);return out}\nfunction newNode(n){return {id:++nextId,n,left:null,right:null}}\nfunction leaves(node){return node.left?[...leaves(node.left),...leaves(node.right)]:[node]}\nfunction findNode(node,id){if(!node)return null;if(node.id===id)return node;return findNode(node.left,id)||findNode(node.right,id)}\nfunction listNodes(node){return node.left?[node,...listNodes(node.left),...listNodes(node.right)]:[node]}\nfunction mathFactors(numbers){let groups={};numbers.sort((a,b)=>a-b).forEach(n=>groups[n]=(groups[n]||0)+1);const supers=['⁰','¹','²','³','⁴','⁵','⁶','⁷','⁸','⁹'];return Object.entries(groups).map(([p,e])=>p+(e>1?String(e).split('').map(d=>supers[+d]).join(''):'')).join(' · ')}\nfunction setup(n){root=newNode(n);history=[];selected=isPrime(n)?null:root.id;render()}\nfunction coords(node,depth,lspace){let graph=[];let leafNum=0;function assign(n,d){let x;if(n.left){let a=assign(n.left,d+1),b=assign(n.right,d+1);x=(a+b)/2}else{x=65+leafNum*lspace;leafNum++}graph.push({n,x,y:49+d*95,d});return x}assign(node,0);return graph}\nfunction render(){const ll=leaves(root),depth=Math.max(...listNodes(root).map(n=>{function dep(cur,d){if(cur.id===n.id)return d;return cur.left?dep(cur.left,d+1)??dep(cur.right,d+1):null}return dep(root,0)})),width=Math.max(650,ll.length*105+90),space=(width-130)/Math.max(1,ll.length-1);let graph=coords(root,0,space),height=depth*95+126;if(ll.length===1)graph[0].x=width/2;\nconst arr=graph.map(g=>{let n=g.n,pr=isPrime(n.n),pick=n.id===selected,composite=!n.left&&!pr,fill=pr?'#e1f5e9':pick?'#d4eaf9':composite?'#e9f4fb':'#f2f4f7';let stroke=pr?'#1b996b':pick?'#1671a2':'#8caaba';let label=pr?'PRIMO':composite?'DIVIDE':'DESCOMPUESTO';return {g,fill,stroke,label,selectable:composite}});\nlet lines='';for(let {g} of arr){let n=g.n;if(n.left){for(let ch of [n.left,n.right]){let child=arr.find(a=>a.g.n.id===ch.id);lines+=`<line x1=\"${g.x}\" y1=\"${g.y+19}\" x2=\"${child.g.x}\" y2=\"${child.g.y-20}\" stroke=\"#93b1c4\" stroke-width=\"3\"/>`}}}\nlet nodes=arr.map(({g,fill,stroke,label,selectable})=>{let n=g.n;return `<g data-id=\"${n.id}\" ${selectable?'role=\"button\" tabindex=\"0\"':'aria-hidden=\"true\"'} style=\"${selectable?'cursor:pointer;':''}\" aria-label=\"${n.n}: ${label.toLowerCase()}\"><rect x=\"${g.x-42}\" y=\"${g.y-21}\" width=\"84\" height=\"49\" rx=\"12\" fill=\"${fill}\" stroke=\"${stroke}\" stroke-width=\"${n.id===selected?3:2}\"/><text x=\"${g.x}\" y=\"${g.y+2}\" text-anchor=\"middle\" fill=\"#224259\" font-size=\"19\" font-weight=\"800\">${n.n}</text><text x=\"${g.x}\" y=\"${g.y+19}\" text-anchor=\"middle\" fill=\"${stroke}\" font-size=\"9\" font-weight=\"800\">${label}</text></g>`}).join('');\nlet svg=$('tree');svg.setAttribute('viewBox',`0 0 ${width} ${height}`);svg.style.minWidth=Math.min(width,720)+'px';svg.innerHTML=lines+nodes;\nsvg.querySelectorAll('[data-id][role=button]').forEach(el=>{const pick=()=>{selected=Number(el.dataset.id);render()};el.addEventListener('click',pick);el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();pick()}})});\nconst node=findNode(root,selected),available=node?pairs(node.n):[];options($('pair'),available.map(x=>x[0]),available.length?available[0][0]:null);$('pair').disabled=!available.length;$('split').disabled=!available.length;$('undo').disabled=!history.length;\nsetText('chosenInfo',node?`Número seleccionado: ${node.n}. Elige dos factores mayores que 1 cuyo producto sea ${node.n}.`:'Selecciona un nodo compuesto (azul).');\n$('pair').innerHTML=available.map(([a,b])=>`<option value=\"${a}\">${a} × ${b}</option>`).join('');\nlet primes=ll.filter(n=>isPrime(n.n)).map(n=>n.n),comps=ll.filter(n=>!isPrime(n.n));let completed=!comps.length;\nsetText('statusTitle',completed?'¡Todos los extremos son primos!':`Factores primos encontrados: ${primes.length}`);\nsetText('primeResult',completed?`${root.n} = ${mathFactors(primes)}`:(primes.length?`${primes.sort((a,b)=>a-b).join(' · ')} · (${comps.map(x=>x.n).join(' · ')})`:`${root.n} = sigue dividiendo`));\nsetText('statusDesc',completed?'Prueba ahora otra forma de dividir el número: la factorización prima final será la misma.':'Los extremos verdes son primos. Continúa separando los recuadros azules.');}\n$('split').addEventListener('click',()=>{let n=findNode(root,selected);if(!n)return;let a=Number($('pair').value);if(!a||n.n%a!==0)return;history.push({id:n.id});n.left=newNode(a);n.right=newNode(n.n/a);let comp=leaves(root).find(x=>!isPrime(x.n));selected=comp?comp.id:null;render()});\n$('undo').addEventListener('click',()=>{let last=history.pop();if(!last)return;let node=findNode(root,last.id);node.left=null;node.right=null;selected=node.id;render()});\n$('restart').addEventListener('click',()=>setup(root.n));$('start').addEventListener('click',()=>{let n=Number($('num').value);if(!Number.isInteger(n)||n<2||n>360){$('num').setCustomValidity('Introduce un entero entre 2 y 360');$('num').reportValidity();return}$('num').setCustomValidity('');setup(n)});\n$('auto').addEventListener('click',()=>{let n=leaves(root).find(x=>!isPrime(x.n));if(!n){setText('statusDesc','¡El árbol ya está completo!');return}let a=pairs(n.n)[0][0];history.push({id:n.id});n.left=newNode(a);n.right=newNode(n.n/a);let nxt=leaves(root).find(x=>!isPrime(x.n));selected=nxt?nxt.id:null;render()});\ndocument.querySelectorAll('[data-value]').forEach(b=>b.addEventListener('click',()=>{$('num').value=b.dataset.value;setup(Number(b.dataset.value))}));setup(84);\n</script></body></html>"
@@ -2843,7 +2796,7 @@
           "why": "$299=14\\cdot21+5$."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s004",
@@ -3110,7 +3063,7 @@
           "q": "Calcula $\\mathrm{mcm}(6,8)$.",
           "answer": "24",
           "why": "$6=2\\cdot3$ y $8=2^3$; el mcm es $2^3\\cdot3=24$.",
-          "level": 2
+          "level": 1
         },
         {
           "type": "input",
@@ -3131,7 +3084,7 @@
         {
           "q": "Calcula el $\\mathrm{mcm}(28,71)$. Escribe solo el valor numérico.",
           "why": "Factorizamos cada número. Para el mcm seleccionamos los exponentes mayores de todos los factores: obtenemos $1988$.",
-          "level": 1,
+          "level": 2,
           "type": "input",
           "kind": "number",
           "answer": "1988"
@@ -3466,11 +3419,11 @@
           "$12$"
         ],
         "correct": 3,
-        "why": "$\\mathrm{mcd}(48,60)=12$. El mcd da el máximo número de grupos idénticos."
+        "why": "$48=2^4\\cdot3$ y $60=2^2\\cdot3\\cdot5$. El mcd es $2^2\\cdot3=12$: se pueden formar 12 paquetes idénticos, cada uno con 4 muestras A y 5 B."
       },
       "learn": {
-        "goal": "Obtener mcd y mcm usando la descomposición prima y explicar cuándo conviene cada uno.",
-        "idea": "**mcd:** producto de los factores comunes con el menor exponente.\n**mcm:** producto de todos los factores presentes con el mayor exponente.\nLa tabla de factores organiza el mismo razonamiento.",
+        "goal": "Calcular mcd y mcm mediante factores primos y reconocer cuándo utilizar cada uno.",
+        "idea": "Factoriza ambos números en **primos**.\n\n• **mcd:** toma solo los primos **comunes**, con su **menor exponente**.\n• **mcm:** toma todos los primos que aparezcan, con su **mayor exponente**.\n\n**¿Cuándo usarlos?** mcd para repartir o cortar sin sobrantes; mcm para encontrar coincidencias de ciclos.",
         "steps": {
           "title": "Calcula mcd y mcm de $60$ y $90$.",
           "items": [
@@ -3734,7 +3687,6 @@
           "why": "$\\mathrm{mcm}(4,10)=20$ minutos."
         }
       ],
-      "drawCheck": 2,
       "recuerda": [
         {
           "titulo": "Descomponer un número en factores primos",
@@ -3742,7 +3694,8 @@
           "ejemplo": "\\begin{gathered}60\\div2=30,\\quad 30\\div2=15\\\\ 15\\div3=5,\\quad 5\\div5=1\\\\ 60=2^2\\cdot3\\cdot5\\end{gathered}",
           "origen": "u1-s003"
         }
-      ]
+      ],
+      "drawCheck": 5
     },
     {
       "id": "u1-s014",
@@ -4376,19 +4329,19 @@
           "$0{,}625$"
         ],
         "correct": 0,
-        "why": "$3\\div8=0{,}375$. Es un decimal finito exacto, no una aproximación."
+        "why": "El volumen exacto es $3\\div8=0{,}375$ litros. El decimal termina, por lo que no se trata de una aproximación."
       },
       "learn": {
-        "goal": "Convertir fracciones en decimales y decimales finitos o periódicos en fracciones.",
-        "idea": "**Una misma cantidad puede escribirse de distintas formas.**\n1. **Fracción → decimal:** divide el numerador por el denominador.\n2. **Decimal finito → fracción:** elimina la coma y coloca como denominador $10$, $100$, $1000$, ... según las cifras decimales; luego simplifica.\n3. **Decimal periódico:** el mismo bloque de cifras vuelve a repetirse indefinidamente. También representa una fracción.\nLos decimales de un número racional son finitos o **eventualmente periódicos**: el período puede comenzar después de algunas cifras.",
+        "goal": "Convertir fracciones, decimales finitos y decimales periódicos entre sus formas exactas.",
+        "idea": "**Una misma cantidad puede escribirse como fracción o decimal.**\n\n1. **Fracción → decimal:** divide numerador por denominador.\n2. **Decimal finito → fracción:** usa denominador $10$, $100$, $1000$, … según las cifras después de la coma; luego simplifica.\n3. **Decimal periódico:** un grupo de cifras se repite indefinidamente; también representa una fracción.\n\nUn número racional tiene decimal **finito o eventualmente periódico**.",
         "steps": {
           "title": "Convierte $\\dfrac{3}{8}$ a decimal.",
           "items": [
             {
               "math": "\\dfrac38",
               "side": {
-                "title": "FRACCIÓN",
-                "text": "Una fracción representa una división."
+                "title": "FRACCIÓN COMO DIVISIÓN",
+                "text": "El denominador 8 indica en cuántas partes iguales dividimos cada unidad."
               }
             },
             {
@@ -4408,7 +4361,7 @@
             }
           ]
         },
-        "warn": "Un decimal periódico **no termina**: $0{,}333\\ldots=0{,}\\overline3$, no $0{,}3$. En cambio, $0{,}375$ es finito. No confundas aproximaciones decimales con valores exactos.",
+        "warn": "**Periódico no significa aproximado:** $0{,}\\overline3=0{,}333\\ldots$ exactamente. En cambio, $0{,}3$ es un decimal finito distinto.",
         "more": [
           {
             "title": "Convierte el decimal finito $0{,}24$ en fracción irreducible.",
@@ -4685,7 +4638,7 @@
           "reduced": true
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s005",
@@ -5329,11 +5282,11 @@
           "$\\dfrac{15}{20}$"
         ],
         "correct": 1,
-        "why": "Multiplicamos numerador y denominador por $4$: $3/5=12/20$."
+        "why": "El denominador pasa de 5 a 20 multiplicando por 4. Multiplicamos también el numerador: $\\dfrac35\\textcolor{red}{\\cdot\\dfrac44}=\\dfrac{12}{20}$, sin cambiar el volumen."
       },
       "learn": {
-        "goal": "Reconocer fracciones equivalentes y simplificarlas hasta una expresión irreducible.",
-        "idea": "**Equivalentes:** multiplicar o dividir numerador y denominador por el mismo número distinto de cero conserva la fracción.\n**Irreducible:** numerador y denominador no tienen divisor común mayor que $1$.",
+        "goal": "Amplificar y simplificar fracciones conservando su valor.",
+        "idea": "Dos fracciones son **equivalentes** si representan el mismo número.\n\n• **Amplificar:** multiplica numerador y denominador por el mismo entero positivo $c$: $\\dfrac ab=\\dfrac{ac}{bc}$.\n• **Simplificar:** divide ambos por un divisor común distinto de cero.\n\nUna fracción es **irreducible** cuando numerador y denominador tienen mcd igual a $1$.",
         "steps": {
           "title": "Simplifica $\\frac{42}{56}$.",
           "items": [
@@ -5361,7 +5314,7 @@
             }
           ]
         },
-        "warn": "**Atención:** $\\frac23$ y $\\frac24$ no son equivalentes. Cambiar solo el denominador cambia el valor. Nunca puede quedar denominador cero.",
+        "warn": "**No cambies solo una parte:** $\\dfrac23\\ne\\dfrac24$. Multiplica o divide **arriba y abajo** por el mismo número no nulo. El denominador nunca puede ser $0$.",
         "more": [
           {
             "title": "Simplificar con signo",
@@ -5396,22 +5349,30 @@
               {
                 "math": "\\dfrac25",
                 "side": {
-                  "title": "AMPLIFICACIÓN",
-                  "text": "Queremos una fracción equivalente."
+                  "title": "PUNTO DE PARTIDA",
+                  "text": "Queremos una fracción equivalente con denominador 15."
+                }
+              },
+              {
+                "math": "=\\dfrac25\\textcolor{red}{\\cdot\\dfrac33}",
+                "side": {
+                  "title": "MULTIPLICAMOS POR 1",
+                  "math": "\\dfrac33=1",
+                  "text": "El factor destacado en rojo no cambia el valor de la fracción."
                 }
               },
               {
                 "math": "=\\dfrac{2\\cdot3}{5\\cdot3}",
                 "side": {
-                  "title": "MISMO FACTOR",
-                  "text": "Multiplicamos ambos por 3."
+                  "title": "AMBAS PARTES",
+                  "text": "Multiplicamos tanto el numerador como el denominador por 3."
                 }
               },
               {
                 "math": "=\\dfrac6{15}",
                 "side": {
                   "title": "EQUIVALENCIA",
-                  "text": "El numerador y el denominador se multiplicaron por el mismo factor no nulo."
+                  "text": "Cambió la forma, pero no el valor: ambas fracciones representan dos quintos."
                 }
               }
             ]
@@ -5421,8 +5382,8 @@
       "example2": "Ejemplo 2 · Simplificar con signo\n1. $$-\\dfrac{18}{24}$$\n   Identificamos una fracción negativa.\n2. $$\\mathrm{mcd}(18,24)=6$$\n   Buscamos un divisor común.\n3. $$-\\dfrac{18\\div6}{24\\div6}=-\\dfrac34$$\n   Simplificamos sin perder el signo.",
       "explore": {
         "title": "Fracciones equivalentes",
-        "desc": "Amplifica y simplifica fracciones sin cambiar su valor.",
-        "instr": "Modifica numerador y denominador para comprobar equivalencias.",
+        "desc": "Observa cómo cambian las fracciones sin cambiar su valor.",
+        "instr": "Amplifica o simplifica numerador y denominador por el mismo factor.",
         "alt": "Fracciones equivalentes · actividad interactiva opcional, sin porcentaje de avance.",
         "height": 850,
         "html": "<!DOCTYPE html>\n<html lang=\"es\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"color-scheme\" content=\"light\"/><title>Explora · Fracciones equivalentes</title><style>:root{--bg:#f3f7fb;--paper:#fff;--ink:#1a3044;--muted:#607588;--stroke:#dce6ed;--main:#2575ac;--main2:#0b9a83;--mist:#e9f4f9;--warm:#fff6e5;--gold:#aa731d;--ok:#137d64;--bad:#a04a3c;--shadow:0 16px 36px rgba(30,62,86,.07)}\n*{box-sizing:border-box}html{font-size:16px}body{margin:0;background:radial-gradient(circle at 90% 0%,#e1f3f7 0%,transparent 32%),var(--bg);font-family:system-ui,-apple-system,\"Segoe UI\",Arial,sans-serif;color:var(--ink);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f3bd59;outline-offset:2px}button:disabled{cursor:not-allowed;opacity:.45}\n.shell{width:min(1060px,calc(100% - 32px));margin:26px auto 42px}.hero{padding:25px 27px 24px;color:white;border-radius:22px;background:linear-gradient(119deg,#12476f 0%,#1b7d9f 57%,#138d83 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:before,.hero:after{content:\"\";position:absolute;border:2px solid #ffffff20;border-radius:50%;width:270px;height:270px;right:-95px;top:-175px}.hero:after{width:180px;height:180px;right:35px;top:-120px}.kicker{text-transform:uppercase;font-size:.77rem;letter-spacing:.14em;font-weight:750;opacity:.88}.hero h1{font-size:clamp(1.48rem,3.6vw,2.15rem);margin:7px 0 5px;line-height:1.17;letter-spacing:-.03em}.hero p{margin:0;max-width:700px;color:#ebf9ff;line-height:1.5}.topline{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chip{display:inline-flex;border-radius:999px;padding:6px 11px;background:#ffffff2b;font-weight:650;font-size:.79rem;white-space:nowrap;z-index:1}.layout{display:grid;grid-template-columns:335px minmax(0,1fr);align-items:start;gap:16px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--stroke);border-radius:18px;padding:20px;box-shadow:var(--shadow);min-width:0}.card h2,.card h3{margin:0 0 12px;letter-spacing:-.02em}.card h2{font-size:1.14rem}.card h3{font-size:1.02rem}.lede{font-size:.96rem;color:var(--muted);margin:0 0 13px}.muted{color:var(--muted)}.small{font-size:.85rem}.tiny{font-size:.75rem}.controls{display:grid;gap:12px}.field{display:grid;gap:5px}.field label{font-size:.87rem;font-weight:700;color:#344f65}.field select,.field input[type=number]{width:100%;min-height:43px;border:1px solid #cddce7;background:#fff;border-radius:10px;padding:8px 11px;color:var(--ink)}.field input[type=range]{width:100%;accent-color:var(--main2);cursor:pointer}.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pills{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--main);background:var(--main);color:white;font-weight:720;min-height:42px;border-radius:11px;padding:8px 14px;transition:transform .15s,filter .15s}.btn:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn.alt{background:#f1f7fb;color:#235e82;border-color:#bcd5e4}.btn.minor{border-color:#d4e1e9;background:white;color:#3b5d75}.btn.green{background:#0e8f78;border-color:#0e8f78}.btn.active{background:#155d89;color:white;border-color:#155d89}.btn.sm{font-size:.85rem;min-height:36px;padding:6px 10px}.btnrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.panel{border-radius:14px;background:#f5fafc;border:1px solid #dfecf2;padding:15px}.panel.warm{background:var(--warm);border-color:#f1e2c4}.panel.green{background:#eaf8f3;border-color:#c9e9dd}.panel p:last-child{margin-bottom:0}.panel p:first-child{margin-top:0}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#f1f8fb;border:1px solid #ddebf1;border-radius:13px;padding:12px}.stat .value{font-size:1.45rem;font-weight:800;color:#1a6289;line-height:1.25}.stat .label{font-size:.78rem;color:var(--muted)}.formula{font-family:Georgia,\"Times New Roman\",serif;font-size:clamp(1.25rem,3.5vw,1.8rem);font-weight:650;line-height:1.5;text-align:center;word-break:normal}.formula.big{font-size:clamp(1.6rem,4.5vw,2.4rem)}.formula-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.07;padding:0 2px;font-variant-numeric:tabular-nums}.frac>.n{display:block;border-bottom:1.7px solid currentColor;padding:0 5px 3px}.frac>.d{display:block;padding:3px 5px 0}.stepper{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:14px}.stepbadge{font-size:.8rem;font-weight:700;color:#587186}.bar{display:flex;overflow:hidden;border:1px solid #96b0c3;height:32px;border-radius:7px;background:#eef3f5}.segment{flex:1;border-right:1px solid #ffffff90;min-width:0;background:#edf3f7}.segment:last-child{border-right:0}.segment.on{background:#248ac4}.segment.on.teal{background:#28a88b}.segment.on.amber{background:#e4a145}.section-gap{height:16px}.note{border-left:4px solid #d9a03f;background:#fff8e9;padding:11px 13px;border-radius:8px;font-size:.9rem;color:#6b5127}.footer{margin-top:16px;color:#657b8d;font-size:.8rem;text-align:center}.frame{border:1px solid #d8e6ec;background:#f9fcfd;border-radius:13px;overflow:hidden;padding:6px}.frame svg{width:100%;height:auto;display:block}.highlight{color:#0d887b;font-weight:800}.warn{color:#a45327;font-weight:780}.subhead{font-weight:800;font-size:.89rem;color:#42617a;text-transform:uppercase;letter-spacing:.055em;margin-bottom:8px}.reveal{animation:appear .3s ease-out}@keyframes appear{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}\n@media(max-width:760px){.shell{width:min(100% - 18px,610px);margin:9px auto 28px}.hero{padding:19px;border-radius:16px}.layout{grid-template-columns:1fr;gap:11px;margin-top:11px}.card{padding:16px;border-radius:14px}.topline{flex-direction:column}.chip{align-self:flex-start}.inline-fields{grid-template-columns:1fr 1fr}.footer{padding:0 8px}.stat .value{font-size:1.25rem}}\n@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}\n</style></head><body><div class=\"shell\"><header class=\"hero\"><div class=\"topline\"><div><div class=\"kicker\">EXPLORA · UNIDAD I · ESTACIÓN 6</div><h1>Fracciones equivalentes</h1><p>Parte una barra en más trozos sin cambiar cuánto representa. Compara amplificar y simplificar.</p></div><span class=\"chip\">Toca, cambia y compara</span></div></header>\n<div class=\"layout\"><aside class=\"card\"><h2>1. Arma tu fracción</h2><div class=\"inline-fields\"><div class=\"field\"><label for=\"n\">Numerador</label><select id=\"n\"></select></div><div class=\"field\"><label for=\"d\">Denominador</label><select id=\"d\"></select></div></div><div class=\"section-gap\"></div><div class=\"pills\"><button class=\"btn minor sm\" data-frac=\"3/4\">3/4</button><button class=\"btn minor sm\" data-frac=\"6/8\">6/8</button><button class=\"btn minor sm\" data-frac=\"2/3\">2/3</button><button class=\"btn minor sm\" data-frac=\"9/12\">9/12</button></div><div class=\"section-gap\"></div><div class=\"subhead\">2. Prueba una transformación</div><div class=\"pills\"><button id=\"amplify\" class=\"btn active sm\">Amplificar</button><button id=\"reduce\" class=\"btn alt sm\">Simplificar</button></div><div class=\"section-gap\"></div><div id=\"ampControls\" class=\"field\"><label for=\"k\">Multiplicar por: <strong id=\"kLabel\">3</strong></label><input id=\"k\" type=\"range\" min=\"1\" max=\"6\" value=\"3\"/></div><div id=\"redControls\" style=\"display:none\"><label for=\"divisor\" class=\"small\" style=\"font-weight:700\">Divisor común</label><div class=\"section-gap\" style=\"height:6px\"></div><select id=\"divisor\" style=\"width:100%;padding:10px;border:1px solid var(--stroke);border-radius:10px\"></select><p class=\"small muted\" id=\"reduceNote\"></p></div>\n<div class=\"section-gap\"></div><button id=\"mistake\" class=\"btn minor\">¿Y si cambio solo abajo?</button><div class=\"section-gap\"></div><div class=\"note\">Amplificar o simplificar <strong>numerador y denominador por el mismo factor no nulo</strong> conserva la fracción.</div></aside>\n<main class=\"card\"><h2>3. Compara las cantidades</h2><div class=\"panel\"><div class=\"formula big formula-row\" id=\"equation\"></div></div><div class=\"section-gap\"></div><div class=\"controls\"><div><div class=\"subhead\">Barra original</div><div id=\"originalLabel\" class=\"small\" style=\"margin-bottom:7px\"></div><div id=\"barOriginal\"></div></div><div><div class=\"subhead\">Barra transformada</div><div id=\"newLabel\" class=\"small\" style=\"margin-bottom:7px\"></div><div id=\"barNew\"></div></div></div><div class=\"section-gap\"></div><div class=\"panel green\" aria-live=\"polite\" id=\"explanation\"></div><div id=\"wrongPanel\" style=\"display:none;margin-top:14px\" class=\"panel warm\"><div class=\"subhead\">Cambio incorrecto: solo denominador</div><div class=\"formula formula-row\" id=\"wrongEq\"></div><div class=\"section-gap\"></div><div id=\"wrongBar\"></div><p class=\"small\">Al cambiar solo el denominador, la parte sombreada es distinta. ¡No representa la misma cantidad!</p></div>\n</main></div><div class=\"footer\">Una actividad opcional de exploración: no afecta el avance ni guarda resultados.</div></div>\n<script>function $(id){return document.getElementById(id)}\nfunction clamp(v,a,b){return Math.min(b,Math.max(a,Number(v)||0))}\nfunction gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a}\nfunction lcm(a,b){return Math.abs(a*b)/gcd(a,b)}\nfunction fmt(n){return String(n).replace('-', '−')}\nfunction fraction(n,d){let s=n<0?'−':'';n=Math.abs(n);return `<span class=\"frac\"><span class=\"n\">${s}${n}</span><span class=\"d\">${d}</span></span>`}\nfunction fractionStr(n,d){return `${fmt(n)}/${d}`}\nfunction simplify(n,d){if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return [n/g,d/g]}\nfunction barMarkup(n,d,cls=''){let out='';for(let i=0;i<d;i++){out+=`<span class=\"segment ${i<n?'on '+cls:''}\" aria-hidden=\"true\"></span>`}return `<div class=\"bar\" role=\"img\" aria-label=\"${n} de ${d} partes sombreadas\">${out}</div>`}\nfunction options(el,values,selected){el.innerHTML=values.map(v=>`<option value=\"${v}\" ${String(v)===String(selected)?'selected':''}>${v}</option>`).join('')}\nfunction setText(id,val){$(id).textContent=val}\n</script><script>let state={n:3,d:4,k:3,mode:'amp',divisor:2,wrong:false};\nfunction validDivs(){let r=[];for(let c=2;c<=gcd(state.n,state.d);c++)if(state.n%c===0&&state.d%c===0)r.push(c);return r}\nfunction populate(){options($('d'),Array.from({length:11},(_,i)=>i+2),state.d);state.n=Math.min(state.n,state.d);options($('n'),Array.from({length:state.d},(_,i)=>i+1),state.n);$('k').value=state.k;setText('kLabel',state.k);let divs=validDivs();if(!divs.includes(state.divisor))state.divisor=divs[0]||1;options($('divisor'),divs.length?divs:[1],state.divisor);$('divisor').disabled=!divs.length;setText('reduceNote',divs.length?'Puedes dividir ambos términos por el mismo número.':'Esta fracción ya es irreducible: no hay divisor común mayor que 1.');$('ampControls').style.display=state.mode==='amp'?'grid':'none';$('redControls').style.display=state.mode==='reduce'?'block':'none';$('amplify').className='btn sm '+(state.mode==='amp'?'active':'alt');$('reduce').className='btn sm '+(state.mode==='reduce'?'active':'alt');$('mistake').textContent=state.wrong?'Ocultar comparación incorrecta':'¿Y si cambio solo abajo?'}\nfunction render(){populate();let {n,d,k,mode,divisor,wrong}=state;const divisors=validDivs();if(mode==='reduce'&&divisors.length===0){$('equation').innerHTML=`${fraction(n,d)} <span class=\"muted\">(irreducible)</span>`;$('barOriginal').innerHTML=barMarkup(n,d);$('barNew').innerHTML=barMarkup(n,d,'teal');setText('originalLabel',`${n} de ${d} partes`);setText('newLabel','No se puede simplificar más');$('explanation').innerHTML='<strong>Ya está simplificada.</strong> Solo tiene como divisor común positivo al 1.'; $('wrongPanel').style.display='none';return}\nlet N=mode==='amp'?n*k:n/divisor,D=mode==='amp'?d*k:d/divisor,factor=mode==='amp'?k:divisor,verb=mode==='amp'?'multiplicamos':'dividimos';$('equation').innerHTML=`${fraction(n,d)} <span style=\"color:var(--muted)\">=</span> ${fraction(N,D)}`;\n$('barOriginal').innerHTML=barMarkup(n,d);$('barNew').innerHTML=barMarkup(N,D,'teal');setText('originalLabel',`${n} partes de ${d}`);setText('newLabel',`${N} partes de ${D}`);\n$('explanation').innerHTML=`<strong>¡Misma cantidad!</strong> ${mode==='amp'?'La unidad está dividida en más partes, pero la zona sombreada no cambia.':'Ahora aparecen menos partes, cada una más grande, pero la cantidad sombreada sigue igual.'}<div class=\"formula formula-row\" style=\"margin-top:9px\">${mode==='amp'?`${fraction(n,d)} × ${fraction(factor,factor)} = ${fraction(N,D)}`:`<span class=\"frac\"><span class=\"n\">${n} ÷ ${factor}</span><span class=\"d\">${d} ÷ ${factor}</span></span> = ${fraction(N,D)}`}</div><p class=\"small\" style=\"margin-bottom:0\">${mode==='amp'?`Multiplicamos ambos términos por ${factor}.`:`Dividimos ambos términos por ${factor}.`} ${factor===1?'Observa que dividir o multiplicar por 1 no cambia la expresión.':''}</p>`;\n$('wrongPanel').style.display=wrong?'block':'none';if(wrong){let badK=mode==='amp'?Math.max(2,k):2,badD=d*badK;$('wrongEq').innerHTML=`${fraction(n,d)} <span style=\"color:var(--bad)\">≠</span> ${fraction(n,badD)}`;$('wrongBar').innerHTML=barMarkup(n,badD,'amber')}\n}\n$('d').addEventListener('change',e=>{state.d=Number(e.target.value);state.wrong=false;render()});$('n').addEventListener('change',e=>{state.n=Number(e.target.value);state.wrong=false;render()});$('k').addEventListener('input',e=>{state.k=Number(e.target.value);render()});$('divisor').addEventListener('change',e=>{state.divisor=Number(e.target.value);render()});$('amplify').addEventListener('click',()=>{state.mode='amp';render()});$('reduce').addEventListener('click',()=>{state.mode='reduce';render()});$('mistake').addEventListener('click',()=>{state.wrong=!state.wrong;render()});document.querySelectorAll('[data-frac]').forEach(b=>b.addEventListener('click',()=>{[state.n,state.d]=b.dataset.frac.split('/').map(Number);state.wrong=false;render()}));render();\n</script></body></html>"
@@ -5607,7 +5568,6 @@
           "why": "$9\\cdot7=63$, por lo que $4\\cdot7=28$."
         }
       ],
-      "drawCheck": 2,
       "recuerda": [
         {
           "titulo": "Simplificar de una vez con el mcd",
@@ -5615,7 +5575,8 @@
           "ejemplo": "\\begin{gathered}90=2\\cdot3^2\\cdot5,\\quad 150=2\\cdot3\\cdot5^2\\\\ \\mathrm{mcd}=2\\cdot3\\cdot5=30\\\\ \\dfrac{90}{150}=\\dfrac{90\\div30}{150\\div30}=\\dfrac{3}{5}\\end{gathered}",
           "origen": "u1-s004"
         }
-      ]
+      ],
+      "drawCheck": 5
     },
     {
       "id": "u1-s006",
@@ -6267,19 +6228,19 @@
           "$\\dfrac{23}{4}$ L"
         ],
         "correct": 2,
-        "why": "$20\\cdot3/4=60/4=15$ L."
+        "why": "Cada recipiente necesita $\\frac34$ L. Para 20 recipientes: $20\\cdot\\frac34=15$ L. No dividimos porque buscamos el volumen total."
       },
       "learn": {
         "goal": "Multiplicar y dividir fracciones simplificando factores antes de calcular.",
-        "idea": "**Producto:** multiplica numeradores entre sí y denominadores entre sí.\n**Antes:** reduce factores comunes entre cualquier numerador y cualquier denominador.\n**División:** multiplica por el recíproco de la segunda fracción, siempre que sea distinta de cero.",
+        "idea": "**Multiplicar:** multiplica los numeradores y los denominadores. Puedes simplificar **factores** comunes antes.\n\n**Dividir:** multiplica por la fracción **recíproca del divisor**. El divisor no puede ser cero.\n\nAl simplificar, se cancelan **factores**; nunca términos separados por $+$ o $-$.",
         "steps": {
           "title": "Calcula $\\frac{15}{28}\\cdot\\frac{14}{25}$.",
           "items": [
             {
               "math": "\\frac{15}{28}\\cdot\\frac{14}{25}",
               "side": {
-                "title": "Idea",
-                "text": "Buscamos factores comunes entre numeradores y denominadores."
+                "title": "FACTORES COMUNES",
+                "text": "Se pueden simplificar factores de cualquier numerador con cualquier denominador."
               }
             },
             {
@@ -6292,8 +6253,8 @@
             {
               "math": "=\\frac3{2}\\cdot\\frac1{5}",
               "side": {
-                "title": "Simplificación",
-                "text": "Cancelamos un $14$ y un $5$, no sumandos."
+                "title": "FACTORES, NO SUMANDOS",
+                "text": "Se cancelan 14 y 5 porque forman factores de un producto."
               }
             },
             {
@@ -6305,7 +6266,7 @@
             }
           ]
         },
-        "warn": "**Atención:** solo se cancelan factores, nunca términos de una suma. Dividir por una fracción de numerador cero no está definido.",
+        "warn": "**Cancela factores, no sumandos.** Para dividir por una fracción, su numerador debe ser distinto de cero.",
         "more": [
           {
             "title": "División de fracciones",
@@ -6543,7 +6504,7 @@
           "reduced": true
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s007",
@@ -7195,11 +7156,11 @@
           "$\\dfrac{11}{12}$ L"
         ],
         "correct": 3,
-        "why": "$1/4+2/3=3/12+8/12=11/12$ L."
+        "why": "El mcm de 4 y 3 es 12. Amplificamos: $\\frac14=\\frac3{12}$ y $\\frac23=\\frac8{12}$. El volumen total es $\\frac{11}{12}$ L."
       },
       "learn": {
         "goal": "Sumar y restar fracciones con distintos denominadores utilizando el mcm.",
-        "idea": "**Necesitamos partes del mismo tamaño.**\n1) Calcula el mcm de los denominadores.\n2) Escribe fracciones equivalentes con ese denominador.\n3) Suma o resta los numeradores y simplifica si corresponde.",
+        "idea": "Para sumar o restar fracciones necesitas **el mismo denominador**.\n\n1. Calcula el **mcm** de los denominadores.\n2. **Amplifica** cada fracción hasta obtener ese denominador (multiplica arriba y abajo por el mismo número).\n3. Suma o resta solo los **numeradores** y simplifica el resultado.\n\n**No** sumes los denominadores.",
         "steps": {
           "title": "Calcula $\\frac16+\\frac14$.",
           "items": [
@@ -7208,34 +7169,41 @@
               "side": {
                 "title": "DENOMINADOR COMÚN",
                 "math": "\\mathrm{mcm}(6,4)=12",
-                "text": "Buscamos el menor denominador común."
+                "text": "Buscamos el menor múltiplo común de 6 y 4."
+              }
+            },
+            {
+              "math": "=\\dfrac16\\textcolor{red}{\\cdot\\dfrac22}+\\dfrac14\\textcolor{blue}{\\cdot\\dfrac33}",
+              "side": {
+                "title": "AMPLIFICAMOS",
+                "math": "6\\cdot2=12,\\quad4\\cdot3=12",
+                "text": "Cada factor destacado vale 1. Elegimos 2 y 3 para obtener denominador 12."
               }
             },
             {
               "math": "=\\dfrac2{12}+\\dfrac3{12}",
               "side": {
-                "title": "FRACCIONES EQUIVALENTES",
-                "math": "\\begin{aligned}1\\cdot2&=2\\\\1\\cdot3&=3\\end{aligned}",
-                "text": "Ahora las partes son del mismo tamaño."
+                "title": "MISMO DENOMINADOR",
+                "text": "Las fracciones equivalentes representan partes del mismo tamaño."
               }
             },
             {
               "math": "=\\dfrac{2+3}{12}",
               "side": {
-                "title": "SUMA",
-                "text": "Sumamos los numeradores."
+                "title": "SUMAMOS",
+                "text": "Solo sumamos los numeradores."
               }
             },
             {
               "math": "=\\dfrac5{12}",
               "side": {
                 "title": "RESULTADO",
-                "text": "La fracción obtenida es irreducible."
+                "text": "5 y 12 no tienen divisores comunes mayores que 1."
               }
             }
           ]
         },
-        "warn": "**Atención:** $\\frac12+\\frac13\\ne\\frac25$. El producto de denominadores también es común, pero usar mcm suele evitar números innecesariamente grandes.",
+        "warn": "**No sumes denominadores:** $\\dfrac12+\\dfrac13\\ne\\dfrac25$. Usar el mcm permite trabajar con fracciones equivalentes y evitar denominadores grandes.",
         "more": [
           {
             "title": "mcm frente a producto directo",
@@ -7245,21 +7213,29 @@
                 "side": {
                   "title": "DENOMINADOR COMÚN",
                   "math": "\\mathrm{mcm}(12,18)=36",
-                  "text": "Con el mcm evitamos un denominador innecesariamente grande."
+                  "text": "36 es menor que el producto 12·18."
+                }
+              },
+              {
+                "math": "=\\dfrac5{12}\\textcolor{red}{\\cdot\\dfrac33}+\\dfrac7{18}\\textcolor{blue}{\\cdot\\dfrac22}",
+                "side": {
+                  "title": "AMPLIFICAMOS",
+                  "math": "12\\cdot3=36,\\quad18\\cdot2=36",
+                  "text": "Multiplicamos cada fracción por 1 para conservar su valor."
                 }
               },
               {
                 "math": "=\\dfrac{15}{36}+\\dfrac{14}{36}",
                 "side": {
-                  "title": "AMPLIFICACIÓN",
-                  "text": "Usamos fracciones equivalentes."
+                  "title": "SUMA",
+                  "text": "Sumamos solo los numeradores."
                 }
               },
               {
                 "math": "=\\dfrac{29}{36}",
                 "side": {
                   "title": "RESULTADO",
-                  "text": "Sumamos los numeradores y conservamos el denominador común. La fracción final es irreducible."
+                  "text": "El resultado ya es irreducible."
                 }
               }
             ]
@@ -7296,8 +7272,8 @@
       "example3": "Ejemplo 3 · Resta de fracciones\n1. $$\\dfrac34-\\dfrac16$$\n   El mcm de 4 y 6 es 12.\n2. $$\\dfrac9{12}-\\dfrac2{12}$$\n   Amplificamos ambas fracciones.\n3. $$\\dfrac7{12}$$\n   Restamos numeradores.",
       "explore": {
         "title": "Laboratorio de fracciones",
-        "desc": "Explora la suma y resta de fracciones usando denominadores comunes y mcm.",
-        "instr": "Prueba distintas fracciones y compara los resultados de ambos métodos.",
+        "desc": "Compara fracciones equivalentes y suma o resta con denominador común.",
+        "instr": "Elige fracciones, calcula su mcm y comprueba el resultado.",
         "alt": "Laboratorio de fracciones · actividad interactiva opcional, sin porcentaje de avance.",
         "height": 850,
         "html": "<!DOCTYPE html>\n<html lang=\"es\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"color-scheme\" content=\"light\"/><title>Explora · Laboratorio de fracciones</title><style>:root{--bg:#f3f7fb;--paper:#fff;--ink:#1a3044;--muted:#607588;--stroke:#dce6ed;--main:#2575ac;--main2:#0b9a83;--mist:#e9f4f9;--warm:#fff6e5;--gold:#aa731d;--ok:#137d64;--bad:#a04a3c;--shadow:0 16px 36px rgba(30,62,86,.07)}\n*{box-sizing:border-box}html{font-size:16px}body{margin:0;background:radial-gradient(circle at 90% 0%,#e1f3f7 0%,transparent 32%),var(--bg);font-family:system-ui,-apple-system,\"Segoe UI\",Arial,sans-serif;color:var(--ink);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f3bd59;outline-offset:2px}button:disabled{cursor:not-allowed;opacity:.45}\n.shell{width:min(1060px,calc(100% - 32px));margin:26px auto 42px}.hero{padding:25px 27px 24px;color:white;border-radius:22px;background:linear-gradient(119deg,#12476f 0%,#1b7d9f 57%,#138d83 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:before,.hero:after{content:\"\";position:absolute;border:2px solid #ffffff20;border-radius:50%;width:270px;height:270px;right:-95px;top:-175px}.hero:after{width:180px;height:180px;right:35px;top:-120px}.kicker{text-transform:uppercase;font-size:.77rem;letter-spacing:.14em;font-weight:750;opacity:.88}.hero h1{font-size:clamp(1.48rem,3.6vw,2.15rem);margin:7px 0 5px;line-height:1.17;letter-spacing:-.03em}.hero p{margin:0;max-width:700px;color:#ebf9ff;line-height:1.5}.topline{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chip{display:inline-flex;border-radius:999px;padding:6px 11px;background:#ffffff2b;font-weight:650;font-size:.79rem;white-space:nowrap;z-index:1}.layout{display:grid;grid-template-columns:335px minmax(0,1fr);align-items:start;gap:16px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--stroke);border-radius:18px;padding:20px;box-shadow:var(--shadow);min-width:0}.card h2,.card h3{margin:0 0 12px;letter-spacing:-.02em}.card h2{font-size:1.14rem}.card h3{font-size:1.02rem}.lede{font-size:.96rem;color:var(--muted);margin:0 0 13px}.muted{color:var(--muted)}.small{font-size:.85rem}.tiny{font-size:.75rem}.controls{display:grid;gap:12px}.field{display:grid;gap:5px}.field label{font-size:.87rem;font-weight:700;color:#344f65}.field select,.field input[type=number]{width:100%;min-height:43px;border:1px solid #cddce7;background:#fff;border-radius:10px;padding:8px 11px;color:var(--ink)}.field input[type=range]{width:100%;accent-color:var(--main2);cursor:pointer}.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pills{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--main);background:var(--main);color:white;font-weight:720;min-height:42px;border-radius:11px;padding:8px 14px;transition:transform .15s,filter .15s}.btn:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn.alt{background:#f1f7fb;color:#235e82;border-color:#bcd5e4}.btn.minor{border-color:#d4e1e9;background:white;color:#3b5d75}.btn.green{background:#0e8f78;border-color:#0e8f78}.btn.active{background:#155d89;color:white;border-color:#155d89}.btn.sm{font-size:.85rem;min-height:36px;padding:6px 10px}.btnrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.panel{border-radius:14px;background:#f5fafc;border:1px solid #dfecf2;padding:15px}.panel.warm{background:var(--warm);border-color:#f1e2c4}.panel.green{background:#eaf8f3;border-color:#c9e9dd}.panel p:last-child{margin-bottom:0}.panel p:first-child{margin-top:0}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#f1f8fb;border:1px solid #ddebf1;border-radius:13px;padding:12px}.stat .value{font-size:1.45rem;font-weight:800;color:#1a6289;line-height:1.25}.stat .label{font-size:.78rem;color:var(--muted)}.formula{font-family:Georgia,\"Times New Roman\",serif;font-size:clamp(1.25rem,3.5vw,1.8rem);font-weight:650;line-height:1.5;text-align:center;word-break:normal}.formula.big{font-size:clamp(1.6rem,4.5vw,2.4rem)}.formula-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.07;padding:0 2px;font-variant-numeric:tabular-nums}.frac>.n{display:block;border-bottom:1.7px solid currentColor;padding:0 5px 3px}.frac>.d{display:block;padding:3px 5px 0}.stepper{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:14px}.stepbadge{font-size:.8rem;font-weight:700;color:#587186}.bar{display:flex;overflow:hidden;border:1px solid #96b0c3;height:32px;border-radius:7px;background:#eef3f5}.segment{flex:1;border-right:1px solid #ffffff90;min-width:0;background:#edf3f7}.segment:last-child{border-right:0}.segment.on{background:#248ac4}.segment.on.teal{background:#28a88b}.segment.on.amber{background:#e4a145}.section-gap{height:16px}.note{border-left:4px solid #d9a03f;background:#fff8e9;padding:11px 13px;border-radius:8px;font-size:.9rem;color:#6b5127}.footer{margin-top:16px;color:#657b8d;font-size:.8rem;text-align:center}.frame{border:1px solid #d8e6ec;background:#f9fcfd;border-radius:13px;overflow:hidden;padding:6px}.frame svg{width:100%;height:auto;display:block}.highlight{color:#0d887b;font-weight:800}.warn{color:#a45327;font-weight:780}.subhead{font-weight:800;font-size:.89rem;color:#42617a;text-transform:uppercase;letter-spacing:.055em;margin-bottom:8px}.reveal{animation:appear .3s ease-out}@keyframes appear{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}\n@media(max-width:760px){.shell{width:min(100% - 18px,610px);margin:9px auto 28px}.hero{padding:19px;border-radius:16px}.layout{grid-template-columns:1fr;gap:11px;margin-top:11px}.card{padding:16px;border-radius:14px}.topline{flex-direction:column}.chip{align-self:flex-start}.inline-fields{grid-template-columns:1fr 1fr}.footer{padding:0 8px}.stat .value{font-size:1.25rem}}\n@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}\n</style></head><body><div class=\"shell\">\n<header class=\"hero\"><div class=\"topline\"><div><div class=\"kicker\">EXPLORA · UNIDAD I · ESTACIÓN 8</div><h1>Laboratorio de fracciones</h1><p>Prueba sumas y restas. Descubre por qué un denominador común pequeño facilita los cálculos.</p></div><span class=\"chip\">Sin notas ni puntajes</span></div></header>\n<div class=\"layout\">\n<aside class=\"card\"><h2>1. Elige dos fracciones</h2><p class=\"lede\">Puedes cambiar cualquier número y comenzar de nuevo.</p>\n<div class=\"controls\">\n  <div class=\"inline-fields\"><div class=\"field\"><label for=\"n1\">Numerador A</label><select id=\"n1\"></select></div><div class=\"field\"><label for=\"d1\">Denominador A</label><select id=\"d1\"></select></div></div>\n  <div class=\"field\"><label for=\"op\">Operación</label><select id=\"op\"><option value=\"+\">Sumar (+)</option><option value=\"-\">Restar (−)</option></select></div>\n  <div class=\"inline-fields\"><div class=\"field\"><label for=\"n2\">Numerador B</label><select id=\"n2\"></select></div><div class=\"field\"><label for=\"d2\">Denominador B</label><select id=\"d2\"></select></div></div>\n  <div class=\"subhead\">Prueba un ejemplo</div>\n  <div class=\"pills\"><button class=\"btn minor sm\" data-eg=\"0\">1/6 + 1/4</button><button class=\"btn minor sm\" data-eg=\"1\">5/12 + 7/18</button><button class=\"btn minor sm\" data-eg=\"2\">3/4 − 1/6</button></div>\n  <div class=\"note\"><strong>Investiga:</strong> el mcm es el menor denominador positivo que sirve para ambas fracciones. No siempre coincide con el producto de los denominadores.</div>\n</div></aside>\n<main class=\"card\"><h2>2. Observa las partes</h2><div class=\"panel\"><div class=\"formula big formula-row\" id=\"expression\"></div></div>\n<div class=\"section-gap\"></div>\n<div class=\"subhead\">Así se ve cada cantidad</div><div id=\"originalBars\" class=\"controls\"></div>\n<div class=\"section-gap\"></div>\n<div class=\"panel green\" id=\"resultPanel\" aria-live=\"polite\"><div class=\"subhead\" id=\"stageName\">¿Qué notas?</div><div id=\"stageContent\"></div></div>\n<div class=\"stepper\"><button id=\"back\" class=\"btn alt\">← Anterior</button><span class=\"stepbadge\" id=\"stepBadge\">1 de 4</span><button id=\"next\" class=\"btn\">Siguiente →</button></div>\n<div class=\"section-gap\"></div><div class=\"stats\"><div class=\"stat\"><div class=\"label\">Denominador por producto</div><div class=\"value\" id=\"prod\">24</div></div><div class=\"stat\"><div class=\"label\">Denominador mínimo común</div><div class=\"value\" id=\"least\">12</div></div></div>\n</main></div><div class=\"footer\">Puedes explorar libremente. Esta actividad no guarda resultados ni modifica tu avance en el curso.</div>\n</div>\n<script>function $(id){return document.getElementById(id)}\nfunction clamp(v,a,b){return Math.min(b,Math.max(a,Number(v)||0))}\nfunction gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a}\nfunction lcm(a,b){return Math.abs(a*b)/gcd(a,b)}\nfunction fmt(n){return String(n).replace('-', '−')}\nfunction fraction(n,d){let s=n<0?'−':'';n=Math.abs(n);return `<span class=\"frac\"><span class=\"n\">${s}${n}</span><span class=\"d\">${d}</span></span>`}\nfunction fractionStr(n,d){return `${fmt(n)}/${d}`}\nfunction simplify(n,d){if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return [n/g,d/g]}\nfunction barMarkup(n,d,cls=''){let out='';for(let i=0;i<d;i++){out+=`<span class=\"segment ${i<n?'on '+cls:''}\" aria-hidden=\"true\"></span>`}return `<div class=\"bar\" role=\"img\" aria-label=\"${n} de ${d} partes sombreadas\">${out}</div>`}\nfunction options(el,values,selected){el.innerHTML=values.map(v=>`<option value=\"${v}\" ${String(v)===String(selected)?'selected':''}>${v}</option>`).join('')}\nfunction setText(id,val){$(id).textContent=val}\n</script><script>let st={n1:1,d1:6,n2:1,d2:4,op:'+',step:0};\nconst examples=[[1,6,1,4,'+'],[5,12,7,18,'+'],[3,4,1,6,'-']];\nfunction populate(){for(let side of [1,2]){const d=st['d'+side],n=Math.min(st['n'+side],d);st['n'+side]=n;options($('d'+side),Array.from({length:11},(_,i)=>i+2),d);options($('n'+side),Array.from({length:d},(_,i)=>i+1),n)}$('op').value=st.op}\nfunction strip(n,d,color,title){return `<div><div class=\"small\" style=\"font-weight:700;margin-bottom:6px\">${title}: ${fraction(n,d)}</div>${barMarkup(n,d,color)}</div>`}\nfunction render(){populate();const {n1,d1,n2,d2,op,step}=st,L=lcm(d1,d2),p=d1*d2,a=n1*(L/d1),b=n2*(L/d2),ans=op==='+'?a+b:a-b,[sn,sd]=simplify(ans,L);\n$('expression').innerHTML=`${fraction(n1,d1)} <span style=\"color:var(--muted)\">${op==='+'?'+':'−'}</span> ${fraction(n2,d2)}`;\n$('originalBars').innerHTML=strip(n1,d1,'','Fracción A')+strip(n2,d2,'teal','Fracción B');\nsetText('prod',p);setText('least',L);setText('stepBadge',`${step+1} de 4`);$('back').disabled=step===0;$('next').textContent=step===3?'Reiniciar ↺':'Siguiente →';\nconst title=['Mira los tamaños','Busca un denominador común','Convierte sin cambiar el valor','Ahora sí, opera'][step];setText('stageName',title);\nlet html='';if(step===0){html='<p>Las barras representan unidades del <strong>mismo tamaño</strong>, pero están divididas en partes distintas. Para sumar o restar, necesitamos partes iguales.</p>'}\nif(step===1){let multiples=(d)=>Array.from({length:Math.ceil(L/d)},(_,i)=>d*(i+1)).slice(0,9).join(', ');html=`<div class=\"formula\">mcm(${d1}, ${d2}) = <span class=\"highlight\">${L}</span></div><p class=\"small\">Múltiplos de ${d1}: ${multiples(d1)}${L/d1>9?', …':''}<br>Múltiplos de ${d2}: ${multiples(d2)}${L/d2>9?', …':''}</p><p class=\"small\">El producto ${d1} × ${d2} = ${p} también sirve, pero ${p===L?'en este caso ya es el menor.':`el mcm usa ${p/L} veces menos partes.`}</p>`}\nif(step===2){html=`<div class=\"formula formula-row\">${fraction(n1,d1)} = ${fraction(a,L)} <span style=\"font-size:1rem;color:var(--muted)\">y</span> ${fraction(n2,d2)} = ${fraction(b,L)}</div><p class=\"small\">Amplificamos la primera por ${L/d1} y la segunda por ${L/d2}; numerador y denominador se multiplican por el mismo factor.</p><div class=\"controls\">${strip(a,L,'','Primera expresada en '+L+'-avos')}${strip(b,L,'teal','Segunda expresada en '+L+'-avos')}</div>`}\nif(step===3){let sign=op==='+'?'+':'−';html=`<div class=\"formula formula-row\">${fraction(a,L)} ${sign} ${fraction(b,L)} = ${fraction(ans,L)} ${sn!==ans||sd!==L?'= '+fraction(sn,sd):''}</div><p class=\"small\">Con el denominador común, ${op==='+'?'sumamos':'restamos'} los numeradores. ${sn!==ans||sd!==L?'Finalmente simplificamos.':'El resultado ya está simplificado.'}</p>${sn<0?'<p class=\"small\">El resultado es negativo: sustraemos una cantidad mayor de otra menor.</p>':''}`}\n$('stageContent').innerHTML=`<div class=\"reveal\">${html}</div>`}\nfor(let side of [1,2]){for(let kind of ['n','d']){$(kind+side).addEventListener('change',e=>{st[kind+side]=Number(e.target.value);st.step=0;render()})}}\n$('op').addEventListener('change',e=>{st.op=e.target.value;st.step=0;render()});\n$('back').addEventListener('click',()=>{st.step=Math.max(0,st.step-1);render()});$('next').addEventListener('click',()=>{st.step=(st.step+1)%4;render()});\ndocument.querySelectorAll('[data-eg]').forEach(b=>b.addEventListener('click',()=>{let e=examples[Number(b.dataset.eg)];[st.n1,st.d1,st.n2,st.d2,st.op]=e;st.step=0;render()}));render();\n</script></body></html>"
@@ -7484,7 +7460,6 @@
           "reduced": true
         }
       ],
-      "drawCheck": 2,
       "recuerda": [
         {
           "titulo": "Calcular el mcm de los denominadores",
@@ -7492,7 +7467,8 @@
           "ejemplo": "\\begin{gathered}12=2^2\\cdot3,\\quad 18=2\\cdot3^2\\\\ \\mathrm{mcm}=2^2\\cdot3^2=36\\\\ \\dfrac{1}{12}+\\dfrac{1}{18}=\\dfrac{3}{36}+\\dfrac{2}{36}=\\dfrac{5}{36}\\end{gathered}",
           "origen": "u1-s004"
         }
-      ]
+      ],
+      "drawCheck": 5
     },
     {
       "id": "u1-s008",
@@ -7599,7 +7575,7 @@
           ],
           "correct": 3,
           "why": "El signo negativo está fuera de la potencia. Resultado: $-16$.",
-          "level": 1
+          "level": 3
         },
         {
           "q": "Calcula $2^{-3}$.",
@@ -7750,7 +7726,7 @@
           "kind": "number",
           "q": "Calcula $(-3)^2$. Escribe solo el número.",
           "answer": "9",
-          "why": "$(-3)^2=9$.",
+          "why": "La base es −3, porque está entre paréntesis: $(-3)^2=(-3)\\cdot(-3)=9$.",
           "level": 1
         },
         {
@@ -8052,7 +8028,7 @@
           ],
           "correct": 3,
           "why": "Aplicamos la definición de potencia: $(-2)^{2}=4$.",
-          "level": 3
+          "level": 1
         },
         {
           "q": "Calcula $(-5)^{3}$.",
@@ -8124,11 +8100,11 @@
           "$64$"
         ],
         "correct": 0,
-        "why": "$6\\cdot2^3=6\\cdot8=48$. Se duplica tres veces, no se suma 3."
+        "why": "Se parte de 6 células y la cantidad se duplica tres veces: $6\\cdot2\\cdot2\\cdot2=6\\cdot2^3=48$. El exponente 3 cuenta etapas, no células añadidas."
       },
       "learn": {
         "goal": "Interpretar y calcular potencias con exponente entero, considerando signos y condiciones.",
-        "idea": "**Potencia natural:** $a^n$ repite $n$ factores iguales a $a$.\n**Exponente cero:** $a^0=1$ si $a\\ne0$.\n**Exponente negativo:** $a^{-n}=1/a^n$ si $a\\ne0$.\nAl multiplicar potencias de igual base se suman exponentes.",
+        "idea": "**Potencia:** $a^n$ representa el producto de $n$ factores iguales a $a$ cuando $n$ es natural positivo.\n\n• **Exponente cero:** $a^0=1$ si $a\\ne0$.\n• **Exponente negativo:** $a^{-n}=\\dfrac1{a^n}$ si $a\\ne0$.\n• **Misma base:** $a^m\\cdot a^n=a^{m+n}$.\n\n**Atención al signo:** $(-2)^2$ y $-2^2$ no son lo mismo.",
         "steps": {
           "title": "Calcula $2^{-3}$.",
           "items": [
@@ -8142,8 +8118,8 @@
             {
               "math": "=\\dfrac1{2^3}",
               "side": {
-                "title": "INVERSO",
-                "text": "El exponente negativo indica el recíproco."
+                "title": "RECÍPROCO",
+                "text": "Como 2 es distinto de 0, el exponente negativo indica el inverso de la potencia."
               }
             },
             {
@@ -8348,7 +8324,7 @@
           "kind": "number",
           "q": "Un cultivo parte con $1$ unidad y se multiplica por $2$ en cada una de $6$ etapas. ¿Cuántas unidades tendrá?",
           "answer": "64",
-          "why": "$2^6=64$."
+          "why": "Cada etapa duplica la cantidad: después de seis etapas se multiplica por $2^6$. Desde 1 unidad resulta $1\\cdot2^6=64$."
         },
         {
           "q": "Un proceso aplica tres veces un factor $-2$. ¿Cuál es el resultado del factor acumulado $(-2)^3$?",
@@ -8389,7 +8365,7 @@
           "reduced": true
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s010",
@@ -9012,11 +8988,11 @@
           "$16$ cm"
         ],
         "correct": 1,
-        "why": "El lado es la raíz cuadrada principal del área: $\\sqrt{225}=15$ cm."
+        "why": "El área de un cuadrado es lado por lado. El lado no negativo es $\\sqrt{225}=15$ cm, porque $15^2=225$."
       },
       "learn": {
         "goal": "Calcular raíces cuadradas exactas y acotar raíces no exactas entre enteros consecutivos.",
-        "idea": "**Raíz principal:** $\\sqrt a$ es el número no negativo cuyo cuadrado es $a$ (para $a\\ge0$).\nPara estimar $\\sqrt a$, busca cuadrados perfectos consecutivos entre los cuales esté $a$.",
+        "idea": "Para $a\\ge0$, **$\\sqrt a$** es el número **no negativo** cuyo cuadrado es $a$.\n\nPara ubicar una raíz no exacta, busca cuadrados de enteros consecutivos:\n$4^2=16<20<25=5^2$; por tanto, $4<\\sqrt{20}<5$.\n\n**No confundas** la raíz principal con las soluciones de $x^2=a$.",
         "steps": {
           "title": "¿Entre qué enteros está $\\sqrt{20}$?",
           "items": [
@@ -9037,8 +9013,8 @@
             {
               "math": "\\sqrt{16}<\\sqrt{20}<\\sqrt{25}",
               "side": {
-                "title": "Monotonía",
-                "text": "Para números no negativos, la raíz cuadrada conserva el orden."
+                "title": "ORDEN",
+                "text": "La función raíz cuadrada conserva el orden para números no negativos."
               }
             },
             {
@@ -9095,8 +9071,8 @@
       "example2": "Ejemplo 2 · Encerrar una raíz\n1. $$36<40<49$$\n   Buscamos los cuadrados perfectos vecinos.\n2. $$6<\\sqrt{40}<7$$\n   Aplicamos raíz a cada término.",
       "explore": {
         "title": "Constructor de cuadrados",
-        "desc": "Relaciona el área de un cuadrado con la longitud de su lado y estima raíces cuadradas.",
-        "instr": "Modifica el área y observa qué sucede con la longitud del lado.",
+        "desc": "Relaciona el área de un cuadrado con su lado para estimar raíces.",
+        "instr": "Cambia el área y compara la longitud del lado con números enteros.",
         "alt": "Constructor de cuadrados · actividad interactiva opcional, sin porcentaje de avance.",
         "height": 850,
         "html": "<!DOCTYPE html>\n<html lang=\"es\"><head><meta charset=\"UTF-8\"/><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"/><meta name=\"color-scheme\" content=\"light\"/><title>Explora · Constructor de cuadrados</title><style>:root{--bg:#f3f7fb;--paper:#fff;--ink:#1a3044;--muted:#607588;--stroke:#dce6ed;--main:#2575ac;--main2:#0b9a83;--mist:#e9f4f9;--warm:#fff6e5;--gold:#aa731d;--ok:#137d64;--bad:#a04a3c;--shadow:0 16px 36px rgba(30,62,86,.07)}\n*{box-sizing:border-box}html{font-size:16px}body{margin:0;background:radial-gradient(circle at 90% 0%,#e1f3f7 0%,transparent 32%),var(--bg);font-family:system-ui,-apple-system,\"Segoe UI\",Arial,sans-serif;color:var(--ink);line-height:1.5}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #f3bd59;outline-offset:2px}button:disabled{cursor:not-allowed;opacity:.45}\n.shell{width:min(1060px,calc(100% - 32px));margin:26px auto 42px}.hero{padding:25px 27px 24px;color:white;border-radius:22px;background:linear-gradient(119deg,#12476f 0%,#1b7d9f 57%,#138d83 100%);box-shadow:var(--shadow);position:relative;overflow:hidden}.hero:before,.hero:after{content:\"\";position:absolute;border:2px solid #ffffff20;border-radius:50%;width:270px;height:270px;right:-95px;top:-175px}.hero:after{width:180px;height:180px;right:35px;top:-120px}.kicker{text-transform:uppercase;font-size:.77rem;letter-spacing:.14em;font-weight:750;opacity:.88}.hero h1{font-size:clamp(1.48rem,3.6vw,2.15rem);margin:7px 0 5px;line-height:1.17;letter-spacing:-.03em}.hero p{margin:0;max-width:700px;color:#ebf9ff;line-height:1.5}.topline{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.chip{display:inline-flex;border-radius:999px;padding:6px 11px;background:#ffffff2b;font-weight:650;font-size:.79rem;white-space:nowrap;z-index:1}.layout{display:grid;grid-template-columns:335px minmax(0,1fr);align-items:start;gap:16px;margin-top:16px}.card{background:var(--paper);border:1px solid var(--stroke);border-radius:18px;padding:20px;box-shadow:var(--shadow);min-width:0}.card h2,.card h3{margin:0 0 12px;letter-spacing:-.02em}.card h2{font-size:1.14rem}.card h3{font-size:1.02rem}.lede{font-size:.96rem;color:var(--muted);margin:0 0 13px}.muted{color:var(--muted)}.small{font-size:.85rem}.tiny{font-size:.75rem}.controls{display:grid;gap:12px}.field{display:grid;gap:5px}.field label{font-size:.87rem;font-weight:700;color:#344f65}.field select,.field input[type=number]{width:100%;min-height:43px;border:1px solid #cddce7;background:#fff;border-radius:10px;padding:8px 11px;color:var(--ink)}.field input[type=range]{width:100%;accent-color:var(--main2);cursor:pointer}.inline-fields{display:grid;grid-template-columns:1fr 1fr;gap:10px}.pills{display:flex;gap:8px;flex-wrap:wrap}.btn{border:1px solid var(--main);background:var(--main);color:white;font-weight:720;min-height:42px;border-radius:11px;padding:8px 14px;transition:transform .15s,filter .15s}.btn:hover:not(:disabled){filter:brightness(1.06);transform:translateY(-1px)}.btn.alt{background:#f1f7fb;color:#235e82;border-color:#bcd5e4}.btn.minor{border-color:#d4e1e9;background:white;color:#3b5d75}.btn.green{background:#0e8f78;border-color:#0e8f78}.btn.active{background:#155d89;color:white;border-color:#155d89}.btn.sm{font-size:.85rem;min-height:36px;padding:6px 10px}.btnrow{display:flex;gap:9px;flex-wrap:wrap;align-items:center}.panel{border-radius:14px;background:#f5fafc;border:1px solid #dfecf2;padding:15px}.panel.warm{background:var(--warm);border-color:#f1e2c4}.panel.green{background:#eaf8f3;border-color:#c9e9dd}.panel p:last-child{margin-bottom:0}.panel p:first-child{margin-top:0}.stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.stat{background:#f1f8fb;border:1px solid #ddebf1;border-radius:13px;padding:12px}.stat .value{font-size:1.45rem;font-weight:800;color:#1a6289;line-height:1.25}.stat .label{font-size:.78rem;color:var(--muted)}.formula{font-family:Georgia,\"Times New Roman\",serif;font-size:clamp(1.25rem,3.5vw,1.8rem);font-weight:650;line-height:1.5;text-align:center;word-break:normal}.formula.big{font-size:clamp(1.6rem,4.5vw,2.4rem)}.formula-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}.frac{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.07;padding:0 2px;font-variant-numeric:tabular-nums}.frac>.n{display:block;border-bottom:1.7px solid currentColor;padding:0 5px 3px}.frac>.d{display:block;padding:3px 5px 0}.stepper{display:flex;align-items:center;justify-content:space-between;gap:9px;margin-top:14px}.stepbadge{font-size:.8rem;font-weight:700;color:#587186}.bar{display:flex;overflow:hidden;border:1px solid #96b0c3;height:32px;border-radius:7px;background:#eef3f5}.segment{flex:1;border-right:1px solid #ffffff90;min-width:0;background:#edf3f7}.segment:last-child{border-right:0}.segment.on{background:#248ac4}.segment.on.teal{background:#28a88b}.segment.on.amber{background:#e4a145}.section-gap{height:16px}.note{border-left:4px solid #d9a03f;background:#fff8e9;padding:11px 13px;border-radius:8px;font-size:.9rem;color:#6b5127}.footer{margin-top:16px;color:#657b8d;font-size:.8rem;text-align:center}.frame{border:1px solid #d8e6ec;background:#f9fcfd;border-radius:13px;overflow:hidden;padding:6px}.frame svg{width:100%;height:auto;display:block}.highlight{color:#0d887b;font-weight:800}.warn{color:#a45327;font-weight:780}.subhead{font-weight:800;font-size:.89rem;color:#42617a;text-transform:uppercase;letter-spacing:.055em;margin-bottom:8px}.reveal{animation:appear .3s ease-out}@keyframes appear{from{opacity:.25;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}\n@media(max-width:760px){.shell{width:min(100% - 18px,610px);margin:9px auto 28px}.hero{padding:19px;border-radius:16px}.layout{grid-template-columns:1fr;gap:11px;margin-top:11px}.card{padding:16px;border-radius:14px}.topline{flex-direction:column}.chip{align-self:flex-start}.inline-fields{grid-template-columns:1fr 1fr}.footer{padding:0 8px}.stat .value{font-size:1.25rem}}\n@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}\n.rad{border-top:.075em solid currentColor;padding:.02em .1em 0 .06em;margin-left:-.02em;display:inline-block;line-height:1.05}</style></head><body><div class=\"shell\"><header class=\"hero\"><div class=\"topline\"><div><div class=\"kicker\">EXPLORA · UNIDAD I · ESTACIÓN 10</div><h1>Constructor de cuadrados</h1><p>Cambia el área de un cuadrado y observa su lado. Investiga cuándo una raíz es exacta y cómo acotarla.</p></div><span class=\"chip\">Manipulador geométrico</span></div></header>\n<div class=\"layout\"><aside class=\"card\"><h2>1. Elige un área</h2><div class=\"controls\"><div class=\"field\"><label for=\"area\">Área del cuadrado (u²)</label><input id=\"area\" type=\"number\" min=\"1\" max=\"144\" step=\"1\" value=\"20\"/></div><div class=\"field\"><label for=\"areaSlider\">Ajusta el área</label><input id=\"areaSlider\" type=\"range\" min=\"1\" max=\"144\" value=\"20\"/></div><div class=\"pills\"><button class=\"btn minor sm\" data-area=\"9\">9</button><button class=\"btn minor sm\" data-area=\"16\">16</button><button class=\"btn minor sm\" data-area=\"20\">20</button><button class=\"btn minor sm\" data-area=\"50\">50</button><button class=\"btn minor sm\" data-area=\"72\">72</button><button class=\"btn minor sm\" data-area=\"100\">100</button></div></div><div class=\"section-gap\"></div><div class=\"panel warm\"><h3>2. Estima el lado</h3><p class=\"small\">Mueve el control: ¿qué longitud al cuadrado se aproxima al área elegida?</p><div class=\"field\"><label id=\"estimateLabel\" for=\"estimate\">Tu estimación del lado</label><input id=\"estimate\" type=\"range\" min=\"4\" max=\"5\" step=\"0.01\" value=\"4.5\"/></div><div class=\"stats\"><div class=\"stat\"><div class=\"value\" id=\"estimatedSide\">4,50</div><div class=\"label\">Lado elegido (u)</div></div><div class=\"stat\"><div class=\"value\" id=\"estimatedArea\">20,25</div><div class=\"label\">Área que produce (u²)</div></div></div><p id=\"estimateHint\" class=\"small\"></p></div></aside>\n<main class=\"card\"><h2>3. Mira cómo crece el cuadrado</h2><div class=\"frame\"><svg id=\"square\" viewBox=\"0 0 500 345\" role=\"img\" aria-label=\"Cuadrado representado sobre una retícula de unidades\"></svg></div><div class=\"section-gap\"></div><div class=\"panel green\" id=\"bounds\" aria-live=\"polite\"></div><div class=\"section-gap\"></div><div class=\"stats\"><div class=\"stat\"><div class=\"label\">Área elegida</div><div class=\"value\" id=\"areaValue\">20 u²</div></div><div class=\"stat\"><div class=\"label\">Lado del cuadrado</div><div class=\"value\" id=\"sideValue\">√<span class=\"rad\">20</span> u</div></div></div><div class=\"section-gap\"></div><div class=\"note\">La raíz cuadrada principal de un área es la longitud <strong>no negativa</strong> del lado del cuadrado correspondiente.</div></main></div>\n<div class=\"footer\">No se registran respuestas. Lo importante es experimentar con áreas distintas y observar patrones.</div></div>\n<script>function $(id){return document.getElementById(id)}\nfunction clamp(v,a,b){return Math.min(b,Math.max(a,Number(v)||0))}\nfunction gcd(a,b){a=Math.abs(a);b=Math.abs(b);while(b){[a,b]=[b,a%b]}return a}\nfunction lcm(a,b){return Math.abs(a*b)/gcd(a,b)}\nfunction fmt(n){return String(n).replace('-', '−')}\nfunction fraction(n,d){let s=n<0?'−':'';n=Math.abs(n);return `<span class=\"frac\"><span class=\"n\">${s}${n}</span><span class=\"d\">${d}</span></span>`}\nfunction fractionStr(n,d){return `${fmt(n)}/${d}`}\nfunction simplify(n,d){if(d<0){n=-n;d=-d}const g=gcd(n,d)||1;return [n/g,d/g]}\nfunction barMarkup(n,d,cls=''){let out='';for(let i=0;i<d;i++){out+=`<span class=\"segment ${i<n?'on '+cls:''}\" aria-hidden=\"true\"></span>`}return `<div class=\"bar\" role=\"img\" aria-label=\"${n} de ${d} partes sombreadas\">${out}</div>`}\nfunction options(el,values,selected){el.innerHTML=values.map(v=>`<option value=\"${v}\" ${String(v)===String(selected)?'selected':''}>${v}</option>`).join('')}\nfunction setText(id,val){$(id).textContent=val}\n</script><script>let A=20,estimate=4.5;\nfunction num(n){return Number(n).toLocaleString('es-CL',{maximumFractionDigits:2,minimumFractionDigits:2})}\nfunction changeArea(v){if(!Number.isInteger(v)||v<1||v>144){$('area').setCustomValidity('El área debe ser un entero entre 1 y 144');$('area').reportValidity();return}$('area').setCustomValidity('');A=v;const side=Math.sqrt(A),lo=Math.floor(side),hi=Math.ceil(side);estimate=side===lo?lo:lo+.5;$('area').value=A;$('areaSlider').value=A;$('estimate').min=lo;$('estimate').max=hi;$('estimate').value=estimate;$('estimate').disabled=lo===hi;render()}\nfunction render(){const side=Math.sqrt(A),lo=Math.floor(side),hi=Math.ceil(side),exact=lo===hi,max=Math.max(2,hi+1),S=258/max,x=62,y=23;\nlet grid='';for(let i=0;i<=max;i++){let p=i*S;grid+=`<line x1=\"${x+p}\" y1=\"${y}\" x2=\"${x+p}\" y2=\"${y+max*S}\" stroke=\"#d8e5ed\" stroke-width=\"1\"/><line x1=\"${x}\" y1=\"${y+p}\" x2=\"${x+max*S}\" y2=\"${y+p}\" stroke=\"#d8e5ed\" stroke-width=\"1\"/>`}\nlet lower=lo*S,upper=hi*S,real=side*S;let outline=exact?'':`<rect x=\"${x}\" y=\"${y}\" width=\"${upper}\" height=\"${upper}\" fill=\"none\" stroke=\"#d99a2a\" stroke-width=\"3\" stroke-dasharray=\"8 5\"/>`;\n$('square').innerHTML=`<rect width=\"500\" height=\"345\" fill=\"#f9fcfe\" rx=\"12\"/><rect x=\"${x}\" y=\"${y}\" width=\"${max*S}\" height=\"${max*S}\" fill=\"#fff\" stroke=\"#b5c9d7\"/>${grid}<rect x=\"${x}\" y=\"${y}\" width=\"${real}\" height=\"${real}\" fill=\"#259a9a\" opacity=\".35\" stroke=\"#178b8d\" stroke-width=\"4\"/><rect x=\"${x}\" y=\"${y}\" width=\"${lower}\" height=\"${lower}\" fill=\"none\" stroke=\"#1e77ae\" stroke-width=\"3\"/>${outline}<path d=\"M${x} ${y+real+11} v9 M${x+real} ${y+real+11} v9 M${x} ${y+real+16} H${x+real}\" stroke=\"#1a6e8d\" stroke-width=\"2\"/><text x=\"${x+real/2}\" y=\"${y+real+37}\" text-anchor=\"middle\" font-size=\"17\" fill=\"#155e76\" font-weight=\"750\">lado = √<tspan text-decoration=\"overline\">${A}</tspan> u</text><text x=\"${x+max*S+25}\" y=\"${y+18}\" font-size=\"14\" fill=\"#4e6980\">1 cuadro</text><text x=\"${x+max*S+25}\" y=\"${y+37}\" font-size=\"14\" fill=\"#4e6980\">= 1 u²</text><rect x=\"${x+max*S+27}\" y=\"${y+48}\" width=\"20\" height=\"20\" fill=\"#e6f1f6\" stroke=\"#afc6d5\"/><rect x=\"${x+max*S+22}\" y=\"${y+95}\" width=\"12\" height=\"12\" fill=\"#259a9a\" opacity=\".55\"/><text x=\"${x+max*S+42}\" y=\"${y+107}\" font-size=\"12\" fill=\"#516f81\">Área ${A} u²</text><path d=\"M28 293 h16 M36 285 v16\" stroke=\"#aec6d4\" stroke-width=\"2\"/>`;\n$('bounds').innerHTML=exact?`<div class=\"subhead\">Raíz exacta</div><div class=\"formula\">√<span class=\"rad\">${A}</span> = ${lo}</div><p style=\"text-align:center\">${lo} × ${lo} = ${A}. Es un cuadrado perfecto.</p>`:`<div class=\"subhead\">Entre dos cuadrados perfectos</div><div class=\"formula\">${lo*lo} &lt; ${A} &lt; ${hi*hi}</div><div class=\"formula\" style=\"color:var(--ok)\">${lo} &lt; √<span class=\"rad\">${A}</span> &lt; ${hi}</div><p class=\"small\" style=\"text-align:center\">El área ${A} está entre ${lo*lo} y ${hi*hi} u², por eso el lado mide entre ${lo} y ${hi} u.</p>`;\nsetText('areaValue',`${A} u²`);$('sideValue').innerHTML=exact?`${lo} u`:`√<span class=\"rad\">${A}</span> ≈ ${num(side)} u`;\nsetText('estimatedSide',num(estimate));setText('estimatedArea',num(estimate*estimate));setText('estimateLabel',exact?'Raíz exacta (no hace falta estimar)':'Tu estimación del lado');setText('estimateHint',exact?'¡Es un cuadrado perfecto!':`Tu cuadrado tendría un área ${estimate*estimate<A?'menor':'mayor'} que ${A} u²${Math.abs(estimate*estimate-A)<.10?'. ¡Muy cerca!':'. Prueba acercarte más.'}`)}\n$('area').addEventListener('change',e=>changeArea(Number(e.target.value)));$('areaSlider').addEventListener('input',e=>changeArea(Number(e.target.value)));$('estimate').addEventListener('input',e=>{estimate=Number(e.target.value);render()});document.querySelectorAll('[data-area]').forEach(btn=>btn.addEventListener('click',()=>changeArea(Number(btn.dataset.area))));changeArea(20);\n</script></body></html>"
@@ -9274,7 +9250,7 @@
           "why": "$18^2=324<350<361=19^2$."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s011",
@@ -9897,11 +9873,11 @@
           "$36\\sqrt2$ cm"
         ],
         "correct": 2,
-        "why": "$\\sqrt{72}=\\sqrt{36\\cdot2}=6\\sqrt2$."
+        "why": "$72=36\\cdot2$ y $\\sqrt{36}=6$. Por eso, $\\sqrt{72}=6\\sqrt2$ cm; el 2 no contiene factores cuadrados."
       },
       "learn": {
         "goal": "Simplificar raíces cuadradas extrayendo factores cuadrados perfectos.",
-        "idea": "**Propiedad:** si $a,b\\ge0$, entonces $\\sqrt{ab}=\\sqrt a\\cdot\\sqrt b$.\nBusca un cuadrado perfecto que divida al radicando. Si eliges el mayor, evitarás pasos adicionales.",
+        "idea": "**Extrae cuadrados perfectos** de la raíz.\n\nSi $a,b\\ge0$, entonces $\\sqrt{ab}=\\sqrt a\\cdot\\sqrt b$.\n\n1. Busca un factor cuadrado perfecto del radicando.\n2. Sepáralo y calcula su raíz.\n3. Deja dentro de la raíz el factor que no puede simplificarse más.",
         "steps": {
           "title": "Simplifica $\\sqrt{72}$.",
           "items": [
@@ -9929,8 +9905,8 @@
             {
               "math": "=6\\sqrt2",
               "side": {
-                "title": "Resultado",
-                "text": "$\\sqrt{36}=6$ y el $2$ no tiene factor cuadrado mayor que $1$."
+                "title": "RESULTADO SIMPLIFICADO",
+                "text": "6 sale de la raíz porque 36=6²; el 2 queda dentro."
               }
             }
           ]
@@ -9985,6 +9961,26 @@
                 "side": {
                   "title": "SIMPLIFICACIÓN",
                   "text": "Simplificamos el radical."
+                }
+              }
+            ]
+          },
+          {
+            "title": "Una raíz que ya está simplificada: $\\sqrt{30}$.",
+            "items": [
+              {
+                "math": "\\sqrt{30}",
+                "side": {
+                  "title": "FACTORES PRIMOS",
+                  "math": "30=2\\cdot3\\cdot5",
+                  "text": "Ningún primo aparece dos veces."
+                }
+              },
+              {
+                "math": "\\sqrt{30}",
+                "side": {
+                  "title": "NO SE EXTRAE NADA",
+                  "text": "El radicando no tiene un factor cuadrado perfecto mayor que 1."
                 }
               }
             ]
@@ -10165,7 +10161,7 @@
           "why": "$\\sqrt{45}=3\\sqrt5$; cuatro tramos suman $12\\sqrt5$."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s012",
@@ -10788,11 +10784,11 @@
           "$5\\sqrt2$ cm"
         ],
         "correct": 3,
-        "why": "$\\sqrt8=2\\sqrt2$ y $\\sqrt{18}=3\\sqrt2$; sumamos coeficientes: $5\\sqrt2$."
+        "why": "Cada segmento se simplifica: $\\sqrt8=2\\sqrt2$ y $\\sqrt{18}=3\\sqrt2$. Como comparten $\\sqrt2$, la suma es $(2+3)\\sqrt2=5\\sqrt2$ cm."
       },
       "learn": {
         "goal": "Sumar y restar radicales semejantes después de simplificarlos.",
-        "idea": "**Semejantes:** los términos comparten el mismo radical simplificado.\nSe suman o restan los coeficientes, como en $2x+3x=5x$.\nSi los radicales son distintos, primero intenta simplificarlos.",
+        "idea": "Dos radicales son **semejantes** si tienen la **misma parte radical una vez simplificados**.\n\n1. Simplifica cada raíz.\n2. Agrupa los términos con el mismo radical.\n3. Suma o resta sus **coeficientes**; conserva la parte radical.\n\nPor ejemplo, $2\\sqrt3+3\\sqrt3=5\\sqrt3$.",
         "steps": {
           "title": "Simplifica $\\sqrt{12}+\\sqrt{27}$.",
           "items": [
@@ -10820,8 +10816,8 @@
             {
               "math": "=(2+3)\\sqrt3",
               "side": {
-                "title": "Distributiva",
-                "text": "Solo sumamos los coeficientes."
+                "title": "SUMA DE COEFICIENTES",
+                "text": "Aplicamos distributividad: (2+3) veces el mismo radical."
               }
             },
             {
@@ -11063,7 +11059,6 @@
           "why": "$2\\sqrt{75}=10\\sqrt3$ y $\\sqrt{27}=3\\sqrt3$; $a=13$."
         }
       ],
-      "drawCheck": 2,
       "recuerda": [
         {
           "titulo": "Simplificar cada raíz antes de sumar",
@@ -11071,7 +11066,8 @@
           "ejemplo": "\\begin{gathered}\\sqrt{50}=\\sqrt{25\\cdot2}=5\\sqrt{2}\\\\ \\sqrt{18}=\\sqrt{9\\cdot2}=3\\sqrt{2}\\end{gathered}",
           "origen": "u1-s011"
         }
-      ]
+      ],
+      "drawCheck": 5
     },
     {
       "id": "u1-s001",
@@ -11697,11 +11693,11 @@
           "No pertenece a $\\mathbb R$"
         ],
         "correct": 0,
-        "why": "$-2$ es un entero; no es natural según la convención $\\mathbb N=\\{1,2,3,\\ldots\\}$."
+        "why": "$-2$ es un entero negativo: pertenece a $\\mathbb Z$, pero no a $\\mathbb N=\\{1,2,3,\\ldots\\}$ según la convención usada en el curso."
       },
       "learn": {
         "goal": "Identificar naturales, enteros, racionales e irracionales y reconocer sus inclusiones.",
-        "idea": "1. **Naturales**: $\\mathbb N=\\{1,2,3,\\ldots\\}$ (algunos textos incluyen el $0$).\n2. **Enteros**: $\\mathbb Z=\\{\\cdots,-3,-2,-1,0,1,2,3,\\cdots\\}$.\n3. **Racionales**: $\\mathbb Q$, fracciones $\\frac{a}{b}$ de enteros, con $b\\ne0$. Pueden expresarse como decimal finito o periódico.\n4. **Reales**: $\\mathbb R$ reúne racionales e irracionales.\nLos irracionales tienen decimales infinitos no periódicos, como $\\sqrt2$ o $\\pi$.",
+        "idea": "**Clasifica el valor del número, no su apariencia.**\n\n1. **Naturales:** $\\mathbb N=\\{1,2,3,\\ldots\\}$ (convención del curso).\n2. **Enteros:** $\\mathbb Z=\\{\\ldots,-2,-1,0,1,2,\\ldots\\}$.\n3. **Racionales:** $\\mathbb Q=\\{a/b: a,b\\in\\mathbb Z,\\ b\\ne0\\}$. Tienen decimal finito o periódico.\n4. **Irracionales:** reales que no son racionales, como $\\sqrt2$ o $\\pi$.\n\n**Inclusión:** $\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R$.",
         "steps": {
           "title": "¿En qué conjunto más específico está $\\dfrac{18}{6}$?",
           "items": [
@@ -11722,8 +11718,8 @@
             {
               "math": "\\mathbb N\\subseteq\\mathbb Z\\subseteq\\mathbb Q\\subseteq\\mathbb R",
               "side": {
-                "title": "Idea clave",
-                "text": "Clasifica el valor, no solo la forma en que está escrito."
+                "title": "CONJUNTOS INCLUIDOS",
+                "text": "Todo natural también es entero, racional y real."
               }
             }
           ]
@@ -11985,7 +11981,7 @@
           "why": "Solo $\\sqrt2$ es irracional; $\\sqrt9=3$, $0{,}4=2/5$ y $-3$ son racionales."
         }
       ],
-      "drawCheck": 2
+      "drawCheck": 5
     },
     {
       "id": "u1-s009",
@@ -12199,7 +12195,7 @@
             "$1$"
           ],
           "correct": 1,
-          "why": "$8-(7+2)=-1$.",
+          "why": "Primero $2^3=8$, $\\sqrt{49}=7$ y $\\frac12\\div\\frac14=2$. Luego resuelve el paréntesis: $8-(7+2)=-1$.",
           "level": 2
         },
         {
@@ -12636,11 +12632,11 @@
           "$-\\dfrac{1}{16}$"
         ],
         "correct": 1,
-        "why": "$3/4-1/2=1/4$; luego $1/16+6-8=1/16-2=-31/16$."
+        "why": "Primero $\\frac34-\\frac12=\\frac14$; luego $\\left(\\frac14\\right)^2=\\frac1{16}$, $\\sqrt{36}=6$ y $2^3=8$. En consecuencia, $\\frac1{16}+6-8=-\\frac{31}{16}$."
       },
       "learn": {
-        "goal": "Resolver operaciones combinadas con enteros, fracciones, potencias y raíces cuadradas, justificando el orden de los cálculos.",
-        "idea": "**Organiza antes de calcular.**\n1. Resuelve paréntesis y otras agrupaciones desde el interior.\n2. Calcula las potencias y las raíces indicadas.\n3. Efectúa productos y divisiones de izquierda a derecha.\n4. Termina con sumas y restas de izquierda a derecha.\nSi hay radicales semejantes, simplifícalos y agrúpalos cuando corresponda. Justifica cada transformación.",
+        "goal": "Resolver operaciones con fracciones, potencias y raíces respetando su prioridad.",
+        "idea": "**Organiza antes de calcular.**\n\n1. Resuelve **paréntesis**, desde el interior.\n2. Calcula **potencias y raíces**.\n3. Realiza **productos y divisiones** de izquierda a derecha.\n4. Termina con **sumas y restas** de izquierda a derecha.\n\n**Simplifica** las fracciones o raíces cuando ayude, justificando cada transformación.",
         "steps": {
           "title": "Resuelve $\\left(\\frac34-\\frac12\\right)^2+\\sqrt{36}-2^3$.",
           "items": [
@@ -12669,8 +12665,8 @@
             {
               "math": "=\\dfrac1{16}-2",
               "side": {
-                "title": "Orden",
-                "text": "Queda una resta entre un racional y un entero."
+                "title": "SUMA Y RESTA",
+                "text": "Primero 6−8=−2; luego queda sumar 1/16 y −2."
               }
             },
             {
@@ -12682,7 +12678,7 @@
             }
           ]
         },
-        "warn": "**Atención:** No realices las operaciones solo de izquierda a derecha: respeta su prioridad. Atención: $(-2)^2\\ne-2^2$ y, en general, $\\sqrt{a+b}\\ne\\sqrt a+\\sqrt b$.",
+        "warn": "**Respeta la prioridad:** $(-2)^2=4$, pero $-2^2=-4$. Tampoco se distribuye la raíz sobre sumas: en general, $\\sqrt{a+b}\\ne\\sqrt a+\\sqrt b$.",
         "more": [
           {
             "title": "Combina fracciones y raíces semejantes: $\\frac23+\\sqrt{12}-2\\sqrt3$.",
@@ -12806,7 +12802,7 @@
           "kind": "number",
           "q": "Calcula $3^2-\\sqrt{49}+\\dfrac12\\div\\dfrac14$. Escribe el resultado.",
           "answer": "4",
-          "why": "$9-7+2=4$."
+          "why": "Calculamos primero $3^2=9$, $\\sqrt{49}=7$ y $\\frac12\\div\\frac14=2$. Después $9-7+2=4$."
         },
         {
           "q": "Un cálculo requiere $2^3-\\sqrt{49}-\\dfrac12\\div\\dfrac14$. ¿Cuál es el resultado?",
@@ -12926,14 +12922,14 @@
             "$6$"
           ],
           "correct": 1,
-          "why": "$8+9-5=12$."
+          "why": "La potencia $2^3$ vale 8 y $(-3)^2$ vale 9. La raíz principal $\\sqrt{25}$ vale 5. Por tanto, $8+9-5=12$."
         },
         {
           "type": "input",
           "kind": "number",
           "q": "Un sensor calcula $\\sqrt{121}-2^3+\\dfrac34\\cdot4$. ¿Qué valor obtiene?",
           "answer": "6",
-          "why": "$11-8+3=6$."
+          "why": "Primero $\\sqrt{121}=11$, $2^3=8$ y $\\frac34\\cdot4=3$. Finalmente, $11-8+3=6$."
         },
         {
           "q": "Un proceso calcula $\\left(\\dfrac54-\\dfrac12\\right)\\cdot8+\\sqrt{81}$. ¿Cuál es el resultado?",
@@ -12955,7 +12951,6 @@
           "reduced": true
         }
       ],
-      "drawCheck": 2,
       "recuerda": [
         {
           "titulo": "Exponente negativo",
@@ -12969,7 +12964,8 @@
           "ejemplo": "\\begin{gathered}\\sqrt{20}=\\sqrt{4\\cdot5}=2\\sqrt{5}\\\\ \\sqrt{27}=\\sqrt{9\\cdot3}=3\\sqrt{3}\\end{gathered}",
           "origen": "u1-s011"
         }
-      ]
+      ],
+      "drawCheck": 5
     }
   ],
   "bridges": [],
@@ -12982,5 +12978,11 @@
     "Reconocer conjuntos numéricos y resolver operaciones combinadas."
   ],
   "schema": "pace-unit-v2",
-  "meta": {"minutes": 70, "mix": [2, "x"]}
+  "meta": {
+    "minutes": 60,
+    "mix": [
+      2,
+      "x"
+    ]
+  }
 }
