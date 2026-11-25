@@ -1,5 +1,17 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (d) · Unidad III: mensajes por alternativa (estaciones 1 a 5) y correcciones
+
+- Mensaje para cada alternativa incorrecta (`fb`) en Igualdad e incógnita, Ecuaciones lineales, Paréntesis y fracciones, Despeje de fórmulas y Del enunciado a la ecuación. Son 258 preguntas de Practica, Aplica y la pregunta de cierre.
+- **Respuestas correctas mal marcadas.** Varias venían de la entrega del 25-11, en la que se reescribieron las alternativas, pero el índice de la correcta quedó como antes. Se corrigieron según la explicación de cada pregunta:
+  - Igualdad e incógnita: A0 (temperatura 40 °C), A3 (esferas de 35 g), P49 ($x=2$), P55 (separar la fracción) y P59 (multiplicar por 4).
+  - Paréntesis y fracciones, P25: la respuesta es $x=-\frac{19}{5}$; las alternativas y la explicación decían $\frac{19}{5}$.
+- **Otros arreglos:**
+  - Paréntesis y fracciones, A18: unidades en mg (decía g).
+  - Ecuaciones lineales, P18: dos alternativas eran correctas; ahora solo «Sumar $x$ a ambos lados» simplifica la ecuación.
+  - Del enunciado a la ecuación, P23: dos pares consecutivos no pueden sumar 41; ahora suman 42.
+  - Del enunciado a la ecuación, P51: $2x-16$ y $2(x-8)$ eran dos alternativas equivalentes; se reemplazó una.
+
 ## 25-11-2026 (c) · Unidad III: «Ahora tú» en las 11 estaciones
 
 - Cada estación tiene ahora su ejercicio «Ahora tú» en Aprende: unos pasos resueltos y el último en blanco, con mensajes para los errores típicos. Son ejemplos distintos de los de Aprende.

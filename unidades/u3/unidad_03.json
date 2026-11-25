@@ -203,7 +203,11 @@
       "Sí",
       "No"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "Con $x=4$ el lado izquierdo da $4+9=13$, no $15$.",
+      ""
+     ]
     },
     {
      "q": "Al reemplazar $x = 7$ en la ecuación $5x = 30$, ¿se cumple la igualdad? ",
@@ -213,7 +217,11 @@
       "Sí",
       "No"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "Con $x=7$ el lado izquierdo da $5\\cdot7=35$, no $30$.",
+      ""
+     ]
     },
     {
      "q": "¿Es $x=6$ solución de la ecuación $2=x - 8$?",
@@ -223,7 +231,11 @@
       "Sí",
       "No"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "Con $x=6$ el lado derecho da $6-8=-2$, no $2$.",
+      ""
+     ]
     },
     {
      "q": "¿Es $x = 8$ solución de la ecuación $x + 7 = 2x-1$?",
@@ -235,7 +247,13 @@
      ],
      "correct": 2,
      "why": "Al lado izquierdo queda $8+7=15$, y al lado derecho queda $2\\cdot8-1=16-1=15$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el lado derecho: $2\\cdot8-1=15$.",
+      "Revisa el lado izquierdo: $8+7=15$.",
+      "",
+      "Sí tiene solución: prueba con $x=8$."
+     ]
     },
     {
      "q": "¿Es $x = 6$ solución de la ecuación $4-2x=2(4-x)$?",
@@ -247,7 +265,13 @@
      ],
      "correct": 1,
      "why": "Desarrollamos el lado derecho: $2(4-x)=8-2x$. La ecuación $4-2x=8-2x$ no tiene solución pues el lado derecho es siempre 4 unidades mayor que el lado izquierdo.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $x=6$ los lados dan $4-12=-8$ y $2(4-6)=-4$. Además, al desarrollar queda $4-2x=8-2x$.",
+      "",
+      "El lado izquierdo da $4-12=-8$. Fíjate además en que $4-2x=8-2x$ nunca se cumple.",
+      "Al desarrollar, $2(4-x)=8-2x$, y $4-2x=8-2x$ nunca se cumple."
+     ]
     },
     {
      "q": "¿Es $x = 3$ solución de la ecuación $2(x - 5) = 2x-10$?",
@@ -259,7 +283,13 @@
      ],
      "correct": 0,
      "why": "Por propiedad distributiva, $2(x-5)=2x-10$, independiente del valor de $x$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Con $x=3$ los dos lados dan $-4$, no $4$. Y al desarrollar $2(x-5)=2x-10$ se ve que se cumple siempre.",
+      "Al desarrollar, $2(x-5)=2x-10$: los dos lados son iguales para todo $x$.",
+      "Los dos lados son iguales para todo $x$: no hay una única solución."
+     ]
     },
     {
      "q": "¿Es $x = 5$ solución de la ecuación $3x = 18$?",
@@ -271,7 +301,13 @@
      ],
      "correct": 3,
      "why": "Al sustituir $x$ por $5$, el lado izquierdo queda $3\\cdot5=15$, y el lado derecho queda fijo.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $x=5$ el lado izquierdo da $3\\cdot5=15$, no $18$.",
+      "El lado derecho es $18$, no $15$.",
+      "$3x$ es $3\\cdot x$, no $3+x$: con $x=5$ da $15$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estos valores es solución de la ecuación $x + 4 = 11$?",
@@ -283,7 +319,13 @@
      ],
      "correct": 2,
      "why": "Con $x = 7$: $7 + 4 = 11$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$6+4=10$, no $11$.",
+      "$4+4=8$, no $11$.",
+      "",
+      "$15+4=19$. Para despejar se resta $4$, no se suma."
+     ]
     },
     {
      "q": "¿Cuál de estos valores es solución de la ecuación $6x = 42$?",
@@ -295,7 +337,13 @@
      ],
      "correct": 2,
      "why": "Con $x = 7$: $6\\cdot 7 = 42$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$6\\cdot48$ no es $42$: para despejar se divide por $6$, no se suma.",
+      "$6\\cdot36$ no es $42$: se divide por $6$, no se resta.",
+      "",
+      "$6\\cdot6=36$, no $42$."
+     ]
     },
     {
      "q": "¿Cuál de estos valores es solución de la ecuación $x - 8 = 5$?",
@@ -307,7 +355,13 @@
      ],
      "correct": 2,
      "why": "Con $x = 13$: $13 - 8 = 5$, igual al lado derecho. Los otros valores no cumplen la igualdad.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "$40-8=32$, no $5$: para despejar se suma $8$.",
+      "$3-8=-5$: para despejar se suma $8$, no se resta.",
+      "",
+      "$-3-8=-11$, no $5$."
+     ]
     },
     {
      "q": "¿Qué significa que $x = 4$ sea solución de una ecuación?",
@@ -319,7 +373,13 @@
      ],
      "correct": 1,
      "why": "Una solución es un valor de la incógnita que hace verdadera la igualdad.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El lado izquierdo no tiene que dar $0$: tiene que dar lo mismo que el derecho.",
+      "",
+      "Lo que debe coincidir son los dos lados entre sí, no con el valor $4$.",
+      "Los lados no tienen que dar $0$: basta que den el mismo número."
+     ]
     },
     {
      "q": "Dos ecuaciones son equivalentes cuando:",
@@ -331,7 +391,13 @@
      ],
      "correct": 3,
      "why": "Ser equivalentes significa tener exactamente las mismas soluciones, aunque se vean distintas.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "La letra no importa: lo que importa son las soluciones.",
+      "Dos ecuaciones con números distintos pueden ser equivalentes, como $x+1=3$ y $x=2$.",
+      "La cantidad de términos puede cambiar, como en $2x+1=5$ y $x=2$.",
+      ""
+     ]
     },
     {
      "q": "Al sustituir $x$ por $3$ en una ecuación, el lado izquierdo da $7$ y el lado derecho da $9$. ¿Qué se concluye?",
@@ -343,7 +409,13 @@
      ],
      "correct": 3,
      "why": "Los lados no coinciden, así que la igualdad es falsa para $x = 3$. Eso no dice nada sobre otros valores.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Que $x=3$ no sirva no significa que no haya solución: hay que probar otros valores.",
+      "$7$ es el valor del lado izquierdo, no una solución.",
+      "Los lados dan $7$ y $9$: si fuera solución, darían lo mismo.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estas acciones entrega siempre una ecuación equivalente?",
@@ -355,7 +427,13 @@
      ],
      "correct": 0,
      "why": "La misma operación en ambos lados completos conserva las soluciones, porque se puede deshacer.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "«Pasar restando» es un atajo: solo funciona si se hace en los dos lados a la vez.",
+      "«Pasar dividiendo» funciona solo si el número no es $0$ y se hace en ambos lados.",
+      "Multiplicar por $0$ deja $0=0$: se pierde la información de la ecuación."
+     ]
     },
     {
      "q": "Las ecuaciones $x + 8 = 20$ y $x = 12$ son equivalentes. ¿Qué operación permite obtener la segunda de la primera?",
@@ -367,7 +445,13 @@
      ],
      "correct": 1,
      "why": "Restar $8$ en ambos lados transforma $x + 8 = 20$ en $x = 12$ y conserva las soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Dividir por $8$ daría $\\frac{x+8}{8}=\\frac{20}{8}$, no $x=12$.",
+      "",
+      "Sumar $8$ daría $x+16=28$.",
+      "Multiplicar por $8$ daría $8x+64=160$."
+     ]
     },
     {
      "q": "Las ecuaciones $5x = 35$ y $x = 7$ son equivalentes. ¿Qué operación permite pasar de la primera a la segunda?",
@@ -379,7 +463,13 @@
      ],
      "correct": 2,
      "why": "Dividir ambos lados entre $5$ transforma $5x = 35$ en $x = 7$ y conserva las soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Multiplicar por $5$ daría $25x=175$.",
+      "Sumar $5$ daría $5x+5=40$.",
+      "",
+      "Restar $5$ daría $5x-5=30$."
+     ]
     },
     {
      "q": "Las ecuaciones $x - 4 = 9$ y $x = 13$ son equivalentes. ¿Qué operación permite obtener la segunda de la primera?",
@@ -391,7 +481,13 @@
      ],
      "correct": 1,
      "why": "Sumar $4$ en ambos lados transforma $x - 4 = 9$ en $x = 13$ y conserva las soluciones.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Restar $4$ daría $x-8=5$.",
+      "",
+      "Sumar $9$ daría $x+5=18$.",
+      "Restar $9$ daría $x-13=0$."
+     ]
     },
     {
      "q": "Un estudiante resuelve $x + 5 = 12$ y obtiene que $x = 17$. ¿Está en lo correcto?",
@@ -403,7 +499,13 @@
      ],
      "correct": 2,
      "why": "El valor $17$ cumple la nueva ecuación pero no la original. El error fue sumar $5$ en vez de restarlo en ambos lados.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Comprueba: $17+5=22$, no $12$.",
+      "Para despejar se resta $5$ en ambos lados: $12-5=7$.",
+      "",
+      "Para despejar $x$ se **resta** $5$; sumar $5$ da $x+10=17$."
+     ]
     },
     {
      "q": "En la ecuación $3x = 12$, el $3$ está multiplicando a $x$. ¿Qué operación entrega una ecuación equivalente con $x$ sola?",
@@ -415,7 +517,13 @@
      ],
      "correct": 1,
      "why": "Al dividir ambos lados entre $3$ queda $x = 4$, y $3\\cdot 4 = 12$. Las otras operaciones entregan ecuaciones equivalentes, pero no queda $x$ sola.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Restar $3$ daría $3x-3=9$: la $x$ sigue multiplicada por $3$.",
+      "",
+      "Restar $12$ daría $3x-12=0$.",
+      "No se divide por la incógnita: dividiendo por $3$ queda $x$ sola."
+     ]
     },
     {
      "q": "Un estudiante suma $4$ en la ecuación $3x - 4 = 2(x+1)$ y obtiene $3x=2x+5$. ¿Es equivalente a la ecuación original?",
@@ -427,7 +535,13 @@
      ],
      "correct": 2,
      "why": "Al sumar $4$ al lado derecho, queda $2(x+1)+4=2x+2+4=2x+6$. Recuerda aplicar la propiedad distributiva.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Sumar $4$ está bien; el error está en el lado derecho, que debe quedar $2x+2+4=2x+6$.",
+      "Sumó $4$ a los dos lados, pero el derecho queda $2x+6$, no $2x+5$.",
+      "",
+      "Con $x=5$, la original da $11=12$: $5$ no es solución de ella."
+     ]
     },
     {
      "q": "¿Es $x = 3$ solución de la ecuación $5x - 3 = 3x - 9$?",
@@ -439,7 +553,13 @@
       "No, el lado izquierdo es siempre mayor que el derecho",
       "Sí, ambos lados son divisibles por 3"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "Con $x=3$ el lado izquierdo da $5\\cdot3-3=12$, no $0$.",
+      "",
+      "Que un lado sea mayor con $x=3$ no dice nada de los demás valores.",
+      "Que ambos sean divisibles por $3$ no basta: tienen que dar el mismo número."
+     ]
     },
     {
      "q": "¿Es $x = 2$ solución de la ecuación $4x + 1 = 7x - 5$?",
@@ -451,7 +571,13 @@
       "No, el lado izquierdo da 12 y el derecho da 9",
       "Sí, ambos lados dan 9"
      ],
-     "correct": 3
+     "correct": 3,
+     "fb": [
+      "Revisa el lado derecho: $7\\cdot2-5=9$.",
+      "Revisa: $4\\cdot2+1=9$ y $7\\cdot2-5=9$.",
+      "Revisa el lado izquierdo: $4\\cdot2+1=9$.",
+      ""
+     ]
     },
     {
      "q": "¿Es $x = 6$ solución de la ecuación $\\dfrac{x}{2} - 4 = 1$?",
@@ -463,7 +589,13 @@
       "No, el lado izquierdo da  2 y el derecho da 1",
       "Sí, ambos lados dan 2"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "El lado izquierdo da $\\frac{6}{2}-4=-1$, no $1$.",
+      "",
+      "$\\frac{6}{2}-4=3-4=-1$, no $2$.",
+      "$\\frac{6}{2}-4=-1$: los lados no son iguales."
+     ]
     },
     {
      "q": "¿Es $x = 5$ solución de la ecuación $\\dfrac{x+3}{4} = 2$?",
@@ -475,7 +607,13 @@
       "No, el lado izquierdo da 8 y el derecho da 2",
       "No, el lado derecho da 8 y el izquierdo da 2"
      ],
-     "correct": 0
+     "correct": 0,
+     "fb": [
+      "",
+      "El lado izquierdo es $\\frac{5+3}{4}=2$; $8$ es solo el numerador.",
+      "Falta dividir por $4$: $\\frac{8}{4}=2$.",
+      "El lado derecho es $2$; y el izquierdo, $\\frac{8}{4}=2$."
+     ]
     },
     {
      "q": "¿Es $x = 4$ solución de la ecuación $4x - 3 = 2x + 5$?",
@@ -487,7 +625,13 @@
      ],
      "correct": 0,
      "why": "El lado izquierdo da $4\\cdot 4 - 3 = 16 - 3 = 13$. El lado derecho da $2\\cdot 4 + 5 = 8 + 5 = 13$. Como coinciden, $x=4$ es solución.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Revisa: $4\\cdot4-3=13$ y $2\\cdot4+5=13$.",
+      "Revisa el lado derecho: $2\\cdot4+5=13$.",
+      "Revisa: $4\\cdot4-3=13$, no $19$."
+     ]
     },
     {
      "q": "¿Es $x = 3$ solución de la ecuación $2 - 3x = x - 6$?",
@@ -499,7 +643,13 @@
      ],
      "correct": 2,
      "why": "El lado izquierdo da $2 - 3\\cdot 3 = 2-9 = -7$. El lado derecho da $3 - 6 = -3$. Como no coinciden, $x=3$ no es solución.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El lado izquierdo da $2-3\\cdot3=-7$.",
+      "Calcula cada lado: $2-9=-7$ y $3-6=-3$.",
+      "",
+      "El lado izquierdo da $2-9=-7$, no $-3$."
+     ]
     },
     {
      "q": "¿Es $x = -4$ solución de la ecuación $4x + 4 = x - 8$?",
@@ -511,7 +661,13 @@
      ],
      "correct": 3,
      "why": "El lado izquierdo da $4\\cdot(- 4) + 4 = -16 + 4 = -12$. El lado derecho da $(- 4) - 8 = -12$. Como coinciden, $x=-4$ es solución.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El lado izquierdo es $4\\cdot(-4)+4=-12$, no $-20$.",
+      "$4\\cdot(-4)+4=-16+4=-12$.",
+      "Que $x=-4$ cumpla no significa que todo número cumpla: prueba con $x=0$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones tiene como solución $x = 3$?",
@@ -523,7 +679,13 @@
      ],
      "correct": 0,
      "why": "Sustituimos $x$ por $3$ en cada ecuación y sólo para $2x + 5 = 11$ la igualdad se cumple: $2\\cdot 3 + 5 = 11$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Con $x=3$: $3\\cdot3+1=10$, no $9$.",
+      "Con $x=3$: $3+7=10$, no $11$.",
+      "Con $x=3$: $4\\cdot3-2=10$, no $12$."
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones tiene como solución $x = 5$?",
@@ -535,7 +697,13 @@
      ],
      "correct": 1,
      "why": "Sustituimos $x$ por $5$ en cada ecuación y sólo para $3x - 4 = 11$ la igualdad se cumple: $3\\cdot 5 - 4 = 11$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $x=5$: $5+9=14$, no $13$.",
+      "",
+      "Con $x=5$: $4\\cdot5-5=15$, no $10$.",
+      "Con $x=5$: $2\\cdot5+3=13$, no $12$."
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones tiene como solución $x = 2$?",
@@ -547,7 +715,13 @@
      ],
      "correct": 2,
      "why": "Sustituimos $x$ por $2$ en cada ecuación y sólo para $7x - 4 = 10$ la igualdad se cumple: $7\\cdot 2 - 4 = 10$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $x=2$: $5\\cdot2+1=11$, no $12$.",
+      "Con $x=2$: $6\\cdot2-2=10$, no $8$.",
+      "",
+      "Con $x=2$: $3\\cdot2+5=11$, no $12$."
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones es equivalente a $2x + 9 = 21$?",
@@ -559,7 +733,13 @@
      ],
      "correct": 0,
      "why": "Al restar $9$ en ambos lados se obtiene $2x = 12$. Las otras no tienen las mismas soluciones.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "El $9$ se resta en ambos lados: $21-9=12$, no $30$.",
+      "Restar $9$ se hace en ambos lados y no cambia el $2x$.",
+      "Falta restar $9$ en el lado derecho."
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones es equivalente a $5x - 4 = 16$?",
@@ -571,7 +751,13 @@
      ],
      "correct": 3,
      "why": "Al sumar $4$ en ambos lados se obtiene $5x = 20$. Las otras no tienen las mismas soluciones.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Dividir solo una parte no es válido: hay que dividir **todos** los términos.",
+      "El $4$ se suma en ambos lados: $16+4=20$.",
+      "Falta sumar $4$ en el lado derecho.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones es equivalente a $3x + 12 = 27$?",
@@ -583,7 +769,13 @@
      ],
      "correct": 0,
      "why": "Al dividir ambos lados entre $3$, cada uno de los tres términos se divide: $\\frac{3x}{3} + \\frac{12}{3} = \\frac{27}{3}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Al dividir por $3$, también el $12$ se divide: queda $4$.",
+      "Al dividir por $3$, también el $3x$ se divide: queda $x$.",
+      "Al dividir por $3$, también el $27$ se divide: queda $9$."
+     ]
     },
     {
      "q": "¿Cuál de estas ecuaciones es equivalente a $4x - 8 = 20$?",
@@ -595,7 +787,13 @@
      ],
      "correct": 3,
      "why": "Al dividir ambos lados entre $4$, cada uno de los tres términos se divide: $\\frac{4x}{4} - \\frac{8}{4} = \\frac{20}{4}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Al dividir por $4$, el $4x$ queda $x$.",
+      "Al dividir por $4$, el $-8$ queda $-2$.",
+      "Al dividir por $4$, el $20$ queda $5$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -647,7 +845,13 @@
      ],
      "correct": 3,
      "why": "Para obtener ecuaciones equivalentes, debemos realizar la misma operación en ambos lados.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Dividir ambos lados por $3$ da $x+2=6$: es equivalente.",
+      "Restar $6$ en ambos lados da $3x=12$: es equivalente.",
+      "Sumar $2$ en ambos lados da $3x+8=20$: es equivalente.",
+      ""
+     ]
     },
     {
      "q": "¿Cuántas soluciones tiene la ecuación $x + 3 = x + 5$?",
@@ -659,7 +863,13 @@
      ],
      "correct": 2,
      "why": "El lado derecho vale siempre $2$ más que el izquierdo, sea cual sea $x$: ningún valor hace verdadera la igualdad.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Si restas $x$ en ambos lados queda $3=5$, que nunca se cumple.",
+      "Una ecuación lineal no puede tener exactamente dos soluciones.",
+      "",
+      "Restando $x$ queda $3=5$: ningún número la cumple."
+     ]
     },
     {
      "q": "¿Cuántas soluciones tiene la ecuación $4(x + 1) = 4x + 4$?",
@@ -671,7 +881,13 @@
      ],
      "correct": 2,
      "why": "Por la propiedad distributiva, $4(x + 1)$ es siempre $4x + 4$: la igualdad es verdadera con cualquier valor.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Al desarrollar, $4x+4=4x+4$: los dos lados son siempre iguales.",
+      "Una ecuación lineal no puede tener exactamente dos soluciones.",
+      "",
+      "Prueba con dos valores distintos: los dos cumplen."
+     ]
     },
     {
      "q": "¿Cuántas soluciones tiene la ecuación $2x + 3 = 2x + 7$?",
@@ -683,7 +899,13 @@
      ],
      "correct": 2,
      "why": "El lado derecho es siempre $4$ unidades mayor que el lado izquierdo: ningún valor hace verdadera la igualdad.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Una ecuación lineal no puede tener exactamente dos soluciones.",
+      "Si restas $2x$ en ambos lados queda $3=7$, que nunca se cumple.",
+      "",
+      "Restando $2x$ queda $3=7$: ningún número la cumple."
+     ]
     },
     {
      "q": "¿Cuántas soluciones tiene la ecuación $2(x - 2)+1 = 2x - 3$?",
@@ -695,7 +917,13 @@
      ],
      "correct": 3,
      "why": "Por propiedades de la aritmética, los dos lados son la misma expresión: la igualdad es verdadera con cualquier valor.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Al desarrollar, $2x-4+1=2x-3$: los dos lados son siempre iguales.",
+      "Una ecuación lineal no puede tener exactamente dos soluciones.",
+      "Desarrolla el lado izquierdo: $2x-4+1=2x-3$, igual al derecho.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -715,7 +943,13 @@
       "$k=3$",
       "$k=7$"
      ],
-     "correct": 2
+     "correct": 2,
+     "fb": [
+      "Con $k=-2$: $-2\\cdot(-2)+10=14$, no $4$.",
+      "Con $k=-6$: $-6\\cdot(-2)+10=22$, no $4$.",
+      "",
+      "Con $k=7$: $7\\cdot(-2)+10=-4$, no $4$."
+     ]
     },
     {
      "type": "input",
@@ -735,7 +969,13 @@
      ],
      "correct": 2,
      "why": "$x = 1$ cumple $x + 6 = 7$ (pues $1 + 6 = 7$), pero no $2x + 6 = 14$ (pues $2 + 6 = 8$). Los otros valores no son solución de ninguna de las dos ecuaciones.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$x=0$ no es solución de ninguna de las dos.",
+      "$x=2$ no es solución de ninguna de las dos.",
+      "",
+      "$x=3$ no es solución de ninguna de las dos."
+     ]
     },
     {
      "q": "Para mostrar que $3(x + 1) = 12$ y $x + 1 = -4$ no son equivalentes basta un valor que sea solución de una y no de la otra. ¿Cuál de estos valores sirve?",
@@ -747,7 +987,13 @@
      ],
      "correct": 3,
      "why": "$x = -5$ cumple $x + 1 = -4$ (pues $-5 + 1 = -4$), pero no $3(x + 1) = 12$ (pues $3(-5 + 1) = -12$). Los otros valores no son solución de ninguna de las dos ecuaciones.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$x=-4$ no es solución de ninguna de las dos.",
+      "$x=-3$ no es solución de ninguna de las dos.",
+      "$x=6$ no es solución de ninguna de las dos.",
+      ""
+     ]
     },
     {
      "q": "Para mostrar que $x - 4 = 2x - 6$ y $3x = 10$ no son equivalentes basta un valor que sea solución de una y no de la otra. ¿Cuál de estos valores sirve?",
@@ -757,9 +1003,15 @@
       "$x = 2$",
       "$x = 30$"
      ],
-     "correct": 1,
+     "correct": 2,
      "why": "$x = 2$ cumple $x - 4 = 2x - 6$ (pues $2 - 4 = 4 - 6$), pero no $3x = 10$ (pues $3\\cdot2 = 6$). Los otros valores no son solución de ninguna de las dos ecuaciones.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$x=10$ no es solución de ninguna de las dos.",
+      "$x=7$ no es solución de ninguna de las dos.",
+      "",
+      "$x=30$ no es solución de ninguna de las dos."
+     ]
     },
     {
      "q": "¿Es $x = 5$ solución de la ecuación $3(x - 2) = x + 4$?",
@@ -771,7 +1023,13 @@
      ],
      "correct": 2,
      "why": "El lado izquierdo da $3(5 - 2) = 3\\cdot 3 = 9$. El lado derecho da $5 + 4 = 9$. Como coinciden, $x=5$ es solución.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El lado izquierdo es $3(5-2)=9$ y el derecho $5+4=9$: son iguales.",
+      "El lado derecho es $5+4=9$, no $13$.",
+      "",
+      "Revisa: $3(5-2)=9$ y $5+4=9$."
+     ]
     },
     {
      "q": "¿Es $x = 8$ solución de la ecuación $\\dfrac{x}{2} + 3 = x - 1$?",
@@ -783,7 +1041,13 @@
      ],
      "correct": 0,
      "why": "El lado izquierdo da $\\frac{8}{2} + 3 = 4 + 3 = 7$. El lado derecho da $8 - 1 = 7$. Como coinciden, $x=8$ es solución.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "El lado izquierdo es $\\frac{8}{2}+3=7$, no $11$.",
+      "Revisa: $\\frac{8}{2}+3=7$ y $8-1=7$.",
+      "Revisa: $\\frac{8}{2}+3=7$ y $8-1=7$."
+     ]
     },
     {
      "q": "¿Es $x = 2$ solución de la ecuación $4 - 3x = 3x - 4$?",
@@ -795,7 +1059,13 @@
      ],
      "correct": 3,
      "why": "El lado izquierdo da $4 - 3\\cdot 2 = 4 - 6 = -2$. El lado derecho da $3\\cdot 2 - 4 = 6 - 4 = 2$. Como no coinciden, $x=2$ no es solución. Sí tiene solución pues es equivalente a $6x=8$ con solución $x=\\tfrac{4}{3}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El lado derecho da $3\\cdot2-4=2$, no $-2$.",
+      "El lado izquierdo da $4-3\\cdot2=-2$, no $2$.",
+      "Sí tiene solución ($x=\\frac{4}{3}$); con $x=2$ los lados dan $-2$ y $2$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de las siguientes ecuaciones NO es equivalente a $5x - 20 = 10x$?",
@@ -807,7 +1077,13 @@
       "$x-4=2x$",
       "$5x-10=10x+10$"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "$-5x=20$ sale de restar $10x$ y sumar $20$: es equivalente.",
+      "",
+      "$x-4=2x$ sale de dividir **todo** por $5$: es equivalente.",
+      "Sumar $10$ en ambos lados da una ecuación equivalente."
+     ]
     },
     {
      "q": "¿Cuál de las siguientes acciones es incorrecta al intentar resolver $\\dfrac{x}{3} - 2(x + 5) = 6$?",
@@ -819,7 +1095,13 @@
       "Multiplicar por $3$ y obtener $x-6(x+5)=18$",
       "Dividir por 2 y obtener $\\dfrac{x}{6}-(x+5)=3$"
      ],
-     "correct": 0
+     "correct": 0,
+     "fb": [
+      "",
+      "Desarrollar es correcto: $-2(x+5)=-2x-10$.",
+      "Multiplicar todo por $3$ es correcto: $3\\cdot2(x+5)=6(x+5)$.",
+      "Dividir **todo** por $2$ es correcto: $\\frac{x}{3}\\div2=\\frac{x}{6}$."
+     ]
     },
     {
      "q": "¿Cuál de las siguientes acciones es correcta al intentar resolver $3x+1=\\dfrac{x+6}{2}$?",
@@ -829,9 +1111,15 @@
       "Multiplicar por $2$ y obtener $6x+2=2x+12$",
       "Separar la fracción y obtener $3x+1=\\dfrac{x}{2}+3$"
      ],
-     "correct": 2,
+     "correct": 3,
      "why": "Recordar que en expresión $\\frac{x+6}{2}$ se puede reescribir como $\\frac{1}{2}(x+6)$, por lo que necesitamos desarrollar la expresión antes de despejar los términos.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "No se puede simplificar solo una parte del numerador: $\\frac{x+6}{2}$ no es $x+3$.",
+      "Restar $x$ en ambos lados da $2x+1=\\frac{x+6}{2}-x$, no $\\frac{6}{2}$.",
+      "Al multiplicar por $2$, el lado derecho queda $x+6$, no $2x+12$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de las siguientes acciones es incorrecta al intentar resolver la ecuación $3(x - 2) = 4(x + 1) - 3$?",
@@ -843,7 +1131,13 @@
      ],
      "correct": 0,
      "why": "Al dividir por $3$ la ecuación, se deben dividir cada uno de los tres términos de ésta: $3(x-2)$, $4(x+1)$ y $3$, quedando $3(x-2)=\\tfrac{4}{3}(x+1)-1$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Desarrollar es correcto: $3x-6=4x+4-3=4x+1$.",
+      "Sumar $3$ en ambos lados es correcto.",
+      "Restar $4(x+1)$ en ambos lados es correcto."
+     ]
     },
     {
      "q": "¿Cuál de estas acciones es incorrecta al intentar resolver la ecuación $6x + 4 = 12x - 4$?",
@@ -855,7 +1149,13 @@
      ],
      "correct": 3,
      "why": "Al lado derecho, el término $12x$ está sumando, luego lo debemos restar y mantener el signo negativo de $4$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Restar $4$ en ambos lados es correcto.",
+      "Restar $6x$ en ambos lados es correcto.",
+      "Dividir **todo** por $2$ es correcto.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estas acciones es correcta al intentar resolver la ecuación $3x+18=15x-3$? ",
@@ -867,7 +1167,13 @@
      ],
      "correct": 3,
      "why": "Al restar $3x-3$ en la ecuación $3x+18=15x-3$ queda $3x+18-(3x-3)=15x-3-(3x-3)$; desarrollando y cancelando queda, $18+3=15x-3x$ que es $21=12x$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Al dividir por $3$, el $18$ y el $15x-3$ también se dividen: no queda así.",
+      "Al dividir por $15$ se dividen **todos** los términos: no queda así.",
+      "Sumar $15x$ daría $18x+18=30x-3$.",
+      ""
+     ]
     },
     {
      "q": "¿Cuál de estas acciones es correcta al intentar resolver la ecuación $\\dfrac{x}{4}-1=\\dfrac{4x+6}{2}$?",
@@ -877,9 +1183,15 @@
       "Simplificar la fracción derecha y obtener $\\dfrac{x}{4}-1=4x+3$",
       "Multiplicar por $2$ y obtener $2x-2=4x+6$"
      ],
-     "correct": 2,
+     "correct": 0,
      "why": "Multiplicamos por $4$ cada uno de los tres términos y simplificamos: $4\\cdot\\frac{x}{4}=x$, $4\\cdot1=4$ y $4\\cdot\\frac{4x+6}{2}=\\frac{4}{2}(4x+6)=2(4x+6)=8x+12$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Sumar $1$ daría $\\frac{x}{4}=\\frac{4x+6}{2}+1=\\frac{4x+8}{2}$.",
+      "$\\frac{4x+6}{2}=2x+3$, no $4x+3$: se dividen los dos términos.",
+      "Multiplicar por $2$ daría $\\frac{x}{2}-2=4x+6$."
+     ]
     }
    ],
    "check": {
@@ -891,7 +1203,13 @@
      "No, con $5$ gotas se sobrepasan los $41\\,\\mathrm{mL}$",
      "No, son necesarias $6$ gotas para llenar la probeta"
     ],
-    "correct": 1
+    "correct": 1,
+    "fb": [
+     "$3\\cdot5+20=35$, no $41$: $5$ no es solución.",
+     "",
+     "$3\\cdot5+20=35$: no se sobrepasa, falta.",
+     "Con $6$ gotas se llega a $38\\,\\mathrm{mL}$: tampoco alcanza."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -903,8 +1221,14 @@
       "Sí, porque la temperatura inicial debe ser mayor que la inicial",
       "Sí, porque $34+6=40$"
      ],
-     "correct": 1,
-     "why": "Al calentar $6\\,^\\circ\\mathrm{C}$ agua que se encuentra a $40\\,^\\circ\\mathrm{C}$, ésta queda en $46\\,^\\circ\\mathrm{C}$ ($40+6=46$), y no en $34^\\circ\\mathrm{C}$ como indica el enunciado."
+     "correct": 0,
+     "why": "Al calentar $6\\,^\\circ\\mathrm{C}$ agua que se encuentra a $40\\,^\\circ\\mathrm{C}$, ésta queda en $46\\,^\\circ\\mathrm{C}$ ($40+6=46$), y no en $34^\\circ\\mathrm{C}$ como indica el enunciado.",
+     "fb": [
+      "",
+      "Al calentar, la temperatura **sube**: la inicial es menor que la final.",
+      "Ese argumento no tiene sentido. Reemplaza $T=40$ en $T+6=34$.",
+      "$34+6=40$ no es lo que dice la ecuación: se cumple $T+6=34$, con $40+6=46$."
+     ]
     },
     {
      "q": "Cada pastilla contiene $7\\,\\mathrm{mg}$ de un compuesto y se necesitan $35\\,\\mathrm{mg}$ en total. ¿Se tienen $35\\,\\mathrm{mg}$ con cinco pastillas? \n(El número de pastillas $n$ debe cumplir $7n=35$.)",
@@ -915,7 +1239,13 @@
       "Sí, con cinco pastillas se tienen exactamente $35\\,\\mathrm{mg}$ del compuesto."
      ],
      "correct": 3,
-     "why": "Con cinco pastillas se tienen $35\\mathrm{mg}$ del compuesto ($7\\cdot 5 = 35$)."
+     "why": "Con cinco pastillas se tienen $35\\mathrm{mg}$ del compuesto ($7\\cdot 5 = 35$).",
+     "fb": [
+      "$7\\cdot5=35$: se **multiplica**, no se suma.",
+      "Con $28$ pastillas se tendrían $196\\,\\mathrm{mg}$. Prueba $n=5$ en $7n=35$.",
+      "$7\\cdot5=35$, exactamente lo pedido; no más.",
+      ""
+     ]
     },
     {
      "q": "Un sensor registra $15\\,^\\circ\\mathrm{C}$ y la temperatura sube $3\\,^\\circ\\mathrm{C}$ por minuto. Llega a $33\\,^\\circ\\mathrm{C}$ cuando el tiempo $t$ (en minutos) cumple $3t + 15 = 33$. ¿Se llega a la temperatura deseada a los $6$ minutos?",
@@ -926,7 +1256,13 @@
       "No, después de $6$ minutos la temperatura supera los $33\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 1,
-     "why": "La temperatura después de $6$ minutos es de $33\\,^\\circ\\mathrm{C}$ ($3\\cdot 6 + 15 = 33$)."
+     "why": "La temperatura después de $6$ minutos es de $33\\,^\\circ\\mathrm{C}$ ($3\\cdot 6 + 15 = 33$).",
+     "fb": [
+      "$3\\cdot6+15=33$: no olvides sumar los $15\\,^\\circ\\mathrm{C}$ iniciales.",
+      "",
+      "A los $6$ minutos son $3\\cdot6+15=33\\,^\\circ\\mathrm{C}$, no $24$.",
+      "$3\\cdot6+15=33$: llega exactamente a $33\\,^\\circ\\mathrm{C}$."
+     ]
     },
     {
      "q": "Dos esferas idénticas de masa $m$ (en gramos) junto a un peso de $50\\,\\mathrm{g}$ equilibran una balanza con $130\\,\\mathrm{g}$ en el otro plato. ¿Pueden las esferas pesar $35\\,\\mathrm{g}$ cada una?\n(La masa $m$ de cada esfera debe cumplir $2m + 50 = 130$.)",
@@ -936,8 +1272,14 @@
       "No, con esferas de $35\\,\\mathrm{g}$ cada una la balanza no queda en equilibrio",
       "No, porque ambos platos soportarían un peso de $35\\,\\mathrm{g}$"
      ],
-     "correct": 3,
-     "why": "Con dos esferas de $35\\,\\mathrm{g}$ cada una, un plato de la balanza soportaría un peso de $120\\,\\mathrm{g}$ ($2\\cdot35+50$), mientras que el otro plato soporta un peso de $130\\,\\mathrm{g}$: la balanza no se encuentra en equilibrio."
+     "correct": 2,
+     "why": "Con dos esferas de $35\\,\\mathrm{g}$ cada una, un plato de la balanza soportaría un peso de $120\\,\\mathrm{g}$ ($2\\cdot35+50$), mientras que el otro plato soporta un peso de $130\\,\\mathrm{g}$: la balanza no se encuentra en equilibrio.",
+     "fb": [
+      "La balanza no tiene un límite de peso: hay que comparar los dos platos.",
+      "La masa debe cumplir $2m+50=130$: no sirve cualquier valor.",
+      "",
+      "Reemplaza $m=35$: un plato tiene $2\\cdot35+50=120\\,\\mathrm{g}$ y el otro $130\\,\\mathrm{g}$."
+     ]
     },
     {
      "q": "Un cultivo tiene $40$ mil bacterias y aumenta en $5$ mil bacterias por hora. ¿Se llega a las $70$ mil bacterias tras $6$ horas?\n(El tiempo $t$, en horas, debe cumplir $40 + 5t = 70$.)",
@@ -948,7 +1290,13 @@
       "Sí,  en $6$ horas hay más de $70$ mil bacterias"
      ],
      "correct": 1,
-     "why": "En seis horas hay $70$ mil bacterias ($40 + 5\\cdot 6 = 70$)."
+     "why": "En seis horas hay $70$ mil bacterias ($40 + 5\\cdot 6 = 70$).",
+     "fb": [
+      "$30$ mil es lo que aumenta, no el total: $40+5\\cdot6=70$.",
+      "",
+      "$40+5\\cdot6=70$: exactamente $70$ mil, no más.",
+      "$40+5\\cdot6=70$: exactamente $70$ mil, no más."
+     ]
     },
     {
      "q": "El perímetro de un cuadrado de lado $L$ (en cm) es $36\\,\\mathrm{cm}$, de manera que $4L = 36$. ¿El lado del cuadrado puede medir $6\\,\\mathrm{cm}$?",
@@ -959,7 +1307,13 @@
       "No, el perímetro de un cuadrado de $6\\,\\mathrm{cm}$ es de $24\\,\\mathrm{cm}$",
       "No, el perímetro de un cuadrado de $6\\,\\mathrm{cm}$ es de $12\\,\\mathrm{cm}$"
      ],
-     "correct": 2
+     "correct": 2,
+     "fb": [
+      "El lado debe cumplir $4L=36$: no sirve cualquier valor.",
+      "$4\\cdot6=24$, no $36$.",
+      "",
+      "El perímetro de un cuadrado suma sus **cuatro** lados: $4\\cdot6=24$."
+     ]
     },
     {
      "q": "Una solución se enfría $13\\,^\\circ\\mathrm{C}$ hasta quedar a $18\\,^\\circ\\mathrm{C}$. La temperatura inicial $T$ cumple $T - 13 = 18$. ¿Puede la temperatura inicial ser $30\\,^\\circ\\mathrm{C}$?",
@@ -970,7 +1324,13 @@
       "Sí, porque $13+18=30$",
       "Sí, porque debe ser mayor que la temperatura final"
      ],
-     "correct": 0
+     "correct": 0,
+     "fb": [
+      "",
+      "$30-13=17$, no $18$: la temperatura inicial debe ser mayor.",
+      "Reemplaza $T=30$: $30-13=17$, no $18$.",
+      "Ser mayor que la final no basta: debe cumplir $T-13=18$."
+     ]
     },
     {
      "q": "Un vehículo recorre $60\\,\\mathrm{km}$ en $5$ horas a rapidez constante. ¿Iba el vehículo a una rapidez de $12\\,\\mathrm{km/h}$?\n(La rapidez del vehículo $v$, en $\\mathrm{km/h}$, debe cumplir  $5v = 60$.)",
@@ -981,7 +1341,13 @@
       "No,  viajando a $12\\,\\mathrm{km/h}$ por $5$ horas se recorren $60\\,\\mathrm{km}$",
       "No,  viajando a $12\\,\\mathrm{km/h}$ por $5$ horas se recorren más de $60\\,\\mathrm{km}$"
      ],
-     "correct": 1
+     "correct": 1,
+     "fb": [
+      "$12\\cdot5=60$: exactamente $60\\,\\mathrm{km}$, no más.",
+      "",
+      "$12\\cdot5=60$ cumple la ecuación: la respuesta es sí.",
+      "$12\\cdot5=60$: se recorren exactamente $60\\,\\mathrm{km}$."
+     ]
     },
     {
      "q": "Un termómetro marca $12\\,^\\circ\\mathrm{C}$ y la temperatura sube $4\\,^\\circ\\mathrm{C}$ por minuto. ¿En cuántos minutos se llega a $40\\,^\\circ\\mathrm{C}$?\n(El tiempo $t$, en minutos debe cumplir $12 + 4t = 40$.)",
@@ -992,7 +1358,13 @@
       "En $13$ minutos"
      ],
      "correct": 0,
-     "why": "Con $t = 7$, $12 + 4\\cdot 7 = 40$. Con los otros valores, el lado izquierdo no da $40$."
+     "why": "Con $t = 7$, $12 + 4\\cdot 7 = 40$. Con los otros valores, el lado izquierdo no da $40$.",
+     "fb": [
+      "",
+      "Con $10$ minutos: $12+4\\cdot10=52$.",
+      "Con $14$ minutos: $12+4\\cdot14=68$.",
+      "Con $13$ minutos: $12+4\\cdot13=64$."
+     ]
     },
     {
      "q": "Una caja vacía tiene masa $200\\,\\mathrm{g}$ y cada tubo de ensayo tiene masa $25\\,\\mathrm{g}$. La caja con $n$ tubos de ensayo tiene masa $350\\,\\mathrm{g}$. ¿Cuántos tubos de ensayo tiene la caja?\n(La cantidad de tubos de ensayo $n$ debe cumplir $200 + 25n = 350$.)",
@@ -1003,7 +1375,13 @@
       "Tiene $22$ tubos de ensayo"
      ],
      "correct": 2,
-     "why": "Con $n = 6$, $25\\cdot 6 + 200 = 350$. Con los otros valores, el lado izquierdo no da $350$."
+     "why": "Con $n = 6$, $25\\cdot 6 + 200 = 350$. Con los otros valores, el lado izquierdo no da $350$.",
+     "fb": [
+      "Con $14$ tubos: $200+25\\cdot14=550\\,\\mathrm{g}$.",
+      "$150$ son los gramos de los tubos; falta dividir por $25$.",
+      "",
+      "Con $22$ tubos: $200+25\\cdot22=750\\,\\mathrm{g}$."
+     ]
     },
     {
      "q": "Un estanque tiene $90\\,\\mathrm{L}$ y pierde $6\\,\\mathrm{L}$ por hora. ¿En cuántas horas quedan $48\\,\\mathrm{L}$?\n(El tiempo $t$, en horas, debe cumplir $90 - 6t = 48$.)",
@@ -1014,7 +1392,13 @@
       "En $7$ horas"
      ],
      "correct": 3,
-     "why": "Con $t = 7$, $90 - 6\\cdot 7 = 48$. Con los otros valores, el lado izquierdo no da $48$."
+     "why": "Con $t = 7$, $90 - 6\\cdot 7 = 48$. Con los otros valores, el lado izquierdo no da $48$.",
+     "fb": [
+      "Con $23$ horas: $90-6\\cdot23<0$.",
+      "$42$ son los litros perdidos; falta dividir por $6$.",
+      "Con $8$ horas: $90-6\\cdot8=42$, no $48$.",
+      ""
+     ]
     },
     {
      "q": "Tres muestras idénticas pesan en conjunto $72\\,\\mathrm{g}$. ¿Cuál es la masa de cada muestra?\n(La masa $m$, en $\\mathrm{g}$, de cada muestra cumple $3m = 72$.)",
@@ -1025,7 +1409,13 @@
       "Cada muestra pesa $ 75\\,\\mathrm{g}$"
      ],
      "correct": 2,
-     "why": "Con $m = 24$, $3\\cdot 24 = 72$. Los otros valores no cumplen la igualdad."
+     "why": "Con $m = 24$, $3\\cdot 24 = 72$. Los otros valores no cumplen la igualdad.",
+     "fb": [
+      "$216$ es $3\\cdot72$: se divide por $3$, no se multiplica.",
+      "$69$ es $72-3$: se divide por $3$, no se resta.",
+      "",
+      "$75$ es $72+3$: se divide por $3$."
+     ]
     },
     {
      "q": "Cierta situación puede ser representada por la ecuación $3t + 15 = 33$. Un estudiante la quiere simplificar y la reescribe como $3t = 18$. ¿Obtiene una ecuación que representa la misma situación?",
@@ -1036,7 +1426,13 @@
       "No, porque al cambiar la ecuación también  cambia la solución"
      ],
      "correct": 1,
-     "why": "Restando $15$ en ambos lados de la ecuación $3t+15=33$, se obtiene la ecuación equivalente $3t=18$, y ecuaciones equivalentes representan la misma situación."
+     "why": "Restando $15$ en ambos lados de la ecuación $3t+15=33$, se obtiene la ecuación equivalente $3t=18$, y ecuaciones equivalentes representan la misma situación.",
+     "fb": [
+      "Se restó $15$ en **ambos** lados: $3t+15-15=33-15$.",
+      "",
+      "Las ecuaciones sí se pueden simplificar, siempre que se haga lo mismo en ambos lados.",
+      "Las ecuaciones equivalentes tienen la misma solución: $t=6$ cumple las dos."
+     ]
     },
     {
      "q": "La masa $m$ de una esfera cumple $2m + 50 = 130$. ¿Cuál de estas ecuaciones es equivalente y describe la misma masa?",
@@ -1047,7 +1443,13 @@
       "$m + 25 = 130$"
      ],
      "correct": 0,
-     "why": "Al dividir ambos lados entre $2$ queda $m + 25 = 65$."
+     "why": "Al dividir ambos lados entre $2$ queda $m + 25 = 65$.",
+     "fb": [
+      "",
+      "Restar $50$ en ambos lados da $2m=80$.",
+      "Al dividir por $2$, el $50$ también se divide: queda $25$.",
+      "Al dividir por $2$, el $130$ también se divide: queda $65$."
+     ]
     },
     {
      "q": "Un informe indica que el tiempo $t$ de un experimento cumple $5t + 40 = 70$, pero más adelante afirma que el mismo tiempo cumple $t = 6$. ¿Hay una contradicción en el informe?",
@@ -1058,7 +1460,13 @@
       "No, porque $t=6$ es solución de ambas ecuaciones"
      ],
      "correct": 3,
-     "why": "Ambas ecuaciones describen lo mismo pues tienen las mismas soluciones ($t=6$), por lo que no hay contradicción en el informe."
+     "why": "Ambas ecuaciones describen lo mismo pues tienen las mismas soluciones ($t=6$), por lo que no hay contradicción en el informe.",
+     "fb": [
+      "Una variable puede cumplir varias ecuaciones a la vez si son equivalentes.",
+      "Hay que comprobarlo: reemplaza $t=6$ en $5t+40=70$.",
+      "Con $t=26$: $5\\cdot26+40=170$, no $70$.",
+      ""
+     ]
     },
     {
      "q": "En un cuaderno de laboratorio aparece: «$T + 7 = 35$, entonces $T = 42$». Al reemplazar $T = 42$ en la ecuación original, ¿qué se observa?",
@@ -1069,7 +1477,13 @@
       "$42 - 7 = 35$: el paso es correcto"
      ],
      "correct": 0,
-     "why": "Se sumó $7$ en vez de restarlo en ambos lados. Evaluar permite detectar el error."
+     "why": "Se sumó $7$ en vez de restarlo en ambos lados. Evaluar permite detectar el error.",
+     "fb": [
+      "",
+      "Si $42+7=49$ no es $35$, el paso es incorrecto.",
+      "$42+7=49$, no $35$.",
+      "La ecuación original es $T+7=35$: se reemplaza en ella, no en $T-7$."
+     ]
     },
     {
      "q": "Para saber cuántas pastillas de $3\\,\\mathrm{mg}$ completan $51\\,\\mathrm{mg}$ se planteó $3n = 51$, y alguien concluyó que $n = 48$. ¿Cuál fue el error?",
@@ -1080,7 +1494,13 @@
       "Restó $3$ al lado derecho"
      ],
      "correct": 3,
-     "why": "Al restar $3$ al lado derecho queda $51 - 3 = 48$, pero al lado izquierdo queda $3n-3\\neq n$. Lo correcto era dividir entre $3$ ambos lados."
+     "why": "Al restar $3$ al lado derecho queda $51 - 3 = 48$, pero al lado izquierdo queda $3n-3\\neq n$. Lo correcto era dividir entre $3$ ambos lados.",
+     "fb": [
+      "Dividir ambos lados por $3$ daría $n=17$, que es correcto.",
+      "Comprueba: $3\\cdot48=144$, no $51$.",
+      "No hay ningún signo que cambiar: el $3$ multiplica a $n$.",
+      ""
+     ]
     },
     {
      "q": "Cierta situación puede ser representada por la ecuación $4(t + 1) - 5 = 23$. Un estudiante la quiere simplificar y la reescribe como $4t - 5 = 22$. ¿Obtiene una ecuación que representa la misma situación?",
@@ -1091,7 +1511,13 @@
       "Sí, pues son equivalentes porque $23-1=22$"
      ],
      "correct": 2,
-     "why": "Al restar $1$ a lado derecho queda $22$, pero al lado izquierdo queda $[4(t+1)-5]-1=4t+4-5-1=4t-2$."
+     "why": "Al restar $1$ a lado derecho queda $22$, pero al lado izquierdo queda $[4(t+1)-5]-1=4t+4-5-1=4t-2$.",
+     "fb": [
+      "Las ecuaciones equivalentes tienen las mismas soluciones; el problema es otro.",
+      "Revisa el desarrollo: $4(t+1)-5=4t-1$, no $4t-5+1$.",
+      "",
+      "Revisa: $4(t+1)-5=4t-1$, así que la ecuación es $4t-1=23$."
+     ]
     },
     {
      "q": "Un recipiente tiene $5\\,\\mathrm{L}$ y otro recipiente tiene $8\\,\\mathrm{L}$. Si a cada recipiente se le debe agregar exactamente el mismo volumen, ¿cuántos litros se le debe agregar a cada recipiente para que tengan el mismo volumen?\n(La cantidad de litros $x$ que se le agrega a cada recipiente debe cumplir $5 + x = 8 + x$.) ",
@@ -1102,7 +1528,13 @@
       "Se le deben agregar $13\\,\\mathrm{L}$"
      ],
      "correct": 0,
-     "why": "Si a ambos se le agrega el mismo volumen, un recipiente tendrá siempre $3\\,\\mathrm{L}$ menos que el otro, luego nunca tendrán lo mismo."
+     "why": "Si a ambos se le agrega el mismo volumen, un recipiente tendrá siempre $3\\,\\mathrm{L}$ menos que el otro, luego nunca tendrán lo mismo.",
+     "fb": [
+      "",
+      "Con $3\\,\\mathrm{L}$ quedan $8$ y $11$ litros.",
+      "Con $6\\,\\mathrm{L}$ quedan $11$ y $14$ litros.",
+      "Con $13\\,\\mathrm{L}$ quedan $18$ y $21$ litros."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -1364,7 +1796,13 @@
      ],
      "correct": 0,
      "why": "Sumamos $10$: $7x = 49$; luego dividimos por 7: $x = 7$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "$29$ sale de $39-10$: el $10$ se **suma**, $7x=49$.",
+      "Con $x=6$: $7\\cdot6-10=32$, no $39$.",
+      "Con $x=8$: $7\\cdot8-10=46$, no $39$."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$2x-10 = -6$$",
@@ -1376,7 +1814,13 @@
      ],
      "correct": 3,
      "why": "Sumamos $10$: $2x = 4$; luego dividimos por 2: $x = 2$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Con $x=3$: $2\\cdot3-10=-4$, no $-6$.",
+      "El $10$ se suma en ambos lados: $2x=4$.",
+      "Falta dividir bien: $2x=4$ da $x=2$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -1397,7 +1841,13 @@
      ],
      "correct": 0,
      "why": "Restamos $3x$: $2x +7 = 19$; restamos $7$: $2x=12$; dividimos por 2: $x = 6$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Agrupa: $5x-3x=19-7$, es decir $2x=12$.",
+      "Revisa: al pasar $7$ se resta; $2x=12$.",
+      "Revisa los signos: $2x=12$ da $x$ positivo."
+     ]
     },
     {
      "q": "Para resolver $4x + 4 = 12$, ¿cuál es un primer paso correcto?",
@@ -1409,7 +1859,13 @@
      ],
      "correct": 2,
      "why": "Primero se despeja el término con $x$: restamos 4 a ambos lados y queda $4x = 8$. Las otras alterativas no aplican correctamente las propiedades de la aritmética.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Restar $4$ deja $4x=8$: la $x$ sigue multiplicada por $4$.",
+      "Al dividir por $4$, **todos** los términos se dividen: $x+1=3$.",
+      "",
+      "Al dividir por $4$, también el $4$ y el $12$ se dividen: $x+1=3$."
+     ]
     },
     {
      "type": "input",
@@ -1514,13 +1970,19 @@
      "q": "Para resolver $5x - 9 =8 - x$, ¿cuál es un primer paso correcto?",
      "options": [
       "Dividir ambos lados por $5$",
-      "Sumar $9$ a ambos lados",
-      "Restar $x$ a ambos lados",
+      "Restar $9$ a ambos lados",
+      "Sumar $x$ a ambos lados",
       "Sumar $8$ a ambos lados"
      ],
      "correct": 2,
-     "why": "Se busca agrupar los términos con $x$ y los números por separado, aplicando la operación inversa en ambos lados. Las otras alternativas entregan ecuaciones equivalentes, pero no simplifican la ecuación.",
-     "level": 1
+     "why": "Se busca agrupar los términos con $x$ en un lado: sumando $x$ a ambos lados queda $6x-9=8$. Las otras alternativas entregan ecuaciones equivalentes, pero no simplifican la ecuación.",
+     "level": 1,
+     "fb": [
+      "Es válido, pero deja fracciones y no agrupa los términos con $x$.",
+      "Es válido, pero aleja los números: queda $5x-18=-1-x$.",
+      "",
+      "Es válido, pero no agrupa nada: queda $5x-1=16-x$."
+     ]
     },
     {
      "q": "Para resolver $7x - 7 = 42$, ¿cuál es un primer paso correcto?",
@@ -1532,7 +1994,13 @@
      ],
      "correct": 1,
      "why": "Se busca agrupar los términos con $x$ y los números por separado, aplicando la operación inversa en ambos lados. Las otras alternativas entregan ecuaciones equivalentes, pero no simplifican la ecuación.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Es válido, pero no simplifica: queda $49x-49=294$.",
+      "",
+      "Restar $7$ es válido, pero aleja el número: queda $7x-14=35$.",
+      "No se divide por la incógnita: se divide por $7$ (y después de sumar $7$)."
+     ]
     },
     {
      "q": "La solución de la ecuación\n$$\\frac{x}{3}+1 = 4$$\nes:",
@@ -1544,7 +2012,13 @@
      ],
      "correct": 3,
      "why": "Restamos 1: $\\frac{x}{3}=3$; multiplicamos por $3$: $x=9$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$12$ sale de $3\\cdot4$: primero hay que restar $1$.",
+      "Revisa: $\\frac{x}{3}=3$, así que $x=3\\cdot3$.",
+      "$11$ sale de restar $1$ después de multiplicar: primero se resta $1$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -1574,7 +2048,13 @@
      ],
      "correct": 0,
      "why": "Restamos 41: $-6x = -36$; dividimos por $(-6)$: $x = 6$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Revisa: $41-6x=5$ da $6x=36$.",
+      "Revisa el signo: $-6x=-36$ da $x=6$.",
+      "$36$ es $6x$; falta dividir por $6$."
+     ]
     },
     {
      "type": "input",
@@ -1726,7 +2206,13 @@
      ],
      "correct": 1,
      "why": "Restar $2,5x$: $0,5x+0,25=1$; restar $0,25$: $0,5x=0,75$; dividir por $0,5$ y simplificar: $x=\\frac{3}{2}$",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa el signo: $0{,}5x=0{,}75$ da $x$ positivo.",
+      "",
+      "Se divide $0{,}75$ por $0{,}5$, no al revés.",
+      "Agrupa: $3x-2{,}5x=1-0{,}25$, es decir $0{,}5x=0{,}75$."
+     ]
     },
     {
      "q": "¿Cuál es la solución de la ecuación $12x + 23 = x + 60$?",
@@ -1738,7 +2224,13 @@
      ],
      "correct": 2,
      "why": "Al despejar se obtiene $x = \\dfrac{37}{11}$; al reemplazar, ambos lados valen $\\dfrac{697}{11}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa: $12x-x=60-23$, es decir $11x=37$.",
+      "Revisa: $60-23=37$, no $15$.",
+      "",
+      "Revisa el signo: $11x=37$ da $x$ positivo."
+     ]
     },
     {
      "type": "input",
@@ -1935,7 +2427,12 @@
      "$n = 4$"
     ],
     "correct": 2,
-    "why": "Planteamos $12 + 2n = 20$, luego $2n = 8$ y $n = 4$."
+    "why": "Planteamos $12 + 2n = 20$, luego $2n = 8$ y $n = 4$.",
+    "fb": [
+     "Con $10$ masas mide $12+20=32\\,\\mathrm{cm}$.",
+     "Con $16$ masas mide $12+32=44\\,\\mathrm{cm}$.",
+     ""
+    ]
    },
    "draw": 5,
    "checks": [
@@ -1955,7 +2452,13 @@
       "$8\\,\\mathrm{s}$"
      ],
      "correct": 3,
-     "why": "Planteamos: $39+5t=79$; restamos 39: $5t = 40$; dividimos por 5: $t = 8$."
+     "why": "Planteamos: $39+5t=79$; restamos 39: $5t = 40$; dividimos por 5: $t = 8$.",
+     "fb": [
+      "Con $9\\,\\mathrm{s}$: $39+45=84$, no $79$.",
+      "Se resta $39$: $5t=40$.",
+      "$40$ es lo que sube; falta dividir por $5$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -1973,7 +2476,13 @@
       "$4\\,\\mathrm{min}$"
      ],
      "correct": 3,
-     "why": "Planteamos: $21+5t=41$; restamos 21: $5t = 20$; dividimos por 5: $t = 4$."
+     "why": "Planteamos: $21+5t=41$; restamos 21: $5t = 20$; dividimos por 5: $t = 4$.",
+     "fb": [
+      "$20$ son los grados que sube; falta dividir por $5$.",
+      "Se resta $21$: $5t=20$.",
+      "Con $5\\,\\mathrm{min}$: $21+25=46$, no $41$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -1991,7 +2500,13 @@
       "$18\\,\\mathrm{min}$"
      ],
      "correct": 1,
-     "why": "Planteamos: $39+3t=57$; restamos 39: $3t = 18$; dividimos por 3: $t = 6$."
+     "why": "Planteamos: $39+3t=57$; restamos 39: $3t = 18$; dividimos por 3: $t = 6$.",
+     "fb": [
+      "Con $32\\,\\mathrm{min}$ bajaría $96\\,\\mathrm{m}$: revisa $3t=57-39$.",
+      "",
+      "Con $7\\,\\mathrm{min}$: $39+21=60$, no $57$.",
+      "$18$ son los metros que baja; falta dividir por $3$."
+     ]
     },
     {
      "type": "input",
@@ -2009,7 +2524,13 @@
       "$35\\,^\\circ\\mathrm{C}$"
      ],
      "correct": 3,
-     "why": "Reemplazamos: $95 = \\frac{9}{5}C + 32$. Restamos 32: $63 = \\frac{9}{5}C$; multiplicamos por $\\frac{5}{9}$: $C = 35$."
+     "why": "Reemplazamos: $95 = \\frac{9}{5}C + 32$. Restamos 32: $63 = \\frac{9}{5}C$; multiplicamos por $\\frac{5}{9}$: $C = 35$.",
+     "fb": [
+      "Primero se resta $32$ y luego se multiplica por $\\frac{5}{9}$.",
+      "$63$ es $95-32$; falta multiplicar por $\\frac{5}{9}$.",
+      "Revisa: $\\frac{5}{9}\\cdot63=35$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -2027,7 +2548,13 @@
       "$20\\,\\mathrm{h}$"
      ],
      "correct": 2,
-     "why": "Planteamos: $50-5t=30$; restamos 50: $-5t = -20$; dividimos por $-5$: $t = 4$."
+     "why": "Planteamos: $50-5t=30$; restamos 50: $-5t = -20$; dividimos por $-5$: $t = 4$.",
+     "fb": [
+      "El tiempo no puede ser negativo: revisa el signo, $-5t=-20$.",
+      "Revisa: $50-30=20$ y $20\\div5=4$.",
+      "",
+      "$20$ son los centímetros que se consumen; falta dividir por $5$."
+     ]
     },
     {
      "type": "input",
@@ -2045,7 +2572,13 @@
       "$12\\,\\mathrm{s}$"
      ],
      "correct": 0,
-     "why": "Agrupamos: $2t = 12$; dividimos por 2: $t = 6$."
+     "why": "Agrupamos: $2t = 12$; dividimos por 2: $t = 6$.",
+     "fb": [
+      "",
+      "Con $2\\,\\mathrm{s}$: $12$ y $20$ metros; no coinciden.",
+      "Agrupa: $6t-4t=12$, es decir $2t=12$.",
+      "$12$ es la ventaja en metros; falta dividir por $2$."
+     ]
     },
     {
      "type": "input",
@@ -2063,7 +2596,13 @@
       "$\\dfrac{36}{5}\\,\\mathrm{h}$"
      ],
      "correct": 1,
-     "why": "Agrupamos: $4t = 36$; dividimos por 4: $t = 9$."
+     "why": "Agrupamos: $4t = 36$; dividimos por 4: $t = 9$.",
+     "fb": [
+      "$36$ es la ventaja en km; falta dividir por $4$.",
+      "",
+      "Con $6\\,\\mathrm{h}$: $30$ y $42$ km; no coinciden.",
+      "Agrupa: $5t-t=36$, es decir $4t=36$."
+     ]
     },
     {
      "type": "input",
@@ -2081,7 +2620,13 @@
       "$5\\,\\mathrm{h}$"
      ],
      "correct": 0,
-     "why": "Agrupamos: $2t = 8$; dividimos por 2: $t = 4$."
+     "why": "Agrupamos: $2t = 8$; dividimos por 2: $t = 4$.",
+     "fb": [
+      "",
+      "Revisa: $-7t+5t=20-28$, es decir $-2t=-8$.",
+      "$8$ es la diferencia de alturas; falta dividir por $2$.",
+      "Con $5\\,\\mathrm{h}$ la primera vela ya se consumió."
+     ]
     },
     {
      "q": "Dos tanques tienen $39\\,\\mathrm{L}$ y $18\\,\\mathrm{L}$, y se vacían a $9\\,\\mathrm{L}$ y $6\\,\\mathrm{L}$ por hora, respectivamente. Tienen igual volumen cuando el tiempo $t$ en horas cumple $39 - 9t = 18 - 6t$. ¿Después de cuántas horas tienen el mismo volumen?",
@@ -2092,7 +2637,13 @@
       "$21\\,\\mathrm{h}$"
      ],
      "correct": 1,
-     "why": "Agrupamos: $3t = 21$; dividimos por 3: $t = 7$."
+     "why": "Agrupamos: $3t = 21$; dividimos por 3: $t = 7$.",
+     "fb": [
+      "Con $8\\,\\mathrm{h}$ los tanques tendrían volumen negativo.",
+      "",
+      "Revisa: $39-18=21$ y $-9t+6t=-3t$.",
+      "$21$ es la diferencia de litros; falta dividir por $3$."
+     ]
     },
     {
      "q": "Un resorte tiene largo natural de $11\\,\\mathrm{cm}$. Su longitud $L$ (en $\\mathrm{cm}$) al ser estirado cumple $6(L - 11) = 12$. ¿Cuánto mide el resorte estirado?",
@@ -2103,7 +2654,13 @@
       "$14\\,\\mathrm{cm}$"
      ],
      "correct": 2,
-     "why": "Dividimos por 6: $L - 11 = 2$; sumamos 11: $L = 13$."
+     "why": "Dividimos por 6: $L - 11 = 2$; sumamos 11: $L = 13$.",
+     "fb": [
+      "$23=11+12$: primero hay que dividir por $6$.",
+      "$2$ es cuánto se estira; el largo es $11+2$.",
+      "",
+      "Revisa: $6(L-11)=12$ da $L-11=2$."
+     ]
     },
     {
      "q": "Un resorte de largo natural $5\\,\\mathrm{cm}$ se estira hasta tener una longitud $L$ (en $\\mathrm{cm}$) que cumple $3(L - 5) = 18$. ¿Cuál es el largo $L$ del resorte estirado?",
@@ -2114,7 +2671,13 @@
       "$6\\,\\mathrm{cm}$"
      ],
      "correct": 0,
-     "why": "Dividimos por 3: $L - 5 = 6$; sumamos 5: $L = 11$."
+     "why": "Dividimos por 3: $L - 5 = 6$; sumamos 5: $L = 11$.",
+     "fb": [
+      "",
+      "$23=5+18$: primero hay que dividir por $3$.",
+      "Revisa: $3(L-5)=18$ da $L-5=6$.",
+      "$6$ es cuánto se estira; el largo es $5+6$."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -2398,7 +2961,13 @@
      ],
      "correct": 1,
      "why": "Dividimos por 3: $x - 1 = 7$, y sumamos 1: $x = 8$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Al distribuir, el $3$ multiplica también al $-1$: $3x-3=21$.",
+      "",
+      "Con $x=7$: $3\\cdot6=18$, no $21$.",
+      "Con $x=6$: $3\\cdot5=15$, no $21$."
+     ]
     },
     {
      "q": "Resuelve la ecuación:\n$$\\frac{x}{4} + 4 = 8$$",
@@ -2410,7 +2979,13 @@
      ],
      "correct": 0,
      "why": "Multiplicar por 4: $x+16=32$; restar 16: $x=16$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "$48$ sale de multiplicar $12$ por $4$: primero se resta $4$, $\\frac{x}{4}=4$.",
+      "Revisa: $\\frac{x}{4}=4$ da $x=4\\cdot4$.",
+      "Con $x=4$: $1+4=5$, no $8$."
+     ]
     },
     {
      "type": "input",
@@ -2431,7 +3006,13 @@
      ],
      "correct": 3,
      "why": "Multiplicamos 4 por cada término del paréntesis: $4 \\cdot x - 4 \\cdot 1$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El $4$ multiplica también al $1$: $4\\cdot(-1)=-4$.",
+      "El $4$ multiplica a la $x$: queda $4x$.",
+      "Revisa el signo: $4\\cdot(-1)=-4$.",
+      ""
+     ]
     },
     {
      "q": "Al aplicar la propiedad distributiva a $2(x + 7)$ se obtiene:",
@@ -2443,7 +3024,13 @@
      ],
      "correct": 1,
      "why": "Multiplicamos por 2 cada término del paréntesis: $2 \\cdot x + 2 \\cdot 7$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El $2$ multiplica también al $7$: $2\\cdot7=14$.",
+      "",
+      "El $2$ multiplica también a la $x$: $2x$.",
+      "Revisa el signo: $2\\cdot7=+14$."
+     ]
     },
     {
      "type": "input",
@@ -2536,7 +3123,13 @@
      ],
      "correct": 0,
      "why": "Se multiplica $8$ por cada término del paréntesis: $8\\cdot 2x + 8\\cdot4$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "El $8$ multiplica al $2x$: $8\\cdot2x=16x$.",
+      "El $8$ multiplica al $2x$: $16x$.",
+      "El $8$ multiplica también al $4$: $32$."
+     ]
     },
     {
      "q": "Al aplicar la propiedad distributiva a $2(3 - 4x)$ se obtiene:",
@@ -2548,7 +3141,13 @@
      ],
      "correct": 3,
      "why": "Se multiplica $2$ por cada término del paréntesis: $2\\cdot 3 - 2\\cdot4x$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa: $2\\cdot3=6$ y $2\\cdot(-4x)=-8x$.",
+      "Revisa los signos: $2\\cdot(-4x)=-8x$.",
+      "El $2$ multiplica también al $-4x$: $-8x$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -2578,7 +3177,13 @@
      ],
      "correct": 3,
      "why": "Restamos 2: $4(x + 6) = 32$. Distribuimos: $4x + 24 = 32$.\nDespejamos $x$: $x = 2$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Con $x=3$: $4\\cdot9+2=38$, no $34$.",
+      "Falta restar el $2$ antes de dividir: $4(x+6)=32$.",
+      "Revisa: $4(x+6)=32$ da $x+6=8$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -2608,7 +3213,13 @@
      ],
      "correct": 0,
      "why": "Distribuimos: $7x + 7 = x + 49$. Agrupamos: $6x = 42$, así que $x = 7$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Revisa el signo: $6x=42$ da $x$ positivo.",
+      "Al distribuir: $7x+7=x+49$, y luego $6x=42$.",
+      "Agrupa: $7x-x=49-7$, es decir $6x=42$."
+     ]
     },
     {
      "type": "input",
@@ -2624,12 +3235,18 @@
      "options": [
       "$x=9$",
       "$x=-\\dfrac{5}{3}$",
-      "$x=\\dfrac{17}{5}$",
-      "$x=\\dfrac{19}{5}$"
+      "$x=\\dfrac{19}{5}$",
+      "$x=-\\dfrac{19}{5}$"
      ],
      "correct": 3,
-     "why": "Multiplicamos por 15: $5(x + 7) = 16$; distribuimos: $5x+35=16$; despejamos: $x = \\frac{19}{5}$.",
-     "level": 2
+     "why": "Multiplicamos por 15: $5(x + 7) = 16$; distribuimos: $5x+35=16$; despejamos: $5x=-19$, así que $x = -\\frac{19}{5}$.",
+     "level": 2,
+     "fb": [
+      "$9$ sale de $16-7$: también hay que multiplicar por $15$.",
+      "Revisa: al multiplicar por $15$ queda $5(x+7)=16$.",
+      "Revisa el signo: $5x=16-35=-19$.",
+      ""
+     ]
     },
     {
      "type": "input",
@@ -2757,7 +3374,13 @@
      ],
      "correct": 3,
      "why": "El $(-5)$ multiplica a cada término: $(-5)\\cdot x + (-5)\\cdot10$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El $-5$ multiplica también al $10$: $-5\\cdot10=-50$.",
+      "Revisa el signo: $-5\\cdot x=-5x$.",
+      "El $-5$ multiplica también al $10$: $-50$.",
+      ""
+     ]
     },
     {
      "q": "Al aplicar la propiedad distributiva a $-8(x - 12)$ se obtiene:",
@@ -2769,7 +3392,13 @@
      ],
      "correct": 2,
      "why": "El $(-8)$ multiplica a cada término: $(-8)\\cdot x - (-8)\\cdot12$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El $-8$ multiplica también al $-12$: $-8\\cdot(-12)=+96$.",
+      "Revisa el signo: $-8\\cdot x=-8x$.",
+      "",
+      "Revisa el signo: $-8\\cdot(-12)=+96$."
+     ]
     },
     {
      "type": "input",
@@ -2963,7 +3592,13 @@
      ],
      "correct": 0,
      "why": "Se distribuye cada factor y se reducen los términos semejantes: $31x - 25$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Revisa: $-5\\cdot(-1)=+5$, así que $-30+5=-25$.",
+      "Revisa: $36x-5x=31x$.",
+      "Revisa: $-30+5=-25$, no $-4$."
+     ]
     }
    ],
    "check": {
@@ -2974,7 +3609,12 @@
      "$V = 72\\,\\mathrm{mL}$"
     ],
     "correct": 0,
-    "why": "Multiplicamos por el inverso de la fracción: $V = 18 \\cdot \\frac{4}{3} = 24$."
+    "why": "Multiplicamos por el inverso de la fracción: $V = 18 \\cdot \\frac{4}{3} = 24$.",
+    "fb": [
+     "",
+     "$13{,}5$ es $\\frac{3}{4}\\cdot18$: se divide por $\\frac{3}{4}$, no se multiplica.",
+     "$72$ es $4\\cdot18$; falta dividir por $3$."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -2994,7 +3634,13 @@
       "$8$"
      ],
      "correct": 2,
-     "why": "Dividimos por 2: $x + 4 = 10$; entonces $x = 6$."
+     "why": "Dividimos por 2: $x + 4 = 10$; entonces $x = 6$.",
+     "fb": [
+      "Con $x=10$: $2\\cdot14=28$, no $20$.",
+      "$14$ sale de $10+4$: se resta $4$, $x=10-4$.",
+      "",
+      "Con $x=8$: $2\\cdot12=24$, no $20$."
+     ]
     },
     {
      "type": "input",
@@ -3012,7 +3658,13 @@
       "$1$"
      ],
      "correct": 2,
-     "why": "Dividimos por 5: $x - 1 = 2$; entonces $x = 3$."
+     "why": "Dividimos por 5: $x - 1 = 2$; entonces $x = 3$.",
+     "fb": [
+      "$2$ es $x-1$; falta sumar $1$.",
+      "Revisa: $5(x-1)=10$ da $x-1=2$.",
+      "",
+      "Con $x=1$ no quedaría nada: $5\\cdot0=0$."
+     ]
     },
     {
      "type": "input",
@@ -3030,7 +3682,13 @@
       "$10$"
      ],
      "correct": 1,
-     "why": "Dividimos por 5: $x - 5 = 10$; entonces $x = 15$."
+     "why": "Dividimos por 5: $x - 5 = 10$; entonces $x = 15$.",
+     "fb": [
+      "Con $x=5$ no quedaría nada: $5\\cdot0=0$.",
+      "",
+      "Revisa: $5(x-5)=50$ da $x-5=10$.",
+      "$10$ es lo que queda; falta sumar los $5\\,\\mathrm{g}$ perdidos."
+     ]
     },
     {
      "type": "input",
@@ -3048,7 +3706,13 @@
       "$51\\,\\mathrm{g}$"
      ],
      "correct": 1,
-     "why": "Multiplicamos por 3: $x + 17 + 17 = 51$. Entonces $x = 51 - 34 = 17$."
+     "why": "Multiplicamos por 3: $x + 17 + 17 = 51$. Entonces $x = 51 - 34 = 17$.",
+     "fb": [
+      "Con $20\\,\\mathrm{g}$ la media sería $18$, no $17$.",
+      "",
+      "$85$ no es una masa razonable: revisa $x+34=51$.",
+      "$51$ es la suma total; falta restar $14$ y $20$."
+     ]
     },
     {
      "type": "input",
@@ -3066,7 +3730,13 @@
       "$19\\,\\mathrm{cm}$"
      ],
      "correct": 1,
-     "why": "Multiplicamos por 5: $x + 20 + 25 + 22 + 24 = 105$. Entonces $x = 105 - 91 = 14$."
+     "why": "Multiplicamos por 5: $x + 20 + 25 + 22 + 24 = 105$. Entonces $x = 105 - 91 = 14$.",
+     "fb": [
+      "$105$ es la suma total; falta restar las otras alturas.",
+      "",
+      "Con $21\\,\\mathrm{cm}$ la media sería mayor que $21$.",
+      "Revisa: $20+25+22+24=91$ y $105-91=14$."
+     ]
     },
     {
      "type": "input",
@@ -3098,7 +3768,13 @@
       "$\\dfrac{25}{2}\\,\\mathrm{h}$"
      ],
      "correct": 0,
-     "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 6$ horas."
+     "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 6$ horas.",
+     "fb": [
+      "",
+      "$150=10\\cdot15$: multiplica por $30$ para quitar denominadores.",
+      "Juntas tardan **menos** que cada una por separado.",
+      "Juntas no tardan el promedio: tardan menos que la más rápida."
+     ]
     },
     {
      "type": "input",
@@ -3116,7 +3792,13 @@
       "$25\\,\\mathrm{h}$"
      ],
      "correct": 0,
-     "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 6$ horas."
+     "why": "Multiplicamos por el mínimo común múltiplo: se obtiene $t = 6$ horas.",
+     "fb": [
+      "",
+      "$150=10\\cdot15$: multiplica por $30$ para quitar denominadores.",
+      "Juntos no tardan el promedio: tardan menos que el más rápido.",
+      "Juntos tardan **menos** que cada uno por separado."
+     ]
     },
     {
      "q": "Una dosis $x$ (en mg) cumple que su tercio menos su cuarto es igual a $5\\,\\mathrm{mg}$, es decir $\\dfrac{x}{3} - \\dfrac{x}{4} = 5$. ¿Cuánto vale $x$?",
@@ -3127,7 +3809,13 @@
       "$60\\,\\mathrm{mg}$"
      ],
      "correct": 3,
-     "why": "Multiplicamos por 12 (múltiplo común): $4x - 3x = 60$; luego $x = 60$."
+     "why": "Multiplicamos por 12 (múltiplo común): $4x - 3x = 60$; luego $x = 60$.",
+     "fb": [
+      "Multiplica por $12$: $4x-3x=60$.",
+      "Con $35$: $\\frac{35}{3}-\\frac{35}{4}\\neq5$. Multiplica por $12$.",
+      "Multiplica por $12$: $4x-3x=60$.",
+      ""
+     ]
     },
     {
      "q": "De un volumen $x$ de gas, la tercera parte menos la sexta parte es $12\\,\\mathrm{L}$, de modo que $\\dfrac{x}{3} - \\dfrac{x}{6} = 12$. ¿Cuánto vale $x$ en litros?",
@@ -3138,18 +3826,30 @@
       "$216\\,\\mathrm{L}$"
      ],
      "correct": 0,
-     "why": "Multiplicamos por 18 (mcm): $6x - 3x = 216$; luego $x = 72$."
+     "why": "Multiplicamos por 18 (mcm): $6x - 3x = 216$; luego $x = 72$.",
+     "fb": [
+      "",
+      "Multiplica por $6$: $2x-x=72$.",
+      "Multiplica por $6$: $2x-x=72$.",
+      "Multiplica por $6$: $2x-x=72$; no se multiplica de nuevo."
+     ]
     },
     {
      "q": "Un laboratorio cuenta con $x\\,\\mathrm{mg}$ de un compuesto. Un tercio de esto se utiliza en cierto experimento y un cuarto se utiliza en otro, y quedan $37{,}5\\,\\mathrm{mg}$ del compuesto, de modo que $x-\\dfrac{x}{3} - \\dfrac{x}{4} = 37{,}5$. ¿Cuántos $\\mathrm{mg}$ del compuesto había inicialmente?",
      "options": [
-      "$7{,}5\\,\\mathrm{g}$",
-      "$450\\,\\mathrm{g}$",
-      "$90\\,\\mathrm{g}$",
-      "$225\\,\\mathrm{g}$"
+      "$7{,}5\\,\\mathrm{mg}$",
+      "$450\\,\\mathrm{mg}$",
+      "$90\\,\\mathrm{mg}$",
+      "$225\\,\\mathrm{mg}$"
      ],
      "correct": 2,
-     "why": "Multiplicar por 12 (mcm): $12x - 4x - 3x = 450$; reducir $5x = 450$; dividir por $5$: $x=90$."
+     "why": "Multiplicar por 12 (mcm): $12x - 4x - 3x = 450$; reducir $5x = 450$; dividir por $5$: $x=90$.",
+     "fb": [
+      "Multiplica por $12$: $12x-4x-3x=450$.",
+      "$450$ es $5x$; falta dividir por $5$.",
+      "",
+      "Revisa: $12x-4x-3x=5x$, no $2x$."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -3451,7 +4151,12 @@
      ],
      "correct": 0,
      "why": "Dividimos ambos lados por $v$: $t = \\frac{d}{v}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La variable está multiplicada, no sumada: se divide, no se resta."
+     ]
     },
     {
      "q": "Despeja $t$ en la fórmula:\n$$v = \\dfrac{d}{t}$$",
@@ -3463,7 +4168,13 @@
      ],
      "correct": 0,
      "why": "Multiplicamos por $t$: $vt = d$; luego dividimos por $v$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "Primero se multiplica por $t$ y después se divide por $v$: $t=\\frac{d}{v}$."
+     ]
     },
     {
      "q": "Despeja $h$ en la fórmula:\n$$A = bh$$",
@@ -3475,7 +4186,13 @@
      ],
      "correct": 2,
      "why": "Dividimos ambos lados por $b$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "",
+      "La variable está multiplicada, no sumada: se divide, no se resta."
+     ]
     },
     {
      "q": "Despeja $a$ en la fórmula:\n$$F = ma$$",
@@ -3487,7 +4204,13 @@
      ],
      "correct": 3,
      "why": "Dividimos por $m$ (segunda ley de Newton).",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      ""
+     ]
     },
     {
      "q": "Despeja $h$ en la fórmula:\n$$V = lah$$",
@@ -3499,7 +4222,13 @@
      ],
      "correct": 1,
      "why": "Dividimos por el producto $la$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "$l$ y $a$ multiplican a $h$: se divide por el producto $la$."
+     ]
     },
     {
      "q": "Despeja $R$ en la fórmula:\n$$V = IR$$",
@@ -3511,7 +4240,13 @@
      ],
      "correct": 1,
      "why": "Ley de Ohm: dividimos por $I$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica."
+     ]
     },
     {
      "q": "Despeja $C$ en la fórmula:\n$$K = C + 273$$",
@@ -3523,7 +4258,13 @@
      ],
      "correct": 0,
      "why": "Restamos 273 a ambos lados.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Revisa el orden: $C=K-273$, no $273-K$."
+     ]
     },
     {
      "type": "input",
@@ -3551,7 +4292,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $v$ solo: $v = S - V$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "",
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "Revisa el orden: $v=S-V$, no $V-S$."
+     ]
     },
     {
      "type": "input",
@@ -3571,7 +4318,13 @@
      ],
      "correct": 2,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $y$ solo: $y = F + z$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el orden: queda $y=F+z$.",
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "type": "input",
@@ -3591,7 +4344,13 @@
      ],
      "correct": 0,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $W$ solo: $W = TQ$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Para deshacer una división se **multiplica** a ambos lados.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Para deshacer la división por $Q$ se **multiplica** por $Q$."
+     ]
     },
     {
      "q": "Despeja $R$ en la fórmula: $$m = \\dfrac{E}{R}$$",
@@ -3603,7 +4362,13 @@
      ],
      "correct": 3,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $R$ solo: $R = \\dfrac{E}{m}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Primero se multiplica por $R$ y después se divide por $m$.",
+      ""
+     ]
     },
     {
      "q": "Despeja $V$ en la fórmula: $$N = \\dfrac{Vb}{2}$$",
@@ -3615,7 +4380,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $V$ solo: $V = \\dfrac{2N}{b}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el $2$: al multiplicar por $2$ en ambos lados, el $2$ queda en el numerador.",
+      "",
+      "Revisa: al despejar, $b$ pasa dividiendo y $2$ pasa multiplicando.",
+      "$b$ multiplica a $V$: pasa **dividiendo**."
+     ]
     },
     {
      "q": "Despeja $p$ en la fórmula: $$B = \\dfrac{Pp}{2}$$",
@@ -3627,7 +4398,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $p$ solo: $p = \\dfrac{2B}{P}$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el $2$: al multiplicar por $2$ en ambos lados, el $2$ queda en el numerador.",
+      "",
+      "$P$ multiplica a $p$: pasa **dividiendo**.",
+      "Revisa: al despejar, $P$ pasa dividiendo y $2$ pasa multiplicando."
+     ]
     },
     {
      "type": "input",
@@ -3662,7 +4439,12 @@
      ],
      "correct": 1,
      "why": "Primero restamos $n$ a ambos lados y luego dividimos todo por $m$: $y - n = mx$, de donde $x = \\frac{y - n}{m}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      "",
+      "Para deshacer la multiplicación por $m$ se divide, no se multiplica."
+     ]
     },
     {
      "q": "Despeja $m$ en la fórmula:\n$$y = mx + n$$",
@@ -3674,7 +4456,13 @@
      ],
      "correct": 3,
      "why": "Restamos $n$ y dividimos por $x$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Para deshacer la multiplicación por $x$ se divide, no se multiplica.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      ""
+     ]
     },
     {
      "q": "Despeja $l$ en la fórmula:\n$$P = 2l + 2a$$",
@@ -3686,7 +4474,13 @@
      ],
      "correct": 1,
      "why": "Restamos $2a$ y dividimos todo por 2.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Al dividir por $2$, también el $2a$ se divide: queda $a$, no $2a$.",
+      "",
+      "Revisa: $2l=P-2a$; falta dividir **todo** por $2$.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "q": "Despeja $t$ en la fórmula:\n$$v = v_0 + at$$",
@@ -3698,7 +4492,13 @@
      ],
      "correct": 2,
      "why": "Restamos $v_0$ y dividimos por $a$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "",
+      "Para deshacer la multiplicación por $a$ se divide, no se multiplica."
+     ]
     },
     {
      "q": "Despeja $a$ en la fórmula:\n$$v = v_0 + at$$",
@@ -3710,7 +4510,13 @@
      ],
      "correct": 3,
      "why": "Restamos $v_0$ y dividimos por $t$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      "Para deshacer la multiplicación por $t$ se divide, no se multiplica.",
+      ""
+     ]
     },
     {
      "q": "Despeja $v$ en la fórmula:\n$$d = d_0 + vt$$",
@@ -3722,7 +4528,13 @@
      ],
      "correct": 3,
      "why": "Restamos $d_0$ y dividimos por $t$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Para deshacer la multiplicación por $t$ se divide, no se multiplica.",
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      ""
+     ]
     },
     {
      "q": "Despeja $x$ en la fórmula:\n$$\\dfrac{x}{a} = \\dfrac{y}{b}$$",
@@ -3734,7 +4546,13 @@
      ],
      "correct": 2,
      "why": "Multiplicamos ambos lados por $a$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa: se multiplica por $a$ en ambos lados, así que $a$ queda en el numerador y $b$ en el denominador.",
+      "$a$ divide a $x$: se multiplica, no se suma.",
+      "",
+      "Se multiplica por $a$ en ambos lados: $a$ va al numerador."
+     ]
     },
     {
      "type": "input",
@@ -3754,7 +4572,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $p$ solo: $p = S - fd$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "",
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "Revisa el orden: $p=S-fd$, no $fd-S$."
+     ]
     },
     {
      "type": "input",
@@ -3790,7 +4614,13 @@
      ],
      "correct": 3,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $Q$ solo: $Q = \\dfrac{v - 2S}{2}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Al dividir por $2$, el $2S$ queda $S$ y se **resta**.",
+      "Primero se resta $2S$, no $S$.",
+      "Falta dividir por $2$, y se resta $2S$.",
+      ""
+     ]
     },
     {
      "q": "Despeja $v$ en la fórmula: $$W = 2k + 2v$$",
@@ -3802,7 +4632,13 @@
      ],
      "correct": 0,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $v$ solo: $v = \\dfrac{W - 2k}{2}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Al dividir por $2$, el $2k$ queda $k$ y se **resta**.",
+      "Falta dividir por $2$, y se resta $2k$.",
+      "Primero se resta $2k$, no $k$."
+     ]
     },
     {
      "type": "input",
@@ -3830,7 +4666,13 @@
      ],
      "correct": 2,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $Z$ solo: $Z = \\dfrac{B + k}{a}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "$a$ multiplica a $Z$: se divide, no se resta.",
+      "Primero se suma $k$ y después se divide **todo** por $a$.",
+      "",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "type": "input",
@@ -3850,7 +4692,13 @@
      ],
      "correct": 0,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $g$ solo: $g = Q(D - z)$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "$Q$ divide a $g$: se **multiplica** por $Q$.",
+      "Se multiplica **todo** el lado por $Q$: $Q(D-z)$.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "q": "Despeja $h$ en la fórmula: $$r = \\dfrac{q}{h} + D$$",
@@ -3862,7 +4710,13 @@
      ],
      "correct": 3,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $h$ solo: $h = \\dfrac{q}{r - D}$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Primero se resta $D$; después se despeja $h$, que está en el denominador.",
+      "La fracción quedó invertida: $h$ está en el denominador.",
+      "Comprueba: con $h=q(r-D)$, $\\frac{q}{h}$ no da $r-D$.",
+      ""
+     ]
     },
     {
      "q": "Despeja $h$ en la fórmula:\n$$A = \\dfrac{bh}{2}$$",
@@ -3874,7 +4728,13 @@
      ],
      "correct": 0,
      "why": "Multiplicamos por 2: $2A = bh$; luego dividimos por $b$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Para deshacer la división por $2$ se multiplica, y $b$ pasa **dividiendo**.",
+      "Para deshacer la división por $2$ se multiplica por $2$, no se resta.",
+      "Revisa el $2$: al multiplicar por $2$ en ambos lados, el $2$ queda en el numerador."
+     ]
     },
     {
      "q": "Despeja $C$ en la fórmula:\n$$F = \\dfrac{9}{5}C + 32$$",
@@ -3886,7 +4746,13 @@
      ],
      "correct": 0,
      "why": "Restamos 32 y multiplicamos por $\\frac{5}{9}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Al multiplicar por $\\frac{5}{9}$, el $5$ queda en el numerador y el $9$ en el denominador.",
+      "Primero se resta $32$; después se multiplica **todo** por $\\frac{5}{9}$."
+     ]
     },
     {
      "q": "Despeja $y$ en la fórmula:\n$$ax + by = c$$",
@@ -3898,7 +4764,13 @@
      ],
      "correct": 2,
      "why": "Restamos $ax$ y dividimos por $b$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$b$ multiplica a $y$: se divide **todo** por $b$.",
+      "Revisa el signo: $by=c-ax$.",
+      "",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "q": "Despeja $h$ en la fórmula:\n$$A = \\dfrac{(B + b)h}{2}$$",
@@ -3910,7 +4782,13 @@
      ],
      "correct": 3,
      "why": "Multiplicamos por 2 y dividimos por $(B + b)$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$B+b$ multiplica a $h$: pasa **dividiendo**.",
+      "Se divide por la suma completa $(B+b)$, no solo por $B$.",
+      "Revisa: el $2$ pasa multiplicando a $A$.",
+      ""
+     ]
     },
     {
      "q": "Despeja $B$ en la fórmula:\n$$A = \\dfrac{(B + b)h}{2}$$",
@@ -3922,7 +4800,13 @@
      ],
      "correct": 1,
      "why": "Multiplicamos por 2, dividimos por $h$ y restamos $b$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "",
+      "Revisa: $2A=(B+b)h$, así que $\\frac{2A}{h}=B+b$.",
+      "Primero se divide por $h$ y después se resta $b$."
+     ]
     },
     {
      "q": "Despeja $m$ en la fórmula:\n$$Q = mcT$$",
@@ -3934,7 +4818,13 @@
      ],
      "correct": 2,
      "why": "Dividimos por el producto $cT$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "",
+      "$c$ y $T$ multiplican a $m$: se divide por el producto $cT$."
+     ]
     },
     {
      "q": "Despeja $M$ en la fórmula: $$v = \\dfrac{(L + D)M}{2}$$",
@@ -3946,7 +4836,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $M$ solo: $M = \\dfrac{2v}{L + D}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "$L+D$ multiplica a $M$: pasa **dividiendo**.",
+      "",
+      "Revisa: el $2$ pasa multiplicando a $v$.",
+      "Se divide por la suma completa $(L+D)$."
+     ]
     },
     {
      "type": "input",
@@ -3974,7 +4870,13 @@
      ],
      "correct": 0,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $L$ solo: $L = \\dfrac{TQ}{E}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Se multiplica por $T$ en ambos lados: $T$ va al numerador y $E$ queda en el denominador.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Revisa: se multiplica por $T$, así que $Q$ queda en el numerador."
+     ]
     },
     {
      "q": "Despeja $f$ en la fórmula: $$\\dfrac{m}{y} = \\dfrac{n}{f}$$",
@@ -3986,7 +4888,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $f$ solo: $f = \\dfrac{yn}{m}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Despeja $f$ con cuidado: $f$ está en el denominador.",
+      "",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Comprueba: multiplica en cruz, $mf=yn$."
+     ]
     },
     {
      "q": "Despeja $g$ en la fórmula: $$\\dfrac{1}{Q} = \\dfrac{1}{g} + \\dfrac{1}{N}$$",
@@ -3998,7 +4906,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $g$ solo: $g = \\dfrac{QN}{N - Q}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Ese es el valor de $\\frac{1}{g}$; falta invertir.",
+      "",
+      "Revisa: $\\frac{1}{g}=\\frac{1}{Q}-\\frac{1}{N}$, una **resta**.",
+      "No se puede despejar como si fueran sumas simples: los recíprocos no se restan así."
+     ]
     },
     {
      "q": "Despeja $p$ en la fórmula: $$s = \\dfrac{1}{2}pW^2$$",
@@ -4010,7 +4924,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $p$ solo: $p = \\dfrac{2s}{W^2}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa: $W$ está al cuadrado, así que se divide por $W^2$.",
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "Revisa el $2$: al multiplicar por $2$ en ambos lados, el $2$ queda en el numerador."
+     ]
     },
     {
      "type": "input",
@@ -4046,7 +4966,13 @@
      ],
      "correct": 2,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $y$ solo: $y = \\dfrac{H}{s} - B$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Primero se divide **todo** por $s$; después se resta $B$.",
+      "",
+      "Primero se divide **todo** por $s$: $\\frac{H}{s}$."
+     ]
     },
     {
      "q": "Despeja $w$ en la fórmula: $$a = d + \\dfrac{w}{T}$$",
@@ -4058,7 +4984,13 @@
      ],
      "correct": 0,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $w$ solo: $w = T(a - d)$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "$T$ divide a $w$: se **multiplica** por $T$.",
+      "Primero se resta $d$; después se multiplica por $T$.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando."
+     ]
     },
     {
      "q": "Despeja $A$ en la fórmula: $$t = z + \\dfrac{m}{A}$$",
@@ -4070,7 +5002,13 @@
      ],
      "correct": 1,
      "why": "Se aplican las operaciones inversas en el orden correcto hasta dejar $A$ solo: $A = \\dfrac{m}{t - z}$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Primero se resta $z$; después se despeja $A$, que está en el denominador.",
+      "",
+      "La fracción quedó invertida: $A$ está en el denominador.",
+      "Comprueba: con $A=m(t-z)$, $\\frac{m}{A}$ no da $t-z$."
+     ]
     },
     {
      "type": "input",
@@ -4089,7 +5027,12 @@
      "$T = \\dfrac{PV}{nR}$"
     ],
     "correct": 2,
-    "why": "Dividimos ambos lados por el producto $nR$: $T = \\frac{PV}{nR}$."
+    "why": "Dividimos ambos lados por el producto $nR$: $T = \\frac{PV}{nR}$.",
+    "fb": [
+     "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+     "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+     ""
+    ]
    },
    "draw": 5,
    "checks": [
@@ -4102,7 +5045,13 @@
       "$V = \\dfrac{nRT}{P}$"
      ],
      "correct": 3,
-     "why": "Dividimos ambos lados por $P$."
+     "why": "Dividimos ambos lados por $P$.",
+     "fb": [
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Revisa: se divide **solo** por $P$; $T$ queda en el numerador.",
+      ""
+     ]
     },
     {
      "q": "En la ley de los gases ideales $PV = nRT$, despeja la temperatura $T$.",
@@ -4113,7 +5062,13 @@
       "$T = \\dfrac{nR}{PV}$"
      ],
      "correct": 1,
-     "why": "Dividimos por el producto $nR$."
+     "why": "Dividimos por el producto $nR$.",
+     "fb": [
+      "$n$ y $R$ multiplican a $T$: se divide por el producto $nR$.",
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "En la ley de los gases ideales $PV = nRT$, despeja la cantidad de sustancia $n$.",
@@ -4124,7 +5079,13 @@
       "$n = \\dfrac{RT}{PV}$"
      ],
      "correct": 1,
-     "why": "Dividimos por el producto $RT$."
+     "why": "Dividimos por el producto $RT$.",
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "",
+      "$T$ también multiplica a $n$: se divide por $RT$.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "La densidad de una sustancia es $\\rho = \\dfrac{m}{V}$. Despeja el volumen $V$.",
@@ -4135,7 +5096,13 @@
       "$V = m - \\rho$"
      ],
      "correct": 0,
-     "why": "Multiplicamos por $V$ y luego dividimos por $\\rho$."
+     "why": "Multiplicamos por $V$ y luego dividimos por $\\rho$.",
+     "fb": [
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "La variable está multiplicada, no sumada: se divide, no se resta."
+     ]
     },
     {
      "q": "La densidad es $\\rho = \\dfrac{m}{V}$. Despeja la masa $m$.",
@@ -4146,7 +5113,13 @@
       "$m = \\dfrac{V}{\\rho}$"
      ],
      "correct": 1,
-     "why": "Multiplicamos ambos lados por $V$."
+     "why": "Multiplicamos ambos lados por $V$.",
+     "fb": [
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "",
+      "$V$ divide a $m$: se **multiplica**, no se suma.",
+      "Para deshacer la división por $V$ se **multiplica** por $V$."
+     ]
     },
     {
      "q": "El calor necesario para cambiar la temperatura de una masa es $Q = mc\\Delta T$. Despeja el calor específico $c$.",
@@ -4157,7 +5130,13 @@
       "$c = \\dfrac{Q}{m\\Delta T}$"
      ],
      "correct": 3,
-     "why": "Dividimos por el producto $m\\Delta T$."
+     "why": "Dividimos por el producto $m\\Delta T$.",
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "$m$ y $\\Delta T$ multiplican a $c$: se divide por el producto $m\\Delta T$.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      ""
+     ]
     },
     {
      "q": "En $Q = mc\\Delta T$, despeja la variación de temperatura $\\Delta T$.",
@@ -4168,7 +5147,13 @@
       "$\\Delta T = \\dfrac{Q}{m} - c$"
      ],
      "correct": 2,
-     "why": "Dividimos por el producto $mc$."
+     "why": "Dividimos por el producto $mc$.",
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "",
+      "$m$ y $c$ multiplican a $\\Delta T$: se divide por el producto $mc$."
+     ]
     },
     {
      "q": "La ley de Ohm es $V = IR$. Despeja la corriente $I$.",
@@ -4179,7 +5164,13 @@
       "$I = VR$"
      ],
      "correct": 0,
-     "why": "Dividimos ambos lados por $R$."
+     "why": "Dividimos ambos lados por $R$.",
+     "fb": [
+      "",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica."
+     ]
     },
     {
      "q": "La potencia eléctrica es $P = VI$. Despeja el voltaje $V$.",
@@ -4190,7 +5181,13 @@
       "$V = P - I$"
      ],
      "correct": 2,
-     "why": "Dividimos ambos lados por $I$."
+     "why": "Dividimos ambos lados por $I$.",
+     "fb": [
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "",
+      "La variable está multiplicada, no sumada: se divide, no se resta."
+     ]
     },
     {
      "q": "El trabajo realizado por una fuerza constante es $W = Fd$. Despeja la distancia $d$.",
@@ -4201,7 +5198,13 @@
       "$d = \\dfrac{F}{W}$"
      ],
      "correct": 1,
-     "why": "Dividimos ambos lados por $F$."
+     "why": "Dividimos ambos lados por $F$.",
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "La velocidad media es $v = \\dfrac{d}{t}$. Despeja la distancia $d$.",
@@ -4212,7 +5215,13 @@
       "$d = \\dfrac{t}{v}$"
      ],
      "correct": 1,
-     "why": "Multiplicamos ambos lados por $t$."
+     "why": "Multiplicamos ambos lados por $t$.",
+     "fb": [
+      "$t$ divide a $d$: se **multiplica**, no se divide.",
+      "",
+      "$t$ divide a $d$: se multiplica, no se suma.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "En un movimiento con aceleración constante, $v = v_0 + at$. Despeja la velocidad inicial $v_0$.",
@@ -4223,7 +5232,13 @@
       "$v_0 = at - v$"
      ],
      "correct": 2,
-     "why": "Restamos $at$ a ambos lados."
+     "why": "Restamos $at$ a ambos lados.",
+     "fb": [
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "",
+      "Revisa el orden: $v_0=v-at$."
+     ]
     },
     {
      "q": "En $v = v_0 + at$, despeja el tiempo $t$.",
@@ -4234,7 +5249,13 @@
       "$t = a(v - v_0)$"
      ],
      "correct": 0,
-     "why": "Restamos $v_0$ y dividimos por $a$."
+     "why": "Restamos $v_0$ y dividimos por $a$.",
+     "fb": [
+      "",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Primero se deshace la suma o la resta; después se divide **todo** el lado.",
+      "Para deshacer la multiplicación por $a$ se divide, no se multiplica."
+     ]
     },
     {
      "q": "La ley de Hooke para un resorte es $F = kx$. Despeja la constante $k$.",
@@ -4245,7 +5266,13 @@
       "$k = Fx$"
      ],
      "correct": 2,
-     "why": "Dividimos ambos lados por $x$."
+     "why": "Dividimos ambos lados por $x$.",
+     "fb": [
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica."
+     ]
     },
     {
      "q": "La molaridad de una solución es $M = \\dfrac{n}{V}$. Despeja la cantidad de sustancia $n$.",
@@ -4256,7 +5283,13 @@
       "$n = MV$"
      ],
      "correct": 3,
-     "why": "Multiplicamos ambos lados por $V$."
+     "why": "Multiplicamos ambos lados por $V$.",
+     "fb": [
+      "$V$ divide a $n$: se **multiplica**, no se divide.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "$V$ divide a $n$: se multiplica, no se suma.",
+      ""
+     ]
     },
     {
      "q": "La presión es $p = \\dfrac{F}{A}$. Despeja el área $A$.",
@@ -4267,7 +5300,13 @@
       "$A = \\dfrac{p}{F}$"
      ],
      "correct": 2,
-     "why": "Multiplicamos por $A$ y luego dividimos por $p$."
+     "why": "Multiplicamos por $A$ y luego dividimos por $p$.",
+     "fb": [
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "Comprueba: con $A=Fp$, $\\frac{F}{A}$ no da $p$.",
+      "",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "En química, $\\mathrm{pH} + \\mathrm{pOH} = 14$. Despeja $\\mathrm{pOH}$.",
@@ -4278,7 +5317,13 @@
       "$\\mathrm{pOH} = 14 - \\mathrm{pH}$"
      ],
      "correct": 3,
-     "why": "Restamos pH a ambos lados."
+     "why": "Restamos pH a ambos lados.",
+     "fb": [
+      "La variable está sumada, no multiplicada: se resta, no se divide.",
+      "Revisa el signo: lo que se suma pasa restando y lo que se resta pasa sumando.",
+      "Revisa el orden: $\\mathrm{pOH}=14-\\mathrm{pH}$.",
+      ""
+     ]
     },
     {
      "q": "El calor necesario para fundir una sustancia es $Q = mL$. Despeja el calor latente $L$.",
@@ -4289,7 +5334,13 @@
       "$L = \\dfrac{m}{Q}$"
      ],
      "correct": 0,
-     "why": "Dividimos ambos lados por $m$."
+     "why": "Dividimos ambos lados por $m$.",
+     "fb": [
+      "",
+      "La variable está multiplicada, no sumada: se divide, no se resta.",
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula."
+     ]
     },
     {
      "q": "La cantidad de movimiento es $p = mv$. Despeja la velocidad $v$.",
@@ -4300,7 +5351,13 @@
       "$v = p - m$"
      ],
      "correct": 2,
-     "why": "Dividimos ambos lados por $m$."
+     "why": "Dividimos ambos lados por $m$.",
+     "fb": [
+      "Para deshacer una multiplicación se **divide** a ambos lados, no se multiplica.",
+      "La fracción quedó invertida. Comprueba reemplazando tu resultado en la fórmula.",
+      "",
+      "La variable está multiplicada, no sumada: se divide, no se resta."
+     ]
     }
    ],
    "drawCheck": 5,
@@ -4488,7 +5545,12 @@
      ],
      "correct": 1,
      "why": "El doble del número es $2x$, y a ese resultado se le suma 5: $2x + 5 = 17$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta."
+     ]
     },
     {
      "q": "El triple de un número, aumentado en 3, es igual a 38. ¿Qué ecuación representa esta situación?",
@@ -4500,7 +5562,13 @@
      ],
      "correct": 1,
      "why": "El triple del número es $3x$; luego se le suma 3: $3x + 3 = 38$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "",
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta."
+     ]
     },
     {
      "q": "El cuádruple de un número, aumentado en 2, es igual a 37. ¿Qué ecuación representa esta situación?",
@@ -4512,7 +5580,13 @@
      ],
      "correct": 1,
      "why": "El cuádruple del número es $4x$; luego se le suma 2: $4x + 2 = 37$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta."
+     ]
     },
     {
      "q": "El doble de un número, disminuido en 5, es igual a 33. ¿Qué ecuación representa esta situación?",
@@ -4524,7 +5598,13 @@
      ],
      "correct": 2,
      "why": "Primero se calcula el doble, $2x$, y luego se le restan 5.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "El orden importa: se parte del múltiplo del número y se le resta.",
+      "",
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta."
+     ]
     },
     {
      "q": "El doble de un número, disminuido en 4, es igual a 12. ¿Qué ecuación representa esta situación?",
@@ -4536,7 +5616,13 @@
      ],
      "correct": 1,
      "why": "Primero se calcula el doble, $2x$, y luego se le restan 4.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "El orden importa: se parte del múltiplo del número y se le resta."
+     ]
     },
     {
      "q": "La suma de dos números enteros consecutivos es 80. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -4548,7 +5634,13 @@
      ],
      "correct": 0,
      "why": "Si el menor es $x$, el siguiente es $x + 1$; se suman: $x + (x + 1) = 80$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "",
+      "Dos enteros consecutivos se diferencian en $1$: el siguiente de $x$ es $x+1$.",
+      "Revisa: $x+(x+1)=2x+1$, no $2x+2$.",
+      "Se pide la **suma**, no el producto."
+     ]
     },
     {
      "q": "Pedro tiene 2 años más que Ana, y entre los dos suman 59 años. Si Ana tiene $x$ años, ¿qué ecuación representa esta situación?",
@@ -4560,7 +5652,13 @@
      ],
      "correct": 2,
      "why": "Pedro tiene $x + 2$ años; la suma de las edades es $x + (x + 2) = 59$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "",
+      "Entre los dos **suman**: no se multiplica."
+     ]
     },
     {
      "q": "Un número disminuido en 7 es igual a 25. ¿Qué ecuación representa esta situación?",
@@ -4572,7 +5670,13 @@
      ],
      "correct": 2,
      "why": "«Disminuido en» indica una resta: $x - 7 = 25$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "«Disminuido» indica una resta, no una multiplicación.",
+      "«Disminuido» indica restar, no sumar.",
+      "",
+      "El orden importa: se parte del número y se le resta."
+     ]
     },
     {
      "q": "La suma de un número y 17 es igual a 36. ¿Qué ecuación representa esta situación?",
@@ -4584,7 +5688,13 @@
      ],
      "correct": 2,
      "why": "La suma se escribe $x + 17$ y es igual a 36.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "«La suma» es una suma, no un producto.",
+      "«La suma» indica sumar, no restar.",
+      "",
+      "Se intercambiaron los números: la suma de $x$ y el número es igual al resultado."
+     ]
     },
     {
      "q": "El cuádruple de un número, disminuido en 1, es igual a 19. ¿Qué ecuación representa esta situación?",
@@ -4596,7 +5706,13 @@
      ],
      "correct": 1,
      "why": "«El cuádruple de un número» es $4x$; «disminuido en 1» se resta: $4x - 1 = 19$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El múltiplo se aplica al número $x$, no al que se suma o resta.",
+      "",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta."
+     ]
     },
     {
      "q": "El cuádruple de un número, aumentado en 8, es igual a 60. ¿Qué ecuación representa esta situación?",
@@ -4608,7 +5724,13 @@
      ],
      "correct": 1,
      "why": "«El cuádruple de un número» es $4x$; «aumentado en 8» se suma: $4x + 8 = 60$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta.",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta."
+     ]
     },
     {
      "q": "La suma de un número y 17 es igual a 41. ¿Qué ecuación representa esta situación?",
@@ -4620,7 +5742,13 @@
      ],
      "correct": 2,
      "why": "La suma se escribe $x + 17$ y es igual a 41.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Se intercambiaron los números: la suma de $x$ y el número es igual al resultado.",
+      "«La suma» indica sumar, no restar.",
+      "",
+      "«La suma» es una suma, no un producto."
+     ]
     },
     {
      "q": "La suma de un número y 8 es igual a 20. ¿Qué ecuación representa esta situación?",
@@ -4632,7 +5760,13 @@
      ],
      "correct": 1,
      "why": "La suma se escribe $x + 8$ y es igual a 20.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "«La suma» indica sumar, no restar.",
+      "",
+      "«La suma» es una suma, no un producto.",
+      "Se intercambiaron los números: la suma de $x$ y el número es igual al resultado."
+     ]
     },
     {
      "q": "El quíntuple de un número, aumentado en 3, es igual a 43. ¿Qué ecuación representa esta situación?",
@@ -4644,7 +5778,13 @@
      ],
      "correct": 2,
      "why": "«El quíntuple de un número» es $5x$; «aumentado en 3» se suma: $5x + 3 = 43$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El múltiplo se aplica al número $x$, no al que se suma o resta.",
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta."
+     ]
     },
     {
      "q": "Un número disminuido en 12 es igual a 27. ¿Qué ecuación representa esta situación?",
@@ -4656,7 +5796,13 @@
      ],
      "correct": 1,
      "why": "«Disminuido en» indica una resta: $x - 12 = 27$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "El orden importa: se parte del número y se le resta.",
+      "",
+      "«Disminuido» indica una resta, no una multiplicación.",
+      "«Disminuido» indica restar, no sumar."
+     ]
     },
     {
      "q": "El quíntuple de un número, aumentado en 5, es igual a 45. ¿Qué ecuación representa esta situación?",
@@ -4668,7 +5814,13 @@
      ],
      "correct": 1,
      "why": "«El quíntuple de un número» es $5x$; «aumentado en 5» se suma: $5x + 5 = 45$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta."
+     ]
     },
     {
      "q": "La suma de un número y 9 es igual a 35. ¿Qué ecuación representa esta situación?",
@@ -4680,7 +5832,13 @@
      ],
      "correct": 3,
      "why": "La suma se escribe $x + 9$ y es igual a 35.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "«La suma» indica sumar, no restar.",
+      "«La suma» es una suma, no un producto.",
+      "Se intercambiaron los números: la suma de $x$ y el número es igual al resultado.",
+      ""
+     ]
     },
     {
      "q": "La suma de un número y 7 es igual a 12. ¿Qué ecuación representa esta situación?",
@@ -4692,7 +5850,13 @@
      ],
      "correct": 2,
      "why": "La suma se escribe $x + 7$ y es igual a 12.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Se intercambiaron los números: la suma de $x$ y el número es igual al resultado.",
+      "«La suma» indica sumar, no restar.",
+      "",
+      "«La suma» es una suma, no un producto."
+     ]
     },
     {
      "q": "3 más que el doble de un número es igual a 29. ¿Qué ecuación representa esta situación?",
@@ -4704,7 +5868,13 @@
      ],
      "correct": 1,
      "why": "«El doble de un número» es $2x$ y «3 más que» se suma: $2x + 3 = 29$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta.",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta."
+     ]
     },
     {
      "q": "El quíntuple de un número, aumentado en 1, es igual a 16. ¿Qué ecuación representa esta situación?",
@@ -4716,7 +5886,13 @@
      ],
      "correct": 3,
      "why": "«El quíntuple de un número» es $5x$; «aumentado en 1» se suma: $5x + 1 = 16$.",
-     "level": 1
+     "level": 1,
+     "fb": [
+      "Así se multiplica también el número que se suma o resta: la frase multiplica solo el número y **después** suma o resta.",
+      "Revisa el signo: «aumentado» suma y «disminuido» resta.",
+      "El múltiplo se aplica al número $x$, no al que se suma o resta.",
+      ""
+     ]
     },
     {
      "q": "El doble de la suma de un número y 3 es igual a 22. ¿Qué ecuación representa esta situación?",
@@ -4728,7 +5904,13 @@
      ],
      "correct": 1,
      "why": "La suma $x + 3$ se multiplica completa por 2, por eso va entre paréntesis.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "«El doble (o triple)» es multiplicar, no sumar.",
+      "",
+      "Se multiplica **toda** la suma, también la $x$.",
+      "Se multiplica **toda** la suma: hace falta el paréntesis."
+     ]
     },
     {
      "q": "El triple de la suma de un número y 2 es igual a 24. ¿Qué ecuación representa esta situación?",
@@ -4740,7 +5922,13 @@
      ],
      "correct": 0,
      "why": "La suma $x + 2$ se multiplica completa por 3, por eso va entre paréntesis.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Se multiplica **toda** la suma, también la $x$.",
+      "«El doble (o triple)» es multiplicar, no sumar.",
+      "Se multiplica **toda** la suma: hace falta el paréntesis."
+     ]
     },
     {
      "q": "La suma de un número y su tercera parte es igual a 38. ¿Qué ecuación representa esta situación?",
@@ -4752,19 +5940,31 @@
      ],
      "correct": 1,
      "why": "El número es $x$ y su tercera parte es $\\dfrac{x}{3}$; la suma es $x + \\dfrac{x}{3} = 38$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta sumar el número mismo: «la suma de un número y su parte».",
+      "",
+      "La parte es $\\frac{x}{3}$, no $3$.",
+      "La parte es $\\frac{x}{3}$, no $3x$."
+     ]
     },
     {
-     "q": "La suma de dos números enteros pares consecutivos es 41. Si el menor es $x$, ¿qué ecuación representa esta situación?",
+     "q": "La suma de dos números enteros pares consecutivos es 42. Si el menor es $x$, ¿qué ecuación representa esta situación?",
      "options": [
-      "$x + x + 4 = 41$",
-      "$x + (x + 1) = 41$",
-      "$x + (x + 2) = 41$",
-      "$x(x + 2) = 41$"
+      "$x + x + 4 = 42$",
+      "$x + (x + 1) = 42$",
+      "$x + (x + 2) = 42$",
+      "$x(x + 2) = 42$"
      ],
      "correct": 2,
      "why": "Si el menor es $x$, el siguiente es $x + 2$; se suman: $x + (x + 2) = 41$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Dos pares consecutivos se diferencian en $2$, no en $4$.",
+      "Dos pares consecutivos se diferencian en $2$: el siguiente de $x$ es $x+2$.",
+      "",
+      "Se pide la **suma**, no el producto."
+     ]
     },
     {
      "q": "Pedro tiene 11 años más que Ana, y entre los dos suman 50 años. Si Ana tiene $x$ años, ¿qué ecuación representa esta situación?",
@@ -4776,7 +5976,13 @@
      ],
      "correct": 3,
      "why": "Pedro tiene $x + 11$ años; la suma de las edades es $x + (x + 11) = 50$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Entre los dos **suman**: no se multiplica.",
+      ""
+     ]
     },
     {
      "q": "Un taxi cobra CLP 1500 fijos más CLP 350 por kilómetro. Si un viaje costó CLP 6400 y se recorrieron $x$ km, ¿qué ecuación representa esta situación?",
@@ -4788,7 +5994,13 @@
      ],
      "correct": 3,
      "why": "El costo fijo se suma una vez; el variable se multiplica por $x$: $1500 + 350x = 6400$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      "Se intercambiaron: el cobro fijo no se multiplica por los kilómetros.",
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      ""
+     ]
     },
     {
      "q": "Un taxi cobra CLP 1500 fijos más CLP 350 por kilómetro. Si un viaje costó CLP 5000 y se recorrieron $x$ km, ¿qué ecuación representa esta situación?",
@@ -4800,7 +6012,13 @@
      ],
      "correct": 2,
      "why": "El costo fijo se suma una vez; el variable se multiplica por $x$: $1500 + 350x = 5000$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      "Se intercambiaron: el cobro fijo no se multiplica por los kilómetros.",
+      "",
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$."
+     ]
     },
     {
      "q": "La suma de dos números enteros consecutivos es 35. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -4812,7 +6030,13 @@
      ],
      "correct": 2,
      "why": "El consecutivo de $x$ es $x + 1$: $x + (x + 1) = 35$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta sumar el menor: la suma es $x+(x+1)$.",
+      "Dos enteros consecutivos se diferencian en $1$: el siguiente de $x$ es $x+1$.",
+      "",
+      "Se pide la **suma**, no el producto."
+     ]
     },
     {
      "q": "Sofía ya tiene CLP 11000 ahorrados y ahorra CLP 4000 cada semana. Si llegará a CLP 55000 después de $x$ semanas, ¿qué ecuación representa esta situación?",
@@ -4824,7 +6048,13 @@
      ],
      "correct": 2,
      "why": "El ahorro total es lo que ya tiene más lo que ahorra: $11000 + 4000x = 55000$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Se intercambiaron: lo ya ahorrado no se multiplica por las semanas; lo que se multiplica es el ahorro semanal.",
+      "Cada semana el ahorro **aumenta**: se suma.",
+      "",
+      "Lo ya ahorrado se cuenta una vez: solo el ahorro semanal se multiplica por $x$."
+     ]
     },
     {
      "q": "La suma de un número y su cuarta parte es igual a 55. ¿Qué ecuación representa esta situación?",
@@ -4836,7 +6066,13 @@
      ],
      "correct": 3,
      "why": "La cuarta parte de $x$ es $\\frac{x}{4}$: $x + \\frac{x}{4} = 55$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Solo la parte se divide por $4$; el número va entero.",
+      "La parte es $\\frac{x}{4}$, no $4x$.",
+      "«La suma» indica sumar, no restar.",
+      ""
+     ]
     },
     {
      "q": "Un taxi cobra CLP 1200 fijos más CLP 400 por kilómetro. Si un viaje costó CLP 5200 y se recorrieron $x$ kilómetros, ¿qué ecuación representa esta situación?",
@@ -4848,7 +6084,13 @@
      ],
      "correct": 1,
      "why": "El costo es la parte fija más lo variable: $1200 + 400x = 5200$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Cada kilómetro **aumenta** el costo: se suma.",
+      "",
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      "Se intercambiaron: el cobro fijo no se multiplica por los kilómetros."
+     ]
     },
     {
      "q": "La suma de dos números enteros consecutivos es 97. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -4860,7 +6102,13 @@
      ],
      "correct": 3,
      "why": "El consecutivo de $x$ es $x + 1$: $x + (x + 1) = 97$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Falta sumar el menor: la suma es $x+(x+1)$.",
+      "Dos enteros consecutivos se diferencian en $1$: el siguiente de $x$ es $x+1$.",
+      "Se pide la **suma**, no el producto.",
+      ""
+     ]
     },
     {
      "q": "Rodrigo tiene 6 años más que Paula, y entre los dos suman 22 años. Si Paula tiene $x$ años, ¿qué ecuación representa esta situación?",
@@ -4872,7 +6120,13 @@
      ],
      "correct": 2,
      "why": "La edad de Rodrigo es $x + 6$: $x + (x + 6) = 22$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "",
+      "Entre los dos **suman**: no se multiplica."
+     ]
     },
     {
      "q": "La suma de un número y su tercera parte es igual a 20. ¿Qué ecuación representa esta situación?",
@@ -4884,7 +6138,13 @@
      ],
      "correct": 2,
      "why": "La tercera parte de $x$ es $\\frac{x}{3}$: $x + \\frac{x}{3} = 20$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "«La suma» indica sumar, no restar.",
+      "Solo la parte se divide por $3$; el número va entero.",
+      "",
+      "La parte es $\\frac{x}{3}$, no $3x$."
+     ]
     },
     {
      "q": "Un taxi cobra CLP 1800 fijos más CLP 350 por kilómetro. Si un viaje costó CLP 10200 y se recorrieron $x$ kilómetros, ¿qué ecuación representa esta situación?",
@@ -4896,7 +6156,13 @@
      ],
      "correct": 1,
      "why": "El costo es la parte fija más lo variable: $1800 + 350x = 10200$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      "",
+      "Se intercambiaron: el cobro fijo no se multiplica por los kilómetros.",
+      "Cada kilómetro **aumenta** el costo: se suma."
+     ]
     },
     {
      "q": "Sofía ya tiene CLP 15000 ahorrados y ahorra CLP 1000 cada semana. Si llegará a CLP 22000 después de $x$ semanas, ¿qué ecuación representa esta situación?",
@@ -4908,7 +6174,13 @@
      ],
      "correct": 3,
      "why": "El ahorro total es lo que ya tiene más lo que ahorra: $15000 + 1000x = 22000$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Cada semana el ahorro **aumenta**: se suma.",
+      "Se intercambiaron: lo ya ahorrado no se multiplica por las semanas; lo que se multiplica es el ahorro semanal.",
+      "Lo ya ahorrado se cuenta una vez: solo el ahorro semanal se multiplica por $x$.",
+      ""
+     ]
     },
     {
      "q": "Un taxi cobra CLP 2000 fijos más CLP 450 por kilómetro. Si un viaje costó CLP 4700 y se recorrieron $x$ kilómetros, ¿qué ecuación representa esta situación?",
@@ -4920,7 +6192,13 @@
      ],
      "correct": 1,
      "why": "El costo es la parte fija más lo variable: $2000 + 450x = 4700$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Cada kilómetro **aumenta** el costo: se suma.",
+      "",
+      "El cobro fijo se paga una vez: solo los pesos por kilómetro se multiplican por $x$.",
+      "Se intercambiaron: el cobro fijo no se multiplica por los kilómetros."
+     ]
     },
     {
      "q": "Sofía tiene 9 años más que Tomás, y entre los dos suman 43 años. Si Tomás tiene $x$ años, ¿qué ecuación representa esta situación?",
@@ -4932,7 +6210,13 @@
      ],
      "correct": 0,
      "why": "La edad de Sofía es $x + 9$: $x + (x + 9) = 43$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "",
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "Entre los dos **suman**: no se multiplica."
+     ]
     },
     {
      "q": "Camila tiene 15 años más que Diego, y entre los dos suman 59 años. Si Diego tiene $x$ años, ¿qué ecuación representa esta situación?",
@@ -4944,7 +6228,13 @@
      ],
      "correct": 2,
      "why": "La edad de Camila es $x + 15$: $x + (x + 15) = 59$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Entre los dos **suman**: no se multiplica.",
+      "",
+      "Tiene años **más**: su edad es $x$ más la diferencia."
+     ]
     },
     {
      "q": "El triple de la suma de un número y 8 es igual a 36. ¿Qué ecuación representa esta situación?",
@@ -4956,7 +6246,13 @@
      ],
      "correct": 1,
      "why": "La suma $x + 8$ se multiplica completa por 3: $3(x + 8) = 36$.",
-     "level": 2
+     "level": 2,
+     "fb": [
+      "«La suma» indica sumar dentro del paréntesis.",
+      "",
+      "Se multiplica **toda** la suma: hace falta el paréntesis.",
+      "Se multiplica **toda** la suma, también la $x$."
+     ]
     },
     {
      "q": "La suma de tres números enteros consecutivos es 48. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -4967,7 +6263,12 @@
      ],
      "correct": 2,
      "why": "Los consecutivos son $x$, $x + 1$ y $x + 2$, y el enunciado habla de su suma.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Los números no son iguales: cada uno es $1$ más que el anterior.",
+      "Se pide la **suma**, no el producto.",
+      ""
+     ]
     },
     {
      "q": "La suma de un número y su cuarta parte es igual a 41. ¿Qué ecuación representa esta situación?",
@@ -4979,7 +6280,13 @@
      ],
      "correct": 3,
      "why": "El número es $x$ y su cuarta parte es $\\dfrac{x}{4}$; la suma es $x + \\dfrac{x}{4} = 41$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "La parte es $\\frac{x}{4}$, no $4x$.",
+      "La parte es $\\frac{x}{4}$, no $4$.",
+      "Falta sumar el número mismo: «la suma de un número y su parte».",
+      ""
+     ]
     },
     {
      "q": "Un número aumentado en 4 es igual al doble del mismo número disminuido en 8. ¿Qué ecuación representa esta situación?",
@@ -4991,7 +6298,13 @@
      ],
      "correct": 0,
      "why": "«El doble del número disminuido en 8» es $2(x - 8)$, con paréntesis, porque se duplica el resultado de la resta.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "Sin coma, se duplica el número **disminuido**: $2(x-$…$)$.",
+      "«Disminuido» indica una resta: $2(x-$…$)$.",
+      "Lo que se duplica es el lado derecho, no el izquierdo."
+     ]
     },
     {
      "q": "Un número aumentado en 3 es igual al doble del mismo número, disminuido en 5. ¿Qué ecuación representa esta situación?",
@@ -5003,7 +6316,13 @@
      ],
      "correct": 2,
      "why": "«El doble del número disminuido en 5» es $2(x - 5)$, con paréntesis, porque se duplica el resultado de la resta.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Con la coma, se duplica el número y **después** se resta: $2x-$…",
+      "Con la coma, se duplica el número y **después** se resta: $2x-$…",
+      "",
+      "Lo que se duplica es el lado derecho, no el izquierdo."
+     ]
     },
     {
      "q": "Se reparten 45 fichas entre tres niños: el primero recibe $x$, el segundo recibe el doble que el primero y el tercero recibe 3 menos que el primero. ¿Qué ecuación representa esta situación?",
@@ -5015,7 +6334,13 @@
      ],
      "correct": 3,
      "why": "Las partes son $x$, $2x$ y $x - 3$; el total es la suma: $x + 2x + (x - 3) = 45$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Falta la $x$ del tercer niño: recibe $x$ más (o menos) el número.",
+      "El segundo recibe el **doble**: $2x$, no $x+2$.",
+      "El tercero recibe $3$ **menos** que el primero: $x-3$.",
+      ""
+     ]
     },
     {
      "q": "Se reparten 40 fichas entre tres niños: el primero recibe $x$, el segundo recibe el doble que el primero y el tercero recibe 4 más que el primero. ¿Qué ecuación representa esta situación?",
@@ -5027,7 +6352,13 @@
      ],
      "correct": 2,
      "why": "Las partes son $x$, $2x$ y $x + 4$; el total es la suma: $x + 2x + (x + 4) = 40$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "El segundo recibe el **doble**: $2x$, no $x+2$.",
+      "Se reparten las fichas: las cantidades se **suman**, no se multiplican.",
+      "",
+      "Falta la $x$ del tercer niño: recibe $x$ más (o menos) el número."
+     ]
     },
     {
      "q": "El perímetro de un rectángulo es 60 cm y su largo mide 6 cm menos que el triple de su ancho. Si el ancho es $x$, ¿qué ecuación representa esta situación?",
@@ -5039,7 +6370,13 @@
      ],
      "correct": 3,
      "why": "El largo es $3x - 6$ y el perímetro es el doble del ancho más largo.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Eso es la mitad del perímetro: cada lado aparece dos veces.",
+      "Ambos lados aparecen dos veces: también el largo se multiplica por $2$.",
+      "El largo es el triple del ancho, menos el número: $3x-$…, no $3(x-$…$)$.",
+      ""
+     ]
     },
     {
      "q": "La empresa A cobra CLP 3560 fijos más CLP 222 por hora, y la empresa B cobra CLP 662 fijos más CLP 348 por hora. Si $x$ es el número de horas para el cual ambas cobran lo mismo, ¿qué ecuación representa esta situación?",
@@ -5051,7 +6388,13 @@
      ],
      "correct": 2,
      "why": "El costo total de cada empresa es el costo fijo más el costo variable; se igualan: $3560 + 222x = 662 + 348x$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Cada empresa tiene su propio cobro: el fijo no se multiplica por las horas.",
+      "Se intercambiaron: lo que se multiplica por las horas es el cobro por hora, no el fijo.",
+      "",
+      "La empresa B también **suma** su cobro por hora."
+     ]
     },
     {
      "q": "La suma de tres números enteros consecutivos es 27. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5063,7 +6406,13 @@
      ],
      "correct": 1,
      "why": "Los tres números son $x$, $x + 1$ y $x + 2$: su suma es 27.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Los números no son iguales: cada uno es $1$ más que el anterior.",
+      "",
+      "Se pide la **suma**, no el producto.",
+      "Faltan las $x$ de los otros números: $x+(x+1)+(x+2)$."
+     ]
     },
     {
      "q": "La suma de tres números enteros consecutivos es 81. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5075,7 +6424,13 @@
      ],
      "correct": 3,
      "why": "Los tres números son $x$, $x + 1$ y $x + 2$: su suma es 81.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Se pide la **suma**, no el producto.",
+      "Los números no son iguales: cada uno es $1$ más que el anterior.",
+      "Faltan las $x$ de los otros números: $x+(x+1)+(x+2)$.",
+      ""
+     ]
     },
     {
      "q": "El perímetro de un rectángulo es 122 cm y su largo mide 7 cm menos que el triple de su ancho. Si el ancho es $x$, ¿qué ecuación representa esta situación?",
@@ -5087,19 +6442,31 @@
      ],
      "correct": 3,
      "why": "El largo es $3x - 7$ y el perímetro es el doble del ancho más largo.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Ambos lados aparecen dos veces: también el largo se multiplica por $2$.",
+      "Eso es la mitad del perímetro: cada lado aparece dos veces.",
+      "El largo es el triple del ancho, menos el número: $3x-$…, no $3(x-$…$)$.",
+      ""
+     ]
     },
     {
      "q": "Un número aumentado en 7 es igual al doble del mismo número disminuido en 8. ¿Qué ecuación representa esta situación?",
      "options": [
-      "$x + 7 = 2x - 16$",
+      "$2(x + 7) = x - 8$",
       "$x + 7 = 2x - 8$",
       "$x + 7 = 2(x + 8)$",
       "$x + 7 = 2(x - 8)$"
      ],
      "correct": 3,
      "why": "El doble de «un número disminuido en 8» es $2(x - 8)$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Lo que se duplica es el lado derecho, no el izquierdo.",
+      "Sin coma, se duplica el número **disminuido**: $2(x-$…$)$.",
+      "«Disminuido» indica una resta: $2(x-$…$)$.",
+      ""
+     ]
     },
     {
      "q": "Se reparten 45 fichas entre tres niños: el primero recibe $x$, el segundo recibe el doble que el primero y el tercero recibe 5 más que el primero. ¿Qué ecuación representa esta situación?",
@@ -5111,7 +6478,13 @@
      ],
      "correct": 3,
      "why": "Las tres partes son $x$, $2x$ y $x + 5$: su suma es 45.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Solo el segundo niño recibe el doble; el tercero recibe el primero más (o menos) el número.",
+      "Se reparten las fichas: las cantidades se **suman**, no se multiplican.",
+      "Falta la $x$ del tercer niño: recibe $x$ más (o menos) el número.",
+      ""
+     ]
     },
     {
      "q": "Dos números suman 76. Uno de ellos es el quíntuple del otro más 4. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5123,7 +6496,13 @@
      ],
      "correct": 2,
      "why": "El otro número es $5x + 4$: su suma con $x$ es 76.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Los números se **suman**, no se multiplican.",
+      "«El quíntuple (o cuádruple) del otro más el número»: se multiplica solo $x$ y después se suma.",
+      "",
+      "Falta el número que se suma al múltiplo del otro."
+     ]
     },
     {
      "q": "La suma de tres números enteros consecutivos es 36. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5135,7 +6514,13 @@
      ],
      "correct": 2,
      "why": "Los tres números son $x$, $x + 1$ y $x + 2$: su suma es 36.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Se pide la **suma**, no el producto.",
+      "Faltan las $x$ de los otros números: $x+(x+1)+(x+2)$.",
+      "",
+      "Los números no son iguales: cada uno es $1$ más que el anterior."
+     ]
     },
     {
      "q": "Se reparten 42 fichas entre tres niños: el primero recibe $x$, el segundo recibe el doble que el primero y el tercero recibe 6 más que el primero. ¿Qué ecuación representa esta situación?",
@@ -5147,7 +6532,13 @@
      ],
      "correct": 1,
      "why": "Las tres partes son $x$, $2x$ y $x + 6$: su suma es 42.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Falta la $x$ del tercer niño: recibe $x$ más (o menos) el número.",
+      "",
+      "Solo el segundo niño recibe el doble; el tercero recibe el primero más (o menos) el número.",
+      "Se reparten las fichas: las cantidades se **suman**, no se multiplican."
+     ]
     },
     {
      "q": "Se reparten 32 fichas entre tres niños: el primero recibe $x$, el segundo recibe el doble que el primero y el tercero recibe 4 más que el primero. ¿Qué ecuación representa esta situación?",
@@ -5159,7 +6550,13 @@
      ],
      "correct": 2,
      "why": "Las tres partes son $x$, $2x$ y $x + 4$: su suma es 32.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Solo el segundo niño recibe el doble; el tercero recibe el primero más (o menos) el número.",
+      "Falta la $x$ del tercer niño: recibe $x$ más (o menos) el número.",
+      "",
+      "Se reparten las fichas: las cantidades se **suman**, no se multiplican."
+     ]
     },
     {
      "q": "Dos números suman 50. Uno de ellos es el cuádruple del otro más 5. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5171,7 +6568,13 @@
      ],
      "correct": 0,
      "why": "El otro número es $4x + 5$: su suma con $x$ es 50.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "",
+      "«El quíntuple (o cuádruple) del otro más el número»: se multiplica solo $x$ y después se suma.",
+      "Falta el número que se suma al múltiplo del otro.",
+      "Los números se **suman**, no se multiplican."
+     ]
     },
     {
      "q": "Hoy un padre tiene el triple de la edad de su hijo. Dentro de 6 años, la edad del padre será el doble de la del hijo. Si el hijo tiene hoy $x$ años, ¿qué ecuación representa esta situación?",
@@ -5183,7 +6586,13 @@
      ],
      "correct": 1,
      "why": "Hoy el padre tiene $3x$; dentro de 6 años: padre $3x + 6$ e hijo $x + 6$.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Dentro de $6$ años, el padre también tendrá $6$ años más: $3x+6$.",
+      "",
+      "Hoy el padre tiene $3x$; dentro de $6$ años, $3x+6$, no $3(x+6)$.",
+      "Dentro de $6$ años la edad del hijo será $x+6$, y se multiplica completa por $2$."
+     ]
     },
     {
      "q": "Dos números suman 34. Uno de ellos es el cuádruple del otro más 4. Si el menor es $x$, ¿qué ecuación representa esta situación?",
@@ -5195,7 +6604,13 @@
      ],
      "correct": 2,
      "why": "El otro número es $4x + 4$: su suma con $x$ es 34.",
-     "level": 3
+     "level": 3,
+     "fb": [
+      "Los números se **suman**, no se multiplican.",
+      "Falta el número que se suma al múltiplo del otro.",
+      "",
+      "«El quíntuple (o cuádruple) del otro más el número»: se multiplica solo $x$ y después se suma."
+     ]
     }
    ],
    "check": {
@@ -5206,7 +6621,12 @@
      "$4 + 15t = 55$"
     ],
     "correct": 0,
-    "why": "La temperatura inicial se suma al aumento de $4\\,^\\circ\\mathrm{C}$ por cada minuto transcurrido: $15 + 4t = 55$, de donde $t = 10$."
+    "why": "La temperatura inicial se suma al aumento de $4\\,^\\circ\\mathrm{C}$ por cada minuto transcurrido: $15 + 4t = 55$, de donde $t = 10$.",
+    "fb": [
+     "",
+     "Falta el punto de partida, y lo que avanza cada vez se multiplica por $x$.",
+     "Falta el punto de partida, y lo que avanza cada vez se multiplica por $x$."
+    ]
    },
    "draw": 5,
    "checks": [
@@ -5219,7 +6639,13 @@
       "$x \\cdot 3x = 52$"
      ],
      "correct": 2,
-     "why": "La mezcla total es la suma de las dos partes: $x + 3x = 52$."
+     "why": "La mezcla total es la suma de las dos partes: $x + 3x = 52$.",
+     "fb": [
+      "Falta sumar la cantidad inicial $x$.",
+      "El triple de $x$ es $3x$, no $x+3$.",
+      "",
+      "El total es una **suma** de cantidades."
+     ]
     },
     {
      "q": "En un cultivo hay $x$ bacterias de tipo A y el triple de esa cantidad de tipo B; en total hay $52$. ¿Qué ecuación representa esta situación?",
@@ -5230,7 +6656,13 @@
       "$x + 3 = 52$"
      ],
      "correct": 2,
-     "why": "La mezcla total es la suma de las dos partes: $x + 3x = 52$."
+     "why": "La mezcla total es la suma de las dos partes: $x + 3x = 52$.",
+     "fb": [
+      "Falta sumar la cantidad inicial $x$.",
+      "El total es una **suma** de cantidades.",
+      "",
+      "El triple de $x$ es $3x$, no $x+3$."
+     ]
     },
     {
      "q": "Un ciclista parte a $10\\,\\mathrm{km}$ del inicio y avanza a $4\\,\\mathrm{km/h}$. Si $x$ son las horas de viaje, ¿qué ecuación permite saber cuándo estará a $22\\,\\mathrm{km}$ del inicio?",
@@ -5241,7 +6673,13 @@
       "$14x = 22$"
      ],
      "correct": 1,
-     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $10 + 4x = 22$."
+     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $10 + 4x = 22$.",
+     "fb": [
+      "Falta el punto de partida, y lo que avanza cada vez se multiplica por $x$.",
+      "",
+      "Lo que se multiplica por $x$ es lo que avanza cada hora (o segundo, o semana).",
+      "El punto de partida no se multiplica por $x$: se suma una vez."
+     ]
     },
     {
      "q": "Un dron está a $19\\,\\mathrm{m}$ de altura y sube $13\\,\\mathrm{m}$ por segundo. Si $x$ son los segundos, ¿qué ecuación permite saber cuándo estará a $71\\,\\mathrm{m}$?",
@@ -5252,7 +6690,13 @@
       "$13 + x = 71$"
      ],
      "correct": 2,
-     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $19 + 13x = 71$."
+     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $19 + 13x = 71$.",
+     "fb": [
+      "Lo que se multiplica por $x$ es lo que avanza cada hora (o segundo, o semana).",
+      "El punto de partida no se multiplica por $x$: se suma una vez.",
+      "",
+      "Falta el punto de partida, y lo que avanza cada vez se multiplica por $x$."
+     ]
     },
     {
      "q": "Una planta mide $24\\,\\mathrm{cm}$ y crece $6\\,\\mathrm{cm}$ por semana. Si $x$ son las semanas, ¿qué ecuación permite saber cuándo medirá $42\\,\\mathrm{cm}$?",
@@ -5263,7 +6707,13 @@
       "$24 + 6 = 42x$"
      ],
      "correct": 0,
-     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $24 + 6x = 42$."
+     "why": "La posición inicial se suma a lo que avanza en $x$ unidades de tiempo: $24 + 6x = 42$.",
+     "fb": [
+      "",
+      "Falta el punto de partida, y lo que avanza cada vez se multiplica por $x$.",
+      "El punto de partida no se multiplica por $x$: se suma una vez.",
+      "Lo que se multiplica por $x$ es lo que avanza cada hora (o segundo, o semana)."
+     ]
     },
     {
      "q": "Un terreno rectangular de cultivo tiene un largo que mide $3\\,\\mathrm{m}$ más que su ancho $x$. Si su perímetro es $42\\,\\mathrm{m}$, ¿qué ecuación representa esta situación?",
@@ -5274,7 +6724,13 @@
       "$x + (x + 3) = 42$"
      ],
      "correct": 2,
-     "why": "El perímetro suma dos anchos y dos largos: $2x + 2(x + 3) = 42$."
+     "why": "El perímetro suma dos anchos y dos largos: $2x + 2(x + 3) = 42$.",
+     "fb": [
+      "Eso es el área; el perímetro suma los cuatro lados.",
+      "Ambos lados aparecen dos veces: también el largo se multiplica por $2$.",
+      "",
+      "Eso es la mitad del perímetro: cada lado aparece dos veces."
+     ]
     },
     {
      "q": "Una piscina experimental rectangular tiene un largo $2\\,\\mathrm{m}$ mayor que su ancho $x$ y un perímetro de $28\\,\\mathrm{m}$. ¿Qué ecuación representa esta situación?",
@@ -5285,7 +6741,13 @@
       "$2x + (x + 2) = 28$"
      ],
      "correct": 2,
-     "why": "El perímetro suma dos anchos y dos largos: $2x + 2(x + 2) = 28$."
+     "why": "El perímetro suma dos anchos y dos largos: $2x + 2(x + 2) = 28$.",
+     "fb": [
+      "Eso es la mitad del perímetro: cada lado aparece dos veces.",
+      "Eso es el área; el perímetro suma los cuatro lados.",
+      "",
+      "Ambos lados aparecen dos veces: también el largo se multiplica por $2$."
+     ]
     },
     {
      "q": "Un fósil A tiene $6$ millones de años más que un fósil B. Entre ambos suman $48$ millones de años. Si B tiene $x$ millones de años, ¿qué ecuación representa esta situación?",
@@ -5296,7 +6758,13 @@
       "$x + 6 = 48$"
      ],
      "correct": 2,
-     "why": "El segundo fósil tiene $x + 6$ millones de años; la suma es $x + (x + 6) = 48$."
+     "why": "El segundo fósil tiene $x + 6$ millones de años; la suma es $x + (x + 6) = 48$.",
+     "fb": [
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "Entre los dos **suman**: no se multiplica.",
+      "",
+      "Así solo se escribe la edad del mayor: falta sumar la del menor."
+     ]
     },
     {
      "q": "Una roca A es $8$ millones de años más antigua que una roca B, y juntas suman $82$ millones de años. Si B tiene $x$ millones de años, ¿qué ecuación representa esta situación?",
@@ -5307,7 +6775,13 @@
       "$x(x + 8) = 82$"
      ],
      "correct": 0,
-     "why": "El segundo fósil tiene $x + 8$ millones de años; la suma es $x + (x + 8) = 82$."
+     "why": "El segundo fósil tiene $x + 8$ millones de años; la suma es $x + (x + 8) = 82$.",
+     "fb": [
+      "",
+      "Así solo se escribe la edad del mayor: falta sumar la del menor.",
+      "Tiene años **más**: su edad es $x$ más la diferencia.",
+      "Entre los dos **suman**: no se multiplica."
+     ]
     },
     {
      "q": "Un resorte de largo natural $15\\,\\mathrm{cm}$ tiene constante $7\\,\\mathrm{N/cm}$ y ejerce una fuerza de $21\\,\\mathrm{N}$. Si $x$ es su largo actual en cm, ¿qué ecuación representa esta situación?",
@@ -5318,7 +6792,13 @@
       "$x - 15 = 21$"
      ],
      "correct": 0,
-     "why": "La fuerza es la constante por el alargamiento, que es el largo menos el largo natural: $7(x - 15) = 21$."
+     "why": "La fuerza es la constante por el alargamiento, que es el largo menos el largo natural: $7(x - 15) = 21$.",
+     "fb": [
+      "",
+      "El estiramiento es el largo actual **menos** el natural.",
+      "La constante multiplica al estiramiento completo: $k(x-15)$.",
+      "Falta la constante: la fuerza es $k$ por el estiramiento."
+     ]
     },
     {
      "q": "Un resorte de largo natural $15\\,\\mathrm{cm}$ y constante $6\\,\\mathrm{N/cm}$ se estira hasta ejercer $12\\,\\mathrm{N}$. Si $x$ es su largo en cm, ¿qué ecuación representa esta situación?",
@@ -5329,7 +6809,13 @@
       "$6x - 15 = 12$"
      ],
      "correct": 2,
-     "why": "La fuerza es la constante por el alargamiento, que es el largo menos el largo natural: $6(x - 15) = 12$."
+     "why": "La fuerza es la constante por el alargamiento, que es el largo menos el largo natural: $6(x - 15) = 12$.",
+     "fb": [
+      "El estiramiento es el largo actual **menos** el natural.",
+      "Falta la constante: la fuerza es $k$ por el estiramiento.",
+      "",
+      "La constante multiplica al estiramiento completo: $k(x-15)$."
+     ]
     },
     {
      "q": "Un robot A va a $15\\,\\mathrm{m/min}$ y alcanza a un robot B que va a $9\\,\\mathrm{m/min}$ y salió $29\\,\\mathrm{m}$ antes. Si $x$ son los minutos hasta que A alcanza a B, ¿qué ecuación representa esta situación?",
@@ -5340,7 +6826,13 @@
       "$6x = 30$"
      ],
      "correct": 2,
-     "why": "El móvil rápido recorre $15x$; el lento recorre $9x$ más la ventaja de $29$: $15x = 9x + 29$."
+     "why": "El móvil rápido recorre $15x$; el lento recorre $9x$ más la ventaja de $29$: $15x = 9x + 29$.",
+     "fb": [
+      "La ventaja se **suma** a lo que recorre el más lento.",
+      "No se suman las distancias: el rápido recorre lo mismo que el lento **más** la ventaja.",
+      "",
+      "Revisa los números: la ventaja es la del enunciado."
+     ]
     },
     {
      "q": "Una lancha rápida va a $13\\,\\mathrm{km/h}$ y persigue a otra que va a $7\\,\\mathrm{km/h}$ y lleva $31\\,\\mathrm{km}$ de ventaja. Si $x$ son las horas hasta alcanzarla, ¿qué ecuación representa esta situación?",
@@ -5351,7 +6843,13 @@
       "$13x = 7x + 31$"
      ],
      "correct": 3,
-     "why": "El móvil rápido recorre $13x$; el lento recorre $7x$ más la ventaja de $31$: $13x = 7x + 31$."
+     "why": "El móvil rápido recorre $13x$; el lento recorre $7x$ más la ventaja de $31$: $13x = 7x + 31$.",
+     "fb": [
+      "No se suman las distancias: el rápido recorre lo mismo que el lento **más** la ventaja.",
+      "Revisa los números: la ventaja es la del enunciado.",
+      "La ventaja se **suma** a lo que recorre el más lento.",
+      ""
+     ]
     },
     {
      "q": "Un ciclista a $12\\,\\mathrm{m/s}$ persigue a otro a $5\\,\\mathrm{m/s}$ que tiene $18\\,\\mathrm{m}$ de ventaja. Si $x$ son los segundos hasta alcanzarlo, ¿qué ecuación representa esta situación?",
@@ -5362,7 +6860,13 @@
       "$12x = 5x - 18$"
      ],
      "correct": 2,
-     "why": "El móvil rápido recorre $12x$; el lento recorre $5x$ más la ventaja de $18$: $12x = 5x + 18$."
+     "why": "El móvil rápido recorre $12x$; el lento recorre $5x$ más la ventaja de $18$: $12x = 5x + 18$.",
+     "fb": [
+      "No se suman las distancias: el rápido recorre lo mismo que el lento **más** la ventaja.",
+      "Revisa los números: la ventaja es la del enunciado.",
+      "",
+      "La ventaja se **suma** a lo que recorre el más lento."
+     ]
     },
     {
      "q": "El número de bacterias de un cultivo aumentado en $32$ es igual al triple del número inicial $x$. ¿Qué ecuación representa esta situación?",
@@ -5373,7 +6877,13 @@
       "$3(x + 32) = x$"
      ],
      "correct": 2,
-     "why": "El número aumentado en 32, $x + 32$, es igual al triple, $3x$."
+     "why": "El número aumentado en 32, $x + 32$, es igual al triple, $3x$.",
+     "fb": [
+      "Se intercambiaron los números: es $x$ más el aumento, igual a $3x$.",
+      "La cantidad aumentada es $x+$…, y es igual a $3x$.",
+      "",
+      "Se triplica el número inicial, no la cantidad aumentada."
+     ]
     },
     {
      "q": "La cantidad de moléculas de una muestra aumentada en $6$ es igual al triple de la cantidad inicial $x$. ¿Qué ecuación representa esta situación?",
@@ -5384,7 +6894,13 @@
       "$x + 6 = 3x$"
      ],
      "correct": 3,
-     "why": "El número aumentado en 6, $x + 6$, es igual al triple, $3x$."
+     "why": "El número aumentado en 6, $x + 6$, es igual al triple, $3x$.",
+     "fb": [
+      "Se triplica el número inicial, no la cantidad aumentada.",
+      "La cantidad aumentada es $x+$…, y es igual a $3x$.",
+      "Se intercambiaron los números: es $x$ más el aumento, igual a $3x$.",
+      ""
+     ]
     },
     {
      "q": "Un medicamento se administra a razón de $3\\,\\mathrm{mg}$ por kilogramo y a un paciente le corresponden $228\\,\\mathrm{mg}$ en total. Si $x$ es su masa en kg, ¿qué ecuación representa esta situación?",
@@ -5395,7 +6911,13 @@
       "$3 - x = 228$"
      ],
      "correct": 1,
-     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $3x = 228$."
+     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $3x = 228$.",
+     "fb": [
+      "La tasa se aplica a cada unidad: se multiplica, no se suma.",
+      "",
+      "La cantidad total es la tasa **por** la cantidad: se multiplica.",
+      "Cada unidad **suma** la tasa: se multiplica, no se resta."
+     ]
     },
     {
      "q": "Un fertilizante se aplica a razón de $7\\,\\mathrm{g}$ por metro cuadrado y se usan $532\\,\\mathrm{g}$ en total. Si $x$ es el área en $\\mathrm{m^2}$, ¿qué ecuación representa esta situación?",
@@ -5406,7 +6928,13 @@
       "$7x = 532$"
      ],
      "correct": 3,
-     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $7x = 532$."
+     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $7x = 532$.",
+     "fb": [
+      "La cantidad total es la tasa **por** la cantidad: se multiplica.",
+      "Cada unidad **suma** la tasa: se multiplica, no se resta.",
+      "La tasa se aplica a cada unidad: se multiplica, no se suma.",
+      ""
+     ]
     },
     {
      "q": "Un reactor produce $12\\,\\mathrm{g}$ de producto por hora y produjo $372\\,\\mathrm{g}$ en total. Si $x$ son las horas de funcionamiento, ¿qué ecuación representa esta situación?",
@@ -5417,7 +6945,13 @@
       "$\\dfrac{12}{x} = 372$"
      ],
      "correct": 2,
-     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $12x = 372$."
+     "why": "La dosis total es la dosis por kg multiplicada por el peso $x$: $12x = 372$.",
+     "fb": [
+      "Cada unidad **suma** la tasa: se multiplica, no se resta.",
+      "La tasa se aplica a cada unidad: se multiplica, no se suma.",
+      "",
+      "La cantidad total es la tasa **por** la cantidad: se multiplica."
+     ]
     }
    ],
    "drawCheck": 5,
