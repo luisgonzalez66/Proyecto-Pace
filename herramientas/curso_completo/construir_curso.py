@@ -289,7 +289,9 @@ if 'sitio' in sys.argv[2:]:
     idx_u=sub1(idx,'</head>','<style>\n'+zscss+'\n</style></head>')
     VER='v'+__import__('time').strftime('%m%d%H%M')  # cambia en cada regeneración: evita que el navegador use archivos viejos en caché
     idx_u=idx_u.replace('?v=sim2','?'+VER)
-    open(REPO+'/index.html','w',encoding='utf8').write(re.sub(r'(html/index\.html)\?[A-Za-z0-9=]+',r'\1?'+VER,portal))
+    TOT={f'u{n}':len(json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json',encoding='utf8'))['stations']) for n in '123'}
+    portal2=re.sub(r'var PACE_TOT=\{[^}]*\};',lambda m:'var PACE_TOT='+json.dumps(TOT)+';',portal)
+    open(REPO+'/index.html','w',encoding='utf8').write(re.sub(r'(html/index\.html)\?[A-Za-z0-9=]+',r'\1?'+VER,portal2))
     for i,n in enumerate('123'):
         d=f'{REPO}/unidades/u{n}/html'
         os.makedirs(d+'/mathjax',exist_ok=True)

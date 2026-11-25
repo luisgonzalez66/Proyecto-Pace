@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (h) · Portada del sitio: avance de cada unidad
+
+- En la página de acceso a las unidades, cada tarjeta indica «x de n estaciones completadas» y si la META FINAL está pendiente, en curso o realizada (con su mejor resultado). Sin árbol.
+- Cada página de unidad deja ese resumen en el navegador (`pace_resumen_uN`) al guardar el avance; la portada lo lee. El total de estaciones lo actualiza la compilación, así que se ve «0 de n» aunque no se haya entrado a la unidad.
+- «Reiniciar mi avance» también borra estos resúmenes. El SCORM no cambia.
+
 ## 25-11-2026 (g) · META FINAL como último paso de la unidad
 
 - **Mapa:** la tarjeta de la META FINAL usa el color de la unidad y lleva la etiqueta «ÚLTIMO PASO DE LA UNIDAD», unida a los bloques con una línea punteada. Muestra la cuenta «Estaciones x/n + META FINAL = Unidad completa» y un mensaje según el estado: sin terminar, solo falta la META, evaluación en curso, META entregada con estaciones pendientes, o unidad completa (con el mejor resultado).
