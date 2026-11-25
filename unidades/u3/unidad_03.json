@@ -1281,6 +1281,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 280 225\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Balanza con 2x + 1 en un plato y 9 en el otro\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><polygon points=\"140,190 120,215 160,215\" fill=\"#4b49a3\"/><line x1=\"140\" y1=\"60\" x2=\"140\" y2=\"192\" stroke=\"#2b2a6b\" stroke-width=\"5\"/><line x1=\"40\" y1=\"60\" x2=\"240\" y2=\"60\" stroke=\"#2b2a6b\" stroke-width=\"5\" stroke-linecap=\"round\"/><line x1=\"70\" y1=\"60\" x2=\"70\" y2=\"95\" stroke=\"#55556f\" stroke-width=\"2\"/><line x1=\"210\" y1=\"60\" x2=\"210\" y2=\"95\" stroke=\"#55556f\" stroke-width=\"2\"/><path d=\"M25 95h90l-10 22h-70z\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><path d=\"M165 95h90l-10 22h-70z\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"70\" y=\"112\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >2x + 1</text><text x=\"210\" y=\"113\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >9</text><text x=\"70\" y=\"142\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">x = 4 → 9</text><text x=\"70\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"#2f9a78\" font-weight=\"700\">equilibrio ✓</text><text x=\"210\" y=\"140\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">x = 3 → 7</text><text x=\"210\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"#c2406f\" font-weight=\"700\">7 ≠ 9: se inclina</text></svg>",
      "caption": "Una solución deja la balanza en equilibrio: con x = 4 ambos lados valen 9."
+    },
+    "fade": {
+     "title": "Busquemos la solución de $3x-2=x+6$ probando valores. Las primeras pruebas ya están hechas.",
+     "items": [
+      {
+       "math": "3x-2=x+6",
+       "why": "Reemplazamos $x$ por distintos números y comparamos los dos lados."
+      },
+      {
+       "math": "x=2:\\quad 3\\cdot2-2=4,\\quad 2+6=8",
+       "why": "Los lados dan $4$ y $8$: $x=2$ no es solución."
+      },
+      {
+       "math": "x=3:\\quad 3\\cdot3-2=7,\\quad 3+6=9",
+       "why": "Los lados dan $7$ y $9$: $x=3$ no es solución."
+      }
+     ],
+     "blank": {
+      "ask": "Sigue probando. ¿Qué valor de $x$ es solución?",
+      "prompt": "x=",
+      "kind": "number",
+      "answer": "4",
+      "math": "x=4:\\quad 3\\cdot4-2=10,\\quad 4+6=10\\ \\checkmark",
+      "why": "Con $x=4$ los dos lados dan $10$: es la solución.",
+      "okmsg": "Con $x=4$ los dos lados dan $10$.",
+      "hint": "Todavía no. Reemplaza tu valor en los dos lados y compara.",
+      "errors": [
+       {
+        "value": "3",
+        "msg": "Con $x=3$ los lados dan $7$ y $9$: no son iguales."
+       },
+       {
+        "value": "5",
+        "msg": "Con $x=5$ los lados dan $13$ y $11$: no son iguales."
+       },
+       {
+        "value": "2",
+        "msg": "Con $x=2$ los lados dan $4$ y $8$."
+       }
+      ]
+     }
     }
    }
   },
@@ -2266,6 +2307,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 312 200\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Esquema: x por 3 más 4 da 19; al revés, 19 menos 4 entre 3 da 5\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" fill=\"#4b49a3\"/></marker></defs><rect x=\"10\" y=\"30\" width=\"62\" height=\"40\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"41\" y=\"57\" font-size=\"22\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x</text><rect x=\"118\" y=\"30\" width=\"62\" height=\"40\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"149\" y=\"57\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >3x</text><rect x=\"214\" y=\"30\" width=\"88\" height=\"40\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"258\" y=\"57\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >3x+4</text><line x1=\"74\" y1=\"50\" x2=\"114\" y2=\"50\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"182\" y1=\"50\" x2=\"210\" y2=\"50\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><text x=\"94\" y=\"22\" font-size=\"13\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"700\">× 3</text><text x=\"196\" y=\"22\" font-size=\"13\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"700\">+ 4</text><rect x=\"10\" y=\"130\" width=\"62\" height=\"40\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"41\" y=\"157\" font-size=\"22\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >5</text><rect x=\"118\" y=\"130\" width=\"62\" height=\"40\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"149\" y=\"157\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >15</text><rect x=\"214\" y=\"130\" width=\"88\" height=\"40\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"258\" y=\"157\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >19</text><line x1=\"210\" y1=\"150\" x2=\"184\" y2=\"150\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"114\" y1=\"150\" x2=\"76\" y2=\"150\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><text x=\"196\" y=\"190\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f9a78\" font-weight=\"700\">− 4</text><text x=\"94\" y=\"190\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2f9a78\" font-weight=\"700\">÷ 3</text><text x=\"156\" y=\"105\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">se deshace en orden inverso</text></svg>",
      "caption": "En 3x + 4 = 19 se resta 4 y luego se divide por 3: en orden inverso."
+    },
+    "fade": {
+     "title": "Resolvamos $5x-3=2x+12$. Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "5x-3=2x+12",
+       "why": "Términos con $x$ a un lado y números al otro."
+      },
+      {
+       "math": "5x-2x=12+3",
+       "why": "Restamos $2x$ y sumamos $3$ en ambos lados."
+      },
+      {
+       "math": "3x=15",
+       "why": "Reducimos cada lado."
+      }
+     ],
+     "blank": {
+      "ask": "Despeja $x$. ¿Qué número va en el recuadro?",
+      "prompt": "x=",
+      "kind": "number",
+      "answer": "5",
+      "math": "x=5",
+      "why": "Dividimos ambos lados por $3$: $x=\\frac{15}{3}=5$. Comprueba: $5\\cdot5-3=22=2\\cdot5+12$.",
+      "okmsg": "$x=\\frac{15}{3}=5$, y con $x=5$ los dos lados dan $22$.",
+      "hint": "Todavía no. Divide ambos lados por el coeficiente de $x$.",
+      "errors": [
+       {
+        "value": "45",
+        "msg": "Se divide por $3$, no se multiplica."
+       },
+       {
+        "value": "12",
+        "msg": "Hay que dividir $15$ por $3$; no restar."
+       },
+       {
+        "value": "0.2",
+        "msg": "Es $15\\div3$, no $3\\div15$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -3297,6 +3379,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 290 165\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rectángulo de alto 3 y ancho x más 2, dividido en 3x y 6\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><rect x=\"40\" y=\"30\" width=\"150\" height=\"90\" rx=\"0\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><rect x=\"190\" y=\"30\" width=\"70\" height=\"90\" rx=\"0\" fill=\"#ffd9e6\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"115\" y=\"82\" font-size=\"24\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >3x</text><text x=\"225\" y=\"82\" font-size=\"24\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >6</text><text x=\"115\" y=\"22\" font-size=\"18\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >x</text><text x=\"225\" y=\"22\" font-size=\"18\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >2</text><text x=\"26\" y=\"82\" font-size=\"18\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >3</text><text x=\"150\" y=\"150\" font-size=\"16\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">3(x + 2) = 3x + 6</text></svg>",
      "caption": "El factor de afuera multiplica a cada término del paréntesis."
+    },
+    "fade": {
+     "title": "Resolvamos $\\dfrac{x}{2}+\\dfrac{x}{3}=10$. Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "6\\cdot\\frac{x}{2}+6\\cdot\\frac{x}{3}=6\\cdot10",
+       "why": "Multiplicamos **todos** los términos por $\\operatorname{mcm}(2,3)=6$."
+      },
+      {
+       "math": "3x+2x=60",
+       "why": "Simplificamos cada fracción."
+      },
+      {
+       "math": "5x=60",
+       "why": "Reducimos los términos semejantes."
+      }
+     ],
+     "blank": {
+      "ask": "Despeja $x$. ¿Qué número va en el recuadro?",
+      "prompt": "x=",
+      "kind": "number",
+      "answer": "12",
+      "math": "x=12",
+      "why": "$x=\\frac{60}{5}=12$. Comprueba: $\\frac{12}{2}+\\frac{12}{3}=6+4=10$.",
+      "okmsg": "$x=12$: $\\frac{12}{2}+\\frac{12}{3}=6+4=10$.",
+      "hint": "Todavía no. Divide $60$ por el coeficiente de $x$.",
+      "errors": [
+       {
+        "value": "2",
+        "msg": "El $10$ también se multiplica por $6$: queda $5x=60$."
+       },
+       {
+        "value": "60",
+        "msg": "Falta dividir por $5$."
+       },
+       {
+        "value": "300",
+        "msg": "Se divide por $5$, no se multiplica."
+       }
+      ]
+     }
     }
    },
    "recuerda": [
@@ -4293,6 +4416,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 320 180\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Triángulo con d arriba y v y t abajo; d igual v por t, v igual d entre t, t igual d entre v\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><polygon points=\"110,15 200,165 20,165\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2.5\"/><line x1=\"56\" y1=\"105\" x2=\"164\" y2=\"105\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><line x1=\"110\" y1=\"105\" x2=\"110\" y2=\"165\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"110\" y=\"85\" font-size=\"30\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >d</text><text x=\"80\" y=\"147\" font-size=\"26\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >v</text><text x=\"140\" y=\"147\" font-size=\"26\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >t</text><text x=\"225\" y=\"60\" font-size=\"18\" text-anchor=\"start\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >d = v·t</text><text x=\"225\" y=\"100\" font-size=\"18\" text-anchor=\"start\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >v = d / t</text><text x=\"225\" y=\"140\" font-size=\"18\" text-anchor=\"start\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >t = d / v</text></svg>",
      "caption": "Para despejar una letra se deshacen las operaciones que la acompañan, igual que con números."
+    },
+    "fade": {
+     "title": "Despejemos $h$ en $A=\\dfrac{b\\,h}{2}$ y calculemos $h$ con $A=24$ y $b=8$.",
+     "items": [
+      {
+       "math": "A=\\frac{b\\,h}{2}",
+       "why": "Queremos dejar $h$ sola."
+      },
+      {
+       "math": "2A=b\\,h",
+       "why": "Multiplicamos ambos lados por $2$."
+      },
+      {
+       "math": "h=\\frac{2A}{b}",
+       "why": "Dividimos ambos lados por $b$ (con $b\\neq0$)."
+      }
+     ],
+     "blank": {
+      "ask": "Reemplaza los datos. ¿Cuánto vale $h$?",
+      "prompt": "h=\\frac{2\\cdot24}{8}=",
+      "kind": "number",
+      "answer": "6",
+      "math": "h=\\frac{2\\cdot24}{8}=6",
+      "why": "$h=\\frac{48}{8}=6$. Comprueba: $\\frac{8\\cdot6}{2}=24$.",
+      "okmsg": "$h=\\frac{48}{8}=6$, y $\\frac{8\\cdot6}{2}=24$.",
+      "hint": "Todavía no. Calcula $2\\cdot24$ y divide por $8$.",
+      "errors": [
+       {
+        "value": "3",
+        "msg": "Falta el $2$: la fórmula despejada es $h=\\frac{2A}{b}$."
+       },
+       {
+        "value": "384",
+        "msg": "Se divide por $b$, no se multiplica."
+       },
+       {
+        "value": "12",
+        "msg": "Revisa: $\\frac{48}{8}=6$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -5386,6 +5550,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 330 195\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tabla de traducción de frases a lenguaje algebraico\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><rect x=\"6\" y=\"18\" width=\"206\" height=\"34\" rx=\"8\" fill=\"#fff\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"109\" y=\"40\" font-size=\"12.5\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">el triple de un número</text><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" fill=\"#4b49a3\"/></marker></defs><line x1=\"216\" y1=\"35\" x2=\"240\" y2=\"35\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><rect x=\"244\" y=\"18\" width=\"80\" height=\"34\" rx=\"8\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"284\" y=\"42\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >3x</text><rect x=\"6\" y=\"62\" width=\"206\" height=\"34\" rx=\"8\" fill=\"#fff\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"109\" y=\"84\" font-size=\"12.5\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">disminuido en 4</text><line x1=\"216\" y1=\"79\" x2=\"240\" y2=\"79\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><rect x=\"244\" y=\"62\" width=\"80\" height=\"34\" rx=\"8\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"284\" y=\"86\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >− 4</text><rect x=\"6\" y=\"106\" width=\"206\" height=\"34\" rx=\"8\" fill=\"#fff\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"109\" y=\"128\" font-size=\"12.5\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">es igual a</text><line x1=\"216\" y1=\"123\" x2=\"240\" y2=\"123\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><rect x=\"244\" y=\"106\" width=\"80\" height=\"34\" rx=\"8\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"284\" y=\"130\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >=</text><rect x=\"6\" y=\"150\" width=\"206\" height=\"34\" rx=\"8\" fill=\"#fff\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"109\" y=\"172\" font-size=\"12.5\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">el doble de la suma de x y 5</text><line x1=\"216\" y1=\"167\" x2=\"240\" y2=\"167\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><rect x=\"244\" y=\"150\" width=\"80\" height=\"34\" rx=\"8\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"1.5\"/><text x=\"284\" y=\"174\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >2(x + 5)</text></svg>",
      "caption": "Cada frase del enunciado se traduce a un trozo de la ecuación."
+    },
+    "fade": {
+     "title": "«El doble de un número, aumentado en $7$, es igual a $31$». Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "x:\\ \\text{el número}",
+       "why": "Llamamos $x$ al número desconocido."
+      },
+      {
+       "math": "2x+7=31",
+       "why": "«El doble» es $2x$; «aumentado en $7$» es $+7$."
+      },
+      {
+       "math": "2x=24",
+       "why": "Restamos $7$ en ambos lados."
+      }
+     ],
+     "blank": {
+      "ask": "¿Cuál es el número?",
+      "prompt": "x=",
+      "kind": "number",
+      "answer": "12",
+      "math": "x=12",
+      "why": "$x=\\frac{24}{2}=12$. Comprueba: $2\\cdot12+7=31$.",
+      "okmsg": "El número es $12$: $2\\cdot12+7=31$.",
+      "hint": "Todavía no. Divide ambos lados por $2$.",
+      "errors": [
+       {
+        "value": "19",
+        "msg": "El $7$ se resta, no se suma: $31-7=24$."
+       },
+       {
+        "value": "24",
+        "msg": "Falta dividir por $2$."
+       },
+       {
+        "value": "48",
+        "msg": "Se divide por $2$, no se multiplica."
+       }
+      ]
+     }
     }
    }
   },
@@ -6450,6 +6655,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 320 190\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Ciclo: leer y definir x, plantear, resolver y verificar\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" fill=\"#4b49a3\"/></marker></defs><rect x=\"10\" y=\"10\" width=\"140\" height=\"70\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"30\" y=\"40\" font-size=\"20\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"900\">1</text><text x=\"92\" y=\"42\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">Leer y</text><text x=\"92\" y=\"60\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">definir x</text><rect x=\"170\" y=\"10\" width=\"140\" height=\"70\" rx=\"10\" fill=\"#ffd9e6\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"190\" y=\"40\" font-size=\"20\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"900\">2</text><text x=\"252\" y=\"42\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">Plantear la</text><text x=\"252\" y=\"60\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">ecuación</text><rect x=\"170\" y=\"110\" width=\"140\" height=\"70\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"190\" y=\"140\" font-size=\"20\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"900\">3</text><text x=\"252\" y=\"151\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">Resolver</text><rect x=\"10\" y=\"110\" width=\"140\" height=\"70\" rx=\"10\" fill=\"#fdf0d6\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"30\" y=\"140\" font-size=\"20\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"900\">4</text><text x=\"92\" y=\"142\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">Verificar en</text><text x=\"92\" y=\"160\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">el contexto</text><line x1=\"152\" y1=\"45\" x2=\"166\" y2=\"45\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"240\" y1=\"82\" x2=\"240\" y2=\"106\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"168\" y1=\"145\" x2=\"154\" y2=\"145\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"80\" y1=\"108\" x2=\"80\" y2=\"84\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/></svg>",
      "caption": "Un problema se resuelve en cuatro pasos; el último es revisar si la respuesta tiene sentido."
+    },
+    "fade": {
+     "title": "Un número es $8$ unidades mayor que otro y entre ambos suman $50$. ¿Cuál es el número **mayor**?",
+     "items": [
+      {
+       "math": "x:\\ \\text{el menor},\\quad x+8:\\ \\text{el mayor}",
+       "why": "Elegimos la incógnita y escribimos el otro número con ella."
+      },
+      {
+       "math": "x+(x+8)=50",
+       "why": "Entre ambos suman $50$."
+      },
+      {
+       "math": "2x+8=50\\ \\Rightarrow\\ x=21",
+       "why": "Restamos $8$ y dividimos por $2$: el menor es $21$."
+      }
+     ],
+     "blank": {
+      "ask": "Vuelve a la pregunta: ¿cuál es el número mayor?",
+      "prompt": "x+8=",
+      "kind": "number",
+      "answer": "29",
+      "math": "x+8=29",
+      "why": "El mayor es $21+8=29$. Comprueba: $21+29=50$.",
+      "okmsg": "El mayor es $29$, y $21+29=50$.",
+      "hint": "Todavía no. Usa $x=21$ en la expresión del número mayor.",
+      "errors": [
+       {
+        "value": "21",
+        "msg": "Ese es el menor; la pregunta pide el mayor: $x+8$."
+       },
+       {
+        "value": "25",
+        "msg": "$25$ sería si los dos números fueran iguales."
+       },
+       {
+        "value": "42",
+        "msg": "$42$ es $2x$; el menor es $21$ y el mayor $21+8$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -7381,6 +7627,43 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 310 165\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Tres parábolas: corta el eje dos veces, lo toca una vez, no lo toca\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><line x1=\"5\" y1=\"100\" x2=\"95\" y2=\"100\" stroke=\"#55556f\" stroke-width=\"1.5\"/><polyline points=\"8.0,44.8 11.0,55.9 14.0,66.1 17.0,75.5 20.0,84.1 23.0,91.9 26.0,98.8 29.0,105.0 32.0,110.3 35.0,114.8 38.0,118.5 41.0,121.3 44.0,123.4 47.0,124.6 50.0,125.0 53.0,124.6 56.0,123.4 59.0,121.3 62.0,118.5 65.0,114.8 68.0,110.3 71.0,105.0 74.0,98.8 77.0,91.9 80.0,84.1 83.0,75.5 86.0,66.1 89.0,55.9 92.0,44.8\" fill=\"none\" stroke=\"#4b49a3\" stroke-width=\"3\"/><circle cx=\"26.5\" cy=\"100\" r=\"4.5\" fill=\"#c2406f\"/><circle cx=\"73.5\" cy=\"100\" r=\"4.5\" fill=\"#c2406f\"/><text x=\"50\" y=\"140\" font-size=\"15\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"900\">Δ > 0</text><text x=\"50\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"#55556f\" font-weight=\"700\">dos soluciones</text><line x1=\"110\" y1=\"100\" x2=\"200\" y2=\"100\" stroke=\"#55556f\" stroke-width=\"1.5\"/><polyline points=\"113.0,19.8 116.0,30.9 119.0,41.1 122.0,50.5 125.0,59.1 128.0,66.9 131.0,73.8 134.0,80.0 137.0,85.3 140.0,89.8 143.0,93.5 146.0,96.3 149.0,98.4 152.0,99.6 155.0,100.0 158.0,99.6 161.0,98.4 164.0,96.3 167.0,93.5 170.0,89.8 173.0,85.3 176.0,80.0 179.0,73.8 182.0,66.9 185.0,59.1 188.0,50.5 191.0,41.1 194.0,30.9 197.0,19.8\" fill=\"none\" stroke=\"#4b49a3\" stroke-width=\"3\"/><circle cx=\"155.0\" cy=\"100\" r=\"4.5\" fill=\"#c2406f\"/><text x=\"155\" y=\"140\" font-size=\"15\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"900\">Δ = 0</text><text x=\"155\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"#55556f\" font-weight=\"700\">una solución</text><line x1=\"215\" y1=\"100\" x2=\"305\" y2=\"100\" stroke=\"#55556f\" stroke-width=\"1.5\"/><polyline points=\"218.0,-0.2 221.0,10.9 224.0,21.1 227.0,30.5 230.0,39.1 233.0,46.9 236.0,53.8 239.0,60.0 242.0,65.3 245.0,69.8 248.0,73.5 251.0,76.3 254.0,78.4 257.0,79.6 260.0,80.0 263.0,79.6 266.0,78.4 269.0,76.3 272.0,73.5 275.0,69.8 278.0,65.3 281.0,60.0 284.0,53.8 287.0,46.9 290.0,39.1 293.0,30.5 296.0,21.1 299.0,10.9 302.0,-0.2\" fill=\"none\" stroke=\"#4b49a3\" stroke-width=\"3\"/><text x=\"260\" y=\"140\" font-size=\"15\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"900\">Δ < 0</text><text x=\"260\" y=\"158\" font-size=\"12\" text-anchor=\"middle\" fill=\"#55556f\" font-weight=\"700\">ninguna real</text></svg>",
      "caption": "El signo de Δ dice cuántas veces la parábola toca el eje x: cuántas soluciones reales hay."
+    },
+    "fade": {
+     "title": "¿Cuántas soluciones reales tiene $2x^2-4x+3=0$? Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "a=2,\\quad b=-4,\\quad c=3",
+       "why": "Identificamos los coeficientes, con su signo."
+      },
+      {
+       "math": "\\Delta=b^2-4ac",
+       "why": "El discriminante decide cuántas soluciones reales hay."
+      }
+     ],
+     "blank": {
+      "ask": "Calcula el discriminante. Escribe el número con su signo.",
+      "prompt": "\\Delta=(-4)^2-4\\cdot2\\cdot3=",
+      "kind": "number",
+      "answer": "-8",
+      "math": "\\Delta=16-24=-8",
+      "why": "$\\Delta=-8<0$: la ecuación **no tiene** soluciones reales.",
+      "okmsg": "$\\Delta=-8<0$: no tiene soluciones reales.",
+      "hint": "Todavía no. Calcula $(-4)^2$ y $4\\cdot2\\cdot3$, y réstalos.",
+      "errors": [
+       {
+        "value": "40",
+        "msg": "El término $4ac$ se resta: $16-24$."
+       },
+       {
+        "value": "8",
+        "msg": "$16-24$ es negativo."
+       },
+       {
+        "value": "-40",
+        "msg": "$(-4)^2=16$: el cuadrado de un negativo es positivo."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -8344,6 +8627,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 300 200\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Fórmula general con el discriminante destacado; el más y el menos dan dos soluciones\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><defs><marker id=\"ah\" viewBox=\"0 0 10 10\" refX=\"9\" refY=\"5\" markerWidth=\"7\" markerHeight=\"7\" orient=\"auto\"><path d=\"M0 0L10 5L0 10z\" fill=\"#4b49a3\"/></marker></defs><text x=\"20\" y=\"48\" font-size=\"24\" text-anchor=\"start\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x =</text><text x=\"132\" y=\"36\" font-size=\"24\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >−b ± √<tspan text-decoration=\"overline\">Δ</tspan></text><line x1=\"72\" y1=\"46\" x2=\"192\" y2=\"46\" stroke=\"#2b2a6b\" stroke-width=\"2.5\"/><text x=\"132\" y=\"72\" font-size=\"22\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >2a</text><rect x=\"150\" y=\"13\" width=\"40\" height=\"30\" rx=\"6\" fill=\"none\" stroke=\"#c2406f\" stroke-width=\"2\" stroke-dasharray=\"4 3\"/><text x=\"250\" y=\"30\" font-size=\"13\" text-anchor=\"middle\" fill=\"#c2406f\" font-weight=\"800\">Δ = b² − 4ac</text><line x1=\"110\" y1=\"84\" x2=\"60\" y2=\"118\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><line x1=\"150\" y1=\"84\" x2=\"200\" y2=\"118\" stroke=\"#4b49a3\" stroke-width=\"2.4\" marker-end=\"url(#ah)\"/><rect x=\"8\" y=\"122\" width=\"118\" height=\"40\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"67\" y=\"148\" font-size=\"16\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >con +</text><rect x=\"170\" y=\"122\" width=\"118\" height=\"40\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"229\" y=\"148\" font-size=\"16\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >con −</text><text x=\"150\" y=\"190\" font-size=\"12.5\" text-anchor=\"middle\" fill=\"#55556f\" font-weight=\"700\">si Δ < 0, no hay soluciones reales</text></svg>",
      "caption": "Primero se calcula Δ; el ± da una solución con + y otra con −."
+    },
+    "fade": {
+     "title": "Resolvamos $x^2-6x+5=0$ con la fórmula general. Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "a=1,\\quad b=-6,\\quad c=5",
+       "why": "Identificamos los coeficientes, con su signo."
+      },
+      {
+       "math": "\\Delta=(-6)^2-4\\cdot1\\cdot5=16",
+       "why": "Calculamos el discriminante."
+      },
+      {
+       "math": "x=\\frac{6\\pm\\sqrt{16}}{2}=\\frac{6\\pm4}{2}",
+       "why": "Reemplazamos en $x=\\frac{-b\\pm\\sqrt{\\Delta}}{2a}$."
+      }
+     ],
+     "blank": {
+      "ask": "Escribe **las dos** soluciones, separadas por punto y coma.",
+      "prompt": "x=",
+      "kind": "set",
+      "answer": "5; 1",
+      "math": "x=\\frac{6+4}{2}=5\\quad\\text{o}\\quad x=\\frac{6-4}{2}=1",
+      "why": "Comprueba: $25-30+5=0$ y $1-6+5=0$.",
+      "okmsg": "$x=5$ o $x=1$.",
+      "hint": "Todavía no. Calcula por separado $\\frac{6+4}{2}$ y $\\frac{6-4}{2}$.",
+      "errors": [
+       {
+        "value": "-5; -1",
+        "msg": "$-b=-(-6)=6$: el numerador es $6\\pm4$."
+       },
+       {
+        "value": "5",
+        "msg": "Falta la otra solución: $\\frac{6-4}{2}$."
+       },
+       {
+        "value": "10; 2",
+        "msg": "Falta dividir por $2a=2$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -9289,6 +9613,43 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 310 192\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Dos casos: sin término bx se despeja x al cuadrado; sin término c se saca factor común x\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><rect x=\"4\" y=\"8\" width=\"146\" height=\"176\" rx=\"10\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"77\" y=\"32\" font-size=\"14\" text-anchor=\"middle\" fill=\"#4b49a3\" font-weight=\"900\">Falta bx</text><text x=\"77\" y=\"62\" font-size=\"17\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >ax² + c = 0</text><text x=\"77\" y=\"96\" font-size=\"18\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x² = k</text><text x=\"77\" y=\"132\" font-size=\"19\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x = ±√<tspan text-decoration=\"overline\">k</tspan></text><text x=\"77\" y=\"166\" font-size=\"12\" text-anchor=\"middle\" fill=\"#c2406f\" font-weight=\"800\">¡las dos raíces!</text><rect x=\"160\" y=\"8\" width=\"146\" height=\"176\" rx=\"10\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"233\" y=\"32\" font-size=\"14\" text-anchor=\"middle\" fill=\"#2f9a78\" font-weight=\"900\">Falta c</text><text x=\"233\" y=\"62\" font-size=\"17\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >ax² + bx = 0</text><text x=\"233\" y=\"96\" font-size=\"17\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x(ax + b) = 0</text><text x=\"233\" y=\"132\" font-size=\"17\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x = 0  o</text><text x=\"233\" y=\"158\" font-size=\"17\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x = −b/a</text></svg>",
      "caption": "Cada caso incompleto tiene su atajo; si están los tres términos, se usa otro método."
+    },
+    "fade": {
+     "title": "Resolvamos $2x^2-18=0$ (falta $bx$). Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "2x^2=18",
+       "why": "Sumamos $18$ en ambos lados."
+      },
+      {
+       "math": "x^2=9",
+       "why": "Dividimos ambos lados por $2$."
+      }
+     ],
+     "blank": {
+      "ask": "Escribe **las dos** soluciones, separadas por punto y coma.",
+      "prompt": "x=",
+      "kind": "set",
+      "answer": "3; -3",
+      "math": "x=3\\ \\text{o}\\ x=-3",
+      "why": "Los números cuyo cuadrado es $9$ son $3$ y $-3$.",
+      "okmsg": "$x=3$ o $x=-3$: los dos cumplen $x^2=9$.",
+      "hint": "Todavía no. ¿Qué números elevados al cuadrado dan $9$?",
+      "errors": [
+       {
+        "value": "3",
+        "msg": "Falta una solución: también $(-3)^2=9$."
+       },
+       {
+        "value": "-3",
+        "msg": "Falta una solución: también $3^2=9$."
+       },
+       {
+        "value": "9; -9",
+        "msg": "Falta sacar la raíz cuadrada: $x^2=9$ no es $x=9$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -10234,6 +10595,43 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 310 220\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rectángulo de lados x más 3 y x más 2 formado por x cuadrado, 3x, 2x y 6\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><rect x=\"40\" y=\"30\" width=\"110\" height=\"110\" rx=\"0\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><rect x=\"150\" y=\"30\" width=\"66\" height=\"110\" rx=\"0\" fill=\"#ffd9e6\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><rect x=\"40\" y=\"140\" width=\"110\" height=\"44\" rx=\"0\" fill=\"#ffd9e6\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><rect x=\"150\" y=\"140\" width=\"66\" height=\"44\" rx=\"0\" fill=\"#d6f1ea\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"95\" y=\"92\" font-size=\"24\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >x²</text><text x=\"183\" y=\"92\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >3x</text><text x=\"95\" y=\"169\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >2x</text><text x=\"183\" y=\"169\" font-size=\"20\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >6</text><text x=\"95\" y=\"22\" font-size=\"17\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >x</text><text x=\"183\" y=\"22\" font-size=\"17\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >3</text><text x=\"26\" y=\"90\" font-size=\"17\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >x</text><text x=\"26\" y=\"168\" font-size=\"17\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >2</text><text x=\"262\" y=\"80\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">2 · 3 = 6</text><text x=\"262\" y=\"100\" font-size=\"13\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"700\">2 + 3 = 5</text><text x=\"160\" y=\"210\" font-size=\"15\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">x² + 5x + 6 = (x + 2)(x + 3)</text></svg>",
      "caption": "Los dos números que multiplicados dan 6 y sumados dan 5 forman los lados."
+    },
+    "fade": {
+     "title": "Resolvamos $x^2-x-12=0$ por factorización. Los primeros pasos ya están hechos.",
+     "items": [
+      {
+       "math": "(x-4)(x+3)=0",
+       "why": "Dos números con producto $-12$ y suma $-1$: $-4$ y $3$."
+      },
+      {
+       "math": "x-4=0\\quad \\text{o}\\quad x+3=0",
+       "why": "Si un producto es cero, alguno de sus factores es cero."
+      }
+     ],
+     "blank": {
+      "ask": "Escribe **las dos** soluciones, separadas por punto y coma.",
+      "prompt": "x=",
+      "kind": "set",
+      "answer": "4; -3",
+      "math": "x=4\\ \\text{o}\\ x=-3",
+      "why": "De $x-4=0$ sale $x=4$, y de $x+3=0$ sale $x=-3$.",
+      "okmsg": "$x=4$ o $x=-3$.",
+      "hint": "Todavía no. Despeja $x$ en cada factor igualado a cero.",
+      "errors": [
+       {
+        "value": "-4; 3",
+        "msg": "Revisa los signos: de $x-4=0$ sale $x=4$."
+       },
+       {
+        "value": "4",
+        "msg": "Falta la otra solución, la de $x+3=0$."
+       },
+       {
+        "value": "-3",
+        "msg": "Falta la otra solución, la de $x-4=0$."
+       }
+      ]
+     }
     }
    },
    "explore": {
@@ -11330,6 +11728,47 @@
     "figure": {
      "svg": "<svg viewBox=\"0 0 290 205\" xmlns=\"http://www.w3.org/2000/svg\" role=\"img\" aria-label=\"Rectángulo de ancho x y largo x más 4 con área 45\" font-family=\"Nunito,system-ui,sans-serif\" fill=\"#2b2a6b\"><rect x=\"40\" y=\"30\" width=\"200\" height=\"110\" rx=\"0\" fill=\"#e9e8fa\" stroke=\"#2b2a6b\" stroke-width=\"2\"/><text x=\"140\" y=\"95\" font-size=\"22\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-family=\"Georgia,serif\" font-style=\"italic\" >45 cm²</text><text x=\"140\" y=\"22\" font-size=\"18\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >x + 4</text><text x=\"24\" y=\"90\" font-size=\"18\" text-anchor=\"middle\" fill=\"#55556f\" font-family=\"Georgia,serif\" font-style=\"italic\" >x</text><text x=\"150\" y=\"170\" font-size=\"16\" text-anchor=\"middle\" fill=\"#2b2a6b\" font-weight=\"800\">x(x + 4) = 45</text><text x=\"150\" y=\"192\" font-size=\"13.5\" text-anchor=\"middle\" fill=\"#55556f\" font-weight=\"700\">x = 5   o   x = −9  ✗</text></svg>",
      "caption": "Una longitud no puede ser negativa: solo sirve x = 5."
+    },
+    "fade": {
+     "title": "El producto de dos números naturales consecutivos es $72$. ¿Cuál es el **mayor**?",
+     "items": [
+      {
+       "math": "x(x+1)=72",
+       "why": "$x$ es el menor y $x+1$ el siguiente."
+      },
+      {
+       "math": "x^2+x-72=0\\ \\Rightarrow\\ (x+9)(x-8)=0",
+       "why": "Ordenamos y factorizamos: producto $-72$ y suma $1$."
+      },
+      {
+       "math": "x=8\\quad(\\text{se descarta } x=-9)",
+       "why": "$-9$ no es un número natural: el menor es $8$."
+      }
+     ],
+     "blank": {
+      "ask": "Vuelve a la pregunta: ¿cuál es el número mayor?",
+      "prompt": "x+1=",
+      "kind": "number",
+      "answer": "9",
+      "math": "x+1=9",
+      "why": "El mayor es $8+1=9$. Comprueba: $8\\cdot9=72$.",
+      "okmsg": "Los números son $8$ y $9$, y $8\\cdot9=72$.",
+      "hint": "Todavía no. Usa $x=8$ en la expresión del número mayor.",
+      "errors": [
+       {
+        "value": "8",
+        "msg": "Ese es el menor; la pregunta pide el mayor: $x+1$."
+       },
+       {
+        "value": "-8",
+        "msg": "$x=-9$ se descarta porque no es natural; el menor es $8$."
+       },
+       {
+        "value": "-9",
+        "msg": "$-9$ no es natural: se descarta."
+       }
+      ]
+     }
     }
    },
    "explore": {

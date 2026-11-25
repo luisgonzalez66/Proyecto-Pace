@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (c) · Unidad III: «Ahora tú» en las 11 estaciones
+
+- Cada estación tiene ahora su ejercicio «Ahora tú» en Aprende: unos pasos resueltos y el último en blanco, con mensajes para los errores típicos. Son ejemplos distintos de los de Aprende.
+  - En Despeje de fórmulas, el último paso es calcular $h$ con datos concretos, porque el recuadro acepta números y no fórmulas.
+  - En las cuadráticas se piden las dos soluciones, separadas por punto y coma.
+  - En los problemas, el último paso vuelve a la pregunta («¿cuál es el número mayor?»).
+
 ## 25-11-2026 (b) · Unidad III: ediciones a mano incorporadas (UNIDAD_03_2511.zip)
 
 - Se incorporaron las ediciones de la entrega `UNIDAD_03_2511.zip`, hechas sobre la versión del 19-11 (commit 812c3e4). La fusión fue en tres direcciones: entraron todas las ediciones de la entrega y se conservó todo lo agregado en GitHub después del 19-11.
