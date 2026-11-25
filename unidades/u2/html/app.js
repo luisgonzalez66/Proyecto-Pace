@@ -1722,6 +1722,17 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
    card.setAttribute('aria-label','Unidad '+UNITS[u].roman+', '+UNITS[u].title+'. '+c.d+' de '+c.n+' estaciones completadas. META FINAL '+(hecha?'realizada':run?'en curso':'pendiente')+'. Abrir mapa');
   });}catch(e){}
  }
+ /* Resumen para la portada del sitio (páginas de una sola unidad): estaciones completadas, total y estado de la META FINAL.
+    Se guarda en este navegador como «pace_resumen_uN»; la portada (index.html del repositorio) lo lee. */
+ function resumen(){
+  try{if(!(typeof BUILD!=='undefined'&&/^individual/.test(String(BUILD.scope||''))))return;
+   UNITS.forEach((U,u)=>{if(!U||!/^u\d$/.test(String(U.id||'')))return;const c=cuenta(u);
+    const r={d:c.d,n:c.n,m:hayMeta(u)?(metaDoneU(u)?'done':enCurso(u)?'run':'pend'):'',b:mejor(u)};
+    localStorage.setItem('pace_resumen_'+U.id,JSON.stringify(r));});
+  }catch(e){}
+ }
+ const _sv=save;save=function(){const r=_sv.apply(this,arguments);resumen();return r;};
+ setTimeout(resumen,1200);
  const _rm=renderMap;renderMap=function(){const r=_rm.apply(this,arguments);tarjetaMapa();return r;};
  const _rh=renderHome;renderHome=function(){const r=_rh.apply(this,arguments);tarjetasUnidades();return r;};
 })();
