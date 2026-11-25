@@ -1,0 +1,81 @@
+PROPUESTA DE INTEGRACIÓN DEL CHUCAO — CINCO ETAPAS
+25 de noviembre de 2026
+
+Hola Luis:
+
+Adjunto las ilustraciones actualizadas del Chucao para sus cinco etapas evolutivas, con una variante normal y cuatro variantes asociadas a APAE por etapa (25 imágenes individuales en total).
+
+La idea es implementar primero la evolución visual y su relación con el avance académico, sin incorporar todavía el sistema de semillas, la tienda ni la personalización. Estos elementos podrán evaluarse posteriormente y no son requisitos de esta propuesta.
+
+1. ETAPAS Y UMBRALES DE EVOLUCIÓN
+
+Etapa 1 — Despertar: 0 % (estado inicial). Huevo intacto.
+Etapa 2 — Eclosión: desde el 2 % global y con al menos una estación completada. Pichón dentro del cascarón, con patas visibles por debajo y un fragmento de huevo como sombrero.
+Etapa 3 — Descubrimiento: desde el 15 % global. Polluelo fuera del cascarón, sin cola visible.
+Etapa 4 — Crecimiento: desde el 50 % global. Chucao juvenil con penacho y cola desarrollados.
+Etapa 5 — Plenitud: 100 % global y finalización oficial de las tres unidades. Chucao adulto, con penacho y cola más desarrollados y garras mayores.
+
+Los porcentajes son acumulados y corresponden al curso completo, no al bloque o unidad actual. Se busca que el nacimiento ocurra tempranamente, que haya un nuevo logro al inicio del recorrido, otro a mitad del curso y que la última evolución represente su finalización efectiva.
+
+No se requieren semillas, créditos ni compras para evolucionar. Tampoco se exige activar las evoluciones para acceder a contenidos o finalizar académicamente el curso.
+
+2. RELACIÓN CON EL AVANCE GLOBAL DEL CURSO
+
+El Chucao es un único personaje que acompaña al estudiante durante las tres unidades. La etapa alcanzada y las evoluciones disponibles deben mantenerse al cambiar de unidad, bloque o estación y al cerrar y reabrir el curso.
+
+Utilizar el porcentaje global que calcula el motor del curso como fuente única de verdad, incluyendo los requisitos oficiales de finalización acordados por el equipo. Revisar que el indicador actual no se reinicie por bloque o unidad. No crear un porcentaje independiente para el Chucao. Los árboles de progreso, en cambio, representan el avance local de cada unidad.
+
+Para desbloquear evoluciones, comparar el porcentaje real calculado por el motor, no un valor visual redondeado hacia arriba. La etapa 5 no debe desbloquearse por redondeo ni antes de que las tres unidades estén oficialmente finalizadas.
+
+La etapa visual que el estudiante ha activado debe distinguirse de la máxima etapa desbloqueada por su avance. Guardar ambos estados o derivar la máxima etapa disponible del progreso real. Conservar la etapa activada de forma persistente; el repaso y las nuevas rondas no deben hacer retroceder al personaje. No incorporar ningún botón de reinicio de avance en la versión estudiantil.
+
+3. ACTIVACIÓN VOLUNTARIA Y ANIMACIÓN
+
+Sugiero que, al alcanzar un umbral, la evolución se desbloquee automáticamente, pero que el estudiante pueda activarla gratuitamente cuando lo desee.
+
+El momento preferente para ofrecerla sería la ventana «Todas las unidades», donde el Chucao y su evolución pueden apreciarse con mayor tamaño. En particular:
+
+- Si se alcanza el umbral dentro de una estación, informar de forma breve al finalizar la actividad o en la ventana de estación completada (sin interrumpir el trabajo). Puede aparecer un aviso discreto como «¡Tu Chucao puede evolucionar!».
+- Al volver a «Todas las unidades» o al regresar al curso y llegar a esa vista, mostrar una tarjeta o aviso junto al Chucao con las opciones «Evolucionar» y «Más tarde».
+- Si el estudiante elige «Más tarde» o cierra el aviso, conservar la evolución disponible. El botón «Evolucionar» debe seguir accesible junto al personaje; evitar volver a abrir ventanas emergentes repetidamente en cada visita.
+- No mostrar ventanas de evolución durante una evaluación, al escribir una respuesta ni durante una actividad interactiva. Tampoco cambiar de pantalla automáticamente.
+- Al elegir «Evolucionar», mostrar las imágenes normales de la etapa anterior y la siguiente, con una animación breve (aproximadamente 1–2 segundos): balanceo del huevo en la primera evolución, un destello suave y transición entre ambas imágenes. Puede acompañarse de un mensaje como «¡Tu Chucao ha evolucionado! — Eclosión». La animación debe poder omitirse y respetar la preferencia de movimiento reducido.
+- Al terminar, conservar la nueva etapa en todas las vistas y guardar el cambio. Si existen varias evoluciones disponibles, ofrecerlas en orden, una por vez, sin exigir repetir actividades.
+
+Esta mecánica no debe confundir al estudiante con la finalización académica. Al alcanzar el 100 %, el curso está finalizado aun cuando decida activar Plenitud más tarde.
+
+4. ILUSTRACIONES Y UBICACIÓN
+
+Cada etapa tiene exactamente cinco PNG individuales:
+
+Normal: sin objeto APAE; utilizar preferentemente en «Todas las unidades», en la ventana de una unidad junto al árbol, en avisos generales y durante la animación evolutiva.
+Aprende: libro abierto.
+Practica: cuaderno y lápiz.
+Aplica: portapapeles con un esquema matemático.
+Explora: lupa.
+
+Dentro de una estación, utilizar la imagen de la etapa activada que corresponda a la sección APAE en la que se encuentra el estudiante. Al cambiar de sección, actualizar solamente la variante del personaje, sin cambiar de etapa ni el progreso. En la etapa 1, los objetos están apoyados sobre el tronco porque todavía no hay ave visible. Explora sigue siendo opcional y no es requisito de evolución.
+
+Ejemplos de rutas (relativas a la carpeta de recursos):
+Etapa_2_Eclosion/Chucao_Etapa_2_Normal.png
+Etapa_2_Eclosion/Chucao_Etapa_2_Aprende.png
+Etapa_2_Eclosion/Chucao_Etapa_2_Practica.png
+Etapa_2_Eclosion/Chucao_Etapa_2_Aplica.png
+Etapa_2_Eclosion/Chucao_Etapa_2_Explora.png
+
+Se mantiene el mismo patrón para las etapas 1, 3, 4 y 5. Los nombres de archivo no llevan tildes ni espacios para facilitar su utilización en el código. Las láminas originales se guardan aparte como respaldo gráfico; no es necesario cargarlas en el curso.
+
+5. ASPECTOS TÉCNICOS
+
+- Los 25 archivos individuales son PNG RGBA con transparencia real, de 680 × 850 px, con el tronco centrado horizontalmente, ancho de referencia de 460 px y base alineada en y=820. Se conservaron las proporciones de cada dibujo; no se deformaron para igualar su altura.
+- Usar un contenedor de dimensiones estables, adaptativo, con object-fit: contain y alineación inferior (por ejemplo, object-position: center bottom). Evitar recortar automáticamente los márgenes transparentes de cada archivo, ya que estos permiten mantener la base en su posición y representar el crecimiento.
+- El tronco ya forma parte de cada imagen: no añadir otro tronco por debajo. Las versiones son ilustraciones estáticas, no piezas de una animación articulada ni capas para personalizar accesorios. Para la evolución basta una transición entre los PNG normales.
+- El diseño de los troncos y el personaje es coherente, aunque no son copias idénticas píxel a píxel. Las poses normales proceden de una nueva lámina y resultan algo más altas que las APAE al mantener el mismo ancho de tronco. Esto puede revisarse en la interfaz real si se aprecia un salto de escala.
+- Conservar y comprobar el estado de evolución al recargar o volver al curso, tanto en HTML como en SCORM dentro de SIVEDUCMD. Integrar el guardado al sistema de progreso ya existente, sin asumir que localStorage por sí solo basta en SCORM.
+- En celulares, asegurar que se vea el personaje y el mensaje sin restar espacio al contenido académico. Evitar animaciones continuas que distraigan.
+
+6. COMPROBACIONES SUGERIDAS ANTES DE PUBLICAR
+
+Verificar la etapa inicial, los cuatro umbrales, el caso de posponer una evolución, el cambio entre unidades y secciones APAE, la recuperación del estado tras cerrar y reabrir, la ausencia de interrupciones durante evaluaciones y la última evolución solo tras completar oficialmente el curso. Confirmar también el funcionamiento en móvil y en el SCORM final.
+
+La carpeta incluye una vista previa con las 25 variantes y las seis láminas originales. El ZIP entrega recursos gráficos y esta propuesta; no modifica el motor del curso ni implementa por sí mismo la evolución o su animación.
