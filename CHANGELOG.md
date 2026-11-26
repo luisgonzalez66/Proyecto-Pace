@@ -1,5 +1,14 @@
 # Versiones del curso (SCORM único)
 
+## 25-11-2026 (i) · Chucao en cinco etapas (propuesta de Henry Hughes)
+
+- **Nuevas imágenes:** huevo (Despertar), Eclosión, Descubrimiento, Crecimiento y Plenitud, con variante por sección dentro de las estaciones (Aprende: libro; Practica: cuaderno; Aplica: portapapeles; Explora: lupa). 25 imágenes en WebP incrustado (323 KB). Se generan con `herramientas/curso_completo/chucao5/generar_imagenes.py` desde «Propuestas de mejoras/Chucao_5_Etapas_Recursos»; todas se recortan con el mismo recuadro para conservar el crecimiento entre etapas.
+- **Umbrales:** Eclosión desde el 2 % del curso con al menos una estación; Descubrimiento desde el 15 %; Crecimiento desde el 50 %; Plenitud solo con el curso terminado oficialmente (estaciones y META FINAL de todas las unidades). En las páginas sueltas del sitio, el avance es el de esa unidad.
+- **Evolución voluntaria:** al alcanzar un umbral aparece un aviso breve (nunca durante la META FINAL). El estudiante evoluciona cuando quiere con «Evolucionar», desde «Todas las unidades» (tarjeta con «Más tarde») o junto al árbol de la unidad. Ventana con animación breve (se puede omitir; sin animación si el equipo la tiene desactivada); si hay varias pendientes, las ofrece en orden.
+- **Guardado:** la etapa activada nunca retrocede. En SiveducMD va en una línea nueva del avance: `K|activada,máxima,ofrecida,avisada`.
+- Frases nuevas en el globo del chucao, una por etapa.
+- Archivos: `herramientas/curso_completo/chucao5/` (`chucao5.js`, `chucao5.css`, `chucao5_img.js`, `generar_imagenes.py`).
+
 ## 25-11-2026 (h) · Portada del sitio: avance de cada unidad
 
 - En la página de acceso a las unidades, cada tarjeta indica «x de n estaciones completadas» y si la META FINAL está pendiente, en curso o realizada (con su mejor resultado). Sin árbol.
