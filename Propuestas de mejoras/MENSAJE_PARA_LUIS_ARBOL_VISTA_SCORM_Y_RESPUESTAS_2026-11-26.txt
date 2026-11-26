@@ -1,0 +1,44 @@
+PROYECTO PACE UACh
+OBSERVACIONES PARA LUIS — ÁRBOL Y VISTA INTEGRADA DE PRUEBA
+26 de noviembre de 2026
+
+Hola Luis, espero que estés bien.
+
+Tras revisar GitHub, me quedaron dos solicitudes:
+
+1. FLORES Y FRUTOS DEL ÁRBOL
+
+Observé que no aparecen las flores al completar todas las estaciones de un bloque. Volví a revisar nuestro TXT del 24-11 (punto 17): habíamos propuesto que la flor dependiera únicamente de completar las estaciones. En arbol.js se agregó además el requisito de realizar el Cierre de bloque.
+
+¿Podrías ajustar las reglas?
+
+- Hoja completada: estación con Aprende, Practica y Aplica terminadas.
+- Flor: aparece si y solo si están completas todas las estaciones APA del bloque.
+- Frutos: aparecen al completar todas las estaciones de la unidad y entregar su META FINAL oficial.
+
+No deberían intervenir Explora, los Cierres de bloque ni los simulacros. Son actividades complementarias y no queremos que condicionen estos hitos visuales. Los dibujos de flores y frutos ya están implementados; habría que revisar su activación. Idealmente, probar que una flor aparezca sin realizar el Cierre de bloque.
+
+2. VISTA INTEGRADA DE PRUEBA EN GITHUB
+
+Actualmente probamos en GitHub cada unidad por separado, mientras que el SCORM de SIVEDUCMD integra las tres. Esto puede producir diferencias en el progreso global y la evolución del Chucao.
+
+Gracias por la reciente mejora que suma el avance del curso en GitHub. Aun así, el sitio se basa en resúmenes locales y puede estimar datos de unidades no visitadas.
+
+¿Sería posible agregar en GitHub Pages una «Vista de prueba del curso completo», construida automáticamente desde el mismo motor y los mismos JSON del SCORM, con las tres unidades en una sola instancia?
+
+La idea es que:
+- Muestre las mismas pantallas, cálculos de avance, árboles, Chucao y META FINALES del SCORM.
+- Guarde el avance solo en el navegador, separado de las páginas individuales, con opción de reiniciarlo.
+- Se actualice automáticamente junto con el SCORM y esté claramente identificada como vista de prueba.
+
+Entiendo que ya existe PACE_CURSO_COMPLETO.html, generado desde el SCORM. Quizás pueda aprovecharse para esta vista, sin duplicar el desarrollo. No necesitamos replicar la comunicación con Moodle, sino comprobar fielmente la experiencia del curso integrado antes de publicar en SIVEDUCMD.
+
+3. MOSTRAR LA RESPUESTA DEL ESTUDIANTE AL REVISAR LA META FINAL
+
+Al entregar una META FINAL en GitHub, se muestra el resultado porcentual y, en «Revisa tus preguntas», aparecen el enunciado, la respuesta correcta y la retroalimentación o desarrollo. Sin embargo, no aparece la respuesta que dio el estudiante, lo que dificulta comparar su procedimiento o identificar el error.
+
+Revisé el código actual: la pantalla de resultados efectivamente no incorpora esa respuesta. Además, el estado persistente de la evaluación registra principalmente si cada pregunta fue correcta, incorrecta u omitida; no está claro que la respuesta concreta pueda recuperarse al cerrar y reabrir una sesión. No he comprobado aún este comportamiento en SIVEDUCMD.
+
+¿Podrías incorporar «Tu respuesta» en cada pregunta revisada, tanto para alternativas como para respuestas escritas, y «Sin responder» cuando corresponda? Idealmente, que también se conserve para consultar el último intento después de reabrir la evaluación, tanto en la vista integrada de prueba como en el SCORM oficial. Habría que verificar el guardado y recuperación en SIVEDUCMD, teniendo en cuenta el límite de almacenamiento SCORM.
+
+¡Muchas gracias!
