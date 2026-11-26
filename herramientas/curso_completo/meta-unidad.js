@@ -43,7 +43,7 @@
    const c=cuenta(u),hecha=metaDoneU(u),run=enCurso(u),b=mejor(u),st=card.querySelector('.unit-status');if(!st)return;
    const completa=hecha&&c.d===c.n;
    st.classList.add('mu-ustat');
-   st.innerHTML='<span class="'+(c.d===c.n?'ok':'')+'">'+(c.d===c.n?'✓ ':'')+c.d+' de '+c.n+' estaciones</span>'+
+   st.innerHTML='<span class="'+(c.d===c.n?'ok':'')+'">'+(c.d===c.n?'✓ ':'')+c.d+' de '+c.n+' estaciones completadas</span>'+
     '<span class="'+(hecha?'ok':run?'run':'pend')+'">'+(hecha?'✓ META FINAL realizada ('+b+' %)':run?'META FINAL en curso':'META FINAL pendiente')+'</span>';
    card.classList.toggle('mu-complete',completa);
    card.setAttribute('aria-label','Unidad '+UNITS[u].roman+', '+UNITS[u].title+'. '+c.d+' de '+c.n+' estaciones completadas. META FINAL '+(hecha?'realizada':run?'en curso':'pendiente')+'. Abrir mapa');

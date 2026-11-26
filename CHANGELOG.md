@@ -1,5 +1,9 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 · Sin árbol en «Todas las unidades»
+
+- Las tarjetas de «Todas las unidades» (SCORM) ya no muestran el árbol pequeño; solo las etiquetas «x de n estaciones completadas» y el estado de la META FINAL, igual que la portada del sitio. El árbol queda en el mapa de cada unidad.
+
 ## 25-11-2026 (i) · Chucao en cinco etapas (propuesta de Henry Hughes)
 
 - **Nuevas imágenes:** huevo (Despertar), Eclosión, Descubrimiento, Crecimiento y Plenitud, con variante por sección dentro de las estaciones (Aprende: libro; Practica: cuaderno; Aplica: portapapeles; Explora: lupa). 25 imágenes en WebP incrustado (323 KB). Se generan con `herramientas/curso_completo/chucao5/generar_imagenes.py` desde «Propuestas de mejoras/Chucao_5_Etapas_Recursos»; todas se recortan con el mismo recuadro para conservar el crecimiento entre etapas.
