@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 (b) · Chucao: avance general del curso, explicación en el Inicio y zoom
+
+- **Avance general también en el sitio.** En las páginas sueltas de cada unidad, el chucao ahora evoluciona con el avance de TODO el curso (las tres unidades), como pide la propuesta de Henry, y la etapa activada se comparte entre las tres páginas (`pace_chucao` en el navegador). Cada unidad deja su avance en `pace_resumen_uN` (ahora con hitos y si está terminada); una unidad aún no abierta se estima por su número de estaciones. En el mapa se muestra «Avance del curso: x %». En el SCORM ya era así. «Reiniciar mi avance» también borra `pace_chucao`.
+- **Inicio:** nueva explicación «Tu chucao crece contigo»: las cinco etapas con lo que pide cada una (al comenzar, primera estación, 15 %, 50 %, curso completo), cómo funciona «Evolucionar» y las cuatro variantes de las estaciones.
+- **Zoom y pantallas bajas:** el chucao de la estación ya no se oculta con poca altura (zoom de 125 % o más en un notebook): se achica, y con muy poca altura la cabecera de la estación queda compacta en vez de desaparecer. En «Todas las unidades», el chucao se ajusta al alto de la tarjeta (el ave adulta ya no se corta) y, entre 520 y 900 px de ancho, ya no tapa el panel de avance; la tarjeta «¡Tu chucao puede evolucionar!» pasa debajo cuando no hay espacio.
+- Se quitó el aviso antiguo «Tu chucao pasó a la etapa…» de `chucao.js` (usaba los nombres viejos); la evolución la anuncia `chucao5.js`.
+
 ## 26-11-2026 · Sin árbol en «Todas las unidades»
 
 - Las tarjetas de «Todas las unidades» (SCORM) ya no muestran el árbol pequeño; solo las etiquetas «x de n estaciones completadas» y el estado de la META FINAL, igual que la portada del sitio. El árbol queda en el mapa de cada unidad.

@@ -17,14 +17,34 @@
  const TH=[0,2,15,50,100];
  CHUCAO.img=CHU5_IMG.n.slice();
  CHUCAO.txt=NAMES.map((n,i)=>[(i+1)+' · '+n,FRASES[i]]);
- const C=()=>{if(!state.chu||typeof state.chu!=='object')state.chu={a:1,m:1,o:1,t:1};return state.chu;};
- const real=()=>completed()?100:Math.min(99.9,COUNT>0?100*doneCount()/COUNT:0);
+ /* SITIO: cada unidad es una página aparte. El chucao suma las tres unidades (resúmenes «pace_resumen_uN» que deja cada página)
+    y comparte la etapa activada entre páginas («pace_chucao»). En el SCORM las tres unidades van juntas: se usa el motor directo. */
+ const SITIO=typeof BUILD!=='undefined'&&/^individual/.test(String(BUILD.scope||''));
+ const TOT=(typeof CHU5_TOT!=='undefined'&&CHU5_TOT)||{};
+ const lee=k=>{try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}};
+ function comp(){try{const g=lee('pace_chucao');return g&&typeof g==='object'?g:null;}catch(e){return null;}}
+ function guardaComp(c){if(!SITIO)return;try{localStorage.setItem('pace_chucao',JSON.stringify({a:c.a|0,m:c.m|0,o:c.o|0,t:c.t|0}));}catch(e){}}
+ const C=()=>{if(!state.chu||typeof state.chu!=='object')state.chu={a:1,m:1,o:1,t:1};const c=state.chu;
+  if(SITIO){const g=comp();if(g)['a','m','o','t'].forEach(k=>{if((g[k]|0)>(c[k]|0))c[k]=Math.min(5,g[k]|0);});}
+  return c;};
  const nDone=()=>STATIONS.reduce((n,s,i)=>n+(stationDone(i)>=milestoneCount(s)?1:0),0);
- function porAvance(){if(completed())return 5;const p=real();if(p>=50)return 4;if(p>=15)return 3;if(p>=2&&nDone()>=1)return 2;return 1;}
+ /* avance GENERAL del curso: {p (%), md/mt (hitos), d/n (estaciones), fin (curso terminado)} */
+ function G(){
+  if(!SITIO||!Object.keys(TOT).length){const fin=completed();return {p:fin?100:Math.min(99.9,COUNT>0?100*doneCount()/COUNT:0),md:doneCount(),mt:COUNT,d:nDone(),n:STATIONS.length,fin};}
+  const cur=String(UNITS[0]&&UNITS[0].id||''),L=Object.keys(TOT).map(u=>{
+   if(u===cur)return {n:TOT[u],md:doneCount(),mt:COUNT,d:nDone(),c:completed()};
+   const r=lee('pace_resumen_'+u);return r&&r.mt?{n:TOT[u],md:r.md|0,mt:r.mt,d:r.d|0,c:!!r.c}:{n:TOT[u],md:0,mt:0,d:0,c:false};});
+  const kn=L.filter(x=>x.mt),pe=kn.reduce((a,x)=>a+x.mt,0)/Math.max(1,kn.reduce((a,x)=>a+x.n,0));
+  L.forEach(x=>{if(!x.mt)x.mt=Math.round(x.n*pe);});
+  const md=L.reduce((a,x)=>a+x.md,0),mt=L.reduce((a,x)=>a+x.mt,0),fin=L.every(x=>x.c);
+  return {p:fin?100:Math.min(99.9,mt>0?100*md/mt:0),md,mt,d:L.reduce((a,x)=>a+x.d,0),n:L.reduce((a,x)=>a+x.n,0),fin};
+ }
+ const real=()=>G().p;
+ function porAvance(){const g=G();if(g.fin)return 5;if(g.p>=50)return 4;if(g.p>=15)return 3;if(g.p>=2&&g.d>=1)return 2;return 1;}
  const activa=()=>Math.max(1,Math.min(5,C().a|0||1));
- function disponible(){const c=C(),d=porAvance();if(d>(c.m|0))c.m=d;return Math.max(activa(),Math.min(5,c.m|0||1));}
+ function disponible(){const c=C(),d=porAvance();if(d>(c.m|0)){c.m=d;guardaComp(c);}return Math.max(activa(),Math.min(5,c.m|0||1));}
  const pendiente=()=>disponible()>activa();
- window.chu5={activa,disponible,pendiente,porAvance,evolucionar:()=>abrir()};
+ window.chu5={activa,disponible,pendiente,porAvance,G,evolucionar:()=>abrir()};
  /* el motor y chucao.js preguntan la etapa con chucaoStage(p): ahora es la ACTIVADA */
  chucaoStage=function(){return activa();};
  /* ---------- guardado (SCORM: línea K|; en el navegador va dentro del estado) ---------- */
@@ -41,8 +61,8 @@
   if(a>=5)return '¡Completaste el curso! Tu chucao llegó a su última etapa.';
   if(a===4)return 'Termina el curso (todas las estaciones y las META FINAL) para llegar a «Plenitud».';
   if(a===1)return 'Completa tu primera estación para que nazca.';
-  const falta=Math.max(1,Math.ceil(TH[a]*COUNT/100)-doneCount()),k=Math.max(1,Math.round(falta/(COUNT/STATIONS.length)));
-  return (k===1?'Te falta más o menos 1 estación':'Te faltan unas '+k+' estaciones')+' para llegar a «'+NAMES[a]+'».';
+  const g=G(),falta=Math.max(1,Math.ceil(TH[a]*g.mt/100)-g.md),k=Math.max(1,Math.round(falta/(g.mt/Math.max(1,g.n))));
+  return (k===1?'Te falta más o menos 1 estación':'Te faltan unas '+k+' estaciones')+' del curso para llegar a «'+NAMES[a]+'».';
  }
  /* ---------- variante por sección dentro de la estación ---------- */
  function varianteEstacion(){
@@ -127,8 +147,9 @@
   const r=_pm.apply(this,arguments);
   try{
    const a=activa(),s=document.getElementById('chuMapStage'),n=document.getElementById('chuMapNext'),f=document.getElementById('chuMapFill'),p=real();
+   const card=document.getElementById('chuMap');if(card)card.title='Tu chucao crece con tu avance en todo el curso: '+Math.floor(p)+' %';
    if(s)s.textContent='Etapa '+a+' · '+NAMES[a-1];
-   if(n)n.textContent=textoSiguiente();
+   if(n)n.textContent=(SITIO&&Object.keys(TOT).length?'Avance del curso: '+Math.floor(p)+' %. ':'')+textoSiguiente();
    if(f){const d=disponible();f.style.width=(d>=5?100:Math.max(0,Math.min(100,100*(p-TH[d-1])/(TH[d]-TH[d-1]))))+'%';}
    document.querySelectorAll('img[data-mascot]').forEach(i=>{if(!i.closest('.st-mascot'))i.alt='';});
    varianteEstacion();botonMapa();tarjetaInicio();
@@ -136,6 +157,6 @@
   return r;
  };
  const _rs=renderStation;renderStation=function(){const r=_rs.apply(this,arguments);varianteEstacion();return r;};
- const _sv=save;save=function(){const r=_sv.apply(this,arguments);setTimeout(avisar,900);return r;};
+ const _sv=save;save=function(){const r=_sv.apply(this,arguments);guardaComp(C());setTimeout(avisar,900);return r;};
  setTimeout(()=>{renderTodo();},700);
 })();

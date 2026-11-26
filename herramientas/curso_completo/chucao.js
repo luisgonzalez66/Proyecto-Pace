@@ -2,7 +2,7 @@
  *  - Crece con el avance de TODO el curso (5 etapas: 0, 25, 50, 75 y 100 %).
  *  - Grande en la portada y en la pantalla de unidades; mediano en el mapa de la unidad y en la META FINAL;
  *    pequeño en las estaciones, donde reacciona a cada respuesta.
- *  - Aviso cuando sube de etapa. */
+ *  - Desde el 25-11-2026, etapas, textos y evolución los define chucao5/chucao5.js (cinco etapas de Henry). */
 (function(){
  var TH=[0,25,50,75,100];
  var NAME=CHUCAO.txt.map(function(t){return t[0].split('·').pop().trim();});
@@ -33,7 +33,7 @@
     else{var falta=Math.max(1,Math.ceil(TH[st]*COUNT/100)-doneCount()),k=Math.max(1,Math.round(falta/(COUNT/STATIONS.length)));n.textContent=(k===1?'Te falta más o menos 1 estación':'Te faltan unas '+k+' estaciones')+' para llegar a «'+NAME[st]+'».';}
    }
    if(f)f.style.width=(st>=5?100:Math.max(0,Math.min(100,100*(p-TH[st-1])/(TH[st]-TH[st-1]))))+'%';
-   if(prev&&st>prev)toast('¡Tu chucao pasó a la etapa '+st+': <b>'+NAME[st-1]+'</b>!');
+   /* 26-11-2026: el cambio de etapa lo anuncia chucao5/chucao5.js (evolución voluntaria). */
   }catch(e){}
  };
  var SI=['¡Bien!','¡Eso es!','¡Excelente!','¡Vas muy bien!','¡Correcto!'],NO=['Casi. Revisa la explicación.','Equivocarse también enseña.','Mira el paso y vuelve a intentar.','¡Ánimo! Inténtalo de nuevo.'];

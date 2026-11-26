@@ -54,7 +54,7 @@
  function resumen(){
   try{if(!(typeof BUILD!=='undefined'&&/^individual/.test(String(BUILD.scope||''))))return;
    UNITS.forEach((U,u)=>{if(!U||!/^u\d$/.test(String(U.id||'')))return;const c=cuenta(u);
-    const r={d:c.d,n:c.n,m:hayMeta(u)?(metaDoneU(u)?'done':enCurso(u)?'run':'pend'):'',b:mejor(u)};
+    const r={d:c.d,n:c.n,m:hayMeta(u)?(metaDoneU(u)?'done':enCurso(u)?'run':'pend'):'',b:mejor(u),md:doneCount(),mt:COUNT,c:completed()?1:0};
     localStorage.setItem('pace_resumen_'+U.id,JSON.stringify(r));});
   }catch(e){}
  }
