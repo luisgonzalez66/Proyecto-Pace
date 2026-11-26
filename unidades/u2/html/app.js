@@ -561,7 +561,7 @@ function metaResHTML(S){
  const rows=Object.values(by).map(r=>`<tr><td>${esc(r.t)}</td><td class="mt-dots">${r.d.map(d=>`<i class="d${d}" title="${d==='1'?'Correcta':d==='0'?'Incorrecta':'Sin responder'}"></i>`).join('')}</td><td><b>${r.c}/${r.n}</b></td></tr>`).join('');
  const T=PACETyped;
  const rev=S.qs.map((x,i)=>{const q=x.q,st=S.a[i];let corr='';if(q.type==='input'){let t='';try{t=T.answerTex(q);}catch(e){}corr='\\('+t+'\\)';}else corr=q.options[q.correct];
-  return `<details class="mt-rev ${st==='1'?'ok':st==='0'?'bad':'no'}"><summary><span class="mt-mark">${st==='1'?'✓':st==='0'?'✗':'–'}</span> Pregunta ${i+1} · ${esc(x.st)}</summary><div class="mt-revbody"><p class="math-content">${rich(q.q)}</p><p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>${st!=='1'&&q.solution?`<div class="mt-dev"><b>Desarrollo:</b><ol class="mt-devlist">${String(q.solution).split(/\n+/).filter(x=>x.trim()).map(x=>`<li class="math-content">${rich(x)}</li>`).join('')}</ol></div>`:`<p class="math-content">${st!=='1'?'<b>Retroalimentación:</b> ':''}${rich(q.why||'')}</p>`}</div></details>`;}).join('');
+  return `<details class="mt-rev ${st==='1'?'ok':st==='0'?'bad':'no'}"><summary><span class="mt-mark">${st==='1'?'✓':st==='0'?'✗':'–'}</span> Pregunta ${i+1} · ${esc(x.st)}</summary><div class="mt-revbody"><p class="math-content">${rich(q.q)}</p>${(window.mjTuResp?mjTuResp(S,i,q,st):'')}<p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>${st!=='1'&&q.solution?`<div class="mt-dev"><b>Desarrollo:</b><ol class="mt-devlist">${String(q.solution).split(/\n+/).filter(x=>x.trim()).map(x=>`<li class="math-content">${rich(x)}</li>`).join('')}</ol></div>`:`<p class="math-content">${st!=='1'?'<b>Retroalimentación:</b> ':''}${rich(q.why||'')}</p>`}</div></details>`;}).join('');
  const reg=S.mode==='off'?`<p class="mt-regok">✓ Resultado registrado${MT()&&MT().b===pct?'. Es tu mejor resultado hasta ahora.':'. Tu mejor resultado registrado es '+MT().b+' %.'}</p><p class="mt-soft">No aprueba ni reprueba: ${completed()?'¡completaste el curso!':'completa también todas las estaciones para terminar el curso.'}</p>`:`<p class="mt-regno">Este fue un simulacro: el resultado <b>no se guarda</b>.</p>`;
  return `<div class="mt-hero"><span class="eyebrow">${S.mode==='off'?'META FINAL OFICIAL · RESULTADO':'SIMULACRO · RESULTADO'}</span>${metaNote?`<p class="mt-timeup">${esc(metaNote)}</p>`:''}<div class="mt-score"><strong>${pct}%</strong><span>${c} de ${N} correctas</span><span>Tiempo usado: ${mmss(used)}${S.mode==='prac'&&used>(S.secs||metaSecs())?' (pasaste el tiempo previsto)':''}</span></div>${reg}</div>
  <section class="lc lc-steps"><span class="lc-tag">POR ESTACIÓN</span><table class="mt-table"><tbody>${rows}</tbody></table><p class="mt-soft"><i class="d1"></i> correcta <i class="d0"></i> incorrecta <i class="d-"></i> sin responder</p></section>
@@ -1579,11 +1579,11 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
 /* Árbol de progreso en el curso (24-11-2026). Componente: arbol-progreso.js (Henry v1 + ilustración v2).
  * Le entrega el avance REAL del motor; no guarda nada propio salvo qué Cierres de bloque se terminaron.
  *  - Estación: completada = todos sus hitos (Aprende, Practica, Aplica); en progreso = alguno; pendiente = ninguno.
- *  - Flor de un bloque = sus estaciones completas Y su Cierre de bloque terminado (bloques de 1 estación no tienen Cierre).
+ *  - Flor de un bloque = todas sus estaciones completas (Aprende, Practica, Aplica). Desde el 26-11-2026 NO depende del Cierre de bloque, de Explora ni del simulacro.
  *  - Frutos = unidad finalizada: todas sus estaciones completas y su META FINAL entregada (si la unidad tiene META).
- *  - Dónde: en el mapa de cada unidad, junto al chucao, y en miniatura en «Todas las unidades».
+ *  - Dónde: en el mapa de cada unidad, junto al chucao (desde el 26-11-2026 ya no en «Todas las unidades»).
  *  - Avisos: al florecer una rama o al dar frutos, en la ventana de estación completada o en un aviso breve.
- * Persistencia: línea «B|u.g,u.g» en el avance guardado (Cierres terminados; unos pocos bytes). */
+ * Persistencia: línea «B|u.g,u.g» en el avance guardado (Cierres terminados; se conserva aunque ya no condiciona la flor). */
 (function(){
  if(!window.PaceArbol)return;
  if(!state.cb)state.cb={};
@@ -1602,7 +1602,7 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
   const U=UNITS[u];if(!U||!Array.isArray(U.groups)||U.groups.length!==4)return null;
   const k=/^u([123])$/.exec(String(U.id||''));if(!k)return null;   /* silueta y color según la unidad real (también en las páginas de una sola unidad) */
   const est=STATIONS.map((s,i)=>({s,i})).filter(x=>x.s.unit===u);
-  const bloques=U.groups.map((g,gi)=>({id:U.id+'-b'+(gi+1),nombre:g.title,florece:!tieneCierre(u,gi)||!!(state.cb&&state.cb[u+'.'+gi]),
+  const bloques=U.groups.map((g,gi)=>({id:U.id+'-b'+(gi+1),nombre:g.title,florece:true, /* 26-11-2026: la flor depende solo de completar las estaciones (Aprende, Practica y Aplica) del bloque; no de Explora ni del Cierre */
    estaciones:est.filter(x=>x.s.group===gi).map(x=>{const d=stationDone(x.i),m=milestoneCount(x.s);return {id:x.s.id,nombre:x.s.title,estado:d>=m?'completada':d>0?'en_progreso':'pendiente'};})}));
   if(bloques.some(b=>!b.estaciones.length))return null;
   const todas=bloques.every(b=>b.estaciones.every(e=>e.estado==='completada'));
@@ -1730,6 +1730,60 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
  setTimeout(resumen,1200);
  const _rm=renderMap;renderMap=function(){const r=_rm.apply(this,arguments);tarjetaMapa();return r;};
  const _rh=renderHome;renderHome=function(){const r=_rh.apply(this,arguments);tarjetasUnidades();return r;};
+})();
+
+/* «Tu respuesta» en la revisión de la META FINAL (sugerencia de Henry, 26-11-2026).
+ *  - Durante la evaluación el motor tiene las respuestas solo en memoria (metaVals). Aquí se copian, por unidad,
+ *    las del ÚLTIMO INTENTO OFICIAL a state.mv[u] = {n: intento, v: [respuesta por pregunta]}; así se ven al reabrir.
+ *  - SCORM 1.2 permite 4096 bytes de avance: se guardan en líneas «V<u>|<intento>|r1,r2,…» (alternativa «c<k>», escrita
+ *    «t<texto>», en blanco vacío; texto hasta 40 caracteres). Si alguna vez no cupieran, se descartan estas líneas
+ *    (primero las más largas) y NUNCA el avance.
+ *  - El simulacro no se guarda (solo se muestra mientras está abierto). */
+(function(){
+ const MAXT=40;
+ const MV=()=>{if(!state.mv||typeof state.mv!=='object')state.mv={};return state.mv;};
+ const enc=v=>v==null||v===''?'':(typeof v==='number'?'c'+v:'t'+encodeURIComponent(String(v).replace(/\s+/g,' ').trim().slice(0,MAXT)));
+ const dec=s=>!s?'':s[0]==='c'?parseInt(s.slice(1),10):s[0]==='t'?(()=>{try{return decodeURIComponent(s.slice(1));}catch(e){return '';}})():'';
+ /* copia las respuestas del intento oficial en curso (solo mientras se responde o al entregar) */
+ function capturar(){
+  try{if(typeof metaMode==='undefined'||metaMode!=='off'||metaPhase!=='run')return;const m=MT();if(!m)return;
+   const N=(m.a||[]).length,v=[];let alguna=false;
+   for(let i=0;i<N;i++){const x=metaVals['off'+m.n+':'+i];v.push(x==null?'':x);if(x!=null&&x!=='')alguna=true;}
+   const prev=MV()[mu];if(!alguna&&prev&&prev.n===m.n)return;
+   MV()[mu]={n:m.n,v};
+  }catch(e){}
+ }
+ const _mf=metaFinish;metaFinish=function(){capturar();return _mf.apply(this,arguments);};
+ const _sv=save;save=function(){capturar();return _sv.apply(this,arguments);};
+ /* guardado compacto con tope de bytes */
+ const bytes=t=>new TextEncoder().encode(t).length;
+ const _ser=serializeState;
+ serializeState=function(){
+  const base=_ser.apply(this,arguments),mv=state.mv||{};
+  let L=Object.keys(mv).filter(u=>mv[u]&&Array.isArray(mv[u].v)&&mv[u].v.some(x=>x!==''&&x!=null)).sort().map(u=>'\nV'+u+'|'+(mv[u].n|0).toString(36)+'|'+mv[u].v.map(enc).join(','));
+  const max=((typeof PACEContract!=='undefined'&&PACEContract.maxSuspendBytes)||4096)-64;
+  while(L.length&&bytes(base+L.join(''))>max){let k=0;L.forEach((l,i)=>{if(l.length>L[k].length)k=i;});L.splice(k,1);}
+  return base+L.join('');
+ };
+ const _rc=restoreCompact;
+ restoreCompact=function(raw){
+  const lines=String(raw).split('\n'),mv={};
+  for(let i=lines.length-1;i>0;i--){const m=/^V(\d)\|([0-9a-z]{1,3})\|(.*)$/.exec(lines[i]);if(m){mv[m[1]]={n:parseInt(m[2],36),v:m[3].split(',').map(dec)};lines.splice(i,1);}}
+  const r=_rc(lines.join('\n'));if(r&&r.val)r.val.mv=mv;return r;
+ };
+ /* lo que se muestra en «Revisa cada pregunta» */
+ window.mjTuResp=function(S,i,q,st){
+  try{
+   let v=metaVals[S.mode+S.n+':'+i];
+   if((v==null||v==='')&&S.mode==='off'){const g=(state.mv||{})[mu];if(g&&g.n===S.n)v=g.v[i];}
+   const cls=st==='1'?'ok':st==='0'?'bad':'no';
+   if(v==null||v===''||(typeof v==='number'&&!(q.options&&q.options[v]!=null)))return '<p class="mt-tu no"><b>Tu respuesta:</b> Sin responder</p>';
+   let h;
+   if(typeof v==='number')h='<span class="math-content">'+rich(q.options[v])+'</span>';
+   else{let t=null;try{t=PACETyped.previewTex(q.kind,String(v));}catch(e){}h=t?'<span class="math-content">'+rich('\\('+t+'\\)')+'</span>':'<code>'+esc(String(v))+'</code>';}
+   return '<p class="mt-tu '+cls+'"><b>Tu respuesta:</b> '+h+'</p>';
+  }catch(e){return '';}
+ };
 })();
 
 var CHU5_TOT={"u1": 14, "u2": 12, "u3": 11};
