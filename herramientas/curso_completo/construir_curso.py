@@ -116,7 +116,7 @@ PRESJS=open(HERE+'/presentacion.js',encoding='utf8').read()
 # ---------- Cierre de bloque con práctica mixta (19-11-2026) ----------
 CIJS=open(HERE+'/cierre.js',encoding='utf8').read()
 NAVJS=open(HERE+'/nav.js',encoding='utf8').read()
-DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()+'\n'+open(HERE+'/extras.js',encoding='utf8').read()+'\n'+open(HERE+'/mejoras.js',encoding='utf8').read()+'\n'+open(HERE+'/arbol/arbol-progreso.js',encoding='utf8').read()+'\n'+open(HERE+'/arbol/arbol.js',encoding='utf8').read()+'\n'+open(HERE+'/mapa-compacto.js',encoding='utf8').read()+'\n'+open(HERE+'/meta-unidad.js',encoding='utf8').read()+'\n'+'var CHU5_TOT='+json.dumps({f'u{n}':len(json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json',encoding='utf8'))['stations']) for n in '123'})+';\n'+open(HERE+'/chucao5/chucao5_img.js',encoding='utf8').read()+'\n'+open(HERE+'/chucao5/chucao5.js',encoding='utf8').read()
+DGJS=open(HERE+'/diag.js',encoding='utf8').read()+'\n'+open(HERE+'/recuerda.js',encoding='utf8').read()+'\n'+open(HERE+'/extras.js',encoding='utf8').read()+'\n'+open(HERE+'/mejoras.js',encoding='utf8').read()+'\n'+open(HERE+'/arbol/arbol-progreso.js',encoding='utf8').read()+'\n'+open(HERE+'/arbol/arbol.js',encoding='utf8').read()+'\n'+open(HERE+'/mapa-compacto.js',encoding='utf8').read()+'\n'+open(HERE+'/meta-unidad.js',encoding='utf8').read()+'\n'+open(HERE+'/meta-respuestas.js',encoding='utf8').read()+'\n'+'var CHU5_TOT='+json.dumps({f'u{n}':len(json.load(open(f'{REPO}/unidades/u{n}/unidad_0{n}.json',encoding='utf8'))['stations']) for n in '123'})+';\n'+open(HERE+'/chucao5/chucao5_img.js',encoding='utf8').read()+'\n'+open(HERE+'/chucao5/chucao5.js',encoding='utf8').read()
 a=sub1(a,"let segments=[{label:'Inicio',action:()=>openHome()}];","let segments=[{label:'Unidades',action:()=>openHome()}];")
 a=sub1(a,"for(let id of ['homeView','mapView','stationView','metaView'])","for(let id of ['homeView','mapView','stationView','metaView','cierreView','diagView'])")
 a=sub1(a,"if(view==='meta')segments.push({label:'META FINAL'});","if(view==='meta')segments.push({label:'META FINAL'});\n if(view==='cierre')segments.push({label:'Cierre del bloque'});\n if(view==='diag')segments.push({label:'Antes de empezar'});")
@@ -271,6 +271,8 @@ def datajs(us,scope):
     L=[('PACE_BUILD',{'scope':scope,'showWeek4':False}),('UNITS',metas),('STATIONS',sts),('LEGACY_STATION_IDS',[])]
     return '// PACE UACh V3.1 · curso completo\n'+'\n'.join(f'const {k}={json.dumps(v,ensure_ascii=False,separators=(",",":"))};' for k,v in L)+'\n'
 
+# «Tu respuesta» en la revisión de la META FINAL (meta-respuestas.js), 26-11-2026
+a=sub1(a,'<p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>','${(window.mjTuResp?mjTuResp(S,i,q,st):\'\')}<p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>')
 tour={n:open(f'{REPO}/tour/{n}','rb').read() for n in ('tour_curso.mp4','tour_curso.webm','tour_poster.jpg')}
 man=motor.read('imsmanifest.xml').decode().replace('PACE_MATEMATICA_MODULAR_V7','PACE_CURSO_COMPLETO_U1_U2_U3_V4').replace('PACE UACh · Plataforma de nivelación · editable modular','PACE UACh · Curso de preparación matemática (Unidades I, II y III)')
 man=sub1(man,'</resource></resources>',''.join(f'<file href="tour/{n}"/>' for n in tour)+'</resource></resources>')
@@ -303,6 +305,23 @@ if 'sitio' in sys.argv[2:]:
         dj=re.sub(r'const PACE_BUILD=\{[^}]*\};',lambda m:'const PACE_BUILD={"scope":"individual_u'+n+'","showWeek4":false,"portal":"../../../index.html#curso"};',dj)
         open(d+'/data.js','w',encoding='utf8').write(dj)
         print('sitio',d)
+    # Vista de prueba del curso completo (para el equipo): el mismo curso integrado del SCORM, sin SiveducMD.
+    # Guarda el avance solo en este navegador (clave propia, separada de las páginas de cada unidad).
+    d=f'{REPO}/curso-completo'
+    os.makedirs(d+'/mathjax',exist_ok=True)
+    banda=('<div id="vistaPrueba" role="note" style="position:relative;z-index:50;background:#2b2a6b;color:#fff;font:700 13px/1.35 Nunito,system-ui,sans-serif;'
+           'padding:7px 14px;text-align:center;border-bottom:3px solid #e7a933">VISTA DE PRUEBA DEL CURSO COMPLETO · para el equipo docente · '
+           'el avance se guarda solo en este navegador y no se envía a SiveducMD · <a href="../index.html" style="color:#ffd987">Volver al sitio</a></div>')
+    i3=i2.replace('tour/tour_','../tour/tour_')
+    i3=sub1(i3,'</head>','<meta name="robots" content="noindex"></head>')
+    i3=re.sub(r'(<body[^>]*>)',lambda m:m.group(1)+banda,i3,count=1)
+    i3=re.sub(r'\?v=sim2','?'+VER,i3)
+    open(d+'/index.html','w',encoding='utf8').write(i3)
+    open(d+'/app.js','w',encoding='utf8').write(a)
+    for f in ['styles.css','contract.js','content_text.js']: open(d+'/'+f,'wb').write(motor.read(f))
+    open(d+'/mathjax/tex-svg.js','wb').write(motor.read('mathjax/tex-svg.js'))
+    open(d+'/data.js','w',encoding='utf8').write(datajs(units,'curso_completo'))
+    print('sitio',d)
 
 # ---------- catálogo de estaciones para el editor («Recuerda»: elegir la estación de origen en otras unidades) ----------
 _cat=[{'id':st['id'],'u':uu['id'],'r':uu['roman'],'n':k+1,'t':st['title']} for uu in units for k,st in enumerate(uu['stations'])]

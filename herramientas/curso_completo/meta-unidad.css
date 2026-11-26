@@ -43,3 +43,9 @@
 .unit-card .unit-bottom:has(.mu-ustat){align-items:flex-end}
 .unit-status.mu-ustat{min-width:0;max-width:100%}
 @media(max-width:620px){.unit-status.mu-ustat{font-size:11px}.unit-status.mu-ustat span{padding:2px 7px}}
+/* «Tu respuesta» en la revisión de la META FINAL (26-11-2026) */
+.mt-tu{margin:6px 0;padding:6px 10px;border-radius:10px;border-left:4px solid #9aa0ac;background:#f4f4f7}
+.mt-tu.ok{border-left-color:var(--ok,#2e7d4f);background:#e9f5ee}
+.mt-tu.bad{border-left-color:#c2410c;background:#fdeee6}
+.mt-tu.no{color:#5b6070;font-style:italic}
+.mt-tu code{font-size:.95em}

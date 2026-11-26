@@ -1,11 +1,11 @@
 /* Árbol de progreso en el curso (24-11-2026). Componente: arbol-progreso.js (Henry v1 + ilustración v2).
  * Le entrega el avance REAL del motor; no guarda nada propio salvo qué Cierres de bloque se terminaron.
  *  - Estación: completada = todos sus hitos (Aprende, Practica, Aplica); en progreso = alguno; pendiente = ninguno.
- *  - Flor de un bloque = sus estaciones completas Y su Cierre de bloque terminado (bloques de 1 estación no tienen Cierre).
+ *  - Flor de un bloque = todas sus estaciones completas (Aprende, Practica, Aplica). Desde el 26-11-2026 NO depende del Cierre de bloque, de Explora ni del simulacro.
  *  - Frutos = unidad finalizada: todas sus estaciones completas y su META FINAL entregada (si la unidad tiene META).
- *  - Dónde: en el mapa de cada unidad, junto al chucao, y en miniatura en «Todas las unidades».
+ *  - Dónde: en el mapa de cada unidad, junto al chucao (desde el 26-11-2026 ya no en «Todas las unidades»).
  *  - Avisos: al florecer una rama o al dar frutos, en la ventana de estación completada o en un aviso breve.
- * Persistencia: línea «B|u.g,u.g» en el avance guardado (Cierres terminados; unos pocos bytes). */
+ * Persistencia: línea «B|u.g,u.g» en el avance guardado (Cierres terminados; se conserva aunque ya no condiciona la flor). */
 (function(){
  if(!window.PaceArbol)return;
  if(!state.cb)state.cb={};
@@ -24,7 +24,7 @@
   const U=UNITS[u];if(!U||!Array.isArray(U.groups)||U.groups.length!==4)return null;
   const k=/^u([123])$/.exec(String(U.id||''));if(!k)return null;   /* silueta y color según la unidad real (también en las páginas de una sola unidad) */
   const est=STATIONS.map((s,i)=>({s,i})).filter(x=>x.s.unit===u);
-  const bloques=U.groups.map((g,gi)=>({id:U.id+'-b'+(gi+1),nombre:g.title,florece:!tieneCierre(u,gi)||!!(state.cb&&state.cb[u+'.'+gi]),
+  const bloques=U.groups.map((g,gi)=>({id:U.id+'-b'+(gi+1),nombre:g.title,florece:true, /* 26-11-2026: la flor depende solo de completar las estaciones (Aprende, Practica y Aplica) del bloque; no de Explora ni del Cierre */
    estaciones:est.filter(x=>x.s.group===gi).map(x=>{const d=stationDone(x.i),m=milestoneCount(x.s);return {id:x.s.id,nombre:x.s.title,estado:d>=m?'completada':d>0?'en_progreso':'pendiente'};})}));
   if(bloques.some(b=>!b.estaciones.length))return null;
   const todas=bloques.every(b=>b.estaciones.every(e=>e.estado==='completada'));

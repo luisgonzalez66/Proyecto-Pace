@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 (c) · Sugerencias de Henry: flores, vista del curso completo y «Tu respuesta»
+
+- **Flores del árbol:** la flor de un bloque aparece al completar todas sus estaciones (Aprende, Practica y Aplica). Ya no depende del Cierre de bloque (tampoco de Explora ni del simulacro). Los frutos siguen igual: todas las estaciones de la unidad y su META FINAL oficial.
+- **Vista de prueba del curso completo** en el sitio (`curso-completo/`), con enlace discreto al pie de la portada: «Vista de prueba del curso completo (equipo)». Es el mismo curso integrado del SCORM (tres unidades, mismo motor y mismos JSON), con una franja que la identifica como vista de prueba; guarda el avance solo en el navegador, aparte de las páginas de cada unidad («Reiniciar mi avance» de la portada también lo borra). Se regenera automáticamente en cada publicación (`construir_curso.py … sitio`).
+- **«Tu respuesta» en la revisión de la META FINAL:** cada pregunta muestra la respuesta del estudiante (alternativa o escrita) o «Sin responder», en verde o naranja. Se conserva la del ÚLTIMO INTENTO OFICIAL de cada unidad al cerrar y reabrir: líneas `V<u>|intento|…` en el avance (texto escrito hasta 40 caracteres). Con el curso completo y las tres META respondidas, el avance ocupa unos 2,6 de los 4096 bytes de SCORM 1.2; si alguna vez no cupiera, se descartan estas respuestas y nunca el avance. El simulacro no se guarda. Archivo: `herramientas/curso_completo/meta-respuestas.js`.
+
 ## 26-11-2026 (b) · Chucao: avance general del curso, explicación en el Inicio y zoom
 
 - **Avance general también en el sitio.** En las páginas sueltas de cada unidad, el chucao ahora evoluciona con el avance de TODO el curso (las tres unidades), como pide la propuesta de Henry, y la etapa activada se comparte entre las tres páginas (`pace_chucao` en el navegador). Cada unidad deja su avance en `pace_resumen_uN` (ahora con hitos y si está terminada); una unidad aún no abierta se estima por su número de estaciones. En el mapa se muestra «Avance del curso: x %». En el SCORM ya era así. «Reiniciar mi avance» también borra `pace_chucao`.
