@@ -1623,13 +1623,8 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
    else inst.map.actualizar(d,{animar:true});
   }catch(e){}
  }
- function arUnidades(){
-  try{document.querySelectorAll('#unitsGrid .unit-card[data-unit]').forEach(c=>{
-   const u=Number(c.dataset.unit),d=arDatos(u);const old=c.querySelector('.ar-mini');if(old)old.remove();if(!d)return;
-   const m=document.createElement('div');m.className='ar-mini';m.setAttribute('aria-hidden','true');
-   m.innerHTML=PaceArbol.crearSVG(d);const main=c.querySelector('.unit-main');(main||c).insertAdjacentElement('afterend',m);});
-  }catch(e){}
- }
+ /* 26-11-2026: sin árbol en las tarjetas de «Todas las unidades» (solo las etiquetas de estaciones y META FINAL, de meta-unidad.js). */
+ function arUnidades(){try{document.querySelectorAll('#unitsGrid .ar-mini').forEach(m=>m.remove());}catch(e){}}
  const _pm=paintMascot;paintMascot=function(){_pm.apply(this,arguments);arMapa();};
  const _rm=renderMap;renderMap=function(){const r=_rm.apply(this,arguments);arMapa();return r;};
  if(typeof renderHome==='function'){const _rh=renderHome;renderHome=function(){_rh.apply(this,arguments);arUnidades();};}
@@ -1716,7 +1711,7 @@ function mjIntFull(){if(mjIntWarned)return;mjIntWarned=true;try{
    const c=cuenta(u),hecha=metaDoneU(u),run=enCurso(u),b=mejor(u),st=card.querySelector('.unit-status');if(!st)return;
    const completa=hecha&&c.d===c.n;
    st.classList.add('mu-ustat');
-   st.innerHTML='<span class="'+(c.d===c.n?'ok':'')+'">'+(c.d===c.n?'✓ ':'')+c.d+' de '+c.n+' estaciones</span>'+
+   st.innerHTML='<span class="'+(c.d===c.n?'ok':'')+'">'+(c.d===c.n?'✓ ':'')+c.d+' de '+c.n+' estaciones completadas</span>'+
     '<span class="'+(hecha?'ok':run?'run':'pend')+'">'+(hecha?'✓ META FINAL realizada ('+b+' %)':run?'META FINAL en curso':'META FINAL pendiente')+'</span>';
    card.classList.toggle('mu-complete',completa);
    card.setAttribute('aria-label','Unidad '+UNITS[u].roman+', '+UNITS[u].title+'. '+c.d+' de '+c.n+' estaciones completadas. META FINAL '+(hecha?'realizada':run?'en curso':'pendiente')+'. Abrir mapa');
