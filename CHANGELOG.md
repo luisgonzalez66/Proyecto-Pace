@@ -1,5 +1,9 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 (d) · Vista de prueba: botones cortados
+
+- En la vista de prueba del curso completo, la franja «VISTA DE PRUEBA» empujaba hacia abajo las pantallas de estación (hechas a la medida de la ventana, sin desplazamiento) y los botones de abajo quedaban fuera. Ahora la franja se muestra solo en el inicio, «Todas las unidades» y el mapa; en estaciones, META y diagnóstico se oculta (sigue arriba el indicador «Vista local · sin SiveducMD»).
+
 ## 26-11-2026 (c) · Sugerencias de Henry: flores, vista del curso completo y «Tu respuesta»
 
 - **Flores del árbol:** la flor de un bloque aparece al completar todas sus estaciones (Aprende, Practica y Aplica). Ya no depende del Cierre de bloque (tampoco de Explora ni del simulacro). Los frutos siguen igual: todas las estaciones de la unidad y su META FINAL oficial.

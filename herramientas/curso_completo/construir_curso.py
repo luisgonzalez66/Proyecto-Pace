@@ -313,7 +313,9 @@ if 'sitio' in sys.argv[2:]:
            'padding:7px 14px;text-align:center;border-bottom:3px solid #e7a933">VISTA DE PRUEBA DEL CURSO COMPLETO · para el equipo docente · '
            'el avance se guarda solo en este navegador y no se envía a SiveducMD · <a href="../index.html" style="color:#ffd987">Volver al sitio</a></div>')
     i3=i2.replace('tour/tour_','../tour/tour_')
-    i3=sub1(i3,'</head>','<meta name="robots" content="noindex"></head>')
+    # la franja solo en vistas que se desplazan (inicio, «Todas las unidades», mapa); en estación/META/diagnóstico
+    # (pantallas a la medida, sin desplazamiento) se oculta para no empujar los botones fuera de la pantalla.
+    i3=sub1(i3,'</head>','<meta name="robots" content="noindex"><style>#vistaPrueba{display:none}body:has(#homeView:not(.hidden)) #vistaPrueba,body:has(#mapView:not(.hidden)) #vistaPrueba{display:block}</style></head>')
     i3=re.sub(r'(<body[^>]*>)',lambda m:m.group(1)+banda,i3,count=1)
     i3=re.sub(r'\?v=sim2','?'+VER,i3)
     open(d+'/index.html','w',encoding='utf8').write(i3)
