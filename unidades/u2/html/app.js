@@ -366,7 +366,7 @@ function renderExplore(s){const e=s.explore,host=$('stationContent');
  const body=(typeof e.html==='string'&&e.html.trim())?`<iframe class="ex-frame" id="exFrame" title="${esc(e.title||'Explora')}" sandbox="allow-scripts" loading="lazy" style="height:${Math.min(900,Math.max(240,Number(e.height)||520))}px"></iframe><div class="ls-ctl"><button type="button" class="ls-btn ghost" id="exReset">↺ Reiniciar recurso</button><button type="button" class="ls-btn ghost" id="exBig" aria-pressed="false">⤢ Vista ampliada</button></div>`
   :`<p><a class="primary-btn ex-link" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">Abrir el recurso en otra pestaña ↗</a></p><p class="ex-note">Necesita conexión a internet.</p>`;
  host.innerHTML=`<span class="eyebrow">✦ EXPLORA · OPCIONAL</span><h2>${esc(e.title||'Explora')}</h2>${e.desc?`<p class="math-content">${rb(e.desc)}</p>`:''}<div class="ex-note" role="note"><b>Esto no cuenta para tu avance.</b> Juega libremente: no hay notas ni respuestas correctas o incorrectas.</div>${e.instr?`${lcCard('lc-idea','QUÉ PUEDES HACER',`<p class="math-content">${rb(e.instr)}</p>`)}`:''}${body}${e.alt?`<details class="ex-alt"><summary>Descripción para quien no pueda usar el recurso</summary><p class="math-content">${rb(e.alt)}</p></details>`:''}`;
- const fr=$('exFrame');if(fr){window.onmessage=ev=>{const f=$('exFrame');if(f&&ev.source===f.contentWindow&&ev.data&&ev.data.pace==='explora-h'){const h=Number(ev.data.h);if(h>=200&&h<=1600)f.style.height=Math.ceil(h)+6+'px';}};fr.srcdoc=e.html;$('exReset').onclick=()=>{fr.srcdoc='';setTimeout(()=>{fr.srcdoc=e.html;},30);};
+ const fr=$('exFrame');if(fr){window.onmessage=ev=>{const f=$('exFrame');if(f&&ev.source===f.contentWindow&&ev.data&&ev.data.pace==='explora-h'){const h=Number(ev.data.h);if(h>=200&&h<=1600)f.style.height=Math.ceil(h)+6+'px';}};fr.srcdoc=e.html+"<script>document.addEventListener('keydown',function(e){var t=e.target;if(e.key!=='ArrowLeft'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable||/slider|spinbutton/.test((t.getAttribute&&t.getAttribute('role'))||'')))return;try{parent.postMessage({type:'explora-key',key:'ArrowLeft'},'*');}catch(_){}});<\/script>";$('exReset').onclick=()=>{fr.srcdoc='';setTimeout(()=>{fr.srcdoc=e.html+"<script>document.addEventListener('keydown',function(e){var t=e.target;if(e.key!=='ArrowLeft'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable||/slider|spinbutton/.test((t.getAttribute&&t.getAttribute('role'))||'')))return;try{parent.postMessage({type:'explora-key',key:'ArrowLeft'},'*');}catch(_){}});<\/script>";},30);};
  const big=on=>{fr.classList.toggle('ex-big',on);document.body.classList.toggle('ex-big-on',on);$('exBig').setAttribute('aria-pressed',String(on));$('exBig').textContent=on?'✕ Cerrar vista ampliada':'⤢ Vista ampliada';let x=document.getElementById('exClose');if(on&&!x){x=document.createElement('button');x.id='exClose';x.type='button';x.className='ex-close';x.textContent='✕ Cerrar vista ampliada';x.onclick=()=>big(false);document.body.appendChild(x);x.focus();}if(!on&&x)x.remove();};
  $('exBig').onclick=()=>big(!fr.classList.contains('ex-big'));
  document.addEventListener('keydown',function escx(ev){if(!document.getElementById('exFrame')){document.body.classList.remove('ex-big-on');const x=document.getElementById('exClose');if(x)x.remove();document.removeEventListener('keydown',escx);return;}if(ev.key==='Escape'&&fr.classList.contains('ex-big'))big(false);});}
@@ -823,12 +823,25 @@ function zsRenderExplore(){
  const area=document.createElement('div');area.className='zs-exarea';
  if(fr)area.appendChild(fr);else{const p=host.querySelector(':scope > p');if(p)area.appendChild(p);}
  const bar=document.createElement('div');bar.className='zs-exbar';
- const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
+ const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.title='También con la flecha ← del teclado';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
  bar.appendChild(toA);bar.appendChild(info);if(ctl)bar.appendChild(ctl);
  const keep=[...host.children].filter(e=>e.id==='exClose');
  host.innerHTML='';stage.append(top,area,bar);host.appendChild(stage);
  /* Los botones «Reiniciar» y «Vista ampliada» conservan sus manejadores porque se mueven los mismos nodos. */
+ /* Teclado (26-11-2026): la flecha ← vuelve a Aplica, como en el resto de las secciones.
+    No actúa mientras se escribe o se usa un control del recurso (campos, listas, deslizadores) ni dentro de la vista ampliada. */
+ if(window.__zsXKey)document.removeEventListener('keydown',window.__zsXKey,true);
+ window.__zsXKey=function(ev){
+  if(!document.querySelector('.zs-expl')||activeTab!=='explore'){document.removeEventListener('keydown',window.__zsXKey,true);window.__zsXKey=null;return;}
+  if(ev.key!=='ArrowLeft'||ev.altKey||ev.ctrlKey||ev.metaKey||ev.shiftKey||ev.defaultPrevented)return;
+  const t=ev.target;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable||(t.getAttribute&&/slider|spinbutton/.test(t.getAttribute('role')||''))))return;
+  if(document.body.classList.contains('ex-big-on')||document.querySelector('[aria-modal="true"]'))return;
+  ev.preventDefault();ev.stopImmediatePropagation();setTimeout(()=>toA.click(),0);   /* la misma pulsación no debe llegar a la sección siguiente */
+ };
+ document.addEventListener('keydown',window.__zsXKey,true);
 }
+/* El recurso de Explora va en un iframe aislado: si tiene el foco, avisa la flecha ← con postMessage (ver construir_curso.py). */
+window.addEventListener('message',ev=>{const d=ev.data;if(!d||d.type!=='explora-key'||d.key!=='ArrowLeft')return;if(typeof activeTab==='undefined'||activeTab!=='explore'||document.body.classList.contains('ex-big-on'))return;const b=document.querySelector('.zs-expl .zs-toapl');if(b)b.click();});
 
 /* ---------- envoltorio de renderStation ---------- */
 function zsAfter(){
