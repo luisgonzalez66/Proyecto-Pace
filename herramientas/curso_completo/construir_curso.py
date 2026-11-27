@@ -23,7 +23,7 @@ idx=sub1(idx,'<small>Nivelación matemática PACE · Valdivia, Región de Los R�
 idx=sub1(idx,'Curso de nivelación · aprende a tu ritmo.','Preparación matemática · aprende a tu ritmo.')
 # pie de página: sin «PACE» (25-11) y, en el Inicio, los créditos del equipo
 idx=sub1(idx,'alt="" class="foot-shield">PACE · Instituto de Ciencias','alt="" class="foot-shield">Instituto de Ciencias')
-idx=sub1(idx,'<span id="trackingDetails"','<span class="foot-credits">Desarrollado por: Henry Hughes, Luis González V., Bastián Viscarra</span><span id="trackingDetails"')
+idx=sub1(idx,'<span id="trackingDetails"','<span class="foot-credits">Desarrollado por: Luis González V., Henry Hughes, Bastián Viscarra</span><span id="trackingDetails"')
 # Chucao en todo el curso (chucao.js / chucao.css)
 CHUJS=open(HERE+'/chucao.js',encoding='utf8').read(); CHUCSS=open(HERE+'/chucao.css',encoding='utf8').read()
 _k="window.addEventListener('load',function(){setTimeout(function(){try{paintMascot();}catch(e){}},400);});"
@@ -271,6 +271,11 @@ def datajs(us,scope):
     L=[('PACE_BUILD',{'scope':scope,'showWeek4':False}),('UNITS',metas),('STATIONS',sts),('LEGACY_STATION_IDS',[])]
     return '// PACE UACh V3.1 · curso completo\n'+'\n'.join(f'const {k}={json.dumps(v,ensure_ascii=False,separators=(",",":"))};' for k,v in L)+'\n'
 
+# Explora (26-11-2026): dentro del iframe del recurso, la flecha ← (fuera de campos y deslizadores) se avisa al curso para volver a Aplica.
+EXKEY="<script>document.addEventListener('keydown',function(e){var t=e.target;if(e.key!=='ArrowLeft'||e.altKey||e.ctrlKey||e.metaKey||e.shiftKey||e.defaultPrevented)return;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable||/slider|spinbutton/.test((t.getAttribute&&t.getAttribute('role'))||'')))return;try{parent.postMessage({type:'explora-key',key:'ArrowLeft'},'*');}catch(_){}});</script>"
+EXLIT=json.dumps(EXKEY).replace('</','<\\/')   # literal JS con «<\/script>»: no cierra el <script> en la versión de un solo archivo
+a=a.replace("fr.srcdoc=e.html;","fr.srcdoc=e.html+"+EXLIT+";")
+a=a.replace("setTimeout(()=>{fr.srcdoc=e.html;},30)","setTimeout(()=>{fr.srcdoc=e.html+"+EXLIT+";},30)")
 # «Tu respuesta» en la revisión de la META FINAL (meta-respuestas.js), 26-11-2026
 a=sub1(a,'<p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>','${(window.mjTuResp?mjTuResp(S,i,q,st):\'\')}<p><b>Respuesta correcta:</b> <span class="math-content">${rich(corr)}</span></p>')
 tour={n:open(f'{REPO}/tour/{n}','rb').read() for n in ('tour_curso.mp4','tour_curso.webm','tour_poster.jpg')}

@@ -1,5 +1,10 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 (e) · Explora con teclado y orden de los créditos
+
+- **Explora:** la flecha ← del teclado vuelve a Aplica, como en las demás secciones. Funciona también si se hizo clic dentro del recurso (el recurso, aislado en su recuadro, avisa la tecla al curso). No actúa mientras se escribe en un campo o se usa un deslizador o lista del recurso, ni con la vista ampliada abierta. El botón «← Aplica» lo indica al pasar el mouse.
+- **Créditos** en orden alfabético de apellidos: «Desarrollado por: Luis González V., Henry Hughes, Bastián Viscarra» (pie del Inicio del curso y de la portada del sitio).
+
 ## 26-11-2026 (d) · Vista de prueba: botones cortados
 
 - En la vista de prueba del curso completo, la franja «VISTA DE PRUEBA» empujaba hacia abajo las pantallas de estación (hechas a la medida de la ventana, sin desplazamiento) y los botones de abajo quedaban fuera. Ahora la franja se muestra solo en el inicio, «Todas las unidades» y el mapa; en estaciones, META y diagnóstico se oculta (sigue arriba el indicador «Vista local · sin SiveducMD»).

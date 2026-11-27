@@ -213,12 +213,25 @@ function zsRenderExplore(){
  const area=document.createElement('div');area.className='zs-exarea';
  if(fr)area.appendChild(fr);else{const p=host.querySelector(':scope > p');if(p)area.appendChild(p);}
  const bar=document.createElement('div');bar.className='zs-exbar';
- const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
+ const toA=document.createElement('button');toA.type='button';toA.className='ls-btn ghost zs-toapl';toA.textContent='← Aplica';toA.title='También con la flecha ← del teclado';toA.onclick=()=>{zsQ[s0.id+'|check|'+(typeof roundC==='function'?roundC(s0):roundOf(s0))]=Math.max(0,checkCount(s0)-1);selectTab('check');};
  bar.appendChild(toA);bar.appendChild(info);if(ctl)bar.appendChild(ctl);
  const keep=[...host.children].filter(e=>e.id==='exClose');
  host.innerHTML='';stage.append(top,area,bar);host.appendChild(stage);
  /* Los botones «Reiniciar» y «Vista ampliada» conservan sus manejadores porque se mueven los mismos nodos. */
+ /* Teclado (26-11-2026): la flecha ← vuelve a Aplica, como en el resto de las secciones.
+    No actúa mientras se escribe o se usa un control del recurso (campos, listas, deslizadores) ni dentro de la vista ampliada. */
+ if(window.__zsXKey)document.removeEventListener('keydown',window.__zsXKey,true);
+ window.__zsXKey=function(ev){
+  if(!document.querySelector('.zs-expl')||activeTab!=='explore'){document.removeEventListener('keydown',window.__zsXKey,true);window.__zsXKey=null;return;}
+  if(ev.key!=='ArrowLeft'||ev.altKey||ev.ctrlKey||ev.metaKey||ev.shiftKey||ev.defaultPrevented)return;
+  const t=ev.target;if(t&&(/^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName)||t.isContentEditable||(t.getAttribute&&/slider|spinbutton/.test(t.getAttribute('role')||''))))return;
+  if(document.body.classList.contains('ex-big-on')||document.querySelector('[aria-modal="true"]'))return;
+  ev.preventDefault();ev.stopImmediatePropagation();setTimeout(()=>toA.click(),0);   /* la misma pulsación no debe llegar a la sección siguiente */
+ };
+ document.addEventListener('keydown',window.__zsXKey,true);
 }
+/* El recurso de Explora va en un iframe aislado: si tiene el foco, avisa la flecha ← con postMessage (ver construir_curso.py). */
+window.addEventListener('message',ev=>{const d=ev.data;if(!d||d.type!=='explora-key'||d.key!=='ArrowLeft')return;if(typeof activeTab==='undefined'||activeTab!=='explore'||document.body.classList.contains('ex-big-on'))return;const b=document.querySelector('.zs-expl .zs-toapl');if(b)b.click();});
 
 /* ---------- envoltorio de renderStation ---------- */
 function zsAfter(){
