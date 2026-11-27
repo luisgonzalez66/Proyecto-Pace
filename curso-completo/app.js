@@ -123,6 +123,33 @@ function restoreCompact(raw){
   n.p[row[1]]=[...row[2]].map(c=>BITS64.indexOf(c).toString(2).padStart(6,'0')).join('');if(row[3])n.rd[row[1]]=+row[3];if(row[4])n.dn[row[1]]=1;
  }n.mts=mtv;return {val:n,migrated:false};
 }
+/* Guardado tolerante (27-11-2026).
+ * Antes, si cmi.suspend_data traía un avance de una versión anterior que esta versión no sabía leer
+ * («Datos no reconocidos») o un intento con nota pero sin detalle («Faltan datos detallados»), el curso
+ * bloqueaba el guardado para no sobrescribirlo, y mostraba «La conexión SCORM no está disponible».
+ * Como el curso no se aprueba ni se reprueba, ahora recupera lo que pueda leer y sigue guardando.
+ * salvage(raw): conserva solo las líneas que esta versión entiende (estaciones que existen y líneas
+ * de extensión M/D/R/B/V/K válidas por sí solas); el resto se descarta. */
+let restoredNote='';
+function salvage(raw){try{
+ if(typeof raw!=='string'||!raw.startsWith('P8|'))return null;
+ const ids=new Set(STATIONS.map(s=>s.id)),lines=raw.split('\n'),head=lines.shift(),keep=[],seen=new Set();
+ const ok1=l=>{try{return !!restoreCompact('P8||0\n'+l);}catch(e){return false;}};
+ for(const l of lines){
+  if(!l)continue;
+  if(/^[A-Z]\d*\|/.test(l)){const t=l.split('|')[0];if(!seen.has(t)&&ok1(l)){seen.add(t);keep.push(l);}continue;}
+  const id=l.split(':')[0];if(ids.has(id)&&!seen.has(id)&&ok1(l)){seen.add(id);keep.push(l);}
+ }
+ let r=null;try{r=restoreCompact([head].concat(keep).join('\n'));}catch(e){}
+ if(!r){try{r=restoreCompact(['P8||0'].concat(keep).join('\n'));}catch(e){}}
+ if(!r)return null;r.salvaged=true;r.migrated=true;return r;
+}catch(e){return null;}}
+function noSaveMsg(){
+ if(mode==='error')return 'SiveducMD no aceptó la conexión SCORM. Cierra esta ventana y vuelve a entrar al curso.';
+ if(writeBlocked)return 'El avance guardado no se pudo leer, así que no se registra avance.';
+ return 'No hay conexión con SiveducMD. No se registra avance.';
+}
+
 function restore(raw){
  if(typeof raw==='string'&&raw.startsWith('P8|'))return restoreCompact(raw);
  try{
@@ -152,8 +179,8 @@ function init(){
   try{connected=String(api.LMSInitialize('')).toLowerCase()==='true';}catch(e){connected=false;}
   if(!connected){mode='error';sync('⚠ SCORM no pudo iniciar','error');tracking('Sin conexión válida: avance deshabilitado');return;}
   mode='scorm';let raw=get('cmi.suspend_data'),previousScore=get('cmi.core.score.raw');
-  if(raw){let result=restore(raw);if(!result){writeBlocked=true;sync('⚠ Datos no reconocidos','error');tracking('Datos previos conservados; no se sobrescriben');return;}state=result.val;restored=true;if(!state.mts)state.mts={};for(const k of Object.keys(state.mts)){const t=state.mts[k];if(!(t&&Number.isInteger(t.s)&&Array.isArray(t.a)))delete state.mts[k];}}
-  else if(previousScore!==''&&Number.isFinite(Number(previousScore))&&Number(previousScore)>0){writeBlocked=true;sync('⚠ Faltan datos detallados','error');tracking('Hay calificación previa sin detalle; escritura bloqueada');return;}
+  if(raw){let result=restore(raw)||salvage(raw);if(!result){result={val:emptyState(),migrated:true};restoredNote='avance de otra versión no legible: parte de cero';}else if(result.salvaged){restoredNote='avance de una versión anterior recuperado en lo posible';}state=result.val;restored=true;if(!state.mts)state.mts={};for(const k of Object.keys(state.mts)){const t=state.mts[k];if(!(t&&Number.isInteger(t.s)&&Array.isArray(t.a)))delete state.mts[k];}}
+  else if(previousScore!==''&&Number.isFinite(Number(previousScore))&&Number(previousScore)>0){restoredNote='intento previo sin detalle: el avance parte de cero';}
   ensureSeed();save();return;
  }
  mode='local';
@@ -179,7 +206,7 @@ function save(){try{paintMascot()}catch(e){}
   if(new TextEncoder().encode(encoded).length>PACEContract.maxSuspendBytes){sync('⚠ Límite de progreso SCORM','error');tracking('El progreso supera los 4096 bytes de cmi.suspend_data');return false;}
   const a=[set('cmi.suspend_data',encoded),set('cmi.core.score.min','0'),set('cmi.core.score.max','100'),set('cmi.core.score.raw',score),set('cmi.core.lesson_status',completed()?'completed':'incomplete'),set('cmi.core.exit','suspend')];
   let ok=commit();if(a.some(x=>!x)||!ok){sync('⚠ Guardado no confirmado','error');tracking('SCORM: error '+lastError());return false;}
-  sync('✓ Progreso guardado en SiveducMD','online');tracking('Moodle: '+get('cmi.core.score.raw')+'/100 · '+get('cmi.core.lesson_status')+(restored?' · sesión recuperada':''));return true;
+  sync('✓ Progreso guardado en SiveducMD','online');tracking('Moodle: '+get('cmi.core.score.raw')+'/100 · '+get('cmi.core.lesson_status')+(restored?' · sesión recuperada':'')+(restoredNote?' · '+restoredNote:''));return true;
  }
  if(mode==='preview')return true;
  try{localStorage.setItem(KEY,JSON.stringify(state));return true;}
@@ -404,7 +431,7 @@ function answer(b){const box=b.closest('.quiz');let step=Number(box.dataset.step
 }
 const canRedo=i=>hasDraw(STATIONS[i])&&rawDone(i)===milestoneCount(STATIONS[i]);
 function redo(){const s=STATIONS[stationIndex];if(!canRedo(stationIndex))return;
- if(!canChange()){$('stationFeedback').textContent='La conexión SCORM no está disponible. No se puede iniciar otra ronda.';return;}
+ if(!canChange()){$('stationFeedback').textContent=noSaveMsg();return;}
  const bits=stationBits(stationIndex);state.dn[s.id]=1;state.rd[s.id]=roundOf(s)+1;state.p[s.id]=bits[0]+'0'.repeat(milestoneCount(s)-1);
  activeTab='practice';state.tab='practice';const ok=save();renderStation();$('stationFeedback').textContent=ok?'↻ Nueva ronda del banco. Tu avance acumulado se mantiene.':'⚠ No se confirmó el guardado del progreso.';window.scrollTo({top:0,behavior:'instant'});}
 const dayNum=()=>Math.floor((Date.now()-new Date().getTimezoneOffset()*60000)/864e5);
@@ -435,7 +462,7 @@ function reportInt(kind,s,q,resp,ok){try{
 }catch(e){}}
 function mark(step){
  if(stepDone(stationIndex,step))return;
- if(!canChange()){$('stationFeedback').textContent='La conexión SCORM no está disponible. No se registra avance.';return;}
+ if(!canChange()){$('stationFeedback').textContent=noSaveMsg();return;}
  updateStep(stationIndex,step);const up=bumpStreak();let ok=save();renderStation();renderStreak();$('stationFeedback').textContent=ok?'✓ Avance actualizado.'+(up?' 🔥 Racha: '+streakNow().n+(streakNow().n===1?' día.':' días seguidos.'):''):'⚠ No se confirmó el guardado del progreso.';
 }
 /* ===== META FINAL · evaluación cronometrada (prototipo) =====
@@ -496,7 +523,7 @@ let metaNote='';const metaWarned={};
 function metaExpiryCheck(){if(metaRunning()&&metaRemaining({s:MT().s})<=0)metaFinish(true);}
 function openMeta(){mu=selectedUnit;metaMode='off';metaPrac=null;metaExpiryCheck();metaPhase='hub';metaConfirm=false;showOnly('meta');renderMeta();breadcrumbs();}
 function metaStartOff(){
- if(!canChange()){$('mtMsg').textContent='La conexión SCORM no está disponible. No se puede iniciar.';return;}
+ if(!canChange()){$('mtMsg').textContent=noSaveMsg();return;}
  const prev=MT(),n=prev?(prev.e?prev.n+1:prev.n):0,b=prev?prev.b:-1,N=metaQs('O'+n).length;
  setMT({n,s:nowSec(),e:0,a:Array(N).fill('-'),b});
  if(!save()){setMT(prev);$('mtMsg').textContent='⚠ No se pudo guardar el inicio. Revisa la conexión e inténtalo de nuevo.';return;}
@@ -1285,7 +1312,7 @@ function mjBackSync(){
 /* ---------- H7: otra ronda por sección ---------- */
 function mjRedo(tab){
  const i=stationIndex,s=STATIONS[i];if(!s)return;
- if(!canChange()){$('stationFeedback').textContent='La conexión SCORM no está disponible. No se puede iniciar otra ronda.';return;}
+ if(!canChange()){$('stationFeedback').textContent=noSaveMsg();return;}
  const dp=drawCount(s),b=stationBits(i).split(''),x=mjRx(s);
  if(tab==='practice'){for(let k=1;k<=dp;k++)b[k]='0';mjRxSet(s,{P:1,p:(x.p|0)+1});}
  else{for(let k=dp+1;k<b.length;k++)b[k]='0';mjRxSet(s,{C:1,c:(x.c|0)+1});}
