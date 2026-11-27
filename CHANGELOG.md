@@ -1,5 +1,12 @@
 # Versiones del curso (SCORM único)
 
+## 27-11-2026 · Guardado: un avance de otra versión ya no bloquea SiveducMD
+
+- **Problema:** si el intento de SiveducMD traía un avance guardado por una versión anterior del curso que la actual no sabía leer («⚠ Datos no reconocidos»), o un intento con nota pero sin detalle («⚠ Faltan datos detallados»), el curso bloqueaba el guardado para no sobrescribirlo y mostraba «La conexión SCORM no está disponible. No se registra avance.», aunque la conexión funcionaba.
+- **Ahora:** el curso recupera lo que puede leer (estaciones que siguen existiendo, META FINAL y demás líneas válidas), descarta el resto y sigue guardando. Si no se puede recuperar nada, el avance parte de cero. El pie («trackingDetails») lo indica.
+- **Mensajes:** en lugar del aviso genérico, se indica la causa real (SiveducMD rechazó la conexión, el avance no se pudo leer, o no hay conexión).
+- Archivo: `herramientas/curso_completo/guardado.js` (se aplica en `construir_curso.py`).
+
 ## 26-11-2026 (f) · App de informe estadístico y tiempo en Aprende
 
 - **App de informe estadístico** (uso interno): https://luisgonzalez66.github.io/Proyecto-Pace/informe/ y `INFORME_ESTADISTICO_PACE.html` en «Última versión» (no se enlaza desde la portada; el enlace está en el README). Se carga el informe «Interacciones» de SiveducMD (Excel, ODS o CSV; uno o varios archivos), se eligen secciones y filtros y se genera el informe en pantalla, en Excel o en PDF. Secciones: resumen; temas (bloques y estaciones) con más errores en el primer intento, en Practica/Aplica y en el 1.er intento de la META; preguntas con más errores y su error más frecuente; sección y formato; diagnóstico; diagnóstico vs META; entrada vs salida; META primer vs último intento (por unidad, estación y estudiante); alternativas incorrectas; por estudiante; tiempo en Aprende. Filtros: unidades, fechas, correos excluidos, mínimo de respuestas, intento de META para comparar. Los datos se procesan solo en el navegador. Fuente: `herramientas/informe_app/` (se regenera con el catálogo en cada publicación; usa SheetJS 0.18.5, Apache 2.0).
