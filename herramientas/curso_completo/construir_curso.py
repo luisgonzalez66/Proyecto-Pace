@@ -163,6 +163,18 @@ a=sub1(a,'function renderStation(){','function renderStation0(){')
 a=sub1(a,'function showOnly(next){','function showOnly0(next){')
 a=sub1(a,'init();(()=>{const keep=mu;',ZSJS+"\nfunction renderStation(){renderStation0();zsAfter();}\nfunction showOnly(next){showOnly0(next);document.body.classList.toggle('zs',next==='station');document.documentElement.classList.toggle('zs',next==='station');if(next==='station')zsRefit();}\nzsToast();\n"+PRESJS+"\n"+CIJS+"\n"+NAVJS+"\n"+DGJS+"\ninit();(()=>{const keep=mu;")
 
+# ---------- Guardado tolerante (27-11-2026): un avance de otra versión ya no bloquea el guardado (ver guardado.js) ----------
+GUARDJS=open(HERE+'/guardado.js',encoding='utf8').read()
+a=sub1(a,'function restore(raw){',GUARDJS+'\nfunction restore(raw){')
+a=sub1(a,"if(raw){let result=restore(raw);if(!result){writeBlocked=true;sync('⚠ Datos no reconocidos','error');tracking('Datos previos conservados; no se sobrescriben');return;}",
+ "if(raw){let result=restore(raw)||salvage(raw);if(!result){result={val:emptyState(),migrated:true};restoredNote='avance de otra versión no legible: parte de cero';}else if(result.salvaged){restoredNote='avance de una versión anterior recuperado en lo posible';}")
+a=sub1(a,"else if(previousScore!==''&&Number.isFinite(Number(previousScore))&&Number(previousScore)>0){writeBlocked=true;sync('⚠ Faltan datos detallados','error');tracking('Hay calificación previa sin detalle; escritura bloqueada');return;}",
+ "else if(previousScore!==''&&Number.isFinite(Number(previousScore))&&Number(previousScore)>0){restoredNote='intento previo sin detalle: el avance parte de cero';}")
+a=sub1(a,"(restored?' · sesión recuperada':''));","(restored?' · sesión recuperada':'')+(restoredNote?' · '+restoredNote:''));")
+a=sub1(a,"'La conexión SCORM no está disponible. No se puede iniciar otra ronda.'","noSaveMsg()",2)
+a=sub1(a,"'La conexión SCORM no está disponible. No se registra avance.'","noSaveMsg()")
+a=sub1(a,"'La conexión SCORM no está disponible. No se puede iniciar.'","noSaveMsg()")
+
 # ---------- index.html: portada en dos pantallas (Inicio y Curso) ----------
 # Inicio = encabezado con pizarra + Bienvenida + Cómo se estudia + Tour (todo tomado de index.html del repositorio).
 # Curso  = la bienvenida del motor (retoma tu ruta y avance) + las tarjetas de unidades.
