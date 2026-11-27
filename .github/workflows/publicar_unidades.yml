@@ -7,7 +7,8 @@ name: Regenerar y publicar las unidades
 #   3. regenera el catálogo de preguntas (herramientas/CATALOGO_PREGUNTAS_PACE.xlsx);
 #   4. sube los archivos regenerados a main, y GitHub Pages los publica;
 #   5. actualiza la página de descargas «Última versión» (Releases, etiqueta ultima-version), con enlaces fijos a:
-#      SCORM_CURSO_COMPLETO.zip, PACE_CURSO_COMPLETO.html, PAQUETE_UNIDAD_0N.zip, EDITOR_PACE.zip y CATALOGO_PREGUNTAS_PACE.xlsx.
+#      SCORM_CURSO_COMPLETO.zip, PACE_CURSO_COMPLETO.html, PAQUETE_UNIDAD_0N.zip, EDITOR_PACE.zip, CATALOGO_PREGUNTAS_PACE.xlsx
+#      e INFORME_ESTADISTICO_PACE.html (app de informe, también publicada en informe/).
 #   (Si cambió el motor del curso, también regenera editor/motor_bundle.js.)
 # Así cada docente solo sube su JSON (y sus recursos); nadie necesita ejecutar construir_curso.py.
 # Si alguien sube a mano archivos de unidades/uN/html/, también se regeneran y quedan bien.
@@ -20,6 +21,7 @@ on:
       - 'unidades/*/recursos/**'
       - 'unidades/*/html/**'
       - 'herramientas/curso_completo/**'
+      - 'herramientas/informe_app/**'
       - 'editor/motor_bundle.js'
       - '.github/workflows/publicar_unidades.yml'
   workflow_dispatch:
@@ -81,6 +83,14 @@ jobs:
           fi
           echo "$out"
 
+      - name: Regenerar la app de informe estadístico
+        run: |
+          if ! out=$(python3 herramientas/informe_app/generar_app.py 2>&1); then
+            echo "::error title=Falló la app de informe::$(echo "$out" | tail -4 | tr '\n' ' ')"
+            exit 1
+          fi
+          echo "$out"
+
       - name: Guardar el SCORM del curso completo
         uses: actions/upload-artifact@v4
         with:
@@ -92,7 +102,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898899+github-actions[bot]@users.noreply.github.com"
-          git add index.html unidades/*/html curso-completo editor/catalogo_estaciones.js editor/motor_bundle.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
+          git add index.html unidades/*/html curso-completo informe editor/catalogo_estaciones.js editor/motor_bundle.js herramientas/CATALOGO_PREGUNTAS_PACE.xlsx
           echo "::notice title=Archivos modificados::$(git status --short | head -20 | tr '\n' ' ')"
           if git diff --cached --quiet; then
             echo "No hay cambios que publicar."
@@ -117,6 +127,7 @@ jobs:
             (cd "$u" && zip -q -r "$D/PAQUETE_UNIDAD_0$n.zip" "$(basename "$j")" $( [ -d recursos ] && echo recursos ))
           done
           cp herramientas/CATALOGO_PREGUNTAS_PACE.xlsx "$D/"
+          cp informe/index.html "$D/INFORME_ESTADISTICO_PACE.html"
           zip -q -r "$D/EDITOR_PACE.zip" editor -x 'editor/.DS_Store' 
           ls -la "$D"
 
@@ -137,6 +148,7 @@ jobs:
           | [PAQUETE_UNIDAD_01.zip]($R/PAQUETE_UNIDAD_01.zip) · [02]($R/PAQUETE_UNIDAD_02.zip) · [03]($R/PAQUETE_UNIDAD_03.zip) | Abrir cada unidad en el editor |
           | [EDITOR_PACE.zip]($R/EDITOR_PACE.zip) | El editor completo: descomprimir y abrir \`editor/EDITOR_PACE.html\` en Chrome o Edge |
           | [CATALOGO_PREGUNTAS_PACE.xlsx]($R/CATALOGO_PREGUNTAS_PACE.xlsx) | Catálogo de preguntas (incluye respuestas: uso interno) |
+          | [INFORME_ESTADISTICO_PACE.html]($R/INFORME_ESTADISTICO_PACE.html) | App de informe estadístico (uso interno): abrir en el navegador y cargar el informe «Interacciones» de SiveducMD. También en línea: https://luisgonzalez66.github.io/Proyecto-Pace/informe/ |
 
           Los enlaces no cambian: siempre descargan la última versión.
           NOTAS

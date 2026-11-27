@@ -28,6 +28,7 @@ def leer_informe(ruta, excluir):
             g = grupos[n]
             qid = f[g['Pregunta']]
             if not qid: continue
+            if str(qid).endswith('.TA'): continue   # tiempo en Aprende (26-11-2026): no es una pregunta; lo analiza la app de informe
             qid = str(qid); mm = re.fullmatch(r'(.+)\.M(\d+)\.(\w+)', qid)  # META con número de intento oficial: «est.M2.hash»
             meta_n = int(mm.group(2)) if mm else None
             if mm: qid = f'{mm.group(1)}.M.{mm.group(3)}'

@@ -61,6 +61,18 @@ También se puede ejecutar a mano: pestaña *Actions* → «Regenerar y publicar
 ## Qué tiene de especial este editor
 Sorteo de ejercicios por estudiante, repetición con ejercicios nuevos, respuesta escrita con teclado, mapa por bloques, botón «Mapa» y racha de días. Detalle y advertencias en `editor/CAMBIOS_RESPECTO_AL_KIT_OFICIAL.md`.
 
+## Informe estadístico (uso interno del equipo)
+App para analizar los resultados de los estudiantes: **https://luisgonzalez66.github.io/Proyecto-Pace/informe/**
+(también se descarga como `INFORME_ESTADISTICO_PACE.html` desde la página «Última versión»).
+
+1. En SiveducMD, abre la actividad SCORM → **Informes** → **Interacciones** y descárgalo en Excel.
+2. Abre la app, arrastra el archivo, elige secciones y filtros, y pulsa «Generar informe».
+3. Descarga el resultado en Excel o guárdalo como PDF («Imprimir o guardar PDF»).
+
+Los datos se procesan solo en el navegador: no se envían a ningún servidor. La app se regenera sola con el catálogo de preguntas en cada publicación (`herramientas/informe_app/`). Incluye: temas y preguntas con más errores en el primer intento, diagnóstico vs META FINAL, entrada vs salida, META primer vs último intento, alternativas incorrectas, resumen por estudiante y tiempo en Aprende (registrado desde la versión del 26-11-2026).
+
+Vista de prueba del curso completo (para el equipo): https://luisgonzalez66.github.io/Proyecto-Pace/curso-completo/
+
 ## Links para ver cada unidad
 Con GitHub Pages activado, la página de cada unidad queda publicada en:
 

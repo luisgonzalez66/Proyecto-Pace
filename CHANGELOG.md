@@ -1,5 +1,11 @@
 # Versiones del curso (SCORM único)
 
+## 26-11-2026 (f) · App de informe estadístico y tiempo en Aprende
+
+- **App de informe estadístico** (uso interno): https://luisgonzalez66.github.io/Proyecto-Pace/informe/ y `INFORME_ESTADISTICO_PACE.html` en «Última versión» (no se enlaza desde la portada; el enlace está en el README). Se carga el informe «Interacciones» de SiveducMD (Excel, ODS o CSV; uno o varios archivos), se eligen secciones y filtros y se genera el informe en pantalla, en Excel o en PDF. Secciones: resumen; temas (bloques y estaciones) con más errores en el primer intento, en Practica/Aplica y en el 1.er intento de la META; preguntas con más errores y su error más frecuente; sección y formato; diagnóstico; diagnóstico vs META; entrada vs salida; META primer vs último intento (por unidad, estación y estudiante); alternativas incorrectas; por estudiante; tiempo en Aprende. Filtros: unidades, fechas, correos excluidos, mínimo de respuestas, intento de META para comparar. Los datos se procesan solo en el navegador. Fuente: `herramientas/informe_app/` (se regenera con el catálogo en cada publicación; usa SheetJS 0.18.5, Apache 2.0).
+- **Tiempo en Aprende:** el curso envía a SiveducMD una interacción `<estación>.TA` por visita a Aprende, con los segundos de tiempo activo (se pausa con la pestaña oculta o tras 2 minutos sin actividad). Solo en SCORM. Archivo: `herramientas/curso_completo/tiempo-aprende.js`. `analizar_errores.py` las ignora (las analiza la app).
+- `simular_siveduc.py` simula también tiempos en Aprende, varios intentos de META y fechas de inicio distintas.
+
 ## 26-11-2026 (e) · Explora con teclado y orden de los créditos
 
 - **Explora:** la flecha ← del teclado vuelve a Aplica, como en las demás secciones. Funciona también si se hizo clic dentro del recurso (el recurso, aislado en su recuadro, avisa la tecla al curso). No actúa mientras se escribe en un campo o se usa un deslizador o lista del recurso, ni con la vista ampliada abierta. El botón «← Aplica» lo indica al pasar el mouse.

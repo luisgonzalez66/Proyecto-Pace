@@ -59,6 +59,10 @@ for i in range(N):
         k = len(est) if rnd.random() < sig(0.3 + 0.9 * th) else rnd.randint(0, len(est) - 1)
         for e in est[:k]:
             s = e['s']
+            # Tiempo activo en Aprende (26-11-2026): 1 o 2 visitas; los de menor habilidad tardan algo más; algunos lo recorren rápido
+            for _ in range(1 if rnd.random() < 0.75 else 2):
+                seg = int(max(15, rnd.lognormvariate(math.log(420 * (1.25 - 0.15 * th) * (0.35 if rnd.random() < 0.12 else 1)), 0.45)))
+                inter.append((f"{s['id']}.TA", str(seg), 'neutral'))
             # Antes de empezar
             p = sig(th - e['dif'])
             if rnd.random() < p: r = (chr(97 + e['diag']['correct']) if 'options' in e['diag'] else str(e['diag']['answer'])); code = '1'; res = 'correct'
@@ -79,26 +83,36 @@ for i in range(N):
                     r, ok = responder(q, sig(th + 0.4 + 0.6 * intento - e['dif']), typical)
                     inter.append((qid(e, 'A', q), r, 'correct' if ok else 'wrong'))
                     if ok: break
-        # META FINAL oficial (solo si terminó la unidad)
+        # META FINAL oficial (solo si terminó la unidad). Desde el 26-11-2026: quien saca menos de 70 % puede repetirla
+        # (hasta 3 intentos); cada intento repetido suma algo de aprendizaje.
         if k == len(est):
-            for si, e in enumerate(est):
-                s = e['s']
-                L2 = e['diag'] if dg.get(s['id']) in ('0', '?') else rnd.choice([q for q in s['practice'] if q.get('level') == 2])
-                # 2.ª pregunta: alterna entre estaciones nivel 3 / problema tipo Aplica (META de 60 min, 24-11-2026)
-                X = (rnd.choice([q for q in s['practice'] if q.get('level') == 3]), -0.6) if si % 2 == 0 else (rnd.choice(e['checks']), -0.2)
-                for q, extra in ((L2, 0), X):
-                    r, ok = responder(q, sig(th + e['gan'] + extra - e['dif']), typical)
-                    inter.append((f"{s['id']}.M1.{b36(hash_str(q['q']))}", r, 'correct' if ok else 'wrong'))
+            for intento in (1, 2, 3):
+                ok_n = tot_n = 0
+                for si, e in enumerate(est):
+                    s = e['s']
+                    L2 = e['diag'] if dg.get(s['id']) in ('0', '?') else rnd.choice([q for q in s['practice'] if q.get('level') == 2])
+                    # 2.ª pregunta: alterna entre estaciones nivel 3 / problema tipo Aplica (META de 60 min, 24-11-2026)
+                    X = (rnd.choice([q for q in s['practice'] if q.get('level') == 3]), -0.6) if si % 2 == 0 else (rnd.choice(e['checks']), -0.2)
+                    for q, extra in ((L2, 0), X):
+                        r, ok = responder(q, sig(th + e['gan'] + extra - e['dif'] + 0.45 * (intento - 1)), typical)
+                        inter.append((f"{s['id']}.M{intento}.{b36(hash_str(q['q']))}", r, 'correct' if ok else 'wrong'))
+                        ok_n += ok; tot_n += 1
+                if ok_n / tot_n >= 0.7 or rnd.random() < 0.45: break
     avance = round(100 * sum(1 for x in inter if '.D.' in x[0]) / len(EST))
-    filas.append((nombre, f'estudiante{i + 1:03d}@ejemplo.cl', avance, inter))
+    dias = rnd.randint(0, 20)
+    filas.append((nombre, f'estudiante{i + 1:03d}@ejemplo.cl', avance, inter, dias))
 
 wb = openpyxl.Workbook(); ws = wb.active; ws.title = 'Interacciones'
 M = max(len(f[3]) for f in filas)
 enc = ['Nombre', 'Dirección de correo', 'Intento', 'Comenzado en', 'Último acceso en', 'Puntuación', 'Mi ruta de aprendizaje · PACE']
 for j in range(M): enc += [f'Pregunta {j}', f'Respuesta {j}', f'Respuesta correcta {j}', f'Resultado {j}']
 ws.append(enc)
-for nombre, correo, avance, inter in filas:
-    row = [nombre, correo, 1, '24 de noviembre de 2026, 09:00', '5 de diciembre de 2026, 18:00', float(avance), float(avance)]
+MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
+import datetime as _dt
+fecha = lambda d: f'{d.day} de {MESES[d.month - 1]} de {d.year}, {d:%H:%M}'
+for nombre, correo, avance, inter, dias in filas:
+    ini = _dt.datetime(2026, 12, 1, 9, 0) + _dt.timedelta(days=dias, hours=rnd.randint(0, 10))
+    row = [nombre, correo, 1, fecha(ini), fecha(ini + _dt.timedelta(days=rnd.randint(1, 25))), float(avance), float(avance)]
     for idq, r, res in inter: row += [idq, r, None, res]
     ws.append(row)
 wb.save(SALIDA)

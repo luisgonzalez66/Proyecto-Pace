@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Informe estadístico · Preparación matemática UACh</title>
+<style>/*ESTILOS*/</style>
+</head>
+<body>
+<header class="top">
+ <div class="wrap">
+  <p class="eb">PREPARACIÓN MATEMÁTICA · INSTITUTO DE CIENCIAS FÍSICAS Y MATEMÁTICAS · UACh</p>
+  <h1>Informe estadístico del curso</h1>
+  <p class="lead">Carga el informe de <b>Interacciones</b> que exporta SiveducMD, elige qué quieres ver y genera el informe. Puedes descargarlo en Excel o guardarlo como PDF.</p>
+  <p class="priv"><span aria-hidden="true">🔒</span> Los datos se procesan solo en este computador: la página no envía nada a internet.</p>
+ </div>
+</header>
+
+<main class="wrap">
+ <section class="panel" id="paso1" aria-labelledby="t1">
+  <h2 id="t1"><span class="n">1</span> Carga el informe de SiveducMD</h2>
+  <label class="drop" id="drop" for="archivo">
+   <input type="file" id="archivo" accept=".xlsx,.xls,.ods,.csv" multiple>
+   <b>Arrastra aquí el archivo</b> o haz clic para elegirlo
+   <small>Excel (.xlsx), ODS o CSV del informe «Interacciones» del paquete SCORM. Puedes cargar varios archivos (por ejemplo, de distintas secciones del curso).</small>
+  </label>
+  <details class="ayuda"><summary>¿Cómo descargo el informe en SiveducMD?</summary>
+   <ol><li>Entra a la actividad SCORM del curso y abre <b>Informes</b>.</li><li>Elige el informe <b>Interacciones</b> e incluye las columnas de pregunta, respuesta, respuesta correcta y resultado.</li><li>Descárgalo en formato Excel (o ODS/CSV) y cárgalo aquí.</li></ol></details>
+  <div id="carga" class="carga" aria-live="polite"></div>
+ </section>
+
+ <section class="panel" id="paso2" aria-labelledby="t2" hidden>
+  <h2 id="t2"><span class="n">2</span> Elige qué incluir</h2>
+  <div class="cols">
+   <fieldset><legend>Secciones del informe</legend><div id="secciones"></div>
+    <p class="mini"><button type="button" class="link" data-todas="1">Marcar todas</button> · <button type="button" class="link" data-todas="0">Ninguna</button></p></fieldset>
+   <fieldset><legend>Filtros</legend>
+    <div class="campo"><span class="lbl">Unidades</span><div id="fUnidades" class="chips"></div></div>
+    <div class="campo"><span class="lbl">Estudiantes que comenzaron entre</span>
+     <div class="fechas"><input type="date" id="fDesde" aria-label="Desde"><span>y</span><input type="date" id="fHasta" aria-label="Hasta"></div></div>
+    <div class="campo"><label class="lbl" for="fExcluir">Excluir correos (cuentas de prueba del equipo, uno por línea o separados por coma)</label>
+     <textarea id="fExcluir" rows="3" placeholder="docente@uach.cl"></textarea></div>
+    <div class="campo"><label class="lbl" for="fMin">Mínimo de respuestas para ordenar preguntas y temas</label>
+     <input type="number" id="fMin" min="1" max="200" value="5"></div>
+    <div class="campo"><span class="lbl">Para comparar con el diagnóstico, usar de la META FINAL</span>
+     <label class="op"><input type="radio" name="fMeta" value="primero" checked> el primer intento oficial</label>
+     <label class="op"><input type="radio" name="fMeta" value="ultimo"> el último intento oficial</label></div>
+   </fieldset>
+  </div>
+  <div class="acciones">
+   <button type="button" class="btn prim" id="generar">Generar informe</button>
+   <button type="button" class="btn" id="excel" disabled>Descargar Excel</button>
+   <button type="button" class="btn" id="pdf" disabled>Imprimir o guardar PDF</button>
+  </div>
+ </section>
+
+ <section id="informe" aria-live="polite"></section>
+</main>
+<footer class="wrap pie">Versión del catálogo: <span id="verCat"></span> · Informe estadístico del curso de preparación matemática (UACh).</footer>
+<script>/*SHEETJS*/</script>
+<script>/*DATOS*/</script>
+<script>/*APP*/</script>
+</body>
+</html>
